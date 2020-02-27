@@ -65,8 +65,10 @@ for the SPARK analysis in another object called `spark`.
 
 Contains the Ada name of the subunit being analyzed.
 
-* Example ```json
-"name": "Saatana.Crypto"```
+* Example:
+```json
+"name": "Saatana.Crypto"
+```
 
 #### The `spark[].sloc[]` array
 
@@ -74,13 +76,15 @@ Contains the Ada name of the subunit being analyzed.
 element contains a `file` and a `line` object, containing the source
 file name (without any path) and the line within that file.
 
-* Example: ```json
+* Example:
+```json
 "sloc": [
   {
     "file": "saatana-crypto-lemmas.ads",
     "line": 10
     }
- ]```
+ ]
+ ```
 
 As far as I have figured out, this simply points to the line where the
 analyzed Ada unit is declared, e.g. the line of an Ada `package`
@@ -138,29 +142,37 @@ The following objects have been seen in the wild:
 Contains the name of the file (again, without path), where the checked
 rule applies to.
 
-* Example: ´´´json
-"file": "saatana-crypto.adb"```
+* Example:
+```json
+"file": "saatana-crypto.adb"
+```
 
 #### The `flow[].line` object
 
 Contains the line number, where the checked rule applies to.
 
-* Example: ```json-en
-"line": 22```
+* Example:
+```json
+"line": 22
+```
 
 #### The `flow[].col` object
 
 Contains the column number, where the checked rule applies to.
 
-* Example: ```json
-"col": 9```
+* Example:
+```json
+"col": 9
+```
 
 #### The `flow[].rule` object
 
 Contains the identifier of the rule being checked.
 
-* Example: ```json
-"rule": "DEPENDS_WRONG"```
+* Example:
+```json
+"rule": "DEPENDS_WRONG"
+```
 
 Please note that you can get a list of these rules by calling gnatprove
 with the switch `--list-categories`.
@@ -171,38 +183,46 @@ Contains the severeness of the proof result. As far as I have figured
 out, `info` means no error, while `warning` and `error` have their usual
 meaning. Other values than these three can possibly occur.
 
-* Example: ```json
-"severity": "info"```
+* Example:
+```json
+"severity": "info"
+```
 
 #### The `flow[].entity` object
 
 Contains the objects for `name` of the source file and the `location`
 withing that source file of the (enclosing) compilation unit.
 
-* Example: ```json
+* Example:
+```json
 "entity": {
   "name": "Saatana.Crypto.Oadd.Add_Carry",
-  "sloc": [...]```
+  "sloc": [...]
+```
 
 #### The `flow[].entity.name` object
 
 Contains the name of the entity to which the VC applies.
 
-* Example: ```json
-"name": "Saatana.Crypto.Oadd.Add_Carry"```
+* Example:
+```json
+"name": "Saatana.Crypto.Oadd.Add_Carry"
+```
 
 #### The `flow[].entity.sloc` array
 
 Each element contains the objects `file` and `line` containing the
 location of the definition of the entity (I presume).
 
-* Example: ```json
+* Example:
+```json
 "sloc": [
           {
             "file": "saatana-crypto.adb",
             "line": 18
           }
-        ]```
+        ]
+```
 
 #### The `flow[].check-tree` object
 
@@ -217,8 +237,10 @@ Contains the way the VC was dicharged. Unsure which values this object
 can have. So far I encountered only `flow` (which makes sense in a flow
 analysis step).
 
-* Example: ```json
-"how_proved": "flow"```
+* Example:
+```json
+"how_proved": "flow"
+```
 
 ### The `proof` array
 
@@ -280,19 +302,20 @@ This array contains a list of objects which are further subdivided into
 name. Weirdly, this is not expressed as a JSON array, but as an object
 containing an unspecified number of other JSON objects.
 
-* Example: ```json
+* Example:
+```json
 "proof_attempts": {
   "CVC4": { ...
           }
-}```
+}
+```
 
 ###### The `flow[].check_tree[].proof_attempts.*` object
 
 Each object contained in the `proof_attempts` object contains the result
 of running a specific prover and the object is named after the prover.
 
-Example:
-
+* Example:
 ```json
 "CVC4": {
   "result": "Unknown (unknown)",
