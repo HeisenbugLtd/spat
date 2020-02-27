@@ -11,12 +11,12 @@ plugin `spark2014.py`.
 
 ## Introduction
 
-The ´.spark´ files are in [JSON format](https://www.json.org/json-en.html)
+The `.spark` files are in [JSON format](https://www.json.org/json-en.html)
 and contain information about the attempts to discharge verification
 conditions (VCs), the kind of proof attempted (assertion, runtime check,
 etc.), which provers have been tried and so on.
 
-From `spark2014.py´:
+From `spark2014.py`:
 
 > The json file, if it exists and is a valid JSON value, is a dict
   with two entries "flow" and "proof" (both entries may be absent).
@@ -75,7 +75,7 @@ specification.
 `sloc` ::= `source-location`**[]** # read: array of source-location
 `source-location` ::= { `file`, `line` }
 `file` ::= <"file" : `json-string`>
-`line´ ::= <"line" : `json-int`>
+`line` ::= <"line" : `json-int`>
 
 ### The `flow` object
 
