@@ -1,7 +1,4 @@
 theme: jekyll-theme-minimal
 logo: "https://raw.githubusercontent.com/HeisenbugLtd/web-resources/master/assets/img/logo-spat.png"
 show_downloads: true
-use_text_title: false
-uistring:
-    title: "S.P.A.T."
-    copyright: "2020 Heisenbug Ltd."
+title: "S.P.A.T."
