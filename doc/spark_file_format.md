@@ -37,59 +37,135 @@ So far I have seen:
 * assumptions
 * timings
 
-### The `spark` object
+### The `spark` array
 
-Contains an array of JSON objects where each(?) object contains
-information about the Ada unit being analyzed: The `name` of the unit,
-the source location `sloc` and **presumably** the options used for the
-SPARK analysis in another object called `spark`.
+Contains JSON objects where each object contains information about the
+Ada unit (`package`, `subprogram`, ...) being analyzed: The `name` of
+the unit, the source location `sloc` and **presumably** the options used
+for the SPARK analysis in another object called `spark`.
 
-* I do not expect the array embedded in the object to ever contain more
-  than one entry.  I suspect, storing it as an array is purely
-  incidental.  At least from my point of view it does not make sense to
-  have more than one unit mentioned here.
+#### Grammar Summary
 
-#### The `spark[].name` object
-
-Contains the Ada name of the unit being analyzed.
-
-#### The `spark[].sloc[]` object
-
-`spark[].sloc` is an array containing JSON objects with source location
-info. Each element contains a `file` and a `line` object, containing the
-source file name (without any path) and the line within that file.
-
-As far as I have figured out, this simply points to the line where the
-currently analyzed Ada unit is defined, e.g. the line of an Ada `package`
-specification.
-
-* As above, I do not expect the array embedded in the object to ever
-  contain more than one entry, otherwise it would be pointing to more
-  than one declaring entity.
-
-#### Grammar
-
-`spark` ::= `ada_unit`**[]** # read: array of ada_unit
-
-`ada_unit` ::= { `name`, `sloc`, `spark` }
+`spark` ::= [ { `name`, `sloc`, `spark` } ]
 
 `name` ::= <"name" : `json-string`>
 
-`sloc` ::= `source-location`**[]** # read: array of source-location
-
-`source-location` ::= { `file`, `line` }
+`sloc` ::= [ { `file`, `line` } ]
 
 `file` ::= <"file" : `json-string`>
 
 `line` ::= <"line" : `json-int`>
 
-### The `flow` object
+#### The `spark[].name` object
 
-TBD
+Contains the Ada name of the unit being analyzed.
 
-#### Grammar
+#### The `spark[].sloc[]` array
 
-`flow` ::= `???`**[]**
+`spark[].sloc` contains JSON objects with source location info. Each
+element contains a `file` and a `line` object, containing the source
+file name (without any path) and the line within that file.
+
+As far as I have figured out, this simply points to the line where the
+analyzed Ada unit is declared, e.g. the line of an Ada `package`
+specification.
+
+### The `flow` array
+
+This contains results from the data flow analysis, for each rule checked.
+The following objects have been seen in the wild:
+
+* file
+* line
+* col
+* rule
+* severity
+* entity
+* check_tree
+* how_proved
+
+#### Grammar Summary
+
+`flow` ::= [ { `file`, `line`, `col`, `rule`, `severity`,`entity`,
+               `check-tree`, `how-proved` } ]
+
+`file` ::= <"file" : json_string>
+
+`line` ::= <"line" : json_int>
+
+`col` ::= <"col" : json_int>
+
+`rule` ::= <"rule" : json_string> # see: `gnatprove --list-categories`
+
+`severity` ::= <"severity" : json_string> # info, warning, error, ...(?)
+
+`entity` ::= <"entity" : `entity-location`>
+
+`entity-location` ::= { `name`, `source-location` }
+
+`name` ::= <"name" : `json_string`>
+
+`source-location` ::= <"sloc" : [ { `file`, `line` } ]>
+
+`file` ::= <"file" : `json_string`>
+
+`line` ::= <"line" : `json_int`>
+
+`check-tree` ::= <"check_tree" : [ { `???` } ]>
+
+`how-proved` ::= <"how_proved" : json_string>
+
+`entity-location` ::= ...
+
+#### The `flow[].file` object
+
+Contains the name of the file (again, without path), where the checked
+rule applies to.
+
+#### The `flow[].line` object
+
+Contains the line number, where the checked rule applies to.
+
+#### The `flow[].col` object
+
+Contains the column number, where the checked rule applies to.
+
+#### The `flow[].rule` object
+
+Contains the identifier of the rule being checked.
+
+Please note that you can get a list of these rules by calling gnatprove
+with the switch `--list-categories`.
+
+#### The `flow[].severity` object
+
+Contains the severeness of the proof result. As far as I have figured
+out, `info` means no error, while `warning` and `error` have their usual
+meaning. Other values than these three can possibly occur.
+
+#### The `flow[].entity` object
+
+Contains the objects for `name` of the source file and the `location`
+withing that source file of the (enclosing) compilation unit.
+
+#### The `flow[].entity.name` object
+
+Contains the name of the entity to which the VC applies.
+
+#### The `flow[].entity.sloc` array
+
+Each element contains the objects `file` and `line` containing the
+location of the definition of the entity (I presume).
+
+#### The `flow[].check_tree` object
+
+???
+
+#### The `flow[].how_proved` object
+
+Contains the way the VC was dicharged. Unsure which values this object
+can have. So far I encountered only `flow` (which makes sense in a flow
+analysis step).
 
 ### The `proof` object
 
