@@ -85,8 +85,50 @@ specification.
 
 ### The `flow` object
 
+TBD
+
+#### Grammar
+
+`flow` ::= `???`**[]**
+
 ### The `proof` object
+
+#### Grammar
+
+`proof´ ::= `???`**[]**
 
 ### The `assumptions` object
 
+#### Grammar
+
+`assumptions` ::= `???`**[]**
+
 ### The `timings` object
+
+Seems to contain global timings from the whole proof (i.e. summed up
+execution times etc.).
+
+#### Grammar
+
+`timings` ::= { `marking`, `globals-basic`, `globals-advanced`,
+                `flow-analysis`, `codepeer-results`,
+                `init-why-sections`, `translation-of-standard`,
+                `translation-of-compilation-unit`, `proof` }
+
+`marking` ::= <"marking" : `json-float`>
+
+`globals-basic` ::= <"globals (basic)" : `json-float`>
+
+`globals-advanced` ::= <"globals/properties (advanced)" : `json-float`>
+
+`flow-analysis` ::= <"flow analysis" : `json-float`>
+
+`codepeer-results` ::= <"codepeer results" : `json-float`>
+
+`init-why-sections` ::= <"init_why_sections" : `json-float`>
+
+`translation-of-standard` ::= <"translation of standard" : `json-float`>
+
+`translation-of-compilation-unit` ::= <"translation of compilation unit" : `json-float`>
+
+`proof` ::= <"proof" : `json-float`>
