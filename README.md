@@ -1,5 +1,5 @@
 # S.P.A.T.
-## SPARK Prove Analysis Tool
+## SPARK Proof Analysis Tool
 
 ### Introduction
 
