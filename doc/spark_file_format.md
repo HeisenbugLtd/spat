@@ -64,17 +64,23 @@ currently analyzed Ada unit is defined, e.g. the line of an Ada `package`
 specification.
 
 * As above, I do not expect the array embedded in the object to ever
-  contain more than one entry, otherwise it would be indicating to more
+  contain more than one entry, otherwise it would be pointing to more
   than one declaring entity.
 
 #### Grammar
 
 `spark` ::= `ada_unit`**[]** # read: array of ada_unit
+
 `ada_unit` ::= { `name`, `sloc`, `spark` }
+
 `name` ::= <"name" : `json-string`>
+
 `sloc` ::= `source-location`**[]** # read: array of source-location
+
 `source-location` ::= { `file`, `line` }
+
 `file` ::= <"file" : `json-string`>
+
 `line` ::= <"line" : `json-int`>
 
 ### The `flow` object
