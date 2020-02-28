@@ -135,8 +135,6 @@ The following objects have been seen in the wild:
 
 `how-proved` ::= <"how_proved" : `json-string`>
 
-`entity-location` ::= ...
-
 #### The `flow[].file` object
 
 Contains the name of the file (again, without path), where the checked
@@ -197,7 +195,7 @@ withing that source file of the (enclosing) compilation unit.
 ```json
 "entity": {
   "name": "Saatana.Crypto.Oadd.Add_Carry",
-  "sloc": [...]
+  "sloc": # [...]
 ```
 
 #### The `flow[].entity.name` object
@@ -291,28 +289,28 @@ different parts of the same structure.)
 
 `time` ::= <"time" : `json-float`>
 
-#### The `flow[].check_tree` array
+#### The `flow[].check-tree` array
 
 This array contains a list of objects which are further subdivided into
 `proof_attempts` and `transformations` object.
 
-##### The `flow[].check_tree[].proof_attempts` object
+##### The `flow[].check-tree[].proof-attempts` object
 
-`proof_attempts` contains objects which are denoted with the prover
+`proof-attempts` contains objects which are denoted with the prover
 name. Weirdly, this is not expressed as a JSON array, but as an object
 containing an unspecified number of other JSON objects.
 
 * Example:
 ```json
 "proof_attempts": {
-  "CVC4": { ...
+  "CVC4": { # ...
           }
 }
 ```
 
-###### The `flow[].check_tree[].proof_attempts.*` object
+###### The `flow[].check-tree[].proof-attempts.*` object
 
-Each object contained in the `proof_attempts` object contains the result
+Each object contained in the `proof-attempts` object contains the result
 of running a specific prover and the object is named after the prover.
 
 * Example:
@@ -329,15 +327,73 @@ successful. `steps` holds the number of proof steps the prover has done
 (what these steps mean may depend on the prover used), and `time` is
 obviously the (wall clock) time the prover spend doing all this.
 
-###### The `flow[].check_tree[].transformations` object
+###### The `flow[].check-tree[].transformations` object
 
 ??? Unclear. So far I have only seen empty objects.
 
-### The `assumptions` object
+### The `assumptions` array
 
-#### Grammar
+Contains information about the assumptions made in the proof. In other
+words, these were not proved themselves, these are conditions that must
+hold true if the proof is to be trusted.
 
-`all-assumptions` ::= <"assumptions" : [ { `assumptions`, `claim` } ]>
+#### Grammar Summary
+
+`all-assumptions` ::= <"assumptions" : { [ `assumptions` ], `claim` }>
+
+`assumptions` ::= <"assumptions" : [ `predicate-info` ]>
+
+`claim` ::= <"claim" : { `predicate-info` }>
+
+`predicate-info` ::= { `predicate`, `arg` }
+
+`predicate` ::= <"predicate" : `json-string`>
+
+`arg` ::= <"arg" : { `name`, `sloc` }>
+
+`sloc` ::= <"sloc" : [ { `file`, `line` } ]>
+
+`file` ::= <"file" : `json-string`>
+
+`line` ::= <"line" : `json-int`>
+
+##### The ```all-assumptions``` array
+
+Contains a list of `assumptions` and a `claims` objects. I am assuming
+that this lists all assumptions that must hold true for the claim to be
+true.
+
+###### The ```all-assumptions[].assumptions[]``` array
+
+Contains `predicate-info` objects.
+
+###### The ```all-assumptions[].claim``` object.
+
+Contains a `claim` object which in turn holds a `predicate-info` object.
+
+###### ```predicate-info``` objects
+
+`predicate-info` objects hold a `predicate` object and an `arg` object.
+
+* Example:
+```json
+{
+  "predicate": "CLAIM_POST",
+  "arg": {
+    "name": "Saatana.Crypto.To_Stream",
+    "sloc": [
+      {
+        "file": "saatana-crypto.ads",
+        "line": 55
+      }
+    ]
+  }
+}
+```
+
+###### ```predicate``` objects
+
+
 
 ### The `timings` object
 
