@@ -51,15 +51,15 @@ for the SPARK analysis in another object called `spark`.
 
 #### Grammar Summary
 
-`spark` ::= <"spark" : [ { `name`, `sloc`, `spark` } ]>
+`spark` ::= "spark" : [ { `name`, `sloc`, `spark` } ]
 
-`name` ::= <"name" : `json-string`>
+`name` ::= "name" : `json-string`
 
-`sloc` ::= <"sloc" : [ { `file`, `line` } ]>
+`sloc` ::= "sloc" : [ { `file`, `line` } ]
 
-`file` ::= <"file" : `json-string`>
+`file` ::= "file" : `json-string`
 
-`line` ::= <"line" : `json-int`>
+`line` ::= "line" : `json-int`
 
 #### The `spark[].name` object
 
@@ -106,34 +106,34 @@ The following objects have been seen in the wild:
 
 #### Grammar Summary
 
-`flow` ::= <"flow" : [ { `file`, `line`, `col`, `rule`, `severity`,
-                         `entity`, `check-tree`, `how-proved` } ]>
+`flow` ::= "flow" : [ { `file`, `line`, `col`, `rule`, `severity`,
+                        `entity`, `check-tree`, `how-proved` } ]
 
-`file` ::= <"file" : `json-string`>
+`file` ::= "file" : `json-string`
 
-`line` ::= <"line" : `json-int`>
+`line` ::= "line" : `json-int`
 
-`col` ::= <"col" : `json-int`>
+`col` ::= "col" : `json-int`
 
-`rule` ::= <"rule" : `json-string`> # see: `gnatprove --list-categories`
+`rule` ::= "rule" : `json-string` # see: `gnatprove --list-categories`
 
-`severity` ::= <"severity" : `json-string`> # info, warning, error, ...(?)
+`severity` ::= "severity" : `json-string` # info, warning, error, ...(?)
 
-`entity` ::= <"entity" : `entity-location`>
+`entity` ::= "entity" : `entity-location`
 
 `entity-location` ::= { `name`, `source-location` }
 
-`name` ::= <"name" : `json-string`>
+`name` ::= "name" : `json-string`
 
-`source-location` ::= <"sloc" : [ { `file`, `line` } ]>
+`source-location` ::= "sloc" : [ { `file`, `line` } ]
 
-`file` ::= <"file" : `json-string`>
+`file` ::= "file" : `json-string`
 
-`line` ::= <"line" : `json-int`>
+`line` ::= "line" : `json-int`
 
-`check-tree` ::= <"check_tree" : [ { `???` } ]>
+`check-tree` ::= "check_tree" : [ { `???` } ]
 
-`how-proved` ::= <"how_proved" : `json-string`>
+`how-proved` ::= "how_proved" : `json-string`
 
 #### The `flow[].file` object
 
@@ -264,10 +264,10 @@ The following objects have been seen in the wild:
 
 #### Grammar Summary
 
-`proof` ::= <"proof" : [ { `file`, `line`, `col`, `rule`, `severity`,
-                           `entity`, `check-tree`, `how-proved`,
-                           `check-file`, `check-line`, `check-col`,
-                           `how-proved`, `stats` } ]>
+`proof` ::= "proof" : [ { `file`, `line`, `col`, `rule`, `severity`,
+                          `entity`, `check-tree`, `how-proved`,
+                          `check-file`, `check-line`, `check-col`,
+                          `how-proved`, `stats` } ]
 
 For the `file`, `line`, `col`, `rule`, `severity`, and `entity` objects
 see the flow array section above, they share the same grammar, it seems.
@@ -275,20 +275,20 @@ see the flow array section above, they share the same grammar, it seems.
 (Actually, I think flow and proof are virtually identical, they just use
 different parts of the same structure.)
 
-`check-tree` ::= <"check_tree" : [ { `proof-attempts`,
-                                     `transformations` } ]>
+`check-tree` ::= "check_tree" : [ { `proof-attempts`,
+                                    `transformations` } ]
 
 `proof-attempts` ::= { `prover` }
 
 `transformations` ::= { `???` }
 
-`prover` ::= <`json-string` : { `result`, `steps`, `time` }>
+`prover` ::= `json-string` : { `result`, `steps`, `time` }
 
-`result` ::= <"result" : `json-string`>
+`result` ::= "result" : `json-string`
 
-`steps` ::= <"steps" : `json-int`>
+`steps` ::= "steps" : `json-int`
 
-`time` ::= <"time" : `json-float`>
+`time` ::= "time" : `json-float`
 
 #### The `flow[].check-tree` array
 
@@ -340,23 +340,23 @@ hold true if the proof is to be trusted.
 
 #### Grammar Summary
 
-`all-assumptions` ::= <"assumptions" : { [ `assumptions` ], `claim` }>
+`all-assumptions` ::= "assumptions" : { [ `assumptions` ], `claim` }
 
-`assumptions` ::= <"assumptions" : [ `predicate-info` ]>
+`assumptions` ::= "assumptions" : [ `predicate-info` ]
 
-`claim` ::= <"claim" : { `predicate-info` }>
+`claim` ::= "claim" : { `predicate-info` }
 
 `predicate-info` ::= { `predicate`, `arg` }
 
-`predicate` ::= <"predicate" : `json-string`>
+`predicate` ::= "predicate" : `json-string`
 
-`arg` ::= <"arg" : { `name`, `sloc` }>
+`arg` ::= "arg" : { `name`, `sloc` }
 
-`sloc` ::= <"sloc" : [ { `file`, `line` } ]>
+`sloc` ::= "sloc" : [ { `file`, `line` } ]
 
-`file` ::= <"file" : `json-string`>
+`file` ::= "file" : `json-string`
 
-`line` ::= <"line" : `json-int`>
+`line` ::= "line" : `json-int`
 
 ##### The ```all-assumptions``` array
 
@@ -418,20 +418,20 @@ execution times etc.).
                 `init-why-sections`, `translation-of-standard`,
                 `translation-of-compilation-unit`, `proof` }
 
-`marking` ::= <"marking" : `json-float`>
+`marking` ::= "marking" : `json-float`
 
-`globals-basic` ::= <"globals (basic)" : `json-float`>
+`globals-basic` ::= "globals (basic)" : `json-float`
 
-`globals-advanced` ::= <"globals/properties (advanced)" : `json-float`>
+`globals-advanced` ::= "globals/properties (advanced)" : `json-float`
 
-`flow-analysis` ::= <"flow analysis" : `json-float`>
+`flow-analysis` ::= "flow analysis" : `json-float`
 
-`codepeer-results` ::= <"codepeer results" : `json-float`>
+`codepeer-results` ::= "codepeer results" : `json-float`
 
-`init-why-sections` ::= <"init_why_sections" : `json-float`>
+`init-why-sections` ::= "init_why_sections" : `json-float`
 
-`translation-of-standard` ::= <"translation of standard" : `json-float`>
+`translation-of-standard` ::= "translation of standard" : `json-float`
 
-`translation-of-compilation-unit` ::= <"translation of compilation unit" : `json-float`>
+`translation-of-compilation-unit` ::= "translation of compilation unit" : `json-float`
 
-`proof` ::= <"proof" : `json-float`>
+`proof` ::= "proof" : `json-float`
