@@ -17,6 +17,7 @@ pragma License (Unrestricted);
 
 with Ada.Command_Line;
 with Ada.Directories;
+with Ada.IO_Exceptions;
 with Ada.Text_IO;
 
 with SPAT.File_Ops;
@@ -32,8 +33,17 @@ begin
          & " <directory>");
       Ada.Command_Line.Set_Exit_Status (Ada.Command_Line.Failure);
    else
-      File_List.Add_Files (Directory => Ada.Command_Line.Argument (1),
-                           Extension => "spark");
+      declare
+         Search_Dir : constant String := Ada.Command_Line.Argument (1);
+      begin
+         File_List.Add_Files (Directory => Search_Dir,
+                              Extension => "spark");
+      exception
+         when Ada.IO_Exceptions.Name_Error =>
+            Ada.Text_IO.Put_Line
+              (File => Ada.Text_IO.Standard_Error,
+               Item => "Directory """ & Search_Dir & """ not found!");
+      end;
 
       for File of File_List loop
          Ada.Text_IO.Put_Line (File);
