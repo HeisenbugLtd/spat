@@ -173,7 +173,8 @@ Contains the identifier of the rule being checked.
 ```
 
 Please note that you can get a list of these rules by calling gnatprove
-with the switch `--list-categories`.
+with the switch `--list-categories`, so I am not going to list them
+here.
 
 #### The `flow[].severity` object
 
@@ -393,7 +394,17 @@ Contains a `claim` object which in turn holds a `predicate-info` object.
 
 ###### ```predicate``` objects
 
+Holds the identifier of a predicate. So far I've encountered:
 
+* CLAIM_POST (presumably a post condition which must hold true)
+* CLAIM_EFFECTS
+* CLAIM_AORTE (Absence Of Run Time Errors)
+
+###### ```arg``` objects
+
+Contain a ```name``` object denoting the name of the subunit concerned,
+and a ```sloc``` object which references the file and line of its
+declaration.
 
 ### The `timings` object
 
