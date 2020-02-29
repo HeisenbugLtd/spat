@@ -1,6 +1,6 @@
 # SPARK file format
 
-## Preface
+## 0 Preface
 
 The following documentation is reverse engineered, so information
 contained in here should be taken with a grain of salt (or two grains,
@@ -9,7 +9,7 @@ and maybe some Habanero sauce).
 Some information about the file format has been extracted from the GPS
 plugin `spark2014.py`.
 
-## Introduction
+## 1 Introduction
 
 The `.spark` files are in [JSON format](https://www.json.org/json-en.html)
 and contain information about the attempts to discharge verification
@@ -25,12 +25,12 @@ From `spark2014.py`:
   This is about all the very specific information I could find in there
   and it's most definitely not complete.
 
-## Terminology
+## 2 Terminology
 
 If the below text speaks of arrays and objects, that usually refers to
 JSON arrays (i.e. a list) and JSON objects (i.e. name-value pairs).
 
-## The File Format
+## 3 The File Format
 
 Each `.spark` file contains a single JSON object (i.e. name-value pairs).
 
@@ -42,14 +42,14 @@ So far I have seen:
 * assumptions
 * timings
 
-### The `spark` array
+### 3.1 The `spark` array
 
 Contains JSON objects where each object contains information about the
 Ada unit (`package`, `subprogram`, ...) being analyzed: The `name` of
 the unit, the source location `sloc` and **presumably** the options used
 for the SPARK analysis in another object called `spark`.
 
-#### Grammar Summary
+#### 3.1.1 Grammar Summary
 
 `spark` ::= "spark" : [ { `name`, `sloc`, `spark` } ]
 
@@ -61,7 +61,7 @@ for the SPARK analysis in another object called `spark`.
 
 `line` ::= "line" : `json-int`
 
-#### The `spark[].name` object
+#### 3.1.2 The `spark[].name` object
 
 Contains the Ada name of the subunit being analyzed.
 
@@ -70,7 +70,7 @@ Contains the Ada name of the subunit being analyzed.
 "name": "Saatana.Crypto"
 ```
 
-#### The `spark[].sloc[]` array
+#### 3.1.3 The `spark[].sloc[]` array
 
 `spark[].sloc` contains JSON objects with source location info. Each
 element contains a `file` and a `line` object, containing the source
@@ -90,7 +90,7 @@ As far as I have figured out, this simply points to the line where the
 analyzed Ada unit is declared, e.g. the line of an Ada `package`
 specification.
 
-### The `flow` array
+### 3.2 The `flow` array
 
 This contains results from the data flow analysis, for each rule checked.
 The following objects have been seen in the wild:
@@ -104,7 +104,7 @@ The following objects have been seen in the wild:
 * check_tree
 * how_proved
 
-#### Grammar Summary
+#### 3.2.1 Grammar Summary
 
 `flow` ::= "flow" : [ { `file`, `line`, `col`, `rule`, `severity`,
                         `entity`, `check-tree`, `how-proved` } ]
@@ -135,7 +135,7 @@ The following objects have been seen in the wild:
 
 `how-proved` ::= "how_proved" : `json-string`
 
-#### The `flow[].file` object
+#### 3.2.2 The `flow[].file` object
 
 Contains the name of the file (again, without path), where the checked
 rule applies to.
@@ -145,7 +145,7 @@ rule applies to.
 "file": "saatana-crypto.adb"
 ```
 
-#### The `flow[].line` object
+#### 3.2.3 The `flow[].line` object
 
 Contains the line number, where the checked rule applies to.
 
@@ -154,7 +154,7 @@ Contains the line number, where the checked rule applies to.
 "line": 22
 ```
 
-#### The `flow[].col` object
+#### 3.2.4 The `flow[].col` object
 
 Contains the column number, where the checked rule applies to.
 
@@ -163,7 +163,7 @@ Contains the column number, where the checked rule applies to.
 "col": 9
 ```
 
-#### The `flow[].rule` object
+#### 3.2.5 The `flow[].rule` object
 
 Contains the identifier of the rule being checked.
 
@@ -176,7 +176,7 @@ Please note that you can get a list of these rules by calling gnatprove
 with the switch `--list-categories`, so I am not going to list them
 here.
 
-#### The `flow[].severity` object
+#### 3.2.6 The `flow[].severity` object
 
 Contains the severeness of the proof result. As far as I have figured
 out, `info` means no error, while `warning` and `error` have their usual
@@ -187,7 +187,7 @@ meaning. Other values than these three can possibly occur.
 "severity": "info"
 ```
 
-#### The `flow[].entity` object
+#### 3.2.7 The `flow[].entity` object
 
 Contains the objects for `name` of the source file and the `location`
 withing that source file of the (enclosing) compilation unit.
@@ -199,7 +199,7 @@ withing that source file of the (enclosing) compilation unit.
   "sloc": # [...]
 ```
 
-#### The `flow[].entity.name` object
+#### 3.2.8 The `flow[].entity.name` object
 
 Contains the name of the entity to which the VC applies.
 
@@ -208,7 +208,7 @@ Contains the name of the entity to which the VC applies.
 "name": "Saatana.Crypto.Oadd.Add_Carry"
 ```
 
-#### The `flow[].entity.sloc` array
+#### 3.2.9 The `flow[].entity.sloc` array
 
 Each element contains the objects `file` and `line` containing the
 location of the definition of the entity (I presume).
@@ -223,14 +223,14 @@ location of the definition of the entity (I presume).
         ]
 ```
 
-#### The `flow[].check-tree` object
+#### 3.2.10 The `flow[].check-tree` object
 
 ???
 
 I am assuming this will always be empty for a flow analysis and only be
 interesting in the proof part (see below).
 
-#### The `flow[].how-proved` object
+#### 3.2.11 The `flow[].how-proved` object
 
 Contains the way the VC was dicharged. Unsure which values this object
 can have. So far I encountered only `flow` (which makes sense in a flow
@@ -241,7 +241,7 @@ analysis step).
 "how_proved": "flow"
 ```
 
-### The `proof` array
+### 3.3 The `proof` array
 
 Similar to the `flow` array this contains results from the proof, for
 each VC checked.
@@ -262,7 +262,7 @@ The following objects have been seen in the wild:
 * how_proved
 * stats
 
-#### Grammar Summary
+#### 3.3.1 Grammar Summary
 
 `proof` ::= "proof" : [ { `file`, `line`, `col`, `rule`, `severity`,
                           `entity`, `check-tree`, `how-proved`,
@@ -290,12 +290,12 @@ different parts of the same structure.)
 
 `time` ::= "time" : `json-float`
 
-#### The `flow[].check-tree` array
+#### 3.3.2 The `flow[].check-tree` array
 
 This array contains a list of objects which are further subdivided into
 `proof_attempts` and `transformations` object.
 
-##### The `flow[].check-tree[].proof-attempts` object
+##### 3.3.2.1 The `flow[].check-tree[].proof-attempts` object
 
 `proof-attempts` contains objects which are denoted with the prover
 name. Weirdly, this is not expressed as a JSON array, but as an object
@@ -309,7 +309,7 @@ containing an unspecified number of other JSON objects.
 }
 ```
 
-###### The `flow[].check-tree[].proof-attempts.*` object
+###### 3.3.2.2 The `flow[].check-tree[].proof-attempts.*` object
 
 Each object contained in the `proof-attempts` object contains the result
 of running a specific prover and the object is named after the prover.
@@ -328,17 +328,17 @@ successful. `steps` holds the number of proof steps the prover has done
 (what these steps mean may depend on the prover used), and `time` is
 obviously the (wall clock) time the prover spend doing all this.
 
-###### The `flow[].check-tree[].transformations` object
+###### 3.3.2.3 The `flow[].check-tree[].transformations` object
 
 ??? Unclear. So far I have only seen empty objects.
 
-### The `assumptions` array
+### 3.4 The `assumptions` array
 
 Contains information about the assumptions made in the proof. In other
 words, these were not proved themselves, these are conditions that must
 hold true if the proof is to be trusted.
 
-#### Grammar Summary
+#### 3.4.1 Grammar Summary
 
 `all-assumptions` ::= "assumptions" : { [ `assumptions` ], `claim` }
 
@@ -358,21 +358,21 @@ hold true if the proof is to be trusted.
 
 `line` ::= "line" : `json-int`
 
-##### The ```all-assumptions``` array
+#### 3.4.2 The ```all-assumptions``` array
 
 Contains a list of `assumptions` and a `claims` objects. I am assuming
 that this lists all assumptions that must hold true for the claim to be
 true.
 
-###### The ```all-assumptions[].assumptions[]``` array
+##### 3.4.2.1 The ```all-assumptions[].assumptions[]``` array
 
 Contains `predicate-info` objects.
 
-###### The ```all-assumptions[].claim``` object.
+###### 3.4.2.2 The ```all-assumptions[].claim``` object.
 
 Contains a `claim` object which in turn holds a `predicate-info` object.
 
-###### ```predicate-info``` objects
+###### 3.4.2.3 ```predicate-info``` objects
 
 `predicate-info` objects hold a `predicate` object and an `arg` object.
 
@@ -392,7 +392,7 @@ Contains a `claim` object which in turn holds a `predicate-info` object.
 }
 ```
 
-###### ```predicate``` objects
+###### 3.4.2.4 ```predicate``` objects
 
 Holds the identifier of a predicate. So far I've encountered:
 
@@ -400,18 +400,18 @@ Holds the identifier of a predicate. So far I've encountered:
 * CLAIM_EFFECTS
 * CLAIM_AORTE (Absence Of Run Time Errors)
 
-###### ```arg``` objects
+###### 3.4.2.5 ```arg``` objects
 
 Contain a ```name``` object denoting the name of the subunit concerned,
 and a ```sloc``` object which references the file and line of its
 declaration.
 
-### The `timings` object
+### 3.5 The `timings` object
 
 Seems to contain global timings from the whole proof (i.e. summed up
 execution times etc.).
 
-#### Grammar
+#### 3.5.1 Grammar Summary
 
 `timings` ::= { `marking`, `globals-basic`, `globals-advanced`,
                 `flow-analysis`, `codepeer-results`,
