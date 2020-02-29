@@ -14,4 +14,4 @@ etc. pp.).
 The idea is that making use of that information will help identify and fix bottlenecks
 during proof. As the format of these files is virtually undocumented, a little bit of
 reverse engineering may be required, but on the other hand, maybe the result is actual
-documentation.
+[documentation](https://github.com/HeisenbugLtd/spat/blob/master/doc/spark_file_format.md).
