@@ -21,9 +21,11 @@ with Ada.IO_Exceptions;
 with Ada.Text_IO;
 
 with SPAT.File_Ops;
+with SPAT.Spark_Files;
 
 procedure Run_SPAT is
-   File_List : SPAT.File_Ops.File_List;
+   File_List  : SPAT.File_Ops.File_List;
+   SPARK_Data : SPAT.Spark_Files.SPARK_Data;
 begin
    --  TODO: Proper command line argument handling.
    if Ada.Command_Line.Argument_Count /= 1 then
@@ -38,6 +40,7 @@ begin
       begin
          File_List.Add_Files (Directory => Search_Dir,
                               Extension => "spark");
+         SPARK_Data.Read_Files (Names => File_List);
       exception
          when Ada.IO_Exceptions.Name_Error =>
             Ada.Text_IO.Put_Line
@@ -45,9 +48,17 @@ begin
                Item => "Directory """ & Search_Dir & """ not found!");
       end;
 
-      for File of File_List loop
-         Ada.Text_IO.Put_Line (File);
-      end loop;
+      declare
+         C : SPAT.Spark_Files.Cursor := SPARK_Data.First;
+         use type SPAT.SPARK_Files.Cursor;
+      begin
+         while C /= SPAT.Spark_Files.No_Element loop
+            Ada.Text_IO.Put_Line ("""" & SPAT.Spark_Files.Key (C) & """ => " &
+                                    SPAT.SPARK_Files.Element (C).Success'Image);
+
+            SPAT.Spark_Files.Next (C);
+         end loop;
+      end;
 
       Ada.Command_Line.Set_Exit_Status (Ada.Command_Line.Success);
    end if;
