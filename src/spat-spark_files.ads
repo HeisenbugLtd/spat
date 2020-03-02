@@ -39,10 +39,9 @@ package SPAT.Spark_Files is
 
    procedure Read_Files (This  : in out SPARK_Data;
                          Names : in     File_Ops.File_List'Class);
-   --  Reads the list of files, and parses and stores their content in
-   --  This.
-   --  TODO: Error management/reporting.
+   --  Reads the list of files, and parses and stores their content in This.
 
+   --  Some renames for commonly used File_Maps.Cursor operations.
    function Element (C : in Cursor) return GNATCOLL.JSON.Read_Result
                      renames File_Maps.Element;
    function Key (C : in Cursor) return String renames File_Maps.Key;
