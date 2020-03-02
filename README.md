@@ -1,4 +1,4 @@
-![](https://raw.githubusercontent.com/HeisenbugLtd/web-resources/master/assets/img/logo-spat.png)
+![](https://raw.githubusercontent.com/HeisenbugLtd/heisenbugltd.github.io/master/assets/img/spat/cover.png)
 
 # SPARK Proof Analysis Tool
 
