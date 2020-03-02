@@ -6,6 +6,25 @@ with SPAT.Command_Line;
 
 package body SPAT.Spark_Files is
 
+   function Parse_File (Name : in String) return GNATCOLL.JSON.Read_Result is
+      JSON_File    : Ada.Text_IO.File_Type;
+      File_Content : Ada.Strings.Unbounded.Unbounded_String;
+   begin
+      Ada.Text_IO.Open (File => JSON_File,
+                        Mode => Ada.Text_IO.In_File,
+                        Name => Name);
+
+      while not Ada.Text_IO.End_Of_File (File => JSON_File) loop
+         Ada.Strings.Unbounded.Append
+           (Source   => File_Content,
+            New_Item => Ada.Text_IO.Get_Line (File => JSON_File));
+      end loop;
+
+      Ada.Text_IO.Close (File => JSON_File);
+
+      return GNATColl.JSON.Read (Strm => File_Content);
+   end Parse_File;
+
    procedure Read_Files (This  : in out SPARK_Data;
                          Names : in     File_Ops.File_List'Class)
    is
@@ -24,33 +43,14 @@ package body SPAT.Spark_Files is
                                      Item => "Parsing """ & Name & """...");
             end if;
 
-            declare
-               File_Content : Ada.Strings.Unbounded.Unbounded_String;
             begin
-               Read_File :
-               declare
-                  JSON_File : Ada.Text_IO.File_Type;
-               begin
-                  Ada.Text_IO.Open (File => JSON_File,
-                                    Mode => Ada.Text_IO.In_File,
-                                    Name => Name);
-
-                  while not Ada.Text_IO.End_Of_File (File => JSON_File) loop
-                     Ada.Strings.Unbounded.Append
-                       (Source   => File_Content,
-                        New_Item => Ada.Text_IO.Get_Line (File => JSON_File));
-                  end loop;
-
-                  Ada.Text_IO.Close (File => JSON_File);
-               exception
-                  when Ada.IO_Exceptions.Name_Error =>
-                     Ada.Text_IO.Put_Line
-                       (File => Ada.Text_IO.Standard_Error,
-                        Item => "Error reading """ & Name & """!");
-               end Read_File;
-
                This.Insert (Key      => Name,
-                            New_Item => GNATColl.JSON.Read (Strm => File_Content));
+                            New_Item => Parse_File (Name => Name));
+            exception
+               when Ada.IO_Exceptions.Name_Error =>
+                  Ada.Text_IO.Put_Line
+                    (File => Ada.Text_IO.Standard_Error,
+                     Item => "Error reading """ & Name & """!");
             end;
          else
             -- Skip file, we already got that one.
