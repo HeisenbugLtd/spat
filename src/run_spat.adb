@@ -21,6 +21,7 @@ with Ada.Real_Time;
 with Ada.Strings.Unbounded;
 with Ada.Text_IO;
 
+with GNATCOLL.JSON;
 with SI_Units.Metric;
 with SI_Units.Names;
 with SPAT.Command_Line;
@@ -31,7 +32,7 @@ procedure Run_SPAT is
 
    function Image is new
      SI_Units.Metric.Fixed_Image (Item        => Duration,
-                                  Default_Aft => 3,
+                                  Default_Aft => 0,
                                   Unit        => SI_Units.Names.Second);
 
    use type Ada.Real_Time.Time;
@@ -47,6 +48,8 @@ begin
       Start_Time : Ada.Real_Time.Time;
       Verbose    : constant Boolean := SPAT.Command_Line.Verbose.Get;
    begin
+      --  Step 1: Collect all ".spark" files in the directories given on the
+      --          command line recursively.
       for Dir of SPAT.Command_Line.Directories.Get loop
          declare
             Search_Dir : constant String :=
@@ -74,6 +77,7 @@ begin
          end;
       end loop;
 
+      --  Step 2: Parse the files into JSON values.
       if not File_List.Is_Empty then
          if Verbose then
             Start_Time := Ada.Real_Time.Clock;
@@ -89,17 +93,38 @@ begin
          end if;
       end if;
 
+      --  Step 3: TODO: Process the JSON data.
       declare
          C : SPAT.Spark_Files.Cursor := SPARK_Data.First;
          use type SPAT.SPARK_Files.Cursor;
       begin
          while C /= SPAT.Spark_Files.No_Element loop
-            Ada.Text_IO.Put_Line
-              (File => Ada.Text_IO.Standard_Output,
-               Item => """" & SPAT.Spark_Files.Key (C) & """ => " &
-                 SPAT.SPARK_Files.Element (C).Success'Image);
+            declare
+               Read_Result : GNATCOLL.JSON.Read_Result renames
+                 SPAT.Spark_Files.Element (C);
+            begin
+               Ada.Text_IO.Put
+                 (File => Ada.Text_IO.Standard_Output,
+                  Item => """" & SPAT.Spark_Files.Key (C) & """ => ");
 
-            SPAT.Spark_Files.Next (C => C);
+               if Read_Result.Success then
+                  declare
+                     Timings : GNATCOLL.JSON.JSON_Value :=
+                       Read_Result.Value.Get ("timings");
+                  begin
+                     Ada.Text_IO.Put_Line
+                       (File => Ada.Text_IO.Standard_Output,
+                        Item => "[Proof => " & Image (Duration (Float'(Timings.Get ("proof").Get))) &
+                          "], [Flow => " & Image (Duration (Float'(Timings.Get ("flow analysis").Get))) & "]");
+                  end;
+               else
+                  Ada.Text_IO.Put_Line
+                    (File => Ada.Text_IO.Standard_Output,
+                     Item => GNATCOLL.JSON.Format_Parsing_Error (Error => Read_Result.Error));
+               end if;
+
+               SPAT.Spark_Files.Next (C => C);
+            end;
          end loop;
       end;
    end;
