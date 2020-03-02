@@ -56,14 +56,17 @@ begin
                               Extension => "spark");
          Ada.Text_IO.Put_Line
            ("completed in " &
-              Image (Ada.Real_Time.To_Duration (Ada.Real_Time.Clock - Start_Time)));
+              Image (Ada.Real_Time.To_Duration (Ada.Real_Time.Clock - Start_Time)) &
+            "," & File_List.Length'Image & " files found.");
 
-         Ada.Text_IO.Put ("Parsing "".spark"" files...");
-         Start_Time := Ada.Real_Time.Clock;
-         SPARK_Data.Read_Files (Names => File_List);
-         Ada.Text_IO.Put_Line
-           ("completed in " &
-              Image (Ada.Real_Time.To_Duration (Ada.Real_Time.Clock - Start_Time)));
+         if not File_List.Is_Empty then
+            Ada.Text_IO.Put ("Parsing "".spark"" files...");
+            Start_Time := Ada.Real_Time.Clock;
+            SPARK_Data.Read_Files (Names => File_List);
+            Ada.Text_IO.Put_Line
+              ("completed in " &
+                 Image (Ada.Real_Time.To_Duration (Ada.Real_Time.Clock - Start_Time)) & ".");
+         end if;
       exception
          when Ada.IO_Exceptions.Name_Error =>
             Ada.Text_IO.Put_Line
