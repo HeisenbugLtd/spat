@@ -62,6 +62,10 @@ package body SPAT.File_Ops is
                               Pattern   => "",
                               Filter    => Filter,
                               Process   => Handle_Entry'Access);
+   exception
+      when Ada.Directories.Use_Error =>
+         Ada.Text_IO.Put_Line
+           ("warning: Unable to read directory """ & Directory & """.");
    end Add_Files;
 
 end SPAT.File_Ops;
