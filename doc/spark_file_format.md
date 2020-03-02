@@ -7,7 +7,7 @@ contained in here should be taken with a grain of salt (or two grains,
 and maybe some Habanero sauce).
 
 Some information about the file format has been extracted from the GPS
-plugin `spark2014.py`.
+plugin [`spark2014.py`](https://github.com/AdaCore/gps/blob/master/share/plug-ins/spark2014.py).
 
 ## 1 Introduction
 
