@@ -45,9 +45,9 @@ begin
       File_List  : SPAT.File_Ops.File_List;
       SPARK_Data : SPAT.Spark_Files.SPARK_Data;
       Start_Time : Ada.Real_Time.Time;
-      Verbose    : constant Boolean := SPAT.Command_Line.Verbose_Flag.Get;
+      Verbose    : constant Boolean := SPAT.Command_Line.Verbose.Get;
    begin
-      for Dir of SPAT.Command_Line.Dir_Args.Get loop
+      for Dir of SPAT.Command_Line.Directories.Get loop
          declare
             Search_Dir : constant String :=
               Ada.Strings.Unbounded.To_String (Source => Dir);

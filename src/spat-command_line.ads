@@ -25,19 +25,22 @@ package SPAT.Command_Line is
        (Help         => "Parses .spark files and outputs information about them.",
         Command_Name => "run_spat");
 
+   --  Before using the below functions you should have called Parser.Parse and
+   --  evaluated its return status.
+
    package Summary is new
      GNATCOLL.Opt_Parse.Parse_Flag (Parser => Parser,
                                     Short  => "-s",
                                     Long   => "--summary",
                                     Help   => "Print summary only");
 
-   package Verbose_Flag is new
+   package Verbose is new
      GNATCOLL.Opt_Parse.Parse_Flag (Parser => Parser,
                                     Short  => "-v",
                                     Long   => "--verbose",
                                     Help   => "Verbose (tracing) output");
 
-   package Dir_Args is new
+   package Directories is new
      GNATCOLL.Opt_Parse.Parse_Positional_Arg_List
        (Parser      => Parser,
         Name        => "directory",

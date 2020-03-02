@@ -19,8 +19,9 @@ package body SPAT.Spark_Files is
 
       for Name of Names loop
          if This.Find (Key => Name) = File_Maps.No_Element then
-            if SPAT.Command_Line.Verbose_Flag.Get then
-               Ada.Text_IO.Put_Line ("Parsing """ & Name & """...");
+            if SPAT.Command_Line.Verbose.Get then
+               Ada.Text_IO.Put_Line (File => Ada.Text_IO.Standard_Output,
+                                     Item => "Parsing """ & Name & """...");
             end if;
 
             declare
@@ -34,7 +35,7 @@ package body SPAT.Spark_Files is
                                     Mode => Ada.Text_IO.In_File,
                                     Name => Name);
 
-                  while not Ada.Text_IO.End_Of_File (JSON_File) loop
+                  while not Ada.Text_IO.End_Of_File (File => JSON_File) loop
                      Ada.Strings.Unbounded.Append
                        (Source   => File_Content,
                         New_Item => Ada.Text_IO.Get_Line (File => JSON_File));
@@ -43,9 +44,9 @@ package body SPAT.Spark_Files is
                   Ada.Text_IO.Close (File => JSON_File);
                exception
                   when Ada.IO_Exceptions.Name_Error =>
-                     Ada.Text_IO.Put_Line (Ada.Text_IO.Standard_Error,
-                                           "Error reading """ & Name & """!");
-                     --  TODO: Error management.
+                     Ada.Text_IO.Put_Line
+                       (File => Ada.Text_IO.Standard_Error,
+                        Item => "Error reading """ & Name & """!");
                end Read_File;
 
                This.Insert (Key      => Name,

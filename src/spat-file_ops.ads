@@ -30,8 +30,8 @@ package SPAT.File_Ops is
      (This      : in out File_List;
       Directory : in     String;
       Extension : in     String := "spark");
-   --  Recursively searches for files given in the given directory with
-   --  the given extension and stores them in This.
+   --  Recursively searches for files given in the given directory with the
+   --  given extension and stores them in This.
    --
    --  TODO: Accept a list of directories to search in.
 

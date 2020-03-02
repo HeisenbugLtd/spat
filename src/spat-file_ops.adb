@@ -51,17 +51,17 @@ package body SPAT.File_Ops is
                end if;
 
             when Ada.Directories.Special_File =>
-               --  Current entry is a special file. This shouldn't happen,
-               --  as the initial Filter argument is supposed to filter
-               --  those out.
+               --  Current entry is a special file. This shouldn't happen, as
+               --  the initial Filter argument is supposed to filter those out.
                raise Program_Error;
 
          end case;
       end Handle_Entry;
    begin
-      if SPAT.Command_Line.Verbose_Flag.Get then
-         Ada.Text_IO.Put_Line (File => Ada.Text_IO.Standard_Output,
-                               Item => "Searching for "".spark"" files in """ & Directory & """...");
+      if SPAT.Command_Line.Verbose.Get then
+         Ada.Text_IO.Put_Line
+           (File => Ada.Text_IO.Standard_Output,
+            Item => "Searching for "".spark"" files in """ & Directory & """...");
       end if;
 
       --  Search for our files...
