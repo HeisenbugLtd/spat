@@ -2,6 +2,7 @@ with Ada.IO_Exceptions;
 with Ada.Strings.Unbounded;
 with Ada.Text_IO;
 with GNATCOLL.JSON;
+with SPAT.Command_Line;
 
 package body SPAT.Spark_Files is
 
@@ -18,6 +19,10 @@ package body SPAT.Spark_Files is
 
       for Name of Names loop
          if This.Find (Key => Name) = File_Maps.No_Element then
+            if SPAT.Command_Line.Verbose_Flag.Get then
+               Ada.Text_IO.Put_Line ("Parsing """ & Name & """...");
+            end if;
+
             declare
                File_Content : Ada.Strings.Unbounded.Unbounded_String;
             begin

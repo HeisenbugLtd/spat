@@ -10,6 +10,8 @@ pragma License (Unrestricted);
 with Ada.Directories;
 with Ada.Text_IO;
 
+with SPAT.Command_Line;
+
 package body SPAT.File_Ops is
 
    Filter : constant Ada.Directories.Filter_Type
@@ -57,6 +59,11 @@ package body SPAT.File_Ops is
          end case;
       end Handle_Entry;
    begin
+      if SPAT.Command_Line.Verbose_Flag.Get then
+         Ada.Text_IO.Put_Line (File => Ada.Text_IO.Standard_Output,
+                               Item => "Searching for "".spark"" files in """ & Directory & """...");
+      end if;
+
       --  Search for our files...
       Ada.Directories.Search (Directory => Directory,
                               Pattern   => "",
