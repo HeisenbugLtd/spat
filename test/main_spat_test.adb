@@ -16,9 +16,13 @@ pragma License (Unrestricted);
 ------------------------------------------------------------------------------
 
 with Ada.Command_Line;
-with SPAT;
+with SPAT.Command_Line;
+with SPAT.File_Ops;    pragma Unreferenced (SPAT.File_Ops);
+with SPAT.Spark_Files; pragma Unreferenced (SPAT.File_Ops);
 
 procedure Main_SPAT_Test is
 begin
-  Ada.Command_Line.Set_Exit_Status (Code => Ada.Command_Line.Success);
+   Ada.Command_Line.Set_Exit_Status (Code => (if SPAT.Command_Line.Parser.Parse
+                                              then Ada.Command_Line.Success
+                                              else Ada.Command_Line.Failure));
 end Main_SPAT_Test;
