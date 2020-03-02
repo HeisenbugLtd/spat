@@ -27,6 +27,7 @@ with SI_Units.Names;
 with SPAT.Command_Line;
 with SPAT.File_Ops;
 with SPAT.Spark_Files;
+with SPAT.Spark_Info;
 
 procedure Run_SPAT is
 
@@ -109,13 +110,13 @@ begin
 
                if Read_Result.Success then
                   declare
-                     Timings : GNATCOLL.JSON.JSON_Value :=
-                       Read_Result.Value.Get ("timings");
+                     Info : SPAT.Spark_Info.T :=
+                       SPAT.SPARK_Info.Parse_JSON (Root => Read_Result.Value);
                   begin
                      Ada.Text_IO.Put_Line
                        (File => Ada.Text_IO.Standard_Output,
-                        Item => "[Proof => " & Image (Duration (Float'(Timings.Get ("proof").Get))) &
-                          "], [Flow => " & Image (Duration (Float'(Timings.Get ("flow analysis").Get))) & "]");
+                        Item => "[Proof => " & Image (Info.Proof_Time) &
+                          "], [Flow => " & Image (Info.Flow_Time) & "]");
                   end;
                else
                   Ada.Text_IO.Put_Line
