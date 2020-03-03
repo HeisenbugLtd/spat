@@ -95,39 +95,53 @@ begin
       end if;
 
       --  Step 3: TODO: Process the JSON data.
-      declare
-         C : SPAT.Spark_Files.Cursor := SPARK_Data.First;
-         use type SPAT.SPARK_Files.Cursor;
-      begin
-         while C /= SPAT.Spark_Files.No_Element loop
-            declare
-               Read_Result : GNATCOLL.JSON.Read_Result renames
-                 SPAT.Spark_Files.Element (C);
-            begin
-               Ada.Text_IO.Put
-                 (File => Ada.Text_IO.Standard_Output,
-                  Item => """" & SPAT.Spark_Files.Key (C) & """ => ");
+      if not SPARK_Data.Is_Empty then
+         if Verbose then
+            Start_Time := Ada.Real_Time.Clock;
+         end if;
 
-               if Read_Result.Success then
-                  declare
-                     Info : SPAT.Spark_Info.T :=
-                       SPAT.SPARK_Info.Parse_JSON (Root => Read_Result.Value);
-                  begin
+         declare
+            C : SPAT.Spark_Files.Cursor := SPARK_Data.First;
+            use type SPAT.SPARK_Files.Cursor;
+         begin
+            while C /= SPAT.Spark_Files.No_Element loop
+               declare
+                  Read_Result : GNATCOLL.JSON.Read_Result renames
+                    SPAT.Spark_Files.Element (C);
+               begin
+                  Ada.Text_IO.Put
+                    (File => Ada.Text_IO.Standard_Output,
+                     Item => """" & SPAT.Spark_Files.Key (C) & """ => ");
+
+                  if Read_Result.Success then
+                     declare
+                        Info : SPAT.Spark_Info.T;
+                     begin
+                        Info.Parse_JSON (Root => Read_Result.Value);
+
+                        Ada.Text_IO.Put_Line
+                          (File => Ada.Text_IO.Standard_Output,
+                           Item => "[Proof => " & Image (Info.Proof_Time) &
+                             "], [Flow => " & Image (Info.Flow_Time) & "]");
+                     end;
+                  else
                      Ada.Text_IO.Put_Line
                        (File => Ada.Text_IO.Standard_Output,
-                        Item => "[Proof => " & Image (Info.Proof_Time) &
-                          "], [Flow => " & Image (Info.Flow_Time) & "]");
-                  end;
-               else
-                  Ada.Text_IO.Put_Line
-                    (File => Ada.Text_IO.Standard_Output,
-                     Item => GNATCOLL.JSON.Format_Parsing_Error (Error => Read_Result.Error));
-               end if;
+                        Item => GNATCOLL.JSON.Format_Parsing_Error (Error => Read_Result.Error));
+                  end if;
 
-               SPAT.Spark_Files.Next (C => C);
-            end;
-         end loop;
-      end;
+                  SPAT.Spark_Files.Next (C => C);
+               end;
+            end loop;
+         end;
+
+         if Verbose then
+            Ada.Text_IO.Put_Line
+              (File => Ada.Text_IO.Standard_Output,
+               Item => "Reading completed in " &
+                 Image (Ada.Real_Time.To_Duration (TS => Ada.Real_Time.Clock - Start_Time)) & ".");
+         end if;
+      end if;
    end;
 
    Ada.Command_Line.Set_Exit_Status (Ada.Command_Line.Success);

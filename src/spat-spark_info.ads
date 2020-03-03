@@ -16,17 +16,21 @@ pragma License (Unrestricted);
 --  Collect file contents.
 --
 ------------------------------------------------------------------------------
+with Ada.Containers.Indefinite_Hashed_Maps;
 with Ada.Containers.Vectors;
+with Ada.Strings.Hash;
 with Ada.Strings.Unbounded;
 with GNATCOLL.JSON;
 
 package SPAT.Spark_Info is
 
-   type T is tagged private;
+   type T is tagged limited private;
    --  Binary representation of the information obtained from a .spark JSON
    --  file.
 
-   function Parse_JSON (Root : in GNATCOLL.JSON.JSON_Value) return T;
+   procedure Parse_JSON (This : in out T;
+                         Root : in     GNATCOLL.JSON.JSON_Value);
+   --  Parses JSON data from Root into data structure in This.
 
    --  Access functions.
    function Proof_Time (Info : in T) return Duration;
@@ -41,23 +45,32 @@ private
          Flow  : Duration; --  Total time of flow analysis.
       end record;
 
+   type Line_Location is
+      record
+         File_Name   : Ada.Strings.Unbounded.Unbounded_String;
+         Line_Number : Natural;
+      end record;
+
+   package Source_Line_Locations is
+     new Ada.Containers.Vectors (Index_Type   => Positive,
+                                 Element_Type => Line_Location);
+
    type Source_Entity is
       record
-         Name : Ada.Strings.Unbounded.Unbounded_String;
-         File : Ada.Strings.Unbounded.Unbounded_String;
-         Line : Natural;
+         Locations : Source_Line_Locations.Vector;
       end record;
 
    --  Type representing a source (file) entity.
-   package Source_Entity_Lists is
-     new Ada.Containers.Vectors (Index_Type   => Positive,
-                                 Element_Type => Source_Entity);
+   package Source_Entity_Lists is new
+     Ada.Containers.Indefinite_Hashed_Maps (Key_Type        => String,
+                                            Element_Type    => Source_Entity,
+                                            Hash            => Ada.Strings.Hash,
+                                            Equivalent_Keys => Standard."=",
+                                            "="             => "=");
 
-   subtype Source_Entities is Source_Entity_Lists.Vector;
-
-   type T is tagged
+   type T is tagged limited
       record
-         Source_Entity : Source_Entities;
+         Source_Entity : Source_Entity_Lists.Map;
          Timings       : Timing_Info;
          --  Timing information.
       end record;
