@@ -16,6 +16,7 @@ pragma License (Unrestricted);
 --  Collect file contents.
 --
 ------------------------------------------------------------------------------
+with Ada.Containers.Vectors;
 with Ada.Strings.Unbounded;
 with GNATCOLL.JSON;
 
@@ -40,18 +41,26 @@ private
          Flow  : Duration; --  Total time of flow analysis.
       end record;
 
-   --  Type representing a source (file) entity.
-   type Source_Entities is
+   type Source_Entity is
       record
-         Name    : Ada.Strings.Unbounded.Unbounded_String;
-         --  Name of the Ada entity.
-         Timings : Timing_Info;
-         --  Timing information.
+         Name   : Ada.Strings.Unbounded.Unbounded_String;
+         File   : Ada.Strings.Unbounded.Unbounded_String;
+         Line   : Natural;
+         Column : Natural;
       end record;
+
+   --  Type representing a source (file) entity.
+   package Source_Entity_Lists is
+     new Ada.Containers.Vectors (Index_Type   => Positive,
+                                 Element_Type => Source_Entity);
+
+   subtype Source_Entities is Source_Entity_Lists.Vector;
 
    type T is tagged
       record
          Source_Entity : Source_Entities;
+         Timings       : Timing_Info;
+         --  Timing information.
       end record;
 
 end SPAT.Spark_Info;

@@ -10,10 +10,10 @@ pragma License (Unrestricted);
 package body SPAT.Spark_Info is
 
    function Proof_Time (Info : in T) return Duration is
-     (Info.Source_Entity.Timings.Proof);
+     (Info.Timings.Proof);
 
    function Flow_Time (Info : in T) return Duration is
-     (Info.Source_Entity.Timings.Flow);
+     (Info.Timings.Flow);
 
    function Parse_JSON (Root : in GNATCOLL.JSON.JSON_Value) return T
    is
@@ -22,10 +22,8 @@ package body SPAT.Spark_Info is
       Timings := Root.Get (Field => "timings");
 
       return Info : SPARK_Info.T do
-         Info.Source_Entity.Timings.Proof :=
-           Duration (Float'(Timings.Get (Field => "proof")));
-         Info.Source_Entity.Timings.Flow :=
-           Duration (Float'(Timings.Get (Field => "flow analysis")));
+         Info.Timings.Proof := Duration (Float'(Timings.Get (Field => "proof")));
+         Info.Timings.Flow := Duration (Float'(Timings.Get (Field => "flow analysis")));
       end return;
    end Parse_JSON;
 
