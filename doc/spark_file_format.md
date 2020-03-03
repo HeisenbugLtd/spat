@@ -49,6 +49,9 @@ Ada unit (`package`, `subprogram`, ...) being analyzed: The `name` of
 the unit, the source location `sloc` and **presumably** the options used
 for the SPARK analysis in another object called `spark`.
 
+As far as I figured out, this array contains a list of entities
+referenced in later sections, i.e. a list of all sub-units analyzed.
+
 #### 3.1.1 Grammar Summary
 
 `spark` ::= "spark" : [ { `name`, `sloc`, `spark` } ]
