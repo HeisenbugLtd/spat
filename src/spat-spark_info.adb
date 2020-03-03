@@ -17,11 +17,33 @@ package body SPAT.Spark_Info is
 
    function Parse_JSON (Root : in GNATCOLL.JSON.JSON_Value) return T
    is
+      SPARK   : GNATCOLL.JSON.JSON_Array;
       Timings : GNATCOLL.JSON.JSON_Value;
    begin
+      SPARK   := Root.Get (Field => "spark");
       Timings := Root.Get (Field => "timings");
 
       return Info : SPARK_Info.T do
+         for S in 1 .. GNATCOLL.JSON.Length (SPARK) loop
+            declare
+               Obj : constant GNATCOLL.JSON.JSON_Value :=
+                       GNATCOLL.JSON.Get (SPARK, S);
+               Slocs : constant GNATCOLL.JSON.JSON_Array :=
+                        Obj.Get (Field => "sloc");
+            begin
+               for I in 1 .. GNATCOLL.JSON.Length (Slocs) loop
+                  declare
+                     Sloc : GNATCOLL.JSON.JSON_Value :=
+                              GNATCOLL.JSON.Get (Slocs, I);
+                  begin
+                     Info.Source_Entity.Append
+                       (New_Item => Source_Entity'(Name => Obj.Get (Field => "name"),
+                                                   File => Sloc.Get (Field => "file"),
+                                                   Line => Sloc.Get (Field => "line")));
+                  end;
+               end loop;
+            end;
+         end loop;
          Info.Timings.Proof := Duration (Float'(Timings.Get (Field => "proof")));
          Info.Timings.Flow := Duration (Float'(Timings.Get (Field => "flow analysis")));
       end return;

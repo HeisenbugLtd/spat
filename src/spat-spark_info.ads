@@ -43,10 +43,9 @@ private
 
    type Source_Entity is
       record
-         Name   : Ada.Strings.Unbounded.Unbounded_String;
-         File   : Ada.Strings.Unbounded.Unbounded_String;
-         Line   : Natural;
-         Column : Natural;
+         Name : Ada.Strings.Unbounded.Unbounded_String;
+         File : Ada.Strings.Unbounded.Unbounded_String;
+         Line : Natural;
       end record;
 
    --  Type representing a source (file) entity.
