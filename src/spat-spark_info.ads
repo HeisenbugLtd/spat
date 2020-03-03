@@ -76,7 +76,6 @@ private
       record
          Source_Entity : Source_Entity_Lists.Map := Source_Entity_Lists.Empty_Map;
          Timings       : Timing_Info             := Null_Timing_Info;
-         --  Timing information.
       end record;
 
 end SPAT.Spark_Info;

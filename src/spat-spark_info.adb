@@ -11,9 +11,9 @@ with Ada.Text_IO;
 
 package body SPAT.Spark_Info is
 
-   function Ensure_Field (Obj   : GNATCOLL.JSON.JSON_Value;
-                          Field : GNATCOLL.JSON.UTF8_String;
-                          Kind  : GNATCOLL.JSON.JSON_Value_Type) return Boolean
+   function Ensure_Field (Obj   : in GNATCOLL.JSON.JSON_Value;
+                          Field : in GNATCOLL.JSON.UTF8_String;
+                          Kind  : in GNATCOLL.JSON.JSON_Value_Type) return Boolean
    is
       use type GNATCOLL.JSON.JSON_Value_Type;
    begin
@@ -45,9 +45,9 @@ package body SPAT.Spark_Info is
 
    --
 
-   procedure Map_Sloc_Array (This      : in out T;
-                             Update_At : in     Source_Entity_Lists.Cursor;
-                             Root      : in     GNATCOLL.JSON.JSON_Array)
+   procedure Map_Sloc_Elements (This      : in out T;
+                                Update_At : in     Source_Entity_Lists.Cursor;
+                                Root      : in     GNATCOLL.JSON.JSON_Array)
    is
       File : constant GNATCOLL.JSON.UTF8_String := "file";
       Line : constant GNATCOLL.JSON.UTF8_String := "line";
@@ -85,7 +85,7 @@ package body SPAT.Spark_Info is
             end if;
          end;
       end loop;
-   end Map_Sloc_Array;
+   end Map_Sloc_Elements;
 
    procedure Map_Locations (This : in out T;
                             Root : in     GNATCOLL.JSON.JSON_Value)
@@ -121,8 +121,8 @@ package body SPAT.Spark_Info is
                end;
             end if;
 
-            This.Map_Sloc_Array (Root      => Slocs,
-                                 Update_At => C);
+            This.Map_Sloc_Elements (Root      => Slocs,
+                                    Update_At => C);
          end;
       end if;
    end Map_Locations;
@@ -149,11 +149,26 @@ package body SPAT.Spark_Info is
       end if;
    end Map_Timings;
 
+   procedure Map_SPARK_Elements (This : in out T;
+                                 Root : in     GNATCOLL.JSON.JSON_Array) is
+      Length : constant Natural := GNATCOLL.JSON.Length (Root);
+   begin
+      This.Source_Entity.Reserve_Capacity
+        (Capacity => Ada.Containers.Count_Type (Length));
+
+      for I in 1 .. Length loop
+         This.Map_Locations (Root => GNATCOLL.JSON.Get (Root, I));
+      end loop;
+   end Map_SPARK_Elements;
+
    procedure Map_JSON (This :    out T;
                        Root : in     GNATCOLL.JSON.JSON_Value)
    is
-      Spark   : constant GNATCOLL.JSON.UTF8_String := "spark";
-      Timings : constant GNATCOLL.JSON.UTF8_String := "timings";
+      Assumptions : constant GNATCOLL.JSON.UTF8_String := "assumptions";
+      Flow        : constant GNATCOLL.JSON.UTF8_String := "flow";
+      Proof       : constant GNATCOLL.JSON.UTF8_String := "proof";
+      Spark       : constant GNATCOLL.JSON.UTF8_String := "spark";
+      Timings     : constant GNATCOLL.JSON.UTF8_String := "timings";
    begin
       This.Source_Entity.Clear;
       This.Timings := Null_Timing_Info;
@@ -163,25 +178,42 @@ package body SPAT.Spark_Info is
                       Field => Spark,
                       Kind  => GNATCOLL.JSON.JSON_Array_Type)
       then
-         declare
-            Spark_Array : constant GNATCOLL.JSON.JSON_Array := Root.Get (Field => Spark);
-            Length      : constant Natural                  := GNATCOLL.JSON.Length (Spark_Array);
-         begin
-            This.Source_Entity.Reserve_Capacity
-              (Capacity => Ada.Containers.Count_Type (Length));
+         This.Map_Spark_Elements (Root.Get (Field => Spark));
+      end if;
 
-            for S in 1 .. Length loop
-               This.Map_Locations (Root => GNATCOLL.JSON.Get (Spark_Array, S));
-            end loop;
+      if
+        Ensure_Field (Obj   => Root,
+                      Field => Flow,
+                      Kind  => GNATCOLL.JSON.JSON_Array_Type)
+      then
+         null;
+         --  This.Map_Flow_Elements (Root.Get (Field => Flow));
+      end if;
 
-            if
-              Ensure_Field (Obj   => Root,
-                            Field => TImings,
-                            Kind  => GNATCOLL.JSON.JSON_Object_Type)
-            then
-               This.Map_Timings (Timings_Object => Root.Get (Field => Timings));
-            end if;
-         end;
+      if
+        Ensure_Field (Obj   => Root,
+                      Field => Proof,
+                      Kind  => GNATCOLL.JSON.JSON_Array_Type)
+      then
+         null;
+         --  This.Map_Proof_Elements (Root.Get (Field => Proof));
+      end if;
+
+      if
+        Ensure_Field (Obj   => Root,
+                      Field => Assumptions,
+                      Kind  => GNATCOLL.JSON.JSON_Array_Type)
+      then
+         null;
+         --  This.Map_Assumptions_Elements (Root.Get (Field => Assumptions));
+      end if;
+
+      if
+        Ensure_Field (Obj   => Root,
+                      Field => TImings,
+                      Kind  => GNATCOLL.JSON.JSON_Object_Type)
+      then
+         This.Map_Timings (Timings_Object => Root.Get (Field => Timings));
       end if;
    end Map_JSON;
 
