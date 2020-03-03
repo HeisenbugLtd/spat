@@ -117,7 +117,7 @@ begin
                      declare
                         Info : SPAT.Spark_Info.T;
                      begin
-                        Info.Parse_JSON (Root => Read_Result.Value);
+                        Info.Map_JSON (Root => Read_Result.Value);
 
                         Ada.Text_IO.Put_Line
                           (File => Ada.Text_IO.Standard_Output,

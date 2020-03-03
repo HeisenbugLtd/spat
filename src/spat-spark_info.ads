@@ -11,7 +11,7 @@ pragma License (Unrestricted);
 --
 --  SPARK Proof Analysis Tool
 --
---  S.P.A.T. - Parse information from JSON data into internal data structure.
+--  S.P.A.T. - Map information from JSON data into internal data structure.
 --
 --  Collect file contents.
 --
@@ -28,13 +28,14 @@ package SPAT.Spark_Info is
    --  Binary representation of the information obtained from a .spark JSON
    --  file.
 
-   procedure Parse_JSON (This : in out T;
-                         Root : in     GNATCOLL.JSON.JSON_Value);
-   --  Parses JSON data from Root into data structure in This.
+   procedure Map_JSON (This :    out T;
+                       Root : in     GNATCOLL.JSON.JSON_Value);
+   --  Traverses through the JSON data given in Root and translates it into the
+   --  data structure given in This.
 
    --  Access functions.
-   function Proof_Time (Info : in T) return Duration;
-   function Flow_Time (Info : in T) return Duration;
+   function Proof_Time (This : in T) return Duration;
+   function Flow_Time (This : in T) return Duration;
 
 private
 
@@ -44,6 +45,9 @@ private
          Proof : Duration; --  Total time the prover spent.
          Flow  : Duration; --  Total time of flow analysis.
       end record;
+
+   Null_Timing_Info : constant Timing_Info := Timing_Info'(Proof => 0.0,
+                                                           Flow  => 0.0);
 
    type Line_Location is
       record
@@ -70,8 +74,8 @@ private
 
    type T is tagged limited
       record
-         Source_Entity : Source_Entity_Lists.Map;
-         Timings       : Timing_Info;
+         Source_Entity : Source_Entity_Lists.Map := Source_Entity_Lists.Empty_Map;
+         Timings       : Timing_Info             := Null_Timing_Info;
          --  Timing information.
       end record;
 
