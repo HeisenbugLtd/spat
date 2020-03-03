@@ -28,8 +28,8 @@ package SPAT.Spark_Info is
    --  Binary representation of the information obtained from a .spark JSON
    --  file.
 
-   procedure Map_JSON (This :    out T;
-                       Root : in     GNATCOLL.JSON.JSON_Value);
+   procedure Map_SPARK_File (This :    out T;
+                             Root : in     GNATCOLL.JSON.JSON_Value);
    --  Traverses through the JSON data given in Root and translates it into the
    --  data structure given in This.
 
