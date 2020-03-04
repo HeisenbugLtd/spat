@@ -4,7 +4,7 @@
 
 ## Introduction
 
-The SPARK tools (i.e. GNATprove) leave behing a trove of information after a proof run.
+The SPARK tools (i.e. GNATprove) leave behind a trove of information after a proof run.
 This tool is intended to take these and extract some useful information out of it (like
 for example, where the provers spent their time, which provers solved the problem first
 etc. pp.).
