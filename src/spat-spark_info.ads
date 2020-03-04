@@ -57,6 +57,17 @@ package SPAT.Spark_Info is
 
 private
 
+   --  Checks that the given JSON object contains name and line indicating a
+   --  source code position (i.e. line of declaration of an entity).
+   --  Returns True if so, False otherwise.
+   function Ensure_File_Line (Object : GNATCOLL.JSON.JSON_Value) return Boolean;
+
+   --  Checks that the given JSON object contains name, line and column values
+   --  indicating a source code position.
+   --  Returns True if so, False otherwise.
+   function Ensure_File_Line_Column
+     (Object : GNATCOLL.JSON.JSON_Value) return Boolean;
+
    --  Information obtained from the timing section of a .spark file.
    type Timing_Item is
       record
@@ -67,22 +78,28 @@ private
    Null_Timing_Item : constant Timing_Item := Timing_Item'(Proof => 0.0,
                                                            Flow  => 0.0);
 
-   type File_Line_Item is
+   type Entity_Line is tagged
       record
-         File_Name   : Ada.Strings.Unbounded.Unbounded_String;
-         Line_Number : Natural;
+         File : Ada.Strings.Unbounded.Unbounded_String;
+         Line : Natural;
       end record;
 
-   package File_Line_Items is
-     new Ada.Containers.Vectors (Index_Type   => Positive,
-                                 Element_Type => File_Line_Item);
+   not overriding function Create
+     (Object : GNATCOLL.JSON.JSON_Value) return Entity_Line with
+     Pre => Ensure_File_Line (Object => Object);
 
-   type Entity_Location is
+   package Entity_Lines is
+     new Ada.Containers.Vectors (Index_Type   => Positive,
+                                 Element_Type => Entity_Line);
+
+   type Entity_Location is new Entity_Line with
       record
-         File   : Ada.Strings.Unbounded.Unbounded_String;
-         Line   : Natural;
          Column : Natural;
       end record;
+
+   overriding function Create
+     (Object : GNATCOLL.JSON.JSON_Value) return Entity_Location with
+     Pre => Ensure_File_Line_Column (Object => Object);
 
    type Flow_Item is
       record
@@ -120,9 +137,9 @@ private
 
    type Analyzed_Entity is
       record
-         Locations : File_Line_Items.Vector;
-         Flows     : Flow_Items.Vector;
-         Proofs    : Proof_Items.Vector;
+         Source_Lines : Entity_Lines.Vector;
+         Flows        : Flow_Items.Vector;
+         Proofs       : Proof_Items.Vector;
       end record;
 
    --  Type representing a source (file) entity.

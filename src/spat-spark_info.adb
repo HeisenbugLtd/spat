@@ -43,14 +43,17 @@ package body SPAT.Spark_Info is
       return Left.Where.File < Right.Where.File;
    end "<";
 
+   --  Check that the given JSON object contains an object named Field with type
+   --  of Kind.
+   --  Returns True if so, False otherwise.
    function Ensure_Field
-     (Obj   : in GNATCOLL.JSON.JSON_Value;
-      Field : in GNATCOLL.JSON.UTF8_String;
-      Kind  : in GNATCOLL.JSON.JSON_Value_Type) return Boolean
+     (Object : in GNATCOLL.JSON.JSON_Value;
+      Field  : in GNATCOLL.JSON.UTF8_String;
+      Kind   : in GNATCOLL.JSON.JSON_Value_Type) return Boolean
    is
       use type GNATCOLL.JSON.JSON_Value_Type;
    begin
-      if not Obj.Has_Field (Field => Field) then
+      if not Object.Has_Field (Field => Field) then
          Ada.Text_IO.Put_Line
            (File => Ada.Text_IO.Standard_Error,
             Item => "Warning: Expected field """ & Field & """ not present!");
@@ -58,7 +61,7 @@ package body SPAT.Spark_Info is
          return False;
       end if;
 
-      if Obj.Get (Field => Field).Kind /= Kind then
+      if Object.Get (Field => Field).Kind /= Kind then
          Ada.Text_IO.Put_Line
            (File => Ada.Text_IO.Standard_Error,
             Item =>
@@ -70,6 +73,44 @@ package body SPAT.Spark_Info is
 
       return True;
    end Ensure_Field;
+
+   --  Encapsulates names of recognized fields in JSON data.
+   package Field_Names is
+
+      Assumptions   : constant GNATCOLL.JSON.UTF8_String := "assumptions";
+      Column        : constant GNATCOLL.JSON.UTF8_String := "col";
+      Entity        : constant GNATCOLL.JSON.UTF8_String := "entity";
+      File          : constant GNATCOLL.JSON.UTF8_String := "file";
+      Flow          : constant GNATCOLL.JSON.UTF8_String := "flow";
+      Flow_Analysis : constant GNATCOLL.JSON.UTF8_String := "flow analysis";
+      Line          : constant GNATCOLL.JSON.UTF8_String := "line";
+      Name          : constant GNATCOLL.JSON.UTF8_String := "name";
+      Proof         : constant GNATCOLL.JSON.UTF8_String := "proof";
+      Rule          : constant GNATCOLL.JSON.UTF8_String := "rule";
+      Severity      : constant GNATCOLL.JSON.UTF8_String := "severity";
+      Sloc          : constant GNATCOLL.JSON.UTF8_String := "sloc";
+      Spark         : constant GNATCOLL.JSON.UTF8_String := "spark";
+      Timings       : constant GNATCOLL.JSON.UTF8_String := "timings";
+
+   end Field_Names;
+
+   function Ensure_File_Line
+     (Object : GNATCOLL.JSON.JSON_Value) return Boolean
+   is
+      (Ensure_Field (Object => Object,
+                     Field  => Field_Names.File,
+                     Kind   => GNATCOLL.JSON.JSON_String_Type) and then
+       Ensure_Field (Object => Object,
+                     Field  => Field_Names.Line,
+                     Kind   => GNATCOLL.JSON.JSON_Int_Type));
+
+   function Ensure_File_Line_Column
+     (Object : GNATCOLL.JSON.JSON_Value) return Boolean
+   is
+      (Ensure_File_Line (Object => Object) and then
+       Ensure_Field (Object   => Object,
+                     Field    => Field_Names.Column,
+                     Kind     => GNATCOLL.JSON.JSON_Int_Type));
 
    --
 
@@ -117,25 +158,15 @@ package body SPAT.Spark_Info is
    end List_All_Entities;
 
    --
+   function Create (Object : in GNATCOLL.JSON.JSON_Value) return Entity_Line is
+     (Entity_Line'(File => Object.Get (Field => Field_Names.File),
+                   Line => Object.Get (Field => Field_Names.Line)));
 
-   package Field_Names is
+   function Create (Object : GNATCOLL.JSON.JSON_Value) return Entity_Location is
+     (Entity_Line'(Create (Object => Object)) with
+        Column => Object.Get (Field => Field_Names.Column));
 
-      Assumptions   : constant GNATCOLL.JSON.UTF8_String := "assumptions";
-      Column        : constant GNATCOLL.JSON.UTF8_String := "col";
-      Entity        : constant GNATCOLL.JSON.UTF8_String := "entity";
-      File          : constant GNATCOLL.JSON.UTF8_String := "file";
-      Flow          : constant GNATCOLL.JSON.UTF8_String := "flow";
-      Flow_Analysis : constant GNATCOLL.JSON.UTF8_String := "flow analysis";
-      Line          : constant GNATCOLL.JSON.UTF8_String := "line";
-      Name          : constant GNATCOLL.JSON.UTF8_String := "name";
-      Proof         : constant GNATCOLL.JSON.UTF8_String := "proof";
-      Rule          : constant GNATCOLL.JSON.UTF8_String := "rule";
-      Severity      : constant GNATCOLL.JSON.UTF8_String := "severity";
-      Sloc          : constant GNATCOLL.JSON.UTF8_String := "sloc";
-      Spark         : constant GNATCOLL.JSON.UTF8_String := "spark";
-      Timings       : constant GNATCOLL.JSON.UTF8_String := "timings";
-
-   end Field_Names;
+   --
 
    procedure Map_Sloc_Elements (This      : in out T;
                                 Update_At : in     Analyzed_Entities.Cursor;
@@ -147,20 +178,10 @@ package body SPAT.Spark_Info is
                      GNATCOLL.JSON.Get (Arr   => Root,
                                         Index => I);
          begin
-            if
-              Ensure_Field (Obj   => Sloc,
-                            Field => Field_Names.File,
-                            Kind  => GNATCOLL.JSON.JSON_String_Type) and then
-              Ensure_Field (Obj   => Sloc,
-                            Field => Field_Names.Line,
-                            Kind  => GNATCOLL.JSON.JSON_Int_Type)
-            then
+            if Ensure_File_Line (Object => Sloc) then
                --  Update element.
-               This.Entities (Update_At).Locations.Append
-                 (New_Item =>
-                    File_Line_Item'
-                      (File_Name   => Sloc.Get (Field => Field_Names.File),
-                       Line_Number => Sloc.Get (Field => Field_Names.Line)));
+               This.Entities (Update_At).Source_Lines.Append
+                 (New_Item => Create (Object => Sloc));
             end if;
          end;
       end loop;
@@ -170,12 +191,12 @@ package body SPAT.Spark_Info is
                            Root : in     GNATCOLL.JSON.JSON_Value) is
    begin
       if
-        Ensure_Field (Obj   => Root,
-                      Field => Field_Names.Name,
-                      Kind  => GNATCOLL.JSON.JSON_String_Type) and then
-        Ensure_Field (Obj   => Root,
-                      Field => Field_Names.Sloc,
-                      Kind  => GNATCOLL.JSON.JSON_Array_Type)
+        Ensure_Field (Object => Root,
+                      Field  => Field_Names.Name,
+                      Kind   => GNATCOLL.JSON.JSON_String_Type) and then
+        Ensure_Field (Object => Root,
+                      Field  => Field_Names.Sloc,
+                      Kind   => GNATCOLL.JSON.JSON_Array_Type)
       then
          declare
             Obj_Name  : constant Ada.Strings.Unbounded.Unbounded_String :=
@@ -229,9 +250,9 @@ package body SPAT.Spark_Info is
                                            Index => I);
          begin
             if
-              Ensure_Field (Obj   => Element,
-                            Field => Field_Names.Entity,
-                            Kind  => GNATCOLL.JSON.JSON_Object_Type)
+              Ensure_Field (Object => Element,
+                            Field  => Field_Names.Entity,
+                            Kind   => GNATCOLL.JSON.JSON_Object_Type)
             then
                declare
                   Source_Entity : constant GNATCOLL.JSON.JSON_Value :=
@@ -240,9 +261,9 @@ package body SPAT.Spark_Info is
                   --  The name referenced here should match a name we already
                   --  have in the hash table.
                   if
-                    Ensure_Field (Obj   => Source_Entity,
-                                  Field => Field_Names.Name,
-                                  Kind  => GNATCOLL.JSON.JSON_String_Type)
+                    Ensure_Field (Object => Source_Entity,
+                                  Field  => Field_Names.Name,
+                                  Kind   => GNATCOLL.JSON.JSON_String_Type)
                   then
                      declare
                         The_Key : constant Ada.Strings.Unbounded.Unbounded_String :=
@@ -258,26 +279,15 @@ package body SPAT.Spark_Info is
                            begin
                               --  TODO: Add flow information into hash table.
                               if
-                                Ensure_Field (Obj   => Element,
-                                              Field => Field_Names.File,
-                                              Kind  => GNATCOLL.JSON.JSON_String_Type) and then
-                                Ensure_Field (Obj   => Element,
-                                              Field => Field_Names.Line,
-                                              Kind  => GNATCOLL.JSON.JSON_Int_Type) and then
-                                Ensure_Field (Obj   => Element,
-                                              Field => Field_Names.Column,
-                                              Kind  => GNATCOLL.JSON.JSON_Int_Type)
+                                Ensure_File_Line_Column (Object => Element)
                               then
-                                 The_Item.Where :=
-                                   Entity_Location'(File   => Element.Get (Field => Field_Names.File),
-                                                    Line   => Element.Get (Field => Field_Names.Line),
-                                                    Column => Element.Get (Field => Field_Names.Column));
+                                 The_Item.Where := Create (Object => Element);
 
                                  if
                                    Ensure_Field
-                                     (Obj   => Element,
-                                      Field => Field_Names.Rule,
-                                      Kind  => GNATCOLL.JSON.JSON_String_Type)
+                                     (Object => Element,
+                                      Field  => Field_Names.Rule,
+                                      Kind   => GNATCOLL.JSON.JSON_String_Type)
                                  then
                                     The_Item.Rule :=
                                       Element.Get (Field => Field_Names.Rule);
@@ -285,9 +295,9 @@ package body SPAT.Spark_Info is
 
                                  if
                                    Ensure_Field
-                                     (Obj   => Element,
-                                      Field => Field_Names.Severity,
-                                      Kind  => GNATCOLL.JSON.JSON_String_Type)
+                                     (Object => Element,
+                                      Field  => Field_Names.Severity,
+                                      Kind   => GNATCOLL.JSON.JSON_String_Type)
                                  then
                                     The_Item.Severity :=
                                       Element.Get (Field => Field_Names.Severity);
@@ -328,9 +338,9 @@ package body SPAT.Spark_Info is
                                            Index => I);
          begin
             if
-              Ensure_Field (Obj   => Element,
-                            Field => Field_Names.Entity,
-                            Kind  => GNATCOLL.JSON.JSON_Object_Type)
+              Ensure_Field (Object => Element,
+                            Field  => Field_Names.Entity,
+                            Kind   => GNATCOLL.JSON.JSON_Object_Type)
             then
                declare
                   Source_Entity : constant GNATCOLL.JSON.JSON_Value :=
@@ -339,9 +349,9 @@ package body SPAT.Spark_Info is
                   --  The name referenced here should match a name we already
                   --  have in the hash table.
                   if
-                    Ensure_Field (Obj   => Source_Entity,
-                                  Field => Field_Names.Name,
-                                  Kind  => GNATCOLL.JSON.JSON_String_Type)
+                    Ensure_Field (Object => Source_Entity,
+                                  Field  => Field_Names.Name,
+                                  Kind   => GNATCOLL.JSON.JSON_String_Type)
                   then
                      declare
                         The_Key : constant Ada.Strings.Unbounded.Unbounded_String :=
@@ -357,26 +367,15 @@ package body SPAT.Spark_Info is
                            begin
                               --  TODO: Add flow information into hash table.
                               if
-                                Ensure_Field (Obj   => Element,
-                                              Field => Field_Names.File,
-                                              Kind  => GNATCOLL.JSON.JSON_String_Type) and then
-                                Ensure_Field (Obj   => Element,
-                                              Field => Field_Names.Line,
-                                              Kind  => GNATCOLL.JSON.JSON_Int_Type) and then
-                                Ensure_Field (Obj   => Element,
-                                              Field => Field_Names.Column,
-                                              Kind  => GNATCOLL.JSON.JSON_Int_Type)
+                                Ensure_File_Line_Column (Object => Element)
                               then
-                                 The_Item.Where :=
-                                   Entity_Location'(File   => Element.Get (Field => Field_Names.File),
-                                                    Line   => Element.Get (Field => Field_Names.Line),
-                                                    Column => Element.Get (Field => Field_Names.Column));
+                                 The_Item.Where := Create (Object => Element);
 
                                  if
                                    Ensure_Field
-                                     (Obj   => Element,
-                                      Field => Field_Names.Rule,
-                                      Kind  => GNATCOLL.JSON.JSON_String_Type)
+                                     (Object => Element,
+                                      Field  => Field_Names.Rule,
+                                      Kind   => GNATCOLL.JSON.JSON_String_Type)
                                  then
                                     The_Item.Rule :=
                                       Element.Get (Field => Field_Names.Rule);
@@ -384,9 +383,9 @@ package body SPAT.Spark_Info is
 
                                  if
                                    Ensure_Field
-                                     (Obj   => Element,
-                                      Field => Field_Names.Severity,
-                                      Kind  => GNATCOLL.JSON.JSON_String_Type)
+                                     (Object => Element,
+                                      Field  => Field_Names.Severity,
+                                      Kind   => GNATCOLL.JSON.JSON_String_Type)
                                  then
                                     The_Item.Severity :=
                                       Element.Get (Field => Field_Names.Severity);
@@ -429,12 +428,12 @@ package body SPAT.Spark_Info is
                           Root : in     GNATCOLL.JSON.JSON_Value) is
    begin
       if
-        Ensure_Field (Obj   => Root,
-                      Field => Field_Names.Proof,
-                      Kind  => GNATCOLL.JSON.JSON_Float_Type) and then
-        Ensure_Field (Obj   => Root,
-                      Field => Field_Names.Flow_Analysis,
-                      Kind  => GNATCOLL.JSON.JSON_Float_Type)
+        Ensure_Field (Object => Root,
+                      Field  => Field_Names.Proof,
+                      Kind   => GNATCOLL.JSON.JSON_Float_Type) and then
+        Ensure_Field (Object => Root,
+                      Field  => Field_Names.Flow_Analysis,
+                      Kind   => GNATCOLL.JSON.JSON_Float_Type)
       then
          This.Timings :=
            Timing_Item'
@@ -455,45 +454,45 @@ package body SPAT.Spark_Info is
       --  If I understand the .spark file format correctly, this should
       --  establish the table of all known analysis elements.
       if
-        Ensure_Field (Obj   => Root,
-                      Field => Field_Names.Spark,
-                      Kind  => GNATCOLL.JSON.JSON_Array_Type)
+        Ensure_Field (Object => Root,
+                      Field  => Field_Names.Spark,
+                      Kind   => GNATCOLL.JSON.JSON_Array_Type)
       then
          This.Map_Spark_Elements
            (Root => Root.Get (Field => Field_Names.Spark));
       end if;
 
       if
-        Ensure_Field (Obj   => Root,
-                      Field => Field_Names.Flow,
-                      Kind  => GNATCOLL.JSON.JSON_Array_Type)
+        Ensure_Field (Object => Root,
+                      Field  => Field_Names.Flow,
+                      Kind   => GNATCOLL.JSON.JSON_Array_Type)
       then
          This.Map_Flow_Elements
            (Root => Root.Get (Field => Field_Names.Flow));
       end if;
 
       if
-        Ensure_Field (Obj   => Root,
-                      Field => Field_Names.Proof,
-                      Kind  => GNATCOLL.JSON.JSON_Array_Type)
+        Ensure_Field (Object => Root,
+                      Field  => Field_Names.Proof,
+                      Kind   => GNATCOLL.JSON.JSON_Array_Type)
       then
          This.Map_Proof_Elements
            (Root => Root.Get (Field => Field_Names.Proof));
       end if;
 
       if
-        Ensure_Field (Obj   => Root,
-                      Field => Field_Names.Assumptions,
-                      Kind  => GNATCOLL.JSON.JSON_Array_Type)
+        Ensure_Field (Object => Root,
+                      Field  => Field_Names.Assumptions,
+                      Kind   => GNATCOLL.JSON.JSON_Array_Type)
       then
          This.Map_Assumptions_Elements
            (Root => Root.Get (Field => Field_Names.Assumptions));
       end if;
 
       if
-        Ensure_Field (Obj   => Root,
-                      Field => Field_Names.TImings,
-                      Kind  => GNATCOLL.JSON.JSON_Object_Type)
+        Ensure_Field (Object => Root,
+                      Field  => Field_Names.Timings,
+                      Kind   => GNATCOLL.JSON.JSON_Object_Type)
       then
          This.Map_Timings (Root => Root.Get (Field => Field_Names.Timings));
       end if;
