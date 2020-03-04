@@ -121,8 +121,10 @@ begin
 
                         Ada.Text_IO.Put_Line
                           (File => Ada.Text_IO.Standard_Output,
-                           Item => "[Proof => " & Image (Info.Proof_Time) &
-                             "], [Flow => " & Image (Info.Flow_Time) & "]");
+                           Item => "[Flow => " & Image (Info.Flow_Time) &
+                             "/" & Info.Num_Flows'Image &
+                             "], [Proof => " & Image (Info.Proof_Time) &
+                             "/" & Info.Num_Proofs'Image & "]");
 
                         if SPAT.Command_Line.List.Get then
                            declare

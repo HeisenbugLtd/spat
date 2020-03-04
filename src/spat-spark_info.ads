@@ -17,10 +17,9 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 with Ada.Containers.Generic_Array_Sort;
-with Ada.Containers.Indefinite_Hashed_Maps;
+with Ada.Containers.Hashed_Maps;
 with Ada.Containers.Vectors;
-with Ada.Strings.Hash;
-with Ada.Strings.Unbounded;
+with Ada.Strings.Unbounded.Hash;
 with GNATCOLL.JSON;
 
 package SPAT.Spark_Info is
@@ -49,48 +48,83 @@ package SPAT.Spark_Info is
    --  stored in This.
 
    --  Access functions.
-   function Proof_Time (This : in T) return Duration;
+   function Num_Flows (This : in T) return Natural;
    function Flow_Time (This : in T) return Duration;
+
+   function Num_Proofs (This : in T) return Natural;
+   function Proof_Time (This : in T) return Duration;
+
 
 private
 
    --  Information obtained from the timing section of a .spark file.
-   type Timing_Info is
+   type Timing_Item is
       record
          Proof : Duration; --  Total time the prover spent.
          Flow  : Duration; --  Total time of flow analysis.
       end record;
 
-   Null_Timing_Info : constant Timing_Info := Timing_Info'(Proof => 0.0,
+   Null_Timing_Item : constant Timing_Item := Timing_Item'(Proof => 0.0,
                                                            Flow  => 0.0);
 
-   type Line_Location is
+   type File_Line_Item is
       record
          File_Name   : Ada.Strings.Unbounded.Unbounded_String;
          Line_Number : Natural;
       end record;
 
-   package Source_Line_Locations is
+   package File_Line_Items is
      new Ada.Containers.Vectors (Index_Type   => Positive,
-                                 Element_Type => Line_Location);
+                                 Element_Type => File_Line_Item);
 
-   type Source_Entity is
+   type Entity_Location is
       record
-         Locations : Source_Line_Locations.Vector;
+         File   : Ada.Strings.Unbounded.Unbounded_String;
+         Line   : Natural;
+         Column : Natural;
+      end record;
+
+   type Flow_Item is
+      record
+         Where    : Entity_Location;
+         Rule     : Ada.Strings.Unbounded.Unbounded_String;
+         Severity : Ada.Strings.Unbounded.Unbounded_String;
+      end record;
+
+   package Flow_Items is
+     new Ada.Containers.Vectors (Index_Type   => Positive,
+                                 Element_Type => Flow_Item);
+
+   type Proof_Item is
+      record
+         Where    : Entity_Location;
+         Rule     : Ada.Strings.Unbounded.Unbounded_String;
+         Severity : Ada.Strings.Unbounded.Unbounded_String;
+      end record;
+
+   package Proof_Items is
+     new Ada.Containers.Vectors (Index_Type   => Positive,
+                                 Element_Type => Proof_Item);
+
+   type Analyzed_Entity is
+      record
+         Locations : File_Line_Items.Vector;
+         Flows     : Flow_Items.Vector;
+         Proofs    : Proof_Items.Vector;
       end record;
 
    --  Type representing a source (file) entity.
-   package Source_Entity_Lists is new
-     Ada.Containers.Indefinite_Hashed_Maps (Key_Type        => String,
-                                            Element_Type    => Source_Entity,
-                                            Hash            => Ada.Strings.Hash,
-                                            Equivalent_Keys => Standard."=",
-                                            "="             => "=");
+   package Analyzed_Entities is new
+     Ada.Containers.Hashed_Maps (Key_Type        => Ada.Strings.Unbounded.Unbounded_String,
+                                 Element_Type    => Analyzed_Entity,
+                                 Hash            => Ada.Strings.Unbounded.Hash,
+                                 Equivalent_Keys => Ada.Strings.Unbounded."=",
+                                 "="             => "=");
 
    type T is tagged limited
       record
-         Source_Entity : Source_Entity_Lists.Map := Source_Entity_Lists.Empty_Map;
-         Timings       : Timing_Info             := Null_Timing_Info;
+         Entities : Analyzed_Entities.Map := Analyzed_Entities.Empty_Map;
+         Timings  : Timing_Item           := Null_Timing_Item;
       end record;
 
 end SPAT.Spark_Info;
