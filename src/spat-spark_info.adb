@@ -11,6 +11,38 @@ with Ada.Text_IO;
 
 package body SPAT.Spark_Info is
 
+   function "<" (Left  : in Flow_Item;
+                 Right : in Flow_Item) return Boolean
+   is
+      use type Ada.Strings.Unbounded.Unbounded_String;
+   begin
+      if Left.Where.File = Right.Where.File then
+         if Left.Where.Line = Right.Where.Line then
+            return Left.Where.Column < Right.Where.Column;
+         end if;
+
+         return Left.Where.Line < Right.Where.Line;
+      end if;
+
+      return Left.Where.File < Right.Where.File;
+   end "<";
+
+   function "<" (Left  : in Proof_Item;
+                 Right : in Proof_Item) return Boolean
+   is
+      use type Ada.Strings.Unbounded.Unbounded_String;
+   begin
+      if Left.Where.File = Right.Where.File then
+         if Left.Where.Line = Right.Where.Line then
+            return Left.Where.Column < Right.Where.Column;
+         end if;
+
+         return Left.Where.Line < Right.Where.Line;
+      end if;
+
+      return Left.Where.File < Right.Where.File;
+   end "<";
+
    function Ensure_Field
      (Obj   : in GNATCOLL.JSON.JSON_Value;
       Field : in GNATCOLL.JSON.UTF8_String;
@@ -279,6 +311,11 @@ package body SPAT.Spark_Info is
             end if;
          end;
       end loop;
+
+      --  Sort flows by file name:line:column.
+      for E of This.Entities loop
+         Flow_Items_By_Location.Sort (Container => E.Flows);
+      end loop;
    end Map_Flow_Elements;
 
    procedure Map_Proof_Elements (This : in out T;
@@ -372,6 +409,11 @@ package body SPAT.Spark_Info is
                end;
             end if;
          end;
+      end loop;
+
+      --  Sort proofs by file name:line:column.
+      for E of This.Entities loop
+         Proof_Items_By_Location.Sort (Container => E.Proofs);
       end loop;
    end Map_Proof_Elements;
 

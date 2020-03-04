@@ -91,9 +91,15 @@ private
          Severity : Ada.Strings.Unbounded.Unbounded_String;
       end record;
 
+   function "<" (Left  : in Flow_Item;
+                 Right : in Flow_Item) return Boolean;
+
    package Flow_Items is
      new Ada.Containers.Vectors (Index_Type   => Positive,
                                  Element_Type => Flow_Item);
+
+   package Flow_Items_By_Location is new
+     Flow_Items.Generic_Sorting ("<" => "<");
 
    type Proof_Item is
       record
@@ -102,9 +108,15 @@ private
          Severity : Ada.Strings.Unbounded.Unbounded_String;
       end record;
 
+   function "<" (Left  : in Proof_Item;
+                 Right : in Proof_Item) return Boolean;
+
    package Proof_Items is
      new Ada.Containers.Vectors (Index_Type   => Positive,
                                  Element_Type => Proof_Item);
+
+   package Proof_Items_By_Location is new
+     Proof_Items.Generic_Sorting ("<" => "<");
 
    type Analyzed_Entity is
       record
