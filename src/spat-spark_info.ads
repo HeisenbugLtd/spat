@@ -16,6 +16,7 @@ pragma License (Unrestricted);
 --  Collect file contents.
 --
 ------------------------------------------------------------------------------
+with Ada.Containers.Generic_Array_Sort;
 with Ada.Containers.Indefinite_Hashed_Maps;
 with Ada.Containers.Vectors;
 with Ada.Strings.Hash;
@@ -23,6 +24,16 @@ with Ada.Strings.Unbounded;
 with GNATCOLL.JSON;
 
 package SPAT.Spark_Info is
+
+   --  Helper types.
+   type String_Array is array (Positive range <>) of Ada.Strings.Unbounded.Unbounded_String;
+
+   procedure Sort_By_Name is new
+     Ada.Containers.Generic_Array_Sort
+       (Index_Type   => Positive,
+        Element_Type => Ada.Strings.Unbounded.Unbounded_String,
+        Array_Type   => String_Array,
+        "<"          => Ada.Strings.Unbounded."<");
 
    type T is tagged limited private;
    --  Binary representation of the information obtained from a .spark JSON
@@ -32,6 +43,10 @@ package SPAT.Spark_Info is
                              Root : in     GNATCOLL.JSON.JSON_Value);
    --  Traverses through the JSON data given in Root and translates it into the
    --  data structure given in This.
+
+   function List_All_Entities (This : in T) return String_Array;
+   --  Returns a sorted list of all entities (source unit names) currently
+   --  stored in This.
 
    --  Access functions.
    function Proof_Time (This : in T) return Duration;

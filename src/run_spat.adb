@@ -123,6 +123,19 @@ begin
                           (File => Ada.Text_IO.Standard_Output,
                            Item => "[Proof => " & Image (Info.Proof_Time) &
                              "], [Flow => " & Image (Info.Flow_Time) & "]");
+
+                        if SPAT.Command_Line.List.Get then
+                           declare
+                              Entity_List : SPAT.Spark_Info.String_Array :=
+                                Info.List_All_Entities;
+                           begin
+                              for S of Entity_List loop
+                                 Ada.Text_IO.Put_Line
+                                   (File => Ada.Text_IO.Standard_Output,
+                                    Item => Ada.Strings.Unbounded.To_String (S));
+                              end loop;
+                           end;
+                        end if;
                      end;
                   else
                      Ada.Text_IO.Put_Line

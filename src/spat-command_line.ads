@@ -28,6 +28,12 @@ package SPAT.Command_Line is
    --  Before using the below functions you should have called Parser.Parse and
    --  evaluated its return status.
 
+   package List is new
+     GNATCOLL.Opt_Parse.Parse_Flag (Parser => Parser,
+                                    Short  => "-l",
+                                    Long   => "--list",
+                                    Help   => "List entities");
+
    package Summary is new
      GNATCOLL.Opt_Parse.Parse_Flag (Parser => Parser,
                                     Short  => "-s",
