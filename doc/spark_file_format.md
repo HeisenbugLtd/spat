@@ -303,7 +303,7 @@ This array contains a list of objects which are further subdivided into
 `proof-attempts` contains objects which are denoted with the prover
 name. Weirdly, this is not expressed as a JSON array, but as an object
 containing an unspecified number of other JSON objects. I am assuming
-that each of these unnamed object containing a `proof-attempts` and
+that each of these unnamed objects containing a `proof-attempts` and
 `transformations` object corresponds to a code path proven individually.
 
 * Example:
