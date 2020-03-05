@@ -54,6 +54,10 @@ package SPAT.Spark_Info is
    function Num_Proofs (This : in T) return Ada.Containers.Count_Type;
    function Proof_Time (This : in T) return Duration;
 
+   --  Lookup functions.
+   function Max_Proof_Time (This    : in T;
+                            Element : in Entity_Name) return Duration;
+
 private
 
    type Analyzed_Entity is

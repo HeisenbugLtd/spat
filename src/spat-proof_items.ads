@@ -25,6 +25,7 @@ private package SPAT.Proof_Items is
       record
          Rule     : Rule_Name;
          Severity : Severity_Name;
+         Max_Time : Duration; --  Longest time spent in proof (successful or not)
       end record;
 
    overriding function Create (Object : in JSON_Value) return T with

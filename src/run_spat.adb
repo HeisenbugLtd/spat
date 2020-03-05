@@ -129,7 +129,8 @@ begin
                            for S of Entity_List loop
                               Ada.Text_IO.Put_Line
                                 (File => Ada.Text_IO.Standard_Output,
-                                 Item => SPAT.To_String (S));
+                                 Item => SPAT.To_String (S) & " => " &
+                                Image (Info.Max_Proof_Time (Element => S)));
                            end loop;
                         end;
                      end if;

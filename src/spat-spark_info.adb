@@ -400,6 +400,21 @@ package body SPAT.Spark_Info is
    end Map_Timings;
 
    ---------------------------------------------------------------------------
+   --  Max_Proof_Time
+   ---------------------------------------------------------------------------
+   function Max_Proof_Time (This    : in T;
+                            Element : in Entity_Name) return Duration
+   is
+      Max_Time : Duration := 0.0;
+   begin
+      for P of This.Entities (Element).Proofs loop
+         Max_Time := Duration'Max (Max_Time, P.Max_Time);
+      end loop;
+
+      return Max_Time;
+   end Max_Proof_Time;
+
+   ---------------------------------------------------------------------------
    --  Num_Flows
    ---------------------------------------------------------------------------
    function Num_Flows (This : in T) return Ada.Containers.Count_Type is
