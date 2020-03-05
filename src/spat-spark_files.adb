@@ -1,10 +1,11 @@
 with Ada.IO_Exceptions;
 with Ada.Strings.Unbounded;
 with Ada.Text_IO;
-with GNATCOLL.JSON;
 with SPAT.Command_Line;
 
 package body SPAT.Spark_Files is
+
+   function Parse_File (Name : in String) return GNATCOLL.JSON.Read_Result;
 
    function Parse_File (Name : in String) return GNATCOLL.JSON.Read_Result is
       JSON_File    : Ada.Text_IO.File_Type;
@@ -22,7 +23,7 @@ package body SPAT.Spark_Files is
 
       Ada.Text_IO.Close (File => JSON_File);
 
-      return GNATColl.JSON.Read (Strm => File_Content);
+      return GNATCOLL.JSON.Read (Strm => File_Content);
    end Parse_File;
 
    procedure Read_Files (This  : in out SPARK_Data;
@@ -53,7 +54,7 @@ package body SPAT.Spark_Files is
                      Item => "Error reading """ & Name & """!");
             end;
          else
-            -- Skip file, we already got that one.
+            --  Skip file, we already got that one.
             null;
          end if;
       end loop;

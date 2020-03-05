@@ -23,6 +23,8 @@ package body SPAT.File_Ops is
                                        Directory : in     String;
                                        Extension : in     String := "spark")
    is
+      procedure Handle_Entry (Item : in Ada.Directories.Directory_Entry_Type);
+
       procedure Handle_Entry (Item : in Ada.Directories.Directory_Entry_Type)
       is
          Full_Name : constant String :=

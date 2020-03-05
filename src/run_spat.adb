@@ -113,7 +113,7 @@ begin
                   declare
                      Info : SPAT.Spark_Info.T;
                   begin
-                     Info.Map_SPARK_File (Root => Read_Result.Value);
+                     Info.Map_Spark_File (Root => Read_Result.Value);
 
                      Ada.Text_IO.Put_Line
                        (File => Ada.Text_IO.Standard_Output,
@@ -124,7 +124,7 @@ begin
 
                      if SPAT.Command_Line.List.Get then
                         declare
-                           Entity_List : SPAT.Spark_Info.String_Array :=
+                           Entity_List : constant SPAT.Spark_Info.String_Array :=
                              Info.List_All_Entities;
                         begin
                            for S of Entity_List loop
