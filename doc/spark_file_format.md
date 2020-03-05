@@ -268,9 +268,9 @@ The following objects have been seen in the wild:
 #### 3.3.1 Grammar Summary
 
 `proof` ::= "proof" : [ { `file`, `line`, `col`, `rule`, `severity`,
-                          `entity`, `check-tree`, `how-proved`,
-                          `check-file`, `check-line`, `check-col`,
-                          `how-proved`, `stats` } ]
+                          `entity`, `check-tree`,  `check-file`,
+                          `check-line`, `check-col`,  `how-proved`,
+                          `stats` } ]
 
 For the `file`, `line`, `col`, `rule`, `severity`, and `entity` objects
 see the flow array section above, they share the same grammar, it seems.
@@ -293,16 +293,18 @@ different parts of the same structure.)
 
 `time` ::= "time" : `json-float`
 
-#### 3.3.2 The `flow[].check-tree` array
+#### 3.3.2 The `proof[].check-tree` array
 
 This array contains a list of objects which are further subdivided into
 `proof_attempts` and `transformations` object.
 
-##### 3.3.2.1 The `flow[].check-tree[].proof-attempts` object
+##### 3.3.2.1 The `proof[].check-tree[].proof-attempts` object
 
 `proof-attempts` contains objects which are denoted with the prover
 name. Weirdly, this is not expressed as a JSON array, but as an object
-containing an unspecified number of other JSON objects.
+containing an unspecified number of other JSON objects. I am assuming
+that each object contain a `proof-attempts` and `transformations` object
+corresponds to a code path proven individually.
 
 * Example:
 ```json
@@ -312,7 +314,7 @@ containing an unspecified number of other JSON objects.
 }
 ```
 
-###### 3.3.2.2 The `flow[].check-tree[].proof-attempts.*` object
+###### 3.3.2.2 The `proof[].check-tree[].proof-attempts.*` object
 
 Each object contained in the `proof-attempts` object contains the result
 of running a specific prover and the object is named after the prover.
@@ -331,9 +333,50 @@ successful. `steps` holds the number of proof steps the prover has done
 (what these steps mean may depend on the prover used), and `time` is
 obviously the (wall clock) time the prover spend doing all this.
 
-###### 3.3.2.3 The `flow[].check-tree[].transformations` object
+###### 3.3.2.3 The `proof[].check-tree[].transformations` object
 
 ??? Unclear. So far I have only seen empty objects.
+
+#### 3.3.3 The `proof[].check-file`, `proof[].check-line`, `proof[].check-col` objects
+
+In the cases I have seen, these simply duplicate the previous entries
+`file`, `line`, and `column`. Right now I can only assume that these may
+contain different data under certain circumstances (e.g. when proving
+generic instantiations).
+
+#### 3.3.4 The `proof[].how-proved` object
+
+This seems to contain the string "prover" in all cases. I am assuming
+that these may contain different values if the VC was either proven
+manually, or justified.
+
+#### 3.3.5 The `proof[].stats` object
+
+Contains, for each prover involved, an object with the name of the
+prover, and the three fields `count` (`json-int`), `max-steps`
+(`json-int`), and `max_time` (`json-float`).
+
+* Example:
+```json
+"stats": {
+  "CVC4": {
+    "count": 4,
+    "max_steps": 1,
+    "max_time": 5.99999986588955E-02
+  }
+}
+```
+
+* `count` seems to correspond to the number of paths from the
+`check-tree` array where the prover could successfully proof the VC.
+
+* `max_steps` is unclear, this value has no obvious correlation to
+  `steps` (which I would have had expected).
+  
+* `max-time` seems to contain the time of the path where the the prover
+  spent its most time (with minor variations which I attribute to
+  accuracy issues) proving it. Please note that the object contained in
+  `stats` do not seem to include failed proof attempts.
 
 ### 3.4 The `assumptions` array
 
