@@ -11,36 +11,20 @@ with Ada.Text_IO;
 
 package body SPAT.Spark_Info is
 
-   function "<" (Left  : in Flow_Item;
-                 Right : in Flow_Item) return Boolean
+   function "<" (Left  : in Entity_Location;
+                 Right : in Entity_Location) return Boolean
    is
       use type Ada.Strings.Unbounded.Unbounded_String;
    begin
-      if Left.Where.File = Right.Where.File then
-         if Left.Where.Line = Right.Where.Line then
-            return Left.Where.Column < Right.Where.Column;
+      if Left.File = Right.File then
+         if Left.Line = Right.Line then
+            return Left.Column < Right.Column;
          end if;
 
-         return Left.Where.Line < Right.Where.Line;
+         return Left.Line < Right.Line;
       end if;
 
-      return Left.Where.File < Right.Where.File;
-   end "<";
-
-   function "<" (Left  : in Proof_Item;
-                 Right : in Proof_Item) return Boolean
-   is
-      use type Ada.Strings.Unbounded.Unbounded_String;
-   begin
-      if Left.Where.File = Right.Where.File then
-         if Left.Where.Line = Right.Where.Line then
-            return Left.Where.Column < Right.Where.Column;
-         end if;
-
-         return Left.Where.Line < Right.Where.Line;
-      end if;
-
-      return Left.Where.File < Right.Where.File;
+      return Left.File < Right.File;
    end "<";
 
    --  Check that the given JSON object contains an object named Field with type
@@ -112,6 +96,15 @@ package body SPAT.Spark_Info is
                      Field    => Field_Names.Column,
                      Kind     => GNATCOLL.JSON.JSON_Int_Type));
 
+   function Ensure_Rule_Severity
+     (Object : GNATCOLL.JSON.JSON_Value) return Boolean
+   is
+      (Ensure_Field (Object => Object,
+                     Field  => Field_Names.Rule,
+                     Kind   => GNATCOLL.JSON.JSON_String_Type) and then
+       Ensure_Field (Object => Object,
+                     Field  => Field_Names.Severity,
+                     Kind   => GNATCOLL.JSON.JSON_String_Type));
    --
 
    function Flow_Time (This : in T) return Duration is
@@ -166,11 +159,20 @@ package body SPAT.Spark_Info is
      (Entity_Line'(Create (Object => Object)) with
         Column => Object.Get (Field => Field_Names.Column));
 
+   function Create (Object : GNATCOLL.JSON.JSON_Value) return Flow_Item is
+     (Entity_Location'(Create (Object => Object)) with
+        Rule     => Object.Get (Field => Field_Names.Rule),
+        Severity => Object.Get (Field => Field_Names.Severity));
+
+   function Create (Object : GNATCOLL.JSON.JSON_Value) return Proof_Item is
+     (Entity_Location'(Create (Object => Object)) with
+        Rule     => Object.Get (Field => Field_Names.Rule),
+        Severity => Object.Get (Field => Field_Names.Severity));
    --
 
-   procedure Map_Sloc_Elements (This      : in out T;
-                                Update_At : in     Analyzed_Entities.Cursor;
-                                Root      : in     GNATCOLL.JSON.JSON_Array) is
+   procedure Map_Sloc_Elements (This   : in out T;
+                                Add_To : in out Entity_Lines.Vector;
+                                Root   : in     GNATCOLL.JSON.JSON_Array) is
    begin
       for I in 1 .. GNATCOLL.JSON.Length (Arr => Root) loop
          declare
@@ -179,51 +181,47 @@ package body SPAT.Spark_Info is
                                         Index => I);
          begin
             if Ensure_File_Line (Object => Sloc) then
-               --  Update element.
-               This.Entities (Update_At).Source_Lines.Append
-                 (New_Item => Create (Object => Sloc));
+               Add_To.Append (New_Item => Create (Object => Sloc));
             end if;
          end;
       end loop;
    end Map_Sloc_Elements;
 
    procedure Map_Entities (This : in out T;
+                           Root : in     GNATCOLL.JSON.JSON_Value) with
+     Pre => (Ensure_Field (Object => Root,
+                           Field  => Field_Names.Name,
+                           Kind   => GNATCOLL.JSON.JSON_String_Type) and then
+             Ensure_Field (Object => Root,
+                           Field  => Field_Names.Sloc,
+                           Kind   => GNATCOLL.JSON.JSON_Array_Type));
+
+   procedure Map_Entities (This : in out T;
                            Root : in     GNATCOLL.JSON.JSON_Value) is
+      Obj_Name : constant Ada.Strings.Unbounded.Unbounded_String :=
+        Root.Get (Field => Field_Names.Name);
+      Slocs    : constant GNATCOLL.JSON.JSON_Array :=
+        Root.Get (Field => Field_Names.Sloc);
+      Index    :          Analyzed_Entities.Cursor :=
+        This.Entities.Find (Key => Obj_Name);
+
+      use type Analyzed_Entities.Cursor;
    begin
-      if
-        Ensure_Field (Object => Root,
-                      Field  => Field_Names.Name,
-                      Kind   => GNATCOLL.JSON.JSON_String_Type) and then
-        Ensure_Field (Object => Root,
-                      Field  => Field_Names.Sloc,
-                      Kind   => GNATCOLL.JSON.JSON_Array_Type)
-      then
+      if Index = Analyzed_Entities.No_Element then
          declare
-            Obj_Name  : constant Ada.Strings.Unbounded.Unbounded_String :=
-              Root.Get (Field => Field_Names.Name);
-            Slocs     : constant GNATCOLL.JSON.JSON_Array :=
-              Root.Get (Field => Field_Names.Sloc);
-            Update_At :          Analyzed_Entities.Cursor :=
-              This.Entities.Find (Key => Obj_Name);
-
-            use type Analyzed_Entities.Cursor;
+            Element        : Analyzed_Entity;
+            Dummy_Inserted : Boolean;
          begin
-            if Update_At = Analyzed_Entities.No_Element then
-               declare
-                  Element        : Analyzed_Entity;
-                  Dummy_Inserted : Boolean;
-               begin
-                  This.Entities.Insert (Key      => Obj_Name,
-                                        New_Item => Element,
-                                        Position => Update_At,
-                                        Inserted => Dummy_Inserted);
-               end;
-            end if;
-
-            This.Map_Sloc_Elements (Root      => Slocs,
-                                    Update_At => Update_At);
+            This.Entities.Insert (Key      => Obj_Name,
+                                  New_Item => Element,
+                                  Position => Index,
+                                  Inserted => Dummy_Inserted);
          end;
       end if;
+
+      This.Map_Sloc_Elements
+        (Root   => Slocs,
+         Add_To => This.Entities (Index).Source_Lines);
    end Map_Entities;
 
    procedure Map_SPARK_Elements (This : in out T;
@@ -235,8 +233,22 @@ package body SPAT.Spark_Info is
         (Capacity => Ada.Containers.Count_Type (Length));
 
       for I in 1 .. Length loop
-         This.Map_Entities (Root => GNATCOLL.JSON.Get (Arr   => Root,
-                                                       Index => I));
+         declare
+            Element : constant GNATCOLL.JSON.JSON_Value :=
+              GNATCOLL.JSON.Get (Arr   => Root,
+                                 Index => I);
+         begin
+            if
+              Ensure_Field (Object => Element,
+                            Field  => Field_Names.Name,
+                            Kind   => GNATCOLL.JSON.JSON_String_Type) and then
+              Ensure_Field (Object => Element,
+                            Field  => Field_Names.Sloc,
+                            Kind   => GNATCOLL.JSON.JSON_Array_Type)
+            then
+               This.Map_Entities (Root => Element);
+            end if;
+         end;
       end loop;
    end Map_SPARK_Elements;
 
@@ -274,39 +286,13 @@ package body SPAT.Spark_Info is
                         use type Analyzed_Entities.Cursor;
                      begin
                         if Update_At /= Analyzed_Entities.No_Element then
-                           declare
-                              The_Item : Flow_Item;
-                           begin
-                              --  TODO: Add flow information into hash table.
-                              if
-                                Ensure_File_Line_Column (Object => Element)
-                              then
-                                 The_Item.Where := Create (Object => Element);
-
-                                 if
-                                   Ensure_Field
-                                     (Object => Element,
-                                      Field  => Field_Names.Rule,
-                                      Kind   => GNATCOLL.JSON.JSON_String_Type)
-                                 then
-                                    The_Item.Rule :=
-                                      Element.Get (Field => Field_Names.Rule);
-                                 end if;
-
-                                 if
-                                   Ensure_Field
-                                     (Object => Element,
-                                      Field  => Field_Names.Severity,
-                                      Kind   => GNATCOLL.JSON.JSON_String_Type)
-                                 then
-                                    The_Item.Severity :=
-                                      Element.Get (Field => Field_Names.Severity);
-                                 end if;
-
-                                 This.Entities (Update_At).Flows.Append
-                                   (New_Item => The_Item);
-                              end if;
-                           end;
+                           if
+                             Ensure_File_Line_Column (Object => Element) and then
+                             Ensure_Rule_Severity (Object => Element)
+                           then
+                              This.Entities (Update_At).Flows.Append
+                                (New_Item => Create (Object => Element));
+                           end if;
                         else
                            Ada.Text_IO.Put_Line
                              (File => Ada.Text_IO.Standard_Error,
@@ -362,39 +348,13 @@ package body SPAT.Spark_Info is
                         use type Analyzed_Entities.Cursor;
                      begin
                         if Update_At /= Analyzed_Entities.No_Element then
-                           declare
-                              The_Item : Proof_Item;
-                           begin
-                              --  TODO: Add flow information into hash table.
-                              if
-                                Ensure_File_Line_Column (Object => Element)
-                              then
-                                 The_Item.Where := Create (Object => Element);
-
-                                 if
-                                   Ensure_Field
-                                     (Object => Element,
-                                      Field  => Field_Names.Rule,
-                                      Kind   => GNATCOLL.JSON.JSON_String_Type)
-                                 then
-                                    The_Item.Rule :=
-                                      Element.Get (Field => Field_Names.Rule);
-                                 end if;
-
-                                 if
-                                   Ensure_Field
-                                     (Object => Element,
-                                      Field  => Field_Names.Severity,
-                                      Kind   => GNATCOLL.JSON.JSON_String_Type)
-                                 then
-                                    The_Item.Severity :=
-                                      Element.Get (Field => Field_Names.Severity);
-                                 end if;
-
-                                 This.Entities (Update_At).Proofs.Append
-                                   (New_Item => The_Item);
-                              end if;
-                           end;
+                           if
+                             Ensure_File_Line_Column (Object => Element) and then
+                             Ensure_Rule_Severity (Object => Element)
+                           then
+                              This.Entities (Update_At).Proofs.Append
+                                (New_Item => Create (Object => Element));
+                           end if;
                         else
                            Ada.Text_IO.Put_Line
                              (File => Ada.Text_IO.Standard_Error,

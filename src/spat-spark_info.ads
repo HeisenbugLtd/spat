@@ -68,6 +68,11 @@ private
    function Ensure_File_Line_Column
      (Object : GNATCOLL.JSON.JSON_Value) return Boolean;
 
+   --  Checks that the given JSON object contains a rule and a severity object.
+   --  Returns True if so, False otherwise.
+   function Ensure_Rule_Severity
+     (Object : GNATCOLL.JSON.JSON_Value) return Boolean;
+
    --  Information obtained from the timing section of a .spark file.
    type Timing_Item is
       record
@@ -101,15 +106,19 @@ private
      (Object : GNATCOLL.JSON.JSON_Value) return Entity_Location with
      Pre => Ensure_File_Line_Column (Object => Object);
 
-   type Flow_Item is
+   not overriding function "<" (Left  : in Entity_Location;
+                                Right : in Entity_Location) return Boolean;
+
+   type Flow_Item is new Entity_Location with
       record
-         Where    : Entity_Location;
          Rule     : Ada.Strings.Unbounded.Unbounded_String;
          Severity : Ada.Strings.Unbounded.Unbounded_String;
       end record;
 
-   function "<" (Left  : in Flow_Item;
-                 Right : in Flow_Item) return Boolean;
+   overriding function Create
+     (Object : GNATCOLL.JSON.JSON_Value) return Flow_Item with
+     Pre => (Ensure_File_Line_Column (Object => Object) and then
+             Ensure_Rule_Severity (Object => Object));
 
    package Flow_Items is
      new Ada.Containers.Vectors (Index_Type   => Positive,
@@ -118,15 +127,16 @@ private
    package Flow_Items_By_Location is new
      Flow_Items.Generic_Sorting ("<" => "<");
 
-   type Proof_Item is
+   type Proof_Item is new Entity_Location with
       record
-         Where    : Entity_Location;
          Rule     : Ada.Strings.Unbounded.Unbounded_String;
          Severity : Ada.Strings.Unbounded.Unbounded_String;
       end record;
 
-   function "<" (Left  : in Proof_Item;
-                 Right : in Proof_Item) return Boolean;
+   overriding function Create
+     (Object : GNATCOLL.JSON.JSON_Value) return Proof_Item with
+     Pre => (Ensure_File_Line_Column (Object => Object) and then
+             Ensure_Rule_Severity (Object => Object));
 
    package Proof_Items is
      new Ada.Containers.Vectors (Index_Type   => Positive,
