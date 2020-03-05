@@ -19,12 +19,12 @@ package body SPAT.File_Ops is
          Ada.Directories.Ordinary_File => True,   --  These we want.
          Ada.Directories.Special_File  => False); --  Nope.
 
-   not overriding procedure Add_Files
-     (This      : in out File_List;
-      Directory : in     String;
-      Extension : in     String := "spark")
+   not overriding procedure Add_Files (This      : in out File_List;
+                                       Directory : in     String;
+                                       Extension : in     String := "spark")
    is
-      procedure Handle_Entry (Item : Ada.Directories.Directory_Entry_Type) is
+      procedure Handle_Entry (Item : in Ada.Directories.Directory_Entry_Type)
+      is
          Full_Name : constant String :=
                        Ada.Directories.Full_Name (Directory_Entry => Item);
          Simple_Name : constant String :=

@@ -17,12 +17,19 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 with Ada.Containers.Generic_Array_Sort;
-with Ada.Containers.Hashed_Maps;
-with Ada.Containers.Vectors;
-with Ada.Strings.Unbounded.Hash;
+with Ada.Strings.Unbounded;
 with GNATCOLL.JSON;
 
+private with Ada.Containers.Hashed_Maps;
+private with Ada.Containers.Vectors;
+private with Ada.Strings.Unbounded.Hash;
+
 package SPAT.Spark_Info is
+
+   subtype Entity_Name   is Ada.Strings.Unbounded.Unbounded_String;
+   subtype File_Name     is Ada.Strings.Unbounded.Unbounded_String;
+   subtype Rule_Name     is Ada.Strings.Unbounded.Unbounded_String;
+   subtype Severity_Name is Ada.Strings.Unbounded.Unbounded_String;
 
    --  Helper types.
    type String_Array is array (Positive range <>) of Ada.Strings.Unbounded.Unbounded_String;
@@ -48,10 +55,10 @@ package SPAT.Spark_Info is
    --  stored in This.
 
    --  Access functions.
-   function Num_Flows (This : in T) return Natural;
+   function Num_Flows (This : in T) return Ada.Containers.Count_Type;
    function Flow_Time (This : in T) return Duration;
 
-   function Num_Proofs (This : in T) return Natural;
+   function Num_Proofs (This : in T) return Ada.Containers.Count_Type;
    function Proof_Time (This : in T) return Duration;
 
 
@@ -60,18 +67,19 @@ private
    --  Checks that the given JSON object contains name and line indicating a
    --  source code position (i.e. line of declaration of an entity).
    --  Returns True if so, False otherwise.
-   function Ensure_File_Line (Object : GNATCOLL.JSON.JSON_Value) return Boolean;
+   function Ensure_File_Line
+     (Object : in GNATCOLL.JSON.JSON_Value) return Boolean;
 
    --  Checks that the given JSON object contains name, line and column values
    --  indicating a source code position.
    --  Returns True if so, False otherwise.
    function Ensure_File_Line_Column
-     (Object : GNATCOLL.JSON.JSON_Value) return Boolean;
+     (Object : in GNATCOLL.JSON.JSON_Value) return Boolean;
 
    --  Checks that the given JSON object contains a rule and a severity object.
    --  Returns True if so, False otherwise.
    function Ensure_Rule_Severity
-     (Object : GNATCOLL.JSON.JSON_Value) return Boolean;
+     (Object : in GNATCOLL.JSON.JSON_Value) return Boolean;
 
    --  Information obtained from the timing section of a .spark file.
    type Timing_Item is
@@ -85,12 +93,12 @@ private
 
    type Entity_Line is tagged
       record
-         File : Ada.Strings.Unbounded.Unbounded_String;
+         File : File_Name;
          Line : Natural;
       end record;
 
    not overriding function Create
-     (Object : GNATCOLL.JSON.JSON_Value) return Entity_Line with
+     (Object : in GNATCOLL.JSON.JSON_Value) return Entity_Line with
      Pre => Ensure_File_Line (Object => Object);
 
    package Entity_Lines is
@@ -103,20 +111,22 @@ private
       end record;
 
    overriding function Create
-     (Object : GNATCOLL.JSON.JSON_Value) return Entity_Location with
+     (Object : in GNATCOLL.JSON.JSON_Value) return Entity_Location with
      Pre => Ensure_File_Line_Column (Object => Object);
 
    not overriding function "<" (Left  : in Entity_Location;
                                 Right : in Entity_Location) return Boolean;
 
+   -- TODO: There does not seem to be a real need for distinguishing between
+   --       flow and proof items, all handling could be same.
    type Flow_Item is new Entity_Location with
       record
-         Rule     : Ada.Strings.Unbounded.Unbounded_String;
-         Severity : Ada.Strings.Unbounded.Unbounded_String;
+         Rule     : Rule_Name;
+         Severity : Severity_Name;
       end record;
 
    overriding function Create
-     (Object : GNATCOLL.JSON.JSON_Value) return Flow_Item with
+     (Object : in GNATCOLL.JSON.JSON_Value) return Flow_Item with
      Pre => (Ensure_File_Line_Column (Object => Object) and then
              Ensure_Rule_Severity (Object => Object));
 
@@ -129,12 +139,12 @@ private
 
    type Proof_Item is new Entity_Location with
       record
-         Rule     : Ada.Strings.Unbounded.Unbounded_String;
-         Severity : Ada.Strings.Unbounded.Unbounded_String;
+         Rule     : Rule_Name;
+         Severity : Severity_Name;
       end record;
 
    overriding function Create
-     (Object : GNATCOLL.JSON.JSON_Value) return Proof_Item with
+     (Object : in GNATCOLL.JSON.JSON_Value) return Proof_Item with
      Pre => (Ensure_File_Line_Column (Object => Object) and then
              Ensure_Rule_Severity (Object => Object));
 
@@ -154,7 +164,7 @@ private
 
    --  Type representing a source (file) entity.
    package Analyzed_Entities is new
-     Ada.Containers.Hashed_Maps (Key_Type        => Ada.Strings.Unbounded.Unbounded_String,
+     Ada.Containers.Hashed_Maps (Key_Type        => Entity_Name,
                                  Element_Type    => Analyzed_Entity,
                                  Hash            => Ada.Strings.Unbounded.Hash,
                                  Equivalent_Keys => Ada.Strings.Unbounded."=",

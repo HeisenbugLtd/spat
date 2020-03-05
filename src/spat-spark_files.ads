@@ -24,6 +24,8 @@ with GNATCOLL.JSON;
 
 package SPAT.Spark_Files is
 
+   --  .spark files are stored in a Hash map with the file name as key and the
+   --  JSON reading result as value.
    package File_Maps is new Ada.Containers.Indefinite_Hashed_Maps
      (Key_Type        => String, --  file name
       Element_Type    => GNATCOLL.JSON.Read_Result,
@@ -31,8 +33,17 @@ package SPAT.Spark_Files is
       Equivalent_Keys => Standard."=",
       "="             => GNATCOLL.JSON."=");
 
+   --
+   --  Some renames for commonly used File_Maps.Cursor operations.
+   --
    No_Element : File_Maps.Cursor renames File_Maps.No_Element;
    subtype Cursor is File_Maps.Cursor;
+
+   function Key (C : in Cursor) return String renames File_Maps.Key;
+
+   --
+   --  Data collection and operations defined on it.
+   --
 
    type SPARK_Data is new File_Maps.Map with private;
    --  Stores all data collected from SPARK files for analysis.
@@ -40,13 +51,6 @@ package SPAT.Spark_Files is
    procedure Read_Files (This  : in out SPARK_Data;
                          Names : in     File_Ops.File_List'Class);
    --  Reads the list of files, and parses and stores their content in This.
-
-   --  Some renames for commonly used File_Maps.Cursor operations.
-   function Element (C : in Cursor) return GNATCOLL.JSON.Read_Result
-                     renames File_Maps.Element;
-   function Key (C : in Cursor) return String renames File_Maps.Key;
-   function Next (C : in Cursor) return Cursor renames File_Maps.Next;
-   procedure Next (C : in out Cursor) renames File_Maps.Next;
 
 private
 

@@ -100,55 +100,48 @@ begin
             Start_Time := Ada.Real_Time.Clock;
          end if;
 
-         declare
-            C : SPAT.Spark_Files.Cursor := SPARK_Data.First;
-            use type SPAT.SPARK_Files.Cursor;
-         begin
-            while C /= SPAT.Spark_Files.No_Element loop
-               declare
-                  Read_Result : GNATCOLL.JSON.Read_Result renames
-                    SPAT.Spark_Files.Element (C);
-               begin
-                  Ada.Text_IO.Put
-                    (File => Ada.Text_IO.Standard_Output,
-                     Item => """" & SPAT.Spark_Files.Key (C) & """ => ");
+         for C in SPARK_Data.Iterate loop
+            Ada.Text_IO.Put
+              (File => Ada.Text_IO.Standard_Output,
+               Item => """" & SPAT.Spark_Files.Key (C) & """ => ");
 
-                  if Read_Result.Success then
-                     declare
-                        Info : SPAT.Spark_Info.T;
-                     begin
-                        Info.Map_SPARK_File (Root => Read_Result.Value);
+            declare
+               Read_Result : constant GNATCOLL.JSON.Read_Result :=
+                 SPARK_Data (C);
+            begin
+               if Read_Result.Success then
+                  declare
+                     Info : SPAT.Spark_Info.T;
+                  begin
+                     Info.Map_SPARK_File (Root => Read_Result.Value);
 
-                        Ada.Text_IO.Put_Line
-                          (File => Ada.Text_IO.Standard_Output,
-                           Item => "[Flow => " & Image (Info.Flow_Time) &
-                             "/" & Info.Num_Flows'Image &
-                             "], [Proof => " & Image (Info.Proof_Time) &
-                             "/" & Info.Num_Proofs'Image & "]");
-
-                        if SPAT.Command_Line.List.Get then
-                           declare
-                              Entity_List : SPAT.Spark_Info.String_Array :=
-                                Info.List_All_Entities;
-                           begin
-                              for S of Entity_List loop
-                                 Ada.Text_IO.Put_Line
-                                   (File => Ada.Text_IO.Standard_Output,
-                                    Item => Ada.Strings.Unbounded.To_String (S));
-                              end loop;
-                           end;
-                        end if;
-                     end;
-                  else
                      Ada.Text_IO.Put_Line
                        (File => Ada.Text_IO.Standard_Output,
-                        Item => GNATCOLL.JSON.Format_Parsing_Error (Error => Read_Result.Error));
-                  end if;
+                        Item => "[Flow => " & Image (Info.Flow_Time) &
+                          "/" & Info.Num_Flows'Image &
+                          "], [Proof => " & Image (Info.Proof_Time) &
+                          "/" & Info.Num_Proofs'Image & "]");
 
-                  SPAT.Spark_Files.Next (C => C);
-               end;
-            end loop;
-         end;
+                     if SPAT.Command_Line.List.Get then
+                        declare
+                           Entity_List : SPAT.Spark_Info.String_Array :=
+                             Info.List_All_Entities;
+                        begin
+                           for S of Entity_List loop
+                              Ada.Text_IO.Put_Line
+                                (File => Ada.Text_IO.Standard_Output,
+                                 Item => Ada.Strings.Unbounded.To_String (S));
+                           end loop;
+                        end;
+                     end if;
+                  end;
+               else
+                  Ada.Text_IO.Put_Line
+                    (File => Ada.Text_IO.Standard_Output,
+                     Item => GNATCOLL.JSON.Format_Parsing_Error (Error => Read_Result.Error));
+               end if;
+            end;
+         end loop;
 
          if Verbose then
             Ada.Text_IO.Put_Line

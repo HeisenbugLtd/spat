@@ -26,10 +26,9 @@ package SPAT.File_Ops is
 
    type File_List is new File_Lists.Vector with private;
 
-   not overriding procedure Add_Files
-     (This      : in out File_List;
-      Directory : in     String;
-      Extension : in     String := "spark");
+   not overriding procedure Add_Files (This      : in out File_List;
+                                       Directory : in     String;
+                                       Extension : in     String := "spark");
    --  Recursively searches for files given in the given directory with the
    --  given extension and stores them in This.
    --
