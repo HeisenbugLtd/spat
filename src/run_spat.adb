@@ -18,7 +18,6 @@ pragma License (Unrestricted);
 with Ada.Command_Line;
 with Ada.Directories;
 with Ada.Real_Time;
-with Ada.Strings.Unbounded;
 with Ada.Text_IO;
 
 with GNATCOLL.JSON;
@@ -53,8 +52,7 @@ begin
       --          command line recursively.
       for Dir of SPAT.Command_Line.Directories.Get loop
          declare
-            Search_Dir : constant String :=
-              Ada.Strings.Unbounded.To_String (Source => Dir);
+            Search_Dir : constant String := SPAT.To_String (Source => Dir);
          begin
             if Verbose then
                Start_Time := Ada.Real_Time.Clock;
@@ -103,7 +101,8 @@ begin
          for C in SPARK_Data.Iterate loop
             Ada.Text_IO.Put
               (File => Ada.Text_IO.Standard_Output,
-               Item => """" & SPAT.Spark_Files.Key (C) & """ => ");
+               Item =>
+                 """" & SPAT.To_String (SPAT.Spark_Files.Key (C)) & """ => ");
 
             declare
                Read_Result : constant GNATCOLL.JSON.Read_Result :=
@@ -130,7 +129,7 @@ begin
                            for S of Entity_List loop
                               Ada.Text_IO.Put_Line
                                 (File => Ada.Text_IO.Standard_Output,
-                                 Item => Ada.Strings.Unbounded.To_String (S));
+                                 Item => SPAT.To_String (S));
                            end loop;
                         end;
                      end if;

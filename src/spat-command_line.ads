@@ -15,7 +15,6 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
-with Ada.Strings.Unbounded;
 with GNATCOLL.Opt_Parse;
 
 package SPAT.Command_Line is
@@ -52,7 +51,7 @@ package SPAT.Command_Line is
         Name        => "directory",
         Help        => "directory to look for .spark files in",
         Allow_Empty => False,
-        Arg_Type    => Ada.Strings.Unbounded.Unbounded_String,
-        Convert     => Ada.Strings.Unbounded.To_Unbounded_String);
+        Arg_Type    => File_Name,
+        Convert     => To_Filename);
 
 end SPAT.Command_Line;

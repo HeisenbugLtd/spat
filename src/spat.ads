@@ -14,15 +14,36 @@ pragma License (Unrestricted);
 --  S.P.A.T. - Root package
 --
 ------------------------------------------------------------------------------
-with Ada.Strings.Unbounded;
+with Ada.Containers;
+with Ada.Strings.Unbounded.Hash;
 with GNATCOLL.JSON;
 
 package SPAT is
 
+   subtype JSON_Data     is Ada.Strings.Unbounded.Unbounded_String;
    subtype Entity_Name   is Ada.Strings.Unbounded.Unbounded_String;
    subtype File_Name     is Ada.Strings.Unbounded.Unbounded_String;
    subtype Rule_Name     is Ada.Strings.Unbounded.Unbounded_String;
    subtype Severity_Name is Ada.Strings.Unbounded.Unbounded_String;
+
+   function To_String (Source : in File_Name) return String renames
+     Ada.Strings.Unbounded.To_String;
+
+   function To_Filename (Source : in String) return File_Name renames
+     Ada.Strings.Unbounded.To_Unbounded_String;
+
+   function "="
+     (Left  : in Ada.Strings.Unbounded.Unbounded_String;
+      Right : in Ada.Strings.Unbounded.Unbounded_String) return Boolean renames
+     Ada.Strings.Unbounded."=";
+
+   function "<"
+     (Left  : in Ada.Strings.Unbounded.Unbounded_String;
+      Right : in Ada.Strings.Unbounded.Unbounded_String) return Boolean renames
+     Ada.Strings.Unbounded."<";
+
+   function Hash (Key : Ada.Strings.Unbounded.Unbounded_String) return
+     Ada.Containers.Hash_Type renames Ada.Strings.Unbounded.Hash;
 
    --  Type renames for commonly used JSON types from GNATCOLL.JSON
    subtype JSON_Array      is GNATCOLL.JSON.JSON_Array;

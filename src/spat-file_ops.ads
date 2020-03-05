@@ -16,13 +16,12 @@ pragma License (Unrestricted);
 --  Collect file names for analysis.
 --
 ------------------------------------------------------------------------------
-with Ada.Containers.Indefinite_Vectors;
+with Ada.Containers.Vectors;
 
 package SPAT.File_Ops is
 
-   package File_Lists is
-     new Ada.Containers.Indefinite_Vectors (Index_Type   => Positive,
-                                            Element_Type => String);
+   package File_Lists is new Ada.Containers.Vectors (Index_Type   => Positive,
+                                                     Element_Type => File_Name);
 
    type File_List is new File_Lists.Vector with private;
 

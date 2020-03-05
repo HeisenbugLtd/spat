@@ -188,8 +188,7 @@ package body SPAT.Spark_Info is
                            Ada.Text_IO.Put_Line
                              (File => Ada.Text_IO.Standard_Error,
                               Item =>
-                                "Warning (Flow): """ &
-                                Ada.Strings.Unbounded.To_String (The_Key) &
+                                "Warning (Flow): """ & To_String (The_Key) &
                                 """ not found in index.");
                         end if;
                      end;
@@ -253,8 +252,7 @@ package body SPAT.Spark_Info is
                            Ada.Text_IO.Put_Line
                              (File => Ada.Text_IO.Standard_Error,
                               Item =>
-                                "Warning (Flow): """ &
-                                Ada.Strings.Unbounded.To_String (The_Key) &
+                                "Warning (Flow): """ & To_String (The_Key) &
                                 """ not found in index.");
                         end if;
                      end;

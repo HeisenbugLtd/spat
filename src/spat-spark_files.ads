@@ -18,19 +18,17 @@ pragma License (Unrestricted);
 ------------------------------------------------------------------------------
 with SPAT.File_Ops;
 
-with Ada.Containers.Indefinite_Hashed_Maps;
-with Ada.Strings.Hash;
-with GNATCOLL.JSON;
+with Ada.Containers.Hashed_Maps;
 
 package SPAT.Spark_Files is
 
    --  .spark files are stored in a Hash map with the file name as key and the
    --  JSON reading result as value.
-   package File_Maps is new Ada.Containers.Indefinite_Hashed_Maps
-     (Key_Type        => String, --  file name
+   package File_Maps is new Ada.Containers.Hashed_Maps
+     (Key_Type        => File_Name,
       Element_Type    => GNATCOLL.JSON.Read_Result,
-      Hash            => Ada.Strings.Hash,
-      Equivalent_Keys => Standard."=",
+      Hash            => Hash,
+      Equivalent_Keys => "=",
       "="             => GNATCOLL.JSON."=");
 
    --
@@ -39,7 +37,7 @@ package SPAT.Spark_Files is
    No_Element : File_Maps.Cursor renames File_Maps.No_Element;
    subtype Cursor is File_Maps.Cursor;
 
-   function Key (C : in Cursor) return String renames File_Maps.Key;
+   function Key (C : in Cursor) return File_Name renames File_Maps.Key;
 
    --
    --  Data collection and operations defined on it.

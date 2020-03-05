@@ -17,11 +17,8 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 with Ada.Containers.Generic_Array_Sort;
-with Ada.Strings.Unbounded;
-with GNATCOLL.JSON;
 
 private with Ada.Containers.Hashed_Maps;
-private with Ada.Strings.Unbounded.Hash;
 private with SPAT.Entity_Lines;
 private with SPAT.Flow_Items;
 private with SPAT.Proof_Items;
@@ -30,21 +27,19 @@ private with SPAT.Timing_Items;
 package SPAT.Spark_Info is
 
    --  Helper types.
-   type String_Array is array (Positive range <>) of Ada.Strings.Unbounded.Unbounded_String;
+   type String_Array is array (Positive range <>) of Entity_Name;
 
    procedure Sort_By_Name is new
-     Ada.Containers.Generic_Array_Sort
-       (Index_Type   => Positive,
-        Element_Type => Ada.Strings.Unbounded.Unbounded_String,
-        Array_Type   => String_Array,
-        "<"          => Ada.Strings.Unbounded."<");
+     Ada.Containers.Generic_Array_Sort (Index_Type   => Positive,
+                                        Element_Type => Entity_Name,
+                                        Array_Type   => String_Array);
 
    type T is tagged limited private;
    --  Binary representation of the information obtained from a .spark JSON
    --  file.
 
    procedure Map_Spark_File (This :    out T;
-                             Root : in     GNATCOLL.JSON.JSON_Value);
+                             Root : in     JSON_Value);
    --  Traverses through the JSON data given in Root and translates it into the
    --  data structure given in This.
 
@@ -72,9 +67,8 @@ private
    package Analyzed_Entities is new
      Ada.Containers.Hashed_Maps (Key_Type        => Entity_Name,
                                  Element_Type    => Analyzed_Entity,
-                                 Hash            => Ada.Strings.Unbounded.Hash,
-                                 Equivalent_Keys => Ada.Strings.Unbounded."=",
-                                 "="             => "=");
+                                 Hash            => Hash,
+                                 Equivalent_Keys => "=");
 
    type T is tagged limited
       record

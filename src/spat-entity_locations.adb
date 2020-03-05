@@ -9,8 +9,6 @@ pragma License (Unrestricted);
 
 package body SPAT.Entity_Locations is
 
-   use type Ada.Strings.Unbounded.Unbounded_String;
-
    ---------------------------------------------------------------------------
    --  "<"
    --

@@ -27,8 +27,8 @@ package body SPAT.File_Ops is
 
       procedure Handle_Entry (Item : in Ada.Directories.Directory_Entry_Type)
       is
-         Full_Name : constant String :=
-                       Ada.Directories.Full_Name (Directory_Entry => Item);
+         Full_Name   : constant String :=
+                         Ada.Directories.Full_Name (Directory_Entry => Item);
          Simple_Name : constant String :=
                          Ada.Directories.Simple_Name (Name => Full_Name);
       begin
@@ -49,7 +49,7 @@ package body SPAT.File_Ops is
                --  Current entry is a file, check if it matches our extension.
                --  If so, add it to our file list.
                if Ada.Directories.Extension (Name => Full_Name) = Extension then
-                  This.Append (New_Item => Full_Name);
+                  This.Append (New_Item => To_Filename (Full_Name));
                end if;
 
             when Ada.Directories.Special_File =>

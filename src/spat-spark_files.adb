@@ -1,19 +1,18 @@
 with Ada.IO_Exceptions;
-with Ada.Strings.Unbounded;
 with Ada.Text_IO;
 with SPAT.Command_Line;
 
 package body SPAT.Spark_Files is
 
-   function Parse_File (Name : in String) return GNATCOLL.JSON.Read_Result;
+   function Parse_File (Name : in File_Name) return GNATCOLL.JSON.Read_Result;
 
-   function Parse_File (Name : in String) return GNATCOLL.JSON.Read_Result is
+   function Parse_File (Name : in File_Name) return GNATCOLL.JSON.Read_Result is
       JSON_File    : Ada.Text_IO.File_Type;
-      File_Content : Ada.Strings.Unbounded.Unbounded_String;
+      File_Content : JSON_Data;
    begin
       Ada.Text_IO.Open (File => JSON_File,
                         Mode => Ada.Text_IO.In_File,
-                        Name => Name);
+                        Name => To_String (Name));
 
       while not Ada.Text_IO.End_Of_File (File => JSON_File) loop
          Ada.Strings.Unbounded.Append
@@ -40,8 +39,9 @@ package body SPAT.Spark_Files is
       for Name of Names loop
          if This.Find (Key => Name) = File_Maps.No_Element then
             if SPAT.Command_Line.Verbose.Get then
-               Ada.Text_IO.Put_Line (File => Ada.Text_IO.Standard_Output,
-                                     Item => "Parsing """ & Name & """...");
+               Ada.Text_IO.Put_Line
+                 (File => Ada.Text_IO.Standard_Output,
+                  Item => "Parsing """ & To_String (Name) & """...");
             end if;
 
             begin
@@ -51,7 +51,7 @@ package body SPAT.Spark_Files is
                when Ada.IO_Exceptions.Name_Error =>
                   Ada.Text_IO.Put_Line
                     (File => Ada.Text_IO.Standard_Error,
-                     Item => "Error reading """ & Name & """!");
+                     Item => "Error reading """ & To_String (Name) & """!");
             end;
          else
             --  Skip file, we already got that one.
