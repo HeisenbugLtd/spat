@@ -311,7 +311,9 @@ different parts of the same structure.)
 #### 3.3.2 The `check-tree` array
 
 This array contains a list of unnamed objects which are further subdivided into
-a `proof_attempts` and a `transformations` object.
+a [`proof_attempts`](spark_file_format.md#3321-the-proof-attempts-object) and a
+[`transformations`](spark_file_format.md#3322-the-transformations-object)
+object.
 
 ##### 3.3.2.1 The `proof-attempts` object
 
@@ -329,7 +331,7 @@ corresponds to a code path proven individually.
 }
 ```
 
-###### 3.3.2.1.1 The `proof-attempts.*` objects
+##### 3.3.2.1.1 The `proof-attempts.*` objects
 
 Each object contained in the `proof-attempts` object contains the result of
 running a specific prover and the object is named after the prover.
@@ -435,11 +437,11 @@ this lists all assumptions that must hold true for the claim to be true.
 
 Contains `predicate-info` objects.
 
-###### 3.4.2.2 The `claim` object.
+##### 3.4.2.1.1 The `claim` object
 
-Contains a `claim` object which in turn holds a `predicate-info` object.
+Holds a `predicate-info` object.
 
-###### 3.4.2.3 `predicate-info` objects
+##### 3.4.2.2 The `predicate-info` object
 
 `predicate-info` objects hold a `predicate` object and an `arg` object.
 
@@ -459,7 +461,7 @@ Contains a `claim` object which in turn holds a `predicate-info` object.
 }
 ```
 
-###### 3.4.2.4 The `predicate` objects
+##### 3.4.2.2.1 The `predicate` object
 
 Holds the identifier of a predicate. So far I've encountered:
 
@@ -467,7 +469,7 @@ Holds the identifier of a predicate. So far I've encountered:
 * CLAIM_EFFECTS
 * CLAIM_AORTE (Absence Of Run Time Errors)
 
-###### 3.4.2.5 The `arg` objects
+##### 3.4.2.2.2 The `arg` object
 
 Contain a ```name``` object denoting the name of the subunit concerned, and a
 ```sloc``` object which references the file and line of its declaration.
@@ -475,7 +477,7 @@ Contain a ```name``` object denoting the name of the subunit concerned, and a
 ### 3.5 The `timings` object
 
 Seems to contain global timings from the whole proof (i.e. summed up execution
-times etc.).
+times etc.) for the different stages in the proof.
 
 #### 3.5.1 Grammar Summary
 
@@ -501,3 +503,30 @@ times etc.).
 `translation-of-compilation-unit` ::= "translation of compilation unit" : `json-float`
 
 `proof` ::= "proof" : `json-float`
+
+##### 3.5.2 The timings.* objects
+
+All these objects contain a `json-float` designating the number of second spent
+in this stage.
+
+* `marking`
+  ???
+* `globals-basic`
+  The total time spent in the ___basic___ analysis of global effects.
+* `globals-advanced`
+  The total time spent in the ___advanced___ analysis of global effects.
+* `flow-analysis`
+  Total time spent in flow analysis.
+* `codepeer-results`
+  Total time spent in [CodePeer](https://www.adacore.com/codepeer/).
+* `init-why-sections`
+  ???
+* `translation-of-standard`
+  The total time spent in translating the `Standard` package (and possibly other
+  standard Ada library packages) into the intermediate language representation.
+* `translation-of-compilation-unit`
+  The total time spent in translating the analyzed unit into the intermediate
+  language representation.
+* `proof`
+  The total time spent in proof (i.e. absence of run-time errors and functional
+  analysis).
