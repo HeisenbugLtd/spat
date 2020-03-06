@@ -50,13 +50,14 @@ package SPAT.Spark_Info is
    --  Access functions.
    function Num_Flows (This : in T) return Ada.Containers.Count_Type;
    function Flow_Time (This : in T) return Duration;
-
    function Num_Proofs (This : in T) return Ada.Containers.Count_Type;
    function Proof_Time (This : in T) return Duration;
 
    --  Lookup functions.
    function Max_Proof_Time (This    : in T;
                             Element : in Entity_Name) return Duration;
+   function Total_Proof_Time (This    : in T;
+                              Element : in Entity_Name) return Duration;
 
 private
 

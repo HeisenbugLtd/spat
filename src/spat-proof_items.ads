@@ -23,14 +23,19 @@ private package SPAT.Proof_Items is
 
    type T is new Entity_Locations.T with
       record
-         Rule     : Rule_Name;
-         Severity : Severity_Name;
-         Max_Time : Duration; --  Longest time spent in proof (successful or not)
+         Rule       : Rule_Name;
+         Severity   : Severity_Name;
+         Max_Time   : Duration; --  Longest time spent in proof (successful or not)
+         Total_Time : Duration; --  Accumulated proof time.
       end record;
 
    overriding function Create (Object : in JSON_Value) return T with
      Pre => (Preconditions.Ensure_File_Line_Column (Object => Object) and then
              Preconditions.Ensure_Rule_Severity (Object => Object));
+
+   function Quicker_Than (Left  : in T;
+                          Right : in T) return Boolean is
+     (Left.Max_Time < Right.Max_Time);
 
    package Vectors is
      new Ada.Containers.Vectors (Index_Type   => Positive,
@@ -38,6 +43,8 @@ private package SPAT.Proof_Items is
 
    subtype Vector is Vectors.Vector;
 
+   --  Sorting instantiations.
    package By_Location is new Vectors.Generic_Sorting ("<" => "<");
+   package By_Duration is new Vectors.Generic_Sorting ("<" => Quicker_Than);
 
 end SPAT.Proof_Items;

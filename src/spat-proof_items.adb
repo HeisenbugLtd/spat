@@ -16,7 +16,8 @@ package body SPAT.Proof_Items is
    ---------------------------------------------------------------------------
    overriding function Create (Object : in JSON_Value) return T
    is
-      Max_Time : Duration := 0.0;
+      Max_Time   : Duration := 0.0;
+      Total_Time : Duration := 0.0;
    begin
       --  Walk along the check_tree array to find all proof attempts and their
       --  respective times.
@@ -59,11 +60,15 @@ package body SPAT.Proof_Items is
                                 Field  => Field_Names.Time,
                                 Kind   => JSON_Float_Type)
                            then
-                              Max_Time :=
-                                Duration'Max
-                                  (Max_Time,
-                                   Duration
-                                     (Float'(Value.Get (Field => Field_Names.Time))));
+                              declare
+                                 Time : constant Duration :=
+                                          Duration
+                                            (Float'(Value.Get (Field =>
+                                                                 Field_Names.Time)));
+                              begin
+                                 Max_Time   := Duration'Max (Max_Time, Time);
+                                 Total_Time := Total_Time + Time;
+                              end;
                            end if;
                         end Mapping_CB;
                      begin
@@ -78,9 +83,10 @@ package body SPAT.Proof_Items is
 
       return
         (Entity_Locations.Create (Object => Object) with
-           Rule     => Object.Get (Field => Field_Names.Rule),
-           Severity => Object.Get (Field => Field_Names.Severity),
-           Max_Time => Max_Time);
+           Rule       => Object.Get (Field => Field_Names.Rule),
+           Severity   => Object.Get (Field => Field_Names.Severity),
+           Max_Time   => Max_Time,
+           Total_Time => Total_Time);
    end Create;
 
 end SPAT.Proof_Items;

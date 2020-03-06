@@ -446,4 +446,19 @@ package body SPAT.Spark_Info is
    function Proof_Time (This : in T) return Duration is
      (This.Timings.Proof);
 
+   ---------------------------------------------------------------------------
+   --  Total_Proof_Time
+   ---------------------------------------------------------------------------
+   function Total_Proof_Time (This    : in T;
+                              Element : in Entity_Name) return Duration
+   is
+      Total_Time : Duration := 0.0;
+   begin
+      for P of This.Entities (Element).Proofs loop
+         Total_Time := Duration'Max (Total_Time, P.Total_Time);
+      end loop;
+
+      return Total_Time;
+   end Total_Proof_Time;
+
 end SPAT.Spark_Info;
