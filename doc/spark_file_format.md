@@ -90,8 +90,8 @@ file name (without any path) and the line within that file.
  ```
 
 As far as I have figured out, this simply points to the line where the
-analyzed Ada unit is declared, e.g. the line of an Ada `package`
-specification.
+analyzed Ada unit is declared, e.g. the line of an Ada `package` or
+`subprogram` declaration.
 
 ### 3.2 The `flow` array
 
@@ -106,6 +106,9 @@ The following objects have been seen in the wild:
 * entity
 * check_tree
 * how_proved
+
+___Note___: It seems to share the same data structure with the
+[`proof`](spark_file_format.md#33-the-proof-array) array.
 
 #### 3.2.1 Grammar Summary
 
@@ -201,6 +204,8 @@ withing that source file of the (enclosing) compilation unit.
   "name": "Saatana.Crypto.Oadd.Add_Carry",
   "sloc": # [...]
 ```
+___Note___: There is some name mangling going on here, `Oadd` is actually an
+user-defined operator `"+"`.
 
 #### 3.2.8 The `flow[].entity.name` object
 
@@ -231,7 +236,8 @@ location of the definition of the entity (I presume).
 ???
 
 I am assuming this will always be empty for a flow analysis and only be
-interesting in the proof part (see below).
+interesting in the [`proof`](spark_file_format.md#332-the-proofcheck-tree-array)
+part.
 
 #### 3.2.11 The `flow[].how-proved` object
 
@@ -273,9 +279,11 @@ The following objects have been seen in the wild:
                           `stats` } ]
 
 For the `file`, `line`, `col`, `rule`, `severity`, and `entity` objects
-see the flow array section above, they share the same grammar, it seems.
+see the [`flow`](spark_file_format.md#32-the-flow-array) array section above,
+they share the same grammar, it seems. `check-file`, `check-line`, and
+`check-col` are structurally identical to `file`, `line`, and `col`.
 
-(Actually, I think flow and proof are virtually identical, they just use
+(Actually, I think `flow` and `proof` are virtually identical, they just use
 different parts of the same structure.)
 
 `check-tree` ::= "check_tree" : [ { `proof-attempts`,
@@ -293,10 +301,20 @@ different parts of the same structure.)
 
 `time` ::= "time" : `json-float`
 
+`stats` ::= "stats" : { `prover-name` { `count`, `max-steps`, `time` } }
+
+`prover-name` ::= `json-string`
+
+`count` ::= "count" : `json-int`
+
+`max-steps` ::= "max_steps" : `json-int`
+
+`time` ::= "time" : `json-float`
+
 #### 3.3.2 The `proof[].check-tree` array
 
-This array contains a list of objects which are further subdivided into
-`proof_attempts` and `transformations` object.
+This array contains a list of unnamed objects which are further subdivided
+into a `proof_attempts` and a `transformations` object.
 
 ##### 3.3.2.1 The `proof[].check-tree[].proof-attempts` object
 
@@ -331,7 +349,7 @@ of running a specific prover and the object is named after the prover.
 As far as I have seen so far, `result` will be "Valid" if the proof was
 successful. `steps` holds the number of proof steps the prover has done
 (what these steps mean may depend on the prover used), and `time` is
-obviously the (wall clock) time the prover spend doing all this.
+obviously the (wall clock) time the prover spent doing all this.
 
 ###### 3.3.2.3 The `proof[].check-tree[].transformations` object
 
@@ -343,6 +361,13 @@ In the cases I have seen, these simply duplicate the previous entries
 `file`, `line`, and `column`. Right now I can only assume that these may
 contain different data under certain circumstances (e.g. when proving
 generic instantiations).
+
+* Example:
+```json
+  "check_file": "saatana-crypto-phelix.adb",
+  "check_line": 120,
+  "check_col": 102,
+```
 
 #### 3.3.4 The `proof[].how-proved` object
 
@@ -376,7 +401,7 @@ prover, and the three fields `count` (`json-int`), `max-steps`
 * `max-time` seems to contain the time of the path where the the prover
   spent its most time (with minor variations which I attribute to
   accuracy issues) proving it. Please note that the object contained in
-  `stats` do not seem to include failed proof attempts.
+  `stats` does not seem to include failed proof attempts.
 
 ### 3.4 The `assumptions` array
 
