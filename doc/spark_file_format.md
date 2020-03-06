@@ -263,7 +263,6 @@ The following objects have been seen in the wild:
 * `severity`
 * `entity`
 * [`check_tree`](spark_file_format.md#332-the-check-tree-array)
-* how_proved
 * [`check_file`](spark_file_format.md#333-the-check-file-check-line-check-col-objects)
 * [`check_line`](spark_file_format.md#333-the-check-file-check-line-check-col-objects)
 * [`check_col`](spark_file_format.md#333-the-check-file-check-line-check-col-objects)
