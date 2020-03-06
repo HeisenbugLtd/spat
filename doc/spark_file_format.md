@@ -252,8 +252,8 @@ analysis step).
 
 ### 3.3 The `proof` array
 
-Similar to the `flow` array this contains results from the proof, for
-each VC checked.
+Similar to the [`flow`](spark_file_format.md#32-the-flow-array) array
+this contains results from the proof, for each VC checked.
 
 The following objects have been seen in the wild:
 
