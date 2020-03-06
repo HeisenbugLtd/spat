@@ -2,33 +2,33 @@
 
 ## 0 Preface
 
-The following documentation is reverse engineered, so information
-contained in here should be taken with a grain of salt (or two grains,
-and maybe some Habanero sauce).
+The following documentation is reverse engineered, so information contained in
+here should be taken with a grain of salt (or two grains, and maybe some
+Habanero sauce).
 
-Some information about the file format has been extracted from the GPS
-plugin [`spark2014.py`](https://github.com/AdaCore/gps/blob/master/share/plug-ins/spark2014.py).
+Some information about the file format has been extracted from the GPS plugin
+[`spark2014.py`](https://github.com/AdaCore/gps/blob/master/share/plug-ins/spark2014.py).
 
 ## 1 Introduction
 
-The `.spark` files are in [JSON format](https://www.json.org/json-en.html)
-and contain information about the attempts to discharge verification
-conditions (VCs), the kind of proof attempted (assertion, runtime check,
-etc.), which provers have been tried and so on.
+The `.spark` files are in [JSON format](https://www.json.org/json-en.html) and
+contain information about the attempts to discharge verification conditions
+(VCs), the kind of proof attempted (assertion, runtime check, etc.), which
+provers have been tried and so on.
 
 From `spark2014.py`:
 
-> The json file, if it exists and is a valid JSON value, is a dict
-  with two entries "flow" and "proof" (both entries may be absent).
-  Each entry is mapped to a list of dictionaries.
+> The json file, if it exists and is a valid JSON value, is a dict with two
+  entries "flow" and "proof" (both entries may be absent). Each entry is mapped
+  to a list of dictionaries.
 
-  This is about all the very specific information I could find in there
-  and it's most definitely not complete.
+This is about all the very specific information I could find in there and it is
+most definitely not complete.
 
 ## 2 Terminology
 
-If the below text speaks of arrays and objects, that usually refers to
-JSON arrays (i.e. a list) and JSON objects (i.e. name-value pairs).
+If the below text speaks of arrays and objects, that usually refers to JSON
+arrays (i.e. a list) and JSON objects (i.e. name-value pairs).
 
 ## 3 The File Format
 
@@ -44,13 +44,13 @@ So far I have seen:
 
 ### 3.1 The `spark` array
 
-Contains JSON objects where each object contains information about the
-Ada unit (`package`, `subprogram`, ...) being analyzed: The `name` of
-the unit, the source location `sloc` and **presumably** the options used
-for the SPARK analysis in another object called `spark`.
+Contains JSON objects where each object contains information about the Ada unit
+(`package`, `subprogram`, ...) being analyzed: The `name` of the unit, the
+source location `sloc` and **presumably** the options used for the SPARK
+analysis in another object called `spark`.
 
-As far as I figured out, this array contains a list of entities
-referenced in later sections, i.e. a list of all sub-units analyzed.
+As far as I figured out, this array contains a list of entities referenced in
+later sections, i.e. a list of all sub-units analyzed.
 
 #### 3.1.1 Grammar Summary
 
@@ -75,9 +75,9 @@ Contains the Ada name of the subunit being analyzed.
 
 #### 3.1.3 The `spark[].sloc[]` array
 
-`spark[].sloc` contains JSON objects with source location info. Each
-element contains a `file` and a `line` object, containing the source
-file name (without any path) and the line within that file.
+`spark[].sloc` contains JSON objects with source location info. Each element
+contains a `file` and a `line` object, containing the source file name (without
+any path) and the line within that file.
 
 * Example:
 ```json
@@ -89,14 +89,14 @@ file name (without any path) and the line within that file.
  ]
  ```
 
-As far as I have figured out, this simply points to the line where the
-analyzed Ada unit is declared, e.g. the line of an Ada `package` or
-`subprogram` declaration.
+As far as I have figured out, this simply points to the line where the analyzed
+Ada unit is declared, e.g. the line of an Ada `package` or `subprogram`
+declaration.
 
 ### 3.2 The `flow` array
 
-This contains results from the data flow analysis, for each rule checked.
-The following objects have been seen in the wild:
+This contains results from the data flow analysis, for each rule checked. The
+following objects have been seen in the wild:
 
 * file
 * line
@@ -112,8 +112,8 @@ ___Note___: It seems to share the same data structure with the
 
 #### 3.2.1 Grammar Summary
 
-`flow` ::= "flow" : [ { `file`, `line`, `col`, `rule`, `severity`,
-                        `entity`, `check-tree`, `how-proved` } ]
+`flow` ::= "flow" : [ { `file`, `line`, `col`, `rule`, `severity`, `entity`,
+                        `check-tree`, `how-proved` } ]
 
 `file` ::= "file" : `json-string`
 
@@ -143,8 +143,8 @@ ___Note___: It seems to share the same data structure with the
 
 #### 3.2.2 The `flow[].file` object
 
-Contains the name of the file (again, without path), where the checked
-rule applies to.
+Contains the name of the file (again, without path), where the checked rule
+applies to.
 
 * Example:
 ```json
@@ -178,15 +178,14 @@ Contains the identifier of the rule being checked.
 "rule": "DEPENDS_WRONG"
 ```
 
-Please note that you can get a list of these rules by calling gnatprove
-with the switch `--list-categories`, so I am not going to list them
-here.
+Please note that you can get a list of these rules by calling gnatprove with
+the switch `--list-categories`, so I am not going to list them here.
 
 #### 3.2.6 The `flow[].severity` object
 
-Contains the severeness of the proof result. As far as I have figured
-out, `info` means no error, while `warning` and `error` have their usual
-meaning. Other values than these three can possibly occur.
+Contains the severeness of the proof result. As far as I have figured out,
+`info` means no error, while `warning` and `error` have their usual meaning.
+Other values than these three can possibly occur.
 
 * Example:
 ```json
@@ -195,8 +194,8 @@ meaning. Other values than these three can possibly occur.
 
 #### 3.2.7 The `flow[].entity` object
 
-Contains the objects for `name` of the source file and the `location`
-withing that source file of the (enclosing) compilation unit.
+Contains the objects for `name` of the source file and the `location` within
+that source file of the (enclosing) compilation unit.
 
 * Example:
 ```json
@@ -218,8 +217,8 @@ Contains the name of the entity to which the VC applies.
 
 #### 3.2.9 The `flow[].entity.sloc` array
 
-Each element contains the objects `file` and `line` containing the
-location of the definition of the entity (I presume).
+Each element contains the objects `file` and `line` containing the location of
+the definition of the entity (I presume).
 
 * Example:
 ```json
@@ -241,9 +240,9 @@ part.
 
 #### 3.2.11 The `flow[].how-proved` object
 
-Contains the way the VC was dicharged. Unsure which values this object
-can have. So far I encountered only `flow` (which makes sense in a flow
-analysis step).
+Contains the way the VC was dicharged. Unsure which values this object can
+have. So far I encountered only `flow` (which makes sense in a flow analysis
+step).
 
 * Example:
 ```json
@@ -252,8 +251,8 @@ analysis step).
 
 ### 3.3 The `proof` array
 
-Similar to the [`flow`](spark_file_format.md#32-the-flow-array) array
-this contains results from the proof, for each VC checked.
+Similar to the [`flow`](spark_file_format.md#32-the-flow-array) array this
+contains results from the proof, for each VC checked.
 
 The following objects have been seen in the wild:
 
@@ -273,21 +272,19 @@ The following objects have been seen in the wild:
 
 #### 3.3.1 Grammar Summary
 
-`proof` ::= "proof" : [ { `file`, `line`, `col`, `rule`, `severity`,
-                          `entity`, `check-tree`,  `check-file`,
-                          `check-line`, `check-col`,  `how-proved`,
-                          `stats` } ]
+`proof` ::= "proof" : [ { `file`, `line`, `col`, `rule`, `severity`, `entity`,
+                          `check-tree`,  `check-file`, `check-line`,
+                          `check-col`,  `how-proved`, `stats` } ]
 
-For the `file`, `line`, `col`, `rule`, `severity`, and `entity` objects
-see the [`flow`](spark_file_format.md#32-the-flow-array) array section above,
-they share the same grammar, it seems. `check-file`, `check-line`, and
-`check-col` are structurally identical to `file`, `line`, and `col`.
+For the `file`, `line`, `col`, `rule`, `severity`, and `entity` objects see the
+[`flow`](spark_file_format.md#32-the-flow-array) array section above, they
+share the same grammar, it seems. `check-file`, `check-line`, and `check-col`
+are structurally identical to `file`, `line`, and `col`.
 
 (Actually, I think `flow` and `proof` are virtually identical, they just use
 different parts of the same structure.)
 
-`check-tree` ::= "check_tree" : [ { `proof-attempts`,
-                                    `transformations` } ]
+`check-tree` ::= "check_tree" : [ { `proof-attempts`, `transformations` } ]
 
 `proof-attempts` ::= { `prover` }
 
@@ -313,16 +310,16 @@ different parts of the same structure.)
 
 #### 3.3.2 The `proof[].check-tree` array
 
-This array contains a list of unnamed objects which are further subdivided
-into a `proof_attempts` and a `transformations` object.
+This array contains a list of unnamed objects which are further subdivided into
+a `proof_attempts` and a `transformations` object.
 
 ##### 3.3.2.1 The `proof[].check-tree[].proof-attempts` object
 
-`proof-attempts` contains objects which are denoted with the prover
-name. Weirdly, this is not expressed as a JSON array, but as an object
-containing an unspecified number of other JSON objects. I am assuming
-that each of these unnamed objects containing a `proof-attempts` and
-`transformations` object corresponds to a code path proven individually.
+`proof-attempts` contains objects which are denoted with the prover name.
+Weirdly, this is not expressed as a JSON array, but as an object containing an
+unspecified number of other JSON objects. I am assuming that each of these
+unnamed objects containing a `proof-attempts` and `transformations` object
+corresponds to a code path proven individually.
 
 * Example:
 ```json
@@ -334,8 +331,8 @@ that each of these unnamed objects containing a `proof-attempts` and
 
 ###### 3.3.2.2 The `proof[].check-tree[].proof-attempts.*` object
 
-Each object contained in the `proof-attempts` object contains the result
-of running a specific prover and the object is named after the prover.
+Each object contained in the `proof-attempts` object contains the result of
+running a specific prover and the object is named after the prover.
 
 * Example:
 ```json
@@ -347,9 +344,9 @@ of running a specific prover and the object is named after the prover.
 ```
 
 As far as I have seen so far, `result` will be "Valid" if the proof was
-successful. `steps` holds the number of proof steps the prover has done
-(what these steps mean may depend on the prover used), and `time` is
-obviously the (wall clock) time the prover spent doing all this.
+successful. `steps` holds the number of proof steps the prover has done (what
+these steps mean may depend on the prover used), and `time` is obviously the
+(wall clock) time the prover spent doing all this.
 
 ###### 3.3.2.3 The `proof[].check-tree[].transformations` object
 
@@ -357,10 +354,10 @@ obviously the (wall clock) time the prover spent doing all this.
 
 #### 3.3.3 The `proof[].check-file`, `proof[].check-line`, `proof[].check-col` objects
 
-In the cases I have seen, these simply duplicate the previous entries
-`file`, `line`, and `column`. Right now I can only assume that these may
-contain different data under certain circumstances (e.g. when proving
-generic instantiations).
+In the cases I have seen, these simply duplicate the previous entries `file`,
+`line`, and `column`. Right now I can only assume that these may contain
+different data under certain circumstances (e.g. when proving generic
+instantiations).
 
 * Example:
 ```json
@@ -371,15 +368,15 @@ generic instantiations).
 
 #### 3.3.4 The `proof[].how-proved` object
 
-This seems to contain the string "prover" in all cases. I am assuming
-that these may contain different values if the VC was either proven
-manually, or justified.
+This seems to contain the string "prover" in all cases. I am assuming that
+these may contain different values if the VC was either proven manually, or
+justified.
 
 #### 3.3.5 The `proof[].stats` object
 
-Contains, for each prover involved, an object with the name of the
-prover, and the three fields `count` (`json-int`), `max-steps`
-(`json-int`), and `max_time` (`json-float`).
+Contains, for each prover involved, an object with the name of the prover, and
+the three fields `count` (`json-int`), `max-steps` (`json-int`), and `max_time`
+(`json-float`).
 
 * Example:
 ```json
@@ -392,22 +389,22 @@ prover, and the three fields `count` (`json-int`), `max-steps`
 }
 ```
 
-* `count` seems to correspond to the number of paths from the
-`check-tree` array where the prover could successfully proof the VC.
+* `count` seems to correspond to the number of paths from the `check-tree`
+  array where the prover could successfully proof the VC.
 
-* `max_steps` is unclear, this value has no obvious correlation to
-  `steps` (which I would have had expected).
-  
-* `max-time` seems to contain the time of the path where the the prover
-  spent its most time (with minor variations which I attribute to
-  accuracy issues) proving it. Please note that the object contained in
-  `stats` does not seem to include failed proof attempts.
+* `max_steps` is unclear, this value has no obvious correlation to `steps` 
+  (which I would have had expected).
+
+* `max-time` seems to contain the time of the path where the the prover spent
+  its most time (with minor variations which I attribute to accuracy issues)
+  proving it. Please note that the object contained in `stats` does not seem to
+  include failed proof attempts.
 
 ### 3.4 The `assumptions` array
 
-Contains information about the assumptions made in the proof. In other
-words, these were not proved themselves, these are conditions that must
-hold true if the proof is to be trusted.
+Contains information about the assumptions made in the proof. In other words,
+these were not proved themselves, these are conditions that must hold true if
+the proof is to be trusted.
 
 #### 3.4.1 Grammar Summary
 
@@ -431,9 +428,8 @@ hold true if the proof is to be trusted.
 
 #### 3.4.2 The ```all-assumptions``` array
 
-Contains a list of `assumptions` and a `claims` objects. I am assuming
-that this lists all assumptions that must hold true for the claim to be
-true.
+Contains a list of `assumptions` and a `claims` objects. I am assuming that
+this lists all assumptions that must hold true for the claim to be true.
 
 ##### 3.4.2.1 The ```all-assumptions[].assumptions[]``` array
 
@@ -473,14 +469,13 @@ Holds the identifier of a predicate. So far I've encountered:
 
 ###### 3.4.2.5 ```arg``` objects
 
-Contain a ```name``` object denoting the name of the subunit concerned,
-and a ```sloc``` object which references the file and line of its
-declaration.
+Contain a ```name``` object denoting the name of the subunit concerned, and a
+```sloc``` object which references the file and line of its declaration.
 
 ### 3.5 The `timings` object
 
-Seems to contain global timings from the whole proof (i.e. summed up
-execution times etc.).
+Seems to contain global timings from the whole proof (i.e. summed up execution
+times etc.).
 
 #### 3.5.1 Grammar Summary
 
