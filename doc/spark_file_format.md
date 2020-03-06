@@ -511,8 +511,7 @@ in this stage.
 | Object name                       | Description |
 | --- | --- |
 | `marking`                         | *???* |
-| `globals-basic`                   | The total time spent in the *basic*
-                                      analysis of global effects. |
+| `globals-basic`                   | The total time spent in the *basic* analysis of global effects. |
 | `globals-advanced`                | The total time spent in the *advanced* analysis of global effects. |
 | `flow-analysis`                   | Total time spent in flow analysis. |
 | `codepeer-results`                | Total time spent in [CodePeer](https://www.adacore.com/codepeer/). |
