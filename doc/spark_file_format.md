@@ -356,9 +356,11 @@ these steps mean may depend on the prover used), and `time` is obviously the
 #### 3.3.3 The `check-file`, `check-line`, `check-col` objects
 
 In the cases I have seen, these simply duplicate the previous entries `file`,
-`line`, and `column`. Right now I can only assume that these may contain
-different data under certain circumstances (e.g. when proving generic
-instantiations).
+`line`, and `column`, but there's more to them. From
+[`spark2014.py`](https://github.com/AdaCore/gps/blob/master/share/plug-ins/spark2014.py):
+
+> We associate the real check location to the text of the message. The locations
+  of the message is not always the same as the one of the check.
 
 * Example:
 ```json
