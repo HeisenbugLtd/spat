@@ -36,11 +36,11 @@ Each `.spark` file contains a single JSON object (i.e. name-value pairs).
 
 So far I have seen:
 
-* spark
-* flow
-* proof
-* assumptions
-* timings
+* [`spark`](spark_file_format.md#31-the-spark-array)
+* [`flow`](spark_file_format.md#32-the-flow-array)
+* [`proof`](spark_file_format.md#33-the-proof-array)
+* [`assumptions`](spark_file_format.md#34-the-assumptions-array)
+* [`timings`](spark_file_format.md#35-the-timings-object)
 
 ### 3.1 The `spark` array
 
