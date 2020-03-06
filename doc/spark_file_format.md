@@ -109,7 +109,7 @@ following objects have been seen in the wild:
 * [`check_tree`](spark_file_format.md#328-the-check-tree-array)
 * [`how_proved`](spark_file_format.md#329-the-how-proved-object)
 
-___Note___: It seems to share the same data structure with the
+*Note*: It seems to share the same data structure with the
 [`proof`](spark_file_format.md#33-the-proof-array) array.
 
 #### 3.2.1 Grammar Summary
@@ -205,8 +205,8 @@ that source file of the (enclosing) compilation unit.
   "name": "Saatana.Crypto.Oadd.Add_Carry",
   "sloc": # [...]
 ```
-___Note___: There is some name mangling going on here, `Oadd` is actually an
-user-defined operator `"+"`.
+*Note*: There is some name mangling going on here, `Oadd` (*O*perator*add*) is
+actually an user-defined operator `"+"`.
 
 #### 3.2.7.1 The `name` object
 
@@ -511,8 +511,9 @@ in this stage.
 | Object name                       | Description |
 | --- | --- |
 | `marking`                         | *???* |
-| `globals-basic`                   | The total time spent in the ___basic___ analysis of global effects. |
-| `globals-advanced`                | The total time spent in the ___advanced___ analysis of global effects. |
+| `globals-basic`                   | The total time spent in the *basic*
+                                      analysis of global effects. |
+| `globals-advanced`                | The total time spent in the *advanced* analysis of global effects. |
 | `flow-analysis`                   | Total time spent in flow analysis. |
 | `codepeer-results`                | Total time spent in [CodePeer](https://www.adacore.com/codepeer/). |
 | `init-why-sections`               | *???* |
