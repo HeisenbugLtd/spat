@@ -505,27 +505,44 @@ times etc.) for the different stages in the proof.
 
 ##### 3.5.2 The timings.* objects
 
-All these objects contain a `json-float` designating the number of second spent
+All these objects contain a `json-float` designating the number of seconds spent
 in this stage.
 
 * `marking`
+
   ???
+
 * `globals-basic`
+
   The total time spent in the ___basic___ analysis of global effects.
+
 * `globals-advanced`
+
   The total time spent in the ___advanced___ analysis of global effects.
+
 * `flow-analysis`
+
   Total time spent in flow analysis.
+
 * `codepeer-results`
+
   Total time spent in [CodePeer](https://www.adacore.com/codepeer/).
+
 * `init-why-sections`
+
   ???
+
 * `translation-of-standard`
+
   The total time spent in translating the `Standard` package (and possibly other
   standard Ada library packages) into the intermediate language representation.
+
 * `translation-of-compilation-unit`
+
   The total time spent in translating the analyzed unit into the intermediate
   language representation.
+
 * `proof`
+
   The total time spent in proof (i.e. absence of run-time errors and functional
   analysis).
