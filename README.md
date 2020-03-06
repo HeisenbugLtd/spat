@@ -5,9 +5,13 @@
 ## Introduction
 
 The SPARK tools (i.e. GNATprove) leave behind a trove of information after a proof run.
-This tool is intended to take these and extract some useful information out of it (like
-for example, where the provers spent their time, which provers solved the problem first
-etc. pp.).
+`spat` is intended to take these information and extract some useful information from
+it (like for example, where the provers spent their time, which provers solved the
+problem first etc. pp.).
+In a way, this tool serves a similar purpose as the [gnatprove2xls](https://github.com/damaki/gnatprove2xls)
+tool, but it parses the "raw" data instead of post-processed output, hence it has more
+information available, and it's written in Ada. (I considered using Python, but rejected
+it, because that would have been too easy).
 
 ## Motivation
 
