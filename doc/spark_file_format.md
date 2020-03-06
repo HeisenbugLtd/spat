@@ -46,8 +46,8 @@ So far I have seen:
 
 Contains JSON objects where each object contains information about the Ada unit
 (`package`, `subprogram`, ...) being analyzed: The `name` of the unit, the
-source location `sloc` and **presumably** the options used for the SPARK
-analysis in another object called `spark`.
+source location `sloc` and the options used for the SPARK analysis in another
+object called `spark`.
 
 As far as I figured out, this array contains a list of entities referenced in
 later sections, i.e. a list of all sub-units analyzed.
@@ -220,7 +220,7 @@ Contains the name of the entity to which the VC applies.
 #### 3.2.7.2 The `sloc` array
 
 Each element contains the objects `file` and `line` containing the location of
-the definition of the entity (I presume).
+the definition of the entity.
 
 * Example:
 ```json
@@ -464,7 +464,7 @@ Holds a `predicate-info` object.
 
 Holds the identifier of a predicate. So far I've encountered:
 
-* CLAIM_POST (presumably a post condition which must hold true)
+* CLAIM_POST (post condition which must hold true)
 * CLAIM_EFFECTS
 * CLAIM_AORTE (Absence Of Run Time Errors)
 
