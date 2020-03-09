@@ -49,7 +49,7 @@ package body SPAT.File_Ops is
                --  Current entry is a file, check if it matches our extension.
                --  If so, add it to our file list.
                if Ada.Directories.Extension (Name => Full_Name) = Extension then
-                  This.Append (New_Item => To_Filename (Full_Name));
+                  This.Append (New_Item => To_Filename (Source => Full_Name));
                end if;
 
             when Ada.Directories.Special_File =>
@@ -59,6 +59,8 @@ package body SPAT.File_Ops is
 
          end case;
       end Handle_Entry;
+
+      use type Ada.Directories.File_Kind;
    begin
       if SPAT.Command_Line.Verbose.Get then
          Ada.Text_IO.Put_Line
@@ -67,14 +69,25 @@ package body SPAT.File_Ops is
       end if;
 
       --  Search for our files...
-      Ada.Directories.Search (Directory => Directory,
-                              Pattern   => "",
-                              Filter    => Filter,
-                              Process   => Handle_Entry'Access);
+      if
+        Ada.Directories.Exists (Name => Directory) and then
+        Ada.Directories.Kind (Name => Directory) = Ada.Directories.Ordinary_File
+      then
+         This.Append
+           (New_Item =>
+              To_Filename
+                (Source => Ada.Directories.Full_Name (Name => Directory)));
+      else
+         Ada.Directories.Search (Directory => Directory,
+                                 Pattern   => "",
+                                 Filter    => Filter,
+                                 Process   => Handle_Entry'Access);
+      end if;
    exception
       when Ada.Directories.Use_Error =>
          Ada.Text_IO.Put_Line
-           ("warning: Unable to read directory """ & Directory & """.");
+           (File => Ada.Text_IO.Standard_Error,
+            Item => "warning: Unable to read directory """ & Directory & """.");
    end Add_Files;
 
 end SPAT.File_Ops;

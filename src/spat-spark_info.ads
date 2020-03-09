@@ -38,7 +38,8 @@ package SPAT.Spark_Info is
    --  Binary representation of the information obtained from a .spark JSON
    --  file.
 
-   procedure Map_Spark_File (This :    out T;
+   procedure Map_Spark_File (This : in out T;
+                             File : in     File_Name;
                              Root : in     JSON_Value);
    --  Traverses through the JSON data given in Root and translates it into the
    --  data structure given in This.
@@ -47,11 +48,17 @@ package SPAT.Spark_Info is
    --  Returns a sorted list of all entities (source unit names) currently
    --  stored in This.
 
+   function List_All_Files (This : in T) return String_Array;
+   --  Returns a sorted list of the names of all files that have been parsed
+   --  into T.
+
    --  Access functions.
    function Num_Flows (This : in T) return Ada.Containers.Count_Type;
-   function Flow_Time (This : in T) return Duration;
+   function Flow_Time (This : in T;
+                       File : in File_Name) return Duration;
    function Num_Proofs (This : in T) return Ada.Containers.Count_Type;
-   function Proof_Time (This : in T) return Duration;
+   function Proof_Time (This : in T;
+                        File : in File_Name) return Duration;
 
    --  Lookup functions.
    function Max_Proof_Time (This    : in T;
@@ -75,10 +82,17 @@ private
                                  Hash            => Hash,
                                  Equivalent_Keys => "=");
 
+   package File_Timings is new
+     Ada.Containers.Hashed_Maps (Key_Type        => File_Name,
+                                 Element_Type    => Timing_Items.T,
+                                 Hash            => Hash,
+                                 Equivalent_Keys => "=",
+                                 "="             => Timing_Items."=");
+
    type T is tagged limited
       record
          Entities : Analyzed_Entities.Map := Analyzed_Entities.Empty_Map;
-         Timings  : Timing_Items.T        := Timing_Items.None;
+         Files    : File_Timings.Map      := File_Timings.Empty_Map;
       end record;
 
 end SPAT.Spark_Info;

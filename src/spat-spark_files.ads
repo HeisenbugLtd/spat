@@ -43,15 +43,15 @@ package SPAT.Spark_Files is
    --  Data collection and operations defined on it.
    --
 
-   type SPARK_Data is new File_Maps.Map with private;
+   type T is new File_Maps.Map with private;
    --  Stores all data collected from SPARK files for analysis.
 
-   procedure Read_Files (This  : in out SPARK_Data;
-                         Names : in     File_Ops.File_List'Class);
+   procedure Read (This  : in out T;
+                   Names : in     File_Ops.File_List'Class);
    --  Reads the list of files, and parses and stores their content in This.
 
 private
 
-   type SPARK_Data is new File_Maps.Map with null record;
+   type T is new File_Maps.Map with null record;
 
 end SPAT.Spark_Files;

@@ -70,6 +70,7 @@ package body SPAT.Spark_Info is
    --  Map_Timings
    ---------------------------------------------------------------------------
    procedure Map_Timings (This : in out T;
+                          File : in     File_Name;
                           Root : in     JSON_Value);
 
    ---------------------------------------------------------------------------
@@ -79,8 +80,9 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Flow_Time
    ---------------------------------------------------------------------------
-   function Flow_Time (This : in T) return Duration is
-     (This.Timings.Flow);
+   function Flow_Time (This : in T;
+                       File : in File_Name) return Duration is
+     (This.Files (File).Flow);
 
    ---------------------------------------------------------------------------
    --  List_All_Entities
@@ -101,6 +103,26 @@ package body SPAT.Spark_Info is
          Sort_By_Name (Container => Result);
       end return;
    end List_All_Entities;
+
+   ---------------------------------------------------------------------------
+   --  List_All_Files
+   ---------------------------------------------------------------------------
+   function List_All_Files (This : in T) return String_Array is
+   begin
+      return Result : String_Array (1 .. Natural (This.Files.Length)) do
+         declare
+            Current_Index : Positive := Result'First;
+         begin
+            for Index in This.Files.Iterate loop
+               Result (Current_Index) :=
+                 File_Timings.Key (Position => Index);
+               Current_Index := Current_Index + 1;
+            end loop;
+         end;
+
+         Sort_By_Name (Container => Result);
+      end return;
+   end List_All_Files;
 
    ---------------------------------------------------------------------------
    --  Map_Assumptions_Elements
@@ -188,7 +210,8 @@ package body SPAT.Spark_Info is
                            Ada.Text_IO.Put_Line
                              (File => Ada.Text_IO.Standard_Error,
                               Item =>
-                                "Warning (Flow): """ & To_String (The_Key) &
+                                "Warning (Flow): """ &
+                                To_String (Source => The_Key) &
                                 """ not found in index.");
                         end if;
                      end;
@@ -252,7 +275,8 @@ package body SPAT.Spark_Info is
                            Ada.Text_IO.Put_Line
                              (File => Ada.Text_IO.Standard_Error,
                               Item =>
-                                "Warning (Flow): """ & To_String (The_Key) &
+                                "Warning (Flow): """ &
+                                To_String (Source => The_Key) &
                                 """ not found in index.");
                         end if;
                      end;
@@ -322,12 +346,10 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Map_Spark_File
    ---------------------------------------------------------------------------
-   procedure Map_Spark_File (This :    out T;
+   procedure Map_Spark_File (This : in out T;
+                             File : in     File_Name;
                              Root : in     JSON_Value) is
    begin
-      This.Entities.Clear;
-      This.Timings := Timing_Items.None;
-
       --  If I understand the .spark file format correctly, this should
       --  establish the table of all known analysis elements.
       if
@@ -371,7 +393,8 @@ package body SPAT.Spark_Info is
                                     Field  => Field_Names.Timings,
                                     Kind   => JSON_Object_Type)
       then
-         This.Map_Timings (Root => Root.Get (Field => Field_Names.Timings));
+         This.Map_Timings (File => File,
+                           Root => Root.Get (Field => Field_Names.Timings));
       end if;
    end Map_Spark_File;
 
@@ -379,6 +402,7 @@ package body SPAT.Spark_Info is
    --  Map_Timings
    ---------------------------------------------------------------------------
    procedure Map_Timings (This : in out T;
+                          File : in     File_Name;
                           Root : in     JSON_Value) is
    begin
       if
@@ -389,13 +413,15 @@ package body SPAT.Spark_Info is
                                     Field  => Field_Names.Flow_Analysis,
                                     Kind   => JSON_Float_Type)
       then
-         This.Timings :=
-           Timing_Items.T'
-             (Duration (Float'(Root.Get (Field => Field_Names.Proof))),
-              Duration (Float'(Root.Get (Field =>
-                                           Field_Names.Flow_Analysis))));
+         This.Files.Insert
+           (Key      => File,
+            New_Item =>
+              Timing_Items.T'
+                (Duration (Float'(Root.Get (Field => Field_Names.Proof))),
+                 Duration (Float'(Root.Get (Field => Field_Names.Flow_Analysis)))));
       else
-         This.Timings := Timing_Items.None;
+         This.Files.Insert (Key      => File,
+                            New_Item => Timing_Items.None);
       end if;
    end Map_Timings;
 
@@ -443,8 +469,9 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Proof_Time
    ---------------------------------------------------------------------------
-   function Proof_Time (This : in T) return Duration is
-     (This.Timings.Proof);
+   function Proof_Time (This : in T;
+                        File : in File_Name) return Duration is
+     (This.Files (File).Proof);
 
    ---------------------------------------------------------------------------
    --  Total_Proof_Time

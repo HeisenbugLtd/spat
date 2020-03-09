@@ -12,7 +12,7 @@ package body SPAT.Spark_Files is
    begin
       Ada.Text_IO.Open (File => JSON_File,
                         Mode => Ada.Text_IO.In_File,
-                        Name => To_String (Name));
+                        Name => To_String (Source => Name));
 
       while not Ada.Text_IO.End_Of_File (File => JSON_File) loop
          Ada.Strings.Unbounded.Append
@@ -25,8 +25,8 @@ package body SPAT.Spark_Files is
       return GNATCOLL.JSON.Read (Strm => File_Content);
    end Parse_File;
 
-   procedure Read_Files (This  : in out SPARK_Data;
-                         Names : in     File_Ops.File_List'Class)
+   procedure Read (This  : in out T;
+                   Names : in     File_Ops.File_List'Class)
    is
       use type File_Maps.Cursor;
    begin
@@ -41,7 +41,7 @@ package body SPAT.Spark_Files is
             if SPAT.Command_Line.Verbose.Get then
                Ada.Text_IO.Put_Line
                  (File => Ada.Text_IO.Standard_Output,
-                  Item => "Parsing """ & To_String (Name) & """...");
+                  Item => "Parsing """ & To_String (Source => Name) & """...");
             end if;
 
             begin
@@ -51,13 +51,15 @@ package body SPAT.Spark_Files is
                when Ada.IO_Exceptions.Name_Error =>
                   Ada.Text_IO.Put_Line
                     (File => Ada.Text_IO.Standard_Error,
-                     Item => "Error reading """ & To_String (Name) & """!");
+                     Item =>
+                        "Error reading """ & To_String (Source => Name) &
+                        """!");
             end;
          else
             --  Skip file, we already got that one.
             null;
          end if;
       end loop;
-   end Read_Files;
+   end Read;
 
 end SPAT.Spark_Files;
