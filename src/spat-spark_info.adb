@@ -131,10 +131,11 @@ package body SPAT.Spark_Info is
                           This.Total_Proof_Time (Element => Right));
 
                   procedure Sort_By_Time is new
-                    Ada.Containers.Generic_Array_Sort (Index_Type   => Positive,
-                                                       Element_Type => Subject_Name,
-                                                       Array_Type   => String_Array,
-                                                       "<"          => "<");
+                    Ada.Containers.Generic_Array_Sort
+                      (Index_Type   => Positive,
+                       Element_Type => Subject_Name,
+                       Array_Type   => String_Array,
+                       "<"          => "<");
                begin
                   Sort_By_Time (Container => Result);
                end;
@@ -177,7 +178,8 @@ package body SPAT.Spark_Info is
                     Ada.Containers.Generic_Array_Sort
                       (Index_Type   => Positive,
                        Element_Type => Subject_Name,
-                       Array_Type   => String_Array);
+                       Array_Type   => String_Array,
+                       "<"          => "<");
                begin
                   Sort_By_Name (Container => Result);
                end;
@@ -195,10 +197,11 @@ package body SPAT.Spark_Info is
                         This.Flow_Time (File => Right)));
 
                   procedure Sort_By_Time is new
-                    Ada.Containers.Generic_Array_Sort (Index_Type   => Positive,
-                                                       Element_Type => Subject_Name,
-                                                       Array_Type   => String_Array,
-                                                       "<"          => "<");
+                    Ada.Containers.Generic_Array_Sort
+                      (Index_Type   => Positive,
+                       Element_Type => Subject_Name,
+                       Array_Type   => String_Array,
+                       "<"          => "<");
                begin
                   Sort_By_Time (Container => Result);
                end;
