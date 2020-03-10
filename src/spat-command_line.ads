@@ -48,7 +48,13 @@ package SPAT.Command_Line is
      GNATCOLL.Opt_Parse.Parse_Flag (Parser => Parser,
                                     Short  => "-s",
                                     Long   => "--summary",
-                                    Help   => "Print summary only");
+                                    Help   => "List summary (per file)");
+
+   package Details is new
+     GNATCOLL.Opt_Parse.Parse_Flag (Parser   => Parser,
+                                    Short    => "-d",
+                                    Long     => "--details",
+                                    Help     => "Show details for entities");
 
    package Sort_By is new
      GNATCOLL.Opt_Parse.Parse_Option
