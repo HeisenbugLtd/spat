@@ -8,6 +8,7 @@
 pragma License (Unrestricted);
 
 with Ada.Containers.Generic_Array_Sort;
+with Ada.Directories;
 with Ada.Text_IO;
 
 with SPAT.Preconditions;
@@ -85,11 +86,6 @@ package body SPAT.Spark_Info is
                        File : in Subject_Name) return Duration is
      (This.Files (File).Flow);
 
-   procedure Sort_By_Name is new
-     Ada.Containers.Generic_Array_Sort (Index_Type   => Positive,
-                                        Element_Type => Subject_Name,
-                                        Array_Type   => String_Array);
-
    ---------------------------------------------------------------------------
    --  List_All_Entities
    ---------------------------------------------------------------------------
@@ -113,7 +109,16 @@ package body SPAT.Spark_Info is
                null;
 
             when Name =>
-               Sort_By_Name (Container => Result);
+               declare
+                  procedure Sort_By_Name is new
+                    Ada.Containers.Generic_Array_Sort
+                      (Index_Type   => Positive,
+                       Element_Type => Subject_Name,
+                       Array_Type   => String_Array,
+                       "<"          => "<");
+               begin
+                  Sort_By_Name (Container => Result);
+               end;
 
             when Time =>
                declare
@@ -160,7 +165,22 @@ package body SPAT.Spark_Info is
                null; -- Do not sort anything
 
             when Name =>
-               Sort_By_Name (Container => Result);
+               declare
+                  function "<" (Left  : in Subject_Name;
+                                Right : in Subject_Name) return Boolean is
+                    (Ada.Directories.Base_Name
+                       (Name => To_String (Source => Left)) <
+                     Ada.Directories.Base_Name
+                       (Name => To_String (Source => Right)));
+
+                  procedure Sort_By_Name is new
+                    Ada.Containers.Generic_Array_Sort
+                      (Index_Type   => Positive,
+                       Element_Type => Subject_Name,
+                       Array_Type   => String_Array);
+               begin
+                  Sort_By_Name (Container => Result);
+               end;
 
             when Time =>
                declare
