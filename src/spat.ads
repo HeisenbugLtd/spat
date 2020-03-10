@@ -44,6 +44,10 @@ package SPAT is
    function Hash (Key : Ada.Strings.Unbounded.Unbounded_String) return
      Ada.Containers.Hash_Type renames Ada.Strings.Unbounded.Hash;
 
+   function Length
+     (Source : in Ada.Strings.Unbounded.Unbounded_String) return Natural renames
+     Ada.Strings.Unbounded.Length;
+
    --  Type renames for commonly used JSON types from GNATCOLL.JSON
    subtype JSON_Array      is GNATCOLL.JSON.JSON_Array;
    subtype JSON_Value      is GNATCOLL.JSON.JSON_Value;
