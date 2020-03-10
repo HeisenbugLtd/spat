@@ -9,84 +9,71 @@ pragma License (Unrestricted);
 
 package body SPAT.Proof_Items is
 
-   use all type GNATCOLL.JSON.JSON_Value_Type;
-
    ---------------------------------------------------------------------------
    --  Create
    ---------------------------------------------------------------------------
    overriding function Create (Object : in JSON_Value) return T
    is
+      Attempts   : Proof_Attempts.Vector := Proof_Attempts.Empty_Vector;
       Max_Time   : Duration := 0.0;
       Total_Time : Duration := 0.0;
+      Check_Tree : constant JSON_Array :=
+                     Object.Get (Field => Field_Names.Check_Tree);
    begin
       --  Walk along the check_tree array to find all proof attempts and their
       --  respective times.
-      if
-        Preconditions.Ensure_Field (Object => Object,
-                                    Field  => Field_Names.Check_Tree,
-                                    Kind   => JSON_Array_Type)
-      then
+      for I in 1 .. GNATCOLL.JSON.Length (Arr => Check_Tree) loop
          declare
-            Check_Tree : constant JSON_Array :=
-                           Object.Get (Field => Field_Names.Check_Tree);
+            Element : constant JSON_Value :=
+                        GNATCOLL.JSON.Get (Arr   => Check_Tree,
+                                           Index => I);
          begin
-            for I in 1 .. GNATCOLL.JSON.Length (Arr => Check_Tree) loop
+            if
+              Preconditions.Ensure_Field (Object => Element,
+                                          Field  => Field_Names.Proof_Attempts,
+                                          Kind   => JSON_Object_Type)
+            then
                declare
-                  Element : constant JSON_Value :=
-                              GNATCOLL.JSON.Get (Arr   => Check_Tree,
-                                                 Index => I);
-               begin
-                  if
-                    Preconditions.Ensure_Field
-                      (Object => Element,
-                       Field  => Field_Names.Proof_Attempts,
-                       Kind   => JSON_Object_Type)
-                  then
-                     declare
-                        Proof_Attempts : constant JSON_Value
-                          := Element.Get (Field => Field_Names.Proof_Attempts);
+                  Attempt_List : constant JSON_Value
+                    := Element.Get (Field => Field_Names.Proof_Attempts);
 
-                        procedure Mapping_CB (Name  : in UTF8_String;
-                                              Value : in JSON_Value);
+                  procedure Mapping_CB (Name  : in UTF8_String;
+                                        Value : in JSON_Value);
 
-                        procedure Mapping_CB (Name  : in UTF8_String;
-                                              Value : in JSON_Value)
-                        is
-                           pragma Unreferenced (Name);
+                  procedure Mapping_CB (Name  : in UTF8_String;
+                                        Value : in JSON_Value) is
+                  begin
+                     if
+                       Proof_Attempts.Has_Required_Fields (Object => Value)
+                     then
+                        declare
+                           Attempt : constant Proof_Attempts.T :=
+                                       Proof_Attempts.Create
+                                         (Prover => To_Name (Name),
+                                          Object => Value);
                         begin
-                           if
-                             Preconditions.Ensure_Field
-                               (Object => Value,
-                                Field  => Field_Names.Time,
-                                Kind   => JSON_Float_Type)
-                           then
-                              declare
-                                 Time : constant Duration :=
-                                          Duration
-                                            (Float'(Value.Get (Field =>
-                                                                 Field_Names.Time)));
-                              begin
-                                 Max_Time   := Duration'Max (Max_Time, Time);
-                                 Total_Time := Total_Time + Time;
-                              end;
-                           end if;
-                        end Mapping_CB;
-                     begin
-                        GNATCOLL.JSON.Map_JSON_Object (Val => Proof_Attempts,
-                                                       CB  => Mapping_CB'Access);
-                     end;
-                  end if;
+                           Attempts.Append (New_Item => Attempt);
+
+                           Max_Time   := Duration'Max (Max_Time, Attempt.Time);
+                           Total_Time := Total_Time + Attempt.Time;
+                        end;
+                     end if;
+                  end Mapping_CB;
+               begin
+                  GNATCOLL.JSON.Map_JSON_Object (Val => Attempt_List,
+                                                 CB  => Mapping_CB'Access);
                end;
-            end loop;
+            end if;
          end;
-      end if;
+      end loop;
 
       return
         (Entity_Locations.Create (Object => Object) with
-           Rule       => Object.Get (Field => Field_Names.Rule),
-           Severity   => Object.Get (Field => Field_Names.Severity),
-           Max_Time   => Max_Time,
-           Total_Time => Total_Time);
+             Rule       => Object.Get (Field => Field_Names.Rule),
+         Severity   => Object.Get (Field => Field_Names.Severity),
+         Attempts   => Attempts,
+         Max_Time   => Max_Time,
+         Total_Time => Total_Time);
    end Create;
 
 end SPAT.Proof_Items;

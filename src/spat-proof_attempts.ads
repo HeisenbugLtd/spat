@@ -11,38 +11,42 @@ pragma License (Unrestricted);
 --
 --  SPARK Proof Analysis Tool
 --
---  S.P.A.T. - Object representing an entity (name) with a file location based
---             on a single source line (no column information).
+--  S.P.A.T. - Object representing a JSON "proof attempt" object.
 --
 ------------------------------------------------------------------------------
+
 with Ada.Containers.Vectors;
 with SPAT.Preconditions;
 
-private package SPAT.Entity_Lines is
+private package SPAT.Proof_Attempts is
 
    use all type GNATCOLL.JSON.JSON_Value_Type;
 
-   function Has_Required_Fields (Object : in JSON_Value) return Boolean is
+   function Has_Required_Fields (Object : JSON_Value) return Boolean is
      (Preconditions.Ensure_Field (Object => Object,
-                                  Field  => Field_Names.File,
+                                  Field  => Field_Names.Result,
                                   Kind   => JSON_String_Type) and then
       Preconditions.Ensure_Field (Object => Object,
-                                  Field  => Field_Names.Line,
-                                  Kind   => JSON_Int_Type));
+                                  Field  => Field_Names.Time,
+                                  Kind   => JSON_Float_Type));
 
    type T is tagged
       record
-         File : Subject_Name;
-         Line : Natural;
+         Prover     : Subject_Name; --  Prover involved.
+         Result     : Subject_Name; --  "Valid", "Unknown", etc.
+         Time       : Duration;     --  time spent during proof
+         --  Steps -- part of the JSON data, but we don't care.
       end record;
 
-   not overriding function Create (Object : in JSON_Value) return T with
-     Pre => Has_Required_Fields (Object => Object);
+   function Create (Object : JSON_Value;
+                    Prover : Subject_Name) return T
+     with Pre => Has_Required_Fields (Object => Object);
 
-   package Vectors is
-     new Ada.Containers.Vectors (Index_Type   => Positive,
-                                 Element_Type => T);
+   package Vectors is new
+     Ada.Containers.Vectors (Index_Type   => Ada.Containers.Count_Type,
+                             Element_Type => T);
 
    subtype Vector is Vectors.Vector;
+   Empty_Vector : Vector renames Vectors.Empty_Vector;
 
-end SPAT.Entity_Lines;
+end SPAT.Proof_Attempts;

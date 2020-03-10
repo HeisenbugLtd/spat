@@ -21,8 +21,10 @@ with SPAT.Preconditions;
 
 private package SPAT.Flow_Items is
 
-   --  TODO: There does not seem to be a real need for distinguishing between
-   --        flow and proof items, all handling could be same.
+   function Has_Required_Fields (Object : in JSON_Value) return Boolean is
+     (Entity_Locations.Has_Required_Fields (Object => Object) and then
+      Preconditions.Ensure_Rule_Severity (Object => Object));
+
    type T is new Entity_Locations.T with
       record
          Rule     : Subject_Name;
@@ -30,8 +32,7 @@ private package SPAT.Flow_Items is
       end record;
 
    overriding function Create (Object : in JSON_Value) return T with
-     Pre => (Preconditions.Ensure_File_Line_Column (Object => Object) and then
-             Preconditions.Ensure_Rule_Severity (Object => Object));
+     Pre => Has_Required_Fields (Object => Object);
 
    package Vectors is
      new Ada.Containers.Vectors (Index_Type   => Positive,

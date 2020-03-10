@@ -259,10 +259,7 @@ package body SPAT.Spark_Info is
                      begin
                         if Update_At /= Analyzed_Entities.No_Element then
                            if
-                             Preconditions.Ensure_File_Line_Column
-                               (Object => Element) and then
-                             Preconditions.Ensure_Rule_Severity
-                               (Object => Element)
+                             Flow_Items.Has_Required_Fields (Object => Element)
                            then
                               This.Entities (Update_At).Flows.Append
                                 (New_Item =>
@@ -324,10 +321,7 @@ package body SPAT.Spark_Info is
                      begin
                         if Update_At /= Analyzed_Entities.No_Element then
                            if
-                             Preconditions.Ensure_File_Line_Column
-                               (Object => Element) and then
-                             Preconditions.Ensure_Rule_Severity
-                               (Object => Element)
+                             Proof_Items.Has_Required_Fields (Object => Element)
                            then
                               This.Entities (Update_At).Proofs.Append
                                 (New_Item =>
@@ -368,7 +362,7 @@ package body SPAT.Spark_Info is
             Sloc : constant JSON_Value := GNATCOLL.JSON.Get (Arr   => Root,
                                                              Index => I);
          begin
-            if Preconditions.Ensure_File_Line (Object => Sloc) then
+            if Entity_Lines.Has_Required_Fields (Object => Sloc) then
                Add_To.Append (New_Item => Entity_Lines.Create (Object => Sloc));
             end if;
          end;
@@ -468,19 +462,10 @@ package body SPAT.Spark_Info is
                           Root : in     JSON_Value) is
    begin
       if
-        Preconditions.Ensure_Field (Object => Root,
-                                    Field  => Field_Names.Proof,
-                                    Kind   => JSON_Float_Type) and then
-        Preconditions.Ensure_Field (Object => Root,
-                                    Field  => Field_Names.Flow_Analysis,
-                                    Kind   => JSON_Float_Type)
+        Timing_Items.Has_Required_Fields (Object => Root)
       then
-         This.Files.Insert
-           (Key      => File,
-            New_Item =>
-              Timing_Items.T'
-                (Duration (Float'(Root.Get (Field => Field_Names.Proof))),
-                 Duration (Float'(Root.Get (Field => Field_Names.Flow_Analysis)))));
+         This.Files.Insert (Key      => File,
+                            New_Item => Timing_Items.Create (Object => Root));
       else
          This.Files.Insert (Key      => File,
                             New_Item => Timing_Items.None);

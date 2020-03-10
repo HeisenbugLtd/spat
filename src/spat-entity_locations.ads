@@ -20,13 +20,23 @@ with SPAT.Preconditions;
 
 private package SPAT.Entity_Locations is
 
+   use all type GNATCOLL.JSON.JSON_Value_Type;
+
+   function Has_Required_Fields (Object : in JSON_Value) return Boolean is
+     (Preconditions.Ensure_Field (Object => Object,
+                                  Field  => Field_Names.File,
+                                  Kind   => JSON_String_Type) and then
+      Preconditions.Ensure_Field (Object => Object,
+                                  Field  => Field_Names.Line,
+                                  Kind   => JSON_Int_Type));
+
    type T is new Entity_Lines.T with
       record
          Column : Natural;
       end record;
 
    overriding function Create (Object : in JSON_Value) return T with
-     Pre => Preconditions.Ensure_File_Line_Column (Object => Object);
+     Pre => Has_Required_Fields (Object => Object);
 
    not overriding function "<" (Left  : in T;
                                 Right : in T) return Boolean;
