@@ -43,17 +43,22 @@ begin
       return;
    end if;
 
+   Do_Run_SPAT :
    declare
       SPARK_Files : SPAT.Spark_Files.T;
       Start_Time  : Ada.Real_Time.Time;
       Verbose     : constant Boolean := SPAT.Command_Line.Verbose.Get;
+      Sort_By     : constant SPAT.Spark_Info.Sorting_Criterion :=
+                      SPAT.Command_Line.Sort_By.Get;
    begin
+      Collect_And_Parse :
       declare
          File_List : SPAT.File_Ops.File_List;
       begin
          --  Step 1: Collect all ".spark" files in the directories given on the
          --          command line recursively.
          for Dir of SPAT.Command_Line.Directories.Get loop
+            Search_One_Directory :
             declare
                Search_Dir : constant String := SPAT.To_String (Source => Dir);
             begin
@@ -65,6 +70,7 @@ begin
                                     Extension => "spark");
 
                if Verbose then
+                  Report_Timing :
                   declare
                      Num_Files : constant Ada.Containers.Count_Type :=
                                    File_List.Length;
@@ -81,14 +87,14 @@ begin
                           (if Num_Files /= 1
                            then "s"
                            else "") & " found so far.");
-                  end;
+                  end Report_Timing;
                end if;
             exception
                when Ada.Directories.Name_Error =>
                   Ada.Text_IO.Put_Line
                     (File => Ada.Text_IO.Standard_Error,
                      Item => "Directory """ & Search_Dir & """ not found!");
-            end;
+            end Search_One_Directory;
          end loop;
 
          --  Step 2: Parse the files into JSON values.
@@ -109,8 +115,9 @@ begin
                            (TS => Ada.Real_Time.Clock - Start_Time)) & ".");
             end if;
          end if;
-      end;
+      end Collect_And_Parse;
 
+      Process_And_Output :
       declare
          Info : SPAT.Spark_Info.T;
       begin
@@ -121,10 +128,11 @@ begin
             end if;
 
             for C in SPARK_Files.Iterate loop
+               Parse_JSON_File :
                declare
                   Read_Result : constant GNATCOLL.JSON.Read_Result :=
                                   SPARK_Files (C);
-                  File        : constant SPAT.File_Name :=
+                  File        : constant SPAT.Subject_Name :=
                                   SPAT.Spark_Files.Key (C);
                begin
                   if Read_Result.Success then
@@ -137,7 +145,7 @@ begin
                           GNATCOLL.JSON.Format_Parsing_Error
                             (Error => Read_Result.Error));
                   end if;
-               end;
+               end Parse_JSON_File;
             end loop;
 
             if Verbose then
@@ -152,30 +160,33 @@ begin
          end if;
 
          --  Step 4: Output the JSON data.
-         for File of Info.List_All_Files loop
-            Ada.Text_IO.Put_Line
-              (File => Ada.Text_IO.Standard_Output,
-               Item =>
-                 Ada.Directories.Simple_Name
-                   (Name => SPAT.To_String (Source => File)) &
-                 " => [Flow => " &
-                 Image (Value => Info.Flow_Time (File => File)) & "/" &
-                 Info.Num_Flows'Image & "], [Proof => " &
-                 Image (Value => Info.Proof_Time (File => File)) &
-                 "/" & Info.Num_Proofs'Image & "]");
-         end loop;
-
-         if SPAT.Command_Line.List.Get then
-            for S of Info.List_All_Entities loop
+         if SPAT.Command_Line.Summary.Get then
+            for File of Info.List_All_Files (Sort_By => Sort_By) loop
                Ada.Text_IO.Put_Line
                  (File => Ada.Text_IO.Standard_Output,
-                  Item => SPAT.To_String (Source => S) & " => " &
-                    Image (Value => Info.Max_Proof_Time (Element => S)) & "/" &
-                    Image (Value => Info.Total_Proof_Time (Element => S)));
+                  Item =>
+                    Ada.Directories.Simple_Name
+                      (Name => SPAT.To_String (Source => File)) &
+                      " => [Flow => " &
+                    Image (Value => Info.Flow_Time (File => File)) & "/" &
+                    Info.Num_Flows'Image & "], [Proof => " &
+                    Image (Value => Info.Proof_Time (File => File)) &
+                    "/" & Info.Num_Proofs'Image & "]");
             end loop;
          end if;
-      end;
-   end;
+
+         if SPAT.Command_Line.List.Get then
+            for Entity of Info.List_All_Entities (Sort_By => Sort_By) loop
+               Ada.Text_IO.Put_Line
+                 (File => Ada.Text_IO.Standard_Output,
+                  Item => SPAT.To_String (Source => Entity) & " => " &
+                    Image (Value => Info.Max_Proof_Time (Element => Entity)) &
+                    "/" &
+                    Image (Value => Info.Total_Proof_Time (Element => Entity)));
+            end loop;
+         end if;
+      end Process_And_Output;
+   end Do_Run_SPAT;
 
    Ada.Command_Line.Set_Exit_Status (Code => Ada.Command_Line.Success);
 end Run_SPAT;

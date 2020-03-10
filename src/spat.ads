@@ -20,16 +20,15 @@ with GNATCOLL.JSON;
 
 package SPAT is
 
-   subtype JSON_Data     is Ada.Strings.Unbounded.Unbounded_String;
-   subtype Entity_Name   is Ada.Strings.Unbounded.Unbounded_String;
-   subtype File_Name     is Ada.Strings.Unbounded.Unbounded_String;
-   subtype Rule_Name     is Ada.Strings.Unbounded.Unbounded_String;
-   subtype Severity_Name is Ada.Strings.Unbounded.Unbounded_String;
+   subtype JSON_Data    is Ada.Strings.Unbounded.Unbounded_String;
+   subtype Subject_Name is Ada.Strings.Unbounded.Unbounded_String;
+   --  Type denoting some kind of name (i.e. file name, entity name, rule name
+   --  etc. pp.)
 
-   function To_String (Source : in File_Name) return String renames
+   function To_String (Source : in Subject_Name) return String renames
      Ada.Strings.Unbounded.To_String;
 
-   function To_Filename (Source : in String) return File_Name renames
+   function To_Name (Source : in String) return Subject_Name renames
      Ada.Strings.Unbounded.To_Unbounded_String;
 
    function "="

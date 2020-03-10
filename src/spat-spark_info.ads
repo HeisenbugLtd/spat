@@ -16,8 +16,6 @@ pragma License (Unrestricted);
 --  Collect file contents.
 --
 ------------------------------------------------------------------------------
-with Ada.Containers.Generic_Array_Sort;
-
 private with Ada.Containers.Hashed_Maps;
 private with SPAT.Entity_Lines;
 private with SPAT.Flow_Items;
@@ -27,44 +25,48 @@ private with SPAT.Timing_Items;
 package SPAT.Spark_Info is
 
    --  Helper types.
-   type String_Array is array (Positive range <>) of Entity_Name;
+   type String_Array is array (Positive range <>) of Subject_Name;
 
-   procedure Sort_By_Name is new
-     Ada.Containers.Generic_Array_Sort (Index_Type   => Positive,
-                                        Element_Type => Entity_Name,
-                                        Array_Type   => String_Array);
+   type Sorting_Criterion is (None, Name, Time);
 
    type T is tagged limited private;
    --  Binary representation of the information obtained from a .spark JSON
    --  file.
 
    procedure Map_Spark_File (This : in out T;
-                             File : in     File_Name;
+                             File : in     Subject_Name;
                              Root : in     JSON_Value);
    --  Traverses through the JSON data given in Root and translates it into the
    --  data structure given in This.
 
-   function List_All_Entities (This : in T) return String_Array;
+   function List_All_Entities
+     (This    : in T;
+      Sort_By : in Sorting_Criterion := Name) return String_Array;
    --  Returns a sorted list of all entities (source unit names) currently
    --  stored in This.
 
-   function List_All_Files (This : in T) return String_Array;
+   function List_All_Files
+     (This    : in T;
+      Sort_By : in Sorting_Criterion := None) return String_Array;
    --  Returns a sorted list of the names of all files that have been parsed
    --  into T.
 
    --  Access functions.
    function Num_Flows (This : in T) return Ada.Containers.Count_Type;
+
    function Flow_Time (This : in T;
-                       File : in File_Name) return Duration;
+                       File : in Subject_Name) return Duration;
+
    function Num_Proofs (This : in T) return Ada.Containers.Count_Type;
+
    function Proof_Time (This : in T;
-                        File : in File_Name) return Duration;
+                        File : in Subject_Name) return Duration;
 
    --  Lookup functions.
    function Max_Proof_Time (This    : in T;
-                            Element : in Entity_Name) return Duration;
+                            Element : in Subject_Name) return Duration;
    function Total_Proof_Time (This    : in T;
-                              Element : in Entity_Name) return Duration;
+                              Element : in Subject_Name) return Duration;
 
 private
 
@@ -77,13 +79,13 @@ private
 
    --  Type representing a source (file) entity.
    package Analyzed_Entities is new
-     Ada.Containers.Hashed_Maps (Key_Type        => Entity_Name,
+     Ada.Containers.Hashed_Maps (Key_Type        => Subject_Name,
                                  Element_Type    => Analyzed_Entity,
                                  Hash            => Hash,
                                  Equivalent_Keys => "=");
 
    package File_Timings is new
-     Ada.Containers.Hashed_Maps (Key_Type        => File_Name,
+     Ada.Containers.Hashed_Maps (Key_Type        => Subject_Name,
                                  Element_Type    => Timing_Items.T,
                                  Hash            => Hash,
                                  Equivalent_Keys => "=",

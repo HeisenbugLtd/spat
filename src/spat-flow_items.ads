@@ -25,8 +25,8 @@ private package SPAT.Flow_Items is
    --        flow and proof items, all handling could be same.
    type T is new Entity_Locations.T with
       record
-         Rule     : Rule_Name;
-         Severity : Severity_Name;
+         Rule     : Subject_Name;
+         Severity : Subject_Name;
       end record;
 
    overriding function Create (Object : in JSON_Value) return T with

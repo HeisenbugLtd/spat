@@ -4,9 +4,11 @@ with SPAT.Command_Line;
 
 package body SPAT.Spark_Files is
 
-   function Parse_File (Name : in File_Name) return GNATCOLL.JSON.Read_Result;
+   function Parse_File
+     (Name : in Subject_Name) return GNATCOLL.JSON.Read_Result;
 
-   function Parse_File (Name : in File_Name) return GNATCOLL.JSON.Read_Result is
+   function Parse_File (Name : in Subject_Name) return GNATCOLL.JSON.Read_Result
+   is
       JSON_File    : Ada.Text_IO.File_Type;
       File_Content : JSON_Data;
    begin

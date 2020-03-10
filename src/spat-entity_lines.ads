@@ -22,7 +22,7 @@ private package SPAT.Entity_Lines is
 
    type T is tagged
       record
-         File : File_Name;
+         File : Subject_Name;
          Line : Natural;
       end record;
 

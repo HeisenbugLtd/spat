@@ -16,6 +16,7 @@ pragma License (Unrestricted);
 ------------------------------------------------------------------------------
 
 with GNATCOLL.Opt_Parse;
+with SPAT.Spark_Info;
 
 package SPAT.Command_Line is
 
@@ -26,6 +27,15 @@ package SPAT.Command_Line is
 
    --  Before using the below functions you should have called Parser.Parse and
    --  evaluated its return status.
+
+   function Convert
+     (Value : in String) return SPAT.Spark_Info.Sorting_Criterion;
+
+   function Convert (Value : in String) return SPAT.Spark_Info.Sorting_Criterion
+   is
+     (if    Value in "=a" | "a" then SPAT.Spark_Info.Name
+      elsif Value in "=t" | "t" then SPAT.Spark_Info.Time
+      else  SPAT.Spark_Info.None);
 
    package List is new
      GNATCOLL.Opt_Parse.Parse_Flag (Parser => Parser,
@@ -39,6 +49,16 @@ package SPAT.Command_Line is
                                     Long   => "--summary",
                                     Help   => "Print summary only");
 
+   package Sort_By is new
+     GNATCOLL.Opt_Parse.Parse_Option
+       (Parser      => Parser,
+        Short       => "-c",
+        Long        => "--sort-by",
+        Help        => "Sort output (SORT-BY: a = alphabetical, t = by time)",
+        Arg_Type    => SPAT.Spark_Info.Sorting_Criterion,
+        Convert     => Convert,
+        Default_Val => SPAT.Spark_Info.None);
+
    package Verbose is new
      GNATCOLL.Opt_Parse.Parse_Flag (Parser => Parser,
                                     Short  => "-v",
@@ -51,7 +71,7 @@ package SPAT.Command_Line is
         Name        => "directory",
         Help        => "directory to look for .spark files in",
         Allow_Empty => False,
-        Arg_Type    => File_Name,
-        Convert     => To_Filename);
+        Arg_Type    => Subject_Name,
+        Convert     => To_Name);
 
 end SPAT.Command_Line;

@@ -7,6 +7,7 @@
 ------------------------------------------------------------------------------
 pragma License (Unrestricted);
 
+with Ada.Containers.Generic_Array_Sort;
 with Ada.Text_IO;
 
 with SPAT.Preconditions;
@@ -70,7 +71,7 @@ package body SPAT.Spark_Info is
    --  Map_Timings
    ---------------------------------------------------------------------------
    procedure Map_Timings (This : in out T;
-                          File : in     File_Name;
+                          File : in     Subject_Name;
                           Root : in     JSON_Value);
 
    ---------------------------------------------------------------------------
@@ -81,13 +82,20 @@ package body SPAT.Spark_Info is
    --  Flow_Time
    ---------------------------------------------------------------------------
    function Flow_Time (This : in T;
-                       File : in File_Name) return Duration is
+                       File : in Subject_Name) return Duration is
      (This.Files (File).Flow);
+
+   procedure Sort_By_Name is new
+     Ada.Containers.Generic_Array_Sort (Index_Type   => Positive,
+                                        Element_Type => Subject_Name,
+                                        Array_Type   => String_Array);
 
    ---------------------------------------------------------------------------
    --  List_All_Entities
    ---------------------------------------------------------------------------
-   function List_All_Entities (This : in T) return String_Array is
+   function List_All_Entities
+     (This    : in T;
+      Sort_By : in Sorting_Criterion := Name) return String_Array is
    begin
       return Result : String_Array (1 .. Natural (This.Entities.Length)) do
          declare
@@ -100,14 +108,41 @@ package body SPAT.Spark_Info is
             end loop;
          end;
 
-         Sort_By_Name (Container => Result);
+         case Sort_By is
+            when None =>
+               null;
+
+            when Name =>
+               Sort_By_Name (Container => Result);
+
+            when Time =>
+               declare
+                  function "<" (Left  : in Subject_Name;
+                                Right : in Subject_Name) return Boolean;
+
+                  function "<" (Left  : in Subject_Name;
+                                Right : in Subject_Name) return Boolean is
+                     (This.Total_Proof_Time (Element => Left) >
+                          This.Total_Proof_Time (Element => Right));
+
+                  procedure Sort_By_Time is new
+                    Ada.Containers.Generic_Array_Sort (Index_Type   => Positive,
+                                                       Element_Type => Subject_Name,
+                                                       Array_Type   => String_Array,
+                                                       "<"          => "<");
+               begin
+                  Sort_By_Time (Container => Result);
+               end;
+         end case;
       end return;
    end List_All_Entities;
 
    ---------------------------------------------------------------------------
    --  List_All_Files
    ---------------------------------------------------------------------------
-   function List_All_Files (This : in T) return String_Array is
+   function List_All_Files
+     (This    : in T;
+      Sort_By : in Sorting_Criterion := None) return String_Array is
    begin
       return Result : String_Array (1 .. Natural (This.Files.Length)) do
          declare
@@ -120,7 +155,34 @@ package body SPAT.Spark_Info is
             end loop;
          end;
 
-         Sort_By_Name (Container => Result);
+         case Sort_By is
+            when None =>
+               null; -- Do not sort anything
+
+            when Name =>
+               Sort_By_Name (Container => Result);
+
+            when Time =>
+               declare
+                  function "<" (Left  : in Subject_Name;
+                                Right : in Subject_Name) return Boolean;
+
+                  function "<" (Left  : in Subject_Name;
+                                Right : in Subject_Name) return Boolean is
+                    ((This.Proof_Time (File => Left) +
+                        This.Flow_Time (File => Left)) >
+                     (This.Proof_Time (File => Right) +
+                        This.Flow_Time (File => Right)));
+
+                  procedure Sort_By_Time is new
+                    Ada.Containers.Generic_Array_Sort (Index_Type   => Positive,
+                                                       Element_Type => Subject_Name,
+                                                       Array_Type   => String_Array,
+                                                       "<"          => "<");
+               begin
+                  Sort_By_Time (Container => Result);
+               end;
+         end case;
       end return;
    end List_All_Files;
 
@@ -140,8 +202,8 @@ package body SPAT.Spark_Info is
    procedure Map_Entities (This : in out T;
                            Root : in     JSON_Value)
    is
-      Obj_Name : constant Entity_Name := Root.Get (Field => Field_Names.Name);
-      Slocs    : constant JSON_Array  := Root.Get (Field => Field_Names.Sloc);
+      Obj_Name : constant Subject_Name := Root.Get (Field => Field_Names.Name);
+      Slocs    : constant JSON_Array   := Root.Get (Field => Field_Names.Sloc);
       Index    :          Analyzed_Entities.Cursor :=
         This.Entities.Find (Key => Obj_Name);
    begin
@@ -190,7 +252,7 @@ package body SPAT.Spark_Info is
                                                 Kind   => JSON_String_Type)
                   then
                      declare
-                        The_Key : constant Entity_Name :=
+                        The_Key : constant Subject_Name :=
                           Source_Entity.Get (Field => Field_Names.Name);
                         Update_At : constant Analyzed_Entities.Cursor :=
                           This.Entities.Find (Key => The_Key);
@@ -255,7 +317,7 @@ package body SPAT.Spark_Info is
                                                 Kind   => JSON_String_Type)
                   then
                      declare
-                        The_Key : constant Entity_Name :=
+                        The_Key : constant Subject_Name :=
                           Source_Entity.Get (Field => Field_Names.Name);
                         Update_At : constant Analyzed_Entities.Cursor :=
                           This.Entities.Find (Key => The_Key);
@@ -347,7 +409,7 @@ package body SPAT.Spark_Info is
    --  Map_Spark_File
    ---------------------------------------------------------------------------
    procedure Map_Spark_File (This : in out T;
-                             File : in     File_Name;
+                             File : in     Subject_Name;
                              Root : in     JSON_Value) is
    begin
       --  If I understand the .spark file format correctly, this should
@@ -402,7 +464,7 @@ package body SPAT.Spark_Info is
    --  Map_Timings
    ---------------------------------------------------------------------------
    procedure Map_Timings (This : in out T;
-                          File : in     File_Name;
+                          File : in     Subject_Name;
                           Root : in     JSON_Value) is
    begin
       if
@@ -429,7 +491,7 @@ package body SPAT.Spark_Info is
    --  Max_Proof_Time
    ---------------------------------------------------------------------------
    function Max_Proof_Time (This    : in T;
-                            Element : in Entity_Name) return Duration
+                            Element : in Subject_Name) return Duration
    is
       Max_Time : Duration := 0.0;
    begin
@@ -470,14 +532,14 @@ package body SPAT.Spark_Info is
    --  Proof_Time
    ---------------------------------------------------------------------------
    function Proof_Time (This : in T;
-                        File : in File_Name) return Duration is
+                        File : in Subject_Name) return Duration is
      (This.Files (File).Proof);
 
    ---------------------------------------------------------------------------
    --  Total_Proof_Time
    ---------------------------------------------------------------------------
    function Total_Proof_Time (This    : in T;
-                              Element : in Entity_Name) return Duration
+                              Element : in Subject_Name) return Duration
    is
       Total_Time : Duration := 0.0;
    begin

@@ -20,8 +20,9 @@ with Ada.Containers.Vectors;
 
 package SPAT.File_Ops is
 
-   package File_Lists is new Ada.Containers.Vectors (Index_Type   => Positive,
-                                                     Element_Type => File_Name);
+   package File_Lists is new
+     Ada.Containers.Vectors (Index_Type   => Positive,
+                             Element_Type => Subject_Name);
 
    type File_List is new File_Lists.Vector with private;
 

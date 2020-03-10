@@ -49,7 +49,7 @@ package body SPAT.File_Ops is
                --  Current entry is a file, check if it matches our extension.
                --  If so, add it to our file list.
                if Ada.Directories.Extension (Name => Full_Name) = Extension then
-                  This.Append (New_Item => To_Filename (Source => Full_Name));
+                  This.Append (New_Item => To_Name (Source => Full_Name));
                end if;
 
             when Ada.Directories.Special_File =>
@@ -75,7 +75,7 @@ package body SPAT.File_Ops is
       then
          This.Append
            (New_Item =>
-              To_Filename
+              To_Name
                 (Source => Ada.Directories.Full_Name (Name => Directory)));
       else
          Ada.Directories.Search (Directory => Directory,

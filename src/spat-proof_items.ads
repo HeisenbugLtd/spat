@@ -23,8 +23,8 @@ private package SPAT.Proof_Items is
 
    type T is new Entity_Locations.T with
       record
-         Rule       : Rule_Name;
-         Severity   : Severity_Name;
+         Rule       : Subject_Name;
+         Severity   : Subject_Name;
          Max_Time   : Duration; --  Longest time spent in proof (successful or not)
          Total_Time : Duration; --  Accumulated proof time.
       end record;
