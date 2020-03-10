@@ -161,29 +161,76 @@ begin
 
          --  Step 4: Output the JSON data.
          if SPAT.Command_Line.Summary.Get then
-            for File of Info.List_All_Files (Sort_By => Sort_By) loop
-               Ada.Text_IO.Put_Line
-                 (File => Ada.Text_IO.Standard_Output,
-                  Item =>
-                    Ada.Directories.Simple_Name
-                      (Name => SPAT.To_String (Source => File)) &
-                      " => [Flow => " &
-                    Image (Value => Info.Flow_Time (File => File)) & "/" &
-                    Info.Num_Flows'Image & "], [Proof => " &
-                    Image (Value => Info.Proof_Time (File => File)) &
-                    "/" & Info.Num_Proofs'Image & "]");
-            end loop;
+            Print_File_List :
+            declare
+               All_Files  : constant SPAT.Spark_Info.String_Array :=
+                              Info.List_All_Files (Sort_By => Sort_By);
+               Max_Length : Ada.Text_IO.Count := 0;
+               use type Ada.Text_IO.Count;
+            begin
+               for File of All_Files loop
+                  Max_Length :=
+                    Ada.Text_IO.Count'Max
+                      (Max_Length,
+                       Ada.Directories.Simple_Name
+                         (Name => SPAT.To_String (File))'Length);
+               end loop;
+
+               Max_Length := Max_Length + 2;
+
+               for File of All_Files loop
+                  Ada.Text_IO.Put
+                    (File => Ada.Text_IO.Standard_Output,
+                     Item =>
+                       Ada.Directories.Simple_Name
+                         (Name => SPAT.To_String (Source => File)));
+                  Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
+                                       To   => Max_Length);
+                  Ada.Text_IO.Put_Line
+                    (File => Ada.Text_IO.Standard_Output,
+                     Item => "=> (Flow  => " &
+                       Image (Value => Info.Flow_Time (File => File)) &
+                       ",");
+                  Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
+                                       To   => Max_Length + 4);
+                  Ada.Text_IO.Put_Line
+                    (File => Ada.Text_IO.Standard_Output,
+                     Item => "Proof => " &
+                       Image (Value => Info.Proof_Time (File => File)) & ")");
+               end loop;
+            end Print_File_List;
          end if;
 
          if SPAT.Command_Line.List.Get then
-            for Entity of Info.List_All_Entities (Sort_By => Sort_By) loop
-               Ada.Text_IO.Put_Line
-                 (File => Ada.Text_IO.Standard_Output,
-                  Item => SPAT.To_String (Source => Entity) & " => " &
-                    Image (Value => Info.Max_Proof_Time (Element => Entity)) &
-                    "/" &
-                    Image (Value => Info.Total_Proof_Time (Element => Entity)));
-            end loop;
+            Print_Entity_List :
+            declare
+               All_Entities : constant SPAT.Spark_Info.String_Array :=
+                                Info.List_All_Entities (Sort_By => Sort_By);
+               Max_Length   : Ada.Text_IO.Count := 0;
+            begin
+               for Entity of All_Entities loop
+                  Max_Length :=
+                    Ada.Text_IO.Count'Max
+                      (Max_Length,
+                       Ada.Text_IO.Count (SPAT.Length (Source => Entity)));
+               end loop;
+
+               Max_Length := Ada.Text_IO."+" (Max_Length, 2);
+
+               for Entity of All_Entities loop
+                  Ada.Text_IO.Put (File => Ada.Text_IO.Standard_Output,
+                                   Item => SPAT.To_String (Source => Entity));
+                  Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
+                                       To   => Max_Length);
+                  Ada.Text_IO.Put_Line
+                    (File => Ada.Text_IO.Standard_Output,
+                     Item =>
+                       "=> " &
+                       Image (Value => Info.Max_Proof_Time (Element => Entity)) &
+                       "/" &
+                       Image (Value => Info.Total_Proof_Time (Element => Entity)));
+               end loop;
+            end Print_Entity_List;
          end if;
       end Process_And_Output;
    end Do_Run_SPAT;
