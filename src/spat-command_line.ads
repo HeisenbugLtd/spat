@@ -35,7 +35,8 @@ package SPAT.Command_Line is
    is
      (if    Value in "=a" | "a" then SPAT.Spark_Info.Name
       elsif Value in "=t" | "t" then SPAT.Spark_Info.Time
-      else  SPAT.Spark_Info.None);
+      else  (raise GNATCOLL.Opt_Parse.Opt_Parse_Error with
+                 "unknown parameter """ & Value & """"));
 
    package List is new
      GNATCOLL.Opt_Parse.Parse_Flag (Parser => Parser,
