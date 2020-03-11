@@ -20,11 +20,18 @@ procedure Print_Summary (Info    : in SPAT.Spark_Info.T;
 is
    Files      : constant SPAT.Spark_Info.String_Array :=
                   Info.List_All_Files (Sort_By => Sort_By);
-
+   Max_Length : Ada.Text_IO.Count := 0;
    use type Ada.Text_IO.Count;
-   Max_Length : constant Ada.Text_IO.Count :=
-                  SPAT.Spark_Info.Max_Length (Source => Files) + 2;
 begin
+   for File of Files loop
+      Max_Length :=
+        Ada.Text_IO.Count'Max (Max_Length,
+                               Ada.Directories.Simple_Name
+                                 (Name => SPAT.To_String (File))'Length);
+   end loop;
+
+   Max_Length := Max_Length + 2;
+
    for File of Files loop
       Ada.Text_IO.Put
         (File => Ada.Text_IO.Standard_Output,
