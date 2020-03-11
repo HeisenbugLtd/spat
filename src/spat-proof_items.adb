@@ -10,23 +10,46 @@ pragma License (Unrestricted);
 package body SPAT.Proof_Items is
 
    ---------------------------------------------------------------------------
+   --  "<"
+   ---------------------------------------------------------------------------
+   function "<" (Left  : in Proof_Attempts.Vector;
+                 Right : in Proof_Attempts.Vector) return Boolean
+   is
+      Left_Time  : Duration := 0.0;
+      Right_Time : Duration := 0.0;
+      --  FIXME: Proof_Attempts should have a field storing the max/accumulated
+      --         time directly, so we don't need to recalculate it each time.
+   begin
+      for A of Left loop
+         Left_Time := Left_Time + A.Time;
+      end loop;
+
+      for A of Right loop
+         Right_Time := Right_Time + A.Time;
+      end loop;
+
+      return Left_Time > Right_Time;
+   end "<";
+
+   ---------------------------------------------------------------------------
    --  Create
    ---------------------------------------------------------------------------
    overriding function Create (Object : in JSON_Value) return T
    is
-      Attempts   : Proof_Attempts.Vector := Proof_Attempts.Empty_Vector;
-      Max_Time   : Duration := 0.0;
-      Total_Time : Duration := 0.0;
-      Check_Tree : constant JSON_Array :=
-                     Object.Get (Field => Field_Names.Check_Tree);
+      Max_Time    : Duration := 0.0;
+      Total_Time  : Duration := 0.0;
+      Checks_List : Checks_Tree.Vector := Checks_Tree.Empty_Vector;
+      Check_Tree  : constant JSON_Array :=
+                      Object.Get (Field => Field_Names.Check_Tree);
    begin
       --  Walk along the check_tree array to find all proof attempts and their
       --  respective times.
       for I in 1 .. GNATCOLL.JSON.Length (Arr => Check_Tree) loop
          declare
-            Element : constant JSON_Value :=
-                        GNATCOLL.JSON.Get (Arr   => Check_Tree,
-                                           Index => I);
+            Attempts : Proof_Attempts.Vector := Proof_Attempts.Empty_Vector;
+            Element  : constant JSON_Value   :=
+                         GNATCOLL.JSON.Get (Arr   => Check_Tree,
+                                            Index => I);
          begin
             if
               Preconditions.Ensure_Field (Object => Element,
@@ -64,15 +87,21 @@ package body SPAT.Proof_Items is
                                                  CB  => Mapping_CB'Access);
                   Proof_Attempts.By_Duration.Sort (Container => Attempts);
                end;
+
+               --  Add the current check tree to our list.
+               Checks_List.Append (New_Item => Attempts);
             end if;
          end;
       end loop;
 
+      --  Sort checks list ascending by duration.
+      Checks_By_Duration.Sort (Container => Checks_List);
+
       return
         (Entity_Locations.Create (Object => Object) with
-             Rule       => Object.Get (Field => Field_Names.Rule),
+         Rule       => Object.Get (Field => Field_Names.Rule),
          Severity   => Object.Get (Field => Field_Names.Severity),
-         Attempts   => Attempts,
+         Check_Tree => Checks_List,
          Max_Time   => Max_Time,
          Total_Time => Total_Time);
    end Create;

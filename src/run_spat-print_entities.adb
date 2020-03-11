@@ -48,12 +48,21 @@ begin
                  "`-" & SPAT.To_String (P.Rule) & " " & P.Image & " => " &
                  Image (P.Max_Time) & "/" & Image (P.Total_Time));
 
-            for A of P.Attempts loop
-               Ada.Text_IO.Put_Line
-                 (File => Ada.Text_IO.Standard_Output,
-                  Item =>
-                    "  `-" & SPAT.To_String (A.Prover) & ": " & Image (A.Time) &
-                    " (" & SPAT.To_String (A.Result) & ")");
+            for Check of P.Check_Tree loop
+               Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
+                                    To   => 2);
+               Ada.Text_IO.Put (File => Ada.Text_IO.Standard_Output,
+                                Item => "`");
+
+               for A of Check loop
+                  Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
+                                       To   => 3);
+                  Ada.Text_IO.Put_Line
+                    (File => Ada.Text_IO.Standard_Output,
+                     Item =>
+                       "-" & SPAT.To_String (A.Prover) & ": " & Image (A.Time) &
+                       " (" & SPAT.To_String (A.Result) & ")");
+               end loop;
             end loop;
          end loop;
       end if;

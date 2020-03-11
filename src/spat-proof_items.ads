@@ -32,11 +32,21 @@ package SPAT.Proof_Items is
                                    Field  => Field_Names.Check_Tree,
                                    Kind   => JSON_Array_Type));
 
+   package Checks_Tree is new
+     Ada.Containers.Vectors (Index_Type   => Positive,
+                             Element_Type => Proof_Attempts.Vector,
+                             "="          => Proof_Attempts.Vectors."=");
+
+   function "<" (Left  : in Proof_Attempts.Vector;
+                 Right : in Proof_Attempts.Vector) return Boolean;
+
+   package Checks_By_Duration is new Checks_Tree.Generic_Sorting ("<" => "<");
+
    type T is new Entity_Locations.T with
       record
          Rule       : Subject_Name;
          Severity   : Subject_Name;
-         Attempts   : Proof_Attempts.Vector;
+         Check_Tree : Checks_Tree.Vector;
          Max_Time   : Duration; --  Longest time spent in proof (successful or not)
          Total_Time : Duration; --  Accumulated proof time.
       end record;
