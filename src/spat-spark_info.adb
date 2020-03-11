@@ -9,7 +9,6 @@ pragma License (Unrestricted);
 
 with Ada.Containers.Generic_Array_Sort;
 with Ada.Directories;
-with Ada.Text_IO;
 
 with SPAT.Preconditions;
 
@@ -468,6 +467,23 @@ package body SPAT.Spark_Info is
                             New_Item => Timing_Items.None);
       end if;
    end Map_Timings;
+
+   ---------------------------------------------------------------------------
+   --  Max_Length
+   --
+   --  Returns the length of the longest string in the array.
+   ---------------------------------------------------------------------------
+   function Max_Length (Source : in String_Array) return Ada.Text_IO.Count is
+      Result : Ada.Text_IO.Count := 0;
+   begin
+      for S of Source loop
+         Result :=
+           Ada.Text_IO.Count'Max (Result,
+                                  Ada.Text_IO.Count (Length (Source => S)));
+      end loop;
+
+      return Result;
+   end Max_Length;
 
    ---------------------------------------------------------------------------
    --  Max_Proof_Time

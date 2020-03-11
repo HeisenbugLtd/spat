@@ -19,19 +19,13 @@ separate (Run_SPAT)
 procedure Print_Entities (Info    : in SPAT.Spark_Info.T;
                           Sort_By : in SPAT.Spark_Info.Sorting_Criterion)
 is
-   Entities : constant SPAT.Spark_Info.String_Array :=
-                Info.List_All_Entities (Sort_By => Sort_By);
-   Max_Length   : Ada.Text_IO.Count := 0;
+   Entities   : constant SPAT.Spark_Info.String_Array :=
+                  Info.List_All_Entities (Sort_By => Sort_By);
+
+   use type Ada.Text_IO.Count;
+   Max_Length : constant Ada.Text_IO.Count :=
+                  SPAT.Spark_Info.Max_Length (Source => Entities) + 2;
 begin
-   for Entity of Entities loop
-      Max_Length :=
-        Ada.Text_IO.Count'Max
-          (Max_Length,
-           Ada.Text_IO.Count (SPAT.Length (Source => Entity)));
-   end loop;
-
-   Max_Length := Ada.Text_IO."+" (Max_Length, 2);
-
    for Entity of Entities loop
       Ada.Text_IO.Put (File => Ada.Text_IO.Standard_Output,
                        Item => SPAT.To_String (Source => Entity));
@@ -47,13 +41,19 @@ begin
 
       if SPAT.Command_Line.Details.Get then
          for P of Info.Proof_List (Entity => Entity) loop
-            Ada.Text_IO.Put (File => Ada.Text_IO.Standard_Output,
-                             Item => "  " & P.Image);
-            Ada.Text_IO.Put (File => Ada.Text_IO.Standard_Output,
-                             Item => " (" & SPAT.To_String (P.Rule) & ") => ");
             Ada.Text_IO.Put_Line
               (File => Ada.Text_IO.Standard_Output,
-               Item => "  " & Image (P.Max_Time) & "/" & Image (P.Total_Time));
+               Item =>
+                 "`-" & SPAT.To_String (P.Rule) & " " & P.Image & " => " &
+                 Image (P.Max_Time) & "/" & Image (P.Total_Time));
+
+            for A of P.Attempts loop
+               Ada.Text_IO.Put_Line
+                 (File => Ada.Text_IO.Standard_Output,
+                  Item =>
+                    "  `-" & SPAT.To_String (A.Prover) & ": " & Image (A.Time) &
+                    " (" & SPAT.To_String (A.Result) & ")");
+            end loop;
          end loop;
       end if;
    end loop;
