@@ -41,8 +41,8 @@ begin
         (File => Ada.Text_IO.Standard_Output,
          Item =>
            "=> " &
-           Image (Value => Info.Max_Proof_Time (Element => Entity)) &
+           Image (Value => Info.Max_Proof_Time (Entity => Entity)) &
            "/" &
-           Image (Value => Info.Total_Proof_Time (Element => Entity)));
+           Image (Value => Info.Total_Proof_Time (Entity => Entity)));
    end loop;
 end Print_Entities;

@@ -33,25 +33,39 @@ package SPAT.Spark_Info is
    --  Binary representation of the information obtained from a .spark JSON
    --  file.
 
+   ---------------------------------------------------------------------------
+   --  Map_Spark_File
+   --
+   --  Traverses through the JSON data given in Root and translates it into
+   --  the data structure given in This.
+   ---------------------------------------------------------------------------
    procedure Map_Spark_File (This : in out T;
                              File : in     Subject_Name;
                              Root : in     JSON_Value);
-   --  Traverses through the JSON data given in Root and translates it into the
-   --  data structure given in This.
 
+   ---------------------------------------------------------------------------
+   --  List_All_Entities
+   --
+   --  Returns an (optionally sorted) list of all entities (source unit names)
+   --  currently stored in This.
+   ---------------------------------------------------------------------------
    function List_All_Entities
      (This    : in T;
       Sort_By : in Sorting_Criterion := Name) return String_Array;
-   --  Returns a sorted list of all entities (source unit names) currently
-   --  stored in This.
 
+   ---------------------------------------------------------------------------
+   --  List_All_Files
+   --
+   --  Returns an (optionally sorted) list of the names of all files that have
+   --  been parsed into This.
+   ---------------------------------------------------------------------------
    function List_All_Files
      (This    : in T;
       Sort_By : in Sorting_Criterion := None) return String_Array;
-   --  Returns a sorted list of the names of all files that have been parsed
-   --  into T.
 
-   --  Access functions.
+   --
+   --  Accessor functions.
+   --
    function Num_Flows (This : in T) return Ada.Containers.Count_Type;
 
    function Flow_Time (This : in T;
@@ -63,10 +77,11 @@ package SPAT.Spark_Info is
                         File : in Subject_Name) return Duration;
 
    --  Lookup functions.
-   function Max_Proof_Time (This    : in T;
-                            Element : in Subject_Name) return Duration;
-   function Total_Proof_Time (This    : in T;
-                              Element : in Subject_Name) return Duration;
+   function Max_Proof_Time (This   : in T;
+                            Entity : in Subject_Name) return Duration;
+
+   function Total_Proof_Time (This   : in T;
+                              Entity : in Subject_Name) return Duration;
 
 private
 

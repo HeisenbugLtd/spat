@@ -76,6 +76,44 @@ package body SPAT.Spark_Info is
                           Root : in     JSON_Value);
 
    ---------------------------------------------------------------------------
+   --  Sort_Entity_By_Name
+   --
+   --  Sort code entities by their name.
+   --  Sorting: alphabetical, ascending
+   ---------------------------------------------------------------------------
+   procedure Sort_Entity_By_Name (This      : in     T;
+                                  Container : in out String_Array);
+
+   ---------------------------------------------------------------------------
+   --  Sort_Entity_By_Proof_Time
+   --
+   --  Sort code entities by how much total proof time they required.
+   --  Sorting: numerical, descending
+   ---------------------------------------------------------------------------
+   procedure Sort_Entity_By_Proof_Time (This      : in     T;
+                                        Container : in out String_Array);
+
+   ---------------------------------------------------------------------------
+   --  Sort_File_By_Basename
+   --
+   --  Sort files by their base name (i.e. without containing directory or
+   --  extension).
+   --  Sorting: alphabetical, ascending
+   ---------------------------------------------------------------------------
+   procedure Sort_File_By_Basename (This      : in     T;
+                                    Container : in out String_Array);
+
+   ---------------------------------------------------------------------------
+   --  Sort_File_By_Proof_Time
+   --
+   --  Sort files by how much total time it required to spend in flow analysis
+   --  and proof.
+   --  Sorting: numerical, descending
+   ---------------------------------------------------------------------------
+   procedure Sort_File_By_Proof_Time (This      : in     T;
+                                      Container : in out String_Array);
+
+   ---------------------------------------------------------------------------
    --  Subprogram implementations
    ---------------------------------------------------------------------------
 
@@ -109,36 +147,10 @@ package body SPAT.Spark_Info is
                null;
 
             when Name =>
-               declare
-                  procedure Sort_By_Name is new
-                    Ada.Containers.Generic_Array_Sort
-                      (Index_Type   => Positive,
-                       Element_Type => Subject_Name,
-                       Array_Type   => String_Array,
-                       "<"          => "<");
-               begin
-                  Sort_By_Name (Container => Result);
-               end;
+               This.Sort_Entity_By_Name (Container => Result);
 
             when Time =>
-               declare
-                  function "<" (Left  : in Subject_Name;
-                                Right : in Subject_Name) return Boolean;
-
-                  function "<" (Left  : in Subject_Name;
-                                Right : in Subject_Name) return Boolean is
-                     (This.Total_Proof_Time (Element => Left) >
-                          This.Total_Proof_Time (Element => Right));
-
-                  procedure Sort_By_Time is new
-                    Ada.Containers.Generic_Array_Sort
-                      (Index_Type   => Positive,
-                       Element_Type => Subject_Name,
-                       Array_Type   => String_Array,
-                       "<"          => "<");
-               begin
-                  Sort_By_Time (Container => Result);
-               end;
+               This.Sort_Entity_By_Proof_Time (Container => Result);
          end case;
       end return;
    end List_All_Entities;
@@ -155,56 +167,20 @@ package body SPAT.Spark_Info is
             Current_Index : Positive := Result'First;
          begin
             for Index in This.Files.Iterate loop
-               Result (Current_Index) :=
-                 File_Timings.Key (Position => Index);
+               Result (Current_Index) := File_Timings.Key (Position => Index);
                Current_Index := Current_Index + 1;
             end loop;
          end;
 
          case Sort_By is
             when None =>
-               null; -- Do not sort anything
+               null;
 
             when Name =>
-               declare
-                  function "<" (Left  : in Subject_Name;
-                                Right : in Subject_Name) return Boolean is
-                    (Ada.Directories.Base_Name
-                       (Name => To_String (Source => Left)) <
-                     Ada.Directories.Base_Name
-                       (Name => To_String (Source => Right)));
-
-                  procedure Sort_By_Name is new
-                    Ada.Containers.Generic_Array_Sort
-                      (Index_Type   => Positive,
-                       Element_Type => Subject_Name,
-                       Array_Type   => String_Array,
-                       "<"          => "<");
-               begin
-                  Sort_By_Name (Container => Result);
-               end;
+               This.Sort_File_By_Basename (Container => Result);
 
             when Time =>
-               declare
-                  function "<" (Left  : in Subject_Name;
-                                Right : in Subject_Name) return Boolean;
-
-                  function "<" (Left  : in Subject_Name;
-                                Right : in Subject_Name) return Boolean is
-                    ((This.Proof_Time (File => Left) +
-                        This.Flow_Time (File => Left)) >
-                     (This.Proof_Time (File => Right) +
-                        This.Flow_Time (File => Right)));
-
-                  procedure Sort_By_Time is new
-                    Ada.Containers.Generic_Array_Sort
-                      (Index_Type   => Positive,
-                       Element_Type => Subject_Name,
-                       Array_Type   => String_Array,
-                       "<"          => "<");
-               begin
-                  Sort_By_Time (Container => Result);
-               end;
+               This.Sort_File_By_Proof_Time (Container => Result);
          end case;
       end return;
    end List_All_Files;
@@ -242,9 +218,8 @@ package body SPAT.Spark_Info is
          end;
       end if;
 
-      This.Map_Sloc_Elements
-        (Root   => Slocs,
-         Add_To => This.Entities (Index).Source_Lines);
+      This.Map_Sloc_Elements (Root   => Slocs,
+                              Add_To => This.Entities (Index).Source_Lines);
    end Map_Entities;
 
    ---------------------------------------------------------------------------
@@ -445,8 +420,7 @@ package body SPAT.Spark_Info is
                                     Field  => Field_Names.Flow,
                                     Kind   => JSON_Array_Type)
       then
-         This.Map_Flow_Elements
-           (Root => Root.Get (Field => Field_Names.Flow));
+         This.Map_Flow_Elements (Root => Root.Get (Field => Field_Names.Flow));
       end if;
 
       if
@@ -498,12 +472,12 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Max_Proof_Time
    ---------------------------------------------------------------------------
-   function Max_Proof_Time (This    : in T;
-                            Element : in Subject_Name) return Duration
+   function Max_Proof_Time (This   : in T;
+                            Entity : in Subject_Name) return Duration
    is
       Max_Time : Duration := 0.0;
    begin
-      for P of This.Entities (Element).Proofs loop
+      for P of This.Entities (Entity).Proofs loop
          Max_Time := Duration'Max (Max_Time, P.Max_Time);
       end loop;
 
@@ -544,14 +518,92 @@ package body SPAT.Spark_Info is
      (This.Files (File).Proof);
 
    ---------------------------------------------------------------------------
+   --  Sort_Entity_By_Name
+   ---------------------------------------------------------------------------
+   procedure Sort_Entity_By_Name (This      : in     T;
+                                  Container : in out String_Array)
+   is
+      pragma Unreferenced (This);
+      procedure Sort is new
+        Ada.Containers.Generic_Array_Sort (Index_Type   => Positive,
+                                           Element_Type => Subject_Name,
+                                           Array_Type   => String_Array,
+                                           "<"          => "<");
+   begin
+      Sort (Container => Container);
+   end Sort_Entity_By_Name;
+
+   ---------------------------------------------------------------------------
+   --  Sort_Entity_By_Proof_Time
+   ---------------------------------------------------------------------------
+   procedure Sort_Entity_By_Proof_Time (This      : in     T;
+                                        Container : in out String_Array)
+   is
+      function "<" (Left  : in Subject_Name;
+                    Right : in Subject_Name) return Boolean is
+        (This.Total_Proof_Time (Entity => Left) >
+         This.Total_Proof_Time (Entity => Right));
+
+      procedure Sort is new
+        Ada.Containers.Generic_Array_Sort (Index_Type   => Positive,
+                                           Element_Type => Subject_Name,
+                                           Array_Type   => String_Array,
+                                           "<"          => "<");
+   begin
+      Sort (Container => Container);
+   end Sort_Entity_By_Proof_Time;
+
+   ---------------------------------------------------------------------------
+   --  Sort_File_By_Basename
+   ---------------------------------------------------------------------------
+   procedure Sort_File_By_Basename (This      : in     T;
+                                    Container : in out String_Array)
+   is
+      pragma Unreferenced (This);
+
+      function "<" (Left  : in Subject_Name;
+                    Right : in Subject_Name) return Boolean is
+        (Ada.Directories.Base_Name (Name => To_String (Source => Left)) <
+           Ada.Directories.Base_Name (Name => To_String (Source => Right)));
+
+      procedure Sort is new
+        Ada.Containers.Generic_Array_Sort (Index_Type   => Positive,
+                                           Element_Type => Subject_Name,
+                                           Array_Type   => String_Array,
+                                           "<"          => "<");
+   begin
+      Sort (Container => Container);
+   end Sort_File_By_Basename;
+
+   ---------------------------------------------------------------------------
+   --  Sort_File_By_Proof_Time
+   ---------------------------------------------------------------------------
+   procedure Sort_File_By_Proof_Time (This      : in     T;
+                                      Container : in out String_Array)
+   is
+      function "<" (Left  : in Subject_Name;
+                    Right : in Subject_Name) return Boolean is
+        ((This.Proof_Time (File => Left) + This.Flow_Time (File => Left)) >
+         (This.Proof_Time (File => Right) + This.Flow_Time (File => Right)));
+
+      procedure Sort is new
+        Ada.Containers.Generic_Array_Sort (Index_Type   => Positive,
+                                           Element_Type => Subject_Name,
+                                           Array_Type   => String_Array,
+                                           "<"          => "<");
+   begin
+      Sort (Container => Container);
+   end Sort_File_By_Proof_Time;
+
+   ---------------------------------------------------------------------------
    --  Total_Proof_Time
    ---------------------------------------------------------------------------
-   function Total_Proof_Time (This    : in T;
-                              Element : in Subject_Name) return Duration
+   function Total_Proof_Time (This   : in T;
+                              Entity : in Subject_Name) return Duration
    is
       Total_Time : Duration := 0.0;
    begin
-      for P of This.Entities (Element).Proofs loop
+      for P of This.Entities (Entity).Proofs loop
          Total_Time := Duration'Max (Total_Time, P.Total_Time);
       end loop;
 
