@@ -20,7 +20,7 @@ with SPAT.Entity_Locations;
 with SPAT.Preconditions;
 with SPAT.Proof_Attempts;
 
-private package SPAT.Proof_Items is
+package SPAT.Proof_Items is
 
    use all type GNATCOLL.JSON.JSON_Value_Type;
 
@@ -43,9 +43,9 @@ private package SPAT.Proof_Items is
    overriding function Create (Object : in JSON_Value) return T with
      Pre => Has_Required_Fields (Object => Object);
 
-   function Quicker_Than (Left  : in T;
-                          Right : in T) return Boolean is
-     (Left.Max_Time < Right.Max_Time);
+   not overriding function Slower_Than (Left  : in T;
+                                        Right : in T) return Boolean is
+     (Left.Total_Time > Right.Total_Time);
 
    package Vectors is
      new Ada.Containers.Vectors (Index_Type   => Positive,
@@ -55,6 +55,6 @@ private package SPAT.Proof_Items is
 
    --  Sorting instantiations.
    package By_Location is new Vectors.Generic_Sorting ("<" => "<");
-   package By_Duration is new Vectors.Generic_Sorting ("<" => Quicker_Than);
+   package By_Duration is new Vectors.Generic_Sorting ("<" => Slower_Than);
 
 end SPAT.Proof_Items;

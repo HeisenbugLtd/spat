@@ -340,9 +340,9 @@ package body SPAT.Spark_Info is
          end;
       end loop;
 
-      --  Sort proofs by file name:line:column.
+      --  Sort proofs by time to proof them.
       for E of This.Entities loop
-         Proof_Items.By_Location.Sort (Container => E.Proofs);
+         Proof_Items.By_Duration.Sort (Container => E.Proofs);
       end loop;
    end Map_Proof_Elements;
 
@@ -509,6 +509,13 @@ package body SPAT.Spark_Info is
 
       return Result;
    end Num_Proofs;
+
+   ---------------------------------------------------------------------------
+   --  Proof_List
+   ---------------------------------------------------------------------------
+   function Proof_List (This   : in T;
+                        Entity : in Subject_Name) return Proof_Items.Vector is
+     (This.Entities (Entity).Proofs);
 
    ---------------------------------------------------------------------------
    --  Proof_Time

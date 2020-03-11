@@ -16,7 +16,7 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
-private package SPAT.Preconditions is
+package SPAT.Preconditions is
 
    ---------------------------------------------------------------------------
    --  Ensure_Field

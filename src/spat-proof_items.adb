@@ -62,6 +62,7 @@ package body SPAT.Proof_Items is
                begin
                   GNATCOLL.JSON.Map_JSON_Object (Val => Attempt_List,
                                                  CB  => Mapping_CB'Access);
+                  Proof_Attempts.By_Duration.Sort (Container => Attempts);
                end;
             end if;
          end;

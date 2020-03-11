@@ -18,7 +18,7 @@ pragma License (Unrestricted);
 with Ada.Containers.Vectors;
 with SPAT.Preconditions;
 
-private package SPAT.Entity_Lines is
+package SPAT.Entity_Lines is
 
    use all type GNATCOLL.JSON.JSON_Value_Type;
 
@@ -38,6 +38,8 @@ private package SPAT.Entity_Lines is
 
    not overriding function Create (Object : in JSON_Value) return T with
      Pre => Has_Required_Fields (Object => Object);
+
+   not overriding function Image (This : T) return String;
 
    package Vectors is
      new Ada.Containers.Vectors (Index_Type   => Positive,

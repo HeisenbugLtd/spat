@@ -18,7 +18,7 @@ pragma License (Unrestricted);
 with SPAT.Entity_Lines;
 with SPAT.Preconditions;
 
-private package SPAT.Entity_Locations is
+package SPAT.Entity_Locations is
 
    use all type GNATCOLL.JSON.JSON_Value_Type;
 
@@ -37,6 +37,8 @@ private package SPAT.Entity_Locations is
 
    overriding function Create (Object : in JSON_Value) return T with
      Pre => Has_Required_Fields (Object => Object);
+
+   overriding function Image (This : T) return String;
 
    not overriding function "<" (Left  : in T;
                                 Right : in T) return Boolean;

@@ -7,6 +7,8 @@
 ------------------------------------------------------------------------------
 pragma License (Unrestricted);
 
+with Ada.Strings.Fixed;
+
 package body SPAT.Entity_Lines is
 
    ---------------------------------------------------------------------------
@@ -15,5 +17,16 @@ package body SPAT.Entity_Lines is
    function Create (Object : in JSON_Value) return T is
      (T'(File => Object.Get (Field => Field_Names.File),
          Line => Object.Get (Field => Field_Names.Line)));
+
+   ---------------------------------------------------------------------------
+   --  Image
+   ---------------------------------------------------------------------------
+   not overriding function Image (This : T) return String is
+   begin
+      return
+        To_String (This.File) & ":" &
+        Ada.Strings.Fixed.Trim (Source => This.Line'Image,
+                                Side   => Ada.Strings.Both);
+   end Image;
 
 end SPAT.Entity_Lines;

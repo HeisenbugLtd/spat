@@ -18,7 +18,7 @@ pragma License (Unrestricted);
 with Ada.Containers.Vectors;
 with SPAT.Preconditions;
 
-private package SPAT.Proof_Attempts is
+package SPAT.Proof_Attempts is
 
    use all type GNATCOLL.JSON.JSON_Value_Type;
 
@@ -42,11 +42,18 @@ private package SPAT.Proof_Attempts is
                     Prover : Subject_Name) return T
      with Pre => Has_Required_Fields (Object => Object);
 
+   --  Sorting instantiations.
+   not overriding function Slower_Than (Left  : in T;
+                                        Right : in T) return Boolean is
+     (Left.Time > Right.Time);
+
    package Vectors is new
      Ada.Containers.Vectors (Index_Type   => Ada.Containers.Count_Type,
                              Element_Type => T);
 
    subtype Vector is Vectors.Vector;
    Empty_Vector : Vector renames Vectors.Empty_Vector;
+
+   package By_Duration is new Vectors.Generic_Sorting ("<" => Slower_Than);
 
 end SPAT.Proof_Attempts;

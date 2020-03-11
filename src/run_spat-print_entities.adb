@@ -44,5 +44,17 @@ begin
            Image (Value => Info.Max_Proof_Time (Entity => Entity)) &
            "/" &
            Image (Value => Info.Total_Proof_Time (Entity => Entity)));
+
+      if SPAT.Command_Line.Details.Get then
+         for P of Info.Proof_List (Entity => Entity) loop
+            Ada.Text_IO.Put (File => Ada.Text_IO.Standard_Output,
+                             Item => "  " & P.Image);
+            Ada.Text_IO.Put (File => Ada.Text_IO.Standard_Output,
+                             Item => " (" & SPAT.To_String (P.Rule) & ") => ");
+            Ada.Text_IO.Put_Line
+              (File => Ada.Text_IO.Standard_Output,
+               Item => "  " & Image (P.Max_Time) & "/" & Image (P.Total_Time));
+         end loop;
+      end if;
    end loop;
 end Print_Entities;

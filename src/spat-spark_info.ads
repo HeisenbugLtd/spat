@@ -16,10 +16,10 @@ pragma License (Unrestricted);
 --  Collect file contents.
 --
 ------------------------------------------------------------------------------
+with SPAT.Proof_Items;
 private with Ada.Containers.Hashed_Maps;
 private with SPAT.Entity_Lines;
 private with SPAT.Flow_Items;
-private with SPAT.Proof_Items;
 private with SPAT.Timing_Items;
 
 package SPAT.Spark_Info is
@@ -63,25 +63,59 @@ package SPAT.Spark_Info is
      (This    : in T;
       Sort_By : in Sorting_Criterion := None) return String_Array;
 
+   ---------------------------------------------------------------------------
+   --  Num_Flows
    --
-   --  Accessor functions.
-   --
+   --  Return the total number of flows (flow items) collected.
+   ---------------------------------------------------------------------------
    function Num_Flows (This : in T) return Ada.Containers.Count_Type;
 
+   ---------------------------------------------------------------------------
+   --  Flow_Time
+   --
+   --  Reported time taken for the flow analysis for File.
+   ---------------------------------------------------------------------------
    function Flow_Time (This : in T;
                        File : in Subject_Name) return Duration;
 
+   ---------------------------------------------------------------------------
+   --  Num_Proofs
+   --
+   --  Return the total number of proofs collected.
+   ---------------------------------------------------------------------------
    function Num_Proofs (This : in T) return Ada.Containers.Count_Type;
 
+   ---------------------------------------------------------------------------
+   --  Proof_Time
+   --
+   --  Reported time taken for all the proofs for File.
+   ---------------------------------------------------------------------------
    function Proof_Time (This : in T;
                         File : in Subject_Name) return Duration;
 
-   --  Lookup functions.
+   ---------------------------------------------------------------------------
+   --  Max_Proof_Time
+   --
+   --  Maximum time taken for a single proof for Entity.
+   ---------------------------------------------------------------------------
    function Max_Proof_Time (This   : in T;
                             Entity : in Subject_Name) return Duration;
 
+   ---------------------------------------------------------------------------
+   --  Total_Proof_Time
+   --
+   --  Total (accumulated) time taken for all proofs for Entity.
+   ---------------------------------------------------------------------------
    function Total_Proof_Time (This   : in T;
                               Entity : in Subject_Name) return Duration;
+
+   ---------------------------------------------------------------------------
+   --  Proof_List
+   --
+   --  List of proof items for given Entity, sorted by time.
+   ---------------------------------------------------------------------------
+   function Proof_List (This   : in T;
+                        Entity : in Subject_Name) return Proof_Items.Vector;
 
 private
 
