@@ -16,6 +16,7 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 with SPAT.Entity_Lines;
+with SPAT.Field_Names;
 with SPAT.Preconditions;
 
 package SPAT.Entity_Locations is

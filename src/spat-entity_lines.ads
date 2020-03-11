@@ -16,6 +16,7 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 with Ada.Containers.Vectors;
+with SPAT.Field_Names;
 with SPAT.Preconditions;
 
 package SPAT.Entity_Lines is

@@ -7,16 +7,24 @@
 ------------------------------------------------------------------------------
 pragma License (Unrestricted);
 
-with SPAT.Field_Names;
-
-package body SPAT.Flow_Items is
+package body SPAT.Strings is
 
    ---------------------------------------------------------------------------
-   --  Create
+   --  Max_Length
+   --
+   --  Returns the length of the longest string in the array.
    ---------------------------------------------------------------------------
-   overriding function Create (Object : in JSON_Value) return T is
-     (Entity_Locations.Create (Object => Object) with
-        Rule     => Object.Get (Field => Field_Names.Rule),
-        Severity => Object.Get (Field => Field_Names.Severity));
+   not overriding
+   function Max_Length (Source : in List) return Ada.Text_IO.Count is
+      Result : Ada.Text_IO.Count := 0;
+   begin
+      for S of Source loop
+         Result :=
+           Ada.Text_IO.Count'Max (Result,
+                                  Ada.Text_IO.Count (Length (Source => S)));
+      end loop;
 
-end SPAT.Flow_Items;
+      return Result;
+   end Max_Length;
+
+end SPAT.Strings;

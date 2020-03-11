@@ -9,6 +9,8 @@ pragma License (Unrestricted);
 
 with Ada.Text_IO;
 
+with SPAT.Field_Names;
+
 package body SPAT.Preconditions is
 
    --  Make JSON type enumeration literals directly visible.

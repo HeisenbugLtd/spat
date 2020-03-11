@@ -14,23 +14,24 @@ pragma License (Unrestricted);
 --  S.P.A.T. - Main program - separate Print_Entities
 --
 ------------------------------------------------------------------------------
+with SPAT.Strings;
+
 separate (Run_SPAT)
 
 procedure Print_Entities (Info    : in SPAT.Spark_Info.T;
                           Sort_By : in SPAT.Spark_Info.Sorting_Criterion)
 is
-   Entities   : constant SPAT.Spark_Info.String_Array :=
+   Entities   : constant SPAT.Strings.List'Class :=
                   Info.List_All_Entities (Sort_By => Sort_By);
 
    use type Ada.Text_IO.Count;
-   Max_Length : constant Ada.Text_IO.Count :=
-                  SPAT.Spark_Info.Max_Length (Source => Entities) + 2;
+   Second_Column : constant Ada.Text_IO.Count := Entities.Max_Length + 2;
 begin
    for Entity of Entities loop
       Ada.Text_IO.Put (File => Ada.Text_IO.Standard_Output,
                        Item => SPAT.To_String (Source => Entity));
       Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
-                           To   => Max_Length);
+                           To   => Second_Column);
       Ada.Text_IO.Put_Line
         (File => Ada.Text_IO.Standard_Output,
          Item =>

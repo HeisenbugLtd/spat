@@ -14,23 +14,28 @@ pragma License (Unrestricted);
 --  S.P.A.T. - Main program - separate Print_Summary
 --
 ------------------------------------------------------------------------------
+
+with SPAT.Strings;
+
 separate (Run_SPAT)
 procedure Print_Summary (Info    : in SPAT.Spark_Info.T;
                          Sort_By : in SPAT.Spark_Info.Sorting_Criterion)
 is
-   Files      : constant SPAT.Spark_Info.String_Array :=
-                  Info.List_All_Files (Sort_By => Sort_By);
-   Max_Length : Ada.Text_IO.Count := 0;
+   Files         : constant SPAT.Strings.List'Class :=
+                     Info.List_All_Files (Sort_By => Sort_By);
+   Second_Column : Ada.Text_IO.Count := 0;
+   Third_Column  : Ada.Text_IO.Count;
    use type Ada.Text_IO.Count;
 begin
    for File of Files loop
-      Max_Length :=
-        Ada.Text_IO.Count'Max (Max_Length,
+      Second_Column :=
+        Ada.Text_IO.Count'Max (Second_Column,
                                Ada.Directories.Simple_Name
                                  (Name => SPAT.To_String (File))'Length);
    end loop;
 
-   Max_Length := Max_Length + 2;
+   Second_Column := Second_Column + 2;
+   Third_Column  := Second_Column + 4;
 
    for File of Files loop
       Ada.Text_IO.Put
@@ -39,14 +44,14 @@ begin
            Ada.Directories.Simple_Name
              (Name => SPAT.To_String (Source => File)));
       Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
-                           To   => Max_Length);
+                           To   => Second_Column);
       Ada.Text_IO.Put_Line
         (File => Ada.Text_IO.Standard_Output,
          Item =>
            "=> (Flow  => " &
            Image (Value => Info.Flow_Time (File => File)) & ",");
       Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
-                           To   => Max_Length + 4);
+                           To   => Third_Column);
       Ada.Text_IO.Put_Line
         (File => Ada.Text_IO.Standard_Output,
          Item => "Proof => " &

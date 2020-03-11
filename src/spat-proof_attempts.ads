@@ -16,6 +16,8 @@ pragma License (Unrestricted);
 ------------------------------------------------------------------------------
 
 with Ada.Containers.Vectors;
+
+with SPAT.Field_Names;
 with SPAT.Preconditions;
 
 package SPAT.Proof_Attempts is

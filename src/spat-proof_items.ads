@@ -17,6 +17,7 @@ pragma License (Unrestricted);
 with Ada.Containers.Vectors;
 
 with SPAT.Entity_Locations;
+with SPAT.Field_Names;
 with SPAT.Preconditions;
 with SPAT.Proof_Attempts;
 

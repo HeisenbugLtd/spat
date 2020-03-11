@@ -14,6 +14,7 @@ pragma License (Unrestricted);
 --  S.P.A.T. - Object representing the "timing" JSON object.
 --
 ------------------------------------------------------------------------------
+with SPAT.Field_Names;
 with SPAT.Preconditions;
 
 private package SPAT.Timing_Items is

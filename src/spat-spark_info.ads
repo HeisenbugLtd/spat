@@ -16,24 +16,15 @@ pragma License (Unrestricted);
 --  Collect file contents.
 --
 ------------------------------------------------------------------------------
-with Ada.Text_IO;
 with SPAT.Proof_Items;
+with SPAT.Strings;
+
 private with Ada.Containers.Hashed_Maps;
 private with SPAT.Entity_Lines;
 private with SPAT.Flow_Items;
 private with SPAT.Timing_Items;
 
 package SPAT.Spark_Info is
-
-   --  Helper types.
-   type String_Array is array (Positive range <>) of Subject_Name;
-
-   ---------------------------------------------------------------------------
-   --  Max_Length
-   --
-   --  Returns the length of the longest string in the array.
-   ---------------------------------------------------------------------------
-   function Max_Length (Source : in String_Array) return Ada.Text_IO.Count;
 
    type Sorting_Criterion is (None, Name, Time);
 
@@ -59,7 +50,7 @@ package SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    function List_All_Entities
      (This    : in T;
-      Sort_By : in Sorting_Criterion := Name) return String_Array;
+      Sort_By : in Sorting_Criterion := Name) return Strings.List'Class;
 
    ---------------------------------------------------------------------------
    --  List_All_Files
@@ -69,7 +60,7 @@ package SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    function List_All_Files
      (This    : in T;
-      Sort_By : in Sorting_Criterion := None) return String_Array;
+      Sort_By : in Sorting_Criterion := None) return Strings.List'Class;
 
    ---------------------------------------------------------------------------
    --  Num_Flows
