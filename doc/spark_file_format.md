@@ -9,6 +9,9 @@ Habanero sauce).
 Some information about the file format has been extracted from the GPS plugin
 [`spark2014.py`](https://github.com/AdaCore/gps/blob/master/share/plug-ins/spark2014.py).
 
+Also, see this [section of the SPARK 2014 User's Guide](https://docs.adacore.com/spark2014-docs/html/ug/en/source/how_to_investigate_unproved_checks.html#looking-at-machine-parsable-gnatprove-output)
+about these files.
+
 ## 1 Introduction
 
 The `.spark` files are in [JSON format](https://www.json.org/json-en.html) and
