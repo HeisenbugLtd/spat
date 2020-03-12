@@ -14,6 +14,8 @@ pragma License (Unrestricted);
 --  S.P.A.T. - Main program - separate Print_Entities
 --
 ------------------------------------------------------------------------------
+with SPAT.Proof_Attempts;
+with SPAT.Proof_Items;
 with SPAT.Strings;
 
 separate (Run_SPAT)
@@ -26,45 +28,56 @@ is
 
    use type Ada.Text_IO.Count;
    Second_Column : constant Ada.Text_IO.Count := Entities.Max_Length + 2;
+   Report_All : constant Boolean := not SPAT.Command_Line.Failed_Only.Get;
 begin
    for Entity of Entities loop
-      Ada.Text_IO.Put (File => Ada.Text_IO.Standard_Output,
-                       Item => SPAT.To_String (Source => Entity));
-      Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
-                           To   => Second_Column);
-      Ada.Text_IO.Put_Line
-        (File => Ada.Text_IO.Standard_Output,
-         Item =>
-           "=> " &
-           Image (Value => Info.Max_Proof_Time (Entity => Entity)) &
-           "/" &
-           Image (Value => Info.Total_Proof_Time (Entity => Entity)));
+      if Report_All or else Info.Has_Failed_Attempts (Entity => Entity) then
+         Ada.Text_IO.Put (File => Ada.Text_IO.Standard_Output,
+                          Item => SPAT.To_String (Source => Entity));
+         Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
+                              To   => Second_Column);
+         Ada.Text_IO.Put_Line
+           (File => Ada.Text_IO.Standard_Output,
+            Item =>
+              "=> " &
+              Image (Value => Info.Max_Proof_Time (Entity => Entity)) &
+              "/" &
+              Image (Value => Info.Total_Proof_Time (Entity => Entity)));
 
-      if SPAT.Command_Line.Details.Get then
-         for P of Info.Proof_List (Entity => Entity) loop
-            Ada.Text_IO.Put_Line
-              (File => Ada.Text_IO.Standard_Output,
-               Item =>
-                 "`-" & SPAT.To_String (P.Rule) & " " & P.Image & " => " &
-                 Image (P.Max_Time) & "/" & Image (P.Total_Time));
-
-            for Check of P.Check_Tree loop
-               Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
-                                    To   => 2);
-               Ada.Text_IO.Put (File => Ada.Text_IO.Standard_Output,
-                                Item => "`");
-
-               for A of Check loop
-                  Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
-                                       To   => 3);
+         if SPAT.Command_Line.Details.Get then
+            for P of Info.Proof_List (Entity => Entity) loop
+               if Report_All or else P.Has_Failed_Attempts then
                   Ada.Text_IO.Put_Line
                     (File => Ada.Text_IO.Standard_Output,
                      Item =>
-                       "-" & SPAT.To_String (A.Prover) & ": " & Image (A.Time) &
-                       " (" & SPAT.To_String (A.Result) & ")");
-               end loop;
+                       "`-" & SPAT.To_String (P.Rule) & " " & P.Image & " => " &
+                       Image (P.Max_Time) & "/" & Image (P.Total_Time));
+
+                  for Check of P.Check_Tree loop
+                     if
+                       Report_All or else
+                       SPAT.Proof_Attempts.Has_Failed_Attempts (This => Check)
+                     then
+                        Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
+                                             To   => 2);
+                        Ada.Text_IO.Put (File => Ada.Text_IO.Standard_Output,
+                                         Item => "`");
+
+                        for A of Check loop
+                           Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
+                                                To   => 3);
+                           Ada.Text_IO.Put_Line
+                             (File => Ada.Text_IO.Standard_Output,
+                              Item =>
+                                "-" & SPAT.To_String (A.Prover) & ": " &
+                                Image (A.Time) & " (" & SPAT.To_String (A.Result) &
+                                ")");
+                        end loop;
+                     end if;
+                  end loop;
+               end if;
             end loop;
-         end loop;
+         end if;
       end if;
    end loop;
 end Print_Entities;

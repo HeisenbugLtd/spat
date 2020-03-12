@@ -56,6 +56,8 @@ package SPAT.Proof_Attempts is
    subtype Vector is Vectors.Vector;
    Empty_Vector : Vector renames Vectors.Empty_Vector;
 
+   function Has_Failed_Attempts (This : in Vector) return Boolean;
+
    package By_Duration is new Vectors.Generic_Sorting ("<" => Slower_Than);
 
 end SPAT.Proof_Attempts;

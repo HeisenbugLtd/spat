@@ -17,4 +17,11 @@ package body SPAT.Proof_Attempts is
                 Time   => Duration (Float'(Object.Get (Field => Field_Names.Time))));
    end Create;
 
+   function Has_Failed_Attempts (This : in Vector) return Boolean
+   is
+      use type Subject_Name;
+   begin
+      return (for some A of This => A.Result /= "Valid");
+   end Has_Failed_Attempts;
+
 end SPAT.Proof_Attempts;

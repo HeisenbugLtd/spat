@@ -106,4 +106,14 @@ package body SPAT.Proof_Items is
          Total_Time => Total_Time);
    end Create;
 
+   ---------------------------------------------------------------------------
+   --  Has_Failed_Attempts
+   ---------------------------------------------------------------------------
+   not overriding
+   function Has_Failed_Attempts (This : in T) return Boolean is
+   begin
+      return (for some C of This.Check_Tree =>
+                Proof_Attempts.Has_Failed_Attempts (This => C));
+   end Has_Failed_Attempts;
+
 end SPAT.Proof_Items;

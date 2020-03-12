@@ -50,6 +50,11 @@ package SPAT.Command_Line is
                                     Long   => "--summary",
                                     Help   => "List summary (per file)");
 
+   package Failed_Only is new
+     GNATCOLL.Opt_Parse.Parse_Flag (Parser   => Parser,
+                                    Short    => "-f",
+                                    Long     => "--failed-only",
+                                    Help     => "Show only failed attempts");
    package Details is new
      GNATCOLL.Opt_Parse.Parse_Flag (Parser   => Parser,
                                     Short    => "-d",

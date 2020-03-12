@@ -25,6 +25,9 @@ package SPAT.Proof_Items is
 
    use all type GNATCOLL.JSON.JSON_Value_Type;
 
+   ---------------------------------------------------------------------------
+   --  Has_Required_Fields
+   ---------------------------------------------------------------------------
    function Has_Required_Fields (Object : in JSON_Value) return Boolean is
       (Entity_Locations.Has_Required_Fields (Object => Object) and then
        Preconditions.Ensure_Rule_Severity (Object => Object) and then
@@ -37,6 +40,9 @@ package SPAT.Proof_Items is
                              Element_Type => Proof_Attempts.Vector,
                              "="          => Proof_Attempts.Vectors."=");
 
+   ---------------------------------------------------------------------------
+   --  "<"
+   ---------------------------------------------------------------------------
    function "<" (Left  : in Proof_Attempts.Vector;
                  Right : in Proof_Attempts.Vector) return Boolean;
 
@@ -51,9 +57,21 @@ package SPAT.Proof_Items is
          Total_Time : Duration; --  Accumulated proof time.
       end record;
 
+   ---------------------------------------------------------------------------
+   --  Create
+   ---------------------------------------------------------------------------
    overriding function Create (Object : in JSON_Value) return T with
      Pre => Has_Required_Fields (Object => Object);
 
+   ---------------------------------------------------------------------------
+   --  Has_Failed_Attempts
+   ---------------------------------------------------------------------------
+   not overriding
+   function Has_Failed_Attempts (This : in T) return Boolean;
+
+   ---------------------------------------------------------------------------
+   --  Slower_Than
+   ---------------------------------------------------------------------------
    not overriding function Slower_Than (Left  : in T;
                                         Right : in T) return Boolean is
      (Left.Total_Time > Right.Total_Time);

@@ -125,6 +125,16 @@ package body SPAT.Spark_Info is
      (This.Files (File).Flow);
 
    ---------------------------------------------------------------------------
+   --  Has_Failed_Attempts
+   ---------------------------------------------------------------------------
+   function Has_Failed_Attempts (This   : in T;
+                                 Entity : in Subject_Name) return Boolean is
+   begin
+      return (for some Proof of This.Entities (Entity).Proofs =>
+                Proof.Has_Failed_Attempts);
+   end Has_Failed_Attempts;
+
+   ---------------------------------------------------------------------------
    --  List_All_Entities
    ---------------------------------------------------------------------------
    function List_All_Entities
