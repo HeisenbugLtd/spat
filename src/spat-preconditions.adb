@@ -13,9 +13,6 @@ with SPAT.Field_Names;
 
 package body SPAT.Preconditions is
 
-   --  Make JSON type enumeration literals directly visible.
-   use all type JSON_Value_Type;
-
    ---------------------------------------------------------------------------
    --  Ensure_Field
    ---------------------------------------------------------------------------
@@ -40,6 +37,40 @@ package body SPAT.Preconditions is
 
          return False;
       end if;
+
+      return True;
+   end Ensure_Field;
+
+   ---------------------------------------------------------------------------
+   --  Ensure_Field
+   ---------------------------------------------------------------------------
+   function Ensure_Field
+     (Object        : in JSON_Value;
+      Field         : in UTF8_String;
+      Kinds_Allowed : in Accepted_Value_Types) return Boolean is
+   begin
+      if not Object.Has_Field (Field => Field) then
+         Ada.Text_IO.Put_Line
+           (File => Ada.Text_IO.Standard_Error,
+            Item => "Warning: Expected field """ & Field & """ not present!");
+
+         return False;
+      end if;
+
+      declare
+         Field_Kind : constant JSON_Value_Type :=
+                        Object.Get (Field => Field).Kind;
+      begin
+         if not Kinds_Allowed (Field_Kind) then
+            Ada.Text_IO.Put_Line
+              (File => Ada.Text_IO.Standard_Error,
+               Item =>
+                 "Warning: Field """ & Field & """ has unacceptable kind """ &
+                 Field_Kind'Image & """!");
+
+            return False;
+         end if;
+      end;
 
       return True;
    end Ensure_Field;

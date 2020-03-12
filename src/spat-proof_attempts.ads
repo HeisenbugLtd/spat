@@ -31,9 +31,9 @@ package SPAT.Proof_Attempts is
      (Preconditions.Ensure_Field (Object => Object,
                                   Field  => Field_Names.Result,
                                   Kind   => JSON_String_Type) and then
-      Preconditions.Ensure_Field (Object => Object,
-                                  Field  => Field_Names.Time,
-                                  Kind   => JSON_Float_Type));
+      Preconditions.Ensure_Field (Object        => Object,
+                                  Field         => Field_Names.Time,
+                                  Kinds_Allowed => Preconditions.Number_Kind));
 
    type T is tagged
       record

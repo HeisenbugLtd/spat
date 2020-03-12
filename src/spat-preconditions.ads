@@ -18,6 +18,11 @@ pragma License (Unrestricted);
 
 package SPAT.Preconditions is
 
+   type Accepted_Value_Types is array (JSON_Value_Type) of Boolean with
+     Pack => True;
+
+   Number_Kind : constant Accepted_Value_Types;
+
    ---------------------------------------------------------------------------
    --  Ensure_Field
    --
@@ -30,11 +35,33 @@ package SPAT.Preconditions is
                           Kind   : in JSON_Value_Type) return Boolean;
 
    ---------------------------------------------------------------------------
+   --  Ensure_Field
+   --
+   --  Check that the given JSON object contains an object named Field with
+   --  on of the types in Kind.
+   --  Returns True if so, False otherwise.
+   ---------------------------------------------------------------------------
+   function Ensure_Field
+     (Object        : in JSON_Value;
+      Field         : in UTF8_String;
+      Kinds_Allowed : in Accepted_Value_Types) return Boolean;
+
+   ---------------------------------------------------------------------------
    --  Ensure_Rule_Severity
    --
    --  Checks that the given JSON object contains a rule and a severity object.
    --  Returns True if so, False otherwise.
    ---------------------------------------------------------------------------
    function Ensure_Rule_Severity (Object : in JSON_Value) return Boolean;
+
+private
+
+   --  Make JSON type enumeration literals directly visible.
+   use all type JSON_Value_Type;
+
+   Number_Kind : constant Accepted_Value_Types :=
+                   Accepted_Value_Types'(JSON_Int_Type |
+                                         JSON_Float_Type => True,
+                                         others          => False);
 
 end SPAT.Preconditions;

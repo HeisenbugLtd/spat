@@ -13,9 +13,11 @@ package body SPAT.Timing_Items is
    begin
       return
         T'(Proof =>
-             Duration (Float'(Object.Get (Field => Field_Names.Proof))),
+             Duration (Object.Get_Long_Float (Field => Field_Names.Proof)),
            Flow  =>
-             Duration (Float'(Object.Get (Field => Field_Names.Flow_Analysis))));
+             Duration
+               (Object.Get_Long_Float (Field => Field_Names.Flow_Analysis)));
    end Create;
+   --  TODO: Maybe accept integer values, too.
 
 end SPAT.Timing_Items;
