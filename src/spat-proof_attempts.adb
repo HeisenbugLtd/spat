@@ -9,6 +9,9 @@ pragma License (Unrestricted);
 
 package body SPAT.Proof_Attempts is
 
+   ---------------------------------------------------------------------------
+   --  Create
+   ---------------------------------------------------------------------------
    function Create (Object : JSON_Value;
                     Prover : Subject_Name) return T is
    begin
@@ -17,11 +20,21 @@ package body SPAT.Proof_Attempts is
                 Time   => Duration (Float'(Object.Get (Field => Field_Names.Time))));
    end Create;
 
+   ---------------------------------------------------------------------------
+   --  Has_Failed_Attempts
+   ---------------------------------------------------------------------------
    function Has_Failed_Attempts (This : in Vector) return Boolean
    is
       use type Subject_Name;
    begin
       return (for some A of This => A.Result /= "Valid");
    end Has_Failed_Attempts;
+
+   package By_Duration is new Vectors.Generic_Sorting ("<" => Slower_Than);
+
+   procedure Sort_By_Duration (Container : in out Vector) is
+   begin
+      By_Duration.Sort (Vectors.Vector (Container));
+   end Sort_By_Duration;
 
 end SPAT.Proof_Attempts;

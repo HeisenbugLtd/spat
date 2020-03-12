@@ -14,8 +14,6 @@ pragma License (Unrestricted);
 --  S.P.A.T. - Main program - separate Print_Entities
 --
 ------------------------------------------------------------------------------
-with SPAT.Proof_Attempts;
-with SPAT.Proof_Items;
 with SPAT.Strings;
 
 separate (Run_SPAT)
@@ -54,10 +52,7 @@ begin
                        Image (P.Max_Time) & "/" & Image (P.Total_Time));
 
                   for Check of P.Check_Tree loop
-                     if
-                       Report_All or else
-                       SPAT.Proof_Attempts.Has_Failed_Attempts (This => Check)
-                     then
+                     if Report_All or else Check.Has_Failed_Attempts then
                         Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
                                              To   => 2);
                         Ada.Text_IO.Put (File => Ada.Text_IO.Standard_Output,

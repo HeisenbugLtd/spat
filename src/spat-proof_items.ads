@@ -38,7 +38,7 @@ package SPAT.Proof_Items is
    package Checks_Tree is new
      Ada.Containers.Vectors (Index_Type   => Positive,
                              Element_Type => Proof_Attempts.Vector,
-                             "="          => Proof_Attempts.Vectors."=");
+                             "="          => Proof_Attempts."=");
 
    ---------------------------------------------------------------------------
    --  "<"

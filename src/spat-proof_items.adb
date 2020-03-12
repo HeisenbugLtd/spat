@@ -85,7 +85,7 @@ package body SPAT.Proof_Items is
                begin
                   GNATCOLL.JSON.Map_JSON_Object (Val => Attempt_List,
                                                  CB  => Mapping_CB'Access);
-                  Proof_Attempts.By_Duration.Sort (Container => Attempts);
+                  Attempts.Sort_By_Duration;
                end;
 
                --  Add the current check tree to our list.
@@ -112,8 +112,7 @@ package body SPAT.Proof_Items is
    not overriding
    function Has_Failed_Attempts (This : in T) return Boolean is
    begin
-      return (for some C of This.Check_Tree =>
-                Proof_Attempts.Has_Failed_Attempts (This => C));
+      return (for some C of This.Check_Tree => C.Has_Failed_Attempts);
    end Has_Failed_Attempts;
 
 end SPAT.Proof_Items;

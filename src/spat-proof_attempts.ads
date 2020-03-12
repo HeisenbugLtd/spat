@@ -24,6 +24,9 @@ package SPAT.Proof_Attempts is
 
    use all type GNATCOLL.JSON.JSON_Value_Type;
 
+   ---------------------------------------------------------------------------
+   --  Has_Required_Fields
+   ---------------------------------------------------------------------------
    function Has_Required_Fields (Object : JSON_Value) return Boolean is
      (Preconditions.Ensure_Field (Object => Object,
                                   Field  => Field_Names.Result,
@@ -40,11 +43,18 @@ package SPAT.Proof_Attempts is
          --  Steps -- part of the JSON data, but we don't care.
       end record;
 
+   ---------------------------------------------------------------------------
+   --  Create
+   ---------------------------------------------------------------------------
    function Create (Object : JSON_Value;
                     Prover : Subject_Name) return T
      with Pre => Has_Required_Fields (Object => Object);
 
    --  Sorting instantiations.
+
+   ---------------------------------------------------------------------------
+   --  Slower_Than
+   ---------------------------------------------------------------------------
    not overriding function Slower_Than (Left  : in T;
                                         Right : in T) return Boolean is
      (Left.Time > Right.Time);
@@ -53,11 +63,20 @@ package SPAT.Proof_Attempts is
      Ada.Containers.Vectors (Index_Type   => Ada.Containers.Count_Type,
                              Element_Type => T);
 
-   subtype Vector is Vectors.Vector;
-   Empty_Vector : Vector renames Vectors.Empty_Vector;
+   type Vector is new Vectors.Vector with null record;
 
+   ---------------------------------------------------------------------------
+   --  Has_Failed_Attempts
+   ---------------------------------------------------------------------------
+   not overriding
    function Has_Failed_Attempts (This : in Vector) return Boolean;
 
-   package By_Duration is new Vectors.Generic_Sorting ("<" => Slower_Than);
+   ---------------------------------------------------------------------------
+   --  Sort_By_Duration
+   ---------------------------------------------------------------------------
+   not overriding
+   procedure Sort_By_Duration (Container : in out Vector);
+
+   Empty_Vector : Vector := (Vectors.Empty_Vector with null record);
 
 end SPAT.Proof_Attempts;
