@@ -22,10 +22,10 @@ undocumented, a little bit of reverse engineering may be required, but on the
 other hand, maybe the result is actual
 [documentation](https://github.com/HeisenbugLtd/spat/blob/master/doc/spark_file_format.md).
 
-## Invoking the the tool
+## Invoking the tool
 
 The tool is designed to be run against a directory containing the files left
-behind by a run of gnatprove. It can handle single files, though, too.
+behind by a run of `gnatprove`. It can handle single files, though, too.
 
 ### Command line
 
@@ -55,9 +55,9 @@ optional arguments:
    --verbose, -v         Verbose (tracing) output
 ```
 
-The directory argument is the only argument that is not optional, but without
-`--list`, `--summary`, or `--details` argument, `run_spat` will not output
-anything. It will still try to parse the files it finds, though.
+The directory argument is the only argument that is not optional, but without a
+`--list`, or `--summary` argument, `run_spat` will not output anything useful.
+It will still try to parse the files it finds, though.
 
 ### The `--summary` option
 
@@ -99,6 +99,27 @@ entities (i.e. Ada language identifiers) it finds in the `.spark` files. By
 default, the output has no particular order, but as mentioned in the previous
 chapter, with the `--sort-by` option you can force one.
 
+Typical output looks like this:
+
+```sh
+run_spat -ct -l _build/
+Saatana.Crypto.Phelix.H                    => 303.8 s/304.3 s
+Saatana.Crypto.Phelix.Setup_Key            => 130.4 s/131.2 s
+Saatana.Crypto.Phelix.Encrypt_Bytes        => 96.2 s/96.9 s
+Saatana.Crypto.Phelix.Finalize             => 67.7 s/67.8 s
+Saatana.Crypto.Phelix.Setup_Nonce          => 390.0 ms/2.6 s
+Saatana.Crypto.Phelix.Decrypt_Bytes        => 1.6 s/2.2 s
+Saatana.Crypto.Phelix.Process_AAD          => 220.0 ms/790.0 ms
+Saatana.Crypto.Lemmas                      => 590.0 ms/590.0 ms
+Test_Phelix_API                            => 150.0 ms/340.0 ms
+Saatana.Crypto.Phelix.Exclusive_Or         => 190.0 ms/190.0 ms
+Saatana.Crypto.Phelix.Decrypt_Packet       => 60.0 ms/180.0 ms
+...
+```
+
+The first value is the longest proof time, the second value is the total sum of
+all proof times for this entity.
+
 #### The `--failed-only` option
 
 When invoked together with the `--list` option, it will only show proof
@@ -139,11 +160,15 @@ Saatana.Crypto.Phelix.Setup_Key            => 130.4 s/131.2 s
 
 As above, but here you can see the individual proof results. It seems that Z3
 is not well suited to prove these particular verification conditions, but CVC4
-can prove them quite fast. This is a good indicator, that in that particular
-case, CVC4 should be called first.
+can prove them quite fast. This is a good indicator that in that particular
+case, CVC4 should be called first to optimize proof times.
 
 Without the `--failed-only` option, all proof attempts will be shown in a similar
 manner.
+
+Please keep in mind that a single proof may have multiple paths leading to it,
+resulting in more than just one proof attempt for a single verification
+condition.
 
 #### The `--verbose`` option
 
