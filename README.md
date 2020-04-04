@@ -170,7 +170,7 @@ Please keep in mind that a single proof may have multiple paths leading to it,
 resulting in more than just one proof attempt for a single verification
 condition.
 
-#### The `--verbose`` option
+#### The `--verbose` option
 
 This option is mainly used for debugging, it enables extra output about what
 `run_spat` is doing (i.e. files found in the given directories, parse results
