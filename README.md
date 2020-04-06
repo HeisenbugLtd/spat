@@ -92,7 +92,7 @@ on the output.
 the output here, these options are designed to work with the `--list` option
 only.
 
-### The ``--list`` option
+### The `--list` option
 
 This is the main mode the tool is designed to be run in. It outputs the list of
 entities (i.e. Ada language identifiers) it finds in the `.spark` files. By
@@ -139,7 +139,7 @@ Saatana.Crypto.Phelix.Setup_Key            => 130.4 s/131.2 s
 Here, we can see that there are two entities where a prover failed to prove the
 verification condition. So let's look into this in more detail:
 
-#### The `--details´ option
+#### The `--details` option
 
 When invoked together with the `--list` option, it will show all the individual
 proof attempts/paths for an entity.
