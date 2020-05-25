@@ -28,6 +28,10 @@ package SPAT.Spark_Info is
 
    type Sorting_Criterion is (None, Name, Time);
 
+   type File_Version is (GNAT_CE_2019, GNAT_CE_2020);
+   --  Version information. Right now I only have access to the community
+   --  releases of SPARK, so these are the only ones fully supported.
+
    type T is tagged limited private;
    --  Binary representation of the information obtained from a .spark JSON
    --  file.

@@ -404,6 +404,9 @@ package body SPAT.Spark_Info is
                              File : in     Subject_Name;
                              Root : in     JSON_Value) is
    begin
+      --  TODO: Here we should guess file version information and pass that to
+      --        the parsing subroutines.
+
       --  If I understand the .spark file format correctly, this should
       --  establish the table of all known analysis elements.
       if
