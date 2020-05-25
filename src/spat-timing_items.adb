@@ -13,7 +13,12 @@ package body SPAT.Timing_Items is
    begin
       return
         T'(Proof =>
-             Duration (Object.Get_Long_Float (Field => Field_Names.Proof)),
+             (if Object.Has_Field (Field => Field_Names.Proof)
+              then Duration (Object.Get_Long_Float (Field => Field_Names.Proof))
+              else
+                 Duration (Object.Get_Long_Float (Field => Field_Names.Register_VCs) +
+                           Object.Get_Long_Float (Field => Field_Names.Schedule_VCs) +
+                           Object.Get_Long_Float (Field => Field_Names.Run_VCs))),
            Flow  =>
              Duration
                (Object.Get_Long_Float (Field => Field_Names.Flow_Analysis)));

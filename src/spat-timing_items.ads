@@ -22,9 +22,20 @@ private package SPAT.Timing_Items is
    use all type GNATCOLL.JSON.JSON_Value_Type;
 
    function Has_Required_Fields (Object : in JSON_Value) return Boolean is
-      (Preconditions.Ensure_Field (Object => Object,
-                                   Field  => Field_Names.Proof,
-                                   Kind   => JSON_Float_Type) and then
+      ((Preconditions.Ensure_Field (Object => Object,
+                                    Field  => Field_Names.Proof,
+                                    Kind   => JSON_Float_Type) or else
+        -- GNAT CE 2019
+        (Preconditions.Ensure_Field (Object => Object,
+                                     Field  => Field_Names.Run_VCs,
+                                     Kind   => JSON_Float_Type) and then
+         Preconditions.Ensure_Field (Object => Object,
+                                     Field  => Field_Names.Register_VCs,
+                                     Kind   => JSON_Float_Type) and then
+         Preconditions.Ensure_Field (Object => Object,
+                                     Field  => Field_Names.Schedule_VCs,
+                                     Kind   => JSON_Float_Type))) and then
+       -- GNAT CE 2020
        Preconditions.Ensure_Field (Object => Object,
                                    Field  => Field_Names.Flow_Analysis,
                                    Kind   => JSON_Float_Type));
