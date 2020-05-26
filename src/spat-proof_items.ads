@@ -29,8 +29,8 @@ package SPAT.Proof_Items is
    --  Has_Required_Fields
    ---------------------------------------------------------------------------
    function Has_Required_Fields (Object : in JSON_Value) return Boolean is
-      (Entity_Locations.Has_Required_Fields (Object => Object) and then
-       Preconditions.Ensure_Rule_Severity (Object => Object) and then
+      (Entity_Locations.Has_Required_Fields (Object => Object) and
+       Preconditions.Ensure_Rule_Severity (Object => Object) and
        Preconditions.Ensure_Field (Object => Object,
                                    Field  => Field_Names.Check_Tree,
                                    Kind   => JSON_Array_Type));

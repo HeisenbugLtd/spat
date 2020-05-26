@@ -54,4 +54,8 @@ package SPAT is
    subtype JSON_Value_Type is GNATCOLL.JSON.JSON_Value_Type;
    subtype UTF8_String     is GNATCOLL.JSON.UTF8_String;
 
+   type File_Version is (GNAT_CE_2019, GNAT_CE_2020);
+   --  Version information. Right now I only have access to the community
+   --  releases of SPARK, so these are the only ones fully supported.
+
 end SPAT;

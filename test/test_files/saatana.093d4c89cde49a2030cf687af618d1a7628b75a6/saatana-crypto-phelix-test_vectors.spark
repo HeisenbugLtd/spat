@@ -1,0 +1,21 @@
+{
+  "spark": [
+  ],
+  "flow": [
+  ],
+  "session_map": {
+  },
+  "proof": [
+  ],
+  "assumptions": [
+  ],
+  "timings": {
+    "codepeer results": 3.00000010611257E-06,
+    "init_why_sections": 9.74000024143606E-04,
+    "globals/properties (advanced)": 2.85899988375604E-03,
+    "flow analysis": 2.30000005103648E-05,
+    "marking": 8.73299967497587E-03,
+    "translation of standard": 6.59399991855025E-03,
+    "globals (basic)": 1.33200001437217E-03
+  }
+}
