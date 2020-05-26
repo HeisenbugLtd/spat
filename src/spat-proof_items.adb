@@ -83,12 +83,37 @@ package body SPAT.Proof_Items is
                      end if;
                   end Mapping_CB;
                begin
+                  --  We use Map_JSON_Object here, because the prover name is
+                  --  dynamic and potentially unknown to us, so we can't do a
+                  --  lookup.
                   GNATCOLL.JSON.Map_JSON_Object (Val => Attempt_List,
                                                  CB  => Mapping_CB'Access);
-                  Attempts.Sort_By_Duration;
                end;
+            end if;
 
-               --  Add the current check tree to our list.
+            --  Handle the "trivial_true" object (since GNAT_CE_2020.
+            if
+              Preconditions.Ensure_Field (Object => Element,
+                                          Field  => Field_Names.Transformations,
+                                          Kind   => JSON_Object_Type)
+            then
+               declare
+                  Transformation : constant JSON_Value
+                    := Element.Get (Field => Field_Names.Transformations);
+               begin
+                  if
+                    Transformation.Has_Field (Field => Field_Names.Trivial_True)
+                  then
+                     Attempts.Append (New_Item => Proof_Attempts.Trivial_True);
+                     --  No timing updates needed here, as we assume 0.0 for
+                     --  trivially true proofs.
+                  end if;
+               end;
+            end if;
+
+            --  If not empty, add the current check tree to our list.
+            if not Attempts.Is_Empty then
+               Attempts.Sort_By_Duration;
                Checks_List.Append (New_Item => Attempts);
             end if;
          end;
