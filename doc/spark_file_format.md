@@ -44,6 +44,7 @@ So far I have seen:
 * [`proof`](spark_file_format.md#33-the-proof-array)
 * [`assumptions`](spark_file_format.md#34-the-assumptions-array)
 * [`timings`](spark_file_format.md#35-the-timings-object)
+* **GNAT CE 2020** `session_map`
 
 ### 3.1 The `spark` array
 
@@ -354,7 +355,10 @@ these steps mean may depend on the prover used), and `time` is obviously the
 
 ##### 3.3.2.2 The `transformations` object
 
-??? Unclear. So far I have only seen empty objects.
+**GNAT CE 2020**: May contain a `trivial_true` which seems empty. In that
+case, the corresponding `proof_attempts` object should be empty, as no prover was
+involved in proving this particular path. Such proof attempts are assigned to a
+prover object "Trivial".
 
 #### 3.3.3 The `check-file`, `check-line`, `check-col` objects
 
@@ -410,7 +414,8 @@ the three fields `count` (`json-int`), `max-steps` (`json-int`), and `max_time`
 
 Contains information about the assumptions made in the proof. In other words,
 these were not proved themselves, these are conditions that must hold true if
-the proof is to be trusted.
+the proof is to be trusted. This object only contains data if gnatprove was
+called with the `--assumptions` option.
 
 #### 3.4.1 Grammar Summary
 
@@ -488,7 +493,8 @@ times etc.) for the different stages in the proof.
 `timings` ::= { `marking`, `globals-basic`, `globals-advanced`,
                 `flow-analysis`, `codepeer-results`,
                 `init-why-sections`, `translation-of-standard`,
-                `translation-of-compilation-unit`, `proof` }
+                `translation-of-compilation-unit`, `proof`,
+                `gnatwhy3.transformations.*` }
 
 `marking` ::= "marking" : `json-float`
 
@@ -504,9 +510,11 @@ times etc.) for the different stages in the proof.
 
 `translation-of-standard` ::= "translation of standard" : `json-float`
 
-`translation-of-compilation-unit` ::= "translation of compilation unit" : `json-float`
+**GNAT CE 2019**: `translation-of-compilation-unit` ::= "translation of compilation unit" : `json-float`
 
-`proof` ::= "proof" : `json-float`
+**GNAT CE 2019**: `proof` ::= "proof" : `json-float`
+
+**GNAT CE 2020**: `gnatwhy3.transformations.*` ::= "gnatwhy3.transformations.*" : `json-float`
 
 ##### 3.5.2 The timings.* objects
 
@@ -524,3 +532,4 @@ in this stage.
 | `translation-of-standard`         | The total time spent in translating the `Standard` package (and possibly other standard Ada library packages) into the intermediate language representation. |
 | `translation-of-compilation-unit` | The total time spent in translating the analyzed unit into the intermediate language representation. |
 | `proof`                           | The total time spent in proof (i.e. absence of run-time errors and functional analysis). |
+| `gnatwhy3.transformations.*` | Time spent in several parts of why3.  At the moment, the the exact meaning of all the fields is unclear. |
