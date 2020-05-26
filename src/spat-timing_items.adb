@@ -9,16 +9,18 @@ pragma License (Unrestricted);
 
 package body SPAT.Timing_Items is
 
-   function Create (Object : in JSON_Value) return T is
+   function Create (Object  : in JSON_Value;
+                    Version : in File_Version) return T is
    begin
       return
         T'(Proof =>
-             (if Object.Has_Field (Field => Field_Names.Proof)
-              then Duration (Object.Get_Long_Float (Field => Field_Names.Proof))
-              else
-                 Duration (Object.Get_Long_Float (Field => Field_Names.Register_VCs) +
-                           Object.Get_Long_Float (Field => Field_Names.Schedule_VCs) +
-                           Object.Get_Long_Float (Field => Field_Names.Run_VCs))),
+             (case Version is
+                 when GNAT_CE_2019 =>
+                   Duration (Object.Get_Long_Float (Field => Field_Names.Proof)),
+                 when GNAT_CE_2020 =>
+                   Duration (Object.Get_Long_Float (Field => Field_Names.Register_VCs) +
+                             Object.Get_Long_Float (Field => Field_Names.Schedule_VCs) +
+                             Object.Get_Long_Float (Field => Field_Names.Run_VCs))),
            Flow  =>
              Duration
                (Object.Get_Long_Float (Field => Field_Names.Flow_Analysis)));

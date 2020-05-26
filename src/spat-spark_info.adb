@@ -10,6 +10,7 @@ pragma License (Unrestricted);
 with Ada.Directories;
 with Ada.Text_IO;
 
+with SPAT.Command_Line;
 with SPAT.Field_Names;
 with SPAT.Preconditions;
 
@@ -24,6 +25,14 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Subprogram prototypes.
    ---------------------------------------------------------------------------
+
+   ---------------------------------------------------------------------------
+   --  Guess_Version
+   --
+   --  Checks for presence of certain fields that are presumed version
+   --  specific.
+   ---------------------------------------------------------------------------
+   function Guess_Version (Root : in JSON_Value) return File_Version;
 
    ---------------------------------------------------------------------------
    --  Map_Assumptions_Elements
@@ -71,9 +80,10 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Map_Timings
    ---------------------------------------------------------------------------
-   procedure Map_Timings (This : in out T;
-                          File : in     Subject_Name;
-                          Root : in     JSON_Value);
+   procedure Map_Timings (This    : in out T;
+                          File    : in     Subject_Name;
+                          Root    : in     JSON_Value;
+                          Version : in     File_Version);
 
    ---------------------------------------------------------------------------
    --  Sort_Entity_By_Name
@@ -123,6 +133,36 @@ package body SPAT.Spark_Info is
    function Flow_Time (This : in T;
                        File : in Subject_Name) return Duration is
      (This.Files (File).Flow);
+
+   ---------------------------------------------------------------------------
+   --  Guess_Version
+   ---------------------------------------------------------------------------
+   function Guess_Version (Root : in JSON_Value) return File_Version
+   is
+      Result : File_Version := GNAT_CE_2019;
+   begin
+      if Root.Has_Field (Field => Field_Names.Timings) then
+         declare
+            Timings : constant GNATCOLL.JSON.JSON_Value :=
+              Root.Get (Field => Field_Names.Timings);
+         begin
+            if Timings.Has_Field (Field => Field_Names.Translation_Of_Compilation_Unit) then
+               --  This field seems to have disappeared in GNAT CE 2020, so if
+               --  it is present, we assume GNAT CE 2019.
+               Result := GNAT_CE_2019;
+            else
+               Result := GNAT_CE_2020;
+            end if;
+         end;
+      end if;
+
+      if SPAT.Command_Line.Verbose.Get then
+         Ada.Text_IO.Put_Line (File => Ada.Text_IO.Standard_Output,
+                               Item => "File version: " & Result'Image);
+      end if;
+
+      return Result;
+   end Guess_Version;
 
    ---------------------------------------------------------------------------
    --  Has_Failed_Attempts
@@ -402,10 +442,10 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    procedure Map_Spark_File (This : in out T;
                              File : in     Subject_Name;
-                             Root : in     JSON_Value) is
+                             Root : in     JSON_Value)
+   is
+      Version : constant File_Version := Guess_Version (Root => Root);
    begin
-      --  TODO: Here we should guess file version information and pass that to
-      --        the parsing subroutines.
 
       --  If I understand the .spark file format correctly, this should
       --  establish the table of all known analysis elements.
@@ -449,23 +489,29 @@ package body SPAT.Spark_Info is
                                     Field  => Field_Names.Timings,
                                     Kind   => JSON_Object_Type)
       then
-         This.Map_Timings (File => File,
-                           Root => Root.Get (Field => Field_Names.Timings));
+         --  The "timings" object is version dependent.
+         This.Map_Timings (File    => File,
+                           Root    => Root.Get (Field => Field_Names.Timings),
+                           Version => Version);
       end if;
    end Map_Spark_File;
 
    ---------------------------------------------------------------------------
    --  Map_Timings
    ---------------------------------------------------------------------------
-   procedure Map_Timings (This : in out T;
-                          File : in     Subject_Name;
-                          Root : in     JSON_Value) is
+   procedure Map_Timings (This    : in out T;
+                          File    : in     Subject_Name;
+                          Root    : in     JSON_Value;
+                          Version : in     File_Version) is
    begin
       if
-        Timing_Items.Has_Required_Fields (Object => Root)
+        Timing_Items.Has_Required_Fields (Object  => Root,
+                                          Version => Version)
       then
-         This.Files.Insert (Key      => File,
-                            New_Item => Timing_Items.Create (Object => Root));
+         This.Files.Insert
+           (Key      => File,
+            New_Item => Timing_Items.Create (Object  => Root,
+                                             Version => Version));
       else
          This.Files.Insert (Key      => File,
                             New_Item => Timing_Items.None);

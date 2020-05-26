@@ -27,16 +27,22 @@ package SPAT.Field_Names is
    Name           : constant UTF8_String := "name";
    Proof          : constant UTF8_String := "proof";
    Proof_Attempts : constant UTF8_String := "proof_attempts";
-   Register_VCs   : constant UTF8_String := "gnatwhy3.register_vcs";
    Result         : constant UTF8_String := "result";
    Rule           : constant UTF8_String := "rule";
-   Run_VCs        : constant UTF8_String := "gnatwhy3.run_vcs";
-   Schedule_VCs   : constant UTF8_String := "gnatwhy3.schedule_vcs";
    Severity       : constant UTF8_String := "severity";
    Sloc           : constant UTF8_String := "sloc";
    Spark          : constant UTF8_String := "spark";
    Steps          : constant UTF8_String := "steps";
    Time           : constant UTF8_String := "time";
    Timings        : constant UTF8_String := "timings";
+
+   --  GNAT_CE_2019
+   Translation_Of_Compilation_Unit : constant UTF8_String :=
+     "translation of compilation unit";
+
+   --  GNAT_CE_2020
+   Register_VCs   : constant UTF8_String := "gnatwhy3.register_vcs";
+   Run_VCs        : constant UTF8_String := "gnatwhy3.run_vcs";
+   Schedule_VCs   : constant UTF8_String := "gnatwhy3.schedule_vcs";
 
 end SPAT.Field_Names;
