@@ -30,7 +30,7 @@ package SPAT.Proof_Attempts is
    function Has_Required_Fields (Object : JSON_Value) return Boolean is
      (Preconditions.Ensure_Field (Object => Object,
                                   Field  => Field_Names.Result,
-                                  Kind   => JSON_String_Type) and then
+                                  Kind   => JSON_String_Type) and
       Preconditions.Ensure_Field (Object        => Object,
                                   Field         => Field_Names.Time,
                                   Kinds_Allowed => Preconditions.Number_Kind));

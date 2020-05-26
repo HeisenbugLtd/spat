@@ -22,7 +22,7 @@ with SPAT.Preconditions;
 private package SPAT.Flow_Items is
 
    function Has_Required_Fields (Object : in JSON_Value) return Boolean is
-     (Entity_Locations.Has_Required_Fields (Object => Object) and then
+     (Entity_Locations.Has_Required_Fields (Object => Object) and
       Preconditions.Ensure_Rule_Severity (Object => Object));
 
    type T is new Entity_Locations.T with

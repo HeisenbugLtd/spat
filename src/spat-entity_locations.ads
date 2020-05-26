@@ -26,7 +26,7 @@ package SPAT.Entity_Locations is
    function Has_Required_Fields (Object : in JSON_Value) return Boolean is
      (Preconditions.Ensure_Field (Object => Object,
                                   Field  => Field_Names.File,
-                                  Kind   => JSON_String_Type) and then
+                                  Kind   => JSON_String_Type) and
       Preconditions.Ensure_Field (Object => Object,
                                   Field  => Field_Names.Line,
                                   Kind   => JSON_Int_Type));

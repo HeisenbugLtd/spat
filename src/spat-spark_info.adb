@@ -141,7 +141,10 @@ package body SPAT.Spark_Info is
    is
       Result : File_Version := GNAT_CE_2019;
    begin
-      if Root.Has_Field (Field => Field_Names.Timings) then
+      if Root.Has_Field (Field => Field_Names.Session_Map) then
+         --  "session_map" seems new in CE 2020.
+         Result := GNAT_CE_2020;
+      elsif Root.Has_Field (Field => Field_Names.Timings) then
          declare
             Timings : constant GNATCOLL.JSON.JSON_Value :=
               Root.Get (Field => Field_Names.Timings);

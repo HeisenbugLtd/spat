@@ -44,5 +44,6 @@ package SPAT.Field_Names is
    Register_VCs   : constant UTF8_String := "gnatwhy3.register_vcs";
    Run_VCs        : constant UTF8_String := "gnatwhy3.run_vcs";
    Schedule_VCs   : constant UTF8_String := "gnatwhy3.schedule_vcs";
+   Session_Map    : constant UTF8_String := "session_map";
 
 end SPAT.Field_Names;

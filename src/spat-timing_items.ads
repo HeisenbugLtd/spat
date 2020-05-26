@@ -32,13 +32,13 @@ private package SPAT.Timing_Items is
           when GNAT_CE_2020 =>
              Preconditions.Ensure_Field (Object => Object,
                                          Field  => Field_Names.Run_VCs,
-                                         Kind   => JSON_Float_Type) and then
+                                         Kind   => JSON_Float_Type) and
              Preconditions.Ensure_Field (Object => Object,
                                          Field  => Field_Names.Register_VCs,
-                                         Kind   => JSON_Float_Type) and then
+                                         Kind   => JSON_Float_Type) and
              Preconditions.Ensure_Field (Object => Object,
                                          Field  => Field_Names.Schedule_VCs,
-                                         Kind   => JSON_Float_Type)) and then
+                                         Kind   => JSON_Float_Type)) and
        Preconditions.Ensure_Field (Object => Object,
                                    Field  => Field_Names.Flow_Analysis,
                                    Kind   => JSON_Float_Type));
