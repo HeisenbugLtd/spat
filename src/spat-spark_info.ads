@@ -93,8 +93,9 @@ package SPAT.Spark_Info is
    --
    --  Reported time taken for all the proofs for File.
    ---------------------------------------------------------------------------
-   not overriding function Proof_Time (This : in T;
-                                       File : in Subject_Name) return Duration;
+   not overriding
+   function Proof_Time (This : in T;
+                        File : in Subject_Name) return Duration;
 
    ---------------------------------------------------------------------------
    --  Max_Proof_Time
@@ -136,6 +137,7 @@ private
 
    type Analyzed_Entity is
       record
+         SPARK_File   : Subject_Name; --  Which file this entity was found in.
          Source_Lines : Entity_Lines.Vector;
          Flows        : Flow_Items.Vector;
          Proofs       : Proof_Items.Vector;

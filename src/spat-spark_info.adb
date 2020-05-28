@@ -43,8 +43,9 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Map_Entities
    ---------------------------------------------------------------------------
-   procedure Map_Entities (This : in out T;
-                           Root : in     JSON_Value) with
+   procedure Map_Entities (This      : in out T;
+                           Root      : in     JSON_Value;
+                           From_File : in     Subject_Name) with
      Pre => (Preconditions.Ensure_Field (Object => Root,
                                          Field  => Field_Names.Name,
                                          Kind   => JSON_String_Type) and then
@@ -74,8 +75,9 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Map_Spark_Elements
    ---------------------------------------------------------------------------
-   procedure Map_Spark_Elements (This : in out T;
-                                 Root : in     JSON_Array);
+   procedure Map_Spark_Elements (This      : in out T;
+                                 Root      : in     JSON_Array;
+                                 From_File : in     Subject_Name);
 
    ---------------------------------------------------------------------------
    --  Map_Timings
@@ -241,8 +243,9 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Map_Entities
    ---------------------------------------------------------------------------
-   procedure Map_Entities (This : in out T;
-                           Root : in     JSON_Value)
+   procedure Map_Entities (This      : in out T;
+                           Root      : in     JSON_Value;
+                           From_File : in     Subject_Name)
    is
       Obj_Name : constant Subject_Name := Root.Get (Field => Field_Names.Name);
       Slocs    : constant JSON_Array   := Root.Get (Field => Field_Names.Sloc);
@@ -254,6 +257,8 @@ package body SPAT.Spark_Info is
             Element        : Analyzed_Entity;
             Dummy_Inserted : Boolean;
          begin
+            Element.SPARK_File := From_File;
+
             This.Entities.Insert (Key      => Obj_Name,
                                   New_Item => Element,
                                   Position => Index,
@@ -413,8 +418,9 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Map_Spark_Elements
    ---------------------------------------------------------------------------
-   procedure Map_Spark_Elements (This : in out T;
-                                 Root : in     JSON_Array)
+   procedure Map_Spark_Elements (This      : in out T;
+                                 Root      : in     JSON_Array;
+                                 From_File : in     Subject_Name)
    is
       Length : constant Natural := GNATCOLL.JSON.Length (Arr => Root);
    begin
@@ -434,7 +440,8 @@ package body SPAT.Spark_Info is
                                           Field  => Field_Names.Sloc,
                                           Kind   => JSON_Array_Type)
             then
-               This.Map_Entities (Root => Element);
+               This.Map_Entities (Root      => Element,
+                                  From_File => From_File);
             end if;
          end;
       end loop;
@@ -458,7 +465,8 @@ package body SPAT.Spark_Info is
                                     Kind   => JSON_Array_Type)
       then
          This.Map_Spark_Elements
-           (Root => Root.Get (Field => Field_Names.Spark));
+           (Root      => Root.Get (Field => Field_Names.Spark),
+            From_File => File);
       end if;
 
       if
@@ -574,7 +582,38 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    function Proof_Time (This : in T;
                         File : in Subject_Name) return Duration is
-     (This.Files (File).Proof);
+      Timings : constant Timing_Items.T := This.Files (File);
+   begin
+      case Timings.Version is
+         when GNAT_CE_2019 =>
+            --  In this version we have a "proof" timing field, report it
+            --  directly.
+            return Timings.Proof;
+
+         when GNAT_CE_2020 =>
+            declare
+               Summed_Proof_Time : Duration := Timings.Proof;
+            begin
+               --  In this version there's no proof timing field anymore, so we
+               --  need to sum the proof times of the entities, too.
+               for Position in This.Entities.Iterate loop
+                  declare
+                     Name : constant Subject_Name :=
+                       Analyzed_Entities.Key (Position);
+                  begin
+                     if
+                       Analyzed_Entities.Element (Position).SPARK_File = File
+                     then
+                        Summed_Proof_Time :=
+                          Summed_Proof_Time + This.Total_Proof_Time (Name);
+                     end if;
+                  end;
+               end loop;
+
+               return Summed_Proof_Time;
+            end;
+      end case;
+   end Proof_Time;
 
    ---------------------------------------------------------------------------
    --  Sort_Entity_By_Name
@@ -647,7 +686,7 @@ package body SPAT.Spark_Info is
       Total_Time : Duration := 0.0;
    begin
       for P of This.Entities (Entity).Proofs loop
-         Total_Time := Duration'Max (Total_Time, P.Total_Time);
+         Total_Time := Total_Time + P.Total_Time;
       end loop;
 
       return Total_Time;

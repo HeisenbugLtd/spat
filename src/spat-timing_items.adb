@@ -46,8 +46,9 @@ package body SPAT.Timing_Items is
       end case;
 
       return
-        T'(Proof => Proof_Time,
-           Flow  =>
+        T'(Version => Version,
+           Proof   => Proof_Time,
+           Flow    =>
              Duration
                (Object.Get_Long_Float (Field => Field_Names.Flow_Analysis)));
    end Create;

@@ -42,8 +42,9 @@ private package SPAT.Timing_Items is
    --  Information obtained from the timing section of a .spark file.
    type T is
       record
-         Proof : Duration; --  Total time the prover spent.
-         Flow  : Duration; --  Total time of flow analysis.
+         Version : File_Version; --  version of file encountered.
+         Proof   : Duration;     --  Total time the prover spent.
+         Flow    : Duration;     --  Total time of flow analysis.
       end record;
 
    function Create (Object  : in JSON_Value;
@@ -51,7 +52,8 @@ private package SPAT.Timing_Items is
      Pre => Has_Required_Fields (Object  => Object,
                                  Version => Version);
 
-   None : constant T := T'(Proof => 0.0,
-                           Flow  => 0.0);
+   None : constant T := T'(Version => File_Version'First,
+                           Proof   => 0.0,
+                           Flow    => 0.0);
 
 end SPAT.Timing_Items;
