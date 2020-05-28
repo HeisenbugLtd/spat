@@ -53,8 +53,8 @@ instruction above.
 #### Compile and install SPAT
 
 * Clone the SPAT repository: `git clone https://github.com/HeisenbugLtd/spat`
-* Compile it:              : `gprbuild -p -P spat/spat.gpr`
-* Install it:              : `gprinstall -f -p -P spat/spat.gpr`
+* Compile it: `gprbuild -p -P spat/spat.gpr`
+* Install it: `gprinstall -f -p -P spat/spat.gpr`
 
 Depending on how your GNAT installation is set up, the latter command may
 require elevated privileges to write into the installation directory, so if
