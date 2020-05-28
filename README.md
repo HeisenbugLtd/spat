@@ -22,6 +22,48 @@ undocumented, a little bit of reverse engineering may be required, but on the
 other hand, maybe the result is actual
 [documentation](https://github.com/HeisenbugLtd/spat/blob/master/doc/spark_file_format.md).
 
+## Compiling the tool
+
+### Requirements
+
+You need a recent version of GNAT with the GNATCOLL library. GNAT CE 2019 or
+GNAT CE 2020 should suffice.
+
+You also need the [si_units](https://github.com/HeisenbugLtd/si_units) library
+to be installed.
+
+### Step by step instructions
+
+Note that the instructions are currently for Linux only, but installing it on
+Windows should be similarly straightforward. I also assume that SPARK users are
+familiar with compiling Ada code, so installing it on Windows shouldn't be an
+issue.
+
+#### Compile and install SI_Units
+
+* Clone the SI_Units repository: `git clone https://github.com/HeisenbugLtd/si_units`
+* Compile the SI_Units library: `gprbuild -p -P si_units/si_units_lib.gpr`
+* Install the SI Units library: `gprinstall -f -p -P si_units/si_units_lib.gpr`
+
+Depending on how your GNAT installation is set up, the latter command may
+require elevated privileges to write into the installation directory, so if
+needed, prepend `sudo </path/to/gnat/installation/>/bin/` to the `gprinstall`
+instruction above.
+
+#### Compile and install SPAT
+
+* Clone the SPAT repository: `git clone https://github.com/HeisenbugLtd/spat`
+* Compile it:              : `gprbuild -p -P spat/spat.gpr`
+* Install it:              : `gprinstall -f -p -P spat/spat.gpr`
+
+Depending on how your GNAT installation is set up, the latter command may
+require elevated privileges to write into the installation directory, so if
+needed, prepend `sudo </path/to/gnat/installation/>/bin/` to the `gprinstall`
+instruction above.
+
+After that, the **`run_spat`** executable should be installed in your GNAT
+installation and is ready to use.
+
 ## Invoking the tool
 
 The tool is designed to be run against a directory containing the files left
