@@ -7,21 +7,48 @@
 ------------------------------------------------------------------------------
 pragma License (Unrestricted);
 
+with Ada.Strings.Fixed;
+
 package body SPAT.Timing_Items is
 
    function Create (Object  : in JSON_Value;
                     Version : in File_Version) return T is
+      Proof_Time : Duration;
    begin
+      case Version is
+         when GNAT_CE_2019 =>
+            Proof_Time :=
+              Duration (Object.Get_Long_Float (Field => Field_Names.Proof));
+         when GNAT_CE_2020 =>
+            declare
+               --  Callback when mapping the timing object. If the name of the
+               --  JSON value matches "gnatwhy3." we assume it's a timing value
+               --  that should be added to the proof time.
+               procedure Add_Why3_Time (Name  : in UTF8_String;
+                                        Value : in JSON_Value);
+
+               procedure Add_Why3_Time (Name  : in UTF8_String;
+                                        Value : in JSON_Value) is
+               begin
+                  if
+                    Ada.Strings.Fixed.Index
+                      (Source  => Name,
+                       Pattern => Field_Names.GNAT_Why3_Prefixed) = 1
+                  then
+                     Proof_Time := Proof_Time + Duration (Value.Get_Long_Float);
+                  end if;
+               end Add_Why3_Time;
+            begin
+               Proof_Time := 0.0;
+               GNATCOLL.JSON.Map_JSON_Object (Val   => Object,
+                                              CB    => Add_Why3_Time'Access);
+            end;
+      end case;
+
       return
-        T'(Proof =>
-             (case Version is
-                 when GNAT_CE_2019 =>
-                   Duration (Object.Get_Long_Float (Field => Field_Names.Proof)),
-                 when GNAT_CE_2020 =>
-                   Duration (Object.Get_Long_Float (Field => Field_Names.Register_VCs) +
-                             Object.Get_Long_Float (Field => Field_Names.Schedule_VCs) +
-                             Object.Get_Long_Float (Field => Field_Names.Run_VCs))),
-           Flow  =>
+        T'(Version => Version,
+           Proof   => Proof_Time,
+           Flow    =>
              Duration
                (Object.Get_Long_Float (Field => Field_Names.Flow_Analysis)));
    end Create;
