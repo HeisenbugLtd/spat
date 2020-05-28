@@ -29,16 +29,12 @@ private package SPAT.Timing_Items is
              Preconditions.Ensure_Field (Object => Object,
                                          Field  => Field_Names.Proof,
                                          Kind   => JSON_Float_Type),
+       --  Here, we don't really check for required fields anymore, there
+       --  is a whole bunch of items starting with "gnatwhy3.". If they are not
+       --  present that means the "corresponding phase wasn't run at all" (@kanigsson)
+       --  and we just assume 0.0 s.
           when GNAT_CE_2020 =>
-             Preconditions.Ensure_Field (Object => Object,
-                                         Field  => Field_Names.Run_VCs,
-                                         Kind   => JSON_Float_Type) and
-             Preconditions.Ensure_Field (Object => Object,
-                                         Field  => Field_Names.Register_VCs,
-                                         Kind   => JSON_Float_Type) and
-             Preconditions.Ensure_Field (Object => Object,
-                                         Field  => Field_Names.Schedule_VCs,
-                                         Kind   => JSON_Float_Type)) and
+             True) and
        Preconditions.Ensure_Field (Object => Object,
                                    Field  => Field_Names.Flow_Analysis,
                                    Kind   => JSON_Float_Type));

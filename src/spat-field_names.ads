@@ -43,9 +43,9 @@ package SPAT.Field_Names is
      "translation of compilation unit";
 
    --  GNAT_CE_2020
-   Register_VCs   : constant UTF8_String := "gnatwhy3.register_vcs";
-   Run_VCs        : constant UTF8_String := "gnatwhy3.run_vcs";
-   Schedule_VCs   : constant UTF8_String := "gnatwhy3.schedule_vcs";
-   Session_Map    : constant UTF8_String := "session_map";
+   GNAT_Why3_Prefixed : constant UTF8_String := "gnatwhy3.";
+   --  Not really a single field name, but a collection of subfields containing
+   --  timing information.
+   Session_Map        : constant UTF8_String := "session_map";
 
 end SPAT.Field_Names;
