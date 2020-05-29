@@ -31,9 +31,10 @@ package body SPAT.GPR_Support is
    function Get_SPARK_Files
      (GPR_File : GNATCOLL.VFS.Filesystem_String) return File_Ops.File_List
    is
-      Verbose    : constant Boolean := SPAT.Command_Line.Verbose.Get;
-      Start_Time : Ada.Real_Time.Time;
-      File_List  : SPAT.File_Ops.File_List;
+      Verbose     : constant Boolean := SPAT.Command_Line.Verbose.Get;
+      Start_Time  : Ada.Real_Time.Time;
+      Raw_List    : SPAT.File_Ops.File_List; --  Stores candidate .spark files.
+      Result_List : SPAT.File_Ops.File_List; --  Filtered list of files.
 
       use type Ada.Real_Time.Time;
    begin
@@ -83,9 +84,9 @@ package body SPAT.GPR_Support is
                                             Source_File  => F);
                begin
                   if Verbose then
-                     Ada.Text_IO.Put_Line ("Found """ & F.Display_Base_Name &
-                                             """, checking for """ &
-                                             SPARK_Name & """...");
+                     Ada.Text_IO.Put ("Found """ & F.Display_Base_Name &
+                                      """, checking for """ & SPARK_Name &
+                                      """...");
                   end if;
 
                   declare
@@ -96,8 +97,32 @@ package body SPAT.GPR_Support is
                      --  all files from the project, hence in most cases we will
                      --  encounter both a spec and a body file which will still
                      --  result in the same .spark file.
-                     if not File_List.Contains (Item => File_Name) then
-                        File_List.Append (New_Item => File_Name);
+                     if not Raw_List.Contains (Item => File_Name) then
+                        Raw_List.Append (New_Item => File_Name);
+
+                        --  This was a new file, so if it exists on disk, add it
+                        --  to the result list.
+                        if Ada.Directories.Exists (Name => SPARK_Name) then
+                           Result_List.Append (New_Item => File_Name);
+
+                           if Verbose then
+                              Ada.Text_IO.Put_Line
+                                (File => Ada.Text_IO.Standard_Output,
+                                 Item => "added to index.");
+                           end if;
+                        else
+                           if Verbose then
+                              Ada.Text_IO.Put_Line
+                                (File => Ada.Text_IO.Standard_Output,
+                                 Item => "not found on disk, skipped.");
+                           end if;
+                        end if;
+                     else
+                        if Verbose then
+                           Ada.Text_IO.Put_Line
+                             (File => Ada.Text_IO.Standard_Output,
+                              Item => "already in index.");
+                        end if;
                      end if;
                   end;
                end Add_SPARK_File;
@@ -107,21 +132,6 @@ package body SPAT.GPR_Support is
          end Load_Source_Files;
 
          Project_Tree.Unload;
-
-         --  To prevent returning files for which no .spark file was found, we
-         --  now remove files from the list that do not exist.  This could have
-         --  been done when adding files in the loop above, but this approach
-         --  could significantly increase the amount of actual file system
-         --  operations (two files for spec/body, no .spark file exists, check
-         --  is done for the same file twice). It seems better to optimize the
-         --  slow operations, especially on file systems which may likely be
-         --  remote or virtualized.
-         for I in reverse 1 .. Integer (File_List.Length) loop
-            --  Do it backwards, otherwise we will mess with the indexing.
-            if not Ada.Directories.Exists (To_String (File_List.Element (I))) then
-               File_List.Delete (Index => I);
-            end if;
-         end loop;
       exception
          when GNATCOLL.Projects.Invalid_Project =>
             Ada.Text_IO.Put_Line
@@ -136,7 +146,7 @@ package body SPAT.GPR_Support is
          Report_Timing :
          declare
             Num_Files : constant Ada.Containers.Count_Type :=
-              File_List.Length;
+              Result_List.Length;
             use type Ada.Containers.Count_Type;
          begin
             Ada.Text_IO.Put_Line
@@ -152,7 +162,7 @@ package body SPAT.GPR_Support is
          end Report_Timing;
       end if;
 
-      return File_List;
+      return Result_List;
    end Get_SPARK_Files;
 
    function SPARK_Name
