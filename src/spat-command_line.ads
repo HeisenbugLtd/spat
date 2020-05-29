@@ -77,13 +77,14 @@ package SPAT.Command_Line is
                                     Long   => "--verbose",
                                     Help   => "Verbose (tracing) output");
 
-   package Directories is new
-     GNATCOLL.Opt_Parse.Parse_Positional_Arg_List
+   package Project is new
+     GNATCOLL.Opt_Parse.Parse_Option
        (Parser      => Parser,
-        Name        => "directory",
-        Help        => "directory to look for .spark files in",
-        Allow_Empty => False,
-        Arg_Type    => Subject_Name,
-        Convert     => To_Name);
+        Short       => "-P",
+        Long        => "--project",
+        Help        => "GNAT project file (.gpr)",
+        Arg_Type    => SPAT.Subject_Name,
+        Default_Val => SPAT.To_Name ("default.gpr"),
+        Convert     => SPAT.To_Name);
 
 end SPAT.Command_Line;

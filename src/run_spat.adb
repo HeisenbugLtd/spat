@@ -22,6 +22,8 @@ with Ada.Real_Time;
 with Ada.Text_IO;
 
 with GNATCOLL.JSON;
+with GNATCOLL.Projects;
+with GNATCOLL.VFS;
 with SI_Units.Metric;
 with SI_Units.Names;
 with SPAT.Command_Line;
@@ -59,57 +61,121 @@ begin
 
    Do_Run_SPAT :
    declare
-      SPARK_Files : SPAT.Spark_Files.T;
-      Start_Time  : Ada.Real_Time.Time;
-      Verbose     : constant Boolean := SPAT.Command_Line.Verbose.Get;
-      Sort_By     : constant SPAT.Spark_Info.Sorting_Criterion :=
-                      SPAT.Command_Line.Sort_By.Get;
+      SPARK_Files  : SPAT.Spark_Files.T;
+      Start_Time   : Ada.Real_Time.Time;
+      Verbose      : constant Boolean := SPAT.Command_Line.Verbose.Get;
+      Sort_By      : constant SPAT.Spark_Info.Sorting_Criterion :=
+        SPAT.Command_Line.Sort_By.Get;
+      Project_File : constant GNATCOLL.VFS.Filesystem_String :=
+        GNATCOLL.VFS."+" (S => SPAT.To_String (SPAT.Command_Line.Project.Get));
    begin
       Collect_And_Parse :
       declare
          File_List : SPAT.File_Ops.File_List;
       begin
-         --  Step 1: Collect all ".spark" files in the directories given on the
-         --          command line recursively.
-         for Dir of SPAT.Command_Line.Directories.Get loop
-            Search_One_Directory :
+         Load_Project_Files :
+         declare
+            Project_Tree : GNATCOLL.Projects.Project_Tree;
+         begin
+            if Verbose then
+               Start_Time := Ada.Real_Time.Clock;
+            end if;
+
+            Project_Tree.Load
+              (Root_Project_Path =>
+                 GNATCOLL.VFS.Create (Full_Filename => Project_File));
+
+            if Verbose then
+               Ada.Text_IO.Put_Line
+                 (File => Ada.Text_IO.Standard_Output,
+                  Item => "GNAT project loaded in " &
+                    Image (Value =>
+                             Ada.Real_Time.To_Duration
+                               (TS => Ada.Real_Time.Clock - Start_Time)) &
+                    ".");
+            end if;
+
+            --  Step 1: Collect all (potential) ".spark" files in the project
+            --          file(s). TODO.
+            if Verbose then
+               Start_Time := Ada.Real_Time.Clock;
+            end if;
+
+            Load_Source_Files :
             declare
-               Search_Dir : constant String := SPAT.To_String (Source => Dir);
+               Project_Files : GNATCOLL.VFS.File_Array_Access :=
+                 Project_Tree.Root_Project.Source_Files (Recursive => True);
             begin
-               if Verbose then
-                  Start_Time := Ada.Real_Time.Clock;
-               end if;
-
-               File_List.Add_Files (Directory => Search_Dir,
-                                    Extension => "spark");
-
-               if Verbose then
-                  Report_Timing :
+               for F of Project_Files.all loop
                   declare
-                     Num_Files : constant Ada.Containers.Count_Type :=
-                                   File_List.Length;
-                     use type Ada.Containers.Count_Type;
+                     Root_Project : constant GNATCOLL.Projects.Project_Type :=
+                    Project_Tree.Root_Project;
+                     SPARK_Name : constant String :=
+                       Ada.Directories.Compose
+                         (Containing_Directory =>
+                            Ada.Directories.Compose
+                              (Containing_Directory =>
+                                 GNATCOLL.VFS."+"
+                                   (GNATCOLL.Projects.Object_Dir
+                                      (Project => Root_Project).Full_Name.all),
+                               Name                 => "gnatprove"),
+                          Name                 =>
+                            Ada.Directories.Base_Name
+                              (Name => F.Display_Full_Name),
+                          Extension            => "spark");
                   begin
-                     Ada.Text_IO.Put_Line
-                       (File => Ada.Text_IO.Standard_Output,
-                        Item => "Search completed in " &
-                          Image
-                            (Value =>
-                               Ada.Real_Time.To_Duration
-                                 (TS => Ada.Real_Time.Clock - Start_Time)) &
-                          "," & Num_Files'Image & " file" &
-                          (if Num_Files /= 1
-                           then "s"
-                           else "") & " found so far.");
-                  end Report_Timing;
-               end if;
-            exception
-               when Ada.Directories.Name_Error =>
-                  Ada.Text_IO.Put_Line
-                    (File => Ada.Text_IO.Standard_Error,
-                     Item => "Directory """ & Search_Dir & """ not found!");
-            end Search_One_Directory;
-         end loop;
+                     if Verbose then
+                        Ada.Text_IO.Put_Line ("Found """ & F.Display_Base_Name &
+                                                """, checking for """ &
+                                                SPARK_Name & """...");
+                     end if;
+
+                     if Ada.Directories.Exists (Name => SPARK_Name) then
+                        declare
+                           File_Name : constant SPAT.Subject_Name :=
+                             SPAT.To_Name (SPARK_Name);
+                        begin
+                           if not File_List.Contains (Item => File_Name) then
+                              File_List.Append (New_Item => File_Name);
+                           end if;
+                        end;
+                     end if;
+                  end;
+               end loop;
+
+               GNATCOLL.VFS.Unchecked_Free (Arr => Project_Files);
+            end Load_Source_Files;
+
+            Project_Tree.Unload;
+         exception
+            when GNATCOLL.Projects.Invalid_Project =>
+               Ada.Text_IO.Put_Line
+                 (File => Ada.Text_IO.Standard_Error,
+                  Item =>
+                    "Could not load """ &
+                    SPAT.To_String (SPAT.Command_Line.Project.Get) &
+                    """!");
+         end Load_Project_Files;
+
+         if Verbose then
+            Report_Timing :
+            declare
+               Num_Files : constant Ada.Containers.Count_Type :=
+                 File_List.Length;
+               use type Ada.Containers.Count_Type;
+            begin
+               Ada.Text_IO.Put_Line
+                 (File => Ada.Text_IO.Standard_Output,
+                  Item => "Search completed in " &
+                    Image (Value =>
+                             Ada.Real_Time.To_Duration
+                               (TS => Ada.Real_Time.Clock - Start_Time)) &
+                    "," & Num_Files'Image & " file" &
+                    (if Num_Files /= 1
+                     then "s"
+                     else "") & " found so far.");
+            end Report_Timing;
+         end if;
 
          --  Step 2: Parse the files into JSON values.
          if not File_List.Is_Empty then
