@@ -144,7 +144,7 @@ chapter, with the `--sort-by` option you can force one.
 Typical output looks like this:
 
 ```sh
-run_spat -ct -l _build/
+run_spat -ct -l -P saatana.gpr
 Saatana.Crypto.Phelix.H                    => 303.8 s/304.3 s
 Saatana.Crypto.Phelix.Setup_Key            => 130.4 s/131.2 s
 Saatana.Crypto.Phelix.Encrypt_Bytes        => 96.2 s/96.9 s
@@ -173,7 +173,7 @@ look if the call order of the provers should be changed.
 Example:
 
 ```sh
-run_spat -ct -l -f _build/
+run_spat -ct -l -f -P saatana.gpr
 Saatana.Crypto.Phelix.H                    => 303.8 s/304.3 s
 Saatana.Crypto.Phelix.Setup_Key            => 130.4 s/131.2 s
 ```
@@ -189,7 +189,7 @@ proof attempts/paths for an entity.
 Example:
 
 ```sh
-run_spat -ct -l -d -f _build/
+run_spat -ct -l -d -f -P saatana.gpr
 Saatana.Crypto.Phelix.H                    => 303.8 s/304.3 s
 `-VC_POSTCONDITION saatana-crypto-phelix.adb:49:17 => 303.8 s/304.3 s
  `-Z3: 303.8 s (Unknown (unknown))
