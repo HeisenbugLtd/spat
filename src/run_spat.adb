@@ -53,9 +53,22 @@ procedure Run_SPAT is
       Sort_By : in SPAT.Spark_Info.Sorting_Criterion) is separate;
 
    use type Ada.Real_Time.Time;
+   use type SPAT.Subject_Name;
 
 begin
    if not SPAT.Command_Line.Parser.Parse then
+      Ada.Command_Line.Set_Exit_Status (Code => Ada.Command_Line.Failure);
+      return;
+   end if;
+
+   if SPAT.Command_Line.Project.Get = SPAT.Null_Name then
+      --  The project file option is mandatory (AFAICS there is no way to
+      --  require an option argument).
+      Ada.Text_IO.Put_Line
+        (File => Ada.Text_IO.Standard_Output,
+         Item => "Argument parsing failed: Missing project file argument");
+      Ada.Text_IO.Put_Line (File => Ada.Text_IO.Standard_Output,
+                            Item => SPAT.Command_Line.Parser.Help);
       Ada.Command_Line.Set_Exit_Status (Code => Ada.Command_Line.Failure);
       return;
    end if;
