@@ -25,6 +25,9 @@ package SPAT is
    --  Type denoting some kind of name (i.e. file name, entity name, rule name
    --  etc. pp.)
 
+   Null_Name : Subject_Name renames Ada.Strings.Unbounded.Null_Unbounded_String;
+   --  Provide a renaming for the null string.
+
    function To_String (Source : in Subject_Name) return String renames
      Ada.Strings.Unbounded.To_String;
 
