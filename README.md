@@ -79,13 +79,12 @@ will give you a quick overview over the available command line options:
 
 ```
 usage: run_spat [--help|-h] [--list|-l] [--summary|-s] [--failed-only|-f] 
-               [--details|-d] [--sort-by|-c SORT-BY] [--verbose|-v] directory 
-               [directory ...] 
+               [--details|-d] [--sort-by|-c SORT-BY] [--verbose|-v] 
+               [--project|-P PROJECT] 
 
 Parses .spark files and outputs information about them.
 
 positional arguments:
-   directory             directory to look for .spark files in
    
 optional arguments:
    --help, -h            Show this help message
@@ -95,11 +94,12 @@ optional arguments:
    --details, -d         Show details for entities
    --sort-by, -c         Sort output (SORT-BY: a = alphabetical, t = by time)
    --verbose, -v         Verbose (tracing) output
+   --project, -P         GNAT project file (.gpr) (mandatory!)
 ```
 
-The directory argument is the only argument that is not optional, but without a
-`--list`, or `--summary` argument, `run_spat` will not output anything useful.
-It will still try to parse the files it finds, though.
+The `--project` argument is the only argument that is not optional, but without
+a `--list`, or `--summary` argument, `run_spat` will not output anything
+useful.  It will still try to parse the files it finds, though.
 
 ### The `--summary` option
 
@@ -205,8 +205,8 @@ is not well suited to prove these particular verification conditions, but CVC4
 can prove them quite fast. This is a good indicator that in that particular
 case, CVC4 should be called first to optimize proof times.
 
-Without the `--failed-only` option, all proof attempts will be shown in a similar
-manner.
+Without the `--failed-only` option, all proof attempts will be shown in a
+similar manner.
 
 Please keep in mind that a single proof may have multiple paths leading to it,
 resulting in more than just one proof attempt for a single verification
@@ -215,5 +215,5 @@ condition.
 #### The `--verbose` option
 
 This option is mainly used for debugging, it enables extra output about what
-`run_spat` is doing (i.e. files found in the given directories, parse results
+`run_spat` is doing (i.e. files found in the given project file, parse results
 and timings).
