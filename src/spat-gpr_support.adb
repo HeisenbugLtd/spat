@@ -88,23 +88,18 @@ package body SPAT.GPR_Support is
                                              SPARK_Name & """...");
                   end if;
 
-                  --  Only add existing files.
-                  --  This should prevent adding non-Ada/non-SPARK source file
-                  --  counterparts for which no .spark files can exist.
-                  if Ada.Directories.Exists (Name => SPARK_Name) then
-                     declare
-                        File_Name : constant SPAT.Subject_Name :=
-                          SPAT.To_Name (SPARK_Name);
-                     begin
-                        --  Prevent adding the same file twice. Above we
-                        --  retrieve all files from the project, hence in most
-                        --  cases we will encounter both a spec and a body file
-                        --  which will still result in the same .spark file.
-                        if not File_List.Contains (Item => File_Name) then
-                           File_List.Append (New_Item => File_Name);
-                        end if;
-                     end;
-                  end if;
+                  declare
+                     File_Name : constant SPAT.Subject_Name :=
+                       SPAT.To_Name (SPARK_Name);
+                  begin
+                     --  Prevent adding the same file twice. Above we retrieve
+                     --  all files from the project, hence in most cases we will
+                     --  encounter both a spec and a body file which will still
+                     --  result in the same .spark file.
+                     if not File_List.Contains (Item => File_Name) then
+                        File_List.Append (New_Item => File_Name);
+                     end if;
+                  end;
                end Add_SPARK_File;
             end loop;
 
@@ -112,6 +107,21 @@ package body SPAT.GPR_Support is
          end Load_Source_Files;
 
          Project_Tree.Unload;
+
+         --  To prevent returning files for which no .spark file was found, we
+         --  now remove files from the list that do not exist.  This could have
+         --  been done when adding files in the loop above, but this approach
+         --  could significantly increase the amount of actual file system
+         --  operations (two files for spec/body, no .spark file exists, check
+         --  is done for the same file twice). It seems better to optimize the
+         --  slow operations, especially on file systems which may likely be
+         --  remote or virtualized.
+         for I in reverse 1 .. Integer (File_List.Length) loop
+            --  Do it backwards, otherwise we will mess with the indexing.
+            if not Ada.Directories.Exists (To_String (File_List.Element (I))) then
+               File_List.Delete (Index => I);
+            end if;
+         end loop;
       exception
          when GNATCOLL.Projects.Invalid_Project =>
             Ada.Text_IO.Put_Line
