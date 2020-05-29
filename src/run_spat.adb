@@ -16,16 +16,18 @@ pragma License (Unrestricted);
 ------------------------------------------------------------------------------
 
 with Ada.Command_Line;
-with Ada.Containers;
 with Ada.Directories;
 with Ada.Real_Time;
 with Ada.Text_IO;
 
 with GNATCOLL.JSON;
+with GNATCOLL.Projects;
+with GNATCOLL.VFS;
 with SI_Units.Metric;
 with SI_Units.Names;
 with SPAT.Command_Line;
 with SPAT.File_Ops;
+with SPAT.GPR_Support;
 with SPAT.Spark_Files;
 with SPAT.Spark_Info;
 
@@ -51,66 +53,42 @@ procedure Run_SPAT is
       Sort_By : in SPAT.Spark_Info.Sorting_Criterion) is separate;
 
    use type Ada.Real_Time.Time;
+   use type SPAT.Subject_Name;
+
 begin
    if not SPAT.Command_Line.Parser.Parse then
       Ada.Command_Line.Set_Exit_Status (Code => Ada.Command_Line.Failure);
       return;
    end if;
 
+   if SPAT.Command_Line.Project.Get = SPAT.Null_Name then
+      --  The project file option is mandatory (AFAICS there is no way to
+      --  require an option argument).
+      Ada.Text_IO.Put_Line
+        (File => Ada.Text_IO.Standard_Output,
+         Item => "Argument parsing failed: Missing project file argument");
+      Ada.Text_IO.Put_Line (File => Ada.Text_IO.Standard_Output,
+                            Item => SPAT.Command_Line.Parser.Help);
+      Ada.Command_Line.Set_Exit_Status (Code => Ada.Command_Line.Failure);
+      return;
+   end if;
+
    Do_Run_SPAT :
    declare
-      SPARK_Files : SPAT.Spark_Files.T;
-      Start_Time  : Ada.Real_Time.Time;
-      Verbose     : constant Boolean := SPAT.Command_Line.Verbose.Get;
-      Sort_By     : constant SPAT.Spark_Info.Sorting_Criterion :=
-                      SPAT.Command_Line.Sort_By.Get;
+      SPARK_Files  : SPAT.Spark_Files.T;
+      Start_Time   : Ada.Real_Time.Time;
+      Verbose      : constant Boolean := SPAT.Command_Line.Verbose.Get;
+      Sort_By      : constant SPAT.Spark_Info.Sorting_Criterion :=
+        SPAT.Command_Line.Sort_By.Get;
+      Project_File : constant GNATCOLL.VFS.Filesystem_String :=
+        GNATCOLL.VFS."+" (S => SPAT.To_String (SPAT.Command_Line.Project.Get));
    begin
       Collect_And_Parse :
       declare
-         File_List : SPAT.File_Ops.File_List;
+         --  Step 1: Collect all .spark files.
+         File_List : constant SPAT.File_Ops.File_List :=
+           SPAT.GPR_Support.Get_SPARK_Files (GPR_File => Project_File);
       begin
-         --  Step 1: Collect all ".spark" files in the directories given on the
-         --          command line recursively.
-         for Dir of SPAT.Command_Line.Directories.Get loop
-            Search_One_Directory :
-            declare
-               Search_Dir : constant String := SPAT.To_String (Source => Dir);
-            begin
-               if Verbose then
-                  Start_Time := Ada.Real_Time.Clock;
-               end if;
-
-               File_List.Add_Files (Directory => Search_Dir,
-                                    Extension => "spark");
-
-               if Verbose then
-                  Report_Timing :
-                  declare
-                     Num_Files : constant Ada.Containers.Count_Type :=
-                                   File_List.Length;
-                     use type Ada.Containers.Count_Type;
-                  begin
-                     Ada.Text_IO.Put_Line
-                       (File => Ada.Text_IO.Standard_Output,
-                        Item => "Search completed in " &
-                          Image
-                            (Value =>
-                               Ada.Real_Time.To_Duration
-                                 (TS => Ada.Real_Time.Clock - Start_Time)) &
-                          "," & Num_Files'Image & " file" &
-                          (if Num_Files /= 1
-                           then "s"
-                           else "") & " found so far.");
-                  end Report_Timing;
-               end if;
-            exception
-               when Ada.Directories.Name_Error =>
-                  Ada.Text_IO.Put_Line
-                    (File => Ada.Text_IO.Standard_Error,
-                     Item => "Directory """ & Search_Dir & """ not found!");
-            end Search_One_Directory;
-         end loop;
-
          --  Step 2: Parse the files into JSON values.
          if not File_List.Is_Empty then
             if Verbose then
