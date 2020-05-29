@@ -82,9 +82,9 @@ package SPAT.Command_Line is
        (Parser      => Parser,
         Short       => "-P",
         Long        => "--project",
-        Help        => "GNAT project file (.gpr)",
+        Help        => "GNAT project file (.gpr) (mandatory!)",
         Arg_Type    => SPAT.Subject_Name,
-        Default_Val => SPAT.To_Name ("default.gpr"),
+        Default_Val => SPAT.Null_Name,
         Convert     => SPAT.To_Name);
 
 end SPAT.Command_Line;
