@@ -77,9 +77,9 @@ Quick help:
 will give you a quick overview over the available command line options:
 
 ```
-usage: run_spat [--help|-h] [--list|-l] [--summary|-s] [--failed-only|-f] 
-               [--unproved|-u] [--details|-d] [--sort-by|-c SORT-BY] 
-               [--verbose|-v] [--project|-P PROJECT] 
+usage: run_spat [--help|-h] [--project|-P PROJECT] [--summary|-s] [--list|-l] 
+               [--sort-by|-c SORT-BY] [--failed|-f] [--unproved|-u] 
+               [--details|-d] [--verbose|-v] 
 
 Parses .spark files and outputs information about them.
 
@@ -87,14 +87,14 @@ positional arguments:
    
 optional arguments:
    --help, -h            Show this help message
-   --list, -l            List entities
+   --project, -P         PROJECT = GNAT project file (.gpr) (mandatory!)
    --summary, -s         List summary (per file)
-   --failed-only, -f     Show failed attempts only
-   --unproved, -u        Show unproved attempts only
-   --details, -d         Show details for entities
+   --list, -l            List entities
    --sort-by, -c         Sort output (SORT-BY: a = alphabetical, t = by time)
+   --failed, -f          Show failed attempts only (list mode)
+   --unproved, -u        Show unproved VCs only (list mode)
+   --details, -d         Show details for entities (list mode)
    --verbose, -v         Verbose (tracing) output
-   --project, -P         GNAT project file (.gpr) (mandatory!)
 ```
 
 The `--project` argument is the only argument that is not optional, but without
@@ -171,7 +171,7 @@ Saatana.Crypto.Phelix.Decrypt_Packet       => 60.0 ms/180.0 ms
 The first value is the longest proof time, the second value is the total sum of
 all proof times for this entity.
 
-#### The `--failed-only` option
+#### The `--failed` option
 
 When invoked together with the `--list` option, it will only show proof
 attempts where at least one prover failed to prove the verification condition.
@@ -224,7 +224,7 @@ conditions.
 When invoked together with the `--list` option, it will show all the individual
 proof attempts/paths for an entity.
 
-Example (with `--failed-only`):
+Example (with `--failed`):
 
 ```sh
 run_spat -ct -l -d -f -P saatana.gpr
@@ -248,8 +248,8 @@ is not well suited to prove these particular verification conditions, but CVC4
 can prove them quite fast. This is a good indicator that in that particular
 case, CVC4 should be called first to optimize proof times.
 
-Without the `--failed-only` option, all proof attempts will be shown in a
-similar manner.
+Without the `--failed` option, all proof attempts will be shown in a similar
+manner.
 
 Please keep in mind that a single proof may have multiple paths leading to it,
 resulting in more than just one proof attempt for a single verification

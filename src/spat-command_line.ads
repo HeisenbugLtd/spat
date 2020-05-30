@@ -38,36 +38,34 @@ package SPAT.Command_Line is
       else  (raise GNATCOLL.Opt_Parse.Opt_Parse_Error with
                  "unknown parameter """ & Value & """"));
 
-   package List is new
-     GNATCOLL.Opt_Parse.Parse_Flag (Parser => Parser,
-                                    Short  => "-l",
-                                    Long   => "--list",
-                                    Help   => "List entities");
+   --  Command line options (in order of importance/mode).
 
+   --  Project file (mandatory).
+   package Project is new
+     GNATCOLL.Opt_Parse.Parse_Option
+       (Parser      => Parser,
+        Short       => "-P",
+        Long        => "--project",
+        Help        => "PROJECT = GNAT project file (.gpr) (mandatory!)",
+        Arg_Type    => SPAT.Subject_Name,
+        Default_Val => SPAT.Null_Name,
+        Convert     => SPAT.To_Name);
+
+   --  Summary mode.
    package Summary is new
      GNATCOLL.Opt_Parse.Parse_Flag (Parser => Parser,
                                     Short  => "-s",
                                     Long   => "--summary",
                                     Help   => "List summary (per file)");
 
-   package Failed_Only is new
-     GNATCOLL.Opt_Parse.Parse_Flag (Parser   => Parser,
-                                    Short    => "-f",
-                                    Long     => "--failed-only",
-                                    Help     => "Show failed attempts only");
+   --  List mode.
+   package List is new
+     GNATCOLL.Opt_Parse.Parse_Flag (Parser => Parser,
+                                    Short  => "-l",
+                                    Long   => "--list",
+                                    Help   => "List entities");
 
-   package Unproved_Only is new
-     GNATCOLL.Opt_Parse.Parse_Flag (Parser   => Parser,
-                                    Short    => "-u",
-                                    Long     => "--unproved",
-                                    Help     => "Show unproved attempts only");
-
-   package Details is new
-     GNATCOLL.Opt_Parse.Parse_Flag (Parser   => Parser,
-                                    Short    => "-d",
-                                    Long     => "--details",
-                                    Help     => "Show details for entities");
-
+   --  Valid for summary and list mode.
    package Sort_By is new
      GNATCOLL.Opt_Parse.Parse_Option
        (Parser      => Parser,
@@ -78,20 +76,33 @@ package SPAT.Command_Line is
         Convert     => Convert,
         Default_Val => SPAT.Spark_Info.None);
 
+   --  Show failed prove attempts (only in list mode).
+   package Failed_Only is new
+     GNATCOLL.Opt_Parse.Parse_Flag
+       (Parser   => Parser,
+        Short    => "-f",
+        Long     => "--failed",
+        Help     => "Show failed attempts only (list mode)");
+
+   --  Show unproven VCs (only in list mode).
+   package Unproved_Only is new
+     GNATCOLL.Opt_Parse.Parse_Flag
+       (Parser   => Parser,
+        Short    => "-u",
+        Long     => "--unproved",
+        Help     => "Show unproved VCs only (list mode)");
+
+   package Details is new
+     GNATCOLL.Opt_Parse.Parse_Flag (Parser   => Parser,
+                                    Short    => "-d",
+                                    Long     => "--details",
+                                    Help     => "Show details for entities (list mode)");
+
+   --  Verbose option (debug output).
    package Verbose is new
      GNATCOLL.Opt_Parse.Parse_Flag (Parser => Parser,
                                     Short  => "-v",
                                     Long   => "--verbose",
                                     Help   => "Verbose (tracing) output");
-
-   package Project is new
-     GNATCOLL.Opt_Parse.Parse_Option
-       (Parser      => Parser,
-        Short       => "-P",
-        Long        => "--project",
-        Help        => "GNAT project file (.gpr) (mandatory!)",
-        Arg_Type    => SPAT.Subject_Name,
-        Default_Val => SPAT.Null_Name,
-        Convert     => SPAT.To_Name);
 
 end SPAT.Command_Line;
