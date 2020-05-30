@@ -25,10 +25,12 @@ is
                   Info.List_All_Entities (Sort_By => Sort_By);
 
    use type Ada.Text_IO.Count;
+   use type SPAT.Subject_Name;
+
    Second_Column : constant Ada.Text_IO.Count := Entities.Max_Length + 2;
    Failed_Only   : constant Boolean := SPAT.Command_Line.Failed_Only.Get;
    Unproved_Only : constant Boolean := SPAT.Command_Line.Unproved_Only.Get;
-   Report_All : constant Boolean := not (Failed_Only or Unproved_Only);
+   Report_All    : constant Boolean := not (Failed_Only or Unproved_Only);
 
 begin
    for Entity of Entities loop
@@ -61,8 +63,9 @@ begin
                   Ada.Text_IO.Put_Line
                     (File => Ada.Text_IO.Standard_Output,
                      Item =>
-                       "`-" & SPAT.To_String (P.Rule) & " " & P.Image & " => " &
-                       Image (P.Max_Time) & "/" & Image (P.Total_Time));
+                       "`-" & SPAT.To_String (P.Rule) & " " & P.Image &
+                       " => " & Image (P.Max_Time) & "/" &
+                       Image (P.Total_Time));
 
                   for Check of P.Check_Tree loop
                      if
@@ -87,6 +90,14 @@ begin
                         end loop;
                      end if;
                   end loop;
+
+                  if P.Suppressed /= SPAT.Null_Name then
+                     Ada.Text_IO.Put_Line
+                       (File => Ada.Text_IO.Standard_Output,
+                        Item =>
+                          "Justified with: """ &
+                          SPAT.To_String (P.Suppressed) & """.");
+                  end if;
                end if;
             end loop;
          end if;

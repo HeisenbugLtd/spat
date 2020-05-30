@@ -33,6 +33,7 @@ package SPAT.Field_Names is
    Sloc            : constant UTF8_String := "sloc";
    Spark           : constant UTF8_String := "spark";
    Steps           : constant UTF8_String := "steps";
+   Suppressed      : constant UTF8_String := "suppressed";
    Time            : constant UTF8_String := "time";
    Timings         : constant UTF8_String := "timings";
    Transformations : constant UTF8_String := "transformations";

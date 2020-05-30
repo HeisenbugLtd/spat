@@ -50,6 +50,7 @@ package SPAT.Proof_Items is
 
    type T is new Entity_Locations.T with
       record
+         Suppressed : Subject_Name;
          Rule       : Subject_Name;
          Severity   : Subject_Name;
          Check_Tree : Checks_Tree.Vector;

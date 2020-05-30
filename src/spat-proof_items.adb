@@ -124,6 +124,9 @@ package body SPAT.Proof_Items is
 
       return
         (Entity_Locations.Create (Object => Object) with
+         Suppressed => (if Object.Has_Field (Field => Field_Names.Suppressed)
+                        then Object.Get (Field => Field_Names.Suppressed)
+                        else Null_Name), --  FIXME: Missing type check.
          Rule       => Object.Get (Field => Field_Names.Rule),
          Severity   => Object.Get (Field => Field_Names.Severity),
          Check_Tree => Checks_List,

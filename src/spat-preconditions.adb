@@ -81,7 +81,7 @@ package body SPAT.Preconditions is
    function Ensure_Rule_Severity (Object : in JSON_Value) return Boolean is
      (Preconditions.Ensure_Field (Object => Object,
                                   Field  => Field_Names.Rule,
-                                  Kind   => JSON_String_Type) and then
+                                  Kind   => JSON_String_Type) and
       Preconditions.Ensure_Field (Object => Object,
                                   Field  => Field_Names.Severity,
                                   Kind   => JSON_String_Type));
