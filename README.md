@@ -66,8 +66,7 @@ installation and is ready to use.
 
 ## Invoking the tool
 
-The tool is designed to be run against a directory containing the files left
-behind by a run of `gnatprove`. It can handle single files, though, too.
+Like many other GNAT related tools, `spat` is designed to run against a GNAT project file (`. gpr`) to collect the information about the source files in the project. (An earlier version used a directory only search, but that seemed inconvenient and error-prone).
 
 ### Command line
 
