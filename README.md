@@ -103,8 +103,12 @@ useful.  It will still try to parse the files it finds, though.
 
 ### The `--summary` option
 
-This option is intended to show a quick summary of the files analyzed. A
-typical output would look like this:
+This option is intended to show a quick summary of the files analyzed.
+
+```sh
+run_spat -s -P saatana.gpr
+```
+Typical output would look like this:
 
 ```
 test_phelix_api.spark                    => (Flow  => 15.9 ms,
