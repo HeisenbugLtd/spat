@@ -78,8 +78,8 @@ will give you a quick overview over the available command line options:
 
 ```
 usage: run_spat [--help|-h] [--list|-l] [--summary|-s] [--failed-only|-f] 
-               [--details|-d] [--sort-by|-c SORT-BY] [--verbose|-v] 
-               [--project|-P PROJECT] 
+               [--unproved|-u] [--details|-d] [--sort-by|-c SORT-BY] 
+               [--verbose|-v] [--project|-P PROJECT] 
 
 Parses .spark files and outputs information about them.
 
@@ -89,7 +89,8 @@ optional arguments:
    --help, -h            Show this help message
    --list, -l            List entities
    --summary, -s         List summary (per file)
-   --failed-only, -f     Show only failed attempts
+   --failed-only, -f     Show failed attempts only
+   --unproved, -u        Show unproved attempts only
    --details, -d         Show details for entities
    --sort-by, -c         Sort output (SORT-BY: a = alphabetical, t = by time)
    --verbose, -v         Verbose (tracing) output
@@ -129,9 +130,9 @@ list or a list sorted by time (descending order, so files with the most time
 needed by the provers come first). By default, no particular order is imposed
 on the output.
 
-*Note* that currently the `--details` and `--failed` options have no effect on
-the output here, these options are designed to work with the `--list` option
-only.
+*Note* that currently the `--details`, `--failed`, and `--unproved` options
+have no effect on the output here, these options are designed to work with the
+`--list` option only.
 
 ### The `--list` option
 
@@ -140,10 +141,15 @@ entities (i.e. Ada language identifiers) it finds in the `.spark` files. By
 default, the output has no particular order, but as mentioned in the previous
 chapter, with the `--sort-by` option you can force one.
 
-Typical output looks like this:
+Run the command:
 
 ```sh
 run_spat -ct -l -P saatana.gpr
+```
+
+Typical output looks like this:
+
+```
 Saatana.Crypto.Phelix.H                    => 303.8 s/304.3 s
 Saatana.Crypto.Phelix.Setup_Key            => 130.4 s/131.2 s
 Saatana.Crypto.Phelix.Encrypt_Bytes        => 96.2 s/96.9 s
@@ -173,22 +179,56 @@ Example:
 
 ```sh
 run_spat -ct -l -f -P saatana.gpr
+```
+
+Typical output:
+
+```
 Saatana.Crypto.Phelix.H                    => 303.8 s/304.3 s
 Saatana.Crypto.Phelix.Setup_Key            => 130.4 s/131.2 s
 ```
 
 Here, we can see that there are two entities where a prover failed to prove the
-verification condition. So let's look into this in more detail:
+verification condition.
+
+#### The `--unproved` option
+
+When invoked together with the `--list` option, it will only show proof
+attempts where all provers failed to prove the verification condition.
+
+Example:
+
+```sh
+run_spat -ct -l -u -P sparknacl.gpr
+```
+
+Typical output:
+
+```
+SPARKNaCl.Sign.Sign                                       => 134.7 s/293.7 s
+SPARKNaCl.ASR_8                                           => 18.1 s/18.1 s
+SPARKNaCl.ASR_16                                          => 14.5 s/14.5 s
+SPARKNaCl.ASR_4                                           => 6.2 s/6.2 s
+SPARKNaCl.Car.Nearlynormal_To_Normal                      => 1.3 s/3.0 s
+```
+
+Here, we can see that there are five entities with unproven verification
+conditions.
 
 #### The `--details` option
 
 When invoked together with the `--list` option, it will show all the individual
 proof attempts/paths for an entity.
 
-Example:
+Example (with `--failed-only`):
 
 ```sh
 run_spat -ct -l -d -f -P saatana.gpr
+```
+
+Output:
+
+```
 Saatana.Crypto.Phelix.H                    => 303.8 s/304.3 s
 `-VC_POSTCONDITION saatana-crypto-phelix.adb:49:17 => 303.8 s/304.3 s
  `-Z3: 303.8 s (Unknown (unknown))
@@ -210,6 +250,48 @@ similar manner.
 Please keep in mind that a single proof may have multiple paths leading to it,
 resulting in more than just one proof attempt for a single verification
 condition.
+
+Another example (with `--unproved`):
+
+```sh
+run_spat -ct -l -d -u -P sparknacl.gpr
+```
+
+Typical output:
+
+```
+SPARKNaCl.Sign.Sign                                       => 31.3 s/71.8 s
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36 => 31.3 s/71.8 s
+ `-CVC4: 31.3 s (Unknown (unknown))
+  -Z3: 5.3 s (Unknown (unknown))
+ `-CVC4: 30.7 s (Unknown (unknown))
+  -Z3: 4.5 s (Unknown (unknown))
+SPARKNaCl.ASR_16                                          => 5.7 s/5.7 s
+`-VC_POSTCONDITION sparknacl.ads:355:35 => 5.7 s/5.7 s
+ `-Z3: 5.7 s (Unknown (unknown))
+  -CVC4: 0.0 s (Unknown (unknown))
+Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.ASR_8                                           => 3.5 s/3.5 s
+`-VC_POSTCONDITION sparknacl.ads:367:35 => 3.5 s/3.5 s
+ `-Z3: 3.5 s (Unknown (unknown))
+  -CVC4: 0.0 s (Unknown (unknown))
+Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.Car.Nearlynormal_To_Normal                      => 1.3 s/3.1 s
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => 1.3 s/1.9 s
+ `-CVC4: 1.3 s (Unknown (unknown))
+  -Z3: 600.0 ms (Unknown (unknown))
+`-VC_ASSERT sparknacl-car.adb:343:31 => 740.0 ms/1.2 s
+ `-Z3: 740.0 ms (Unknown (unknown))
+  -CVC4: 410.0 ms (Unknown (unknown))
+SPARKNaCl.ASR_4                                           => 1.3 s/1.3 s
+`-VC_POSTCONDITION sparknacl.ads:379:35 => 1.3 s/1.3 s
+ `-Z3: 1.3 s (Unknown (unknown))
+  -CVC4: 0.0 s (Unknown (unknown))
+Justified with: "From definition of arithmetic shift right".
+```
+
+As above, but here you can see the individual proof results including any
+justification messages (if present).
 
 #### The `--verbose` option
 
