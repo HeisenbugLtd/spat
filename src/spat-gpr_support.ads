@@ -15,7 +15,6 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 limited with GNATCOLL.VFS;
-limited with SPAT.File_Ops;
 
 package SPAT.GPR_Support is
 
@@ -25,6 +24,6 @@ package SPAT.GPR_Support is
    --  Retrieve all (existing) .spark files from the project.
    ---------------------------------------------------------------------------
    function Get_SPARK_Files
-     (GPR_File : GNATCOLL.VFS.Filesystem_String) return File_Ops.File_List;
+     (GPR_File : GNATCOLL.VFS.Filesystem_String) return File_List;
 
 end SPAT.GPR_Support;

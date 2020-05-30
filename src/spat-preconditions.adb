@@ -7,9 +7,8 @@
 ------------------------------------------------------------------------------
 pragma License (Unrestricted);
 
-with Ada.Text_IO;
-
 with SPAT.Field_Names;
+with SPAT.Log;
 
 package body SPAT.Preconditions is
 
@@ -21,19 +20,17 @@ package body SPAT.Preconditions is
                           Kind   : in JSON_Value_Type) return Boolean is
    begin
       if not Object.Has_Field (Field => Field) then
-         Ada.Text_IO.Put_Line
-           (File => Ada.Text_IO.Standard_Error,
-            Item => "Warning: Expected field """ & Field & """ not present!");
+         Log.Warning
+           (Message => "Expected field """ & Field & """ not present!");
 
          return False;
       end if;
 
       if Object.Get (Field => Field).Kind /= Kind then
-         Ada.Text_IO.Put_Line
-           (File => Ada.Text_IO.Standard_Error,
-            Item =>
-              "Warning: Field """ & Field & """ not of expected type """ &
-              Kind'Image & """!");
+         Log.Warning
+           (Message =>
+              "Field """ & Field & """ not of expected type """ & Kind'Image &
+              """!");
 
          return False;
       end if;
@@ -50,9 +47,8 @@ package body SPAT.Preconditions is
       Kinds_Allowed : in Accepted_Value_Types) return Boolean is
    begin
       if not Object.Has_Field (Field => Field) then
-         Ada.Text_IO.Put_Line
-           (File => Ada.Text_IO.Standard_Error,
-            Item => "Warning: Expected field """ & Field & """ not present!");
+         Log.Warning
+           (Message => "Expected field """ & Field & """ not present!");
 
          return False;
       end if;
@@ -62,10 +58,9 @@ package body SPAT.Preconditions is
                         Object.Get (Field => Field).Kind;
       begin
          if not Kinds_Allowed (Field_Kind) then
-            Ada.Text_IO.Put_Line
-              (File => Ada.Text_IO.Standard_Error,
-               Item =>
-                 "Warning: Field """ & Field & """ has unacceptable kind """ &
+            Log.Warning
+              (Message =>
+                 "Field """ & Field & """ has unacceptable kind """ &
                  Field_Kind'Image & """!");
 
             return False;

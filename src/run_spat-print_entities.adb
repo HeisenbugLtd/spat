@@ -14,6 +14,9 @@ pragma License (Unrestricted);
 --  S.P.A.T. - Main program - separate Print_Entities
 --
 ------------------------------------------------------------------------------
+with Ada.Text_IO;
+
+with SPAT.Log;
 with SPAT.Strings;
 
 separate (Run_SPAT)
@@ -41,17 +44,14 @@ begin
         (Unproved_Only and then
          Info.Has_Unproved_Attempts (Entity => Entity))
       then
-         Ada.Text_IO.Put (File => Ada.Text_IO.Standard_Output,
-                          Item => SPAT.To_String (Source => Entity));
+         SPAT.Log.Message (Message  => SPAT.To_String (Source => Entity),
+                           New_Line => False);
          Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
                               To   => Second_Column);
-         Ada.Text_IO.Put_Line
-           (File => Ada.Text_IO.Standard_Output,
-            Item =>
-              "=> " &
-              Image (Value => Info.Max_Proof_Time (Entity => Entity)) &
-              "/" &
-              Image (Value => Info.Total_Proof_Time (Entity => Entity)));
+         SPAT.Log.Message
+           (Message =>
+              "=> " & Image (Value => Info.Max_Proof_Time (Entity => Entity)) &
+              "/" & Image (Value => Info.Total_Proof_Time (Entity => Entity)));
 
          if SPAT.Command_Line.Details.Get then
             for P of Info.Proof_List (Entity => Entity) loop
@@ -60,9 +60,8 @@ begin
                  (Failed_Only and then P.Has_Failed_Attempts) or else
                  (Unproved_Only and then P.Has_Unproved_Attempts)
                then
-                  Ada.Text_IO.Put_Line
-                    (File => Ada.Text_IO.Standard_Output,
-                     Item =>
+                  SPAT.Log.Message
+                    (Message =>
                        "`-" & SPAT.To_String (P.Rule) & " " & P.Image &
                        " => " & Image (P.Max_Time) & "/" &
                        Image (P.Total_Time));
@@ -75,28 +74,26 @@ begin
                      then
                         Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
                                              To   => 2);
-                        Ada.Text_IO.Put (File => Ada.Text_IO.Standard_Output,
-                                         Item => "`");
+                        SPAT.Log.Message (Message  => "`",
+                                          New_Line => False);
 
                         for A of Check loop
                            Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
                                                 To   => 3);
-                           Ada.Text_IO.Put_Line
-                             (File => Ada.Text_IO.Standard_Output,
-                              Item =>
+                           SPAT.Log.Message
+                             (Message =>
                                 "-" & SPAT.To_String (A.Prover) & ": " &
-                                Image (A.Time) & " (" & SPAT.To_String (A.Result) &
-                                ")");
+                                Image (A.Time) &
+                                " (" & SPAT.To_String (A.Result) & ")");
                         end loop;
                      end if;
                   end loop;
 
                   if P.Suppressed /= SPAT.Null_Name then
-                     Ada.Text_IO.Put_Line
-                       (File => Ada.Text_IO.Standard_Output,
-                        Item =>
-                          "Justified with: """ &
-                          SPAT.To_String (P.Suppressed) & """.");
+                     SPAT.Log.Message
+                       (Message =>
+                          "Justified with: """ & SPAT.To_String (P.Suppressed) &
+                          """.");
                   end if;
                end if;
             end loop;

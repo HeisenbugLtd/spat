@@ -14,6 +14,7 @@ pragma License (Unrestricted);
 --  S.P.A.T. - Main program - separate Print_Summary
 --
 ------------------------------------------------------------------------------
+with Ada.Text_IO;
 
 with SPAT.Strings;
 
@@ -38,23 +39,22 @@ begin
    Third_Column  := Second_Column + 4;
 
    for File of Files loop
-      Ada.Text_IO.Put
-        (File => Ada.Text_IO.Standard_Output,
-         Item =>
+      SPAT.Log.Message
+        (Message  =>
            Ada.Directories.Simple_Name
-             (Name => SPAT.To_String (Source => File)));
+             (Name => SPAT.To_String (Source => File)),
+         New_Line => False);
       Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
                            To   => Second_Column);
-      Ada.Text_IO.Put_Line
-        (File => Ada.Text_IO.Standard_Output,
-         Item =>
+      SPAT.Log.Message
+        (Message  =>
            "=> (Flow  => " &
-           Image (Value => Info.Flow_Time (File => File)) & ",");
+           Image (Value => Info.Flow_Time (File => File)) & ",",
+         New_Line => False);
       Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
                            To   => Third_Column);
-      Ada.Text_IO.Put_Line
-        (File => Ada.Text_IO.Standard_Output,
-         Item => "Proof => " &
-           Image (Value => Info.Proof_Time (File => File)) & ")");
+      SPAT.Log.Message
+        (Message =>
+           "Proof => " & Image (Value => Info.Proof_Time (File => File)) & ")");
    end loop;
 end Print_Summary;

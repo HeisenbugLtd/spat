@@ -9,13 +9,11 @@ pragma License (Unrestricted);
 
 with Ada.Directories;
 with Ada.Real_Time;
-with Ada.Text_IO;
 
 with GNATCOLL.Projects;
 with SI_Units.Metric;
 with SI_Units.Names;
-with SPAT.Command_Line;
-with SPAT.File_Ops;
+with SPAT.Log;
 
 package body SPAT.GPR_Support is
 
@@ -29,12 +27,11 @@ package body SPAT.GPR_Support is
       Source_File  : in GNATCOLL.VFS.Virtual_File) return String;
 
    function Get_SPARK_Files
-     (GPR_File : GNATCOLL.VFS.Filesystem_String) return File_Ops.File_List
+     (GPR_File : GNATCOLL.VFS.Filesystem_String) return File_List
    is
-      Verbose     : constant Boolean := SPAT.Command_Line.Verbose.Get;
       Start_Time  : Ada.Real_Time.Time;
-      Raw_List    : SPAT.File_Ops.File_List; --  Stores candidate .spark files.
-      Result_List : SPAT.File_Ops.File_List; --  Filtered list of files.
+      Raw_List    : SPAT.File_List; --  Stores candidate .spark files.
+      Result_List : SPAT.File_List; --  Filtered list of files.
 
       use type Ada.Real_Time.Time;
    begin
@@ -42,9 +39,7 @@ package body SPAT.GPR_Support is
       declare
          Project_Tree : GNATCOLL.Projects.Project_Tree;
       begin
-         if Verbose then
-            Start_Time := Ada.Real_Time.Clock;
-         end if;
+         Start_Time := Ada.Real_Time.Clock;
 
          --  Load project tree from command line argument.
          --  An exception Invalid_Projects may be raised by this call, this is
@@ -53,19 +48,15 @@ package body SPAT.GPR_Support is
            (Root_Project_Path =>
               GNATCOLL.VFS.Create (Full_Filename => GPR_File));
 
-         if Verbose then
-            Ada.Text_IO.Put_Line
-              (File => Ada.Text_IO.Standard_Output,
-               Item => "GNAT project loaded in " &
-                 Image (Value =>
-                          Ada.Real_Time.To_Duration
-                            (TS => Ada.Real_Time.Clock - Start_Time)) &
-                 ".");
-         end if;
+         Log.Debug
+           (Message =>
+              "GNAT project loaded in " &
+              Image (Value =>
+                       Ada.Real_Time.To_Duration
+                         (TS => Ada.Real_Time.Clock - Start_Time)) &
+              ".");
 
-         if Verbose then
-            Start_Time := Ada.Real_Time.Clock;
-         end if;
+         Start_Time := Ada.Real_Time.Clock;
 
          Load_Source_Files :
          declare
@@ -83,11 +74,11 @@ package body SPAT.GPR_Support is
                     GPR_Support.SPARK_Name (Project_Tree => Project_Tree,
                                             Source_File  => F);
                begin
-                  if Verbose then
-                     Ada.Text_IO.Put ("Found """ & F.Display_Base_Name &
-                                      """, checking for """ & SPARK_Name &
-                                      """...");
-                  end if;
+                  Log.Debug
+                    (Message  =>
+                       "Found """ & F.Display_Base_Name &
+                       """, checking for """ & SPARK_Name & """...",
+                     New_Line => False);
 
                   declare
                      File_Name : constant SPAT.Subject_Name :=
@@ -105,24 +96,12 @@ package body SPAT.GPR_Support is
                         if Ada.Directories.Exists (Name => SPARK_Name) then
                            Result_List.Append (New_Item => File_Name);
 
-                           if Verbose then
-                              Ada.Text_IO.Put_Line
-                                (File => Ada.Text_IO.Standard_Output,
-                                 Item => "added to index.");
-                           end if;
+                           Log.Debug (Message => "added to index.");
                         else
-                           if Verbose then
-                              Ada.Text_IO.Put_Line
-                                (File => Ada.Text_IO.Standard_Output,
-                                 Item => "not found on disk, skipped.");
-                           end if;
+                           Log.Debug (Message => "not found on disk, skipped.");
                         end if;
                      else
-                        if Verbose then
-                           Ada.Text_IO.Put_Line
-                             (File => Ada.Text_IO.Standard_Output,
-                              Item => "already in index.");
-                        end if;
+                        Log.Debug (Message => "already in index.");
                      end if;
                   end;
                end Add_SPARK_File;
@@ -134,33 +113,27 @@ package body SPAT.GPR_Support is
          Project_Tree.Unload;
       exception
          when GNATCOLL.Projects.Invalid_Project =>
-            Ada.Text_IO.Put_Line
-              (File => Ada.Text_IO.Standard_Error,
-               Item =>
-                  "Error: Could not load """ &
-                  SPAT.To_String (SPAT.Command_Line.Project.Get) &
-                 """!");
+            Log.Error
+              (Message =>
+                 "Could not load """ & GNATCOLL.VFS."+" (GPR_File) & """!");
       end Load_Project_Files;
 
-      if Verbose then
-         Report_Timing :
-         declare
-            Num_Files : constant Ada.Containers.Count_Type :=
-              Result_List.Length;
-            use type Ada.Containers.Count_Type;
-         begin
-            Ada.Text_IO.Put_Line
-              (File => Ada.Text_IO.Standard_Output,
-               Item => "Search completed in " &
-                 Image (Value =>
-                          Ada.Real_Time.To_Duration
-                            (TS => Ada.Real_Time.Clock - Start_Time)) &
-                 "," & Num_Files'Image & " file" &
-                 (if Num_Files /= 1
-                  then "s"
-                  else "") & " found so far.");
-         end Report_Timing;
-      end if;
+      Report_Timing :
+      declare
+         Num_Files : constant Ada.Containers.Count_Type := Result_List.Length;
+         use type Ada.Containers.Count_Type;
+      begin
+         Log.Debug
+           (Message =>
+              "Search completed in " &
+              Image (Value =>
+                       Ada.Real_Time.To_Duration
+                         (TS => Ada.Real_Time.Clock - Start_Time)) &
+              "," & Num_Files'Image & " file" &
+              (if Num_Files /= 1
+               then "s"
+               else "") & " found so far.");
+      end Report_Timing;
 
       return Result_List;
    end Get_SPARK_Files;

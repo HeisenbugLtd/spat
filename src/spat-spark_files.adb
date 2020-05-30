@@ -9,7 +9,8 @@ pragma License (Unrestricted);
 
 with Ada.IO_Exceptions;
 with Ada.Text_IO;
-with SPAT.Command_Line;
+
+with SPAT.Log;
 
 package body SPAT.Spark_Files is
 
@@ -37,7 +38,7 @@ package body SPAT.Spark_Files is
    end Parse_File;
 
    procedure Read (This  : in out T;
-                   Names : in     File_Ops.File_List'Class)
+                   Names : in     File_List'Class)
    is
       use type File_Maps.Cursor;
    begin
@@ -49,22 +50,17 @@ package body SPAT.Spark_Files is
 
       for Name of Names loop
          if This.Find (Key => Name) = File_Maps.No_Element then
-            if SPAT.Command_Line.Verbose.Get then
-               Ada.Text_IO.Put_Line
-                 (File => Ada.Text_IO.Standard_Output,
-                  Item => "Parsing """ & To_String (Source => Name) & """...");
-            end if;
+            Log.Debug
+              (Message => "Parsing """ & To_String (Source => Name) & """...");
 
             begin
                This.Insert (Key      => Name,
                             New_Item => Parse_File (Name => Name));
             exception
                when Ada.IO_Exceptions.Name_Error =>
-                  Ada.Text_IO.Put_Line
-                    (File => Ada.Text_IO.Standard_Error,
-                     Item =>
-                        "Error reading """ & To_String (Source => Name) &
-                        """!");
+                  Log.Error
+                    (Message =>
+                       "Could not read """ & To_String (Source => Name) & """!");
             end;
          else
             --  Skip file, we already got that one.

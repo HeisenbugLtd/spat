@@ -17,7 +17,6 @@ pragma License (Unrestricted);
 
 with Ada.Command_Line;
 with SPAT.Command_Line;
-with SPAT.File_Ops;    pragma Unreferenced (SPAT.File_Ops);
 with SPAT.Spark_Files; pragma Unreferenced (SPAT.Spark_Files);
 with SPAT.Spark_Info;  pragma Unreferenced (SPAT.SPARK_Info);
 

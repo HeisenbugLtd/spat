@@ -98,11 +98,4 @@ package SPAT.Command_Line is
                                     Long     => "--details",
                                     Help     => "Show details for entities (list mode)");
 
-   --  Verbose option (debug output).
-   package Verbose is new
-     GNATCOLL.Opt_Parse.Parse_Flag (Parser => Parser,
-                                    Short  => "-v",
-                                    Long   => "--verbose",
-                                    Help   => "Verbose (tracing) output");
-
 end SPAT.Command_Line;

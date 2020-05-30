@@ -7,6 +7,8 @@
 ------------------------------------------------------------------------------
 pragma License (Unrestricted);
 
+with Ada.Containers.Vectors;
+
 ------------------------------------------------------------------------------
 --
 --  SPARK Proof Analysis Tool
@@ -60,5 +62,15 @@ package SPAT is
    type File_Version is (GNAT_CE_2019, GNAT_CE_2020);
    --  Version information. Right now I only have access to the community
    --  releases of SPARK, so these are the only ones fully supported.
+
+   package File_Lists is new
+     Ada.Containers.Vectors (Index_Type   => Positive,
+                             Element_Type => Subject_Name);
+
+   type File_List is new File_Lists.Vector with private;
+
+private
+
+   type File_List is new File_Lists.Vector with null record;
 
 end SPAT;

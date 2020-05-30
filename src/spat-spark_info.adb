@@ -8,10 +8,9 @@
 pragma License (Unrestricted);
 
 with Ada.Directories;
-with Ada.Text_IO;
 
-with SPAT.Command_Line;
 with SPAT.Field_Names;
+with SPAT.Log;
 with SPAT.Preconditions;
 
 package body SPAT.Spark_Info is
@@ -161,10 +160,7 @@ package body SPAT.Spark_Info is
          end;
       end if;
 
-      if SPAT.Command_Line.Verbose.Get then
-         Ada.Text_IO.Put_Line (File => Ada.Text_IO.Standard_Output,
-                               Item => "File version: " & Result'Image);
-      end if;
+      Log.Debug (Message => "File version: " & Result'Image);
 
       return Result;
    end Guess_Version;
@@ -322,11 +318,9 @@ package body SPAT.Spark_Info is
                                    Flow_Items.Create (Object => Element));
                            end if;
                         else
-                           Ada.Text_IO.Put_Line
-                             (File => Ada.Text_IO.Standard_Error,
-                              Item =>
-                                "Warning (Flow): """ &
-                                To_String (Source => The_Key) &
+                           Log.Warning
+                             (Message =>
+                                "flow: """ & To_String (Source => The_Key) &
                                 """ not found in index.");
                         end if;
                      end;
@@ -384,11 +378,9 @@ package body SPAT.Spark_Info is
                                    Proof_Items.Create (Object => Element));
                            end if;
                         else
-                           Ada.Text_IO.Put_Line
-                             (File => Ada.Text_IO.Standard_Error,
-                              Item =>
-                                "Warning (Flow): """ &
-                                To_String (Source => The_Key) &
+                           Log.Warning
+                             (Message =>
+                                "proof: """ & To_String (Source => The_Key) &
                                 """ not found in index.");
                         end if;
                      end;

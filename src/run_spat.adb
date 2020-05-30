@@ -18,7 +18,6 @@ pragma License (Unrestricted);
 with Ada.Command_Line;
 with Ada.Directories;
 with Ada.Real_Time;
-with Ada.Text_IO;
 
 with GNATCOLL.JSON;
 with GNATCOLL.Projects;
@@ -26,8 +25,8 @@ with GNATCOLL.VFS;
 with SI_Units.Metric;
 with SI_Units.Names;
 with SPAT.Command_Line;
-with SPAT.File_Ops;
 with SPAT.GPR_Support;
+with SPAT.Log;
 with SPAT.Spark_Files;
 with SPAT.Spark_Info;
 
@@ -64,11 +63,9 @@ begin
    if SPAT.Command_Line.Project.Get = SPAT.Null_Name then
       --  The project file option is mandatory (AFAICS there is no way to
       --  require an option argument).
-      Ada.Text_IO.Put_Line
-        (File => Ada.Text_IO.Standard_Output,
-         Item => "Argument parsing failed: Missing project file argument");
-      Ada.Text_IO.Put_Line (File => Ada.Text_IO.Standard_Output,
-                            Item => SPAT.Command_Line.Parser.Help);
+      SPAT.Log.Message
+        (Message => "Argument parsing failed: Missing project file argument");
+      SPAT.Log.Message (Message => SPAT.Command_Line.Parser.Help);
       Ada.Command_Line.Set_Exit_Status (Code => Ada.Command_Line.Failure);
       return;
    end if;
@@ -77,7 +74,6 @@ begin
    declare
       SPARK_Files  : SPAT.Spark_Files.T;
       Start_Time   : Ada.Real_Time.Time;
-      Verbose      : constant Boolean := SPAT.Command_Line.Verbose.Get;
       Sort_By      : constant SPAT.Spark_Info.Sorting_Criterion :=
         SPAT.Command_Line.Sort_By.Get;
       Project_File : constant GNATCOLL.VFS.Filesystem_String :=
@@ -86,26 +82,22 @@ begin
       Collect_And_Parse :
       declare
          --  Step 1: Collect all .spark files.
-         File_List : constant SPAT.File_Ops.File_List :=
+         File_List : constant SPAT.File_List :=
            SPAT.GPR_Support.Get_SPARK_Files (GPR_File => Project_File);
       begin
          --  Step 2: Parse the files into JSON values.
          if not File_List.Is_Empty then
-            if Verbose then
-               Start_Time := Ada.Real_Time.Clock;
-            end if;
+            Start_Time := Ada.Real_Time.Clock;
 
             SPARK_Files.Read (Names => File_List);
 
-            if Verbose then
-               Ada.Text_IO.Put_Line
-                 (File => Ada.Text_IO.Standard_Output,
-                  Item => "Parsing completed in " &
-                    Image
-                      (Value =>
-                         Ada.Real_Time.To_Duration
-                           (TS => Ada.Real_Time.Clock - Start_Time)) & ".");
-            end if;
+            SPAT.Log.Debug
+              (Message =>
+                 "Parsing completed in " &
+                 Image
+                   (Value =>
+                      Ada.Real_Time.To_Duration
+                        (TS => Ada.Real_Time.Clock - Start_Time)) & ".");
          end if;
       end Collect_And_Parse;
 
@@ -115,9 +107,7 @@ begin
       begin
          --  Step 3: Process the JSON data.
          if not SPARK_Files.Is_Empty then
-            if Verbose then
-               Start_Time := Ada.Real_Time.Clock;
-            end if;
+            Start_Time := Ada.Real_Time.Clock;
 
             for C in SPARK_Files.Iterate loop
                Parse_JSON_File :
@@ -131,24 +121,21 @@ begin
                      Info.Map_Spark_File (Root => Read_Result.Value,
                                           File => File);
                   else
-                     Ada.Text_IO.Put_Line
-                       (File => Ada.Text_IO.Standard_Output,
-                        Item => SPAT.To_String (Source => File) & ": " &
+                     SPAT.Log.Warning
+                       (Message =>
+                          SPAT.To_String (Source => File) & ": " &
                           GNATCOLL.JSON.Format_Parsing_Error
                             (Error => Read_Result.Error));
                   end if;
                end Parse_JSON_File;
             end loop;
 
-            if Verbose then
-               Ada.Text_IO.Put_Line
-                 (File => Ada.Text_IO.Standard_Output,
-                  Item => "Reading completed in " &
-                    Image
-                      (Value =>
-                         Ada.Real_Time.To_Duration
-                           (TS => Ada.Real_Time.Clock - Start_Time)) & ".");
-            end if;
+            SPAT.Log.Debug
+              (Message =>
+                 "Reading completed in " &
+                 Image (Value =>
+                          Ada.Real_Time.To_Duration
+                            (TS => Ada.Real_Time.Clock - Start_Time)) & ".");
          end if;
 
          --  Step 4: Output the JSON data.

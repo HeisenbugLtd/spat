@@ -9,9 +9,17 @@ pragma License (Unrestricted);
 
 with Ada.Text_IO;
 
+with GNATCOLL.Opt_Parse;
 with SPAT.Command_Line;
 
 package body SPAT.Log is
+
+   --  Verbose option (debug output).
+   package Verbose is new
+     GNATCOLL.Opt_Parse.Parse_Flag (Parser => SPAT.Command_Line.Parser,
+                                    Short  => "-v",
+                                    Long   => "--verbose",
+                                    Help   => "Verbose (tracing) output");
 
    ---------------------------------------------------------------------------
    --  Debug
@@ -22,7 +30,7 @@ package body SPAT.Log is
    procedure Debug (Message  : in String;
                     New_Line : in Boolean := True) is
    begin
-      if Command_Line.Verbose.Get then
+      if Verbose.Get then
          Log.Message (Message  => "Debug: " & Message,
                       New_Line => New_Line);
       end if;
