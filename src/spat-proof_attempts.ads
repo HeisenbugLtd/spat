@@ -81,6 +81,12 @@ package SPAT.Proof_Attempts is
    function Has_Failed_Attempts (This : in Vector) return Boolean;
 
    ---------------------------------------------------------------------------
+   --  Is_Unproved
+   ---------------------------------------------------------------------------
+   not overriding
+   function Is_Unproved (This : in Vector) return Boolean;
+
+   ---------------------------------------------------------------------------
    --  Sort_By_Duration
    ---------------------------------------------------------------------------
    not overriding

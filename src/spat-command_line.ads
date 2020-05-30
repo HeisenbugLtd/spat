@@ -54,7 +54,14 @@ package SPAT.Command_Line is
      GNATCOLL.Opt_Parse.Parse_Flag (Parser   => Parser,
                                     Short    => "-f",
                                     Long     => "--failed-only",
-                                    Help     => "Show only failed attempts");
+                                    Help     => "Show failed attempts only");
+
+   package Unproved_Only is new
+     GNATCOLL.Opt_Parse.Parse_Flag (Parser   => Parser,
+                                    Short    => "-u",
+                                    Long     => "--unproved",
+                                    Help     => "Show unproved attempts only");
+
    package Details is new
      GNATCOLL.Opt_Parse.Parse_Flag (Parser   => Parser,
                                     Short    => "-d",

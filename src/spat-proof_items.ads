@@ -70,6 +70,12 @@ package SPAT.Proof_Items is
    function Has_Failed_Attempts (This : in T) return Boolean;
 
    ---------------------------------------------------------------------------
+   --  Has_Unproved_Attempts
+   ---------------------------------------------------------------------------
+   not overriding
+   function Has_Unproved_Attempts (This : in T) return Boolean;
+
+   ---------------------------------------------------------------------------
    --  Slower_Than
    ---------------------------------------------------------------------------
    not overriding function Slower_Than (Left  : in T;

@@ -26,10 +26,19 @@ is
 
    use type Ada.Text_IO.Count;
    Second_Column : constant Ada.Text_IO.Count := Entities.Max_Length + 2;
-   Report_All : constant Boolean := not SPAT.Command_Line.Failed_Only.Get;
+   Failed_Only   : constant Boolean := SPAT.Command_Line.Failed_Only.Get;
+   Unproved_Only : constant Boolean := SPAT.Command_Line.Unproved_Only.Get;
+   Report_All : constant Boolean := not (Failed_Only or Unproved_Only);
+
 begin
    for Entity of Entities loop
-      if Report_All or else Info.Has_Failed_Attempts (Entity => Entity) then
+      if
+        Report_All                                    or else
+        (Failed_Only and then
+         Info.Has_Failed_Attempts (Entity => Entity)) or else
+        (Unproved_Only and then
+         Info.Has_Unproved_Attempts (Entity => Entity))
+      then
          Ada.Text_IO.Put (File => Ada.Text_IO.Standard_Output,
                           Item => SPAT.To_String (Source => Entity));
          Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
@@ -44,7 +53,11 @@ begin
 
          if SPAT.Command_Line.Details.Get then
             for P of Info.Proof_List (Entity => Entity) loop
-               if Report_All or else P.Has_Failed_Attempts then
+               if
+                 Report_All                                   or else
+                 (Failed_Only and then P.Has_Failed_Attempts) or else
+                 (Unproved_Only and then P.Has_Unproved_Attempts)
+               then
                   Ada.Text_IO.Put_Line
                     (File => Ada.Text_IO.Standard_Output,
                      Item =>
@@ -52,7 +65,11 @@ begin
                        Image (P.Max_Time) & "/" & Image (P.Total_Time));
 
                   for Check of P.Check_Tree loop
-                     if Report_All or else Check.Has_Failed_Attempts then
+                     if
+                       Report_All                                       or else
+                       (Failed_Only and then Check.Has_Failed_Attempts) or else
+                       (Unproved_Only and then Check.Is_Unproved)
+                     then
                         Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
                                              To   => 2);
                         Ada.Text_IO.Put (File => Ada.Text_IO.Standard_Output,

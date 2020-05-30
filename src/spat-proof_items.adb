@@ -140,4 +140,13 @@ package body SPAT.Proof_Items is
       return (for some C of This.Check_Tree => C.Has_Failed_Attempts);
    end Has_Failed_Attempts;
 
+   ---------------------------------------------------------------------------
+   --  Has_Unproved_Attempts
+   ---------------------------------------------------------------------------
+   not overriding
+   function Has_Unproved_Attempts (This : in T) return Boolean is
+   begin
+      return (for some C of This.Check_Tree => C.Is_Unproved);
+   end Has_Unproved_Attempts;
+
 end SPAT.Proof_Items;

@@ -43,6 +43,17 @@ package body SPAT.Proof_Attempts is
       return (for some A of This => A.Result /= "Valid");
    end Has_Failed_Attempts;
 
+   ---------------------------------------------------------------------------
+   --  Is_Unproved
+   ---------------------------------------------------------------------------
+   not overriding
+   function Is_Unproved (This : in Vector) return Boolean
+   is
+      use type Subject_Name;
+   begin
+      return (for all A of This => A.Result /= "Valid");
+   end Is_Unproved;
+
    package By_Duration is new Vectors.Generic_Sorting ("<" => Slower_Than);
 
    procedure Sort_By_Duration (Container : in out Vector) is

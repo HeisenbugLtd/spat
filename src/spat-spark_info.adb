@@ -180,6 +180,16 @@ package body SPAT.Spark_Info is
    end Has_Failed_Attempts;
 
    ---------------------------------------------------------------------------
+   --  Has_Unproved_Attempts
+   ---------------------------------------------------------------------------
+   function Has_Unproved_Attempts (This   : in T;
+                                   Entity : in Subject_Name) return Boolean is
+   begin
+      return (for some Proof of This.Entities (Entity).Proofs =>
+                Proof.Has_Unproved_Attempts);
+   end Has_Unproved_Attempts;
+
+   ---------------------------------------------------------------------------
    --  List_All_Entities
    ---------------------------------------------------------------------------
    function List_All_Entities

@@ -133,6 +133,15 @@ package SPAT.Spark_Info is
    function Has_Failed_Attempts (This   : in T;
                                  Entity : in Subject_Name) return Boolean;
 
+   ---------------------------------------------------------------------------
+   --  Has_Unproved_Attempts
+   --
+   --  Returns True if some of the proof attempts for Entity do have a "Valid"
+   --  result.
+   ---------------------------------------------------------------------------
+   function Has_Unproved_Attempts (This   : in T;
+                                   Entity : in Subject_Name) return Boolean;
+
 private
 
    type Analyzed_Entity is
