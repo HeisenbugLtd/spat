@@ -23,5 +23,8 @@ cd ..
 gprbuild -p -P si_units/si_units_lib.gpr
 gprinstall -v -p -P si_units/si_units_lib.gpr
 
+# debug, list what's available
+gprinstall --list --stat
+
 # Build library project and then test programs
 gprbuild -p -P spat.gpr
