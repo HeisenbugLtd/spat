@@ -7,8 +7,13 @@ set -o errexit
 set -o nounset
 
 echo "Running tests:"
-./obj/run_spat -P spat.gpr
+
+# debug thing, list what's available
+gprinstall --list --stat
+
 # Not a real test.
 # Run on itself. There's no .spark files, so no output.
+./obj/run_spat -P spat.gpr
+
+# Show help output.
 ./obj/run_spat -h
-# Show help.
