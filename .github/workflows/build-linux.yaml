@@ -20,7 +20,7 @@ jobs:
           - centos-latest-community-2020
           - community-current
           - debian-stable
-          - ubuntu-lts
+          #- ubuntu-lts (no GNATColl atm)
 
     steps:
       - name: Check out repository
