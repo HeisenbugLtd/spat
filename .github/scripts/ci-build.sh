@@ -15,5 +15,13 @@ echo GNAT VERSION:
 gnatls -v
 echo ............................
 
+# Download and install dependencies
+git clone https://github.com/HeisenbugLtd/si_units
+cd si_units
+git checkout v0.1.0
+cd ..
+gprbuild -p -P si_units/si_units_lib.gpr
+gprinstall -v -p -P si_units/si_units_lib.gpr
+
 # Build library project and then test programs
 gprbuild -p -P spat.gpr
