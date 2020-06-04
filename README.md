@@ -2,6 +2,8 @@
 
 # SPARK Proof Analysis Tool
 
+[![Build Linux](https://github.com/HeisenbugLtd/spat/workflows/Build%20Linux/badge.svg)](https://github.com/HeisenbugLtd/spat/actions?query=workflow%3A%22Build+Linux%22)
+
 ## Introduction
 
 The SPARK tools (i.e. GNATprove) leave behind a trove of information after a
