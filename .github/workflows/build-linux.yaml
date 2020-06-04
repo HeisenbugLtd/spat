@@ -34,6 +34,6 @@ jobs:
           alire/gnat:${{ matrix.tag }} bash .github/scripts/ci-build.sh
       - name: Run tests
         run: >
-         docker run -v${PWD}:/spat -w /spat
+          docker run -v${PWD}:/spat -w /spat
           -e "BRANCH=${{ github.base_ref }}"
           alire/gnat:${{ matrix.tag }} bash .github/scripts/ci-test.sh
