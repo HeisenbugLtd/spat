@@ -16,9 +16,10 @@ jobs:
     strategy:
       matrix:
         tag: # Those are alire's dockerhub alire/gnat:tag machines
+	  - community-2019
+          - community-2020
           - centos-latest-community-2019
           - centos-latest-community-2020
-          - community-current
           #- debian-stable (no GNATColl atm)
           #- ubuntu-lts (no GNATColl atm)
 
