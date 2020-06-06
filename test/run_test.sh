@@ -15,7 +15,7 @@ run_check () {
   for SPAT_OPTIONS in "-s -l -d -ca" "-s -l -d -ct"; do
     ../obj/run_spat -s -l -d -ct -P "$1/$2" > "spat.$1.$SPAT_OPTIONS.out"
     # Show template differences (FIXME: 'diff' might not be installed)
-    (diff -u "spat.$1.$SPAT_OPTIONS.template" "spat.$1.$SPAT_OPTIONS.ut") >> test.diff || RESULT=2
+    (diff -u "spat.$1.$SPAT_OPTIONS.template" "spat.$1.$SPAT_OPTIONS.out") >> test.diff || RESULT=2
   done
 }
 
