@@ -1,0 +1,57 @@
+Summary of SPARK analysis
+=========================
+
+----------------------------------------------------------------------------------------------------------------------
+SPARK Analysis results        Total        Flow   CodePeer                              Provers   Justified   Unproved
+----------------------------------------------------------------------------------------------------------------------
+Data Dependencies                20          20          .                                    .           .          .
+Flow Dependencies                14          14          .                                    .           .          .
+Initialization                   18          18          .                                    .           .          .
+Non-Aliasing                      .           .          .                                    .           .          .
+Run-time Checks                 219           .          .    219 (CVC4 0%, Trivial 6%, Z3 94%)           .          .
+Assertions                       28           .          .              28 (Trivial 7%, Z3 93%)           .          .
+Functional Contracts             35           .          .             35 (Trivial 11%, Z3 89%)           .          .
+LSP Verification                  .           .          .                                    .           .          .
+Termination                       4           .          .                               4 (Z3)           .          .
+Concurrency                       .           .          .                                    .           .          .
+----------------------------------------------------------------------------------------------------------------------
+Total                           338    52 (15%)          .                            286 (85%)           .          .
+
+
+max steps used for successful proof: 14009
+
+Analyzed 5 units
+in unit saatana, 1 subprograms and packages out of 1 analyzed
+  Saatana at saatana.ads:18 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+in unit saatana-crypto, 5 subprograms and packages out of 5 analyzed
+  Saatana.Crypto at saatana-crypto.ads:20 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  Saatana.Crypto.Oadd at saatana-crypto.ads:71 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (6 checks)
+  Saatana.Crypto.Oadd.Add_Carry at saatana-crypto.adb:18 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  Saatana.Crypto.To_Stream at saatana-crypto.ads:55 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (21 checks)
+  Saatana.Crypto.To_Unsigned at saatana-crypto.ads:41 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (16 checks)
+in unit saatana-crypto-lemmas, 1 subprograms and packages out of 1 analyzed
+  Saatana.Crypto.Lemmas at saatana-crypto-lemmas.ads:10 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (6 checks)
+in unit saatana-crypto-phelix, 21 subprograms and packages out of 21 analyzed
+  Saatana.Crypto.Phelix at saatana-crypto-phelix.ads:48 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  Saatana.Crypto.Phelix.Context at saatana-crypto-phelix.ads:63 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  Saatana.Crypto.Phelix.Ctx_AAD_Len at saatana-crypto-phelix.ads:66 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  Saatana.Crypto.Phelix.Ctx_I at saatana-crypto-phelix.ads:70 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  Saatana.Crypto.Phelix.Ctx_Key_Size at saatana-crypto-phelix.ads:74 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  Saatana.Crypto.Phelix.Ctx_Mac_Size at saatana-crypto-phelix.ads:78 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  Saatana.Crypto.Phelix.Ctx_Msg_Len at saatana-crypto-phelix.ads:82 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  Saatana.Crypto.Phelix.Decrypt_Bytes at saatana-crypto-phelix.ads:279 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (39 checks)
+  Saatana.Crypto.Phelix.Decrypt_Packet at saatana-crypto-phelix.ads:144 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (14 checks)
+  Saatana.Crypto.Phelix.Encrypt_Bytes at saatana-crypto-phelix.ads:249 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (38 checks)
+  Saatana.Crypto.Phelix.Encrypt_Packet at saatana-crypto-phelix.ads:103 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (15 checks)
+  Saatana.Crypto.Phelix.Exclusive_Or at saatana-crypto-phelix.adb:18 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (6 checks)
+  Saatana.Crypto.Phelix.Finalize at saatana-crypto-phelix.ads:306 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (28 checks)
+  Saatana.Crypto.Phelix.H at saatana-crypto-phelix.adb:44 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  Saatana.Crypto.Phelix.Key_Size_32Predicate at saatana-crypto-phelix.ads:60 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  Saatana.Crypto.Phelix.MAC_Size_32Predicate at saatana-crypto-phelix.ads:57 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (1 checks)
+  Saatana.Crypto.Phelix.Process_AAD at saatana-crypto-phelix.ads:223 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (17 checks)
+  Saatana.Crypto.Phelix.Setup_Key at saatana-crypto-phelix.ads:180 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (25 checks)
+  Saatana.Crypto.Phelix.Setup_Key_Called at saatana-crypto-phelix.ads:88 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+  Saatana.Crypto.Phelix.Setup_Nonce at saatana-crypto-phelix.ads:199 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (7 checks)
+  Saatana.Crypto.Phelix.Setup_Nonce_Called at saatana-crypto-phelix.ads:92 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (0 checks)
+in unit test_phelix_api, 1 subprograms and packages out of 1 analyzed
+  Test_Phelix_API at test_phelix_api.adb:26 flow analyzed (0 errors, 0 checks and 0 warnings) and proved (44 checks)

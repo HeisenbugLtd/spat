@@ -1,0 +1,294 @@
+{
+  "spark": [
+    {
+      "name": "Saatana.Crypto.Lemmas",
+      "sloc": [
+        {
+          "file": "saatana-crypto-lemmas.ads",
+          "line": 10
+        }
+      ],
+      "spark": "all"
+    }
+  ],
+  "flow": [
+  ],
+  "session_map": {
+    " 1": "/home/jellix/projects/spat/test/test-saatana/_build/gnatprove/ada___ada___saatana__crypto__lemmas"
+  },
+  "proof": [
+    {
+      "file": "saatana-crypto-lemmas.ads",
+      "line": 31,
+      "col": 19,
+      "rule": "VC_ASSERT",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.Lemmas",
+        "sloc": [
+          {
+            "file": "saatana-crypto-lemmas.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 71988,
+              "time": 7.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto-lemmas.ads",
+      "check_line": 31,
+      "check_col": 19,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 7.00000002980232E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto-lemmas.ads",
+      "line": 46,
+      "col": 19,
+      "rule": "VC_ASSERT",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.Lemmas",
+        "sloc": [
+          {
+            "file": "saatana-crypto-lemmas.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 72838,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto-lemmas.ads",
+      "check_line": 46,
+      "check_col": 19,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.00000001490116E-01
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto-lemmas.ads",
+      "line": 54,
+      "col": 19,
+      "rule": "VC_ASSERT",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.Lemmas",
+        "sloc": [
+          {
+            "file": "saatana-crypto-lemmas.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 70324,
+              "time": 1.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto-lemmas.ads",
+      "check_line": 54,
+      "check_col": 19,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.09999999403954E-01
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto-lemmas.ads",
+      "line": 61,
+      "col": 19,
+      "rule": "VC_ASSERT",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.Lemmas",
+        "sloc": [
+          {
+            "file": "saatana-crypto-lemmas.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 186828,
+              "time": 2.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto-lemmas.ads",
+      "check_line": 61,
+      "check_col": 19,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.09999993443489E-01
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto-lemmas.ads",
+      "line": 67,
+      "col": 19,
+      "rule": "VC_ASSERT",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.Lemmas",
+        "sloc": [
+          {
+            "file": "saatana-crypto-lemmas.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 71137,
+              "time": 1.30000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto-lemmas.ads",
+      "check_line": 67,
+      "check_col": 19,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.29999995231628E-01
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto-lemmas.ads",
+      "line": 72,
+      "col": 19,
+      "rule": "VC_ASSERT",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.Lemmas",
+        "sloc": [
+          {
+            "file": "saatana-crypto-lemmas.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 56667,
+              "time": 8.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto-lemmas.ads",
+      "check_line": 72,
+      "check_col": 19,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 7.99999982118607E-02
+        }
+      }
+    }
+  ],
+  "assumptions": [
+  ],
+  "timings": {
+    "gnatwhy3.transformations.inline_trivial": 1.85569003224373E-01,
+    "codepeer results": 2.76000006124377E-04,
+    "init_why_sections": 9.64000006206334E-04,
+    "gnatwhy3.transformations.detect_polymorphism": 2.10099993273616E-03,
+    "globals/properties (advanced)": 1.01100001484156E-03,
+    "gnatwhy3.transformations.eliminate_literal": 1.26879997551441E-02,
+    "gnatwhy3.run_vcs": 1.46568000316620E-01,
+    "gnatwhy3.transformations.eliminate_algebraic_if_poly": 1.11729996278882E-02,
+    "flow analysis": 2.13499995879829E-03,
+    "gnatwhy3.transformations.simplify_formula": 1.66389998048544E-02,
+    "marking": 8.30200035125017E-03,
+    "translation of standard": 6.81699998676777E-03,
+    "gnatwhy3.register_vcs": 2.31249004602432E-01,
+    "gnatwhy3.transformations.eliminate_epsilon": 1.30960000678897E-02,
+    "globals (basic)": 6.76999974530190E-04,
+    "gnatwhy3.schedule_vcs": 9.90600045770407E-03,
+    "gnatwhy3.save_session": 4.80550006031990E-02,
+    "gnatwhy3.transformations.eliminate_inductive": 6.83300010859966E-03,
+    "gnatwhy3.transformations.encoding_smt_if_poly": 1.89999991562217E-05,
+    "gnatwhy3.transformations.eliminate_builtin": 1.32879996672273E-02,
+    "gnatwhy3.transformations.discriminate_if_poly": 5.40000000910368E-05,
+    "gnatwhy3.init": 7.85480022430420E-01,
+    "gnatwhy3.transformations.introduce_premises": 3.11350002884865E-02
+  }
+}
