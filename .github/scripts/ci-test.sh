@@ -19,9 +19,9 @@ gprinstall -v -p -P si_units/si_units_lib.gpr
 # debug, list what's available
 gprinstall --list --stat
 
-# Not a real test.
-# Run on itself. There's no .spark files, so no output.
-./obj/run_spat -P spat.gpr
-
 # Show help output.
 ./obj/run_spat -h
+
+# Run regression tests against templates
+cd test
+./run_test.sh
