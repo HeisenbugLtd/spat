@@ -16,7 +16,7 @@ rm -rf $REPO_DIR
 # Prepare test repository
 git clone $TEST_PROJECT $REPO_DIR
 cd $REPO_DIR
-git checkout -d $TEST_VERSION
+git checkout $TEST_VERSION
 cd ..
 gnatprove --steps=1 -P $REPO_DIR/saatana.gpr
 
