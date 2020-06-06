@@ -15,7 +15,7 @@ run_check () {
   for SPAT_OPTIONS in "-s -l -d -ca" "-s -l -d -ct"; do
     ../obj/run_spat -s -l -d -ct -P "$1/$2" > "spat.$1.$SPAT_OPTIONS.out"
     # Show template differences (FIXME: 'diff' might not be installed)
-    diff -u "spat.$1.$SPAT_OPTIONS.template" "spat.$1.$SPAT_OPTIONS.out" | tee -a test.diff
+    (diff -u "spat.$1.$SPAT_OPTIONS.template" "spat.$1.$SPAT_OPTIONS.ut") >> test.diff || RESULT=2
   done
 }
 
@@ -26,15 +26,21 @@ run_check () {
 # -ca sort alphabetically
 # -ct sort by time
 
-run_check ("test-saatana", "saatana.gpr")
-run_check ("test-sparknacl", "src/sparknacl.gpr")
+RESULT=0
 
-if [ -s test.diff ]; then
-  echo "Test failed, there are differences."
-  RESULT=1
+run_check "test-saatana" "saatana.gpr"
+run_check "test-sparknacl" "src/sparknacl.gpr"
+
+if [ $RESULT -eq 0 ]; then
+  if [ -s test.diff ]; then
+    echo "Test failed, there are differences."
+    RESULT=1
+  else
+    echo "Test succeeded."
+    RESULT=0
+  fi
 else
-  echo "Test succeeded."
-  RESULT=0
+  echo "One or more diffs failed."
 fi
 
 # Remove temp files
