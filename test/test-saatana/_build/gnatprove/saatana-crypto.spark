@@ -1,0 +1,2641 @@
+{
+  "spark": [
+    {
+      "name": "Saatana.Crypto",
+      "sloc": [
+        {
+          "file": "saatana-crypto.ads",
+          "line": 20
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "Saatana.Crypto.To_Unsigned",
+      "sloc": [
+        {
+          "file": "saatana-crypto.ads",
+          "line": 41
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "Saatana.Crypto.To_Stream",
+      "sloc": [
+        {
+          "file": "saatana-crypto.ads",
+          "line": 55
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "Saatana.Crypto.Oadd",
+      "sloc": [
+        {
+          "file": "saatana-crypto.ads",
+          "line": 71
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "Saatana.Crypto.Oadd.Add_Carry",
+      "sloc": [
+        {
+          "file": "saatana-crypto.adb",
+          "line": 18
+        }
+      ],
+      "spark": "all"
+    }
+  ],
+  "flow": [
+    {
+      "file": "saatana-crypto.adb",
+      "line": 22,
+      "col": 9,
+      "rule": "DEPENDS_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.Oadd.Add_Carry",
+        "sloc": [
+          {
+            "file": "saatana-crypto.adb",
+            "line": 18
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 42,
+      "col": 6,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Unsigned",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 41
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 43,
+      "col": 6,
+      "rule": "DEPENDS_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Unsigned",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 41
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 73,
+      "col": 6,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.Oadd",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 71
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 74,
+      "col": 6,
+      "rule": "DEPENDS_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.Oadd",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 71
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 56,
+      "col": 6,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 57,
+      "col": 6,
+      "rule": "DEPENDS_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    }
+  ],
+  "session_map": {
+    " 1": "/home/jellix/projects/spat/test/test-saatana/_build/gnatprove/ada___saatana__crypto__Oadd__add_carry",
+    " 2": "/home/jellix/projects/spat/test/test-saatana/_build/gnatprove/ada___saatana__crypto__Oadd",
+    " 3": "/home/jellix/projects/spat/test/test-saatana/_build/gnatprove/ada___saatana__crypto__to_unsigned",
+    " 4": "/home/jellix/projects/spat/test/test-saatana/_build/gnatprove/ada___saatana__crypto__to_stream"
+  },
+  "proof": [
+    {
+      "file": "saatana-crypto.adb",
+      "line": 27,
+      "col": 20,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.Oadd.Add_Carry",
+        "sloc": [
+          {
+            "file": "saatana-crypto.adb",
+            "line": 18
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 9190,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 10020,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1336,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.adb",
+      "check_line": 27,
+      "check_col": 20,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 3,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.adb",
+      "line": 48,
+      "col": 63,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.Oadd",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 71
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 21182,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.adb",
+      "check_line": 48,
+      "check_col": 63,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.99999991059303E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.adb",
+      "line": 48,
+      "col": 78,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.Oadd",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 71
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 23276,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.adb",
+      "check_line": 48,
+      "check_col": 78,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.99999991059303E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.adb",
+      "line": 48,
+      "col": 78,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.Oadd",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 71
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 24255,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.adb",
+      "check_line": 48,
+      "check_col": 78,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.adb",
+      "line": 50,
+      "col": 42,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.Oadd",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 71
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 2022,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 2022,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.adb",
+      "check_line": 50,
+      "check_col": 42,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.adb",
+      "line": 50,
+      "col": 42,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.Oadd",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 71
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 2147,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 2147,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.adb",
+      "check_line": 50,
+      "check_col": 42,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.adb",
+      "line": 51,
+      "col": 41,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.Oadd",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 71
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 23592,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 12118,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.adb",
+      "check_line": 51,
+      "check_col": 41,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 3.99999991059303E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 97,
+      "col": 61,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Unsigned",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 41
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 2455,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 97,
+      "check_col": 61,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 97,
+      "col": 61,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Unsigned",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 41
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 2377,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1835,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 97,
+      "check_col": 61,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 98,
+      "col": 61,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Unsigned",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 41
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 16193,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 98,
+      "check_col": 61,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.99999991059303E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 98,
+      "col": 61,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Unsigned",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 41
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 16090,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1702,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 98,
+      "check_col": 61,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 3.99999991059303E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 99,
+      "col": 61,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Unsigned",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 41
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 15186,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 99,
+      "check_col": 61,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.99999991059303E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 99,
+      "col": 61,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Unsigned",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 41
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 15083,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1567,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 99,
+      "check_col": 61,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 3.99999991059303E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 100,
+      "col": 61,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Unsigned",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 41
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 14569,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 100,
+      "check_col": 61,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.99999991059303E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 100,
+      "col": 61,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Unsigned",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 41
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 14464,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1424,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 100,
+      "check_col": 61,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 44,
+      "col": 99,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Unsigned",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 41
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 3095,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 2325,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 44,
+      "check_col": 99,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 45,
+      "col": 106,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Unsigned",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 41
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 3591,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 45,
+      "check_col": 106,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 45,
+      "col": 106,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Unsigned",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 41
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 3083,
+              "time": 2.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 2213,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 45,
+      "check_col": 106,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 46,
+      "col": 106,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Unsigned",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 41
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 3430,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 46,
+      "check_col": 106,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 46,
+      "col": 106,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Unsigned",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 41
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 2934,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 2086,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 46,
+      "check_col": 106,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 47,
+      "col": 106,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Unsigned",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 41
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 3281,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 47,
+      "check_col": 106,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 47,
+      "col": 106,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Unsigned",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 41
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 2797,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1971,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 47,
+      "check_col": 106,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 44,
+      "col": 17,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Unsigned",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 41
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 72790,
+              "time": 8.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 44,
+      "check_col": 17,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 7.99999982118607E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 85,
+      "col": 26,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1393,
+              "time": 2.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 85,
+      "check_col": 26,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.99999995529652E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 85,
+      "col": 36,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1393,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 85,
+      "check_col": 36,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 85,
+      "col": 36,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1437,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1413,
+              "time": 2.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 85,
+      "check_col": 36,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 86,
+      "col": 26,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1393,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 86,
+      "check_col": 26,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 86,
+      "col": 36,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1393,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 86,
+      "check_col": 36,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 86,
+      "col": 36,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1461,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1429,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 86,
+      "check_col": 36,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 87,
+      "col": 26,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1393,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 87,
+      "check_col": 26,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 87,
+      "col": 36,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1393,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 87,
+      "check_col": 36,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 87,
+      "col": 36,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1461,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1429,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 87,
+      "check_col": 36,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 88,
+      "col": 26,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1393,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 88,
+      "check_col": 26,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 88,
+      "col": 36,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1393,
+              "time": 2.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 88,
+      "check_col": 36,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.99999995529652E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 88,
+      "col": 36,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1447,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1425,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 88,
+      "check_col": 36,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 59,
+      "col": 73,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1631,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 59,
+      "check_col": 73,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 59,
+      "col": 73,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1671,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1647,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 59,
+      "check_col": 73,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 60,
+      "col": 73,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1631,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 60,
+      "check_col": 73,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 60,
+      "col": 73,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1679,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1647,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 60,
+      "check_col": 73,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 61,
+      "col": 73,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1631,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 61,
+      "check_col": 73,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 61,
+      "col": 73,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1679,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1647,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 61,
+      "check_col": 73,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 62,
+      "col": 73,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1631,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 62,
+      "check_col": 73,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 62,
+      "col": 73,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1669,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 1647,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 62,
+      "check_col": 73,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "saatana-crypto.ads",
+      "line": 58,
+      "col": 17,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "Saatana.Crypto.To_Stream",
+        "sloc": [
+          {
+            "file": "saatana-crypto.ads",
+            "line": 55
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 22229,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 16476,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "Z3": {
+              "result": "Valid",
+              "steps": 17119,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "saatana-crypto.ads",
+      "check_line": 58,
+      "check_col": 17,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "Z3": {
+          "count": 3,
+          "max_steps": 1,
+          "max_time": 3.99999991059303E-02
+        }
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Saatana.Crypto.Oadd.Add_Carry",
+            "sloc": [
+              {
+                "file": "saatana-crypto.adb",
+                "line": 18
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "Saatana.Crypto.Oadd",
+          "sloc": [
+            {
+              "file": "saatana-crypto.ads",
+              "line": 71
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "Saatana.Crypto.Oadd.Add_Carry",
+            "sloc": [
+              {
+                "file": "saatana-crypto.adb",
+                "line": 18
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Saatana.Crypto.Oadd.Add_Carry",
+            "sloc": [
+              {
+                "file": "saatana-crypto.adb",
+                "line": 18
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Saatana.Crypto.Oadd.Add_Carry",
+            "sloc": [
+              {
+                "file": "saatana-crypto.adb",
+                "line": 18
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "Saatana.Crypto.Oadd",
+          "sloc": [
+            {
+              "file": "saatana-crypto.ads",
+              "line": 71
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 125
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 125
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "Saatana.Crypto.To_Stream",
+          "sloc": [
+            {
+              "file": "saatana-crypto.ads",
+              "line": 55
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "Saatana.Crypto.Oadd.Add_Carry",
+          "sloc": [
+            {
+              "file": "saatana-crypto.adb",
+              "line": 18
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 125
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "Saatana.Crypto.To_Stream",
+          "sloc": [
+            {
+              "file": "saatana-crypto.ads",
+              "line": 55
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 125
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 125
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "Saatana.Crypto.To_Stream",
+          "sloc": [
+            {
+              "file": "saatana-crypto.ads",
+              "line": 55
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "Saatana.Crypto.Oadd.Add_Carry",
+          "sloc": [
+            {
+              "file": "saatana-crypto.adb",
+              "line": 18
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "Saatana.Crypto.Oadd.Add_Carry",
+          "sloc": [
+            {
+              "file": "saatana-crypto.adb",
+              "line": 18
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Shift_Left",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 121
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Interfaces.Shift_Left",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 121
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "Saatana.Crypto.To_Unsigned",
+          "sloc": [
+            {
+              "file": "saatana-crypto.ads",
+              "line": 41
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Shift_Left",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 121
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "Saatana.Crypto.To_Unsigned",
+          "sloc": [
+            {
+              "file": "saatana-crypto.ads",
+              "line": 41
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Shift_Left",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 121
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Interfaces.Shift_Left",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 121
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "Saatana.Crypto.To_Unsigned",
+          "sloc": [
+            {
+              "file": "saatana-crypto.ads",
+              "line": 41
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "Saatana.Crypto",
+          "sloc": [
+            {
+              "file": "saatana-crypto.ads",
+              "line": 20
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "timings": {
+    "gnatwhy3.transformations.inline_trivial": 1.35208702087402E+00,
+    "codepeer results": 6.17999990936369E-04,
+    "init_why_sections": 9.44000028539449E-04,
+    "gnatwhy3.transformations.detect_polymorphism": 7.33300019055605E-03,
+    "globals/properties (advanced)": 8.66000016685575E-04,
+    "gnatwhy3.transformations.eliminate_literal": 3.72299998998642E-02,
+    "gnatwhy3.run_vcs": 5.08179008960724E-01,
+    "gnatwhy3.transformations.eliminate_algebraic_if_poly": 3.05879991501570E-02,
+    "flow analysis": 9.02799982577562E-03,
+    "gnatwhy3.transformations.simplify_formula": 4.49390001595020E-02,
+    "marking": 8.66699963808060E-03,
+    "translation of standard": 6.42200000584126E-03,
+    "gnatwhy3.register_vcs": 2.76993006467819E-01,
+    "gnatwhy3.transformations.eliminate_epsilon": 3.42679992318153E-02,
+    "globals (basic)": 5.61999971978366E-04,
+    "gnatwhy3.schedule_vcs": 1.63199994713068E-02,
+    "gnatwhy3.save_session": 5.01959994435310E-02,
+    "gnatwhy3.transformations.eliminate_inductive": 2.78580002486706E-02,
+    "gnatwhy3.transformations.encoding_smt_if_poly": 2.13999999687076E-04,
+    "gnatwhy3.transformations.eliminate_builtin": 4.05119992792606E-02,
+    "gnatwhy3.transformations.discriminate_if_poly": 4.93999978061765E-04,
+    "gnatwhy3.init": 1.94520401954651E+00,
+    "gnatwhy3.transformations.introduce_premises": 2.80690997838974E-01
+  }
+}

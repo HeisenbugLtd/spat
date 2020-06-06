@@ -1,0 +1,46 @@
+project Saatana is
+
+   for Source_Dirs use ("src/phelix", "src", "tests/phelix", "tests", "lemmas");
+   for Main use ("test_phelix_api", "test_phelix");
+   for Object_Dir use "_build";
+
+   package Pretty_Printer is
+      for Default_Switches ("ada") use ("");
+   end Pretty_Printer;
+
+   package Builder is
+      for Default_Switches ("ada") use ("-s", "-k", "-j0", "-g");
+      for Global_Configuration_Pragmas use "rules/restrictions.ads";
+   end Builder;
+
+   package Compiler is
+      for Default_Switches ("ada") use ("-gnatwa", "-gnatyaAbcdefhiklM128noOprsStux3", "-gnato", "-fstack-check", "-gnat12", "-g", "-O2");
+   end Compiler;
+
+   package Binder is
+      for Default_Switches ("ada") use ("-E", "-r");
+   end Binder;
+
+   package Linker is
+      for Default_Switches ("ada") use ("-g");
+   end Linker;
+
+   package Prove is
+      Proof_Switches := ("--mode=all", "--proof=progressive", "--steps=131072", "-j0");
+      CVC4_First     := ("--prover=cvc4,z3,altergo") & Proof_Switches;
+      Z3_First       := ("--prover=z3,cvc4,altergo") & Proof_Switches;
+
+      --  Z3 seems significantly faster in proving certain VCs (see list below), so run it first.
+      for Switches use Z3_First;
+
+      --  Alas, gnatprove seemingly cannot handle per-file switches.
+      --  for Switches ("saatana-crypto-phelix.adb") use Z3_First;
+      --  for Switches ("saatana-crypto-phelix.ads") use Z3_First;
+      --  for Switches ("saatana-crypto-lemmas.ads") use Z3_First;
+   end Prove;
+
+   package Check is
+      for Default_Switches ("ada") use ("-rules", "-from=rules/coding-standards.txt");
+   end Check;
+
+end Saatana;

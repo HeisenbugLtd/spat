@@ -5,7 +5,7 @@ project SPAT is
 
    for Source_Dirs use ("src", "test");
    for Object_Dir use "obj";
-   for Main use ("main_spat_test", "run_spat");
+   for Main use ("run_spat");
 
    package Compiler is
       for Switches ("ada") use ("-gnatwa", "-gnatyaAbcdefhiklM128noOprsStux3", "-gnato", "-fstack-check", "-gnat12", "-g", "-O2");

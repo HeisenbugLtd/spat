@@ -1,0 +1,31 @@
+{
+  "spark": [
+    {
+      "name": "Saatana",
+      "sloc": [
+        {
+          "file": "saatana.ads",
+          "line": 18
+        }
+      ],
+      "spark": "all"
+    }
+  ],
+  "flow": [
+  ],
+  "session_map": {
+  },
+  "proof": [
+  ],
+  "assumptions": [
+  ],
+  "timings": {
+    "codepeer results": 9.00000031833770E-06,
+    "init_why_sections": 1.00399996154010E-03,
+    "globals/properties (advanced)": 1.88000005437061E-04,
+    "flow analysis": 4.64000011561438E-04,
+    "marking": 1.48999999510124E-04,
+    "translation of standard": 6.69000018388033E-03,
+    "globals (basic)": 2.13999999687076E-04
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "spark": [
+    {
+      "name": "SPARKNaCl.Debug",
+      "sloc": [
+        {
+          "file": "sparknacl-debug.ads",
+          "line": 1
+        }
+      ],
+      "spark": "spec"
+    },
+    {
+      "name": "SPARKNaCl.Debug.DH",
+      "sloc": [
+        {
+          "file": "sparknacl-debug.ads",
+          "line": 4
+        }
+      ],
+      "spark": "spec"
+    },
+    {
+      "name": "SPARKNaCl.Debug.DH",
+      "sloc": [
+        {
+          "file": "sparknacl-debug.ads",
+          "line": 5
+        }
+      ],
+      "spark": "spec"
+    },
+    {
+      "name": "SPARKNaCl.Debug.DH",
+      "sloc": [
+        {
+          "file": "sparknacl-debug.ads",
+          "line": 7
+        }
+      ],
+      "spark": "spec"
+    },
+    {
+      "name": "SPARKNaCl.Debug.DHH",
+      "sloc": [
+        {
+          "file": "sparknacl-debug.ads",
+          "line": 9
+        }
+      ],
+      "spark": "spec"
+    }
+  ],
+  "flow": [
+  ],
+  "session_map": {
+  },
+  "proof": [
+  ],
+  "assumptions": [
+  ],
+  "timings": {
+    "codepeer results": 9.99999974737875E-06,
+    "init_why_sections": 2.89890002459288E-02,
+    "globals/properties (advanced)": 8.83760005235672E-02,
+    "flow analysis": 4.68999991426244E-04,
+    "marking": 5.53440004587173E-02,
+    "translation of standard": 6.04190006852150E-02,
+    "globals (basic)": 6.75629973411560E-02
+  }
+}
