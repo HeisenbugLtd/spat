@@ -1,0 +1,3257 @@
+{
+  "spark": [
+    {
+      "name": "SPARKNaCl.Cryptobox",
+      "sloc": [
+        {
+          "file": "sparknacl-cryptobox.ads",
+          "line": 3
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Cryptobox.Secret_Key",
+      "sloc": [
+        {
+          "file": "sparknacl-cryptobox.ads",
+          "line": 12
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Cryptobox.Public_Key",
+      "sloc": [
+        {
+          "file": "sparknacl-cryptobox.ads",
+          "line": 13
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Cryptobox.Keypair",
+      "sloc": [
+        {
+          "file": "sparknacl-cryptobox.ads",
+          "line": 19
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Cryptobox.Construct",
+      "sloc": [
+        {
+          "file": "sparknacl-cryptobox.ads",
+          "line": 23
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Cryptobox.Construct",
+      "sloc": [
+        {
+          "file": "sparknacl-cryptobox.ads",
+          "line": 26
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Cryptobox.Serialize",
+      "sloc": [
+        {
+          "file": "sparknacl-cryptobox.ads",
+          "line": 29
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Cryptobox.Serialize",
+      "sloc": [
+        {
+          "file": "sparknacl-cryptobox.ads",
+          "line": 32
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Cryptobox.Sanitize",
+      "sloc": [
+        {
+          "file": "sparknacl-cryptobox.ads",
+          "line": 36
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Cryptobox.Sanitize",
+      "sloc": [
+        {
+          "file": "sparknacl-cryptobox.ads",
+          "line": 39
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Cryptobox.BeforeNM",
+      "sloc": [
+        {
+          "file": "sparknacl-cryptobox.ads",
+          "line": 43
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Cryptobox.AfterNM",
+      "sloc": [
+        {
+          "file": "sparknacl-cryptobox.ads",
+          "line": 50
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Cryptobox.Open_AfterNM",
+      "sloc": [
+        {
+          "file": "sparknacl-cryptobox.ads",
+          "line": 64
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Cryptobox.Create",
+      "sloc": [
+        {
+          "file": "sparknacl-cryptobox.ads",
+          "line": 79
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Cryptobox.Open",
+      "sloc": [
+        {
+          "file": "sparknacl-cryptobox.ads",
+          "line": 95
+        }
+      ],
+      "spark": "all"
+    }
+  ],
+  "flow": [
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 30,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Serialize",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 29
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 0,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 24,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Construct",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 1,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 39,
+      "col": 24,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Sanitize",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 39
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 2,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 40,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Sanitize",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 39
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 3,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 33,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Serialize",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 32
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 4,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.adb",
+      "line": 17,
+      "col": 7,
+      "suppressed": "",
+      "rule": "INEFFECTIVE",
+      "severity": "warning",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Keypair",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 19
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 19,
+      "col": 23,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Keypair",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 19
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 5,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 20,
+      "col": 23,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Keypair",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 19
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 6,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 21,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Keypair",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 19
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 7,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 27,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Construct",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 26
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 8,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 50,
+      "col": 23,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.AfterNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 50
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 9,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 51,
+      "col": 23,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.AfterNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 50
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 10,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 55,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.AfterNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 50
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 11,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 65,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open_AfterNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 64
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 12,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 66,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open_AfterNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 64
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 13,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 70,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open_AfterNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 64
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 14,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.adb",
+      "line": 108,
+      "col": 11,
+      "suppressed": "",
+      "rule": "INEFFECTIVE",
+      "severity": "warning",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Create",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 79
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 80,
+      "col": 22,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Create",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 79
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 15,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.adb",
+      "line": 104,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Create",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 79
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 16,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 79,
+      "col": 22,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Create",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 79
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 17,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 85,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Create",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 79
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 18,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.adb",
+      "line": 71,
+      "col": 7,
+      "suppressed": "",
+      "rule": "INEFFECTIVE",
+      "severity": "warning",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.BeforeNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 43
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.adb",
+      "line": 72,
+      "col": 7,
+      "suppressed": "",
+      "rule": "INEFFECTIVE",
+      "severity": "warning",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.BeforeNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 43
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.adb",
+      "line": 61,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.BeforeNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 43
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 19,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.adb",
+      "line": 62,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.BeforeNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 43
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 20,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 43,
+      "col": 24,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.BeforeNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 43
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 21,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 46,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.BeforeNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 43
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 22,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 36,
+      "col": 24,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Sanitize",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 36
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 23,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 37,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Sanitize",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 36
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 24,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.adb",
+      "line": 123,
+      "col": 11,
+      "suppressed": "",
+      "rule": "INEFFECTIVE",
+      "severity": "warning",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 95
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 95,
+      "col": 20,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 95
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 25,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 96,
+      "col": 20,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 95
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 26,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.adb",
+      "line": 119,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 95
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 27,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 101,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 95
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 28,
+      "how_proved": "flow"
+    }
+  ],
+  "session_map": {
+    " 1": "/home/jellix/projects/spat/test/test-sparknacl/src/gnatprove/ada___sparknacl__cryptobox__afternm",
+    " 2": "/home/jellix/projects/spat/test/test-sparknacl/src/gnatprove/ada___sparknacl__cryptobox__open_afternm",
+    " 3": "/home/jellix/projects/spat/test/test-sparknacl/src/gnatprove/ada___sparknacl__cryptobox__create",
+    " 4": "/home/jellix/projects/spat/test/test-sparknacl/src/gnatprove/ada___sparknacl__cryptobox__open"
+  },
+  "proof": [
+    {
+      "file": "sparknacl-cryptobox.adb",
+      "line": 83,
+      "col": 16,
+      "rule": "VC_PRECONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.AfterNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 50
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.adb",
+      "check_line": 83,
+      "check_col": 16,
+      "msg_id": 29,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.99999991059303E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 61,
+      "col": 28,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.AfterNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 50
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 14,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 61,
+      "check_col": 28,
+      "msg_id": 30,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 61,
+      "col": 21,
+      "rule": "VC_PRECONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.AfterNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 50
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 61,
+      "check_col": 21,
+      "msg_id": 31,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.99999991059303E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 60,
+      "col": 28,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.AfterNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 50
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 14,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 60,
+      "check_col": 28,
+      "msg_id": 32,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 60,
+      "col": 21,
+      "rule": "VC_PRECONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.AfterNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 50
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 60,
+      "check_col": 21,
+      "msg_id": 33,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 61,
+      "col": 21,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.AfterNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 50
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 61,
+      "check_col": 21,
+      "msg_id": 34,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.adb",
+      "line": 94,
+      "col": 16,
+      "rule": "VC_PRECONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open_AfterNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 64
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.adb",
+      "check_line": 94,
+      "check_col": 16,
+      "msg_id": 35,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.99999991059303E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 76,
+      "col": 28,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open_AfterNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 64
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 14,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 76,
+      "check_col": 28,
+      "msg_id": 36,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 76,
+      "col": 21,
+      "rule": "VC_PRECONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open_AfterNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 64
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 76,
+      "check_col": 21,
+      "msg_id": 37,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 75,
+      "col": 28,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open_AfterNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 64
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 14,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 75,
+      "check_col": 28,
+      "msg_id": 38,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 75,
+      "col": 21,
+      "rule": "VC_PRECONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open_AfterNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 64
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 75,
+      "check_col": 21,
+      "msg_id": 39,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 76,
+      "col": 21,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open_AfterNM",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 64
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 76,
+      "check_col": 21,
+      "msg_id": 40,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.adb",
+      "line": 107,
+      "col": 7,
+      "rule": "VC_PRECONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Create",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 79
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.adb",
+      "check_line": 107,
+      "check_col": 7,
+      "msg_id": 41,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 91,
+      "col": 28,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Create",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 79
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 14,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 91,
+      "check_col": 28,
+      "msg_id": 42,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 91,
+      "col": 21,
+      "rule": "VC_PRECONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Create",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 79
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 91,
+      "check_col": 21,
+      "msg_id": 43,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.99999991059303E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 90,
+      "col": 28,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Create",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 79
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 14,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 90,
+      "check_col": 28,
+      "msg_id": 44,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 90,
+      "col": 21,
+      "rule": "VC_PRECONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Create",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 79
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 90,
+      "check_col": 21,
+      "msg_id": 45,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.99999991059303E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 91,
+      "col": 21,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Create",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 79
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 91,
+      "check_col": 21,
+      "msg_id": 46,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.adb",
+      "line": 122,
+      "col": 7,
+      "rule": "VC_PRECONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 95
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.adb",
+      "check_line": 122,
+      "check_col": 7,
+      "msg_id": 47,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.99999991059303E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 107,
+      "col": 28,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 95
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 14,
+              "time": 7.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 107,
+      "check_col": 28,
+      "msg_id": 48,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 7.00000002980232E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 107,
+      "col": 21,
+      "rule": "VC_PRECONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 95
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 4.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 107,
+      "check_col": 21,
+      "msg_id": 49,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.99999991059303E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 106,
+      "col": 28,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 95
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 14,
+              "time": 7.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 106,
+      "check_col": 28,
+      "msg_id": 50,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 7.00000002980232E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 106,
+      "col": 21,
+      "rule": "VC_PRECONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 95
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 106,
+      "check_col": 21,
+      "msg_id": 51,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-cryptobox.ads",
+      "line": 107,
+      "col": 21,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Cryptobox.Open",
+        "sloc": [
+          {
+            "file": "sparknacl-cryptobox.ads",
+            "line": 95
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 7.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-cryptobox.ads",
+      "check_line": 107,
+      "check_col": 21,
+      "msg_id": 52,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 7.00000002980232E-02
+        }
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.AfterNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 50
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Core.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl-core.ads",
+                "line": 18
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.AfterNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 50
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.BeforeNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 43
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Core.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl-core.ads",
+                "line": 18
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.AfterNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 50
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.BeforeNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 43
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Create",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 79
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Serialize",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 29
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Serialize",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 29
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Core.Construct",
+            "sloc": [
+              {
+                "file": "sparknacl-core.ads",
+                "line": 8
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Core.Construct",
+            "sloc": [
+              {
+                "file": "sparknacl-core.ads",
+                "line": 11
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Core.HSalsa20",
+            "sloc": [
+              {
+                "file": "sparknacl-core.ads",
+                "line": 31
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 117
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Scalar.Mult",
+            "sloc": [
+              {
+                "file": "sparknacl-scalar.ads",
+                "line": 8
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Core.Construct",
+            "sloc": [
+              {
+                "file": "sparknacl-core.ads",
+                "line": 8
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Core.Construct",
+            "sloc": [
+              {
+                "file": "sparknacl-core.ads",
+                "line": 11
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Core.HSalsa20",
+            "sloc": [
+              {
+                "file": "sparknacl-core.ads",
+                "line": 31
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 117
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Scalar.Mult",
+            "sloc": [
+              {
+                "file": "sparknacl-scalar.ads",
+                "line": 8
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.BeforeNM",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 43
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Construct",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 26
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Construct",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 26
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Secret_Key",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 12
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "SPARKNaCl.Secretbox.Create",
+            "sloc": [
+              {
+                "file": "sparknacl-secretbox.ads",
+                "line": 12
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Secretbox.Create",
+            "sloc": [
+              {
+                "file": "sparknacl-secretbox.ads",
+                "line": 12
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Secretbox.Create",
+            "sloc": [
+              {
+                "file": "sparknacl-secretbox.ads",
+                "line": 12
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.AfterNM",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 50
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "SPARKNaCl.Secretbox.Create",
+            "sloc": [
+              {
+                "file": "sparknacl-secretbox.ads",
+                "line": 12
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Secretbox.Create",
+            "sloc": [
+              {
+                "file": "sparknacl-secretbox.ads",
+                "line": 12
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Secretbox.Create",
+            "sloc": [
+              {
+                "file": "sparknacl-secretbox.ads",
+                "line": 12
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.AfterNM",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 50
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 117
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 117
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Sanitize",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 39
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Construct",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 23
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Construct",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 23
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "SPARKNaCl.Secretbox.Open",
+            "sloc": [
+              {
+                "file": "sparknacl-secretbox.ads",
+                "line": 26
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Secretbox.Open",
+            "sloc": [
+              {
+                "file": "sparknacl-secretbox.ads",
+                "line": 26
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Secretbox.Open",
+            "sloc": [
+              {
+                "file": "sparknacl-secretbox.ads",
+                "line": 26
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Open_AfterNM",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 64
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 117
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 117
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Sanitize",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 36
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "SPARKNaCl.Secretbox.Open",
+            "sloc": [
+              {
+                "file": "sparknacl-secretbox.ads",
+                "line": 26
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Secretbox.Open",
+            "sloc": [
+              {
+                "file": "sparknacl-secretbox.ads",
+                "line": 26
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Secretbox.Open",
+            "sloc": [
+              {
+                "file": "sparknacl-secretbox.ads",
+                "line": 26
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Open_AfterNM",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 64
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.Open_AfterNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 64
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Core.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl-core.ads",
+                "line": 18
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.BeforeNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 43
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.Open_AfterNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 64
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Core.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl-core.ads",
+                "line": 18
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.BeforeNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 43
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.Open_AfterNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 64
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Open",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 95
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.Open_AfterNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 64
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Core.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl-core.ads",
+                "line": 18
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.BeforeNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 43
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.Open_AfterNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 64
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Core.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl-core.ads",
+                "line": 18
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.BeforeNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 43
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.Open_AfterNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 64
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Open",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 95
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Serialize",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 32
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 117
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Scalar.Mult_Base",
+            "sloc": [
+              {
+                "file": "sparknacl-scalar.ads",
+                "line": 12
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Utils.Random_Bytes_32",
+            "sloc": [
+              {
+                "file": "sparknacl-utils.ads",
+                "line": 42
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 117
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Scalar.Mult_Base",
+            "sloc": [
+              {
+                "file": "sparknacl-scalar.ads",
+                "line": 12
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Utils.Random_Bytes_32",
+            "sloc": [
+              {
+                "file": "sparknacl-utils.ads",
+                "line": 42
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Keypair",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 19
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Serialize",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 32
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Public_Key",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 13
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.AfterNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 50
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Core.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl-core.ads",
+                "line": 18
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.AfterNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 50
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.BeforeNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 43
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Core.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl-core.ads",
+                "line": 18
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.AfterNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 50
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Cryptobox.BeforeNM",
+            "sloc": [
+              {
+                "file": "sparknacl-cryptobox.ads",
+                "line": 43
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Equal",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 91
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "SPARKNaCl.Cryptobox.Create",
+          "sloc": [
+            {
+              "file": "sparknacl-cryptobox.ads",
+              "line": 79
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "timings": {
+    "gnatwhy3.transformations.inline_trivial": 3.09534996747971E-01,
+    "codepeer results": 4.41999989561737E-04,
+    "init_why_sections": 1.22800003737211E-03,
+    "gnatwhy3.transformations.detect_polymorphism": 5.67799992859364E-03,
+    "globals/properties (advanced)": 3.54630015790462E-02,
+    "gnatwhy3.transformations.eliminate_literal": 3.90710011124611E-02,
+    "gnatwhy3.run_vcs": 2.82752007246017E-01,
+    "gnatwhy3.transformations.eliminate_algebraic_if_poly": 3.15390005707741E-02,
+    "gnatwhy3.transformations.eliminate_definition_if_poly": 2.65909992158413E-02,
+    "flow analysis": 6.92190006375313E-02,
+    "gnatwhy3.transformations.simplify_formula": 4.17790003120899E-02,
+    "marking": 2.13419999927282E-02,
+    "translation of standard": 2.64309998601675E-02,
+    "gnatwhy3.register_vcs": 1.65068998932838E-01,
+    "gnatwhy3.transformations.eliminate_epsilon": 3.57500016689301E-02,
+    "globals (basic)": 2.44050007313490E-02,
+    "gnatwhy3.schedule_vcs": 3.11869997531176E-02,
+    "gnatwhy3.transformations.prepare_for_counterexmp": 1.51999993249774E-04,
+    "gnatwhy3.save_session": 5.44850006699562E-02,
+    "gnatwhy3.transformations.eliminate_inductive": 2.62030009180307E-02,
+    "gnatwhy3.transformations.encoding_smt_if_poly": 6.90000015310943E-05,
+    "gnatwhy3.transformations.eliminate_unused_hypo": 1.80263996124268E-01,
+    "gnatwhy3.transformations.eliminate_builtin": 3.76220010221004E-02,
+    "gnatwhy3.transformations.discriminate_if_poly": 9.20000020414591E-05,
+    "gnatwhy3.init": 2.58110904693604E+00
+  }
+}

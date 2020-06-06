@@ -1,43 +1,43 @@
 #!/usr/bin/env bash
 
+#
 # Regression tests
+#
+# Compare the results of different projects and spat runs with stored templates.
+#
 
-# Check out a known project, run gnatprove on it, and compare the results of
-# a spat run with stored template.
-
-TEST_PROJECT="https://github.com/HeisenbugLtd/Saatana"
-TEST_VERSION="v2.0.2"
-REPO_DIR="test-saatana"
-
-# Remove possibly leftover temp files and checked out test repository
+# Remove possibly leftover temp files
 rm -f test.diff *.out
-rm -rf $REPO_DIR
 
-# Prepare test repository
-git clone $TEST_PROJECT $REPO_DIR
-cd $REPO_DIR
-git checkout $TEST_VERSION
-cd ..
-gnatprove --steps=1 -P $REPO_DIR/saatana.gpr
+# First argument is the project directory
+# Second argument the project file (.gpr) within that project.
+run_check () {
+  for SPAT_OPTIONS in "-s -l -d -ca" "-s -l -d -ct"; do
+    ../obj/run_spat -s -l -d -ct -P "$1/$2" > "spat.$1.$SPAT_OPTIONS.out"
+    # Show template differences (FIXME: 'diff' might not be installed)
+    diff -u "spat.$1.$SPAT_OPTIONS.template" "spat.$1.$SPAT_OPTIONS.out" | tee -a test.diff
+  done
+}
 
 # run the freshly built executable on the files and store the result in spat.out
 # -s  for summary
 # -l  for list
 # -d  for details
+# -ca sort alphabetically
 # -ct sort by time
 
-for SPAT_OPTIONS in "-s -l -d -ct" "-s -l -d -ca"; do
-  ../obj/run_spat -s -l -d -ct -P $REPO_DIR/saatana.gpr | sed -f filter.sed > "spat.$SPAT_OPTIONS.out"
-  # Show template differences
-  diff -u "spat.$SPAT_OPTIONS.template" "spat.$SPAT_OPTIONS.out" | tee -a test.diff
-done
+run_check ("test-saatana", "saatana.gpr")
+run_check ("test-sparknacl", "src/sparknacl.gpr")
 
 if [ -s test.diff ]; then
   echo "Test failed, there are differences."
+  RESULT=1
 else
   echo "Test succeeded."
+  RESULT=0
 fi
 
-# Remove temp files and checked out test repository
+# Remove temp files
 rm -f test.diff *.out
-rm -rf $REPO_DIR
+
+exit $RESULT

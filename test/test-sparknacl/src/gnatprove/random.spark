@@ -1,0 +1,41 @@
+{
+  "spark": [
+    {
+      "name": "Random",
+      "sloc": [
+        {
+          "file": "random.ads",
+          "line": 2
+        }
+      ],
+      "spark": "spec"
+    },
+    {
+      "name": "Random.Random_Byte",
+      "sloc": [
+        {
+          "file": "random.ads",
+          "line": 10
+        }
+      ],
+      "spark": "spec"
+    }
+  ],
+  "flow": [
+  ],
+  "session_map": {
+  },
+  "proof": [
+  ],
+  "assumptions": [
+  ],
+  "timings": {
+    "codepeer results": 1.40000001920271E-05,
+    "init_why_sections": 2.90159992873669E-02,
+    "globals/properties (advanced)": 2.56689991801977E-02,
+    "flow analysis": 5.16999978572130E-04,
+    "marking": 7.92760029435158E-02,
+    "translation of standard": 3.00469994544983E-02,
+    "globals (basic)": 5.54450005292892E-02
+  }
+}

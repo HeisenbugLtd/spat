@@ -1,0 +1,2573 @@
+{
+  "spark": [
+    {
+      "name": "SPARKNaCl.Core",
+      "sloc": [
+        {
+          "file": "sparknacl-core.ads",
+          "line": 1
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Core.Salsa20_Key",
+      "sloc": [
+        {
+          "file": "sparknacl-core.ads",
+          "line": 6
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Core.Construct",
+      "sloc": [
+        {
+          "file": "sparknacl-core.ads",
+          "line": 8
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Core.Construct",
+      "sloc": [
+        {
+          "file": "sparknacl-core.ads",
+          "line": 11
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Core.Serialize",
+      "sloc": [
+        {
+          "file": "sparknacl-core.ads",
+          "line": 15
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Core.Sanitize",
+      "sloc": [
+        {
+          "file": "sparknacl-core.ads",
+          "line": 18
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Core.Salsa20",
+      "sloc": [
+        {
+          "file": "sparknacl-core.ads",
+          "line": 25
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Core.HSalsa20",
+      "sloc": [
+        {
+          "file": "sparknacl-core.ads",
+          "line": 31
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Core.ST32",
+      "sloc": [
+        {
+          "file": "sparknacl-core.adb",
+          "line": 14
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Core.LD32",
+      "sloc": [
+        {
+          "file": "sparknacl-core.adb",
+          "line": 18
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Core.Core_Common",
+      "sloc": [
+        {
+          "file": "sparknacl-core.adb",
+          "line": 23
+        }
+      ],
+      "spark": "all"
+    }
+  ],
+  "flow": [
+    {
+      "file": "sparknacl-core.ads",
+      "line": 11,
+      "col": 25,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Construct",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 11
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 0,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.ads",
+      "line": 13,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Construct",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 11
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 1,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.ads",
+      "line": 18,
+      "col": 24,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Sanitize",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 18
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 2,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.ads",
+      "line": 19,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Sanitize",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 18
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 3,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 48,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.LD32",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 18
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 4,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 19,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.LD32",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 18
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 5,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 167,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.HSalsa20",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 31
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 6,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.ads",
+      "line": 31,
+      "col": 24,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.HSalsa20",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 31
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 7,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 167,
+      "col": 10,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.HSalsa20",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 31
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 8,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.ads",
+      "line": 35,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.HSalsa20",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 31
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 9,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 150,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Salsa20",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 25
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 10,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 150,
+      "col": 10,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Salsa20",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 25
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 11,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.ads",
+      "line": 25,
+      "col": 23,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Salsa20",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 25
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 12,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.ads",
+      "line": 29,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Salsa20",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 25
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 13,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.ads",
+      "line": 9,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Construct",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 14,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 14,
+      "col": 20,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.ST32",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 14
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 15,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 16,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.ST32",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 14
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 16,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.ads",
+      "line": 16,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Serialize",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 15
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 17,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 27,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 18,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 28,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 19,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 63,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 20,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 64,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 21,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 29,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 22,
+      "how_proved": "flow"
+    }
+  ],
+  "session_map": {
+    " 1": "/home/jellix/projects/spat/test/test-sparknacl/src/gnatprove/ada___sparknacl__core__salsa20",
+    " 2": "/home/jellix/projects/spat/test/test-sparknacl/src/gnatprove/ada___sparknacl__core__st32",
+    " 3": "/home/jellix/projects/spat/test/test-sparknacl/src/gnatprove/ada___sparknacl__core__hsalsa20",
+    " 4": "/home/jellix/projects/spat/test/test-sparknacl/src/gnatprove/ada___sparknacl__core__core_common"
+  },
+  "proof": [
+    {
+      "file": "sparknacl-core.adb",
+      "line": 158,
+      "col": 16,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Salsa20",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 25
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 158,
+      "check_col": 16,
+      "msg_id": 23,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 158,
+      "col": 16,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Salsa20",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 25
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 791,
+              "time": 8.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 158,
+      "check_col": 16,
+      "msg_id": 24,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 7.99999982118607E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 41,
+      "col": 27,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.ST32",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 14
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 2.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 41,
+      "check_col": 27,
+      "msg_id": 25,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.99999995529652E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 41,
+      "col": 27,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.ST32",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 14
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 89,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 41,
+      "check_col": 27,
+      "msg_id": 26,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 178,
+      "col": 41,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.HSalsa20",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 31
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 178,
+      "check_col": 41,
+      "msg_id": 27,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 178,
+      "col": 41,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.HSalsa20",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 31
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 948,
+              "time": 8.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 178,
+      "check_col": 41,
+      "msg_id": 28,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 7.99999982118607E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 179,
+      "col": 41,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.HSalsa20",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 31
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 179,
+      "check_col": 41,
+      "msg_id": 29,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 179,
+      "col": 41,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.HSalsa20",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 31
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 179,
+      "check_col": 41,
+      "msg_id": 30,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 184,
+      "col": 16,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.HSalsa20",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 31
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 21,
+              "time": 7.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 184,
+      "check_col": 16,
+      "msg_id": 31,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 7.00000002980232E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 184,
+      "col": 16,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.HSalsa20",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 31
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1516,
+              "time": 1.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 184,
+      "check_col": 16,
+      "msg_id": 32,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.19999997317791E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 185,
+      "col": 16,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.HSalsa20",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 31
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 21,
+              "time": 8.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 185,
+      "check_col": 16,
+      "msg_id": 33,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 7.99999982118607E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 185,
+      "col": 16,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.HSalsa20",
+        "sloc": [
+          {
+            "file": "sparknacl-core.ads",
+            "line": 31
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1704,
+              "time": 1.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 185,
+      "check_col": 16,
+      "msg_id": 34,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.19999997317791E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 69,
+      "col": 25,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 69,
+      "check_col": 25,
+      "msg_id": 35,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 70,
+      "col": 35,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 70,
+      "check_col": 35,
+      "msg_id": 36,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 71,
+      "col": 25,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 71,
+      "check_col": 25,
+      "msg_id": 37,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 72,
+      "col": 35,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 72,
+      "check_col": 35,
+      "msg_id": 38,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 74,
+      "col": 25,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 74,
+      "check_col": 25,
+      "msg_id": 39,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 75,
+      "col": 35,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 75,
+      "check_col": 35,
+      "msg_id": 40,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 76,
+      "col": 25,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 76,
+      "check_col": 25,
+      "msg_id": 41,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 77,
+      "col": 35,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 77,
+      "check_col": 35,
+      "msg_id": 42,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 79,
+      "col": 25,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 79,
+      "check_col": 25,
+      "msg_id": 43,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 80,
+      "col": 35,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 80,
+      "check_col": 35,
+      "msg_id": 44,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 81,
+      "col": 25,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 81,
+      "check_col": 25,
+      "msg_id": 45,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 82,
+      "col": 35,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 82,
+      "check_col": 35,
+      "msg_id": 46,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 84,
+      "col": 25,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 84,
+      "check_col": 25,
+      "msg_id": 47,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 85,
+      "col": 35,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 85,
+      "check_col": 35,
+      "msg_id": 48,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 86,
+      "col": 25,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 86,
+      "check_col": 25,
+      "msg_id": 49,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 87,
+      "col": 35,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 87,
+      "check_col": 35,
+      "msg_id": 50,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 93,
+      "col": 35,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 93,
+      "check_col": 35,
+      "msg_id": 51,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 94,
+      "col": 39,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 94,
+      "check_col": 39,
+      "msg_id": 52,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 95,
+      "col": 39,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 95,
+      "check_col": 39,
+      "msg_id": 53,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 96,
+      "col": 40,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 96,
+      "check_col": 40,
+      "msg_id": 54,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 103,
+      "col": 33,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 103,
+      "check_col": 33,
+      "msg_id": 55,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 104,
+      "col": 33,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 104,
+      "check_col": 33,
+      "msg_id": 56,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 105,
+      "col": 33,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 105,
+      "check_col": 33,
+      "msg_id": 57,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-core.adb",
+      "line": 106,
+      "col": 33,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Core.Core_Common",
+        "sloc": [
+          {
+            "file": "sparknacl-core.adb",
+            "line": 23
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-core.adb",
+      "check_line": 106,
+      "check_col": 33,
+      "msg_id": 58,
+      "session_dir": 4,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 125
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 125
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Core.ST32",
+          "sloc": [
+            {
+              "file": "sparknacl-core.adb",
+              "line": 14
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "SPARKNaCl.Core.Serialize",
+          "sloc": [
+            {
+              "file": "sparknacl-core.ads",
+              "line": 15
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Core.Serialize",
+          "sloc": [
+            {
+              "file": "sparknacl-core.ads",
+              "line": 15
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Rotate_Left",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 133
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Core.LD32",
+            "sloc": [
+              {
+                "file": "sparknacl-core.adb",
+                "line": 18
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Interfaces.Rotate_Left",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 133
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Core.LD32",
+            "sloc": [
+              {
+                "file": "sparknacl-core.adb",
+                "line": 18
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Core.Core_Common",
+          "sloc": [
+            {
+              "file": "sparknacl-core.adb",
+              "line": 23
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Core.Salsa20_Key",
+          "sloc": [
+            {
+              "file": "sparknacl-core.ads",
+              "line": 6
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Core",
+          "sloc": [
+            {
+              "file": "sparknacl-core.ads",
+              "line": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Shift_Left",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 121
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Interfaces.Shift_Left",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 121
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Core.LD32",
+          "sloc": [
+            {
+              "file": "sparknacl-core.adb",
+              "line": 18
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Core.Core_Common",
+            "sloc": [
+              {
+                "file": "sparknacl-core.adb",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Core.LD32",
+            "sloc": [
+              {
+                "file": "sparknacl-core.adb",
+                "line": 18
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Core.ST32",
+            "sloc": [
+              {
+                "file": "sparknacl-core.adb",
+                "line": 14
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Core.Core_Common",
+            "sloc": [
+              {
+                "file": "sparknacl-core.adb",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Core.LD32",
+            "sloc": [
+              {
+                "file": "sparknacl-core.adb",
+                "line": 18
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Core.ST32",
+            "sloc": [
+              {
+                "file": "sparknacl-core.adb",
+                "line": 14
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Core.HSalsa20",
+          "sloc": [
+            {
+              "file": "sparknacl-core.ads",
+              "line": 31
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Core.Core_Common",
+            "sloc": [
+              {
+                "file": "sparknacl-core.adb",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Core.ST32",
+            "sloc": [
+              {
+                "file": "sparknacl-core.adb",
+                "line": 14
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Core.Core_Common",
+            "sloc": [
+              {
+                "file": "sparknacl-core.adb",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Core.ST32",
+            "sloc": [
+              {
+                "file": "sparknacl-core.adb",
+                "line": 14
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Core.Salsa20",
+          "sloc": [
+            {
+              "file": "sparknacl-core.ads",
+              "line": 25
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Core.Construct",
+          "sloc": [
+            {
+              "file": "sparknacl-core.ads",
+              "line": 11
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "SPARKNaCl.Core.Construct",
+          "sloc": [
+            {
+              "file": "sparknacl-core.ads",
+              "line": 8
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Core.Construct",
+          "sloc": [
+            {
+              "file": "sparknacl-core.ads",
+              "line": 8
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 117
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 117
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Core.Sanitize",
+          "sloc": [
+            {
+              "file": "sparknacl-core.ads",
+              "line": 18
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "timings": {
+    "gnatwhy3.transformations.inline_trivial": 7.18639016151428E-01,
+    "codepeer results": 3.27120013535023E-02,
+    "init_why_sections": 1.00399996154010E-03,
+    "gnatwhy3.transformations.detect_polymorphism": 1.49480002000928E-02,
+    "globals/properties (advanced)": 3.71636003255844E-01,
+    "gnatwhy3.transformations.eliminate_literal": 5.49319982528687E-02,
+    "gnatwhy3.run_vcs": 1.58421099185944E+00,
+    "gnatwhy3.transformations.eliminate_algebraic_if_poly": 4.81970012187958E-02,
+    "gnatwhy3.transformations.eliminate_definition_if_poly": 3.95659990608692E-02,
+    "flow analysis": 3.51880013942719E-01,
+    "gnatwhy3.transformations.simplify_formula": 5.93899972736835E-02,
+    "marking": 3.16381990909576E-01,
+    "translation of standard": 4.23530004918575E-02,
+    "gnatwhy3.register_vcs": 5.65523982048035E-01,
+    "gnatwhy3.transformations.eliminate_epsilon": 4.42759990692139E-02,
+    "globals (basic)": 1.54544994235039E-01,
+    "gnatwhy3.schedule_vcs": 3.43790017068386E-02,
+    "gnatwhy3.transformations.prepare_for_counterexmp": 3.80999990738928E-04,
+    "gnatwhy3.save_session": 7.52369984984398E-02,
+    "gnatwhy3.transformations.eliminate_inductive": 3.96750010550022E-02,
+    "gnatwhy3.transformations.encoding_smt_if_poly": 1.10000000859145E-04,
+    "gnatwhy3.transformations.eliminate_unused_hypo": 4.00419980287552E-01,
+    "gnatwhy3.transformations.eliminate_builtin": 6.14849999547005E-02,
+    "gnatwhy3.transformations.discriminate_if_poly": 1.78999995114282E-04,
+    "gnatwhy3.init": 3.01056194305420E+00
+  }
+}

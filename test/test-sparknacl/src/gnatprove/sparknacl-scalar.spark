@@ -1,0 +1,3014 @@
+{
+  "spark": [
+    {
+      "name": "SPARKNaCl.Scalar",
+      "sloc": [
+        {
+          "file": "sparknacl-scalar.ads",
+          "line": 1
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Scalar.Mult",
+      "sloc": [
+        {
+          "file": "sparknacl-scalar.ads",
+          "line": 8
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Scalar.Mult_Base",
+      "sloc": [
+        {
+          "file": "sparknacl-scalar.ads",
+          "line": 12
+        }
+      ],
+      "spark": "all"
+    }
+  ],
+  "flow": [
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 80,
+      "col": 7,
+      "suppressed": "",
+      "rule": "INEFFECTIVE",
+      "severity": "warning",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 81,
+      "col": 7,
+      "suppressed": "",
+      "rule": "INEFFECTIVE",
+      "severity": "warning",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 82,
+      "col": 7,
+      "suppressed": "",
+      "rule": "INEFFECTIVE",
+      "severity": "warning",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 83,
+      "col": 7,
+      "suppressed": "",
+      "rule": "INEFFECTIVE",
+      "severity": "warning",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 84,
+      "col": 7,
+      "suppressed": "",
+      "rule": "INEFFECTIVE",
+      "severity": "warning",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 85,
+      "col": 7,
+      "suppressed": "",
+      "rule": "INEFFECTIVE",
+      "severity": "warning",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 86,
+      "col": 7,
+      "suppressed": "",
+      "rule": "INEFFECTIVE",
+      "severity": "warning",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 87,
+      "col": 7,
+      "suppressed": "",
+      "rule": "INEFFECTIVE",
+      "severity": "warning",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 88,
+      "col": 7,
+      "suppressed": "",
+      "rule": "INEFFECTIVE",
+      "severity": "warning",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 89,
+      "col": 7,
+      "suppressed": "",
+      "rule": "INEFFECTIVE",
+      "severity": "warning",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 90,
+      "col": 7,
+      "suppressed": "",
+      "rule": "INEFFECTIVE",
+      "severity": "warning",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 91,
+      "col": 7,
+      "suppressed": "",
+      "rule": "INEFFECTIVE",
+      "severity": "warning",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 92,
+      "col": 7,
+      "suppressed": "",
+      "rule": "INEFFECTIVE",
+      "severity": "warning",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 24,
+      "col": 42,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 0,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 24,
+      "col": 18,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 1,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 20,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 2,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 24,
+      "col": 22,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 3,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 24,
+      "col": 25,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 4,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 21,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 5,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 24,
+      "col": 29,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 6,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 22,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 7,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 24,
+      "col": 32,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 8,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 24,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 9,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 24,
+      "col": 35,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 10,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 24,
+      "col": 11,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 11,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 24,
+      "col": 38,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 12,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 24,
+      "col": 15,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 13,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.ads",
+      "line": 10,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 14,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-scalar.ads",
+      "line": 13,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult_Base",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 12
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 15,
+      "how_proved": "flow"
+    }
+  ],
+  "session_map": {
+    " 1": "/home/jellix/projects/spat/test/test-sparknacl/src/gnatprove/ada___sparknacl__scalar",
+    " 2": "/home/jellix/projects/spat/test/test-sparknacl/src/gnatprove/ada___sparknacl__scalar__mult"
+  },
+  "proof": [
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 7,
+      "col": 38,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 1
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 890,
+              "time": 8.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 7,
+      "check_col": 38,
+      "msg_id": 16,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 7.99999982118607E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 7,
+      "col": 38,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 1
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 7,
+      "check_col": 38,
+      "msg_id": 17,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 18,
+      "col": 28,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 18,
+      "check_col": 28,
+      "msg_id": 18,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 18,
+      "col": 26,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 18,
+      "check_col": 26,
+      "msg_id": 19,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 18,
+      "col": 40,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 792,
+              "time": 1.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 18,
+      "check_col": 40,
+      "msg_id": 20,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.09999999403954E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 18,
+      "col": 40,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 987,
+              "time": 1.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 18,
+      "check_col": 40,
+      "msg_id": 21,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.19999997317791E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 32,
+      "col": 25,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 4107,
+              "time": 5.40000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 32,
+      "check_col": 25,
+      "msg_id": 22,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 3,
+          "max_steps": 1,
+          "max_time": 5.40000021457672E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 32,
+      "col": 20,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 4128,
+              "time": 5.50000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 32,
+      "check_col": 20,
+      "msg_id": 23,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 3,
+          "max_steps": 1,
+          "max_time": 5.50000011920929E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 33,
+      "col": 30,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 3673,
+              "time": 5.50000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 7.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 33,
+      "check_col": 30,
+      "msg_id": 24,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 3,
+          "max_steps": 1,
+          "max_time": 5.50000011920929E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 34,
+      "col": 56,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 9.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 9.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 34,
+      "check_col": 56,
+      "msg_id": 25,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 6,
+          "max_steps": 1,
+          "max_time": 1.00000001490116E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 41,
+      "col": 23,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 8.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1256,
+              "time": 1.50000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 41,
+      "check_col": 23,
+      "msg_id": 26,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 1.50000005960464E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 41,
+      "col": 27,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 8.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1185,
+              "time": 1.60000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 41,
+      "check_col": 27,
+      "msg_id": 27,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 1.59999996423721E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 42,
+      "col": 23,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 9.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1256,
+              "time": 1.70000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 42,
+      "check_col": 23,
+      "msg_id": 28,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 1.70000001788139E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 42,
+      "col": 26,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 9.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1185,
+              "time": 1.70000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 42,
+      "check_col": 26,
+      "msg_id": 29,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 1.70000001788139E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 71,
+      "col": 23,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 2.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1283,
+              "time": 3.70000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 71,
+      "check_col": 23,
+      "msg_id": 30,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 3.70000004768372E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 71,
+      "col": 27,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 2.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1212,
+              "time": 4.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 71,
+      "check_col": 27,
+      "msg_id": 31,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 4.00000005960464E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 72,
+      "col": 23,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 2.90000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1283,
+              "time": 4.80000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 72,
+      "check_col": 23,
+      "msg_id": 32,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 4.79999989271164E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 72,
+      "col": 26,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 2.90000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1212,
+              "time": 4.70000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 72,
+      "check_col": 26,
+      "msg_id": 33,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 4.69999998807907E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 39,
+      "col": 33,
+      "rule": "VC_LOOP_INVARIANT_INIT",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 39,
+      "check_col": 33,
+      "msg_id": 34,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 1.00000001490116E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 39,
+      "col": 33,
+      "rule": "VC_LOOP_INVARIANT_PRESERV",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 9.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 39,
+      "check_col": 33,
+      "msg_id": 35,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 4,
+          "max_steps": 1,
+          "max_time": 1.00000001490116E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 38,
+      "col": 33,
+      "rule": "VC_LOOP_INVARIANT_INIT",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 38,
+      "check_col": 33,
+      "msg_id": 36,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 1.09999999403954E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 38,
+      "col": 33,
+      "rule": "VC_LOOP_INVARIANT_PRESERV",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 9.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 9.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 38,
+      "check_col": 33,
+      "msg_id": 37,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 4,
+          "max_steps": 1,
+          "max_time": 1.00000001490116E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 37,
+      "col": 33,
+      "rule": "VC_LOOP_INVARIANT_PRESERV",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 9.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 37,
+      "check_col": 33,
+      "msg_id": 38,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 4,
+          "max_steps": 1,
+          "max_time": 1.00000001490116E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 37,
+      "col": 33,
+      "rule": "VC_LOOP_INVARIANT_INIT",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 7.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 37,
+      "check_col": 33,
+      "msg_id": 39,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 1.00000001490116E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 36,
+      "col": 33,
+      "rule": "VC_LOOP_INVARIANT_INIT",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 36,
+      "check_col": 33,
+      "msg_id": 40,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 1.00000001490116E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 36,
+      "col": 33,
+      "rule": "VC_LOOP_INVARIANT_PRESERV",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 36,
+      "check_col": 33,
+      "msg_id": 41,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 4,
+          "max_steps": 1,
+          "max_time": 1.00000001490116E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 82,
+      "col": 20,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1020,
+              "time": 4.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 82,
+      "check_col": 20,
+      "msg_id": 42,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.19999986886978E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 83,
+      "col": 20,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1020,
+              "time": 4.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 83,
+      "check_col": 20,
+      "msg_id": 43,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.00000005960464E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 84,
+      "col": 20,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1020,
+              "time": 4.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 84,
+      "check_col": 20,
+      "msg_id": 44,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.00000005960464E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 85,
+      "col": 20,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1020,
+              "time": 4.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 85,
+      "check_col": 20,
+      "msg_id": 45,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.09999996423721E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 86,
+      "col": 20,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1020,
+              "time": 4.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 86,
+      "check_col": 20,
+      "msg_id": 46,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.09999996423721E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 87,
+      "col": 20,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1020,
+              "time": 4.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 87,
+      "check_col": 20,
+      "msg_id": 47,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.19999986886978E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 88,
+      "col": 20,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1020,
+              "time": 4.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 88,
+      "check_col": 20,
+      "msg_id": 48,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.19999986886978E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 89,
+      "col": 20,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1020,
+              "time": 4.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 89,
+      "check_col": 20,
+      "msg_id": 49,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.19999986886978E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 90,
+      "col": 20,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1020,
+              "time": 4.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 90,
+      "check_col": 20,
+      "msg_id": 50,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.09999996423721E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 91,
+      "col": 20,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1020,
+              "time": 4.30000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 91,
+      "check_col": 20,
+      "msg_id": 51,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.30000007152557E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-scalar.adb",
+      "line": 92,
+      "col": 20,
+      "rule": "VC_PREDICATE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Scalar.Mult",
+        "sloc": [
+          {
+            "file": "sparknacl-scalar.ads",
+            "line": 8
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1020,
+              "time": 4.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-scalar.adb",
+      "check_line": 92,
+      "check_col": 20,
+      "msg_id": 52,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.19999986886978E-01
+        }
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Scalar.Mult",
+            "sloc": [
+              {
+                "file": "sparknacl-scalar.ads",
+                "line": 8
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Scalar.Mult",
+            "sloc": [
+              {
+                "file": "sparknacl-scalar.ads",
+                "line": 8
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Scalar.Mult_Base",
+          "sloc": [
+            {
+              "file": "sparknacl-scalar.ads",
+              "line": 12
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_POST",
+          "arg": {
+            "name": "SPARKNaCl.Sanitize_GF",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 408
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 85
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 125
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Oadd",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 390
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Omultiply",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 396
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Osubtract",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 393
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 117
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Sanitize_Boolean",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 421
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Sanitize_GF",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 408
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Square",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 399
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Utils.CSwap",
+            "sloc": [
+              {
+                "file": "sparknacl-utils.ads",
+                "line": 19
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Utils.Inv_25519",
+            "sloc": [
+              {
+                "file": "sparknacl-utils.ads",
+                "line": 36
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Utils.Pack_25519",
+            "sloc": [
+              {
+                "file": "sparknacl-utils.ads",
+                "line": 33
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Utils.Unpack_25519",
+            "sloc": [
+              {
+                "file": "sparknacl-utils.ads",
+                "line": 39
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 85
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 125
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Oadd",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 390
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Omultiply",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 396
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Osubtract",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 393
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Sanitize",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 117
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Sanitize_Boolean",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 421
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Sanitize_GF",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 408
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Square",
+            "sloc": [
+              {
+                "file": "sparknacl.ads",
+                "line": 399
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Utils.CSwap",
+            "sloc": [
+              {
+                "file": "sparknacl-utils.ads",
+                "line": 19
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Utils.Inv_25519",
+            "sloc": [
+              {
+                "file": "sparknacl-utils.ads",
+                "line": 36
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Utils.Pack_25519",
+            "sloc": [
+              {
+                "file": "sparknacl-utils.ads",
+                "line": 33
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Utils.Unpack_25519",
+            "sloc": [
+              {
+                "file": "sparknacl-utils.ads",
+                "line": 39
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Scalar.Mult",
+          "sloc": [
+            {
+              "file": "sparknacl-scalar.ads",
+              "line": 8
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Scalar",
+          "sloc": [
+            {
+              "file": "sparknacl-scalar.ads",
+              "line": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Scalar.Mult",
+            "sloc": [
+              {
+                "file": "sparknacl-scalar.ads",
+                "line": 8
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "SPARKNaCl.Scalar.Mult_Base",
+          "sloc": [
+            {
+              "file": "sparknacl-scalar.ads",
+              "line": 12
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "timings": {
+    "gnatwhy3.transformations.inline_trivial": 1.53895103931427E+00,
+    "codepeer results": 3.42999992426485E-04,
+    "init_why_sections": 9.35000018216670E-04,
+    "gnatwhy3.transformations.detect_polymorphism": 6.57220035791397E-02,
+    "globals/properties (advanced)": 3.29499989748001E-02,
+    "gnatwhy3.transformations.eliminate_literal": 1.36911004781723E-01,
+    "gnatwhy3.run_vcs": 1.08600103855133E+00,
+    "gnatwhy3.transformations.eliminate_algebraic_if_poly": 1.22666999697685E-01,
+    "gnatwhy3.transformations.eliminate_definition_if_poly": 7.04899951815605E-02,
+    "flow analysis": 6.25459998846054E-02,
+    "gnatwhy3.transformations.simplify_formula": 1.83262988924980E-01,
+    "marking": 3.29050011932850E-02,
+    "translation of standard": 2.99469996243715E-02,
+    "gnatwhy3.register_vcs": 1.60973095893860E+00,
+    "gnatwhy3.transformations.eliminate_epsilon": 1.54128000140190E-01,
+    "globals (basic)": 2.87909992039204E-02,
+    "gnatwhy3.schedule_vcs": 1.95230003446341E-02,
+    "gnatwhy3.transformations.prepare_for_counterexmp": 8.64000001456589E-04,
+    "gnatwhy3.save_session": 2.44795009493828E-01,
+    "gnatwhy3.transformations.eliminate_inductive": 7.36500024795532E-02,
+    "gnatwhy3.transformations.encoding_smt_if_poly": 2.26999996812083E-04,
+    "gnatwhy3.transformations.eliminate_unused_hypo": 1.19509303569794E+00,
+    "gnatwhy3.transformations.eliminate_builtin": 8.96129980683327E-02,
+    "gnatwhy3.transformations.discriminate_if_poly": 3.62999999197200E-04,
+    "gnatwhy3.init": 1.33676993846893E+00
+  }
+}

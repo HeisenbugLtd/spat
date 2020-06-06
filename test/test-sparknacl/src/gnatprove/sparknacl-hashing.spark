@@ -1,0 +1,6134 @@
+{
+  "spark": [
+    {
+      "name": "SPARKNaCl.Hashing",
+      "sloc": [
+        {
+          "file": "sparknacl-hashing.ads",
+          "line": 1
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Hashing.Hashblocks",
+      "sloc": [
+        {
+          "file": "sparknacl-hashing.ads",
+          "line": 10
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Hashing.Hash",
+      "sloc": [
+        {
+          "file": "sparknacl-hashing.ads",
+          "line": 16
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Hashing.Hash",
+      "sloc": [
+        {
+          "file": "sparknacl-hashing.ads",
+          "line": 21
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Hashing.TS64",
+      "sloc": [
+        {
+          "file": "sparknacl-hashing.adb",
+          "line": 49
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Hashing.Hashblocks.Ch",
+      "sloc": [
+        {
+          "file": "sparknacl-hashing.adb",
+          "line": 78
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Hashing.Hashblocks.Maj",
+      "sloc": [
+        {
+          "file": "sparknacl-hashing.adb",
+          "line": 82
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Hashing.Hashblocks.UC_Sigma0",
+      "sloc": [
+        {
+          "file": "sparknacl-hashing.adb",
+          "line": 87
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Hashing.Hashblocks.UC_Sigma1",
+      "sloc": [
+        {
+          "file": "sparknacl-hashing.adb",
+          "line": 92
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Hashing.Hashblocks.LC_Sigma0",
+      "sloc": [
+        {
+          "file": "sparknacl-hashing.adb",
+          "line": 97
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Hashing.Hashblocks.LC_Sigma1",
+      "sloc": [
+        {
+          "file": "sparknacl-hashing.adb",
+          "line": 102
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "SPARKNaCl.Hashing.Hashblocks.DL64",
+      "sloc": [
+        {
+          "file": "sparknacl-hashing.adb",
+          "line": 106
+        }
+      ],
+      "spark": "all"
+    }
+  ],
+  "flow": [
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 249,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 21
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 0,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.ads",
+      "line": 22,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 21
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 1,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 94,
+      "col": 14,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks.UC_Sigma1",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.adb",
+            "line": 92
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 2,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 107,
+      "col": 14,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks.DL64",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.adb",
+            "line": 106
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 3,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 54,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.TS64",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.adb",
+            "line": 49
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 4,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 50,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.TS64",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.adb",
+            "line": 49
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 5,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 213,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 6,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 214,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 7,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 215,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 8,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.ads",
+      "line": 16,
+      "col": 20,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 9,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 216,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 10,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 211,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 11,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 212,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 12,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.ads",
+      "line": 18,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 13,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 89,
+      "col": 14,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks.UC_Sigma0",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.adb",
+            "line": 87
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 14,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 84,
+      "col": 14,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks.Maj",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.adb",
+            "line": 82
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 15,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 104,
+      "col": 14,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks.LC_Sigma1",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.adb",
+            "line": 102
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 16,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 80,
+      "col": 14,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks.Ch",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.adb",
+            "line": 78
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 17,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 69,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 18,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 70,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 19,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 71,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 20,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 68,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 21,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 72,
+      "col": 7,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 22,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 68,
+      "col": 10,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 23,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 68,
+      "col": 13,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 24,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.ads",
+      "line": 13,
+      "col": 11,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 25,
+      "how_proved": "flow"
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 99,
+      "col": 14,
+      "rule": "GLOBAL_WRONG",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks.LC_Sigma0",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.adb",
+            "line": 97
+          }
+        ]
+      },
+      "check_tree": {
+      },
+      "msg_id": 26,
+      "how_proved": "flow"
+    }
+  ],
+  "session_map": {
+    " 1": "/home/jellix/projects/spat/test/test-sparknacl/src/gnatprove/ada___sparknacl__hashing__ts64",
+    " 2": "/home/jellix/projects/spat/test/test-sparknacl/src/gnatprove/ada___sparknacl__hashing__hash",
+    " 3": "/home/jellix/projects/spat/test/test-sparknacl/src/gnatprove/ada___sparknacl__hashing__hashblocks"
+  },
+  "proof": [
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 58,
+      "col": 27,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.TS64",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.adb",
+            "line": 49
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 2.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 58,
+      "check_col": 27,
+      "msg_id": 27,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.99999995529652E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 58,
+      "col": 27,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.TS64",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.adb",
+            "line": 49
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 89,
+              "time": 5.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 58,
+      "check_col": 27,
+      "msg_id": 28,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 223,
+      "col": 47,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 223,
+      "check_col": 47,
+      "msg_id": 29,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 223,
+      "col": 47,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 223,
+      "check_col": 47,
+      "msg_id": 30,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.19999997317791E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 226,
+      "col": 39,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 876,
+              "time": 1.80000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 226,
+      "check_col": 39,
+      "msg_id": 31,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.80000007152557E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 226,
+      "col": 44,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 19,
+              "time": 1.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 226,
+      "check_col": 44,
+      "msg_id": 32,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.19999997317791E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 227,
+      "col": 28,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 860,
+              "time": 1.90000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 227,
+      "check_col": 28,
+      "msg_id": 33,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.89999997615814E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 227,
+      "col": 28,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1058,
+              "time": 1.80000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 227,
+      "check_col": 28,
+      "msg_id": 34,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.80000007152557E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 227,
+      "col": 10,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 19,
+              "time": 1.30000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 227,
+      "check_col": 10,
+      "msg_id": 35,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.29999995231628E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 227,
+      "col": 25,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 227,
+      "check_col": 25,
+      "msg_id": 36,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.99999986588955E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 232,
+      "col": 43,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 77,
+              "time": 1.30000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 83,
+              "time": 1.30000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 232,
+      "check_col": 43,
+      "msg_id": 37,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 1.29999995231628E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 232,
+      "col": 24,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 46,
+              "time": 1.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 46,
+              "time": 1.30000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 232,
+      "check_col": 24,
+      "msg_id": 38,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 1.29999995231628E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 233,
+      "col": 24,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 7.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 233,
+      "check_col": 24,
+      "msg_id": 39,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 7.00000002980232E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 237,
+      "col": 25,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hash",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 6.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 7.00000000000000E-02
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 237,
+      "check_col": 25,
+      "msg_id": 40,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 7.00000002980232E-02
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 120,
+      "col": 33,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 120,
+      "check_col": 33,
+      "msg_id": 41,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.09999999403954E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 121,
+      "col": 33,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 121,
+      "check_col": 33,
+      "msg_id": 42,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.00000001490116E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 122,
+      "col": 33,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 122,
+      "check_col": 33,
+      "msg_id": 43,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.09999999403954E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 123,
+      "col": 33,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 123,
+      "check_col": 33,
+      "msg_id": 44,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.09999999403954E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 124,
+      "col": 33,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.30000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 124,
+      "check_col": 33,
+      "msg_id": 45,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.29999995231628E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 125,
+      "col": 33,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 125,
+      "check_col": 33,
+      "msg_id": 46,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.09999999403954E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 126,
+      "col": 33,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 126,
+      "check_col": 33,
+      "msg_id": 47,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.19999997317791E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 127,
+      "col": 33,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 127,
+      "check_col": 33,
+      "msg_id": 48,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.00000001490116E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 140,
+      "col": 43,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 140,
+      "check_col": 43,
+      "msg_id": 49,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.00000002980232E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 140,
+      "col": 53,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 140,
+      "check_col": 53,
+      "msg_id": 50,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.00000002980232E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 141,
+      "col": 43,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 1.90000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 141,
+      "check_col": 43,
+      "msg_id": 51,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.89999997615814E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 141,
+      "col": 53,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 1.80000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 141,
+      "check_col": 53,
+      "msg_id": 52,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.80000007152557E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 142,
+      "col": 43,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.30000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 142,
+      "check_col": 43,
+      "msg_id": 53,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.30000004172325E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 142,
+      "col": 54,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 1.90000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 142,
+      "check_col": 54,
+      "msg_id": 54,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.89999997615814E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 143,
+      "col": 43,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 143,
+      "check_col": 43,
+      "msg_id": 55,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.09999993443489E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 143,
+      "col": 54,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 143,
+      "check_col": 54,
+      "msg_id": 56,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.19999998807907E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 144,
+      "col": 43,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 144,
+      "check_col": 43,
+      "msg_id": 57,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.00000002980232E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 144,
+      "col": 54,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.30000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 144,
+      "check_col": 54,
+      "msg_id": 58,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.30000004172325E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 145,
+      "col": 43,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 145,
+      "check_col": 43,
+      "msg_id": 59,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.19999998807907E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 145,
+      "col": 54,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 145,
+      "check_col": 54,
+      "msg_id": 60,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.19999998807907E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 146,
+      "col": 43,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.40000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 146,
+      "check_col": 43,
+      "msg_id": 61,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.39999994635582E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 146,
+      "col": 54,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 146,
+      "check_col": 54,
+      "msg_id": 62,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.09999993443489E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 147,
+      "col": 43,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.30000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 147,
+      "check_col": 43,
+      "msg_id": 63,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.30000004172325E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 147,
+      "col": 54,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 147,
+      "check_col": 54,
+      "msg_id": 64,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.00000002980232E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 148,
+      "col": 43,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 148,
+      "check_col": 43,
+      "msg_id": 65,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.09999993443489E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 148,
+      "col": 54,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.40000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 148,
+      "check_col": 54,
+      "msg_id": 66,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.39999994635582E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 149,
+      "col": 43,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 149,
+      "check_col": 43,
+      "msg_id": 67,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.09999993443489E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 149,
+      "col": 54,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.30000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 149,
+      "check_col": 54,
+      "msg_id": 68,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.30000004172325E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 150,
+      "col": 43,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 150,
+      "check_col": 43,
+      "msg_id": 69,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.19999998807907E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 150,
+      "col": 54,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.30000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 150,
+      "check_col": 54,
+      "msg_id": 70,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.30000004172325E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 151,
+      "col": 43,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 151,
+      "check_col": 43,
+      "msg_id": 71,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.19999998807907E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 151,
+      "col": 54,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.40000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 151,
+      "check_col": 54,
+      "msg_id": 72,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.39999994635582E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 152,
+      "col": 43,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.50000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 152,
+      "check_col": 43,
+      "msg_id": 73,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.50000000000000E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 152,
+      "col": 54,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.30000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 152,
+      "check_col": 54,
+      "msg_id": 74,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.30000004172325E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 153,
+      "col": 43,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.90000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 153,
+      "check_col": 43,
+      "msg_id": 75,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.89999991655350E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 153,
+      "col": 55,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.90000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 153,
+      "check_col": 55,
+      "msg_id": 76,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.89999991655350E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 154,
+      "col": 43,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.70000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 154,
+      "check_col": 43,
+      "msg_id": 77,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.70000010728836E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 154,
+      "col": 55,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.90000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 154,
+      "check_col": 55,
+      "msg_id": 78,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.89999991655350E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 155,
+      "col": 43,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 3.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 155,
+      "check_col": 43,
+      "msg_id": 79,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.10000002384186E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 155,
+      "col": 55,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.70000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 155,
+      "check_col": 55,
+      "msg_id": 80,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.70000010728836E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 140,
+      "col": 37,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 140,
+      "check_col": 37,
+      "msg_id": 81,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.19999992847443E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 140,
+      "col": 37,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 992,
+              "time": 4.40000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 140,
+      "check_col": 37,
+      "msg_id": 82,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.39999997615814E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 141,
+      "col": 37,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 141,
+      "check_col": 37,
+      "msg_id": 83,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.19999992847443E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 141,
+      "col": 37,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 982,
+              "time": 4.80000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 141,
+      "check_col": 37,
+      "msg_id": 84,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.79999989271164E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 142,
+      "col": 37,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 142,
+      "check_col": 37,
+      "msg_id": 85,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.19999992847443E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 142,
+      "col": 37,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 972,
+              "time": 4.50000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 142,
+      "check_col": 37,
+      "msg_id": 86,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.49999988079071E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 143,
+      "col": 37,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 143,
+      "check_col": 37,
+      "msg_id": 87,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.19999992847443E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 143,
+      "col": 37,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 962,
+              "time": 4.30000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 143,
+      "check_col": 37,
+      "msg_id": 88,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.30000007152557E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 144,
+      "col": 37,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.60000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 144,
+      "check_col": 37,
+      "msg_id": 89,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.60000014305115E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 144,
+      "col": 37,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 952,
+              "time": 4.40000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 144,
+      "check_col": 37,
+      "msg_id": 90,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.39999997615814E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 145,
+      "col": 37,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 145,
+      "check_col": 37,
+      "msg_id": 91,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.00000011920929E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 145,
+      "col": 37,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 942,
+              "time": 5.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 145,
+      "check_col": 37,
+      "msg_id": 92,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000000000000E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 146,
+      "col": 37,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 146,
+      "check_col": 37,
+      "msg_id": 93,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.10000002384186E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 146,
+      "col": 37,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 932,
+              "time": 4.40000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 146,
+      "check_col": 37,
+      "msg_id": 94,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.39999997615814E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 147,
+      "col": 37,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.30000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 147,
+      "check_col": 37,
+      "msg_id": 95,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.30000013113022E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 147,
+      "col": 37,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 922,
+              "time": 4.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 147,
+      "check_col": 37,
+      "msg_id": 96,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.19999986886978E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 148,
+      "col": 37,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 148,
+      "check_col": 37,
+      "msg_id": 97,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.19999992847443E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 148,
+      "col": 37,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 912,
+              "time": 4.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 148,
+      "check_col": 37,
+      "msg_id": 98,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.09999996423721E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 149,
+      "col": 37,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 149,
+      "check_col": 37,
+      "msg_id": 99,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.10000002384186E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 149,
+      "col": 37,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 897,
+              "time": 4.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 149,
+      "check_col": 37,
+      "msg_id": 100,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.00000005960464E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 150,
+      "col": 37,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.60000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 150,
+      "check_col": 37,
+      "msg_id": 101,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.60000014305115E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 150,
+      "col": 37,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 887,
+              "time": 4.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 150,
+      "check_col": 37,
+      "msg_id": 102,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.19999986886978E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 151,
+      "col": 37,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.50000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 151,
+      "check_col": 37,
+      "msg_id": 103,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.49999994039536E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 151,
+      "col": 37,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 877,
+              "time": 4.60000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 151,
+      "check_col": 37,
+      "msg_id": 104,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.60000008344650E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 152,
+      "col": 37,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 152,
+      "check_col": 37,
+      "msg_id": 105,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.00000011920929E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 152,
+      "col": 37,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 867,
+              "time": 3.80000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 152,
+      "check_col": 37,
+      "msg_id": 106,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.79999995231628E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 153,
+      "col": 37,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 2.70000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 153,
+      "check_col": 37,
+      "msg_id": 107,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.70000010728836E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 153,
+      "col": 37,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 857,
+              "time": 3.90000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 153,
+      "check_col": 37,
+      "msg_id": 108,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.89999985694885E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 154,
+      "col": 37,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 2.80000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 154,
+      "check_col": 37,
+      "msg_id": 109,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.80000001192093E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 154,
+      "col": 37,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 847,
+              "time": 3.50000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 154,
+      "check_col": 37,
+      "msg_id": 110,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.49999994039536E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 155,
+      "col": 37,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 2.70000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 155,
+      "check_col": 37,
+      "msg_id": 111,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.70000010728836E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 155,
+      "col": 37,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 823,
+              "time": 3.80000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 155,
+      "check_col": 37,
+      "msg_id": 112,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.79999995231628E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 165,
+      "col": 31,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.60000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 165,
+      "check_col": 31,
+      "msg_id": 113,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.59999996423721E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 181,
+      "col": 47,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.60000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 181,
+      "check_col": 47,
+      "msg_id": 114,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.59999996423721E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 182,
+      "col": 43,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.60000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 182,
+      "check_col": 43,
+      "msg_id": 115,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.59999996423721E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 183,
+      "col": 44,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.50000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 183,
+      "check_col": 44,
+      "msg_id": 116,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.50000005960464E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 179,
+      "col": 19,
+      "rule": "VC_DIVISION_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.60000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 179,
+      "check_col": 19,
+      "msg_id": 117,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.59999996423721E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 159,
+      "col": 40,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 2.60000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 3.60000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 159,
+      "check_col": 40,
+      "msg_id": 118,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 3.60000014305115E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 161,
+      "col": 64,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 2.50000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.80000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 161,
+      "check_col": 64,
+      "msg_id": 119,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.50000000000000E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 159,
+      "col": 36,
+      "rule": "VC_LOOP_INVARIANT_INIT",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.70000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 159,
+      "check_col": 36,
+      "msg_id": 120,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.70000001788139E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 159,
+      "col": 36,
+      "rule": "VC_LOOP_INVARIANT_PRESERV",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 2.70000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 159,
+      "check_col": 36,
+      "msg_id": 121,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.70000010728836E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 195,
+      "col": 25,
+      "rule": "VC_ASSERT",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 2.40000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 195,
+      "check_col": 25,
+      "msg_id": 122,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.39999994635582E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 196,
+      "col": 19,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 19,
+              "time": 4.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 196,
+      "check_col": 19,
+      "msg_id": 123,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.00000005960464E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 197,
+      "col": 19,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 10,
+              "time": 4.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 197,
+      "check_col": 19,
+      "msg_id": 124,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 4.09999996423721E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 136,
+      "col": 17,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 2.60000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 20,
+              "time": 1.90000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 136,
+      "check_col": 17,
+      "msg_id": 125,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.59999990463257E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 138,
+      "col": 41,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 2.90000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.90000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 138,
+      "check_col": 41,
+      "msg_id": 126,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 2.89999991655350E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 136,
+      "col": 13,
+      "rule": "VC_LOOP_INVARIANT_PRESERV",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 10,
+              "time": 3.80000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 136,
+      "check_col": 13,
+      "msg_id": 127,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.79999995231628E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 136,
+      "col": 13,
+      "rule": "VC_LOOP_INVARIANT_INIT",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 1.90000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 136,
+      "check_col": 13,
+      "msg_id": 128,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.89999997615814E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 202,
+      "col": 38,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 2.60000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 202,
+      "check_col": 38,
+      "msg_id": 129,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 3,
+          "max_steps": 1,
+          "max_time": 2.59999990463257E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 202,
+      "col": 10,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 13,
+              "time": 2.00000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.10000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 19,
+              "time": 4.50000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 202,
+      "check_col": 10,
+      "msg_id": 130,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 3,
+          "max_steps": 1,
+          "max_time": 4.49999988079071E-01
+        }
+      }
+    },
+    {
+      "file": "sparknacl-hashing.adb",
+      "line": 202,
+      "col": 35,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "SPARKNaCl.Hashing.Hashblocks",
+        "sloc": [
+          {
+            "file": "sparknacl-hashing.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.40000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 1.20000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        },
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 5,
+              "time": 2.90000000000000E-01
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "sparknacl-hashing.adb",
+      "check_line": 202,
+      "check_col": 35,
+      "msg_id": 131,
+      "session_dir": 3,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 3,
+          "max_steps": 1,
+          "max_time": 2.89999991655350E-01
+        }
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "SPARKNaCl.Hashing.Hashblocks.Ch",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.adb",
+              "line": 78
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Rotate_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 157
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 145
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "SPARKNaCl.Hashing.Hashblocks.LC_Sigma1",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.adb",
+              "line": 102
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Hashing.Hashblocks.Ch",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.adb",
+              "line": 78
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Rotate_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 157
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 145
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Interfaces.Rotate_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 157
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 145
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Hashing.Hashblocks.LC_Sigma1",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.adb",
+              "line": 102
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.Hash",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.ads",
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.Hash",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.ads",
+                "line": 16
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Hashing.Hash",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.ads",
+              "line": 21
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Rotate_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 157
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 145
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "SPARKNaCl.Hashing.Hashblocks.LC_Sigma0",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.adb",
+              "line": 97
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.Hashblocks.Ch",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.adb",
+                "line": 78
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.Hashblocks.DL64",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.adb",
+                "line": 106
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.Hashblocks.LC_Sigma0",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.adb",
+                "line": 97
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.Hashblocks.LC_Sigma1",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.adb",
+                "line": 102
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.Hashblocks.Maj",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.adb",
+                "line": 82
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.Hashblocks.UC_Sigma0",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.adb",
+                "line": 87
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.Hashblocks.UC_Sigma1",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.adb",
+                "line": 92
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.TS64",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.adb",
+                "line": 49
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.Hashblocks.Ch",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.adb",
+                "line": 78
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.Hashblocks.DL64",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.adb",
+                "line": 106
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.Hashblocks.LC_Sigma0",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.adb",
+                "line": 97
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.Hashblocks.LC_Sigma1",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.adb",
+                "line": 102
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.Hashblocks.Maj",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.adb",
+                "line": 82
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.Hashblocks.UC_Sigma0",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.adb",
+                "line": 87
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.Hashblocks.UC_Sigma1",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.adb",
+                "line": 92
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.TS64",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.adb",
+                "line": 49
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Hashing.Hashblocks",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Rotate_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 157
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 145
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Interfaces.Rotate_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 157
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 145
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Hashing.Hashblocks.LC_Sigma0",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.adb",
+              "line": 97
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Rotate_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 157
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "SPARKNaCl.Hashing.Hashblocks.UC_Sigma1",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.adb",
+              "line": 92
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Rotate_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 157
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Interfaces.Rotate_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 157
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Hashing.Hashblocks.UC_Sigma1",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.adb",
+              "line": 92
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 145
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 145
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Hashing.TS64",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.adb",
+              "line": 49
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Rotate_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 157
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "SPARKNaCl.Hashing.Hashblocks.UC_Sigma0",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.adb",
+              "line": 87
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 145
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.Hashblocks",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.ads",
+                "line": 10
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.TS64",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.adb",
+                "line": 49
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Interfaces.Shift_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 145
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.Hashblocks",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.ads",
+                "line": 10
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "SPARKNaCl.Hashing.TS64",
+            "sloc": [
+              {
+                "file": "sparknacl-hashing.adb",
+                "line": 49
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Hashing.Hash",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.ads",
+              "line": 16
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Rotate_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 157
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Interfaces.Rotate_Right",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 157
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Hashing.Hashblocks.UC_Sigma0",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.adb",
+              "line": 87
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "SPARKNaCl.Hashing.Hashblocks.Maj",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.adb",
+              "line": 82
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Hashing.Hashblocks.Maj",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.adb",
+              "line": 82
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Shift_Left",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 141
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "SPARKNaCl.Hashing.Hashblocks.DL64",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.adb",
+              "line": 106
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Interfaces.Shift_Left",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 141
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Interfaces.Shift_Left",
+            "sloc": [
+              {
+                "file": "interfac.ads",
+                "line": 141
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Hashing.Hashblocks.DL64",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.adb",
+              "line": 106
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "SPARKNaCl.Hashing",
+          "sloc": [
+            {
+              "file": "sparknacl-hashing.ads",
+              "line": 1
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "timings": {
+    "gnatwhy3.transformations.inline_trivial": 3.18057990074158E+00,
+    "codepeer results": 7.32999993488193E-04,
+    "init_why_sections": 1.01200002245605E-03,
+    "gnatwhy3.transformations.detect_polymorphism": 9.48290005326271E-02,
+    "globals/properties (advanced)": 8.83099995553493E-03,
+    "gnatwhy3.transformations.eliminate_literal": 2.02605009078979E-01,
+    "gnatwhy3.run_vcs": 2.21822905540466E+00,
+    "gnatwhy3.transformations.eliminate_algebraic_if_poly": 1.76630988717079E-01,
+    "gnatwhy3.transformations.eliminate_definition_if_poly": 1.12878002226353E-01,
+    "flow analysis": 7.05370008945465E-02,
+    "gnatwhy3.transformations.simplify_formula": 2.48515009880066E-01,
+    "marking": 2.59600002318621E-02,
+    "translation of standard": 1.45469997078180E-02,
+    "gnatwhy3.register_vcs": 2.63946294784546E+00,
+    "gnatwhy3.transformations.eliminate_epsilon": 2.14920997619629E-01,
+    "globals (basic)": 1.72540005296469E-02,
+    "gnatwhy3.schedule_vcs": 4.07270006835461E-02,
+    "gnatwhy3.transformations.prepare_for_counterexmp": 1.40099995769560E-03,
+    "gnatwhy3.save_session": 5.50706982612610E-01,
+    "gnatwhy3.transformations.eliminate_inductive": 1.04288004338741E-01,
+    "gnatwhy3.transformations.encoding_smt_if_poly": 3.75000003259629E-04,
+    "gnatwhy3.transformations.eliminate_unused_hypo": 2.90096998214722E+00,
+    "gnatwhy3.transformations.eliminate_builtin": 1.34248003363609E-01,
+    "gnatwhy3.transformations.discriminate_if_poly": 6.21000013779849E-04,
+    "gnatwhy3.init": 2.35754108428955E+00
+  }
+}
