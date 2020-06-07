@@ -9,7 +9,7 @@ pragma License (Unrestricted);
 
 with Ada.Strings.Fixed;
 
-package body SPAT.Entity_Lines is
+package body SPAT.Entity_Line is
 
    ---------------------------------------------------------------------------
    --  Create
@@ -29,4 +29,4 @@ package body SPAT.Entity_Lines is
                                 Side   => Ada.Strings.Both);
    end Image;
 
-end SPAT.Entity_Lines;
+end SPAT.Entity_Line;

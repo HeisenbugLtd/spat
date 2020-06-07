@@ -20,7 +20,7 @@ with SPAT.Proof_Items;
 with SPAT.Strings;
 
 private with Ada.Containers.Hashed_Maps;
-private with SPAT.Entity_Lines;
+private with SPAT.Entity_Line.List;
 private with SPAT.Flow_Items;
 private with SPAT.Timing_Items;
 
@@ -147,7 +147,7 @@ private
    type Analyzed_Entity is
       record
          SPARK_File   : Subject_Name; --  Which file this entity was found in.
-         Source_Lines : Entity_Lines.Vector;
+         Source_Lines : Entity_Line.List.T; --  Currently unused.
          Flows        : Flow_Items.Vector;
          Proofs       : Proof_Items.Vector;
       end record;

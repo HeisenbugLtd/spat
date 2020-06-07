@@ -68,7 +68,7 @@ package body SPAT.Spark_Info is
    --  Map_Sloc_Elements
    ---------------------------------------------------------------------------
    procedure Map_Sloc_Elements (This   : in out T;
-                                Add_To : in out Entity_Lines.Vector;
+                                Add_To : in out Entity_Line.List.T;
                                 Root   : in     JSON_Array);
 
    ---------------------------------------------------------------------------
@@ -400,7 +400,7 @@ package body SPAT.Spark_Info is
    --  Map_Sloc_Elements
    ---------------------------------------------------------------------------
    procedure Map_Sloc_Elements (This   : in out T;
-                                Add_To : in out Entity_Lines.Vector;
+                                Add_To : in out Entity_Line.List.T;
                                 Root   : in     JSON_Array)
    is
       pragma Unreferenced (This);
@@ -410,8 +410,8 @@ package body SPAT.Spark_Info is
             Sloc : constant JSON_Value := GNATCOLL.JSON.Get (Arr   => Root,
                                                              Index => I);
          begin
-            if Entity_Lines.Has_Required_Fields (Object => Sloc) then
-               Add_To.Append (New_Item => Entity_Lines.Create (Object => Sloc));
+            if Entity_Line.Has_Required_Fields (Object => Sloc) then
+               Add_To.Append (New_Item => Entity_Line.Create (Object => Sloc));
             end if;
          end;
       end loop;

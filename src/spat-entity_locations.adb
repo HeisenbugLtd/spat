@@ -35,7 +35,7 @@ package body SPAT.Entity_Locations is
    --  Create
    ---------------------------------------------------------------------------
    overriding function Create (Object : in JSON_Value) return T is
-     (Entity_Lines.Create (Object => Object) with
+     (Entity_Line.Create (Object => Object) with
         Column => Object.Get (Field => Field_Names.Column));
 
    ---------------------------------------------------------------------------
@@ -44,7 +44,7 @@ package body SPAT.Entity_Locations is
    overriding function Image (This : T) return String is
    begin
       return
-        Entity_Lines.T (This).Image & ":" &
+        Entity_Line.T (This).Image & ":" &
         Ada.Strings.Fixed.Trim (Source => This.Column'Image,
                                 Side   => Ada.Strings.Both);
    end Image;
