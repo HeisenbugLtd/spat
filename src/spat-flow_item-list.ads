@@ -11,21 +11,32 @@ pragma License (Unrestricted);
 --
 --  SPARK Proof Analysis Tool
 --
---  S.P.A.T. - GNAT project file (.gpr) support.
+--  S.P.A.T. - Object representing a list of JSON "flow" objects.
 --
 ------------------------------------------------------------------------------
 
-limited with SPAT.File_Lists;
-limited with GNATCOLL.VFS;
+limited with Ada.Containers.Vectors;
 
-package SPAT.GPR_Support is
+package SPAT.Flow_Item.List is
+
+   package Implementation is
+
+      package Vectors is
+        new Ada.Containers.Vectors (Index_Type   => Positive,
+                                    Element_Type => T);
+
+   end Implementation;
+
+   type T is new Implementation.Vectors.Vector with private;
 
    ---------------------------------------------------------------------------
-   --  Get_SPARK_Files
-   --
-   --  Retrieve all (existing) .spark files from the project.
+   --  Sort_By_Location
    ---------------------------------------------------------------------------
-   function Get_SPARK_Files
-     (GPR_File : GNATCOLL.VFS.Filesystem_String) return File_Lists.T;
+   not overriding
+   procedure Sort_By_Location (This : in out T);
 
-end SPAT.GPR_Support;
+private
+
+   type T is new Implementation.Vectors.Vector with null record;
+
+end SPAT.Flow_Item.List;

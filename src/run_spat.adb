@@ -31,23 +31,41 @@ with SPAT.Log;
 with SPAT.Spark_Files;
 with SPAT.Spark_Info;
 
+------------------------------------------------------------------------------
+--  Run_SPAT
+------------------------------------------------------------------------------
 procedure Run_SPAT is
 
+   ---------------------------------------------------------------------------
+   --  Image
+   ---------------------------------------------------------------------------
    function Image is new
      SI_Units.Metric.Fixed_Image (Item        => Duration,
                                   Default_Aft => 0,
                                   Unit        => SI_Units.Names.Second);
 
+   ---------------------------------------------------------------------------
+   --  Print_Entities
+   ---------------------------------------------------------------------------
    procedure Print_Entities (Info    : in SPAT.Spark_Info.T;
                              Sort_By : in SPAT.Spark_Info.Sorting_Criterion);
 
+   ---------------------------------------------------------------------------
+   --  Print_Summary
+   ---------------------------------------------------------------------------
    procedure Print_Summary (Info    : in SPAT.Spark_Info.T;
                             Sort_By : in SPAT.Spark_Info.Sorting_Criterion);
 
+   ---------------------------------------------------------------------------
+   --  Print_Entities
+   ---------------------------------------------------------------------------
    procedure Print_Entities
      (Info    : in SPAT.Spark_Info.T;
       Sort_By : in SPAT.Spark_Info.Sorting_Criterion) is separate;
 
+   ---------------------------------------------------------------------------
+   --  Print_Summary
+   ---------------------------------------------------------------------------
    procedure Print_Summary
      (Info    : in SPAT.Spark_Info.T;
       Sort_By : in SPAT.Spark_Info.Sorting_Criterion) is separate;

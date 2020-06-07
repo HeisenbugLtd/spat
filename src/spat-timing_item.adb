@@ -9,8 +9,11 @@ pragma License (Unrestricted);
 
 with Ada.Strings.Fixed;
 
-package body SPAT.Timing_Items is
+package body SPAT.Timing_Item is
 
+   ---------------------------------------------------------------------------
+   --  Create
+   ---------------------------------------------------------------------------
    function Create (Object  : in JSON_Value;
                     Version : in File_Version) return T is
       Proof_Time : Duration;
@@ -24,9 +27,16 @@ package body SPAT.Timing_Items is
                --  Callback when mapping the timing object. If the name of the
                --  JSON value matches "gnatwhy3." we assume it's a timing value
                --  that should be added to the proof time.
+
+               ---------------------------------------------------------------
+               --  Add_Why3_Time
+               ---------------------------------------------------------------
                procedure Add_Why3_Time (Name  : in UTF8_String;
                                         Value : in JSON_Value);
 
+               ---------------------------------------------------------------
+               --  Add_Why3_Time
+               ---------------------------------------------------------------
                procedure Add_Why3_Time (Name  : in UTF8_String;
                                         Value : in JSON_Value) is
                begin
@@ -54,4 +64,4 @@ package body SPAT.Timing_Items is
    end Create;
    --  TODO: Maybe accept integer values, too.
 
-end SPAT.Timing_Items;
+end SPAT.Timing_Item;

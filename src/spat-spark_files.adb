@@ -10,13 +10,20 @@ pragma License (Unrestricted);
 with Ada.IO_Exceptions;
 with Ada.Text_IO;
 
+with SPAT.File_Lists;
 with SPAT.Log;
 
 package body SPAT.Spark_Files is
 
+   ---------------------------------------------------------------------------
+   --  Parse_File
+   ---------------------------------------------------------------------------
    function Parse_File
      (Name : in Subject_Name) return GNATCOLL.JSON.Read_Result;
 
+   ---------------------------------------------------------------------------
+   --  Parse_File
+   ---------------------------------------------------------------------------
    function Parse_File (Name : in Subject_Name) return GNATCOLL.JSON.Read_Result
    is
       JSON_File    : Ada.Text_IO.File_Type;
@@ -37,6 +44,9 @@ package body SPAT.Spark_Files is
       return GNATCOLL.JSON.Read (Strm => File_Content);
    end Parse_File;
 
+   ---------------------------------------------------------------------------
+   --  Read
+   ---------------------------------------------------------------------------
    procedure Read (This  : in out T;
                    Names : in     File_Lists.T'Class)
    is

@@ -19,6 +19,10 @@ with Ada.Text_IO;
 with SPAT.Strings;
 
 separate (Run_SPAT)
+
+------------------------------------------------------------------------------
+--  Print_Summary
+------------------------------------------------------------------------------
 procedure Print_Summary (Info    : in SPAT.Spark_Info.T;
                          Sort_By : in SPAT.Spark_Info.Sorting_Criterion)
 is

@@ -15,18 +15,22 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
-with Ada.Containers.Vectors;
-with Ada.Text_IO;
+limited with Ada.Containers.Vectors;
+limited with Ada.Text_IO;
 
 package SPAT.Strings is
 
-   package List_Vectors is new
-     Ada.Containers.Vectors (Index_Type   => Positive,
-                             Element_Type => Subject_Name,
-                             "="          => "=");
+   package Implementation is
+
+      package Vectors is new
+        Ada.Containers.Vectors (Index_Type   => Positive,
+                                Element_Type => Subject_Name,
+                                "="          => "=");
+
+   end Implementation;
 
    --  A one dimensional list of strings.
-   type List is new List_Vectors.Vector with null record;
+   type List is new Implementation.Vectors.Vector with private;
 
    ---------------------------------------------------------------------------
    --  Max_Length
@@ -35,5 +39,9 @@ package SPAT.Strings is
    ---------------------------------------------------------------------------
    not overriding
    function Max_Length (Source : in List) return Ada.Text_IO.Count;
+
+private
+
+   type List is new Implementation.Vectors.Vector with null record;
 
 end SPAT.Strings;

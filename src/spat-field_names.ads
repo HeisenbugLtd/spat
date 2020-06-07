@@ -14,6 +14,7 @@ pragma License (Unrestricted);
 --  S.P.A.T. - Names of recognized fields in JSON data.
 --
 ------------------------------------------------------------------------------
+
 package SPAT.Field_Names is
 
    Assumptions     : constant UTF8_String := "assumptions";

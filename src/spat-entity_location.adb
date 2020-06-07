@@ -9,7 +9,7 @@ pragma License (Unrestricted);
 
 with Ada.Strings.Fixed;
 
-package body SPAT.Entity_Locations is
+package body SPAT.Entity_Location is
 
    ---------------------------------------------------------------------------
    --  "<"
@@ -49,4 +49,4 @@ package body SPAT.Entity_Locations is
                                 Side   => Ada.Strings.Both);
    end Image;
 
-end SPAT.Entity_Locations;
+end SPAT.Entity_Location;

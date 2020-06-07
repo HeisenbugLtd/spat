@@ -12,14 +12,15 @@ pragma License (Unrestricted);
 --  SPARK Proof Analysis Tool
 --
 --  S.P.A.T. - Object representing an entity (name) with a file location based
---             on a single source line (no column information).
+--             on a source line and column.
 --
 ------------------------------------------------------------------------------
 
+with SPAT.Entity_Line;
 with SPAT.Field_Names;
 with SPAT.Preconditions;
 
-package SPAT.Entity_Line is
+package SPAT.Entity_Location is
 
    use all type GNATCOLL.JSON.JSON_Value_Type;
 
@@ -34,53 +35,33 @@ package SPAT.Entity_Line is
                                   Field  => Field_Names.Line,
                                   Kind   => JSON_Int_Type));
 
-   type T is tagged private;
+   type T is new Entity_Line.T with private;
 
    ---------------------------------------------------------------------------
    --  Create
    ---------------------------------------------------------------------------
-   not overriding
+   overriding
    function Create (Object : in JSON_Value) return T with
      Pre => Has_Required_Fields (Object => Object);
 
    ---------------------------------------------------------------------------
    --  Image
    ---------------------------------------------------------------------------
-   not overriding
-   function Image (This : T) return String;
+   overriding
+   function Image (This : in T) return String;
 
    ---------------------------------------------------------------------------
-   --  File
+   --  "<"
    ---------------------------------------------------------------------------
    not overriding
-   function File (This : in T) return Subject_Name;
-
-   ---------------------------------------------------------------------------
-   --  Line
-   ---------------------------------------------------------------------------
-   not overriding
-   function Line (This : in T) return Natural;
+   function "<" (Left  : in T;
+                 Right : in T) return Boolean;
 
 private
 
-   type T is tagged
+   type T is new Entity_Line.T with
       record
-         File : Subject_Name;
-         Line : Natural;
+         Column : Natural;
       end record;
 
-   ---------------------------------------------------------------------------
-   --  File
-   ---------------------------------------------------------------------------
-   not overriding
-   function File (This : in T) return Subject_Name is
-      (This.File);
-
-   ---------------------------------------------------------------------------
-   --  Line
-   ---------------------------------------------------------------------------
-   not overriding
-   function Line (This : in T) return Natural is
-     (This.Line);
-
-end SPAT.Entity_Line;
+end SPAT.Entity_Location;

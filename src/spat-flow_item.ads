@@ -14,32 +14,34 @@ pragma License (Unrestricted);
 --  S.P.A.T. - Object representing a JSON "flow" object.
 --
 ------------------------------------------------------------------------------
-with Ada.Containers.Vectors;
 
-with SPAT.Entity_Locations;
+with SPAT.Entity_Location;
 with SPAT.Preconditions;
 
-private package SPAT.Flow_Items is
+package SPAT.Flow_Item is
 
+   ---------------------------------------------------------------------------
+   --  Has_Required_Fields
+   ---------------------------------------------------------------------------
    function Has_Required_Fields (Object : in JSON_Value) return Boolean is
-     (Entity_Locations.Has_Required_Fields (Object => Object) and
+     (Entity_Location.Has_Required_Fields (Object => Object) and
       Preconditions.Ensure_Rule_Severity (Object => Object));
 
-   type T is new Entity_Locations.T with
+   type T is new Entity_Location.T with private;
+
+   ---------------------------------------------------------------------------
+   --  Create
+   ---------------------------------------------------------------------------
+   overriding
+   function Create (Object : in JSON_Value) return T with
+     Pre => Has_Required_Fields (Object => Object);
+
+private
+
+   type T is new Entity_Location.T with
       record
          Rule     : Subject_Name;
          Severity : Subject_Name;
       end record;
 
-   overriding function Create (Object : in JSON_Value) return T with
-     Pre => Has_Required_Fields (Object => Object);
-
-   package Vectors is
-     new Ada.Containers.Vectors (Index_Type   => Positive,
-                                 Element_Type => T);
-
-   subtype Vector is Vectors.Vector;
-
-   package By_Location is new Vectors.Generic_Sorting ("<" => "<");
-
-end SPAT.Flow_Items;
+end SPAT.Flow_Item;

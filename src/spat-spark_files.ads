@@ -17,8 +17,8 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
-with Ada.Containers.Hashed_Maps;
-with SPAT.File_Lists;
+limited with Ada.Containers.Hashed_Maps;
+limited with SPAT.File_Lists;
 
 package SPAT.Spark_Files is
 
@@ -37,6 +37,9 @@ package SPAT.Spark_Files is
    No_Element : File_Maps.Cursor renames File_Maps.No_Element;
    subtype Cursor is File_Maps.Cursor;
 
+   ---------------------------------------------------------------------------
+   --  Key
+   ---------------------------------------------------------------------------
    function Key (C : in Cursor) return Subject_Name renames File_Maps.Key;
 
    --
@@ -46,6 +49,9 @@ package SPAT.Spark_Files is
    type T is new File_Maps.Map with private;
    --  Stores all data collected from SPARK files for analysis.
 
+   ---------------------------------------------------------------------------
+   --  Read
+   ---------------------------------------------------------------------------
    procedure Read (This  : in out T;
                    Names : in     File_Lists.T'Class);
    --  Reads the list of files, and parses and stores their content in This.

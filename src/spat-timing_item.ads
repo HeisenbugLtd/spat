@@ -14,13 +14,17 @@ pragma License (Unrestricted);
 --  S.P.A.T. - Object representing the "timing" JSON object.
 --
 ------------------------------------------------------------------------------
+
 with SPAT.Field_Names;
 with SPAT.Preconditions;
 
-private package SPAT.Timing_Items is
+package SPAT.Timing_Item is
 
    use all type GNATCOLL.JSON.JSON_Value_Type;
 
+   ---------------------------------------------------------------------------
+   --  Has_Required_Fields
+   ---------------------------------------------------------------------------
    function Has_Required_Fields (Object  : in JSON_Value;
                                  Version : in File_Version) return Boolean
    is
@@ -40,20 +44,62 @@ private package SPAT.Timing_Items is
                                    Kind   => JSON_Float_Type));
 
    --  Information obtained from the timing section of a .spark file.
-   type T is
+   type T is tagged private;
+
+   ---------------------------------------------------------------------------
+   --  Create
+   ---------------------------------------------------------------------------
+   function Create (Object  : in JSON_Value;
+                    Version : in File_Version) return T with
+     Pre => Has_Required_Fields (Object  => Object,
+                                 Version => Version);
+
+   ---------------------------------------------------------------------------
+   --  Flow
+   ---------------------------------------------------------------------------
+   function Flow (This : in T) return Duration;
+
+   ---------------------------------------------------------------------------
+   --  Proof
+   ---------------------------------------------------------------------------
+   function Proof (This : in T) return Duration;
+
+   ---------------------------------------------------------------------------
+   --  Version
+   ---------------------------------------------------------------------------
+   function Version (This : in T) return File_Version;
+
+   None : constant T;
+
+private
+
+   type T is tagged
       record
          Version : File_Version; --  version of file encountered.
          Proof   : Duration;     --  Total time the prover spent.
          Flow    : Duration;     --  Total time of flow analysis.
       end record;
 
-   function Create (Object  : in JSON_Value;
-                    Version : in File_Version) return T with
-     Pre => Has_Required_Fields (Object  => Object,
-                                 Version => Version);
-
    None : constant T := T'(Version => File_Version'First,
                            Proof   => 0.0,
                            Flow    => 0.0);
 
-end SPAT.Timing_Items;
+   ---------------------------------------------------------------------------
+   --  Flow
+   ---------------------------------------------------------------------------
+   function Flow (This : in T) return Duration is
+     (This.Flow);
+
+   ---------------------------------------------------------------------------
+   --  Proof
+   ---------------------------------------------------------------------------
+   function Proof (This : in T) return Duration is
+     (This.Proof);
+
+   ---------------------------------------------------------------------------
+   --  Version
+   ---------------------------------------------------------------------------
+   function Version (This : in T) return File_Version is
+     (This.Version);
+
+end SPAT.Timing_Item;

@@ -15,8 +15,8 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
-with Ada.Containers;
-with Ada.Strings.Unbounded.Hash;
+limited with Ada.Containers;
+limited with Ada.Strings.Unbounded.Hash;
 with GNATCOLL.JSON;
 
 package SPAT is
@@ -29,25 +29,43 @@ package SPAT is
    Null_Name : Subject_Name renames Ada.Strings.Unbounded.Null_Unbounded_String;
    --  Provide a renaming for the null string.
 
+   ---------------------------------------------------------------------------
+   --  To_String
+   ---------------------------------------------------------------------------
    function To_String (Source : in Subject_Name) return String renames
      Ada.Strings.Unbounded.To_String;
 
+   ---------------------------------------------------------------------------
+   --  To_Name
+   ---------------------------------------------------------------------------
    function To_Name (Source : in String) return Subject_Name renames
      Ada.Strings.Unbounded.To_Unbounded_String;
 
+   ---------------------------------------------------------------------------
+   --  "="
+   ---------------------------------------------------------------------------
    function "="
      (Left  : in Ada.Strings.Unbounded.Unbounded_String;
       Right : in Ada.Strings.Unbounded.Unbounded_String) return Boolean renames
      Ada.Strings.Unbounded."=";
 
+   ---------------------------------------------------------------------------
+   --  "<"
+   ---------------------------------------------------------------------------
    function "<"
      (Left  : in Ada.Strings.Unbounded.Unbounded_String;
       Right : in Ada.Strings.Unbounded.Unbounded_String) return Boolean renames
      Ada.Strings.Unbounded."<";
 
+   ---------------------------------------------------------------------------
+   --  Hash
+   ---------------------------------------------------------------------------
    function Hash (Key : Ada.Strings.Unbounded.Unbounded_String) return
      Ada.Containers.Hash_Type renames Ada.Strings.Unbounded.Hash;
 
+   ---------------------------------------------------------------------------
+   --  Length
+   ---------------------------------------------------------------------------
    function Length
      (Source : in Ada.Strings.Unbounded.Unbounded_String) return Natural renames
      Ada.Strings.Unbounded.Length;

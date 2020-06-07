@@ -12,6 +12,7 @@ with Ada.Directories;
 with SPAT.Field_Names;
 with SPAT.Log;
 with SPAT.Preconditions;
+with SPAT.Strings;
 
 package body SPAT.Spark_Info is
 
@@ -311,11 +312,11 @@ package body SPAT.Spark_Info is
                      begin
                         if Update_At /= Analyzed_Entities.No_Element then
                            if
-                             Flow_Items.Has_Required_Fields (Object => Element)
+                             Flow_Item.Has_Required_Fields (Object => Element)
                            then
                               This.Entities (Update_At).Flows.Append
                                 (New_Item =>
-                                   Flow_Items.Create (Object => Element));
+                                   Flow_Item.Create (Object => Element));
                            end if;
                         else
                            Log.Warning
@@ -332,7 +333,7 @@ package body SPAT.Spark_Info is
 
       --  Sort flows by file name:line:column.
       for E of This.Entities loop
-         Flow_Items.By_Location.Sort (Container => E.Flows);
+         E.Flows.Sort_By_Location;
       end loop;
    end Map_Flow_Elements;
 
@@ -371,11 +372,11 @@ package body SPAT.Spark_Info is
                      begin
                         if Update_At /= Analyzed_Entities.No_Element then
                            if
-                             Proof_Items.Has_Required_Fields (Object => Element)
+                             Proof_Item.Has_Required_Fields (Object => Element)
                            then
                               This.Entities (Update_At).Proofs.Append
                                 (New_Item =>
-                                   Proof_Items.Create (Object => Element));
+                                   Proof_Item.Create (Object => Element));
                            end if;
                         else
                            Log.Warning
@@ -392,7 +393,7 @@ package body SPAT.Spark_Info is
 
       --  Sort proofs by time to proof them.
       for E of This.Entities loop
-         Proof_Items.By_Duration.Sort (Container => E.Proofs);
+         E.Proofs.Sort_By_Duration;
       end loop;
    end Map_Proof_Elements;
 
@@ -518,16 +519,16 @@ package body SPAT.Spark_Info is
                           Version : in     File_Version) is
    begin
       if
-        Timing_Items.Has_Required_Fields (Object  => Root,
-                                          Version => Version)
+        Timing_Item.Has_Required_Fields (Object  => Root,
+                                         Version => Version)
       then
          This.Files.Insert
            (Key      => File,
-            New_Item => Timing_Items.Create (Object  => Root,
-                                             Version => Version));
+            New_Item => Timing_Item.Create (Object  => Root,
+                                            Version => Version));
       else
          This.Files.Insert (Key      => File,
-                            New_Item => Timing_Items.None);
+                            New_Item => Timing_Item.None);
       end if;
    end Map_Timings;
 
@@ -576,7 +577,7 @@ package body SPAT.Spark_Info is
    --  Proof_List
    ---------------------------------------------------------------------------
    function Proof_List (This   : in T;
-                        Entity : in Subject_Name) return Proof_Items.Vector is
+                        Entity : in Subject_Name) return Proof_Item.List.T is
      (This.Entities (Entity).Proofs);
 
    ---------------------------------------------------------------------------
@@ -584,7 +585,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    function Proof_Time (This : in T;
                         File : in Subject_Name) return Duration is
-      Timings : constant Timing_Items.T := This.Files (File);
+      Timings : constant Timing_Item.T := This.Files (File);
    begin
       case Timings.Version is
          when GNAT_CE_2019 =>
@@ -624,9 +625,11 @@ package body SPAT.Spark_Info is
                                   Container : in out Strings.List)
    is
       pragma Unreferenced (This);
-      package Sorting is new Strings.List_Vectors.Generic_Sorting ("<" => "<");
+      package Sorting is new
+        Strings.Implementation.Vectors.Generic_Sorting ("<" => "<");
    begin
-      Sorting.Sort (Container => Strings.List_Vectors.Vector (Container));
+      Sorting.Sort
+        (Container => Strings.Implementation.Vectors.Vector (Container));
    end Sort_Entity_By_Name;
 
    ---------------------------------------------------------------------------
@@ -635,14 +638,19 @@ package body SPAT.Spark_Info is
    procedure Sort_Entity_By_Proof_Time (This      : in     T;
                                         Container : in out Strings.List)
    is
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
       function "<" (Left  : in Subject_Name;
                     Right : in Subject_Name) return Boolean is
         (This.Total_Proof_Time (Entity => Left) >
          This.Total_Proof_Time (Entity => Right));
 
-      package Sorting is new Strings.List_Vectors.Generic_Sorting ("<" => "<");
+      package Sorting is new
+        Strings.Implementation.Vectors.Generic_Sorting ("<" => "<");
    begin
-      Sorting.Sort (Container => Strings.List_Vectors.Vector (Container));
+      Sorting.Sort
+        (Container => Strings.Implementation.Vectors.Vector (Container));
    end Sort_Entity_By_Proof_Time;
 
    ---------------------------------------------------------------------------
@@ -653,14 +661,19 @@ package body SPAT.Spark_Info is
    is
       pragma Unreferenced (This);
 
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
       function "<" (Left  : in Subject_Name;
                     Right : in Subject_Name) return Boolean is
         (Ada.Directories.Base_Name (Name => To_String (Source => Left)) <
            Ada.Directories.Base_Name (Name => To_String (Source => Right)));
 
-      package Sorting is new Strings.List_Vectors.Generic_Sorting ("<" => "<");
+      package Sorting is new
+        Strings.Implementation.Vectors.Generic_Sorting ("<" => "<");
    begin
-      Sorting.Sort (Container => Strings.List_Vectors.Vector (Container));
+      Sorting.Sort
+        (Container => Strings.Implementation.Vectors.Vector (Container));
    end Sort_File_By_Basename;
 
    ---------------------------------------------------------------------------
@@ -669,14 +682,19 @@ package body SPAT.Spark_Info is
    procedure Sort_File_By_Proof_Time (This      : in     T;
                                       Container : in out Strings.List)
    is
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
       function "<" (Left  : in Subject_Name;
                     Right : in Subject_Name) return Boolean is
         ((This.Proof_Time (File => Left) + This.Flow_Time (File => Left)) >
          (This.Proof_Time (File => Right) + This.Flow_Time (File => Right)));
 
-      package Sorting is new Strings.List_Vectors.Generic_Sorting ("<" => "<");
+      package Sorting is new
+        Strings.Implementation.Vectors.Generic_Sorting ("<" => "<");
    begin
-      Sorting.Sort (Container => Strings.List_Vectors.Vector (Container));
+      Sorting.Sort
+        (Container => Strings.Implementation.Vectors.Vector (Container));
    end Sort_File_By_Proof_Time;
 
    ---------------------------------------------------------------------------

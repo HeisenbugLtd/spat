@@ -16,13 +16,13 @@ pragma License (Unrestricted);
 --  Collect file contents.
 --
 ------------------------------------------------------------------------------
-with SPAT.Proof_Items;
-with SPAT.Strings;
 
-private with Ada.Containers.Hashed_Maps;
-private with SPAT.Entity_Line.List;
-private with SPAT.Flow_Items;
-private with SPAT.Timing_Items;
+limited private with Ada.Containers.Hashed_Maps;
+with SPAT.Entity_Line.List;
+with SPAT.Flow_Item.List;
+with SPAT.Proof_Item.List;
+limited with SPAT.Strings;
+with SPAT.Timing_Item;
 
 package SPAT.Spark_Info is
 
@@ -38,9 +38,10 @@ package SPAT.Spark_Info is
    --  Traverses through the JSON data given in Root and translates it into
    --  the data structure given in This.
    ---------------------------------------------------------------------------
-   not overriding procedure Map_Spark_File (This : in out T;
-                                            File : in     Subject_Name;
-                                            Root : in     JSON_Value);
+   not overriding
+   procedure Map_Spark_File (This : in out T;
+                             File : in     Subject_Name;
+                             Root : in     JSON_Value);
 
    ---------------------------------------------------------------------------
    --  List_All_Entities
@@ -77,8 +78,9 @@ package SPAT.Spark_Info is
    --
    --  Reported time taken for the flow analysis for File.
    ---------------------------------------------------------------------------
-   not overriding function Flow_Time (This : in T;
-                                      File : in Subject_Name) return Duration;
+   not overriding
+   function Flow_Time (This : in T;
+                       File : in Subject_Name) return Duration;
 
    ---------------------------------------------------------------------------
    --  Num_Proofs
@@ -122,7 +124,7 @@ package SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Proof_List (This   : in T;
-                        Entity : in Subject_Name) return Proof_Items.Vector;
+                        Entity : in Subject_Name) return Proof_Item.List.T;
 
    ---------------------------------------------------------------------------
    --  Has_Failed_Attempts
@@ -130,6 +132,7 @@ package SPAT.Spark_Info is
    --  Returns True if any of the proof attempts for Entity do not have a
    --  "Valid" result.
    ---------------------------------------------------------------------------
+   not overriding
    function Has_Failed_Attempts (This   : in T;
                                  Entity : in Subject_Name) return Boolean;
 
@@ -139,6 +142,7 @@ package SPAT.Spark_Info is
    --  Returns True if some of the proof attempts for Entity do have a "Valid"
    --  result.
    ---------------------------------------------------------------------------
+   not overriding
    function Has_Unproved_Attempts (This   : in T;
                                    Entity : in Subject_Name) return Boolean;
 
@@ -148,8 +152,8 @@ private
       record
          SPARK_File   : Subject_Name; --  Which file this entity was found in.
          Source_Lines : Entity_Line.List.T; --  Currently unused.
-         Flows        : Flow_Items.Vector;
-         Proofs       : Proof_Items.Vector;
+         Flows        : Flow_Item.List.T;
+         Proofs       : Proof_Item.List.T;
       end record;
 
    --  Type representing a source (file) entity.
@@ -161,15 +165,15 @@ private
 
    package File_Timings is new
      Ada.Containers.Hashed_Maps (Key_Type        => Subject_Name,
-                                 Element_Type    => Timing_Items.T,
+                                 Element_Type    => Timing_Item.T,
                                  Hash            => Hash,
                                  Equivalent_Keys => "=",
-                                 "="             => Timing_Items."=");
+                                 "="             => Timing_Item."=");
 
    type T is tagged limited
       record
-         Entities : Analyzed_Entities.Map := Analyzed_Entities.Empty_Map;
-         Files    : File_Timings.Map      := File_Timings.Empty_Map;
+         Entities : Analyzed_Entities.Map;
+         Files    : File_Timings.Map;
       end record;
 
 end SPAT.Spark_Info;

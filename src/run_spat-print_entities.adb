@@ -14,6 +14,7 @@ pragma License (Unrestricted);
 --  S.P.A.T. - Main program - separate Print_Entities
 --
 ------------------------------------------------------------------------------
+
 with Ada.Text_IO;
 
 with SPAT.Log;
@@ -21,6 +22,9 @@ with SPAT.Strings;
 
 separate (Run_SPAT)
 
+------------------------------------------------------------------------------
+--  Print_Entities
+------------------------------------------------------------------------------
 procedure Print_Entities (Info    : in SPAT.Spark_Info.T;
                           Sort_By : in SPAT.Spark_Info.Sorting_Criterion)
 is

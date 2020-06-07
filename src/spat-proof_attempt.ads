@@ -15,12 +15,10 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
-with Ada.Containers.Vectors;
-
 with SPAT.Field_Names;
 with SPAT.Preconditions;
 
-package SPAT.Proof_Attempts is
+package SPAT.Proof_Attempt is
 
    use all type GNATCOLL.JSON.JSON_Value_Type;
 
@@ -35,13 +33,7 @@ package SPAT.Proof_Attempts is
                                   Field         => Field_Names.Time,
                                   Kinds_Allowed => Preconditions.Number_Kind));
 
-   type T is tagged
-      record
-         Prover     : Subject_Name; --  Prover involved.
-         Result     : Subject_Name; --  "Valid", "Unknown", etc.
-         Time       : Duration;     --  time spent during proof
-         --  Steps -- part of the JSON data, but we don't care.
-      end record;
+   type T is tagged private;
 
    ---------------------------------------------------------------------------
    --  Create
@@ -64,40 +56,68 @@ package SPAT.Proof_Attempts is
    ---------------------------------------------------------------------------
    --  Slower_Than
    ---------------------------------------------------------------------------
-   not overriding function Slower_Than (Left  : in T;
-                                        Right : in T) return Boolean is
-     (Left.Time > Right.Time);
-
-   package Vectors is new
-     Ada.Containers.Vectors (Index_Type   => Ada.Containers.Count_Type,
-                             Element_Type => T);
-
-   type Vector is new Vectors.Vector with null record;
+   not overriding
+   function Slower_Than (Left  : in T;
+                         Right : in T) return Boolean;
 
    ---------------------------------------------------------------------------
-   --  Has_Failed_Attempts
+   --  Prover
    ---------------------------------------------------------------------------
    not overriding
-   function Has_Failed_Attempts (This : in Vector) return Boolean;
+   function Prover (This : in T) return Subject_Name;
 
    ---------------------------------------------------------------------------
-   --  Is_Unproved
+   --  Result
    ---------------------------------------------------------------------------
    not overriding
-   function Is_Unproved (This : in Vector) return Boolean;
+   function Result (This : in T) return Subject_Name;
 
    ---------------------------------------------------------------------------
-   --  Sort_By_Duration
+   --  Time
    ---------------------------------------------------------------------------
    not overriding
-   procedure Sort_By_Duration (Container : in out Vector);
-
-   Empty_Vector : Vector := (Vectors.Empty_Vector with null record);
+   function Time (This : in T) return Duration;
 
 private
+
+   type T is tagged
+      record
+         Prover     : Subject_Name; --  Prover involved.
+         Result     : Subject_Name; --  "Valid", "Unknown", etc.
+         Time       : Duration;     --  time spent during proof
+         --  Steps -- part of the JSON data, but we don't care.
+      end record;
 
    Trivial_True : constant T := T'(Prover => To_Name ("Trivial"),
                                    Result => To_Name ("Valid"),
                                    Time   => 0.0);
 
-end SPAT.Proof_Attempts;
+   ---------------------------------------------------------------------------
+   --  Slower_Than
+   ---------------------------------------------------------------------------
+   not overriding function Slower_Than (Left  : in T;
+                                        Right : in T) return Boolean is
+     (Left.Time > Right.Time);
+
+   ---------------------------------------------------------------------------
+   --  Prover
+   ---------------------------------------------------------------------------
+   not overriding
+   function Prover (This : in T) return Subject_Name is
+     (This.Prover);
+
+   ---------------------------------------------------------------------------
+   --  Result
+   ---------------------------------------------------------------------------
+   not overriding
+   function Result (This : in T) return Subject_Name is
+     (This.Result);
+
+   ---------------------------------------------------------------------------
+   --  Time
+   ---------------------------------------------------------------------------
+   not overriding
+   function Time (This : in T) return Duration is
+     (This.Time);
+
+end SPAT.Proof_Attempt;

@@ -28,9 +28,15 @@ package SPAT.Command_Line is
    --  Before using the below functions you should have called Parser.Parse and
    --  evaluated its return status.
 
+   ---------------------------------------------------------------------------
+   --  Convert
+   ---------------------------------------------------------------------------
    function Convert
      (Value : in String) return SPAT.Spark_Info.Sorting_Criterion;
 
+   ---------------------------------------------------------------------------
+   --  Convert
+   ---------------------------------------------------------------------------
    function Convert (Value : in String) return SPAT.Spark_Info.Sorting_Criterion
    is
      (if    Value in "=a" | "a" then SPAT.Spark_Info.Name

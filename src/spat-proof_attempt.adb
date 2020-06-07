@@ -7,7 +7,7 @@
 ------------------------------------------------------------------------------
 pragma License (Unrestricted);
 
-package body SPAT.Proof_Attempts is
+package body SPAT.Proof_Attempt is
 
    ---------------------------------------------------------------------------
    --  Create
@@ -33,32 +33,4 @@ package body SPAT.Proof_Attempts is
                              Time_Field.Kind'Image & """ of JSON object!"));
    end Create;
 
-   ---------------------------------------------------------------------------
-   --  Has_Failed_Attempts
-   ---------------------------------------------------------------------------
-   function Has_Failed_Attempts (This : in Vector) return Boolean
-   is
-      use type Subject_Name;
-   begin
-      return (for some A of This => A.Result /= "Valid");
-   end Has_Failed_Attempts;
-
-   ---------------------------------------------------------------------------
-   --  Is_Unproved
-   ---------------------------------------------------------------------------
-   not overriding
-   function Is_Unproved (This : in Vector) return Boolean
-   is
-      use type Subject_Name;
-   begin
-      return (for all A of This => A.Result /= "Valid");
-   end Is_Unproved;
-
-   package By_Duration is new Vectors.Generic_Sorting ("<" => Slower_Than);
-
-   procedure Sort_By_Duration (Container : in out Vector) is
-   begin
-      By_Duration.Sort (Vectors.Vector (Container));
-   end Sort_By_Duration;
-
-end SPAT.Proof_Attempts;
+end SPAT.Proof_Attempt;

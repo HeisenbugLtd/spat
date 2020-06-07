@@ -9,14 +9,14 @@ pragma License (Unrestricted);
 
 with SPAT.Field_Names;
 
-package body SPAT.Flow_Items is
+package body SPAT.Flow_Item is
 
    ---------------------------------------------------------------------------
    --  Create
    ---------------------------------------------------------------------------
    overriding function Create (Object : in JSON_Value) return T is
-     (Entity_Locations.Create (Object => Object) with
+     (Entity_Location.Create (Object => Object) with
         Rule     => Object.Get (Field => Field_Names.Rule),
         Severity => Object.Get (Field => Field_Names.Severity));
 
-end SPAT.Flow_Items;
+end SPAT.Flow_Item;

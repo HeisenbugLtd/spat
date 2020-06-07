@@ -13,19 +13,29 @@ with Ada.Real_Time;
 with GNATCOLL.Projects;
 with SI_Units.Metric;
 with SI_Units.Names;
+with SPAT.File_Lists;
 with SPAT.Log;
 
 package body SPAT.GPR_Support is
 
+   ---------------------------------------------------------------------------
+   --  Image
+   ---------------------------------------------------------------------------
    function Image is new
      SI_Units.Metric.Fixed_Image (Item        => Duration,
                                   Default_Aft => 0,
                                   Unit        => SI_Units.Names.Second);
 
+   ---------------------------------------------------------------------------
+   --  SPARK_Name
+   ---------------------------------------------------------------------------
    function SPARK_Name
      (Project_Tree : in GNATCOLL.Projects.Project_Tree;
       Source_File  : in GNATCOLL.VFS.Virtual_File) return String;
 
+   ---------------------------------------------------------------------------
+   --  Get_SPARK_Files
+   ---------------------------------------------------------------------------
    function Get_SPARK_Files
      (GPR_File : GNATCOLL.VFS.Filesystem_String) return File_Lists.T
    is
@@ -138,6 +148,9 @@ package body SPAT.GPR_Support is
       return Result_List;
    end Get_SPARK_Files;
 
+   ---------------------------------------------------------------------------
+   --  SPARK_Name
+   ---------------------------------------------------------------------------
    function SPARK_Name
      (Project_Tree : in GNATCOLL.Projects.Project_Tree;
       Source_File  : in GNATCOLL.VFS.Virtual_File) return String

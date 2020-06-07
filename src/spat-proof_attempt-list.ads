@@ -11,40 +11,23 @@ pragma License (Unrestricted);
 --
 --  SPARK Proof Analysis Tool
 --
---  S.P.A.T. - Object representing an entity (name) with a file location based
---             on a source line and column.
+--  S.P.A.T. - Object representing a list of JSON "proof attempt" objects.
 --
 ------------------------------------------------------------------------------
-with SPAT.Entity_Line;
-with SPAT.Field_Names;
-with SPAT.Preconditions;
 
-package SPAT.Entity_Locations is
+limited with Ada.Containers.Vectors;
 
-   use all type GNATCOLL.JSON.JSON_Value_Type;
+package SPAT.Proof_Attempt.List is
 
-   function Has_Required_Fields (Object : in JSON_Value) return Boolean is
-     (Preconditions.Ensure_Field (Object => Object,
-                                  Field  => Field_Names.File,
-                                  Kind   => JSON_String_Type) and
-      Preconditions.Ensure_Field (Object => Object,
-                                  Field  => Field_Names.Line,
-                                  Kind   => JSON_Int_Type));
+   package Implementation is
 
-   type T is new Entity_Line.T with private;
+      package Vectors is new
+        Ada.Containers.Vectors (Index_Type   => Ada.Containers.Count_Type,
+                                Element_Type => T);
 
-   ---------------------------------------------------------------------------
-   --  Create
-   ---------------------------------------------------------------------------
-   overriding
-   function Create (Object : in JSON_Value) return T with
-     Pre => Has_Required_Fields (Object => Object);
+   end Implementation;
 
-   ---------------------------------------------------------------------------
-   --  Image
-   ---------------------------------------------------------------------------
-   overriding
-   function Image (This : in T) return String;
+   type T is new Implementation.Vectors.Vector with private;
 
    ---------------------------------------------------------------------------
    --  "<"
@@ -53,11 +36,26 @@ package SPAT.Entity_Locations is
    function "<" (Left  : in T;
                  Right : in T) return Boolean;
 
+   ---------------------------------------------------------------------------
+   --  Has_Failed_Attempts
+   ---------------------------------------------------------------------------
+   not overriding
+   function Has_Failed_Attempts (This : in T) return Boolean;
+
+   ---------------------------------------------------------------------------
+   --  Is_Unproved
+   ---------------------------------------------------------------------------
+   not overriding
+   function Is_Unproved (This : in T) return Boolean;
+
+   ---------------------------------------------------------------------------
+   --  Sort_By_Duration
+   ---------------------------------------------------------------------------
+   not overriding
+   procedure Sort_By_Duration (Container : in out T);
+
 private
 
-   type T is new Entity_Line.T with
-      record
-         Column : Natural;
-      end record;
+   type T is new Implementation.Vectors.Vector with null record;
 
-end SPAT.Entity_Locations;
+end SPAT.Proof_Attempt.List;

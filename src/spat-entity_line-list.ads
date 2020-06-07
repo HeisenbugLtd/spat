@@ -15,7 +15,7 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
-with Ada.Containers.Vectors;
+limited with Ada.Containers.Vectors;
 
 package SPAT.Entity_Line.List is
 
@@ -27,6 +27,10 @@ package SPAT.Entity_Line.List is
 
    end Implementation;
 
-   subtype T is Implementation.Vectors.Vector;
+   type T is new Implementation.Vectors.Vector with private;
+
+private
+
+   type T is new Implementation.Vectors.Vector with null record;
 
 end SPAT.Entity_Line.List;

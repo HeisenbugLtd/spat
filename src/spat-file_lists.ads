@@ -15,7 +15,7 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
-with Ada.Containers.Vectors;
+limited with Ada.Containers.Vectors;
 
 package SPAT.File_Lists is
 

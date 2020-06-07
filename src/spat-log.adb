@@ -23,9 +23,6 @@ package body SPAT.Log is
 
    ---------------------------------------------------------------------------
    --  Debug
-   --
-   --  Print a debug message to Standard_Output if the command line parameter
-   --  --verbose is set.
    ---------------------------------------------------------------------------
    procedure Debug (Message  : in String;
                     New_Line : in Boolean := True) is
@@ -38,8 +35,6 @@ package body SPAT.Log is
 
    ---------------------------------------------------------------------------
    --  Error
-   --
-   --  Print a error message to Standard_Error.
    ---------------------------------------------------------------------------
    procedure Error (Message : in String) is
    begin
@@ -49,8 +44,6 @@ package body SPAT.Log is
 
    ---------------------------------------------------------------------------
    --  Message
-   --
-   --  Print a message to Standard_Output.
    ---------------------------------------------------------------------------
    procedure Message (Message  : in String;
                       New_Line : in Boolean := True) is
@@ -65,8 +58,6 @@ package body SPAT.Log is
 
    ---------------------------------------------------------------------------
    --  Warning
-   --
-   --  Print a warning message to Standard_Error.
    ---------------------------------------------------------------------------
    procedure Warning (Message : in String) is
    begin

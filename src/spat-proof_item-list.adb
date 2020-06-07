@@ -7,25 +7,18 @@
 ------------------------------------------------------------------------------
 pragma License (Unrestricted);
 
-------------------------------------------------------------------------------
---
---  SPARK Proof Analysis Tool
---
---  S.P.A.T. - GNAT project file (.gpr) support.
---
-------------------------------------------------------------------------------
+package body SPAT.Proof_Item.List is
 
-limited with SPAT.File_Lists;
-limited with GNATCOLL.VFS;
-
-package SPAT.GPR_Support is
+   package By_Duration is new
+     Implementation.Vectors.Generic_Sorting ("<" => Slower_Than);
 
    ---------------------------------------------------------------------------
-   --  Get_SPARK_Files
-   --
-   --  Retrieve all (existing) .spark files from the project.
+   --  Sort_By_Duration
    ---------------------------------------------------------------------------
-   function Get_SPARK_Files
-     (GPR_File : GNATCOLL.VFS.Filesystem_String) return File_Lists.T;
+   not overriding
+   procedure Sort_By_Duration (This : in out T) is
+   begin
+      By_Duration.Sort (Container => Implementation.Vectors.Vector (This));
+   end Sort_By_Duration;
 
-end SPAT.GPR_Support;
+end SPAT.Proof_Item.List;

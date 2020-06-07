@@ -7,29 +7,7 @@
 ------------------------------------------------------------------------------
 pragma License (Unrestricted);
 
-package body SPAT.Proof_Items is
-
-   ---------------------------------------------------------------------------
-   --  "<"
-   ---------------------------------------------------------------------------
-   function "<" (Left  : in Proof_Attempts.Vector;
-                 Right : in Proof_Attempts.Vector) return Boolean
-   is
-      Left_Time  : Duration := 0.0;
-      Right_Time : Duration := 0.0;
-      --  FIXME: Proof_Attempts should have a field storing the max/accumulated
-      --         time directly, so we don't need to recalculate it each time.
-   begin
-      for A of Left loop
-         Left_Time := Left_Time + A.Time;
-      end loop;
-
-      for A of Right loop
-         Right_Time := Right_Time + A.Time;
-      end loop;
-
-      return Left_Time > Right_Time;
-   end "<";
+package body SPAT.Proof_Item is
 
    ---------------------------------------------------------------------------
    --  Create
@@ -46,7 +24,7 @@ package body SPAT.Proof_Items is
       --  respective times.
       for I in 1 .. GNATCOLL.JSON.Length (Arr => Check_Tree) loop
          declare
-            Attempts : Proof_Attempts.Vector := Proof_Attempts.Empty_Vector;
+            Attempts : Proof_Attempt.List.T;
             Element  : constant JSON_Value   :=
                          GNATCOLL.JSON.Get (Arr   => Check_Tree,
                                             Index => I);
@@ -60,18 +38,24 @@ package body SPAT.Proof_Items is
                   Attempt_List : constant JSON_Value
                     := Element.Get (Field => Field_Names.Proof_Attempts);
 
+                  ------------------------------------------------------------
+                  --  Create
+                  ------------------------------------------------------------
                   procedure Mapping_CB (Name  : in UTF8_String;
                                         Value : in JSON_Value);
 
+                  ------------------------------------------------------------
+                  --  Create
+                  ------------------------------------------------------------
                   procedure Mapping_CB (Name  : in UTF8_String;
                                         Value : in JSON_Value) is
                   begin
                      if
-                       Proof_Attempts.Has_Required_Fields (Object => Value)
+                       Proof_Attempt.Has_Required_Fields (Object => Value)
                      then
                         declare
-                           Attempt : constant Proof_Attempts.T :=
-                                       Proof_Attempts.Create
+                           Attempt : constant Proof_Attempt.T :=
+                                       Proof_Attempt.Create
                                          (Prover => To_Name (Name),
                                           Object => Value);
                         begin
@@ -104,7 +88,7 @@ package body SPAT.Proof_Items is
                   if
                     Transformation.Has_Field (Field => Field_Names.Trivial_True)
                   then
-                     Attempts.Append (New_Item => Proof_Attempts.Trivial_True);
+                     Attempts.Append (New_Item => Proof_Attempt.Trivial_True);
                      --  No timing updates needed here, as we assume 0.0 for
                      --  trivially true proofs.
                   end if;
@@ -123,7 +107,7 @@ package body SPAT.Proof_Items is
       Checks_By_Duration.Sort (Container => Checks_List);
 
       return
-        (Entity_Locations.Create (Object => Object) with
+        (Entity_Location.Create (Object => Object) with
          Suppressed => (if Object.Has_Field (Field => Field_Names.Suppressed)
                         then Object.Get (Field => Field_Names.Suppressed)
                         else Null_Name), --  FIXME: Missing type check.
@@ -152,4 +136,4 @@ package body SPAT.Proof_Items is
       return (for some C of This.Check_Tree => C.Is_Unproved);
    end Has_Unproved_Attempts;
 
-end SPAT.Proof_Items;
+end SPAT.Proof_Item;
