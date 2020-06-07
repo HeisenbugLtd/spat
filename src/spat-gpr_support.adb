@@ -27,11 +27,11 @@ package body SPAT.GPR_Support is
       Source_File  : in GNATCOLL.VFS.Virtual_File) return String;
 
    function Get_SPARK_Files
-     (GPR_File : GNATCOLL.VFS.Filesystem_String) return File_List
+     (GPR_File : GNATCOLL.VFS.Filesystem_String) return File_Lists.T
    is
       Start_Time  : Ada.Real_Time.Time;
-      Raw_List    : SPAT.File_List; --  Stores candidate .spark files.
-      Result_List : SPAT.File_List; --  Filtered list of files.
+      Raw_List    : SPAT.File_Lists.T; --  Stores candidate .spark files.
+      Result_List : SPAT.File_Lists.T; --  Filtered list of files.
 
       use type Ada.Real_Time.Time;
    begin

@@ -38,7 +38,7 @@ package body SPAT.Spark_Files is
    end Parse_File;
 
    procedure Read (This  : in out T;
-                   Names : in     File_List'Class)
+                   Names : in     File_Lists.T'Class)
    is
       use type File_Maps.Cursor;
    begin

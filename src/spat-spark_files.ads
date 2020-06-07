@@ -18,6 +18,7 @@ pragma License (Unrestricted);
 ------------------------------------------------------------------------------
 
 with Ada.Containers.Hashed_Maps;
+with SPAT.File_Lists;
 
 package SPAT.Spark_Files is
 
@@ -46,7 +47,7 @@ package SPAT.Spark_Files is
    --  Stores all data collected from SPARK files for analysis.
 
    procedure Read (This  : in out T;
-                   Names : in     File_List'Class);
+                   Names : in     File_Lists.T'Class);
    --  Reads the list of files, and parses and stores their content in This.
 
 private
