@@ -9,6 +9,7 @@ pragma License (Unrestricted);
 
 with Ada.Directories;
 
+with SPAT.Entity_Line;
 with SPAT.Field_Names;
 with SPAT.Log;
 with SPAT.Preconditions;
@@ -69,7 +70,7 @@ package body SPAT.Spark_Info is
    --  Map_Sloc_Elements
    ---------------------------------------------------------------------------
    procedure Map_Sloc_Elements (This   : in out T;
-                                Add_To : in out Entity_Line.List.T;
+                                Add_To : in out Entity.Tree.T;
                                 Root   : in     JSON_Array);
 
    ---------------------------------------------------------------------------
@@ -401,7 +402,7 @@ package body SPAT.Spark_Info is
    --  Map_Sloc_Elements
    ---------------------------------------------------------------------------
    procedure Map_Sloc_Elements (This   : in out T;
-                                Add_To : in out Entity_Line.List.T;
+                                Add_To : in out Entity.Tree.T;
                                 Root   : in     JSON_Array)
    is
       pragma Unreferenced (This);
@@ -412,7 +413,9 @@ package body SPAT.Spark_Info is
                                                              Index => I);
          begin
             if Entity_Line.Has_Required_Fields (Object => Sloc) then
-               Add_To.Append (New_Item => Entity_Line.Create (Object => Sloc));
+               Add_To.Append_Child
+                 (Parent   => Add_To.Root,
+                  New_Item => Entity_Line.Create (Object => Sloc));
             end if;
          end;
       end loop;
