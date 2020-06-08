@@ -56,11 +56,12 @@ package body SPAT.Timing_Item is
       end case;
 
       return
-        T'(Version => Version,
-           Proof   => Proof_Time,
-           Flow    =>
-             Duration
-               (Object.Get_Long_Float (Field => Field_Names.Flow_Analysis)));
+        T'(Entity.T with
+             Version => Version,
+             Proof   => Proof_Time,
+             Flow    =>
+               Duration
+                 (Object.Get_Long_Float (Field => Field_Names.Flow_Analysis)));
    end Create;
    --  TODO: Maybe accept integer values, too.
 

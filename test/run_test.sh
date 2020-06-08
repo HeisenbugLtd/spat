@@ -13,9 +13,11 @@ rm -f test.diff *.out
 # Second argument the project file (.gpr) within that project.
 run_check () {
   for SPAT_OPTIONS in "-s -l -d -ca" "-s -l -d -ct"; do
-    ../obj/run_spat -s -l -d -ct -P "$1/$2" > "spat.$1.$SPAT_OPTIONS.out"
+    OPT_NAME=$1.`echo "$SPAT_OPTIONS" | sed -e "s/[- ]//g"`
+    #echo $OPT_NAME
+    ../obj/run_spat -s -l -d -ct -P "$1/$2" > "spat.$OPT_NAME.out"
     # Show template differences (FIXME: 'diff' might not be installed)
-    (diff -u "spat.$1.$SPAT_OPTIONS.template" "spat.$1.$SPAT_OPTIONS.out") >> test.diff || RESULT=$?
+    (diff -u "spat.$OPT_NAME.template" "spat.$OPT_NAME.out") >> test.diff || RESULT=$?
   done
 }
 

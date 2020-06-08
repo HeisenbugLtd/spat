@@ -16,6 +16,7 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
+with SPAT.Entity;
 with SPAT.Field_Names;
 with SPAT.Preconditions;
 
@@ -34,7 +35,7 @@ package SPAT.Entity_Line is
                                   Field  => Field_Names.Line,
                                   Kind   => JSON_Int_Type));
 
-   type T is tagged private;
+   type T is new Entity.T with private;
 
    ---------------------------------------------------------------------------
    --  Create
@@ -63,7 +64,7 @@ package SPAT.Entity_Line is
 
 private
 
-   type T is tagged
+   type T is new Entity.T with
       record
          File : Subject_Name;
          Line : Natural;

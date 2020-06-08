@@ -18,8 +18,7 @@ pragma License (Unrestricted);
 ------------------------------------------------------------------------------
 
 limited private with Ada.Containers.Hashed_Maps;
-with SPAT.Entity_Line.List;
-with SPAT.Flow_Item.List;
+private with SPAT.Entity.Tree;
 with SPAT.Proof_Item.List;
 limited with SPAT.Strings;
 with SPAT.Timing_Item;
@@ -148,12 +147,17 @@ package SPAT.Spark_Info is
 
 private
 
+   type Source_Lines_Sentinel is new Entity.T with null record;
+   type Flows_Sentinel        is new Entity.T with null record;
+   type Proofs_Sentinel       is new Entity.T with null record;
+
    type Analyzed_Entity is
       record
-         SPARK_File   : Subject_Name; --  Which file this entity was found in.
-         Source_Lines : Entity_Line.List.T; --  Currently unused.
-         Flows        : Flow_Item.List.T;
-         Proofs       : Proof_Item.List.T;
+         SPARK_File   : Subject_Name;       --  File the entity was found in.
+         The_Tree     : Entity.Tree.T;      --  Holds all entities.
+         Source_Lines : Entity.Tree.Cursor; --  Currently unused.
+         Flows        : Entity.Tree.Cursor; --  List of Flow_Items
+         Proofs       : Entity.Tree.Cursor; --  List of Proof_Items
       end record;
 
    --  Type representing a source (file) entity.

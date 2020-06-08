@@ -15,6 +15,7 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
+with SPAT.Entity;
 with SPAT.Field_Names;
 with SPAT.Preconditions;
 
@@ -44,7 +45,7 @@ package SPAT.Timing_Item is
                                    Kind   => JSON_Float_Type));
 
    --  Information obtained from the timing section of a .spark file.
-   type T is tagged private;
+   type T is new Entity.T with private;
 
    ---------------------------------------------------------------------------
    --  Create
@@ -73,16 +74,17 @@ package SPAT.Timing_Item is
 
 private
 
-   type T is tagged
+   type T is new Entity.T with
       record
          Version : File_Version; --  version of file encountered.
          Proof   : Duration;     --  Total time the prover spent.
          Flow    : Duration;     --  Total time of flow analysis.
       end record;
 
-   None : constant T := T'(Version => File_Version'First,
-                           Proof   => 0.0,
-                           Flow    => 0.0);
+   None : constant T := T'(Entity.T with
+                             Version => File_Version'First,
+                             Proof   => 0.0,
+                             Flow    => 0.0);
 
    ---------------------------------------------------------------------------
    --  Flow

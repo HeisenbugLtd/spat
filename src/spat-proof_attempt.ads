@@ -15,6 +15,7 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
+with SPAT.Entity;
 with SPAT.Field_Names;
 with SPAT.Preconditions;
 
@@ -33,7 +34,7 @@ package SPAT.Proof_Attempt is
                                   Field         => Field_Names.Time,
                                   Kinds_Allowed => Preconditions.Number_Kind));
 
-   type T is tagged private;
+   type T is new Entity.T with private;
 
    ---------------------------------------------------------------------------
    --  Create
@@ -80,7 +81,7 @@ package SPAT.Proof_Attempt is
 
 private
 
-   type T is tagged
+   type T is new Entity.T with
       record
          Prover     : Subject_Name; --  Prover involved.
          Result     : Subject_Name; --  "Valid", "Unknown", etc.
@@ -88,9 +89,10 @@ private
          --  Steps -- part of the JSON data, but we don't care.
       end record;
 
-   Trivial_True : constant T := T'(Prover => To_Name ("Trivial"),
-                                   Result => To_Name ("Valid"),
-                                   Time   => 0.0);
+   Trivial_True : constant T := T'(Entity.T with
+                                     Prover => To_Name ("Trivial"),
+                                     Result => To_Name ("Valid"),
+                                     Time   => 0.0);
 
    ---------------------------------------------------------------------------
    --  Slower_Than

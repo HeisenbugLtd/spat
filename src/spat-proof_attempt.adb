@@ -18,19 +18,20 @@ package body SPAT.Proof_Attempt is
       Time_Field : constant JSON_Value :=
                      Object.Get (Field => Field_Names.Time);
    begin
-      return T'(Prover => Prover,
-                Result => Object.Get (Field => Field_Names.Result),
-                Time   =>
-                  (case Time_Field.Kind is
-                      when JSON_Float_Type =>
-                        Duration (Time_Field.Get_Long_Float),
-                      when JSON_Int_Type   =>
-                        Duration (Long_Long_Integer'(Time_Field.Get)),
-                      when others          =>
-                         raise Program_Error
-                           with
-                             "Fatal: Impossible Kind """ &
-                             Time_Field.Kind'Image & """ of JSON object!"));
+      return T'(Entity.T with
+                  Prover => Prover,
+                  Result => Object.Get (Field => Field_Names.Result),
+                  Time   =>
+                    (case Time_Field.Kind is
+                        when JSON_Float_Type =>
+                          Duration (Time_Field.Get_Long_Float),
+                        when JSON_Int_Type   =>
+                          Duration (Long_Long_Integer'(Time_Field.Get)),
+                        when others          =>
+                           raise Program_Error
+                             with
+                               "Fatal: Impossible Kind """ &
+                               Time_Field.Kind'Image & """ of JSON object!"));
    end Create;
 
 end SPAT.Proof_Attempt;

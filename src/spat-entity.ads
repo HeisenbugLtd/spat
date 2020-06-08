@@ -11,26 +11,16 @@ pragma License (Unrestricted);
 --
 --  SPARK Proof Analysis Tool
 --
---  S.P.A.T. - A list of Entity_Line objects.
+--  S.P.A.T. - Abstract object representing some kind of Entity.
 --
 ------------------------------------------------------------------------------
 
-limited with Ada.Containers.Vectors;
+package SPAT.Entity is
 
-package SPAT.Entity_Line.List is
-
-   package Implementation is
-
-      package Vectors is
-        new Ada.Containers.Vectors (Index_Type   => Positive,
-                                    Element_Type => T);
-
-   end Implementation;
-
-   type T is new Implementation.Vectors.Vector with private;
+   type T is abstract tagged private;
 
 private
 
-   type T is new Implementation.Vectors.Vector with null record;
+   type T is abstract tagged null record;
 
-end SPAT.Entity_Line.List;
+end SPAT.Entity;
