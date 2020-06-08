@@ -15,4 +15,8 @@ project SPAT is
       for Switches ("ada") use ("-g");
    end Linker;
 
+   package Builder is
+      for Switches ("ada") use ("-j0");
+   end Builder;
+
 end SPAT;
