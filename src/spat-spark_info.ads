@@ -157,7 +157,7 @@ private
          The_Tree     : Entity.Tree.T;      --  Holds all entities.
          Source_Lines : Entity.Tree.Cursor; --  Currently unused.
          Flows        : Entity.Tree.Cursor; --  List of Flow_Items
-         Proofs       : Proof_Item.List.T;
+         Proofs       : Entity.Tree.Cursor; --  List of Proof_Items
       end record;
 
    --  Type representing a source (file) entity.

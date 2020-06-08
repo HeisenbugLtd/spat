@@ -174,9 +174,13 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    function Has_Failed_Attempts (This   : in T;
                                  Entity : in Subject_Name) return Boolean is
+      Reference : Analyzed_Entity renames This.Entities (Entity);
    begin
-      return (for some Proof of This.Entities (Entity).Proofs =>
-                Proof.Has_Failed_Attempts);
+      --  TODO: Store result in the sentinel item for faster access.
+      return (for some C in
+                Reference.The_Tree.Iterate_Children (Parent => Reference.Proofs) =>
+                Proof_Item.T'Class (SPAT.Entity.Tree.Element (Position => C)).
+                  Has_Failed_Attempts);
    end Has_Failed_Attempts;
 
    ---------------------------------------------------------------------------
@@ -184,9 +188,13 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    function Has_Unproved_Attempts (This   : in T;
                                    Entity : in Subject_Name) return Boolean is
+      Reference : Analyzed_Entity renames This.Entities (Entity);
    begin
-      return (for some Proof of This.Entities (Entity).Proofs =>
-                Proof.Has_Unproved_Attempts);
+      --  TODO: Store result in the sentinel item for faster access.
+      return (for some C in
+                Reference.The_Tree.Iterate_Children (Parent => Reference.Proofs) =>
+                Proof_Item.T'Class (SPAT.Entity.Tree.Element (Position => C)).
+                  Has_Unproved_Attempts);
    end Has_Unproved_Attempts;
 
    ---------------------------------------------------------------------------
@@ -280,13 +288,30 @@ package body SPAT.Spark_Info is
          Reference_Entity : Analyzed_Entity renames This.Entities (Index);
          use type Entity.Tree.Cursor;
       begin
-         pragma Assert (Reference_Entity.Source_Lines = Entity.Tree.No_Element);
+         --  Add sentinel(s) if not yet present.
+         if Reference_Entity.Source_Lines = Entity.Tree.No_Element then
+            Reference_Entity.The_Tree.Insert_Child
+              (Parent   => Reference_Entity.The_Tree.Root,
+               Before   => Entity.Tree.No_Element,
+               New_Item => Source_Lines_Sentinel'(Entity.T with null record),
+               Position => Reference_Entity.Source_Lines);
+         end if;
 
-         Reference_Entity.The_Tree.Insert_Child
-           (Parent   => Reference_Entity.The_Tree.Root,
-            Before   => Entity.Tree.No_Element,
-            New_Item => Source_Lines_Sentinel'(Entity.T with null record),
-            Position => Reference_Entity.Source_Lines);
+         if Reference_Entity.Flows = Entity.Tree.No_Element then
+            Reference_Entity.The_Tree.Insert_Child
+              (Parent   => Reference_Entity.The_Tree.Root,
+               Before   => Entity.Tree.No_Element,
+               New_Item => Flows_Sentinel'(Entity.T with null record),
+               Position => Reference_Entity.Flows);
+         end if;
+
+         if Reference_Entity.Proofs = Entity.Tree.No_Element then
+            Reference_Entity.The_Tree.Insert_Child
+              (Parent   => Reference_Entity.The_Tree.Root,
+               Before   => Entity.Tree.No_Element,
+               New_Item => Proofs_Sentinel'(Entity.T with null record),
+               Position => Reference_Entity.Proofs);
+         end if;
 
          This.Map_Sloc_Elements (Root     => Slocs,
                                  The_Tree => Reference_Entity.The_Tree,
@@ -334,21 +359,7 @@ package body SPAT.Spark_Info is
                               declare
                                  Reference : Analyzed_Entity renames
                                    This.Entities (Update_At);
-                                 use type Entity.Tree.Cursor;
                               begin
-                                 --  Add sentinel element if not yet present.
-                                 if
-                                   Reference.Flows = Entity.Tree.No_Element
-                                 then
-                                    Reference.The_Tree.Insert_Child
-                                      (Parent   => Reference.The_Tree.Root,
-                                       Before   => Entity.Tree.No_Element,
-                                       New_Item =>
-                                         Flows_Sentinel'
-                                           (Entity.T with null record),
-                                       Position => Reference.Flows);
-                                 end if;
-
                                  Reference.The_Tree.Append_Child
                                    (Parent   => Reference.Flows,
                                     New_Item =>
@@ -412,9 +423,15 @@ package body SPAT.Spark_Info is
                            if
                              Proof_Item.Has_Required_Fields (Object => Element)
                            then
-                              This.Entities (Update_At).Proofs.Append
-                                (New_Item =>
-                                   Proof_Item.Create (Object => Element));
+                              declare
+                                 Reference : Analyzed_Entity renames
+                                   This.Entities (Update_At);
+                              begin
+                                 Reference.The_Tree.Append_Child
+                                   (Parent   => Reference.Proofs,
+                                    New_Item =>
+                                      Proof_Item.Create (Object => Element));
+                              end;
                            end if;
                         else
                            Log.Warning
@@ -431,7 +448,8 @@ package body SPAT.Spark_Info is
 
       --  Sort proofs by time to proof them.
       for E of This.Entities loop
-         E.Proofs.Sort_By_Duration;
+         SPAT.Proof_Item.Sort_By_Duration (This   => E.The_Tree,
+                                           Parent => E.Proofs);
       end loop;
    end Map_Proof_Elements;
 
@@ -500,7 +518,6 @@ package body SPAT.Spark_Info is
    is
       Version : constant File_Version := Guess_Version (Root => Root);
    begin
-
       --  If I understand the .spark file format correctly, this should
       --  establish the table of all known analysis elements.
       if
@@ -579,10 +596,17 @@ package body SPAT.Spark_Info is
    function Max_Proof_Time (This   : in T;
                             Entity : in Subject_Name) return Duration
    is
-      Max_Time : Duration := 0.0;
+      Reference : Analyzed_Entity renames This.Entities (Entity);
+      Max_Time  : Duration := 0.0;
    begin
-      for P of This.Entities (Entity).Proofs loop
-         Max_Time := Duration'Max (Max_Time, P.Max_Time);
+      for C in
+        Reference.The_Tree.Iterate_Children (Parent => Reference.Proofs)
+      loop
+         Max_Time :=
+           Duration'Max
+             (Max_Time,
+              Proof_Item.T'Class (SPAT.Entity.Tree.Element (Position => C)).
+                Max_Time);
       end loop;
 
       return Max_Time;
@@ -608,7 +632,7 @@ package body SPAT.Spark_Info is
       Result : Ada.Containers.Count_Type := 0;
    begin
       for E of This.Entities loop
-         Result := Result + E.Proofs.Length;
+         Result := Result + Entity.Tree.Child_Count (Parent => E.Proofs);
       end loop;
 
       return Result;
@@ -619,7 +643,20 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    function Proof_List (This   : in T;
                         Entity : in Subject_Name) return Proof_Item.List.T is
-     (This.Entities (Entity).Proofs);
+      Result : Proof_Item.List.T;
+      Reference : Analyzed_Entity renames This.Entities (Entity);
+   begin
+      --  FIXME: It is stupid to return a whole Vector each time.
+      for C in
+        Reference.The_Tree.Iterate_Children (Parent => Reference.Proofs)
+      loop
+         Result.Append
+           (New_Item =>
+              Proof_Item.T (SPAT.Entity.Tree.Element (Position => C)));
+      end loop;
+
+      return Result;
+   end Proof_List;
 
    ---------------------------------------------------------------------------
    --  Proof_Time
@@ -744,10 +781,16 @@ package body SPAT.Spark_Info is
    function Total_Proof_Time (This   : in T;
                               Entity : in Subject_Name) return Duration
    is
+      Reference  : Analyzed_Entity renames This.Entities (Entity);
       Total_Time : Duration := 0.0;
    begin
-      for P of This.Entities (Entity).Proofs loop
-         Total_Time := Total_Time + P.Total_Time;
+      for C in
+        Reference.The_Tree.Iterate_Children (Parent => Reference.Proofs)
+      loop
+         Total_Time :=
+           Total_Time +
+             Proof_Item.T'Class (SPAT.Entity.Tree.Element (Position => C)).
+               Total_Time;
       end loop;
 
       return Total_Time;

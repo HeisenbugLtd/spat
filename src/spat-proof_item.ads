@@ -17,6 +17,7 @@ pragma License (Unrestricted);
 
 limited with Ada.Containers.Vectors;
 with SPAT.Entity_Location;
+with SPAT.Entity.Tree;
 with SPAT.Field_Names;
 with SPAT.Preconditions;
 with SPAT.Proof_Attempt.List;
@@ -99,6 +100,12 @@ package SPAT.Proof_Item is
    ---------------------------------------------------------------------------
    not overriding
    function Suppressed (This : in T) return Subject_Name;
+
+   ---------------------------------------------------------------------------
+   --  Sort_By_Duration
+   ---------------------------------------------------------------------------
+   procedure Sort_By_Duration (This   : in out Entity.Tree.T;
+                               Parent : in     Entity.Tree.Cursor);
 
 private
 
