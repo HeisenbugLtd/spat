@@ -8,7 +8,7 @@ project SPAT is
    for Main use ("run_spat");
 
    package Compiler is
-      for Switches ("ada") use ("-gnatwa", "-gnatyaAbcdefhiklM128noOprsStux3", "-gnato", "-fstack-check", "-gnat12", "-g", "-O2");
+      for Switches ("ada") use ("-gnatwa", "-gnatyaAbcdefhiklM128noOprsStux3", "-gnata", "-gnato", "-fstack-check", "-gnat12", "-g", "-O2");
    end Compiler;
 
    package Linker is
