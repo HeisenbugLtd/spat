@@ -26,7 +26,15 @@ package body SPAT.Flow_Item is
    procedure Sort_By_Location (This   : in out Entity.Tree.T;
                                Parent : in     Entity.Tree.Cursor) is
       The_List : List.T;
+      use type Entity.Tree.Cursor;
    begin
+      if Parent = Entity.Tree.No_Element then
+         --  No elements to sort.
+         --  TODO: If we have only one item in the tree, we should probably
+         --        bail out, too, because then there's nothing to sort.
+         return;
+      end if;
+
       --  Copy the tree's children into The_List.
       for C in This.Iterate_Children (Parent => Parent) loop
          The_List.Append
@@ -41,8 +49,7 @@ package body SPAT.Flow_Item is
       --  Update the elements in the Tree.
       declare
          Position : Entity.Tree.Cursor :=
-           Entity.Tree.First_Child (Position => This.Root);
-         use type Entity.Tree.Cursor;
+           Entity.Tree.First_Child (Position => Parent);
       begin
          for E of The_List loop
             This.Replace_Element (Position => Position,

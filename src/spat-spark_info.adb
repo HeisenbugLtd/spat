@@ -70,9 +70,10 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Map_Sloc_Elements
    ---------------------------------------------------------------------------
-   procedure Map_Sloc_Elements (This   : in out T;
-                                Add_To : in out Entity.Tree.T;
-                                Root   : in     JSON_Array);
+   procedure Map_Sloc_Elements (This     : in out T;
+                                The_Tree : in out Entity.Tree.T;
+                                Position : in     Entity.Tree.Cursor;
+                                Root     : in     JSON_Array);
 
    ---------------------------------------------------------------------------
    --  Map_Spark_Elements
@@ -275,8 +276,22 @@ package body SPAT.Spark_Info is
          end;
       end if;
 
-      This.Map_Sloc_Elements (Root   => Slocs,
-                              Add_To => This.Entities (Index).Source_Lines);
+      declare
+         Reference_Entity : Analyzed_Entity renames This.Entities (Index);
+         use type Entity.Tree.Cursor;
+      begin
+         pragma Assert (Reference_Entity.Source_Lines = Entity.Tree.No_Element);
+
+         Reference_Entity.The_Tree.Insert_Child
+           (Parent   => Reference_Entity.The_Tree.Root,
+            Before   => Entity.Tree.No_Element,
+            New_Item => Source_Lines_Sentinel'(Entity.T with null record),
+            Position => Reference_Entity.Source_Lines);
+
+         This.Map_Sloc_Elements (Root     => Slocs,
+                                 The_Tree => Reference_Entity.The_Tree,
+                                 Position => Reference_Entity.Source_Lines);
+      end;
    end Map_Entities;
 
    ---------------------------------------------------------------------------
@@ -317,11 +332,25 @@ package body SPAT.Spark_Info is
                              Flow_Item.Has_Required_Fields (Object => Element)
                            then
                               declare
-                                 Flow_Tree : Entity.Tree.T renames
-                                   This.Entities (Update_At).Flows;
+                                 Reference : Analyzed_Entity renames
+                                   This.Entities (Update_At);
+                                 use type Entity.Tree.Cursor;
                               begin
-                                 Flow_Tree.Append_Child
-                                   (Parent   => Flow_Tree.Root,
+                                 --  Add sentinel element if not yet present.
+                                 if
+                                   Reference.Flows = Entity.Tree.No_Element
+                                 then
+                                    Reference.The_Tree.Insert_Child
+                                      (Parent   => Reference.The_Tree.Root,
+                                       Before   => Entity.Tree.No_Element,
+                                       New_Item =>
+                                         Flows_Sentinel'
+                                           (Entity.T with null record),
+                                       Position => Reference.Flows);
+                                 end if;
+
+                                 Reference.The_Tree.Append_Child
+                                   (Parent   => Reference.Flows,
                                     New_Item =>
                                       Flow_Item.Create (Object => Element));
                               end;
@@ -341,8 +370,8 @@ package body SPAT.Spark_Info is
 
       --  Sort flows by file name:line:column.
       for E of This.Entities loop
-         SPAT.Flow_Item.Sort_By_Location (This   => E.Flows,
-                                          Parent => E.Flows.Root);
+         SPAT.Flow_Item.Sort_By_Location (This   => E.The_Tree,
+                                          Parent => E.Flows);
       end loop;
    end Map_Flow_Elements;
 
@@ -409,9 +438,10 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Map_Sloc_Elements
    ---------------------------------------------------------------------------
-   procedure Map_Sloc_Elements (This   : in out T;
-                                Add_To : in out Entity.Tree.T;
-                                Root   : in     JSON_Array)
+   procedure Map_Sloc_Elements (This     : in out T;
+                                The_Tree : in out Entity.Tree.T;
+                                Position : in     Entity.Tree.Cursor;
+                                Root     : in     JSON_Array)
    is
       pragma Unreferenced (This);
    begin
@@ -421,8 +451,8 @@ package body SPAT.Spark_Info is
                                                              Index => I);
          begin
             if Entity_Line.Has_Required_Fields (Object => Sloc) then
-               Add_To.Append_Child
-                 (Parent   => Add_To.Root,
+               The_Tree.Append_Child
+                 (Parent   => Position,
                   New_Item => Entity_Line.Create (Object => Sloc));
             end if;
          end;
@@ -565,7 +595,7 @@ package body SPAT.Spark_Info is
       Result : Ada.Containers.Count_Type := 0;
    begin
       for E of This.Entities loop
-         Result := Result + Entity.Tree.Child_Count (Parent => E.Flows.Root);
+         Result := Result + Entity.Tree.Child_Count (Parent => E.Flows);
       end loop;
 
       return Result;

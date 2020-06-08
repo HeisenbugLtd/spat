@@ -147,11 +147,16 @@ package SPAT.Spark_Info is
 
 private
 
+   type Source_Lines_Sentinel is new Entity.T with null record;
+   type Flows_Sentinel        is new Entity.T with null record;
+   type Proofs_Sentinel       is new Entity.T with null record;
+
    type Analyzed_Entity is
       record
-         SPARK_File   : Subject_Name;  --  Which file this entity was found in.
-         Source_Lines : Entity.Tree.T; --  Currently unused.
-         Flows        : Entity.Tree.T; --  List of Flow_Items
+         SPARK_File   : Subject_Name;       --  File the entity was found in.
+         The_Tree     : Entity.Tree.T;      --  Holds all entities.
+         Source_Lines : Entity.Tree.Cursor; --  Currently unused.
+         Flows        : Entity.Tree.Cursor; --  List of Flow_Items
          Proofs       : Proof_Item.List.T;
       end record;
 
