@@ -19,7 +19,6 @@ pragma License (Unrestricted);
 
 limited private with Ada.Containers.Hashed_Maps;
 private with SPAT.Entity.Tree;
-with SPAT.Flow_Item.List;
 with SPAT.Proof_Item.List;
 limited with SPAT.Strings;
 with SPAT.Timing_Item;
@@ -150,9 +149,9 @@ private
 
    type Analyzed_Entity is
       record
-         SPARK_File   : Subject_Name; --  Which file this entity was found in.
+         SPARK_File   : Subject_Name;  --  Which file this entity was found in.
          Source_Lines : Entity.Tree.T; --  Currently unused.
-         Flows        : Flow_Item.List.T;
+         Flows        : Entity.Tree.T; --  List of Flow_Items
          Proofs       : Proof_Item.List.T;
       end record;
 

@@ -11,6 +11,7 @@ with Ada.Directories;
 
 with SPAT.Entity_Line;
 with SPAT.Field_Names;
+with SPAT.Flow_Item;
 with SPAT.Log;
 with SPAT.Preconditions;
 with SPAT.Strings;
@@ -315,9 +316,15 @@ package body SPAT.Spark_Info is
                            if
                              Flow_Item.Has_Required_Fields (Object => Element)
                            then
-                              This.Entities (Update_At).Flows.Append
-                                (New_Item =>
-                                   Flow_Item.Create (Object => Element));
+                              declare
+                                 Flow_Tree : Entity.Tree.T renames
+                                   This.Entities (Update_At).Flows;
+                              begin
+                                 Flow_Tree.Append_Child
+                                   (Parent   => Flow_Tree.Root,
+                                    New_Item =>
+                                      Flow_Item.Create (Object => Element));
+                              end;
                            end if;
                         else
                            Log.Warning
@@ -334,7 +341,8 @@ package body SPAT.Spark_Info is
 
       --  Sort flows by file name:line:column.
       for E of This.Entities loop
-         E.Flows.Sort_By_Location;
+         SPAT.Flow_Item.Sort_By_Location (This   => E.Flows,
+                                          Parent => E.Flows.Root);
       end loop;
    end Map_Flow_Elements;
 
@@ -557,7 +565,7 @@ package body SPAT.Spark_Info is
       Result : Ada.Containers.Count_Type := 0;
    begin
       for E of This.Entities loop
-         Result := Result + E.Flows.Length;
+         Result := Result + Entity.Tree.Child_Count (Parent => E.Flows.Root);
       end loop;
 
       return Result;

@@ -17,7 +17,7 @@ pragma License (Unrestricted);
 
 limited with Ada.Containers.Vectors;
 
-package SPAT.Flow_Item.List is
+private package SPAT.Flow_Item.List is
 
    package Implementation is
 

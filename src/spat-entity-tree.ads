@@ -28,6 +28,25 @@ package SPAT.Entity.Tree is
 
    type T is new Implementation.Trees.Tree with private;
 
+   subtype Cursor is Implementation.Trees.Cursor;
+
+   No_Element : Cursor renames Implementation.Trees.No_Element;
+
+   function Child_Count (Parent : in Cursor) return Ada.Containers.Count_Type
+                         renames Implementation.Trees.Child_Count;
+
+   function Element (Position : in Cursor) return Entity.T'Class
+                     renames Implementation.Trees.Element;
+
+   function First_Child (Position : in Cursor) return Cursor
+                         renames Implementation.Trees.First_Child;
+
+   function Next_Sibling (Position : in Cursor) return Cursor
+                          renames Implementation.Trees.Next_Sibling;
+
+   procedure Next_Sibling (Position : in out Cursor)
+                           renames Implementation.Trees.Next_Sibling;
+
 private
 
    type T is new Implementation.Trees.Tree with null record;
