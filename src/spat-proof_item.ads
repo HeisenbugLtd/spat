@@ -49,7 +49,8 @@ package SPAT.Proof_Item is
    ---------------------------------------------------------------------------
    --  Create
    ---------------------------------------------------------------------------
-   overriding function Create (Object : in JSON_Value) return T with
+   overriding
+   function Create (Object : in JSON_Value) return T with
      Pre => Has_Required_Fields (Object => Object);
 
    ---------------------------------------------------------------------------

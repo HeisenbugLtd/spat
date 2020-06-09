@@ -14,11 +14,12 @@ package body SPAT.Proof_Item is
    ---------------------------------------------------------------------------
    --  Create
    ---------------------------------------------------------------------------
-   overriding function Create (Object : in JSON_Value) return T
+   overriding
+   function Create (Object : in JSON_Value) return T
    is
       Max_Time    : Duration := 0.0;
       Total_Time  : Duration := 0.0;
-      Checks_List : Checks_Tree.Vector := Checks_Tree.Empty_Vector;
+      Checks_List : Checks_Tree.Vector;
       Check_Tree  : constant JSON_Array :=
                       Object.Get (Field => Field_Names.Check_Tree);
    begin
