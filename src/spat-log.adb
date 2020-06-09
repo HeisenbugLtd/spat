@@ -34,6 +34,14 @@ package body SPAT.Log is
    end Debug;
 
    ---------------------------------------------------------------------------
+   --  Debug_Enabled
+   --
+   --  Returns True if Debug would output something.
+   ---------------------------------------------------------------------------
+   function Debug_Enabled return Boolean is
+     (Verbose.Get);
+
+   ---------------------------------------------------------------------------
    --  Error
    ---------------------------------------------------------------------------
    procedure Error (Message : in String) is

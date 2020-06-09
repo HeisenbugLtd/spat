@@ -48,4 +48,11 @@ package SPAT.Log is
    procedure Debug (Message  : in String;
                     New_Line : in Boolean := True);
 
+   ---------------------------------------------------------------------------
+   --  Debug_Enabled
+   --
+   --  Returns True if Debug would output something.
+   ---------------------------------------------------------------------------
+   function Debug_Enabled return Boolean;
+
 end SPAT.Log;
