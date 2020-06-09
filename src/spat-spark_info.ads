@@ -81,7 +81,8 @@ package SPAT.Spark_Info is
    --  Return the total number of flows (flow items) collected.
    ---------------------------------------------------------------------------
    not overriding
-   function Num_Flows (This : in T) return Ada.Containers.Count_Type;
+   function Num_Flows (This : not null access T)
+                       return Ada.Containers.Count_Type;
 
    ---------------------------------------------------------------------------
    --  Flow_Time
@@ -98,7 +99,8 @@ package SPAT.Spark_Info is
    --  Return the total number of proofs collected.
    ---------------------------------------------------------------------------
    not overriding
-   function Num_Proofs (This : in T) return Ada.Containers.Count_Type;
+   function Num_Proofs (This : not null access T)
+                        return Ada.Containers.Count_Type;
 
    ---------------------------------------------------------------------------
    --  Proof_Time
@@ -214,10 +216,11 @@ private
 
    type T is tagged limited
       record
-         Entities   : Analyzed_Entities.Map;
-         Files      : File_Timings.Map;
+         Entities : Analyzed_Entities.Map;
+         Files    : File_Timings.Map;
          --  Cached data
-         Flow_Count : Ada.Containers.Count_Type'Base;
+         Flow_Count  : Ada.Containers.Count_Type'Base;
+         Proof_Count : Ada.Containers.Count_Type'Base;
       end record;
 
 end SPAT.Spark_Info;
