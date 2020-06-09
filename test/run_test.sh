@@ -49,6 +49,6 @@ case $RESULT in
 esac
 
 # Remove temp files
-rm -f test.diff *.out
+rm -f test.diff spat*.out
 
 exit $RESULT
