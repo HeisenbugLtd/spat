@@ -36,11 +36,22 @@ package SPAT.Spark_Info is
    --
    --  Traverses through the JSON data given in Root and translates it into
    --  the data structure given in This.
+   --
+   --  Must be called first before the below subroutines can be called.
    ---------------------------------------------------------------------------
    not overriding
    procedure Map_Spark_File (This : in out T;
                              File : in     Subject_Name;
                              Root : in     JSON_Value);
+
+   ---------------------------------------------------------------------------
+   --  Update
+   --
+   --  Updates information of the parse tree so that the below queries can be
+   --  executed faster.
+   ---------------------------------------------------------------------------
+   not overriding
+   procedure Update (This : in out T);
 
    ---------------------------------------------------------------------------
    --  List_All_Entities
@@ -148,8 +159,35 @@ package SPAT.Spark_Info is
 private
 
    type Source_Lines_Sentinel is new Entity.T with null record;
-   type Flows_Sentinel        is new Entity.T with null record;
-   type Proofs_Sentinel       is new Entity.T with null record;
+
+   Empty_Source_Lines_Sentinel : constant Source_Lines_Sentinel :=
+     (Entity.T with null record);
+
+   type Flows_Sentinel is new Entity.T with null record;
+
+   Empty_Flows_Sentinel : constant Flows_Sentinel :=
+     (Entity.T with null record);
+
+   type Proof_Cache (Is_Valid : Boolean := False) is
+      record
+         case Is_Valid is
+            when False => null;
+            when True =>
+               Max_Proof_Time        : Duration;
+               Total_Proof_Time      : Duration;
+               Has_Failed_Attempts   : Boolean;
+               Has_Unproved_Attempts : Boolean;
+         end case;
+      end record;
+
+   type Proofs_Sentinel is new Entity.T with
+      record
+         Cache : Proof_Cache;
+      end record;
+
+   Empty_Proofs_Sentinel : constant Proofs_Sentinel :=
+     (Entity.T with
+      Cache => Proof_Cache'(Is_Valid => False));
 
    type Analyzed_Entity is
       record
@@ -176,8 +214,10 @@ private
 
    type T is tagged limited
       record
-         Entities : Analyzed_Entities.Map;
-         Files    : File_Timings.Map;
+         Entities   : Analyzed_Entities.Map;
+         Files      : File_Timings.Map;
+         --  Cached data
+         Flow_Count : Ada.Containers.Count_Type'Base;
       end record;
 
 end SPAT.Spark_Info;

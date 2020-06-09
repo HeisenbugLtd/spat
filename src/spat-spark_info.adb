@@ -29,6 +29,16 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
 
    ---------------------------------------------------------------------------
+   --  Get_Sentinel (Flows)
+   ---------------------------------------------------------------------------
+   function Get_Sentinel (Node : in Analyzed_Entity) return Flows_Sentinel;
+
+   ---------------------------------------------------------------------------
+   --  Get_Sentinel (Proofs)
+   ---------------------------------------------------------------------------
+   function Get_Sentinel (Node : in Analyzed_Entity) return Proofs_Sentinel;
+
+   ---------------------------------------------------------------------------
    --  Guess_Version
    --
    --  Checks for presence of certain fields that are presumed version
@@ -140,6 +150,18 @@ package body SPAT.Spark_Info is
      (This.Files (File).Flow);
 
    ---------------------------------------------------------------------------
+   --  Get_Sentinel (Flows)
+   ---------------------------------------------------------------------------
+   function Get_Sentinel (Node : in Analyzed_Entity) return Flows_Sentinel is
+     (Flows_Sentinel (SPAT.Entity.Tree.Element (Position => Node.Flows)));
+
+   ---------------------------------------------------------------------------
+   --  Get_Sentinel (Proofs)
+   ---------------------------------------------------------------------------
+   function Get_Sentinel (Node : in Analyzed_Entity) return Proofs_Sentinel is
+     (Proofs_Sentinel (SPAT.Entity.Tree.Element (Position => Node.Proofs)));
+
+   ---------------------------------------------------------------------------
    --  Guess_Version
    ---------------------------------------------------------------------------
    function Guess_Version (Root : in JSON_Value) return File_Version
@@ -175,8 +197,12 @@ package body SPAT.Spark_Info is
    function Has_Failed_Attempts (This   : in T;
                                  Entity : in Subject_Name) return Boolean is
       Reference : Analyzed_Entity renames This.Entities (Entity);
+      Sentinel  : constant Proofs_Sentinel := Get_Sentinel (Node => Reference);
    begin
-      --  TODO: Store result in the sentinel item for faster access.
+      if Sentinel.Cache.Is_Valid then
+         return Sentinel.Cache.Has_Failed_Attempts;
+      end if;
+
       return (for some C in
                 Reference.The_Tree.Iterate_Children (Parent => Reference.Proofs) =>
                 Proof_Item.T'Class (SPAT.Entity.Tree.Element (Position => C)).
@@ -189,8 +215,12 @@ package body SPAT.Spark_Info is
    function Has_Unproved_Attempts (This   : in T;
                                    Entity : in Subject_Name) return Boolean is
       Reference : Analyzed_Entity renames This.Entities (Entity);
+      Sentinel  : constant Proofs_Sentinel := Get_Sentinel (Node => Reference);
    begin
-      --  TODO: Store result in the sentinel item for faster access.
+      if Sentinel.Cache.Is_Valid then
+         return Sentinel.Cache.Has_Unproved_Attempts;
+      end if;
+
       return (for some C in
                 Reference.The_Tree.Iterate_Children (Parent => Reference.Proofs) =>
                 Proof_Item.T'Class (SPAT.Entity.Tree.Element (Position => C)).
@@ -301,7 +331,7 @@ package body SPAT.Spark_Info is
             Reference_Entity.The_Tree.Insert_Child
               (Parent   => Reference_Entity.The_Tree.Root,
                Before   => Entity.Tree.No_Element,
-               New_Item => Flows_Sentinel'(Entity.T with null record),
+               New_Item => Empty_Flows_Sentinel,
                Position => Reference_Entity.Flows);
          end if;
 
@@ -309,7 +339,7 @@ package body SPAT.Spark_Info is
             Reference_Entity.The_Tree.Insert_Child
               (Parent   => Reference_Entity.The_Tree.Root,
                Before   => Entity.Tree.No_Element,
-               New_Item => Proofs_Sentinel'(Entity.T with null record),
+               New_Item => Empty_Proofs_Sentinel,
                Position => Reference_Entity.Proofs);
          end if;
 
@@ -518,6 +548,8 @@ package body SPAT.Spark_Info is
    is
       Version : constant File_Version := Guess_Version (Root => Root);
    begin
+      This.Flow_Count := -1;
+
       --  If I understand the .spark file format correctly, this should
       --  establish the table of all known analysis elements.
       if
@@ -597,8 +629,13 @@ package body SPAT.Spark_Info is
                             Entity : in Subject_Name) return Duration
    is
       Reference : Analyzed_Entity renames This.Entities (Entity);
+      Sentinel  : constant Proofs_Sentinel := Get_Sentinel (Node => Reference);
       Max_Time  : Duration := 0.0;
    begin
+      if Sentinel.Cache.Is_Valid then
+         return Sentinel.Cache.Max_Proof_Time;
+      end if;
+
       for C in
         Reference.The_Tree.Iterate_Children (Parent => Reference.Proofs)
       loop
@@ -618,6 +655,10 @@ package body SPAT.Spark_Info is
    function Num_Flows (This : in T) return Ada.Containers.Count_Type is
       Result : Ada.Containers.Count_Type := 0;
    begin
+      if This.Flow_Count /= -1 then
+         return This.Flow_Count;
+      end if;
+
       for E of This.Entities loop
          Result := Result + Entity.Tree.Child_Count (Parent => E.Flows);
       end loop;
@@ -782,8 +823,13 @@ package body SPAT.Spark_Info is
                               Entity : in Subject_Name) return Duration
    is
       Reference  : Analyzed_Entity renames This.Entities (Entity);
+      Sentinel   : constant Proofs_Sentinel := Get_Sentinel (Node => Reference);
       Total_Time : Duration := 0.0;
    begin
+      if Sentinel.Cache.Is_Valid then
+         return Sentinel.Cache.Total_Proof_Time;
+      end if;
+
       for C in
         Reference.The_Tree.Iterate_Children (Parent => Reference.Proofs)
       loop
@@ -795,5 +841,50 @@ package body SPAT.Spark_Info is
 
       return Total_Time;
    end Total_Proof_Time;
+
+   ---------------------------------------------------------------------------
+   --  Update
+   ---------------------------------------------------------------------------
+   not overriding
+   procedure Update (This : in out T) is
+   begin
+      for Position in This.Entities.Iterate loop
+         declare
+            Reference : Analyzed_Entity renames This.Entities (Position);
+         begin
+            declare
+               Key : constant Subject_Name :=
+                 Analyzed_Entities.Key (Position => Position);
+
+               --  Call the potentially "slow" recursive calculation functions.
+               Max_Proof_Time   : constant Duration :=
+                 This.Max_Proof_Time (Entity => Key);
+               Total_Proof_Time : constant Duration :=
+                 This.Total_Proof_Time (Entity => Key);
+               Has_Failed_Attempts : constant Boolean :=
+                 This.Has_Failed_Attempts (Entity => Key);
+               Has_Unproved_Attempts : constant Boolean :=
+                 This.Has_Unproved_Attempts (Entity => Key);
+            begin
+               Entity.Tree.Replace_Element
+                 (Container => Reference.The_Tree,
+                  Position  => Reference.Proofs,
+                  New_Item  =>
+                    Proofs_Sentinel'
+                      (Entity.T with
+                       Cache =>
+                         Proof_Cache'
+                           (Is_Valid              => True,
+                            Max_Proof_Time        => Max_Proof_Time,
+                            Total_Proof_Time      => Total_Proof_Time,
+                            Has_Failed_Attempts   => Has_Failed_Attempts,
+                            Has_Unproved_Attempts => Has_Unproved_Attempts)));
+            end;
+
+            This.Flow_Count :=
+              This.Flow_Count + Entity.Tree.Child_Count (Parent => Reference.Flows);
+         end;
+      end loop;
+   end Update;
 
 end SPAT.Spark_Info;

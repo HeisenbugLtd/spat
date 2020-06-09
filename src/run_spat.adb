@@ -149,6 +149,8 @@ begin
                end Parse_JSON_File;
             end loop;
 
+            Info.Update; --  Update internal caches.
+
             SPAT.Log.Debug
               (Message =>
                  "Reading completed in " &
