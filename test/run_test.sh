@@ -12,7 +12,7 @@ rm -f test.diff *.out
 # First argument is the project directory
 # Second argument the project file (.gpr) within that project.
 run_check () {
-  for SPAT_OPTIONS in "-s" "-ra -ca" "-ra -ct" "-rf -ca" "rf -ct" "-ru -ca" "-ru -ct" "-s -ra -d -ca" "-s -ra -d -ct" "-s -rf -d -ca" "-s -rf -d -ct" "-s -ru -d -ca" "-s -ru -d -ct" "-s -rj -d -ca" "-s -rj -d -ct"; do
+  for SPAT_OPTIONS in "-s" "-ra -ca" "-ra -ct" "-rf -ca" "-rf -ct" "-ru -ca" "-ru -ct" "-s -ra -d -ca" "-s -ra -d -ct" "-s -rf -d -ca" "-s -rf -d -ct" "-s -ru -d -ca" "-s -ru -d -ct" "-s -rj -d -ca" "-s -rj -d -ct"; do
     OPT_NAME=$1.`echo "$SPAT_OPTIONS" | sed -e "s/[- ]//g"`
     #echo $OPT_NAME
     
