@@ -4,7 +4,7 @@
 # Build and run a profiled executable.
 #
 SPAT="../obj/run_spat"
-SPAT_OPTIONS="-s -l -d -ct" # Summary, list, details, sort by time
+SPAT_OPTIONS="-s -ra -d -ct" # Summary, report all, details, sort by time
 
 echo "Building instrumented executable..."
 gprbuild -f -P ../spat.gpr -cargs -pg -largs -pg || exit 1
