@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         tag:
-          - fsf
+          # - fsf # disabled for now, compilation of SI_Units hangs.
           - community
         year:
           - 2019
