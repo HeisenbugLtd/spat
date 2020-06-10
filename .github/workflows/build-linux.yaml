@@ -31,9 +31,9 @@ jobs:
           distrib: ${{ matrix.tag }}
           target: native
           community_year: ${{ matrix.year }}
-      - name: Install required dependencies
+      - name: Show Environment (debug)
         run: >
-          sudo apt-get install diffutils
+          /usr/bin/env
       - name: Build
         run: >
           bash .github/scripts/ci-build.sh
