@@ -33,7 +33,7 @@ jobs:
           community_year: ${{ matrix.year }}
       - name: Install required dependencies
         run: >
-          sudo apt-get install diffutils
+          apt-get install diffutils
       - name: Build
         run: >
           bash .github/scripts/ci-build.sh
