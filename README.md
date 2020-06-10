@@ -149,6 +149,11 @@ previous chapter, with the `--sort-by` option you can force one.
 Output can be filtered progressively by applying more restrictions.  These will
 be explained below.
 
+If you just want to take a look at how the output of the tool looks like with all
+kind of different options, you can take a peek at the repository's
+[test directory](https://github.com/HeisenbugLtd/spat/tree/master/test) where I
+am storing templates for regression testing.
+
 ### The `--report-mode=all` option
 
 This reports all entities the tool found in the `.spark` files.
