@@ -7,30 +7,28 @@
 ------------------------------------------------------------------------------
 pragma License (Unrestricted);
 
-with Ada.Containers.Vectors;
+with Ada.Containers.Bounded_Vectors;
 
 package body SPAT.Entity.Tree is
 
    package body Generic_Sorting is
 
       package Cursor_Lists is new
-        Ada.Containers.Vectors (Index_Type   => Positive,
-                                Element_Type => Cursor,
-                                "="          => "=");
+        Ada.Containers.Bounded_Vectors (Index_Type   => Positive,
+                                        Element_Type => Cursor,
+                                        "="          => "=");
 
       procedure Sort (Tree   : in out T;
                       Parent : in     Cursor) is
-         The_List : Cursor_Lists.Vector;
          Num_Children : constant Ada.Containers.Count_Type :=
            Entity.Tree.Child_Count (Parent => Parent);
          use type Ada.Containers.Count_Type;
+         The_List : Cursor_Lists.Vector (Capacity => Num_Children);
       begin
          if Num_Children < 2 then
             --  No elements to sort.
             return;
          end if;
-
-         The_List.Reserve_Capacity (Capacity => Num_Children);
 
          --  Copy the tree's cursor into The_List.
          for C in Tree.Iterate_Children (Parent => Parent) loop
