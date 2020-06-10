@@ -31,9 +31,6 @@ jobs:
           distrib: ${{ matrix.tag }}
           target: native
           community_year: ${{ matrix.year }}
-      - name: Install required dependencies
-        run: >
-          apt-get install diffutils
       - name: Build
         run: >
           bash .github/scripts/ci-build.sh
