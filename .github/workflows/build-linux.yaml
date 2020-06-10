@@ -10,31 +10,30 @@ on:
 
 jobs:
   build:
-    name: CI on ${{ matrix.tag }}
+    name: CI on ${{ matrix.tag }} ${{ matrix.year }}
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        tag: # Those are alire's dockerhub alire/gnat:tag machines
-          - community-2019
-          - community-2020
-          - centos-latest-community-2019
-          - centos-latest-community-2020
-          #- debian-stable (no GNATColl atm)
-          #- ubuntu-lts (no GNATColl atm)
+        tag:
+          - fsf
+          - community
+        year:
+          - 2019
+          - 2020
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
-      - name: Pull docker image
-        run: docker pull alire/gnat:${{ matrix.tag }}
+      - name: Install toolchain
+        uses: ada-actions/toolchain@ce2020
+        with:
+          distrib: ${{ matrix.tag }}
+          target: native
+          community_year: ${{ matrix.year }}
       - name: Build
         run: >
-          docker run -v${PWD}:/spat -w /spat
-          -e "BRANCH=${{ github.base_ref }}"
-          alire/gnat:${{ matrix.tag }} bash .github/scripts/ci-build.sh
+          bash .github/scripts/ci-build.sh
       - name: Run tests
         run: >
-          docker run -v${PWD}:/spat -w /spat
-          -e "BRANCH=${{ github.base_ref }}"
-          alire/gnat:${{ matrix.tag }} bash .github/scripts/ci-test.sh
+          bash .github/scripts/ci-test.sh
