@@ -150,6 +150,17 @@ package SPAT.Spark_Info is
                                  Entity : in Subject_Name) return Boolean;
 
    ---------------------------------------------------------------------------
+   --  Has_Unjustified_Attempts
+   --
+   --  Returns True if some of the proof attempts for Entity are not "Valid"
+   --  and there is no justification message.
+   ---------------------------------------------------------------------------
+   not overriding
+   function Has_Unjustified_Attempts
+     (This   : in T;
+      Entity : in Subject_Name) return Boolean;
+
+   ---------------------------------------------------------------------------
    --  Has_Unproved_Attempts
    --
    --  Returns True if some of the proof attempts for Entity do have a "Valid"
@@ -196,10 +207,11 @@ private
 
    type Proof_Cache is
       record
-         Max_Proof_Time        : Duration;
-         Total_Proof_Time      : Duration;
-         Has_Failed_Attempts   : Boolean;
-         Has_Unproved_Attempts : Boolean;
+         Max_Proof_Time           : Duration;
+         Total_Proof_Time         : Duration;
+         Has_Failed_Attempts      : Boolean;
+         Has_Unproved_Attempts    : Boolean;
+         Has_Unjustified_Attempts : Boolean;
       end record;
 
    type Proofs_Sentinel is new Entity.T with
@@ -221,10 +233,11 @@ private
 
    Empty_Proofs_Sentinel : constant Proofs_Sentinel :=
      (Entity.T with
-      Cache => Proof_Cache'(Max_Proof_Time        => 0.0,
-                            Total_Proof_Time      => 0.0,
-                            Has_Failed_Attempts   => False,
-                            Has_Unproved_Attempts => False));
+      Cache => Proof_Cache'(Max_Proof_Time           => 0.0,
+                            Total_Proof_Time         => 0.0,
+                            Has_Failed_Attempts      => False,
+                            Has_Unproved_Attempts    => False,
+                            Has_Unjustified_Attempts => False));
 
    type Analyzed_Entity is
       record

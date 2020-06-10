@@ -214,6 +214,21 @@ package body SPAT.Spark_Info is
    end Has_Failed_Attempts;
 
    ---------------------------------------------------------------------------
+   --  Has_Unjustified_Attempts
+   ---------------------------------------------------------------------------
+   not overriding
+   function Has_Unjustified_Attempts
+     (This   : in T;
+      Entity : in Subject_Name) return Boolean
+   is
+      Reference : constant Analyzed_Entities.Constant_Reference_Type :=
+        This.Entities.Constant_Reference (Key => Entity);
+      Sentinel  : constant Proofs_Sentinel := Get_Sentinel (Node => Reference);
+   begin
+      return Sentinel.Cache.Has_Unjustified_Attempts;
+   end Has_Unjustified_Attempts;
+
+   ---------------------------------------------------------------------------
    --  Has_Unproved_Attempts
    ---------------------------------------------------------------------------
    not overriding
@@ -519,7 +534,10 @@ package body SPAT.Spark_Info is
                                             N.Has_Failed_Attempts,
                                             Has_Unproved_Attempts =>
                                               S.Cache.Has_Unproved_Attempts or else
-                                            N.Has_Unproved_Attempts);
+                                            N.Has_Unproved_Attempts,
+                                            Has_Unjustified_Attempts =>
+                                              S.Cache.Has_Unjustified_Attempts or else
+                                            N.Is_Unjustified);
                                     end Update_Sentinel;
                                  begin
                                     Reference.The_Tree.Update_Element

@@ -20,6 +20,11 @@ with SPAT.Spark_Info;
 
 package SPAT.Command_Line is
 
+   --  Report filter mode.
+   --  Show all, show failed only, show unproved, show unjustified.
+   --  Later ones imply earlier ones.
+   type Report_Mode is (All_Proofs, Failed, Unproved, Unjustified, None);
+
    Parser : GNATCOLL.Opt_Parse.Argument_Parser :=
      GNATCOLL.Opt_Parse.Create_Argument_Parser
        (Help         => "Parses .spark files and outputs information about them.",
@@ -37,10 +42,26 @@ package SPAT.Command_Line is
    ---------------------------------------------------------------------------
    --  Convert
    ---------------------------------------------------------------------------
+   function Convert (Value : in String) return Report_Mode;
+
+   ---------------------------------------------------------------------------
+   --  Convert
+   ---------------------------------------------------------------------------
    function Convert (Value : in String) return SPAT.Spark_Info.Sorting_Criterion
    is
      (if    Value in "=a" | "a" then SPAT.Spark_Info.Name
       elsif Value in "=t" | "t" then SPAT.Spark_Info.Time
+      else  (raise GNATCOLL.Opt_Parse.Opt_Parse_Error with
+                 "unknown parameter """ & Value & """"));
+
+   ---------------------------------------------------------------------------
+   --  Convert
+   ---------------------------------------------------------------------------
+   function Convert (Value : in String) return Report_Mode is
+     (if    Value in "=all"         | "a" then All_Proofs
+      elsif Value in "=failed"      | "f" then Failed
+      elsif Value in "=unproved"    | "u" then Unproved
+      elsif Value in "=unjustified" | "j" then Unjustified
       else  (raise GNATCOLL.Opt_Parse.Opt_Parse_Error with
                  "unknown parameter """ & Value & """"));
 
@@ -64,12 +85,17 @@ package SPAT.Command_Line is
                                     Long   => "--summary",
                                     Help   => "List summary (per file)");
 
-   --  List mode.
-   package List is new
-     GNATCOLL.Opt_Parse.Parse_Flag (Parser => Parser,
-                                    Short  => "-l",
-                                    Long   => "--list",
-                                    Help   => "List entities");
+   --  Report mode.
+   package Report is new
+     --  Any of the list modes.
+     GNATCOLL.Opt_Parse.Parse_Option
+       (Parser      => Parser,
+        Short       => "-r",
+        Long        => "--report-mode",
+        Help        => "Report output (REPORT-MODE: a = all, f = failed, u = unproved, j = unjustified)",
+        Arg_Type    => Report_Mode,
+        Convert     => Convert,
+        Default_Val => None);
 
    --  Valid for summary and list mode.
    package Sort_By is new
@@ -81,22 +107,6 @@ package SPAT.Command_Line is
         Arg_Type    => SPAT.Spark_Info.Sorting_Criterion,
         Convert     => Convert,
         Default_Val => SPAT.Spark_Info.None);
-
-   --  Show failed prove attempts (only in list mode).
-   package Failed_Only is new
-     GNATCOLL.Opt_Parse.Parse_Flag
-       (Parser   => Parser,
-        Short    => "-f",
-        Long     => "--failed",
-        Help     => "Show failed attempts only (list mode)");
-
-   --  Show unproven VCs (only in list mode).
-   package Unproved_Only is new
-     GNATCOLL.Opt_Parse.Parse_Flag
-       (Parser   => Parser,
-        Short    => "-u",
-        Long     => "--unproved",
-        Help     => "Show unproved VCs only (list mode)");
 
    package Details is new
      GNATCOLL.Opt_Parse.Parse_Flag (Parser   => Parser,

@@ -95,8 +95,11 @@ begin
       Start_Time   : Ada.Real_Time.Time;
       Sort_By      : constant SPAT.Spark_Info.Sorting_Criterion :=
         SPAT.Command_Line.Sort_By.Get;
+      Report_Mode  : constant SPAT.Command_Line.Report_Mode :=
+        SPAT.Command_Line.Report.Get;
       Project_File : constant GNATCOLL.VFS.Filesystem_String :=
         GNATCOLL.VFS."+" (S => SPAT.To_String (SPAT.Command_Line.Project.Get));
+      use type SPAT.Command_Line.Report_Mode;
    begin
       Collect_And_Parse :
       declare
@@ -163,7 +166,7 @@ begin
                            Sort_By => Sort_By);
          end if;
 
-         if SPAT.Command_Line.List.Get then
+         if Report_Mode /= SPAT.Command_Line.None then
             Print_Entities (Info    => Info,
                             Sort_By => Sort_By);
          end if;

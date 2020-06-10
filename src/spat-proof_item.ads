@@ -69,6 +69,12 @@ package SPAT.Proof_Item is
    function Has_Failed_Attempts (This : in T) return Boolean;
 
    ---------------------------------------------------------------------------
+   --  Is_Unjustified
+   ---------------------------------------------------------------------------
+   not overriding
+   function Is_Unjustified (This : in T) return Boolean;
+
+   ---------------------------------------------------------------------------
    --  Has_Unproved_Attempts
    ---------------------------------------------------------------------------
    not overriding
@@ -123,7 +129,7 @@ package SPAT.Proof_Item is
    function Has_Failed_Attempts (This : in Checks_Sentinel) return Boolean;
 
    ---------------------------------------------------------------------------
-   --  Has_Unproved_Attempts
+   --  Is_Unproved
    ---------------------------------------------------------------------------
    function Is_Unproved (This : in Checks_Sentinel) return Boolean;
 
@@ -176,6 +182,7 @@ private
          Total_Time            : Duration; --  Accumulated proof time.
          Has_Failed_Attempts   : Boolean;
          Has_Unproved_Attempts : Boolean;
+         Is_Unjustified        : Boolean;
       end record;
 
    ---------------------------------------------------------------------------
@@ -184,6 +191,13 @@ private
    not overriding
    function Has_Failed_Attempts (This : in T) return Boolean is
       (This.Has_Failed_Attempts);
+
+   ---------------------------------------------------------------------------
+   --  Is_Unjustified
+   ---------------------------------------------------------------------------
+   not overriding
+   function Is_Unjustified (This : in T) return Boolean is
+      (This.Is_Unjustified);
 
    ---------------------------------------------------------------------------
    --  Has_Unproved_Attempts

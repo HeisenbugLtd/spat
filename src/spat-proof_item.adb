@@ -32,6 +32,10 @@ package body SPAT.Proof_Item is
       Checks_List : Checks_Lists.Vector;
       Check_Tree  : constant JSON_Array :=
         Object.Get (Field => Field_Names.Check_Tree);
+      Justification : constant Subject_Name :=
+        (if Object.Has_Field (Field => Field_Names.Suppressed)
+         then Object.Get (Field => Field_Names.Suppressed)
+         else Null_Name); --  FIXME: Missing type check.
    begin
       --  Walk along the check_tree array to find all proof attempts and their
       --  respective times.
@@ -165,11 +169,9 @@ package body SPAT.Proof_Item is
            (Position => PI_Node,
             New_Item =>
               T'(Entity_Location.Create (Object => Object) with
-                 Suppressed            =>
-                   (if Object.Has_Field (Field => Field_Names.Suppressed)
-                    then Object.Get (Field => Field_Names.Suppressed)
-                    else Null_Name), --  FIXME: Missing type check.
-                 Rule                  => Object.Get (Field => Field_Names.Rule),
+                 Suppressed            => Justification,
+                 Rule                  =>
+                   Object.Get (Field => Field_Names.Rule),
                  Severity              =>
                    Object.Get (Field => Field_Names.Severity),
                  Max_Time              => Max_Time,
@@ -177,7 +179,10 @@ package body SPAT.Proof_Item is
                  Has_Failed_Attempts   => (for some Check of Checks_List =>
                                              Check.Has_Failed_Attempts),
                  Has_Unproved_Attempts => (for some Check of Checks_List =>
-                                             Check.Is_Unproved)));
+                                              Check.Is_Unproved),
+                 Is_Unjustified        => (for some Check of Checks_List =>
+                                             Check.Is_Unproved) and then
+                                          Justification = Null_Name));
       end;
    end Add_To_Tree;
 

@@ -38,18 +38,20 @@ is
    use type SPAT.Subject_Name;
 
    Second_Column : constant Ada.Text_IO.Count := Entities.Max_Length + 2;
-   Failed_Only   : constant Boolean := SPAT.Command_Line.Failed_Only.Get;
-   Unproved_Only : constant Boolean := SPAT.Command_Line.Unproved_Only.Get;
-   Report_All    : constant Boolean := not (Failed_Only or Unproved_Only);
-
+   Mode          : constant SPAT.Command_Line.Report_Mode :=
+     SPAT.Command_Line.Report.Get;
+   use all type SPAT.Command_Line.Report_Mode;
 begin
    for Entity of Entities loop
       if
-        Report_All                                    or else
-        (Failed_Only and then
-         Info.Has_Failed_Attempts (Entity => Entity)) or else
-        (Unproved_Only and then
-         Info.Has_Unproved_Attempts (Entity => Entity))
+        (case Mode is
+            when None        => False,
+            when All_Proofs  => True,
+            when Failed      => Info.Has_Failed_Attempts (Entity => Entity),
+            when Unproved    => Info.Has_Unproved_Attempts (Entity => Entity),
+            when Unjustified =>
+              Info.Has_Unproved_Attempts (Entity => Entity) and then
+              Info.Has_Unjustified_Attempts (Entity => Entity))
       then
          SPAT.Log.Message (Message  => SPAT.To_String (Source => Entity),
                            New_Line => False);
@@ -68,9 +70,14 @@ begin
                       (SPAT.Entity.Tree.Element (Position => PI_Position));
                begin
                   if
-                    Report_All                                           or else
-                    (Failed_Only and then The_Proof.Has_Failed_Attempts) or else
-                    (Unproved_Only and then The_Proof.Has_Unproved_Attempts)
+                    (case Mode is
+                        when None        => False,
+                        when All_Proofs  => True,
+                        when Failed      => The_Proof.Has_Failed_Attempts,
+                        when Unproved    => The_Proof.Has_Unproved_Attempts,
+                        when Unjustified =>
+                          The_Proof.Has_Unproved_Attempts and then
+                          The_Proof.Is_Unjustified)
                   then
                      SPAT.Log.Message
                        (Message =>
@@ -89,9 +96,12 @@ begin
                                (SPAT.Entity.Tree.Element (Position => Check_Position));
                         begin
                            if
-                             Report_All                                           or else
-                             (Failed_Only and then The_Check.Has_Failed_Attempts) or else
-                             (Unproved_Only and then The_Check.Is_Unproved)
+                             (case Mode is
+                                 when None        => False,
+                                 when All_Proofs  => True,
+                                 when Failed      => The_Check.Has_Failed_Attempts,
+                                 when Unproved |
+                                      Unjustified => The_Check.Is_Unproved)
                            then
                               Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
                                                    To   => 2);
