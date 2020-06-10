@@ -19,6 +19,8 @@ package SPAT.Entity is
 
    type T is abstract tagged private;
 
+   function Image (This : in T) return String is abstract;
+
 private
 
    type T is abstract tagged null record;

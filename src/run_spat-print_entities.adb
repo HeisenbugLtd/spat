@@ -17,7 +17,10 @@ pragma License (Unrestricted);
 
 with Ada.Text_IO;
 
+with SPAT.Entity.Tree;
 with SPAT.Log;
+with SPAT.Proof_Attempt;
+with SPAT.Proof_Item;
 with SPAT.Strings;
 
 separate (Run_SPAT)
@@ -58,48 +61,74 @@ begin
               "/" & Image (Value => Info.Total_Proof_Time (Entity => Entity)));
 
          if SPAT.Command_Line.Details.Get then
-            for P of Info.Proof_List (Entity => Entity) loop
-               if
-                 Report_All                                   or else
-                 (Failed_Only and then P.Has_Failed_Attempts) or else
-                 (Unproved_Only and then P.Has_Unproved_Attempts)
-               then
-                  SPAT.Log.Message
-                    (Message =>
-                       "`-" & SPAT.To_String (P.Rule) & " " & P.Image &
-                       " => " & Image (P.Max_Time) & "/" &
-                       Image (P.Total_Time));
-
-                  for Check of P.Check_Tree loop
-                     if
-                       Report_All                                       or else
-                       (Failed_Only and then Check.Has_Failed_Attempts) or else
-                       (Unproved_Only and then Check.Is_Unproved)
-                     then
-                        Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
-                                             To   => 2);
-                        SPAT.Log.Message (Message  => "`",
-                                          New_Line => False);
-
-                        for A of Check loop
-                           Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
-                                                To   => 3);
-                           SPAT.Log.Message
-                             (Message =>
-                                "-" & SPAT.To_String (A.Prover) & ": " &
-                                Image (A.Time) &
-                                " (" & SPAT.To_String (A.Result) & ")");
-                        end loop;
-                     end if;
-                  end loop;
-
-                  if P.Suppressed /= SPAT.Null_Name then
+            for PI_Position in Info.Proof_Tree (Entity => Entity) loop
+               declare
+                  The_Proof : SPAT.Proof_Item.T'Class renames
+                    SPAT.Proof_Item.T'Class
+                      (SPAT.Entity.Tree.Element (Position => PI_Position));
+               begin
+                  if
+                    Report_All                                           or else
+                    (Failed_Only and then The_Proof.Has_Failed_Attempts) or else
+                    (Unproved_Only and then The_Proof.Has_Unproved_Attempts)
+                  then
                      SPAT.Log.Message
                        (Message =>
-                          "Justified with: """ & SPAT.To_String (P.Suppressed) &
-                          """.");
+                          "`-" & SPAT.To_String (The_Proof.Rule) & " " &
+                          The_Proof.Image & " => " &
+                          Image (The_Proof.Max_Time) & "/" &
+                          Image (The_Proof.Total_Time));
+
+                     for Check_Position in
+                       Info.Iterate_Children (Entity   => Entity,
+                                              Position => PI_Position)
+                     loop
+                        declare
+                           The_Check : SPAT.Proof_Item.Checks_Sentinel'Class renames
+                             SPAT.Proof_Item.Checks_Sentinel'Class
+                               (SPAT.Entity.Tree.Element (Position => Check_Position));
+                        begin
+                           if
+                             Report_All                                           or else
+                             (Failed_Only and then The_Check.Has_Failed_Attempts) or else
+                             (Unproved_Only and then The_Check.Is_Unproved)
+                           then
+                              Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
+                                                   To   => 2);
+                              SPAT.Log.Message (Message  => "`",
+                                                New_Line => False);
+
+                              for Attempt_Position in
+                                Info.Iterate_Children (Entity   => Entity,
+                                                       Position => Check_Position)
+                              loop
+                                 declare
+                                    The_Attempt : SPAT.Proof_Attempt.T'Class renames
+                                      SPAT.Proof_Attempt.T'Class
+                                        (SPAT.Entity.Tree.Element
+                                           (Position => Attempt_Position));
+                                 begin
+                                    Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
+                                                         To   => 3);
+                                    SPAT.Log.Message
+                                      (Message =>
+                                         "-" & SPAT.To_String (The_Attempt.Prover) & ": " &
+                                         Image (The_Attempt.Time) &
+                                         " (" & SPAT.To_String (The_Attempt.Result) & ")");
+                                 end;
+                              end loop;
+                           end if;
+                        end;
+                     end loop;
+
+                     if The_Proof.Suppressed /= SPAT.Null_Name then
+                        SPAT.Log.Message
+                          (Message =>
+                             "Justified with: """ &
+                             SPAT.To_String (The_Proof.Suppressed) & """.");
+                     end if;
                   end if;
-               end if;
+               end;
             end loop;
          end if;
       end if;

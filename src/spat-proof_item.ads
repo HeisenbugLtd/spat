@@ -15,12 +15,11 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
-limited with Ada.Containers.Vectors;
+private with Ada.Tags;
 with SPAT.Entity_Location;
 with SPAT.Entity.Tree;
 with SPAT.Field_Names;
 with SPAT.Preconditions;
-with SPAT.Proof_Attempt.List;
 
 package SPAT.Proof_Item is
 
@@ -36,21 +35,24 @@ package SPAT.Proof_Item is
                                    Field  => Field_Names.Check_Tree,
                                    Kind   => JSON_Array_Type));
 
-   package Checks_Tree is new
-     Ada.Containers.Vectors (Index_Type   => Positive,
-                             Element_Type => Proof_Attempt.List.T,
-                             "="          => Proof_Attempt.List."=");
-
-   package Checks_By_Duration is new
-     Checks_Tree.Generic_Sorting ("<" => Proof_Attempt.List."<");
-
    type T is new Entity_Location.T with private;
 
    ---------------------------------------------------------------------------
    --  Create
+   --
+   --  This is a dummy. The object returned by Create is empty. For the real
+   --  "creation" of a proper object, you need to call Add_To_Tree.
    ---------------------------------------------------------------------------
    overriding
    function Create (Object : in JSON_Value) return T with
+     Pre => Has_Required_Fields (Object => Object);
+
+   ---------------------------------------------------------------------------
+   --  Add_To_Tree
+   ---------------------------------------------------------------------------
+   procedure Add_To_Tree (Object : in     JSON_Value;
+                          Tree   : in out Entity.Tree.T;
+                          Parent : in     Entity.Tree.Cursor) with
      Pre => Has_Required_Fields (Object => Object);
 
    ---------------------------------------------------------------------------
@@ -91,12 +93,6 @@ package SPAT.Proof_Item is
    function Total_Time (This : in T) return Duration;
 
    ---------------------------------------------------------------------------
-   --  Check_Tree
-   ---------------------------------------------------------------------------
-   not overriding
-   function Check_Tree (This : in T) return Checks_Tree.Vector;
-
-   ---------------------------------------------------------------------------
    --  Suppressed
    ---------------------------------------------------------------------------
    not overriding
@@ -108,25 +104,70 @@ package SPAT.Proof_Item is
    procedure Sort_By_Duration (This   : in out Entity.Tree.T;
                                Parent : in     Entity.Tree.Cursor);
 
+   type Checks_Sentinel is new Entity.T with private;
+
+   ---------------------------------------------------------------------------
+   --  Has_Failed_Attempts
+   ---------------------------------------------------------------------------
+   function Has_Failed_Attempts (This : in Checks_Sentinel) return Boolean;
+
+   ---------------------------------------------------------------------------
+   --  Has_Unproved_Attempts
+   ---------------------------------------------------------------------------
+   function Is_Unproved (This : in Checks_Sentinel) return Boolean;
+
 private
+
+   type Checks_Sentinel is new Entity.T with
+      record
+         Has_Failed_Attempts : Boolean;
+         Is_Unproved         : Boolean;
+      end record;
+
+   overriding
+   function Image (This : in Checks_Sentinel) return String is
+     (Ada.Tags.External_Tag (Checks_Sentinel'Class (This)'Tag) & ": " &
+        "(Has_Failed_Attempts => " & This.Has_Failed_Attempts'Image &
+        ", Is_Unproved => " & This.Is_Unproved'Image & ")");
+
+   not overriding
+   function Has_Failed_Attempts (This : in Checks_Sentinel) return Boolean is
+      (This.Has_Failed_Attempts);
+
+   not overriding
+   function Is_Unproved (This : in Checks_Sentinel) return Boolean is
+     (This.Is_Unproved);
+
+   type Proof_Item_Sentinel is new Entity.T with null record;
+
+   overriding
+   function Image (This : in Proof_Item_Sentinel) return String is
+     (Ada.Tags.External_Tag (Proof_Item_Sentinel'Class (This)'Tag) & ": ()");
 
    type T is new Entity_Location.T with
       record
-         Suppressed : Subject_Name;
-         Rule       : Subject_Name;
-         Severity   : Subject_Name;
-         Check_Tree : Checks_Tree.Vector;
-         Max_Time   : Duration; --  Longest time spent in proof (successful or not)
-         Total_Time : Duration; --  Accumulated proof time.
+         Suppressed            : Subject_Name;
+         Rule                  : Subject_Name;
+         Severity              : Subject_Name;
+         Max_Time              : Duration; --  Longest time spent in proof (successful or not)
+         Total_Time            : Duration; --  Accumulated proof time.
+         Has_Failed_Attempts   : Boolean;
+         Has_Unproved_Attempts : Boolean;
       end record;
 
    ---------------------------------------------------------------------------
-   --  Slower_Than
+   --  Has_Failed_Attempts
    ---------------------------------------------------------------------------
    not overriding
-   function Slower_Than (Left  : in T;
-                         Right : in T) return Boolean is
-     (Left.Total_Time > Right.Total_Time);
+   function Has_Failed_Attempts (This : in T) return Boolean is
+      (This.Has_Failed_Attempts);
+
+   ---------------------------------------------------------------------------
+   --  Has_Unproved_Attempts
+   ---------------------------------------------------------------------------
+   not overriding
+   function Has_Unproved_Attempts (This : in T) return Boolean is
+      (This.Has_Unproved_Attempts);
 
    ---------------------------------------------------------------------------
    --  Max_Time
@@ -143,18 +184,12 @@ private
      (This.Rule);
 
    ---------------------------------------------------------------------------
-   --  Total_Time
+   --  Slower_Than
    ---------------------------------------------------------------------------
    not overriding
-   function Total_Time (This : in T) return Duration is
-     (This.Total_Time);
-
-   ---------------------------------------------------------------------------
-   --  Check_Tree
-   ---------------------------------------------------------------------------
-   not overriding
-   function Check_Tree (This : in T) return Checks_Tree.Vector is
-     (This.Check_Tree);
+   function Slower_Than (Left  : in T;
+                         Right : in T) return Boolean is
+     (Left.Total_Time > Right.Total_Time);
 
    ---------------------------------------------------------------------------
    --  Suppressed
@@ -162,5 +197,12 @@ private
    not overriding
    function Suppressed (This : in T) return Subject_Name is
      (This.Suppressed);
+
+   ---------------------------------------------------------------------------
+   --  Total_Time
+   ---------------------------------------------------------------------------
+   not overriding
+   function Total_Time (This : in T) return Duration is
+     (This.Total_Time);
 
 end SPAT.Proof_Item;

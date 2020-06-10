@@ -28,9 +28,16 @@ package SPAT.Entity.Tree is
 
    type T is new Implementation.Trees.Tree with private;
 
+   subtype Forward_Iterator is
+     Implementation.Trees.Tree_Iterator_Interfaces.Forward_Iterator;
+
    subtype Cursor is Implementation.Trees.Cursor;
 
    No_Element : Cursor renames Implementation.Trees.No_Element;
+
+   function "=" (Left  : in Cursor;
+                 Right : in Cursor) return Boolean
+                 renames Implementation.Trees."=";
 
    function Child_Count (Parent : in Cursor) return Ada.Containers.Count_Type
                          renames Implementation.Trees.Child_Count;
@@ -41,11 +48,20 @@ package SPAT.Entity.Tree is
    function First_Child (Position : in Cursor) return Cursor
                          renames Implementation.Trees.First_Child;
 
+   function Last_Child (Position : in Cursor) return Cursor
+                        renames Implementation.Trees.Last_Child;
+
    function Next_Sibling (Position : in Cursor) return Cursor
                           renames Implementation.Trees.Next_Sibling;
 
    procedure Next_Sibling (Position : in out Cursor)
                            renames Implementation.Trees.Next_Sibling;
+
+   function Previous_Sibling (Position : in Cursor) return Cursor
+                              renames Implementation.Trees.Previous_Sibling;
+
+   procedure Previous_Sibling (Position : in out Cursor)
+                               renames Implementation.Trees.Previous_Sibling;
 
 private
 

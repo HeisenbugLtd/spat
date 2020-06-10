@@ -7,21 +7,36 @@
 ------------------------------------------------------------------------------
 pragma License (Unrestricted);
 
-with SPAT.Proof_Item.List;
+with Ada.Containers.Vectors;
+with SPAT.Proof_Attempt.List;
 
 package body SPAT.Proof_Item is
 
+   package Cursor_Lists is new
+     Ada.Containers.Vectors (Index_Type   => Positive,
+                             Element_Type => Entity.Tree.Cursor,
+                             "="          => Entity.Tree."=");
+
+   package Checks_Lists is new
+     Ada.Containers.Vectors (Index_Type   => Positive,
+                             Element_Type => Proof_Attempt.List.T,
+                             "="          => Proof_Attempt.List."=");
+
+   package Checks_By_Duration is new
+     Checks_Lists.Generic_Sorting ("<" => Proof_Attempt.List."<");
+
    ---------------------------------------------------------------------------
-   --  Create
+   --  Add_To_Tree
    ---------------------------------------------------------------------------
-   overriding
-   function Create (Object : in JSON_Value) return T
+   procedure Add_To_Tree (Object : in     JSON_Value;
+                          Tree   : in out Entity.Tree.T;
+                          Parent : in     Entity.Tree.Cursor)
    is
       Max_Time    : Duration := 0.0;
       Total_Time  : Duration := 0.0;
-      Checks_List : Checks_Tree.Vector;
+      Checks_List : Checks_Lists.Vector;
       Check_Tree  : constant JSON_Array :=
-                      Object.Get (Field => Field_Names.Check_Tree);
+        Object.Get (Field => Field_Names.Check_Tree);
    begin
       --  Walk along the check_tree array to find all proof attempts and their
       --  respective times.
@@ -109,77 +124,118 @@ package body SPAT.Proof_Item is
       --  Sort checks list ascending by duration.
       Checks_By_Duration.Sort (Container => Checks_List);
 
-      return
-        (Entity_Location.Create (Object => Object) with
-         Suppressed => (if Object.Has_Field (Field => Field_Names.Suppressed)
-                        then Object.Get (Field => Field_Names.Suppressed)
-                        else Null_Name), --  FIXME: Missing type check.
-         Rule       => Object.Get (Field => Field_Names.Rule),
-         Severity   => Object.Get (Field => Field_Names.Severity),
-         Check_Tree => Checks_List,
-         Max_Time   => Max_Time,
-         Total_Time => Total_Time);
-   end Create;
+      declare
+         PI_Node : Entity.Tree.Cursor;
+      begin
+         --  Allocate node for our object.
+         Tree.Insert_Child
+           (Parent   => Parent,
+            Before   => Entity.Tree.No_Element,
+            New_Item => Proof_Item_Sentinel'(Entity.T with null record),
+            Position => PI_Node);
+
+         --  Now insert the whole object into the tree.
+         declare
+            PA_Node : Entity.Tree.Cursor;
+         begin
+            for Check of Checks_List loop
+               Tree.Insert_Child (Parent   => PI_Node,
+                                  Before   => Entity.Tree.No_Element,
+                                  New_Item =>
+                                    Checks_Sentinel'
+                                      (Entity.T with
+                                       Has_Failed_Attempts => True,
+                                       Is_Unproved         => True),
+                                  Position => PA_Node);
+
+               for Attempt of Check loop
+                  Tree.Insert_Child (Parent   => PA_Node,
+                                     Before   => Entity.Tree.No_Element,
+                                     New_Item => Attempt);
+               end loop;
+
+               --  Replace the Checks_Sentinel with proper data.
+               Tree.Replace_Element
+                 (Position => PA_Node,
+                  New_Item =>
+                    Checks_Sentinel'
+                      (Entity.T with
+                       Has_Failed_Attempts => Check.Has_Failed_Attempts,
+                       Is_Unproved         => Check.Is_Unproved));
+            end loop;
+         end;
+
+         --  And finally replace the sentinel node with the full object.
+         Tree.Replace_Element
+           (Position => PI_Node,
+            New_Item =>
+              T'(Entity_Location.Create (Object => Object) with
+                 Suppressed            =>
+                   (if Object.Has_Field (Field => Field_Names.Suppressed)
+                    then Object.Get (Field => Field_Names.Suppressed)
+                    else Null_Name), --  FIXME: Missing type check.
+                 Rule                  => Object.Get (Field => Field_Names.Rule),
+                 Severity              =>
+                   Object.Get (Field => Field_Names.Severity),
+                 Max_Time              => Max_Time,
+                 Total_Time            => Total_Time,
+                 Has_Failed_Attempts   => (for some Check of Checks_List =>
+                                             Check.Has_Failed_Attempts),
+                 Has_Unproved_Attempts => (for some Check of Checks_List =>
+                                             Check.Is_Unproved)));
+      end;
+   end Add_To_Tree;
 
    ---------------------------------------------------------------------------
-   --  Has_Failed_Attempts
+   --  Create
    ---------------------------------------------------------------------------
-   not overriding
-   function Has_Failed_Attempts (This : in T) return Boolean is
-   begin
-      return (for some C of This.Check_Tree => C.Has_Failed_Attempts);
-   end Has_Failed_Attempts;
-
-   ---------------------------------------------------------------------------
-   --  Has_Unproved_Attempts
-   ---------------------------------------------------------------------------
-   not overriding
-   function Has_Unproved_Attempts (This : in T) return Boolean is
-   begin
-      return (for some C of This.Check_Tree => C.Is_Unproved);
-   end Has_Unproved_Attempts;
+   overriding
+   function Create (Object : in JSON_Value) return T is
+     (raise Program_Error with
+        "Create should not be called. Instead call Add_To_Tree.");
 
    ---------------------------------------------------------------------------
    --  Sort_By_Duration
    ---------------------------------------------------------------------------
    procedure Sort_By_Duration (This   : in out Entity.Tree.T;
                                Parent : in     Entity.Tree.Cursor) is
-      The_List : List.T;
-      use type Entity.Tree.Cursor;
+      The_List : Cursor_Lists.Vector;
+      Num_Children : constant Ada.Containers.Count_Type :=
+        Entity.Tree.Child_Count (Parent => Parent);
+      use type Ada.Containers.Count_Type;
    begin
-      if Parent = Entity.Tree.No_Element then
+      if Num_Children < 2 then
          --  No elements to sort.
-         --  TODO: If we have only one item in the tree, we should probably
-         --        bail out, too, because then there's nothing to sort.
          return;
       end if;
 
-      --  Copy the tree's children into The_List.
+      The_List.Reserve_Capacity (Capacity => Num_Children);
+
+      --  Copy the tree's cursor into The_List.
       for C in This.Iterate_Children (Parent => Parent) loop
-         The_List.Append
-           (New_Item => Proof_Item.T (Entity.Tree.Element (Position => C)));
-         --  If the children do not contain elements of Proof_Item.T then this
-         --  will raise an exception.
+         The_List.Append (New_Item => C);
       end loop;
 
-      --  Sort the list.
-      The_List.Sort_By_Duration;
-
-      --  Update the elements in the Tree.
+      --  Sort the list with our tree cursors.
       declare
-         Position : Entity.Tree.Cursor :=
-           Entity.Tree.First_Child (Position => Parent);
-      begin
-         for E of The_List loop
-            This.Replace_Element (Position => Position,
-                                  New_Item => E);
-            Entity.Tree.Next_Sibling (Position);
-         end loop;
+         function Before (Left  : in Entity.Tree.Cursor;
+                          Right : in Entity.Tree.Cursor) return Boolean is
+           (Slower_Than
+              (Left  => Proof_Item.T (Entity.Tree.Element (Position => Left)),
+               Right => Proof_Item.T (Entity.Tree.Element (Position => Right))));
 
-         --  At this point we should have no children left.
-         pragma Assert (Position = Entity.Tree.No_Element);
+         package Sorting is new
+           Cursor_Lists.Generic_Sorting ("<" => Before);
+      begin
+         Sorting.Sort (Container => The_List);
       end;
 
+      --  Now rearrange the subtree according to our sorting order.
+      for C of The_List loop
+         This.Splice_Subtree (Parent   => Parent,
+                              Before   => Entity.Tree.No_Element,
+                              Position => C);
+      end loop;
    end Sort_By_Duration;
 
 end SPAT.Proof_Item;

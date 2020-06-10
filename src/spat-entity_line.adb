@@ -22,7 +22,8 @@ package body SPAT.Entity_Line is
    ---------------------------------------------------------------------------
    --  Image
    ---------------------------------------------------------------------------
-   not overriding function Image (This : T) return String is
+   overriding
+   function Image (This : T) return String is
    begin
       return
         To_String (This.File) & ":" &

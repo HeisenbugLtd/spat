@@ -17,9 +17,9 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
+private with Ada.Tags;
 limited private with Ada.Containers.Hashed_Maps;
-private with SPAT.Entity.Tree;
-with SPAT.Proof_Item.List;
+with SPAT.Entity.Tree;
 limited with SPAT.Strings;
 with SPAT.Timing_Item;
 
@@ -43,15 +43,6 @@ package SPAT.Spark_Info is
    procedure Map_Spark_File (This : in out T;
                              File : in     Subject_Name;
                              Root : in     JSON_Value);
-
-   ---------------------------------------------------------------------------
-   --  Update
-   --
-   --  Updates information of the parse tree so that the below queries can be
-   --  executed faster.
-   ---------------------------------------------------------------------------
-   not overriding
-   procedure Update (This : in out T);
 
    ---------------------------------------------------------------------------
    --  List_All_Entities
@@ -135,8 +126,18 @@ package SPAT.Spark_Info is
    --  List of proof items for given Entity, sorted by time.
    ---------------------------------------------------------------------------
    not overriding
-   function Proof_List (This   : in T;
-                        Entity : in Subject_Name) return Proof_Item.List.T;
+   function Proof_Tree
+     (This   : in T;
+      Entity : in Subject_Name) return SPAT.Entity.Tree.Forward_Iterator'Class;
+
+   ---------------------------------------------------------------------------
+   --  Iterate_Children
+   ---------------------------------------------------------------------------
+   not overriding
+   function Iterate_Children (This     : in T;
+                              Entity   : in Subject_Name;
+                              Position : in SPAT.Entity.Tree.Cursor)
+                              return SPAT.Entity.Tree.Forward_Iterator'Class;
 
    ---------------------------------------------------------------------------
    --  Has_Failed_Attempts
@@ -158,28 +159,40 @@ package SPAT.Spark_Info is
    function Has_Unproved_Attempts (This   : in T;
                                    Entity : in Subject_Name) return Boolean;
 
+   ---------------------------------------------------------------------------
+   --  Print_Trees
+   --
+   --  Debugging subroutine to print the trees to Standard_Output. Only does
+   --  something if the Verbose flag is set.
+   ---------------------------------------------------------------------------
+   procedure Print_Trees (This : in T);
+
 private
 
    type Source_Lines_Sentinel is new Entity.T with null record;
+
+   overriding
+   function Image (This : in Source_Lines_Sentinel) return String is
+     (Ada.Tags.External_Tag (T => Source_Lines_Sentinel'Class (This)'Tag) & ": ()");
 
    Empty_Source_Lines_Sentinel : constant Source_Lines_Sentinel :=
      (Entity.T with null record);
 
    type Flows_Sentinel is new Entity.T with null record;
 
+   overriding
+   function Image (This : in Flows_Sentinel) return String is
+     (Ada.Tags.External_Tag (T => Flows_Sentinel'Class (This)'Tag) & ": ()");
+
    Empty_Flows_Sentinel : constant Flows_Sentinel :=
      (Entity.T with null record);
 
-   type Proof_Cache (Is_Valid : Boolean := False) is
+   type Proof_Cache is
       record
-         case Is_Valid is
-            when False => null;
-            when True =>
-               Max_Proof_Time        : Duration;
-               Total_Proof_Time      : Duration;
-               Has_Failed_Attempts   : Boolean;
-               Has_Unproved_Attempts : Boolean;
-         end case;
+         Max_Proof_Time        : Duration;
+         Total_Proof_Time      : Duration;
+         Has_Failed_Attempts   : Boolean;
+         Has_Unproved_Attempts : Boolean;
       end record;
 
    type Proofs_Sentinel is new Entity.T with
@@ -187,9 +200,21 @@ private
          Cache : Proof_Cache;
       end record;
 
+   overriding
+   function Image (This : in Proofs_Sentinel) return String is
+     (Ada.Tags.External_Tag (T => Proofs_Sentinel'Class (This)'Tag) & ":" &
+      ("(Max_Proof_Time => " & This.Cache.Max_Proof_Time'Image &
+         ", Total_Proof_Time => " & This.Cache.Total_Proof_Time'Image &
+         ", Has_Failed_Attempts => " & This.Cache.Has_Failed_Attempts'Image &
+         ", Has_Unproved_Attempts => " & This.Cache.Has_Unproved_Attempts'Image &
+         ")"));
+
    Empty_Proofs_Sentinel : constant Proofs_Sentinel :=
      (Entity.T with
-      Cache => Proof_Cache'(Is_Valid => False));
+      Cache => Proof_Cache'(Max_Proof_Time        => 0.0,
+                            Total_Proof_Time      => 0.0,
+                            Has_Failed_Attempts   => False,
+                            Has_Unproved_Attempts => False));
 
    type Analyzed_Entity is
       record

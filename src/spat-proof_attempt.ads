@@ -15,6 +15,7 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
+private with Ada.Tags;
 with SPAT.Entity;
 with SPAT.Field_Names;
 with SPAT.Preconditions;
@@ -88,6 +89,13 @@ private
          Time       : Duration;     --  time spent during proof
          --  Steps -- part of the JSON data, but we don't care.
       end record;
+
+   overriding
+   function Image (This : in T) return String is
+     (Ada.Tags.External_Tag (T'Class (This)'Tag) & ": (" &
+        "Prover => " & To_String (This.Prover) &
+        ", Result => " & To_String (This.Result) &
+        ", Time => " & This.Time'Image & ")");
 
    Trivial_True : constant T := T'(Entity.T with
                                      Prover => To_Name ("Trivial"),

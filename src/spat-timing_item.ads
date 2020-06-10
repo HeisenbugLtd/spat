@@ -15,6 +15,7 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
+private with Ada.Tags;
 with SPAT.Entity;
 with SPAT.Field_Names;
 with SPAT.Preconditions;
@@ -80,6 +81,13 @@ private
          Proof   : Duration;     --  Total time the prover spent.
          Flow    : Duration;     --  Total time of flow analysis.
       end record;
+
+   overriding
+   function Image (This : in T) return String is
+     (Ada.Tags.External_Tag (T'Class (This)'Tag) & ": (" &
+        "Version => " & This.Version'Image &
+        ", Proof => " & This.Proof'Image &
+        ", Flow => " & This.Flow'Image & ")");
 
    None : constant T := T'(Entity.T with
                              Version => File_Version'First,

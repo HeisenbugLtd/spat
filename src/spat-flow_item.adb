@@ -47,6 +47,8 @@ package body SPAT.Flow_Item is
       The_List.Sort_By_Location;
 
       --  Update the elements in the Tree.
+      --  FIXME: For now this works, because the structure here is just a list,
+      --         if it were an actual tree we would mix up parent and children.
       declare
          Position : Entity.Tree.Cursor :=
            Entity.Tree.First_Child (Position => Parent);

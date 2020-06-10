@@ -8,12 +8,14 @@
 pragma License (Unrestricted);
 
 with Ada.Directories;
+with Ada.Strings.Fixed;
 
 with SPAT.Entity_Line;
 with SPAT.Field_Names;
 with SPAT.Flow_Item;
 with SPAT.Log;
 with SPAT.Preconditions;
+with SPAT.Proof_Item;
 with SPAT.Strings;
 
 package body SPAT.Spark_Info is
@@ -206,14 +208,7 @@ package body SPAT.Spark_Info is
         This.Entities.Constant_Reference (Key => Entity);
       Sentinel  : constant Proofs_Sentinel := Get_Sentinel (Node => Reference);
    begin
-      if Sentinel.Cache.Is_Valid then
-         return Sentinel.Cache.Has_Failed_Attempts;
-      end if;
-
-      return (for some C in
-                Reference.The_Tree.Iterate_Children (Parent => Reference.Proofs) =>
-                Proof_Item.T'Class (SPAT.Entity.Tree.Element (Position => C)).
-                  Has_Failed_Attempts);
+      return Sentinel.Cache.Has_Failed_Attempts;
    end Has_Failed_Attempts;
 
    ---------------------------------------------------------------------------
@@ -225,15 +220,21 @@ package body SPAT.Spark_Info is
         This.Entities.Constant_Reference (Key => Entity);
       Sentinel  : constant Proofs_Sentinel := Get_Sentinel (Node => Reference);
    begin
-      if Sentinel.Cache.Is_Valid then
-         return Sentinel.Cache.Has_Unproved_Attempts;
-      end if;
-
-      return (for some C in
-                Reference.The_Tree.Iterate_Children (Parent => Reference.Proofs) =>
-                Proof_Item.T'Class (SPAT.Entity.Tree.Element (Position => C)).
-                  Has_Unproved_Attempts);
+      return Sentinel.Cache.Has_Unproved_Attempts;
    end Has_Unproved_Attempts;
+
+   ---------------------------------------------------------------------------
+   --  Iterate_Children
+   ---------------------------------------------------------------------------
+   not overriding
+   function Iterate_Children (This     : in T;
+                              Entity   : in Subject_Name;
+                              Position : in SPAT.Entity.Tree.Cursor)
+                              return SPAT.Entity.Tree.Forward_Iterator'Class is
+   begin
+      return
+        This.Entities (Entity).The_Tree.Iterate_Children (Parent => Position);
+   end Iterate_Children;
 
    ---------------------------------------------------------------------------
    --  List_All_Entities
@@ -470,10 +471,48 @@ package body SPAT.Spark_Info is
                                      This.Entities.Reference
                                        (Position => Update_At);
                               begin
-                                 Reference.The_Tree.Append_Child
-                                   (Parent   => Reference.Proofs,
-                                    New_Item =>
-                                      Proof_Item.Create (Object => Element));
+                                 Proof_Item.Add_To_Tree
+                                   (Object => Element,
+                                    Tree   => Reference.The_Tree,
+                                    Parent => Reference.Proofs);
+
+                                 --  Update parent sentinel with new proof
+                                 --  times.
+                                 declare
+                                    procedure Update_Sentinel (Element : in out Entity.T'Class);
+                                    procedure Update_Sentinel (Element : in out Entity.T'Class) is
+                                       S : Proofs_Sentinel renames Proofs_Sentinel (Element);
+                                       N : constant Proof_Item.T :=
+                                         Proof_Item.T
+                                           (Entity.T'Class'
+                                              (Reference.The_Tree
+                                                 (Entity.Tree.Last_Child
+                                                      (Position =>
+                                                           Reference.Proofs))));
+                                    begin
+                                       S.Cache :=
+                                         Proof_Cache'
+                                           (Max_Proof_Time =>
+                                              Duration'Max (S.Cache.Max_Proof_Time,
+                                                N.Max_Time),
+                                            Total_Proof_Time =>
+                                              S.Cache.Total_Proof_Time +
+                                                N.Total_Time,
+                                            Has_Failed_Attempts =>
+                                              S.Cache.Has_Failed_Attempts or else
+                                            N.Has_Failed_Attempts,
+                                            Has_Unproved_Attempts =>
+                                              S.Cache.Has_Unproved_Attempts or else
+                                            N.Has_Unproved_Attempts);
+                                    end Update_Sentinel;
+                                 begin
+                                    Reference.The_Tree.Update_Element
+                                      (Position => Reference.Proofs,
+                                       Process  => Update_Sentinel'Access);
+                                    null;
+                                    --  Reference.The_Tree.Update_Element
+                                    --       ();
+                                 end;
                               end;
                            end if;
                         else
@@ -646,23 +685,8 @@ package body SPAT.Spark_Info is
       Reference : constant Analyzed_Entities.Constant_Reference_Type :=
         This.Entities.Constant_Reference (Key => Entity);
       Sentinel  : constant Proofs_Sentinel := Get_Sentinel (Node => Reference);
-      Max_Time  : Duration := 0.0;
    begin
-      if Sentinel.Cache.Is_Valid then
-         return Sentinel.Cache.Max_Proof_Time;
-      end if;
-
-      for C in
-        Reference.The_Tree.Iterate_Children (Parent => Reference.Proofs)
-      loop
-         Max_Time :=
-           Duration'Max
-             (Max_Time,
-              Proof_Item.T'Class (SPAT.Entity.Tree.Element (Position => C)).
-                Max_Time);
-      end loop;
-
-      return Max_Time;
+      return Sentinel.Cache.Max_Proof_Time;
    end Max_Proof_Time;
 
    ---------------------------------------------------------------------------
@@ -710,25 +734,33 @@ package body SPAT.Spark_Info is
    end Num_Proofs;
 
    ---------------------------------------------------------------------------
-   --  Proof_List
+   --  Print_Trees
    ---------------------------------------------------------------------------
-   function Proof_List (This   : in T;
-                        Entity : in Subject_Name) return Proof_Item.List.T is
-      Result    : Proof_Item.List.T;
-      Reference : constant Analyzed_Entities.Constant_Reference_Type :=
-        This.Entities.Constant_Reference (Key => Entity);
+   procedure Print_Trees (This : in T) is
    begin
-      --  FIXME: It is stupid to return a whole Vector each time.
-      for C in
-        Reference.The_Tree.Iterate_Children (Parent => Reference.Proofs)
-      loop
-         Result.Append
-           (New_Item =>
-              Proof_Item.T (SPAT.Entity.Tree.Element (Position => C)));
-      end loop;
-
-      return Result;
-   end Proof_List;
+      if SPAT.Log.Debug_Enabled then
+         for Position in This.Entities.Iterate loop
+            declare
+               Reference : constant Analyzed_Entities.Constant_Reference_Type :=
+                 This.Entities.Constant_Reference (Position => Position);
+            begin
+               for C in
+                 SPAT.Entity.Tree.Implementation.Trees.Iterate_Subtree
+                   (Position => Reference.Proofs)
+               loop
+                  declare
+                     E : constant Entity.T'Class := Entity.Tree.Element (C);
+                     use Ada.Strings.Fixed;
+                  begin
+                     SPAT.Log.Debug
+                       (Natural (SPAT.Entity.Tree.Implementation.Trees.Child_Depth
+                        (Reference.Proofs, C)) * ' ' & "[]: " & E.Image);
+                  end;
+               end loop;
+            end;
+         end loop;
+      end if;
+   end Print_Trees;
 
    ---------------------------------------------------------------------------
    --  Proof_Time
@@ -767,6 +799,19 @@ package body SPAT.Spark_Info is
             end;
       end case;
    end Proof_Time;
+
+   ---------------------------------------------------------------------------
+   --  Proof_Tree
+   ---------------------------------------------------------------------------
+   function Proof_Tree
+     (This   : in T;
+      Entity : in Subject_Name) return SPAT.Entity.Tree.Forward_Iterator'Class
+   is
+      Reference : constant Analyzed_Entities.Constant_Reference_Type :=
+        This.Entities.Constant_Reference (Key => Entity);
+   begin
+      return Reference.The_Tree.Iterate_Children (Parent => Reference.Proofs);
+   end Proof_Tree;
 
    ---------------------------------------------------------------------------
    --  Sort_Entity_By_Name
@@ -856,65 +901,8 @@ package body SPAT.Spark_Info is
       Reference  : constant Analyzed_Entities.Constant_Reference_Type :=
         This.Entities.Constant_Reference (Key => Entity);
       Sentinel   : constant Proofs_Sentinel := Get_Sentinel (Node => Reference);
-      Total_Time : Duration := 0.0;
    begin
-      if Sentinel.Cache.Is_Valid then
-         return Sentinel.Cache.Total_Proof_Time;
-      end if;
-
-      for C in
-        Reference.The_Tree.Iterate_Children (Parent => Reference.Proofs)
-      loop
-         Total_Time :=
-           Total_Time +
-             Proof_Item.T'Class (SPAT.Entity.Tree.Element (Position => C)).
-               Total_Time;
-      end loop;
-
-      return Total_Time;
+      return Sentinel.Cache.Total_Proof_Time;
    end Total_Proof_Time;
-
-   ---------------------------------------------------------------------------
-   --  Update
-   ---------------------------------------------------------------------------
-   not overriding
-   procedure Update (This : in out T) is
-   begin
-      for Position in This.Entities.Iterate loop
-         declare
-            Reference : constant Analyzed_Entities.Reference_Type :=
-              This.Entities.Reference (Position => Position);
-         begin
-            declare
-               Key : constant Subject_Name :=
-                 Analyzed_Entities.Key (Position => Position);
-
-               --  Call the potentially "slow" recursive calculation functions.
-               Max_Proof_Time   : constant Duration :=
-                 This.Max_Proof_Time (Entity => Key);
-               Total_Proof_Time : constant Duration :=
-                 This.Total_Proof_Time (Entity => Key);
-               Has_Failed_Attempts : constant Boolean :=
-                 This.Has_Failed_Attempts (Entity => Key);
-               Has_Unproved_Attempts : constant Boolean :=
-                 This.Has_Unproved_Attempts (Entity => Key);
-            begin
-               Entity.Tree.Replace_Element
-                 (Container => Reference.The_Tree,
-                  Position  => Reference.Proofs,
-                  New_Item  =>
-                    Proofs_Sentinel'
-                      (Entity.T with
-                       Cache =>
-                         Proof_Cache'
-                           (Is_Valid              => True,
-                            Max_Proof_Time        => Max_Proof_Time,
-                            Total_Proof_Time      => Total_Proof_Time,
-                            Has_Failed_Attempts   => Has_Failed_Attempts,
-                            Has_Unproved_Attempts => Has_Unproved_Attempts)));
-            end;
-         end;
-      end loop;
-   end Update;
 
 end SPAT.Spark_Info;
