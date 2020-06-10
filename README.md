@@ -86,7 +86,7 @@ will give you a quick overview over the available command line options:
 ```
 usage: run_spat [--help|-h] [--project|-P PROJECT] [--summary|-s] 
                [--report-mode|-r REPORT-MODE] [--sort-by|-c SORT-BY] 
-               [--details|-d] [--verbose|-v] 
+               [--details|-d] [--version|-V] [--verbose|-v] 
 
 Parses .spark files and outputs information about them.
 
@@ -100,6 +100,7 @@ optional arguments:
                          unproved, j = unjustified)
    --sort-by, -c         Sort output (SORT-BY: a = alphabetical, t = by time)
    --details, -d         Show details for entities (list mode)
+   --version, -V         Show version information and exit
    --verbose, -v         Verbose (tracing) output
 ```
 
@@ -337,3 +338,8 @@ justification messages (if present).
 This option is mainly used for debugging, it enables extra output about what
 `run_spat` is doing (i.e. files found in the given project file, parse results
 and some timings).
+
+#### The `--version` option
+
+Show version and compiler information for the executable.  If that option is
+encountered, no other options take effect and the program immediately exits.

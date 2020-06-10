@@ -114,4 +114,11 @@ package SPAT.Command_Line is
                                     Long     => "--details",
                                     Help     => "Show details for entities (list mode)");
 
+   package Version is new
+     GNATCOLL.Opt_Parse.Parse_Flag
+       (Parser  => Parser,
+        Short   => "-V",
+        Long    => "--version",
+        Help    => "Show version information and exit");
+
 end SPAT.Command_Line;

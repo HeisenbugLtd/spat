@@ -30,6 +30,8 @@ with SPAT.GPR_Support;
 with SPAT.Log;
 with SPAT.Spark_Files;
 with SPAT.Spark_Info;
+with SPAT.Version;
+with System;
 
 ------------------------------------------------------------------------------
 --  Run_SPAT
@@ -76,6 +78,17 @@ procedure Run_SPAT is
 begin
    if not SPAT.Command_Line.Parser.Parse then
       Ada.Command_Line.Set_Exit_Status (Code => Ada.Command_Line.Failure);
+      return;
+   end if;
+
+   if SPAT.Command_Line.Version.Get then
+      SPAT.Log.Message
+        (Message =>
+           "run_spat V" & SPAT.Version.Number &
+           " (compiled by " & System.System_Name'Image & " " &
+           SPAT.Version.Compiler & ")");
+
+      Ada.Command_Line.Set_Exit_Status (Code => Ada.Command_Line.Success);
       return;
    end if;
 
