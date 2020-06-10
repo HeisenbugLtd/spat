@@ -15,7 +15,7 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
-limited with Ada.Containers.Vectors;
+limited with Ada.Containers.Bounded_Vectors;
 limited with Ada.Text_IO;
 
 package SPAT.Strings is
@@ -23,9 +23,9 @@ package SPAT.Strings is
    package Implementation is
 
       package Vectors is new
-        Ada.Containers.Vectors (Index_Type   => Positive,
-                                Element_Type => Subject_Name,
-                                "="          => "=");
+        Ada.Containers.Bounded_Vectors (Index_Type   => Positive,
+                                        Element_Type => Subject_Name,
+                                        "="          => "=");
 
    end Implementation;
 

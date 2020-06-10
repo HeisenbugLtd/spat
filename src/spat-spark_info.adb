@@ -243,7 +243,7 @@ package body SPAT.Spark_Info is
      (This    : in T;
       Sort_By : in Sorting_Criterion := Name) return Strings.List'Class is
    begin
-      return Result : Strings.List do
+      return Result : Strings.List (Capacity => This.Entities.Length) do
          for Position in This.Entities.Iterate loop
             Result.Append
               (New_Item => Analyzed_Entities.Key (Position => Position));
@@ -269,7 +269,7 @@ package body SPAT.Spark_Info is
      (This    : in T;
       Sort_By : in Sorting_Criterion := None) return Strings.List'Class is
    begin
-      return Result : Strings.List do
+      return Result : Strings.List (Capacity => This.Entities.Length) do
          for Position in This.Files.Iterate loop
             Result.Append (New_Item => File_Timings.Key (Position => Position));
          end loop;
