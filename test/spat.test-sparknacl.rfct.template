@@ -1,0 +1,20 @@
+Argument parsing failed: Unrecognized argument rf
+usage: run_spat [--help|-h] [--project|-P PROJECT] [--summary|-s] 
+               [--report-mode|-r REPORT-MODE] [--sort-by|-c SORT-BY] 
+               [--details|-d] [--verbose|-v] 
+
+Parses .spark files and outputs information about them.
+
+positional arguments:
+   
+optional arguments:
+   --help, -h            Show this help message
+   --project, -P         PROJECT = GNAT project file (.gpr) (mandatory!)
+   --summary, -s         List summary (per file)
+   --report-mode, -r     Report output (REPORT-MODE: a = all, f = failed, u = 
+                         unproved, j = unjustified)
+   --sort-by, -c         Sort output (SORT-BY: a = alphabetical, t = by time)
+   --details, -d         Show details for entities (list mode)
+   --verbose, -v         Verbose (tracing) output
+   
+
