@@ -141,7 +141,7 @@ option is designed to work with the `--report-mode` option only.
 
 This is the main mode the tool is designed to be run in.  It outputs the list
 of entities (i.e. Ada language identifiers) it finds in the `.spark` files that
-match the given filter option, see below).
+match the given filter option (see below).
 
 By default, the output has no particular order, but as mentioned in the
 previous chapter, with the `--sort-by` option you can force one.
