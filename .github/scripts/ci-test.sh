@@ -13,8 +13,8 @@ echo "Running tests:"
 #cd si_units
 #git checkout v0.1.0
 #cd ..
-gprbuild -p -P si_units/si_units_lib.gpr
-gprinstall -v -p -P si_units/si_units_lib.gpr
+#gprbuild -p -P si_units/si_units_lib.gpr
+#gprinstall -v -p -P si_units/si_units_lib.gpr
 
 # debug, list what's available
 gprinstall --list --stat
