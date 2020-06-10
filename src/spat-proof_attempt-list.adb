@@ -12,6 +12,7 @@ package body SPAT.Proof_Attempt.List is
    ---------------------------------------------------------------------------
    --  "<"
    ---------------------------------------------------------------------------
+   not overriding
    function "<" (Left  : in T;
                  Right : in T) return Boolean
    is
@@ -34,6 +35,7 @@ package body SPAT.Proof_Attempt.List is
    ---------------------------------------------------------------------------
    --  Has_Failed_Attempts
    ---------------------------------------------------------------------------
+   not overriding
    function Has_Failed_Attempts (This : in T) return Boolean
    is
       use type Subject_Name;
@@ -58,6 +60,7 @@ package body SPAT.Proof_Attempt.List is
    ---------------------------------------------------------------------------
    --  Sort_By_Duration
    ---------------------------------------------------------------------------
+   not overriding
    procedure Sort_By_Duration (Container : in out T) is
    begin
       By_Duration.Sort (Implementation.Vectors.Vector (Container));

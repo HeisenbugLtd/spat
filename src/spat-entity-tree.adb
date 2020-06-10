@@ -18,6 +18,14 @@ package body SPAT.Entity.Tree is
                                         Element_Type => Cursor,
                                         "="          => "=");
 
+      ------------------------------------------------------------------------
+      --  Sort
+      --
+      --  This is a "sort by proxy".  The way it works that we first copy the
+      --  children's cursors into a vector which then gets sorted.  After this
+      --  step, we rearrange the subtree in the order of elements in the
+      --  vector.
+      ------------------------------------------------------------------------
       procedure Sort (Tree   : in out T;
                       Parent : in     Cursor) is
          Num_Children : constant Ada.Containers.Count_Type :=
@@ -37,6 +45,11 @@ package body SPAT.Entity.Tree is
 
          --  Sort the list with our tree cursors.
          declare
+            ------------------------------------------------------------------
+            --  Before
+            --
+            --  Comparison operator.
+            ------------------------------------------------------------------
             function Before (Left  : in Cursor;
                              Right : in Cursor) return Boolean is
               (Before -- from the generic instance

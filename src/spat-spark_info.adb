@@ -149,6 +149,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Flow_Time
    ---------------------------------------------------------------------------
+   not overriding
    function Flow_Time (This : in T;
                        File : in Subject_Name) return Duration is
      (This.Files (File).Flow);
@@ -202,6 +203,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Has_Failed_Attempts
    ---------------------------------------------------------------------------
+   not overriding
    function Has_Failed_Attempts (This   : in T;
                                  Entity : in Subject_Name) return Boolean is
       Reference : constant Analyzed_Entities.Constant_Reference_Type :=
@@ -214,6 +216,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Has_Unproved_Attempts
    ---------------------------------------------------------------------------
+   not overriding
    function Has_Unproved_Attempts (This   : in T;
                                    Entity : in Subject_Name) return Boolean is
       Reference : constant Analyzed_Entities.Constant_Reference_Type :=
@@ -239,6 +242,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  List_All_Entities
    ---------------------------------------------------------------------------
+   not overriding
    function List_All_Entities
      (This    : in T;
       Sort_By : in Sorting_Criterion := Name) return Strings.List'Class is
@@ -265,6 +269,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  List_All_Files
    ---------------------------------------------------------------------------
+   not overriding
    function List_All_Files
      (This    : in T;
       Sort_By : in Sorting_Criterion := None) return Strings.List'Class is
@@ -479,9 +484,20 @@ package body SPAT.Spark_Info is
                                  --  Update parent sentinel with new proof
                                  --  times.
                                  declare
-                                    procedure Update_Sentinel (Element : in out Entity.T'Class);
-                                    procedure Update_Sentinel (Element : in out Entity.T'Class) is
-                                       S : Proofs_Sentinel renames Proofs_Sentinel (Element);
+                                    ------------------------------------------
+                                    --  Update_Sentinel
+                                    ------------------------------------------
+                                    procedure Update_Sentinel
+                                      (Element : in out Entity.T'Class);
+
+                                    ------------------------------------------
+                                    --  Update_Sentinel
+                                    ------------------------------------------
+                                    procedure Update_Sentinel
+                                      (Element : in out Entity.T'Class)
+                                    is
+                                       S : Proofs_Sentinel renames
+                                         Proofs_Sentinel (Element);
                                        N : constant Proof_Item.T :=
                                          Proof_Item.T
                                            (Entity.T'Class'
@@ -594,6 +610,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Map_Spark_File
    ---------------------------------------------------------------------------
+   not overriding
    procedure Map_Spark_File (This : in out T;
                              File : in     Subject_Name;
                              Root : in     JSON_Value)
@@ -679,6 +696,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Max_Proof_Time
    ---------------------------------------------------------------------------
+   not overriding
    function Max_Proof_Time (This   : in T;
                             Entity : in Subject_Name) return Duration
    is
@@ -692,6 +710,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Num_Flows
    ---------------------------------------------------------------------------
+   not overriding
    function Num_Flows (This : not null access T)
                        return Ada.Containers.Count_Type
    is
@@ -714,6 +733,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Num_Proofs
    ---------------------------------------------------------------------------
+   not overriding
    function Num_Proofs (This : not null access T)
                         return Ada.Containers.Count_Type
    is
@@ -736,6 +756,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Print_Trees
    ---------------------------------------------------------------------------
+   not overriding
    procedure Print_Trees (This : in T) is
    begin
       if SPAT.Log.Debug_Enabled then
@@ -765,6 +786,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Proof_Time
    ---------------------------------------------------------------------------
+   not overriding
    function Proof_Time (This : in T;
                         File : in Subject_Name) return Duration is
       Timings : constant Timing_Item.T := This.Files (File);
@@ -803,6 +825,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Proof_Tree
    ---------------------------------------------------------------------------
+   not overriding
    function Proof_Tree
      (This   : in T;
       Entity : in Subject_Name) return SPAT.Entity.Tree.Forward_Iterator'Class
@@ -895,6 +918,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Total_Proof_Time
    ---------------------------------------------------------------------------
+   not overriding
    function Total_Proof_Time (This   : in T;
                               Entity : in Subject_Name) return Duration
    is

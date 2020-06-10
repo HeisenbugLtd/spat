@@ -165,12 +165,16 @@ package SPAT.Spark_Info is
    --  Debugging subroutine to print the trees to Standard_Output. Only does
    --  something if the Verbose flag is set.
    ---------------------------------------------------------------------------
+   not overriding
    procedure Print_Trees (This : in T);
 
 private
 
    type Source_Lines_Sentinel is new Entity.T with null record;
 
+   ---------------------------------------------------------------------------
+   --  Image
+   ---------------------------------------------------------------------------
    overriding
    function Image (This : in Source_Lines_Sentinel) return String is
      (Ada.Tags.External_Tag (T => Source_Lines_Sentinel'Class (This)'Tag) & ": ()");
@@ -180,6 +184,9 @@ private
 
    type Flows_Sentinel is new Entity.T with null record;
 
+   ---------------------------------------------------------------------------
+   --  Image
+   ---------------------------------------------------------------------------
    overriding
    function Image (This : in Flows_Sentinel) return String is
      (Ada.Tags.External_Tag (T => Flows_Sentinel'Class (This)'Tag) & ": ()");
@@ -200,6 +207,9 @@ private
          Cache : Proof_Cache;
       end record;
 
+   ---------------------------------------------------------------------------
+   --  Image
+   ---------------------------------------------------------------------------
    overriding
    function Image (This : in Proofs_Sentinel) return String is
      (Ada.Tags.External_Tag (T => Proofs_Sentinel'Class (This)'Tag) & ":" &

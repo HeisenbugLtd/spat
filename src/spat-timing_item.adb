@@ -14,6 +14,7 @@ package body SPAT.Timing_Item is
    ---------------------------------------------------------------------------
    --  Create
    ---------------------------------------------------------------------------
+   not overriding
    function Create (Object  : in JSON_Value;
                     Version : in File_Version) return T is
       Proof_Time : Duration;

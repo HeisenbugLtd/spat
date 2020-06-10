@@ -52,13 +52,13 @@ package body SPAT.Proof_Item is
                     := Element.Get (Field => Field_Names.Proof_Attempts);
 
                   ------------------------------------------------------------
-                  --  Create
+                  --  Mapping_CB
                   ------------------------------------------------------------
                   procedure Mapping_CB (Name  : in UTF8_String;
                                         Value : in JSON_Value);
 
                   ------------------------------------------------------------
-                  --  Create
+                  --  Mapping_CB
                   ------------------------------------------------------------
                   procedure Mapping_CB (Name  : in UTF8_String;
                                         Value : in JSON_Value) is

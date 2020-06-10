@@ -51,6 +51,7 @@ package SPAT.Timing_Item is
    ---------------------------------------------------------------------------
    --  Create
    ---------------------------------------------------------------------------
+   not overriding
    function Create (Object  : in JSON_Value;
                     Version : in File_Version) return T with
      Pre => Has_Required_Fields (Object  => Object,
@@ -59,16 +60,19 @@ package SPAT.Timing_Item is
    ---------------------------------------------------------------------------
    --  Flow
    ---------------------------------------------------------------------------
+   not overriding
    function Flow (This : in T) return Duration;
 
    ---------------------------------------------------------------------------
    --  Proof
    ---------------------------------------------------------------------------
+   not overriding
    function Proof (This : in T) return Duration;
 
    ---------------------------------------------------------------------------
    --  Version
    ---------------------------------------------------------------------------
+   not overriding
    function Version (This : in T) return File_Version;
 
    None : constant T;
@@ -82,6 +86,9 @@ private
          Flow    : Duration;     --  Total time of flow analysis.
       end record;
 
+   ---------------------------------------------------------------------------
+   --  Image
+   ---------------------------------------------------------------------------
    overriding
    function Image (This : in T) return String is
      (Ada.Tags.External_Tag (T'Class (This)'Tag) & ": (" &
@@ -97,18 +104,21 @@ private
    ---------------------------------------------------------------------------
    --  Flow
    ---------------------------------------------------------------------------
+   not overriding
    function Flow (This : in T) return Duration is
      (This.Flow);
 
    ---------------------------------------------------------------------------
    --  Proof
    ---------------------------------------------------------------------------
+   not overriding
    function Proof (This : in T) return Duration is
      (This.Proof);
 
    ---------------------------------------------------------------------------
    --  Version
    ---------------------------------------------------------------------------
+   not overriding
    function Version (This : in T) return File_Version is
      (This.Version);
 

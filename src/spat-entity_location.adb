@@ -34,14 +34,16 @@ package body SPAT.Entity_Location is
    ---------------------------------------------------------------------------
    --  Create
    ---------------------------------------------------------------------------
-   overriding function Create (Object : in JSON_Value) return T is
+   overriding
+   function Create (Object : in JSON_Value) return T is
      (Entity_Line.Create (Object => Object) with
         Column => Object.Get (Field => Field_Names.Column));
 
    ---------------------------------------------------------------------------
    --  Image
    ---------------------------------------------------------------------------
-   overriding function Image (This : T) return String is
+   overriding
+   function Image (This : T) return String is
    begin
       return
         Entity_Line.T (This).Image & ":" &

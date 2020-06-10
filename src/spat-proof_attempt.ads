@@ -40,6 +40,7 @@ package SPAT.Proof_Attempt is
    ---------------------------------------------------------------------------
    --  Create
    ---------------------------------------------------------------------------
+   not overriding
    function Create (Object : JSON_Value;
                     Prover : Subject_Name) return T
      with Pre => Has_Required_Fields (Object => Object);
@@ -90,6 +91,9 @@ private
          --  Steps -- part of the JSON data, but we don't care.
       end record;
 
+   ---------------------------------------------------------------------------
+   --  Image
+   ---------------------------------------------------------------------------
    overriding
    function Image (This : in T) return String is
      (Ada.Tags.External_Tag (T'Class (This)'Tag) & ": (" &
@@ -105,8 +109,9 @@ private
    ---------------------------------------------------------------------------
    --  Slower_Than
    ---------------------------------------------------------------------------
-   not overriding function Slower_Than (Left  : in T;
-                                        Right : in T) return Boolean is
+   not overriding
+   function Slower_Than (Left  : in T;
+                         Right : in T) return Boolean is
      (Left.Time > Right.Time);
 
    ---------------------------------------------------------------------------

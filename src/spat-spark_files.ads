@@ -52,6 +52,7 @@ package SPAT.Spark_Files is
    ---------------------------------------------------------------------------
    --  Read
    ---------------------------------------------------------------------------
+   not overriding
    procedure Read (This  : in out T;
                    Names : in     File_Lists.T'Class);
    --  Reads the list of files, and parses and stores their content in This.

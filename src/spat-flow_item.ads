@@ -37,6 +37,11 @@ package SPAT.Flow_Item is
    function Create (Object : in JSON_Value) return T with
      Pre => Has_Required_Fields (Object => Object);
 
+   ---------------------------------------------------------------------------
+   --  Before
+   --
+   --  Comparison operator used for sorting instantiations.
+   ---------------------------------------------------------------------------
    function Before (Left  : in Entity.T'Class;
                     Right : in Entity.T'Class) return Boolean is
      (Flow_Item.T (Left) < Flow_Item.T (Right));

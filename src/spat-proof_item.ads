@@ -99,7 +99,7 @@ package SPAT.Proof_Item is
    function Suppressed (This : in T) return Subject_Name;
 
    ---------------------------------------------------------------------------
-   --  Sort_By_Duration
+   --  Before
    ---------------------------------------------------------------------------
    function Before (Left  : in Entity.T'Class;
                     Right : in Entity.T'Class) return Boolean is
@@ -108,6 +108,9 @@ package SPAT.Proof_Item is
    package By_Duration is new
      Entity.Tree.Generic_Sorting (Before => Before);
 
+   ---------------------------------------------------------------------------
+   --  Sort_By_Duration
+   ---------------------------------------------------------------------------
    procedure Sort_By_Duration (Tree   : in out Entity.Tree.T;
                                Parent : in     Entity.Tree.Cursor)
      renames By_Duration.Sort;
@@ -132,22 +135,34 @@ private
          Is_Unproved         : Boolean;
       end record;
 
+   ---------------------------------------------------------------------------
+   --  Image
+   ---------------------------------------------------------------------------
    overriding
    function Image (This : in Checks_Sentinel) return String is
      (Ada.Tags.External_Tag (Checks_Sentinel'Class (This)'Tag) & ": " &
         "(Has_Failed_Attempts => " & This.Has_Failed_Attempts'Image &
         ", Is_Unproved => " & This.Is_Unproved'Image & ")");
 
+   ---------------------------------------------------------------------------
+   --  Has_Failed_Attempts
+   ---------------------------------------------------------------------------
    not overriding
    function Has_Failed_Attempts (This : in Checks_Sentinel) return Boolean is
       (This.Has_Failed_Attempts);
 
+   ---------------------------------------------------------------------------
+   --  Is_Unproved
+   ---------------------------------------------------------------------------
    not overriding
    function Is_Unproved (This : in Checks_Sentinel) return Boolean is
      (This.Is_Unproved);
 
    type Proof_Item_Sentinel is new Entity.T with null record;
 
+   ---------------------------------------------------------------------------
+   --  Image
+   ---------------------------------------------------------------------------
    overriding
    function Image (This : in Proof_Item_Sentinel) return String is
      (Ada.Tags.External_Tag (Proof_Item_Sentinel'Class (This)'Tag) & ": ()");

@@ -47,6 +47,7 @@ package body SPAT.Spark_Files is
    ---------------------------------------------------------------------------
    --  Read
    ---------------------------------------------------------------------------
+   not overriding
    procedure Read (This  : in out T;
                    Names : in     File_Lists.T'Class)
    is

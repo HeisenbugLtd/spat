@@ -14,6 +14,7 @@ package body SPAT.Entity_Line is
    ---------------------------------------------------------------------------
    --  Create
    ---------------------------------------------------------------------------
+   not overriding
    function Create (Object : in JSON_Value) return T is
      (T'(Entity.T with
            File => Object.Get (Field => Field_Names.File),
