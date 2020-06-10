@@ -37,11 +37,18 @@ package SPAT.Flow_Item is
    function Create (Object : in JSON_Value) return T with
      Pre => Has_Required_Fields (Object => Object);
 
+   function Before (Left  : in Entity.T'Class;
+                    Right : in Entity.T'Class) return Boolean is
+     (Flow_Item.T (Left) < Flow_Item.T (Right));
+
+   package By_Location is new Entity.Tree.Generic_Sorting (Before => Before);
+
    ---------------------------------------------------------------------------
    --  Sort_By_Location
    ---------------------------------------------------------------------------
    procedure Sort_By_Location (This   : in out Entity.Tree.T;
-                               Parent : in     Entity.Tree.Cursor);
+                               Parent : in     Entity.Tree.Cursor) renames
+     By_Location.Sort;
 
 private
 

@@ -63,6 +63,17 @@ package SPAT.Entity.Tree is
    procedure Previous_Sibling (Position : in out Cursor)
                                renames Implementation.Trees.Previous_Sibling;
 
+   --  Sort a subtree by sorting criteria of elements contained.
+   generic
+      with function Before (Left  : in Entity.T'Class;
+                            Right : in Entity.T'Class) return Boolean;
+   package Generic_Sorting is
+
+      procedure Sort (Tree   : in out T;
+                      Parent : in     Cursor);
+
+   end Generic_Sorting;
+
 private
 
    type T is new Implementation.Trees.Tree with null record;

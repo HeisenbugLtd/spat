@@ -12,11 +12,6 @@ with SPAT.Proof_Attempt.List;
 
 package body SPAT.Proof_Item is
 
-   package Cursor_Lists is new
-     Ada.Containers.Vectors (Index_Type   => Positive,
-                             Element_Type => Entity.Tree.Cursor,
-                             "="          => Entity.Tree."=");
-
    package Checks_Lists is new
      Ada.Containers.Vectors (Index_Type   => Positive,
                              Element_Type => Proof_Attempt.List.T,
@@ -193,49 +188,5 @@ package body SPAT.Proof_Item is
    function Create (Object : in JSON_Value) return T is
      (raise Program_Error with
         "Create should not be called. Instead call Add_To_Tree.");
-
-   ---------------------------------------------------------------------------
-   --  Sort_By_Duration
-   ---------------------------------------------------------------------------
-   procedure Sort_By_Duration (This   : in out Entity.Tree.T;
-                               Parent : in     Entity.Tree.Cursor) is
-      The_List : Cursor_Lists.Vector;
-      Num_Children : constant Ada.Containers.Count_Type :=
-        Entity.Tree.Child_Count (Parent => Parent);
-      use type Ada.Containers.Count_Type;
-   begin
-      if Num_Children < 2 then
-         --  No elements to sort.
-         return;
-      end if;
-
-      The_List.Reserve_Capacity (Capacity => Num_Children);
-
-      --  Copy the tree's cursor into The_List.
-      for C in This.Iterate_Children (Parent => Parent) loop
-         The_List.Append (New_Item => C);
-      end loop;
-
-      --  Sort the list with our tree cursors.
-      declare
-         function Before (Left  : in Entity.Tree.Cursor;
-                          Right : in Entity.Tree.Cursor) return Boolean is
-           (Slower_Than
-              (Left  => Proof_Item.T (Entity.Tree.Element (Position => Left)),
-               Right => Proof_Item.T (Entity.Tree.Element (Position => Right))));
-
-         package Sorting is new
-           Cursor_Lists.Generic_Sorting ("<" => Before);
-      begin
-         Sorting.Sort (Container => The_List);
-      end;
-
-      --  Now rearrange the subtree according to our sorting order.
-      for C of The_List loop
-         This.Splice_Subtree (Parent   => Parent,
-                              Before   => Entity.Tree.No_Element,
-                              Position => C);
-      end loop;
-   end Sort_By_Duration;
 
 end SPAT.Proof_Item;

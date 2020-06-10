@@ -101,8 +101,16 @@ package SPAT.Proof_Item is
    ---------------------------------------------------------------------------
    --  Sort_By_Duration
    ---------------------------------------------------------------------------
-   procedure Sort_By_Duration (This   : in out Entity.Tree.T;
-                               Parent : in     Entity.Tree.Cursor);
+   function Before (Left  : in Entity.T'Class;
+                    Right : in Entity.T'Class) return Boolean is
+     (Proof_Item.T (Left).Total_Time > Proof_Item.T (Right).Total_Time);
+
+   package By_Duration is new
+     Entity.Tree.Generic_Sorting (Before => Before);
+
+   procedure Sort_By_Duration (Tree   : in out Entity.Tree.T;
+                               Parent : in     Entity.Tree.Cursor)
+     renames By_Duration.Sort;
 
    type Checks_Sentinel is new Entity.T with private;
 

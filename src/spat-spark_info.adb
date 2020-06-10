@@ -530,7 +530,7 @@ package body SPAT.Spark_Info is
 
       --  Sort proofs by time to proof them.
       for E of This.Entities loop
-         SPAT.Proof_Item.Sort_By_Duration (This   => E.The_Tree,
+         SPAT.Proof_Item.Sort_By_Duration (Tree   => E.The_Tree,
                                            Parent => E.Proofs);
       end loop;
    end Map_Proof_Elements;
