@@ -3,21 +3,27 @@
 #
 # Build and run a profiled executable.
 #
-
+SPAT="../obj/run_spat"
 SPAT_OPTIONS="-s -l -d -ct" # Summary, list, details, sort by time
 
 echo "Building instrumented executable..."
 gprbuild -f -P ../spat.gpr -cargs -pg -largs -pg || exit 1
 
-echo "Running..."
+rm -f gmon.*
 
-# Run on test data 1
-../obj/run_spat $SPAT_OPTIONS -P test-saatana/saatana.gpr > /dev/null
-gprof ../obj/run_spat gmon.out > profile-run-1.txt
+echo "Running test run 1..."
+$SPAT $SPAT_OPTIONS -P test-saatana/saatana.gpr > /dev/null
 
-# Run on test data 2
-../obj/run_spat $SPAT_OPTIONS -P test-sparknacl/src/sparknacl.gpr > /dev/null
-gprof ../obj/run_spat gmon.out > profile-run-2.txt
+echo "Collecting data..."
+gprof $SPAT gmon.out > profile-run-1.txt
+rm -f gmon.*
+
+echo "Running test run 2..."
+$SPAT $SPAT_OPTIONS -P test-sparknacl/src/sparknacl.gpr > /dev/null
+
+echo "Collecting data..."
+gprof $SPAT gmon.out > profile-run-2.txt
+rm -f gmon.*
 
 echo "Rebuilding standard executable."
 gprbuild -f -P ../spat.gpr
