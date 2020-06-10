@@ -12,10 +12,16 @@ rm -f test.diff *.out
 # First argument is the project directory
 # Second argument the project file (.gpr) within that project.
 run_check () {
-  for SPAT_OPTIONS in "-s -l -d -ca" "-s -l -d -ct"; do
+  for SPAT_OPTIONS in "-s" "-l -ca" "-l -ct" "-l -f -ca" "-l -f -ct" "-l -u -ca" "-l -u -ct" "-s -l -d -ca" "-s -l -d -ct" "-s -l -d -f -ca" "-s -l -d -f -ct" "-s -l -d -u -ca" "-s -l -d -u -ct"; do
     OPT_NAME=$1.`echo "$SPAT_OPTIONS" | sed -e "s/[- ]//g"`
     #echo $OPT_NAME
-    ../obj/run_spat -s -l -d -ct -P "$1/$2" > "spat.$OPT_NAME.out"
+    
+    # (older reference version for template generation)
+    # run_spat $SPAT_OPTIONS -P "$1/$2" > "spat.$OPT_NAME.template"
+
+    # Run test
+    ../obj/run_spat $SPAT_OPTIONS -P "$1/$2" > "spat.$OPT_NAME.out"
+
     # Show template differences (FIXME: 'diff' might not be installed)
     (diff -u "spat.$OPT_NAME.template" "spat.$OPT_NAME.out") >> test.diff || RESULT=$?
   done
