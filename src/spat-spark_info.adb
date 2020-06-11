@@ -78,8 +78,9 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Map_Proof_Elements
    ---------------------------------------------------------------------------
-   procedure Map_Proof_Elements (This : in out T;
-                                 Root : in     JSON_Array);
+   procedure Map_Proof_Elements (This    : in out T;
+                                 Version : in     File_Version;
+                                 Root    : in     JSON_Array);
 
    ---------------------------------------------------------------------------
    --  Map_Sloc_Elements
@@ -451,8 +452,9 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Map_Proof_Elements
    ---------------------------------------------------------------------------
-   procedure Map_Proof_Elements (This : in out T;
-                                 Root : in     JSON_Array) is
+   procedure Map_Proof_Elements (This    : in out T;
+                                 Version : in     File_Version;
+                                 Root    : in     JSON_Array) is
    begin
       for I in 1 .. GNATCOLL.JSON.Length (Arr => Root) loop
          declare
@@ -483,7 +485,8 @@ package body SPAT.Spark_Info is
                      begin
                         if Update_At /= Analyzed_Entities.No_Element then
                            if
-                             Proof_Item.Has_Required_Fields (Object => Element)
+                             Proof_Item.Has_Required_Fields (Object  => Element,
+                                                             Version => Version)
                            then
                               declare
                                  Reference : constant
@@ -492,9 +495,10 @@ package body SPAT.Spark_Info is
                                        (Position => Update_At);
                               begin
                                  Proof_Item.Add_To_Tree
-                                   (Object => Element,
-                                    Tree   => Reference.The_Tree,
-                                    Parent => Reference.Proofs);
+                                   (Object  => Element,
+                                    Version => Version,
+                                    Tree    => Reference.The_Tree,
+                                    Parent  => Reference.Proofs);
 
                                  --  Update parent sentinel with new proof
                                  --  times.
@@ -665,7 +669,8 @@ package body SPAT.Spark_Info is
                                     Kind   => JSON_Array_Type)
       then
          This.Map_Proof_Elements
-           (Root => Root.Get (Field => Field_Names.Proof));
+           (Root    => Root.Get (Field => Field_Names.Proof),
+            Version => Version);
       end if;
 
       if

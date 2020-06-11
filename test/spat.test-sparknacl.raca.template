@@ -1,14 +1,3 @@
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
 Random                                                    => 0.0 s/0.0 s
 Random.Random_Byte                                        => 0.0 s/0.0 s
 SPARKNaCl                                                 => 80.0 ms/260.0 ms

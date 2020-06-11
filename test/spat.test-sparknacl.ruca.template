@@ -1,14 +1,3 @@
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
 SPARKNaCl.ASR_16                                          => 5.7 s/5.9 s
 SPARKNaCl.ASR_4                                           => 1.2 s/1.4 s
 SPARKNaCl.ASR_8                                           => 3.3 s/3.5 s

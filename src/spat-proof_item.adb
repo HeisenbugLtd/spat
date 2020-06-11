@@ -23,10 +23,13 @@ package body SPAT.Proof_Item is
    ---------------------------------------------------------------------------
    --  Add_To_Tree
    ---------------------------------------------------------------------------
-   procedure Add_To_Tree (Object : in     JSON_Value;
-                          Tree   : in out Entity.Tree.T;
-                          Parent : in     Entity.Tree.Cursor)
+   procedure Add_To_Tree (Object  : in     JSON_Value;
+                          Version : in     File_Version;
+                          Tree    : in out Entity.Tree.T;
+                          Parent  : in     Entity.Tree.Cursor)
    is
+      pragma Unreferenced (Version); --  Only for precondition.
+
       Max_Time    : Duration := 0.0;
       Total_Time  : Duration := 0.0;
       Checks_List : Checks_Lists.Vector;
