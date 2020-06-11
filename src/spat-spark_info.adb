@@ -883,9 +883,35 @@ package body SPAT.Spark_Info is
       --  "<"
       ------------------------------------------------------------------------
       function "<" (Left  : in Subject_Name;
+                    Right : in Subject_Name) return Boolean;
+
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in Subject_Name;
                     Right : in Subject_Name) return Boolean is
-        (This.Total_Proof_Time (Entity => Left) >
-         This.Total_Proof_Time (Entity => Right));
+         Left_Total  : constant Duration :=
+           This.Total_Proof_Time (Entity => Left);
+         Right_Total : constant Duration :=
+           This.Total_Proof_Time (Entity => Right);
+         Left_Max    : constant Duration :=
+           This.Max_Proof_Time (Entity => Left);
+         Right_Max   : constant Duration :=
+           This.Max_Proof_Time (Entity => Right);
+      begin
+         --  First by total time.
+         if Left_Total /= Right_Total then
+            return Left_Total > Right_Total;
+         end if;
+
+         --  Total time is the same, try to sort by max time.
+         if Left_Max /= Right_Max then
+            return Left_Max > Right_Max;
+         end if;
+
+         --  Resort to alphabetical order.
+         return SPAT."<" (Left, Right); --  Trap! "Left < Right" is recursive.
+      end "<";
 
       package Sorting is new
         Strings.Implementation.Vectors.Generic_Sorting ("<" => "<");

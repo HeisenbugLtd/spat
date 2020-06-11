@@ -2517,6 +2517,11 @@ SPARKNaCl.Sign.Scalarmult.CSwap                           => 70.0 ms/140.0 ms
  `-CVC4: 70.0 ms (Valid)
 `-VC_PREDICATE_CHECK sparknacl-sign.adb:143:33 => 70.0 ms/70.0 ms
  `-CVC4: 70.0 ms (Valid)
+SPARKNaCl.Scalar                                          => 80.0 ms/130.0 ms
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:7:38 => 80.0 ms/80.0 ms
+ `-CVC4: 80.0 ms (Valid)
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:7:38 => 50.0 ms/50.0 ms
+ `-CVC4: 50.0 ms (Valid)
 SPARKNaCl.Car.Nearlynormal_To_Normal.Carrying_Minus_One   => 40.0 ms/130.0 ms
 `-VC_INDEX_CHECK sparknacl-car.adb:268:18 => 40.0 ms/40.0 ms
  `-CVC4: 40.0 ms (Valid)
@@ -2526,11 +2531,6 @@ SPARKNaCl.Car.Nearlynormal_To_Normal.Carrying_Minus_One   => 40.0 ms/130.0 ms
  `-CVC4: 30.0 ms (Valid)
 `-VC_INDEX_CHECK sparknacl-car.adb:268:35 => 30.0 ms/30.0 ms
  `-CVC4: 30.0 ms (Valid)
-SPARKNaCl.Scalar                                          => 80.0 ms/130.0 ms
-`-VC_PREDICATE_CHECK sparknacl-scalar.adb:7:38 => 80.0 ms/80.0 ms
- `-CVC4: 80.0 ms (Valid)
-`-VC_PREDICATE_CHECK sparknacl-scalar.adb:7:38 => 50.0 ms/50.0 ms
- `-CVC4: 50.0 ms (Valid)
 SPARKNaCl.Stream.HSalsa20                                 => 40.0 ms/110.0 ms
 `-VC_RANGE_CHECK sparknacl-stream.adb:155:35 => 40.0 ms/40.0 ms
  `-CVC4: 40.0 ms (Valid)
@@ -2557,11 +2557,6 @@ SPARKNaCl.Stream.HSalsa20_Xor                             => 30.0 ms/90.0 ms
 SPARKNaCl.Sign.Unpackneg                                  => 80.0 ms/80.0 ms
 `-VC_DIVISION_CHECK sparknacl-sign.adb:758:35 => 80.0 ms/80.0 ms
  `-CVC4: 80.0 ms (Valid)
-SPARKNaCl.Hashing.TS64                                    => 50.0 ms/70.0 ms
-`-VC_RANGE_CHECK sparknacl-hashing.adb:58:27 => 50.0 ms/50.0 ms
- `-CVC4: 50.0 ms (Valid)
-`-VC_DIVISION_CHECK sparknacl-hashing.adb:58:27 => 20.0 ms/20.0 ms
- `-CVC4: 20.0 ms (Valid)
 SPARKNaCl.Stream.Salsa20                                  => 70.0 ms/70.0 ms
 `-VC_PRECONDITION sparknacl-stream.adb:137:7 => 70.0 ms/70.0 ms
  `-CVC4: 70.0 ms (Valid)
@@ -2570,103 +2565,108 @@ SPARKNaCl.Core.ST32                                       => 50.0 ms/70.0 ms
  `-CVC4: 50.0 ms (Valid)
 `-VC_DIVISION_CHECK sparknacl-core.adb:41:27 => 20.0 ms/20.0 ms
  `-CVC4: 20.0 ms (Valid)
+SPARKNaCl.Hashing.TS64                                    => 50.0 ms/70.0 ms
+`-VC_RANGE_CHECK sparknacl-hashing.adb:58:27 => 50.0 ms/50.0 ms
+ `-CVC4: 50.0 ms (Valid)
+`-VC_DIVISION_CHECK sparknacl-hashing.adb:58:27 => 20.0 ms/20.0 ms
+ `-CVC4: 20.0 ms (Valid)
+SPARKNaCl.Sanitize                                        => 60.0 ms/60.0 ms
+`-VC_LENGTH_CHECK sparknacl-sanitize.adb:4:6 => 60.0 ms/60.0 ms
+ `-CVC4: 60.0 ms (Valid)
 SPARKNaCl.MAC.Onetimeauth_Verify                          => 30.0 ms/60.0 ms
 `-VC_PRECONDITION sparknacl-mac.adb:178:7 => 30.0 ms/30.0 ms
  `-CVC4: 30.0 ms (Valid)
 `-VC_PRECONDITION sparknacl-mac.adb:179:14 => 30.0 ms/30.0 ms
  `-CVC4: 30.0 ms (Valid)
-SPARKNaCl.Sanitize                                        => 60.0 ms/60.0 ms
-`-VC_LENGTH_CHECK sparknacl-sanitize.adb:4:6 => 60.0 ms/60.0 ms
- `-CVC4: 60.0 ms (Valid)
 SPARKNaCl.Sign.Par_25519                                  => 30.0 ms/30.0 ms
 `-VC_DIVISION_CHECK sparknacl-sign.adb:180:21 => 30.0 ms/30.0 ms
  `-CVC4: 30.0 ms (Valid)
 SPARKNaCl.Sign.Sanitize_GF_Vector_4                       => 30.0 ms/30.0 ms
 `-VC_PREDICATE_CHECK sparknacl-sign.adb:98:23 => 30.0 ms/30.0 ms
  `-CVC4: 30.0 ms (Valid)
-SPARKNaCl.Stream.Salsa20_Xor                              => 30.0 ms/30.0 ms
-`-VC_PRECONDITION sparknacl-stream.adb:146:7 => 30.0 ms/30.0 ms
- `-CVC4: 30.0 ms (Valid)
 SPARKNaCl.Sign.Unpackneg.Oeq                              => 30.0 ms/30.0 ms
 `-VC_PRECONDITION sparknacl-sign.adb:705:17 => 30.0 ms/30.0 ms
  `-CVC4: 30.0 ms (Valid)
-SPARKNaCl.Sanitize_I64_Seq                                => 20.0 ms/20.0 ms
-`-VC_LENGTH_CHECK sparknacl-sanitize_i64_seq.adb:4:6 => 20.0 ms/20.0 ms
- `-CVC4: 20.0 ms (Valid)
+SPARKNaCl.Stream.Salsa20_Xor                              => 30.0 ms/30.0 ms
+`-VC_PRECONDITION sparknacl-stream.adb:146:7 => 30.0 ms/30.0 ms
+ `-CVC4: 30.0 ms (Valid)
 SPARKNaCl.Sanitize_GF                                     => 20.0 ms/20.0 ms
 `-VC_POSTCONDITION sparknacl.ads:411:19 => 20.0 ms/20.0 ms
  `-CVC4: 20.0 ms (Valid)
-SPARKNaCl.Cryptobox.Construct                             => 0.0 s/0.0 s
-SPARKNaCl.Sanitize_U64                                    => 0.0 s/0.0 s
+SPARKNaCl.Sanitize_I64_Seq                                => 20.0 ms/20.0 ms
+`-VC_LENGTH_CHECK sparknacl-sanitize_i64_seq.adb:4:6 => 20.0 ms/20.0 ms
+ `-CVC4: 20.0 ms (Valid)
+Random                                                    => 0.0 s/0.0 s
 Random.Random_Byte                                        => 0.0 s/0.0 s
+SPARKNaCl.Car                                             => 0.0 s/0.0 s
+SPARKNaCl.Car.Nearlynormal_To_Normal.Temp_GFPredicate     => 0.0 s/0.0 s
+SPARKNaCl.Car.Product_To_Seminormal.Temp_GFPredicate      => 0.0 s/0.0 s
+SPARKNaCl.Car.Seminormal_To_Nearlynormal.Temp_GFPredicate => 0.0 s/0.0 s
+SPARKNaCl.Car.Sum_To_Nearlynormal.Temp_GFPredicate        => 0.0 s/0.0 s
+SPARKNaCl.Core                                            => 0.0 s/0.0 s
+SPARKNaCl.Core.Construct                                  => 0.0 s/0.0 s
+SPARKNaCl.Core.LD32                                       => 0.0 s/0.0 s
+SPARKNaCl.Core.Salsa20_Key                                => 0.0 s/0.0 s
+SPARKNaCl.Core.Sanitize                                   => 0.0 s/0.0 s
+SPARKNaCl.Core.Serialize                                  => 0.0 s/0.0 s
+SPARKNaCl.Cryptobox                                       => 0.0 s/0.0 s
+SPARKNaCl.Cryptobox.BeforeNM                              => 0.0 s/0.0 s
+SPARKNaCl.Cryptobox.Construct                             => 0.0 s/0.0 s
+SPARKNaCl.Cryptobox.Keypair                               => 0.0 s/0.0 s
+SPARKNaCl.Cryptobox.Public_Key                            => 0.0 s/0.0 s
+SPARKNaCl.Cryptobox.Sanitize                              => 0.0 s/0.0 s
+SPARKNaCl.Cryptobox.Secret_Key                            => 0.0 s/0.0 s
+SPARKNaCl.Cryptobox.Serialize                             => 0.0 s/0.0 s
+SPARKNaCl.Debug                                           => 0.0 s/0.0 s
+SPARKNaCl.Debug.DH                                        => 0.0 s/0.0 s
+SPARKNaCl.Debug.DHH                                       => 0.0 s/0.0 s
+SPARKNaCl.Difference_GFPredicate                          => 0.0 s/0.0 s
+SPARKNaCl.Hashing                                         => 0.0 s/0.0 s
 SPARKNaCl.Hashing.Hashblocks.Ch                           => 0.0 s/0.0 s
+SPARKNaCl.Hashing.Hashblocks.DL64                         => 0.0 s/0.0 s
+SPARKNaCl.Hashing.Hashblocks.LC_Sigma0                    => 0.0 s/0.0 s
+SPARKNaCl.Hashing.Hashblocks.LC_Sigma1                    => 0.0 s/0.0 s
+SPARKNaCl.Hashing.Hashblocks.Maj                          => 0.0 s/0.0 s
+SPARKNaCl.Hashing.Hashblocks.UC_Sigma0                    => 0.0 s/0.0 s
+SPARKNaCl.Hashing.Hashblocks.UC_Sigma1                    => 0.0 s/0.0 s
+SPARKNaCl.MAC                                             => 0.0 s/0.0 s
+SPARKNaCl.MAC.Construct                                   => 0.0 s/0.0 s
+SPARKNaCl.MAC.Onetimeauth.Add_1305                        => 0.0 s/0.0 s
+SPARKNaCl.MAC.Poly_1305_Key                               => 0.0 s/0.0 s
+SPARKNaCl.MAC.Sanitize                                    => 0.0 s/0.0 s
+SPARKNaCl.MAC.Serialize                                   => 0.0 s/0.0 s
+SPARKNaCl.Nearlynormal_GFPredicate                        => 0.0 s/0.0 s
+SPARKNaCl.Normal_GFPredicate                              => 0.0 s/0.0 s
+SPARKNaCl.Oeq                                             => 0.0 s/0.0 s
+SPARKNaCl.PDebug                                          => 0.0 s/0.0 s
+SPARKNaCl.PDebug.DH                                       => 0.0 s/0.0 s
+SPARKNaCl.PDebug.I64IO.Get                                => 0.0 s/0.0 s
+SPARKNaCl.PDebug.I64IO.Put                                => 0.0 s/0.0 s
+SPARKNaCl.Product_GFPredicate                             => 0.0 s/0.0 s
+SPARKNaCl.Random_Bytes                                    => 0.0 s/0.0 s
 SPARKNaCl.Sanitize_Boolean                                => 0.0 s/0.0 s
+SPARKNaCl.Sanitize_GF_PA                                  => 0.0 s/0.0 s
+SPARKNaCl.Sanitize_U64                                    => 0.0 s/0.0 s
+SPARKNaCl.Scalar.Mult_Base                                => 0.0 s/0.0 s
+SPARKNaCl.Secretbox                                       => 0.0 s/0.0 s
+SPARKNaCl.Seminormal_GFPredicate                          => 0.0 s/0.0 s
+SPARKNaCl.Sign.Keypair                                    => 0.0 s/0.0 s
+SPARKNaCl.Sign.PK_From_Bytes                              => 0.0 s/0.0 s
+SPARKNaCl.Sign.Pack                                       => 0.0 s/0.0 s
+SPARKNaCl.Sign.Sanitize                                   => 0.0 s/0.0 s
+SPARKNaCl.Sign.Scalarbase                                 => 0.0 s/0.0 s
+SPARKNaCl.Sign.Serialize                                  => 0.0 s/0.0 s
+SPARKNaCl.Sign.Signing_PK                                 => 0.0 s/0.0 s
+SPARKNaCl.Sign.Signing_SK                                 => 0.0 s/0.0 s
+SPARKNaCl.Sign.Unpackneg.Pow_2523                         => 0.0 s/0.0 s
+SPARKNaCl.Square                                          => 0.0 s/0.0 s
 SPARKNaCl.Stream                                          => 0.0 s/0.0 s
 SPARKNaCl.Sum_GFPredicate                                 => 0.0 s/0.0 s
-SPARKNaCl.Sign.Signing_PK                                 => 0.0 s/0.0 s
-SPARKNaCl.Product_GFPredicate                             => 0.0 s/0.0 s
-SPARKNaCl.MAC.Onetimeauth.Add_1305                        => 0.0 s/0.0 s
-SPARKNaCl.MAC                                             => 0.0 s/0.0 s
-SPARKNaCl.Cryptobox.Serialize                             => 0.0 s/0.0 s
-SPARKNaCl.Core.Sanitize                                   => 0.0 s/0.0 s
-SPARKNaCl.PDebug.I64IO.Get                                => 0.0 s/0.0 s
-SPARKNaCl.MAC.Serialize                                   => 0.0 s/0.0 s
-SPARKNaCl.Utils.Pack_25519.Temp_GFPredicate               => 0.0 s/0.0 s
-SPARKNaCl.to_i64GP13565                                   => 0.0 s/0.0 s
-SPARKNaCl.Scalar.Mult_Base                                => 0.0 s/0.0 s
-SPARKNaCl.Hashing.Hashblocks.DL64                         => 0.0 s/0.0 s
-SPARKNaCl.to_u64GP13502.To_U64                            => 0.0 s/0.0 s
-SPARKNaCl.Nearlynormal_GFPredicate                        => 0.0 s/0.0 s
-SPARKNaCl.Utils.Random_Bytes_32                           => 0.0 s/0.0 s
-SPARKNaCl.Cryptobox.Secret_Key                            => 0.0 s/0.0 s
-SPARKNaCl.Cryptobox.Sanitize                              => 0.0 s/0.0 s
-SPARKNaCl.Core.Salsa20_Key                                => 0.0 s/0.0 s
-SPARKNaCl.Sign.Keypair                                    => 0.0 s/0.0 s
-SPARKNaCl.Car.Product_To_Seminormal.Temp_GFPredicate      => 0.0 s/0.0 s
-SPARKNaCl.Hashing.Hashblocks.Maj                          => 0.0 s/0.0 s
-SPARKNaCl.Car.Sum_To_Nearlynormal.Temp_GFPredicate        => 0.0 s/0.0 s
-SPARKNaCl.Cryptobox                                       => 0.0 s/0.0 s
-SPARKNaCl.Hashing.Hashblocks.UC_Sigma1                    => 0.0 s/0.0 s
-SPARKNaCl.Hashing.Hashblocks.UC_Sigma0                    => 0.0 s/0.0 s
-SPARKNaCl.Sanitize_GF_PA                                  => 0.0 s/0.0 s
-SPARKNaCl.Seminormal_GFPredicate                          => 0.0 s/0.0 s
-SPARKNaCl.MAC.Sanitize                                    => 0.0 s/0.0 s
-SPARKNaCl.Core.Serialize                                  => 0.0 s/0.0 s
-SPARKNaCl.Sign.PK_From_Bytes                              => 0.0 s/0.0 s
-SPARKNaCl.Core                                            => 0.0 s/0.0 s
-SPARKNaCl.Car.Seminormal_To_Nearlynormal.Temp_GFPredicate => 0.0 s/0.0 s
 SPARKNaCl.Utils                                           => 0.0 s/0.0 s
-SPARKNaCl.Car.Nearlynormal_To_Normal.Temp_GFPredicate     => 0.0 s/0.0 s
-SPARKNaCl.PDebug                                          => 0.0 s/0.0 s
-Random                                                    => 0.0 s/0.0 s
-SPARKNaCl.Core.Construct                                  => 0.0 s/0.0 s
-SPARKNaCl.Debug.DHH                                       => 0.0 s/0.0 s
-SPARKNaCl.Cryptobox.Keypair                               => 0.0 s/0.0 s
-SPARKNaCl.Debug.DH                                        => 0.0 s/0.0 s
-SPARKNaCl.to_i64GP13565.To_I64                            => 0.0 s/0.0 s
-SPARKNaCl.MAC.Poly_1305_Key                               => 0.0 s/0.0 s
-SPARKNaCl.Random_Bytes                                    => 0.0 s/0.0 s
-SPARKNaCl.Sign.Unpackneg.Pow_2523                         => 0.0 s/0.0 s
-SPARKNaCl.Sign.Serialize                                  => 0.0 s/0.0 s
-SPARKNaCl.Hashing                                         => 0.0 s/0.0 s
-SPARKNaCl.Secretbox                                       => 0.0 s/0.0 s
-SPARKNaCl.PDebug.DH                                       => 0.0 s/0.0 s
-SPARKNaCl.Sign.Scalarbase                                 => 0.0 s/0.0 s
-SPARKNaCl.PDebug.I64IO.Put                                => 0.0 s/0.0 s
-SPARKNaCl.MAC.Construct                                   => 0.0 s/0.0 s
-SPARKNaCl.Cryptobox.Public_Key                            => 0.0 s/0.0 s
-SPARKNaCl.Cryptobox.BeforeNM                              => 0.0 s/0.0 s
 SPARKNaCl.Utils.Inv_25519                                 => 0.0 s/0.0 s
-SPARKNaCl.Debug                                           => 0.0 s/0.0 s
-SPARKNaCl.Difference_GFPredicate                          => 0.0 s/0.0 s
-SPARKNaCl.Oeq                                             => 0.0 s/0.0 s
-SPARKNaCl.Normal_GFPredicate                              => 0.0 s/0.0 s
-SPARKNaCl.Sign.Signing_SK                                 => 0.0 s/0.0 s
-SPARKNaCl.Sign.Pack                                       => 0.0 s/0.0 s
-SPARKNaCl.Car                                             => 0.0 s/0.0 s
-SPARKNaCl.Core.LD32                                       => 0.0 s/0.0 s
-SPARKNaCl.Sign.Sanitize                                   => 0.0 s/0.0 s
-SPARKNaCl.Hashing.Hashblocks.LC_Sigma1                    => 0.0 s/0.0 s
+SPARKNaCl.Utils.Pack_25519.Temp_GFPredicate               => 0.0 s/0.0 s
+SPARKNaCl.Utils.Random_Bytes_32                           => 0.0 s/0.0 s
+SPARKNaCl.to_i64GP13565                                   => 0.0 s/0.0 s
+SPARKNaCl.to_i64GP13565.To_I64                            => 0.0 s/0.0 s
 SPARKNaCl.to_u64GP13502                                   => 0.0 s/0.0 s
-SPARKNaCl.Square                                          => 0.0 s/0.0 s
-SPARKNaCl.Hashing.Hashblocks.LC_Sigma0                    => 0.0 s/0.0 s
+SPARKNaCl.to_u64GP13502.To_U64                            => 0.0 s/0.0 s
