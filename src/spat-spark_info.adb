@@ -921,25 +921,24 @@ package body SPAT.Spark_Info is
    end Sort_Entity_By_Proof_Time;
 
    ---------------------------------------------------------------------------
+   --  By_Basename
+   ---------------------------------------------------------------------------
+   function By_Basename (Left  : in Subject_Name;
+                         Right : in Subject_Name) return Boolean is
+     (Ada.Directories.Base_Name (Name => To_String (Source => Left)) <
+        Ada.Directories.Base_Name (Name => To_String (Source => Right)));
+
+   package File_Name_Sorting is new
+     Strings.Implementation.Vectors.Generic_Sorting ("<" => By_Basename);
+
+   ---------------------------------------------------------------------------
    --  Sort_File_By_Basename
    ---------------------------------------------------------------------------
    procedure Sort_File_By_Basename (This      : in     T;
-                                    Container : in out Strings.List)
-   is
-      pragma Unreferenced (This);
-
-      ------------------------------------------------------------------------
-      --  "<"
-      ------------------------------------------------------------------------
-      function "<" (Left  : in Subject_Name;
-                    Right : in Subject_Name) return Boolean is
-        (Ada.Directories.Base_Name (Name => To_String (Source => Left)) <
-           Ada.Directories.Base_Name (Name => To_String (Source => Right)));
-
-      package Sorting is new
-        Strings.Implementation.Vectors.Generic_Sorting ("<" => "<");
+                                    Container : in out Strings.List) is
+      pragma Unreferenced (This); --  Only provided for consistency.
    begin
-      Sorting.Sort
+      File_Name_Sorting.Sort
         (Container => Strings.Implementation.Vectors.Vector (Container));
    end Sort_File_By_Basename;
 
@@ -982,7 +981,8 @@ package body SPAT.Spark_Info is
          pragma Assert (Left_Flow = Right_Flow);
 
          --  Last resort, sort by name.
-         return Left < Right;
+         return By_Basename (Left  => Left,
+                             Right => Right);
       end "<";
 
       package Sorting is new
