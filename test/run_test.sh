@@ -23,7 +23,7 @@ run_check () {
     ../obj/run_spat $SPAT_OPTIONS -P "$1/$2" > "spat.$OPT_NAME.out"
 
     # Show template differences (FIXME: 'diff' might not be installed)
-    (diff -u "spat.$OPT_NAME.template" "spat.$OPT_NAME.out") >> test.diff || RESULT=$?
+    (git diff --no-index "spat.$OPT_NAME.template" "spat.$OPT_NAME.out") >> test.diff || RESULT=$?
   done
 }
 

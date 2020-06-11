@@ -23,9 +23,5 @@ gprinstall --list --stat
 ./obj/run_spat -h
 
 # Run regression tests against templates
-if [ -n `which diff` ]; then
-  echo "No diff command found, skipping template comparison..."
-else
-  cd test
-  ./run_test.sh
-fi
+cd test
+./run_test.sh
