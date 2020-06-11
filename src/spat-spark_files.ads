@@ -15,6 +15,10 @@ pragma License (Unrestricted);
 --
 --  Collect file contents.
 --
+--  Please note that Read is parallelized and uses background threads, hence
+--  you need to call Shutdown once you're done, otherwise the application will
+--  hang.
+--
 ------------------------------------------------------------------------------
 
 limited with Ada.Containers.Hashed_Maps;
@@ -56,6 +60,20 @@ package SPAT.Spark_Files is
    procedure Read (This  : in out T;
                    Names : in     File_Lists.T'Class);
    --  Reads the list of files, and parses and stores their content in This.
+
+   ---------------------------------------------------------------------------
+   --  Num_Workers
+   --
+   --  Report the number of tasks used for parallel file reads.
+   ---------------------------------------------------------------------------
+   function Num_Workers return Positive;
+
+   ---------------------------------------------------------------------------
+   --  Shutdown
+   --
+   --  Terminates all worker tasks.
+   ---------------------------------------------------------------------------
+   procedure Shutdown;
 
 private
 

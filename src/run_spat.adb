@@ -77,6 +77,7 @@ procedure Run_SPAT is
 
 begin
    if not SPAT.Command_Line.Parser.Parse then
+      SPAT.Spark_Files.Shutdown;
       Ada.Command_Line.Set_Exit_Status (Code => Ada.Command_Line.Failure);
       return;
    end if;
@@ -88,6 +89,7 @@ begin
            " (compiled by " & System.System_Name'Image & " " &
            SPAT.Version.Compiler & ")");
 
+      SPAT.Spark_Files.Shutdown;
       Ada.Command_Line.Set_Exit_Status (Code => Ada.Command_Line.Success);
       return;
    end if;
@@ -98,6 +100,8 @@ begin
       SPAT.Log.Message
         (Message => "Argument parsing failed: Missing project file argument");
       SPAT.Log.Message (Message => SPAT.Command_Line.Parser.Help);
+
+      SPAT.Spark_Files.Shutdown;
       Ada.Command_Line.Set_Exit_Status (Code => Ada.Command_Line.Failure);
       return;
    end if;
@@ -122,6 +126,11 @@ begin
       begin
          --  Step 2: Parse the files into JSON values.
          if not File_List.Is_Empty then
+            SPAT.Log.Debug
+              (Message =>
+                 "Using up to" & SPAT.Spark_Files.Num_Workers'Image &
+                 " parsing threads.");
+
             Start_Time := Ada.Real_Time.Clock;
 
             SPARK_Files.Read (Names => File_List);
@@ -186,5 +195,10 @@ begin
       end Process_And_Output;
    end Do_Run_SPAT;
 
+   SPAT.Spark_Files.Shutdown;
    Ada.Command_Line.Set_Exit_Status (Code => Ada.Command_Line.Success);
+exception
+   when others =>
+      SPAT.Spark_Files.Shutdown;
+      raise;
 end Run_SPAT;
