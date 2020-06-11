@@ -17,6 +17,7 @@ package body SPAT.Entity_Location is
    --  Compares to locations and returns True for the one which comes first,
    --  either by file name, line number and then column number.
    ---------------------------------------------------------------------------
+   not overriding
    function "<" (Left  : in T;
                  Right : in T) return Boolean is
    begin

@@ -1,0 +1,28 @@
+sparknacl-sign.spark      => (Flow  => 253.6 ms,
+                              Proof => 764.5 s)
+sparknacl-car.spark       => (Flow  => 86.1 ms,
+                              Proof => 59.0 s)
+sparknacl.spark           => (Flow  => 164.3 ms,
+                              Proof => 57.3 s)
+sparknacl-hashing.spark   => (Flow  => 70.5 ms,
+                              Proof => 43.8 s)
+sparknacl-scalar.spark    => (Flow  => 62.5 ms,
+                              Proof => 22.1 s)
+sparknacl-stream.spark    => (Flow  => 72.6 ms,
+                              Proof => 21.2 s)
+sparknacl-utils.spark     => (Flow  => 49.8 ms,
+                              Proof => 17.4 s)
+sparknacl-secretbox.spark => (Flow  => 7.6 ms,
+                              Proof => 10.3 s)
+sparknacl-core.spark      => (Flow  => 351.9 ms,
+                              Proof => 8.9 s)
+sparknacl-mac.spark       => (Flow  => 58.0 ms,
+                              Proof => 8.0 s)
+sparknacl-cryptobox.spark => (Flow  => 69.2 ms,
+                              Proof => 4.9 s)
+sparknacl-pdebug.spark    => (Flow  => 2.2 ms,
+                              Proof => 0.0 s)
+random.spark              => (Flow  => 517.0 µs,
+                              Proof => 0.0 s)
+sparknacl-debug.spark     => (Flow  => 469.0 µs,
+                              Proof => 0.0 s)

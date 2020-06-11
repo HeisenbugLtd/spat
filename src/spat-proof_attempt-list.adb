@@ -55,7 +55,7 @@ package body SPAT.Proof_Attempt.List is
    end Is_Unproved;
 
    package By_Duration is new
-     Implementation.Vectors.Generic_Sorting ("<" => Slower_Than);
+     Implementation.Vectors.Generic_Sorting ("<" => "<");
 
    ---------------------------------------------------------------------------
    --  Sort_By_Duration

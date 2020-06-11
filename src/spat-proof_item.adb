@@ -21,6 +21,40 @@ package body SPAT.Proof_Item is
      Checks_Lists.Generic_Sorting ("<" => Proof_Attempt.List."<");
 
    ---------------------------------------------------------------------------
+   --  "<"
+   ---------------------------------------------------------------------------
+   overriding
+   function "<" (Left  : in T;
+                 Right : in T) return Boolean is
+   begin
+      --  First by total time.
+      if Left.Total_Time /= Right.Total_Time then
+         return Left.Total_Time > Right.Total_Time;
+      end if;
+
+      --  Total time does not differ, try max time.
+      if Left.Max_Time /= Right.Max_Time then
+         return Left.Max_Time > Right.Max_Time;
+      end if;
+
+      --  By Rule (i.e. VC_LOOP_INVARIANT, VC_PRECONDITION, etc. pp.)
+      if Left.Rule /= Right.Rule then
+         return Left.Rule < Right.Rule;
+      end if;
+
+      --  By Severity (i.e. "info", "warning", ...)
+      if Left.Severity /= Right.Severity then
+         --  TODO: We should get a list of severities and actually sort them by
+         --        by priority.   For now, textual is all we have.
+         return Left.Severity < Right.Severity;
+      end if;
+
+      --  Last resort, by location (i.e. file:line:column).
+      return Entity_Location."<" (Left  => Entity_Location.T (Left),
+                                  Right => Entity_Location.T (Right));
+   end "<";
+
+   ---------------------------------------------------------------------------
    --  Add_To_Tree
    ---------------------------------------------------------------------------
    procedure Add_To_Tree (Object  : in     JSON_Value;

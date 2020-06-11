@@ -883,9 +883,35 @@ package body SPAT.Spark_Info is
       --  "<"
       ------------------------------------------------------------------------
       function "<" (Left  : in Subject_Name;
+                    Right : in Subject_Name) return Boolean;
+
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in Subject_Name;
                     Right : in Subject_Name) return Boolean is
-        (This.Total_Proof_Time (Entity => Left) >
-         This.Total_Proof_Time (Entity => Right));
+         Left_Total  : constant Duration :=
+           This.Total_Proof_Time (Entity => Left);
+         Right_Total : constant Duration :=
+           This.Total_Proof_Time (Entity => Right);
+         Left_Max    : constant Duration :=
+           This.Max_Proof_Time (Entity => Left);
+         Right_Max   : constant Duration :=
+           This.Max_Proof_Time (Entity => Right);
+      begin
+         --  First by total time.
+         if Left_Total /= Right_Total then
+            return Left_Total > Right_Total;
+         end if;
+
+         --  Total time is the same, try to sort by max time.
+         if Left_Max /= Right_Max then
+            return Left_Max > Right_Max;
+         end if;
+
+         --  Resort to alphabetical order.
+         return SPAT."<" (Left, Right); --  Trap! "Left < Right" is recursive.
+      end "<";
 
       package Sorting is new
         Strings.Implementation.Vectors.Generic_Sorting ("<" => "<");
@@ -895,25 +921,24 @@ package body SPAT.Spark_Info is
    end Sort_Entity_By_Proof_Time;
 
    ---------------------------------------------------------------------------
+   --  By_Basename
+   ---------------------------------------------------------------------------
+   function By_Basename (Left  : in Subject_Name;
+                         Right : in Subject_Name) return Boolean is
+     (Ada.Directories.Base_Name (Name => To_String (Source => Left)) <
+        Ada.Directories.Base_Name (Name => To_String (Source => Right)));
+
+   package File_Name_Sorting is new
+     Strings.Implementation.Vectors.Generic_Sorting ("<" => By_Basename);
+
+   ---------------------------------------------------------------------------
    --  Sort_File_By_Basename
    ---------------------------------------------------------------------------
    procedure Sort_File_By_Basename (This      : in     T;
-                                    Container : in out Strings.List)
-   is
-      pragma Unreferenced (This);
-
-      ------------------------------------------------------------------------
-      --  "<"
-      ------------------------------------------------------------------------
-      function "<" (Left  : in Subject_Name;
-                    Right : in Subject_Name) return Boolean is
-        (Ada.Directories.Base_Name (Name => To_String (Source => Left)) <
-           Ada.Directories.Base_Name (Name => To_String (Source => Right)));
-
-      package Sorting is new
-        Strings.Implementation.Vectors.Generic_Sorting ("<" => "<");
+                                    Container : in out Strings.List) is
+      pragma Unreferenced (This); --  Only provided for consistency.
    begin
-      Sorting.Sort
+      File_Name_Sorting.Sort
         (Container => Strings.Implementation.Vectors.Vector (Container));
    end Sort_File_By_Basename;
 
@@ -927,9 +952,38 @@ package body SPAT.Spark_Info is
       --  "<"
       ------------------------------------------------------------------------
       function "<" (Left  : in Subject_Name;
-                    Right : in Subject_Name) return Boolean is
-        ((This.Proof_Time (File => Left) + This.Flow_Time (File => Left)) >
-         (This.Proof_Time (File => Right) + This.Flow_Time (File => Right)));
+                    Right : in Subject_Name) return Boolean;
+
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in Subject_Name;
+                    Right : in Subject_Name) return Boolean
+      is
+         Left_Proof  : constant Duration := This.Proof_Time (File => Left);
+         Right_Proof : constant Duration := This.Proof_Time (File => Right);
+         Left_Flow   : constant Duration := This.Flow_Time (File => Left);
+         Right_Flow  : constant Duration := This.Flow_Time (File => Right);
+         Left_Total  : constant Duration := Left_Proof + Left_Flow;
+         Right_Total : constant Duration := Right_Proof + Right_Flow;
+      begin
+         --  First by total time.
+         if Left_Total /= Right_Total then
+            return Left_Total > Right_Total;
+         end if;
+
+         --  If totals differ, prioritize proof time.
+         if Left_Proof /= Right_Proof then
+            return Left_Proof > Right_Proof;
+         end if;
+
+         --  Total and proof times were equal, so flow times must be equal, too.
+         pragma Assert (Left_Flow = Right_Flow);
+
+         --  Last resort, sort by name.
+         return By_Basename (Left  => Left,
+                             Right => Right);
+      end "<";
 
       package Sorting is new
         Strings.Implementation.Vectors.Generic_Sorting ("<" => "<");
