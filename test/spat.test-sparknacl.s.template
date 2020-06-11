@@ -1,14 +1,3 @@
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
 sparknacl-secretbox.spark => (Flow  => 7.6 ms,
                               Proof => 10.3 s)
 sparknacl-cryptobox.spark => (Flow  => 69.2 ms,

@@ -28,12 +28,17 @@ package SPAT.Proof_Item is
    ---------------------------------------------------------------------------
    --  Has_Required_Fields
    ---------------------------------------------------------------------------
-   function Has_Required_Fields (Object : in JSON_Value) return Boolean is
+   function Has_Required_Fields (Object  : in JSON_Value;
+                                 Version : in File_Version) return Boolean is
       (Entity_Location.Has_Required_Fields (Object => Object) and
        Preconditions.Ensure_Rule_Severity (Object => Object) and
-       Preconditions.Ensure_Field (Object => Object,
-                                   Field  => Field_Names.Check_Tree,
-                                   Kind   => JSON_Array_Type));
+       Preconditions.Ensure_Field (Object      => Object,
+                                   Field       => Field_Names.Check_Tree,
+                                   Kind        => JSON_Array_Type,
+                                   Is_Optional =>
+                                     (case Version is
+                                         when GNAT_CE_2019 => False,
+                                         when GNAT_CE_2020 => True)));
 
    type T is new Entity_Location.T with private;
 
@@ -45,15 +50,18 @@ package SPAT.Proof_Item is
    ---------------------------------------------------------------------------
    overriding
    function Create (Object : in JSON_Value) return T with
-     Pre => Has_Required_Fields (Object => Object);
+     Pre => Has_Required_Fields (Object  => Object,
+                                 Version => GNAT_CE_2019);
 
    ---------------------------------------------------------------------------
    --  Add_To_Tree
    ---------------------------------------------------------------------------
-   procedure Add_To_Tree (Object : in     JSON_Value;
-                          Tree   : in out Entity.Tree.T;
-                          Parent : in     Entity.Tree.Cursor) with
-     Pre => Has_Required_Fields (Object => Object);
+   procedure Add_To_Tree (Object  : in     JSON_Value;
+                          Version : in File_Version;
+                          Tree    : in out Entity.Tree.T;
+                          Parent  : in     Entity.Tree.Cursor) with
+     Pre => Has_Required_Fields (Object  => Object,
+                                 Version => Version);
 
    ---------------------------------------------------------------------------
    --  Slower_Than

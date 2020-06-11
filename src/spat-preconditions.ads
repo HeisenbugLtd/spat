@@ -28,11 +28,14 @@ package SPAT.Preconditions is
    --
    --  Check that the given JSON object contains an object named Field with
    --  type of Kind.
+   --  If the field is not found or the type is different from the expected
+   --  one, a warning is issued, unless Is_Optional is True.
    --  Returns True if so, False otherwise.
    ---------------------------------------------------------------------------
-   function Ensure_Field (Object : in JSON_Value;
-                          Field  : in UTF8_String;
-                          Kind   : in JSON_Value_Type) return Boolean;
+   function Ensure_Field (Object      : in JSON_Value;
+                          Field       : in UTF8_String;
+                          Kind        : in JSON_Value_Type;
+                          Is_Optional : in Boolean := False) return Boolean;
 
    ---------------------------------------------------------------------------
    --  Ensure_Field

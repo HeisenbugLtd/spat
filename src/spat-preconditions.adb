@@ -15,22 +15,27 @@ package body SPAT.Preconditions is
    ---------------------------------------------------------------------------
    --  Ensure_Field
    ---------------------------------------------------------------------------
-   function Ensure_Field (Object : in JSON_Value;
-                          Field  : in UTF8_String;
-                          Kind   : in JSON_Value_Type) return Boolean is
+   function Ensure_Field (Object      : in JSON_Value;
+                          Field       : in UTF8_String;
+                          Kind        : in JSON_Value_Type;
+                          Is_Optional : in Boolean := False) return Boolean is
    begin
       if not Object.Has_Field (Field => Field) then
-         Log.Warning
-           (Message => "Expected field """ & Field & """ not present!");
+         if not Is_Optional then
+            Log.Warning
+              (Message => "Expected field """ & Field & """ not present!");
+         end if;
 
          return False;
       end if;
 
       if Object.Get (Field => Field).Kind /= Kind then
-         Log.Warning
-           (Message =>
-              "Field """ & Field & """ not of expected type """ & Kind'Image &
-              """!");
+         if not Is_Optional then
+            Log.Warning
+              (Message =>
+                 "Field """ & Field & """ not of expected type """ & Kind'Image &
+                 """!");
+         end if;
 
          return False;
       end if;

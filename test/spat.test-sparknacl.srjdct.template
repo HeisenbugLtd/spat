@@ -1,14 +1,3 @@
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
-Warning: Field "check_tree" not of expected type "JSON_ARRAY_TYPE"!
 sparknacl-sign.spark      => (Flow  => 253.6 ms,
                               Proof => 764.5 s)
 sparknacl-car.spark       => (Flow  => 86.1 ms,
