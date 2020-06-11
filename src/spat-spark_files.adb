@@ -133,9 +133,6 @@ package body SPAT.Spark_Files is
                Result.Result := Parse_File (Name => File_Name);
             exception
                when E : Ada.IO_Exceptions.Name_Error =>
-                  Log.Error
-                    (Message =>
-                       "Could not read """ & To_String (Source => File_Name) & """!");
                   Result.Result :=
                     GNATCOLL.JSON.Read_Result'
                       (Success => False,
