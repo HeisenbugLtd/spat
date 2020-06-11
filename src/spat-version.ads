@@ -25,7 +25,7 @@ package SPAT.Version is
 
    end Implementation;
 
-   Number   : constant String := "0.9.2";
+   Number   : constant String := "0.9.3-pre";
    Compiler : constant String := Implementation.Compiler_Info.Version;
 
 end SPAT.Version;
