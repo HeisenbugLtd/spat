@@ -12,7 +12,8 @@ rm -f test.diff *.out
 # First argument is the project directory
 # Second argument the project file (.gpr) within that project.
 run_check () {
-  for SPAT_OPTIONS in "-s" "-ra -ca" "-ra -ct" "-rf -ca" "-rf -ct" "-ru -ca" "-ru -ct" "-s -ra -d -ca" "-s -ra -d -ct" "-s -rf -d -ca" "-s -rf -d -ct" "-s -ru -d -ca" "-s -ru -d -ct" "-s -rj -d -ca" "-s -rj -d -ct"; do
+  # output w/o sorting options is not deterministic (hash function, which may differ between compilers)
+  for SPAT_OPTIONS in "-s -ca" "-s -ct" "-ra -ca" "-ra -ct" "-rf -ca" "-rf -ct" "-ru -ca" "-ru -ct" "-s -ra -d -ca" "-s -ra -d -ct" "-s -rf -d -ca" "-s -rf -d -ct" "-s -ru -d -ca" "-s -ru -d -ct" "-s -rj -d -ca" "-s -rj -d -ct"; do
     OPT_NAME=$1.`echo "$SPAT_OPTIONS" | sed -e "s/[- ]//g"`
     #echo $OPT_NAME
     
@@ -26,13 +27,6 @@ run_check () {
     (git diff --no-index "spat.$OPT_NAME.template" "spat.$OPT_NAME.out") >> test.diff || RESULT=$?
   done
 }
-
-# run the freshly built executable on the files and store the result in spat.out
-# -s  for summary
-# -l  for list
-# -d  for details
-# -ca sort alphabetically
-# -ct sort by time
 
 RESULT=0
 
