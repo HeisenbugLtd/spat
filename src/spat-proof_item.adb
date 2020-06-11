@@ -37,7 +37,19 @@ package body SPAT.Proof_Item is
          return Left.Max_Time > Right.Max_Time;
       end if;
 
-      --  Max time didn't differ either, so do it by name.
+      --  By Rule (i.e. VC_LOOP_INVARIANT, VC_PRECONDITION, etc. pp.)
+      if Left.Rule /= Right.Rule then
+         return Left.Rule < Right.Rule;
+      end if;
+
+      --  By Severity (i.e. "info", "warning", ...)
+      if Left.Severity /= Right.Severity then
+         --  TODO: We should get a list of severities and actually sort them by
+         --        by priority.   For now, textual is all we have.
+         return Left.Severity < Right.Severity;
+      end if;
+
+      --  Last resort, by location (i.e. file:line:column).
       return Entity_Location."<" (Left  => Entity_Location.T (Left),
                                   Right => Entity_Location.T (Right));
    end "<";

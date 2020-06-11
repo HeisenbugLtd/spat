@@ -84,11 +84,11 @@ SPARKNaCl.Car.Difference_To_Nearlynormal                  => 160.0 ms/2.9 s
 `-VC_INDEX_CHECK sparknacl-car.adb:210:59 => 100.0 ms/170.0 ms
  `-CVC4: 100.0 ms (Valid)
  `-CVC4: 70.0 ms (Valid)
+`-VC_ASSERT sparknacl-car.adb:223:22 => 160.0 ms/160.0 ms
+ `-CVC4: 160.0 ms (Valid)
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:208:33 => 160.0 ms/160.0 ms
  `-CVC4: 160.0 ms (Valid)
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:210:13 => 160.0 ms/160.0 ms
- `-CVC4: 160.0 ms (Valid)
-`-VC_ASSERT sparknacl-car.adb:223:22 => 160.0 ms/160.0 ms
  `-CVC4: 160.0 ms (Valid)
 `-VC_INDEX_CHECK sparknacl-car.adb:207:55 => 90.0 ms/160.0 ms
  `-CVC4: 90.0 ms (Valid)
@@ -111,9 +111,9 @@ SPARKNaCl.Car.Difference_To_Nearlynormal                  => 160.0 ms/2.9 s
  `-CVC4: 50.0 ms (Valid)
 `-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:208:33 => 100.0 ms/100.0 ms
  `-CVC4: 100.0 ms (Valid)
-`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:207:13 => 90.0 ms/90.0 ms
- `-CVC4: 90.0 ms (Valid)
 `-VC_ASSERT sparknacl-car.adb:216:22 => 90.0 ms/90.0 ms
+ `-CVC4: 90.0 ms (Valid)
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:207:13 => 90.0 ms/90.0 ms
  `-CVC4: 90.0 ms (Valid)
 `-VC_DIVISION_CHECK sparknacl-car.adb:204:25 => 50.0 ms/90.0 ms
  `-CVC4: 50.0 ms (Valid)
@@ -191,9 +191,9 @@ SPARKNaCl.Car.Nearlynormal_To_Normal                      => 1.4 s/17.5 s
 `-VC_ASSERT sparknacl-car.adb:304:10 => 150.0 ms/210.0 ms
  `-CVC4: 150.0 ms (Unknown (unknown))
   -Z3: 60.0 ms (Valid)
-`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:313:33 => 200.0 ms/200.0 ms
- `-CVC4: 200.0 ms (Valid)
 `-VC_ASSERT sparknacl-car.adb:329:10 => 200.0 ms/200.0 ms
+ `-CVC4: 200.0 ms (Valid)
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:313:33 => 200.0 ms/200.0 ms
  `-CVC4: 200.0 ms (Valid)
 `-VC_ASSERT sparknacl-car.adb:302:10 => 140.0 ms/200.0 ms
  `-CVC4: 140.0 ms (Unknown (unknown))
@@ -215,30 +215,30 @@ SPARKNaCl.Car.Nearlynormal_To_Normal                      => 1.4 s/17.5 s
  `-CVC4: 70.0 ms (Valid)
 `-VC_ASSERT sparknacl-car.adb:330:22 => 140.0 ms/140.0 ms
  `-CVC4: 140.0 ms (Valid)
-`-VC_PREDICATE_CHECK sparknacl-car.adb:291:7 => 130.0 ms/130.0 ms
- `-CVC4: 130.0 ms (Valid)
 `-VC_ASSERT sparknacl-car.adb:295:22 => 130.0 ms/130.0 ms
  `-CVC4: 130.0 ms (Valid)
 `-VC_ASSERT sparknacl-car.adb:297:10 => 130.0 ms/130.0 ms
  `-CVC4: 130.0 ms (Valid)
 `-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:316:33 => 130.0 ms/130.0 ms
  `-CVC4: 130.0 ms (Valid)
+`-VC_PREDICATE_CHECK sparknacl-car.adb:291:7 => 130.0 ms/130.0 ms
+ `-CVC4: 130.0 ms (Valid)
 `-VC_DIVISION_CHECK sparknacl-car.adb:309:25 => 60.0 ms/120.0 ms
  `-CVC4: 60.0 ms (Valid)
  `-CVC4: 60.0 ms (Valid)
 `-VC_PREDICATE_CHECK sparknacl-car.adb:290:7 => 110.0 ms/110.0 ms
  `-CVC4: 110.0 ms (Valid)
+`-VC_ASSERT sparknacl-car.adb:293:22 => 100.0 ms/100.0 ms
+ `-CVC4: 100.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-car.adb:289:16 => 100.0 ms/100.0 ms
  `-CVC4: 100.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-car.adb:290:22 => 100.0 ms/100.0 ms
  `-CVC4: 100.0 ms (Valid)
-`-VC_ASSERT sparknacl-car.adb:293:22 => 100.0 ms/100.0 ms
- `-CVC4: 100.0 ms (Valid)
-`-VC_PREDICATE_CHECK sparknacl-car.adb:280:12 => 80.0 ms/80.0 ms
- `-CVC4: 80.0 ms (Valid)
 `-VC_ASSERT sparknacl-car.adb:331:22 => 80.0 ms/80.0 ms
  `-CVC4: 80.0 ms (Valid)
 `-VC_DIVISION_CHECK sparknacl-car.adb:339:24 => 80.0 ms/80.0 ms
+ `-CVC4: 80.0 ms (Valid)
+`-VC_PREDICATE_CHECK sparknacl-car.adb:280:12 => 80.0 ms/80.0 ms
  `-CVC4: 80.0 ms (Valid)
 `-VC_ASSERT sparknacl-car.adb:276:10 => 60.0 ms/60.0 ms
  `-CVC4: 60.0 ms (Valid)
@@ -253,9 +253,9 @@ SPARKNaCl.Car.Nearlynormal_To_Normal.Carrying_Minus_One   => 40.0 ms/130.0 ms
  `-CVC4: 40.0 ms (Valid)
 `-VC_DIVISION_CHECK sparknacl-car.adb:263:26 => 30.0 ms/30.0 ms
  `-CVC4: 30.0 ms (Valid)
-`-VC_RANGE_CHECK sparknacl-car.adb:267:20 => 30.0 ms/30.0 ms
- `-CVC4: 30.0 ms (Valid)
 `-VC_INDEX_CHECK sparknacl-car.adb:268:35 => 30.0 ms/30.0 ms
+ `-CVC4: 30.0 ms (Valid)
+`-VC_RANGE_CHECK sparknacl-car.adb:267:20 => 30.0 ms/30.0 ms
  `-CVC4: 30.0 ms (Valid)
 SPARKNaCl.Car.Nearlynormal_To_Normal.Carrying_Plus_One    => 30.0 ms/110.0 ms
 `-VC_DIVISION_CHECK sparknacl-car.adb:248:26 => 30.0 ms/30.0 ms
@@ -319,9 +319,9 @@ SPARKNaCl.Car.Product_To_Seminormal                       => 420.0 ms/5.4 s
  `-CVC4: 150.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-car.adb:74:22 => 140.0 ms/140.0 ms
  `-CVC4: 140.0 ms (Valid)
-`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:58:13 => 130.0 ms/130.0 ms
- `-CVC4: 130.0 ms (Valid)
 `-VC_ASSERT sparknacl-car.adb:67:10 => 130.0 ms/130.0 ms
+ `-CVC4: 130.0 ms (Valid)
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:58:13 => 130.0 ms/130.0 ms
  `-CVC4: 130.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-car.adb:70:16 => 130.0 ms/130.0 ms
  `-CVC4: 130.0 ms (Valid)
@@ -334,9 +334,9 @@ SPARKNaCl.Car.Product_To_Seminormal                       => 420.0 ms/5.4 s
  `-CVC4: 110.0 ms (Valid)
 `-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:60:13 => 100.0 ms/100.0 ms
  `-CVC4: 100.0 ms (Valid)
-`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:58:13 => 90.0 ms/90.0 ms
- `-CVC4: 90.0 ms (Valid)
 `-VC_ASSERT sparknacl-car.adb:68:22 => 90.0 ms/90.0 ms
+ `-CVC4: 90.0 ms (Valid)
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:58:13 => 90.0 ms/90.0 ms
  `-CVC4: 90.0 ms (Valid)
 `-VC_DIVISION_CHECK sparknacl-car.adb:52:25 => 50.0 ms/90.0 ms
  `-CVC4: 50.0 ms (Valid)
@@ -392,9 +392,9 @@ SPARKNaCl.Car.Seminormal_To_Nearlynormal                  => 950.0 ms/8.0 s
 `-VC_RANGE_CHECK sparknacl-car.adb:118:21 => 120.0 ms/200.0 ms
  `-CVC4: 120.0 ms (Valid)
  `-CVC4: 80.0 ms (Valid)
-`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:119:33 => 170.0 ms/170.0 ms
- `-CVC4: 170.0 ms (Valid)
 `-VC_ASSERT sparknacl-car.adb:126:10 => 170.0 ms/170.0 ms
+ `-CVC4: 170.0 ms (Valid)
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:119:33 => 170.0 ms/170.0 ms
  `-CVC4: 170.0 ms (Valid)
 `-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:118:13 => 160.0 ms/160.0 ms
  `-CVC4: 160.0 ms (Valid)
@@ -404,18 +404,18 @@ SPARKNaCl.Car.Seminormal_To_Nearlynormal                  => 950.0 ms/8.0 s
  `-CVC4: 140.0 ms (Valid)
 `-VC_PREDICATE_CHECK sparknacl-car.adb:105:7 => 130.0 ms/130.0 ms
  `-CVC4: 130.0 ms (Valid)
-`-VC_PREDICATE_CHECK sparknacl-car.adb:104:7 => 110.0 ms/110.0 ms
- `-CVC4: 110.0 ms (Valid)
 `-VC_ASSERT sparknacl-car.adb:108:22 => 110.0 ms/110.0 ms
+ `-CVC4: 110.0 ms (Valid)
+`-VC_PREDICATE_CHECK sparknacl-car.adb:104:7 => 110.0 ms/110.0 ms
  `-CVC4: 110.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-car.adb:104:22 => 100.0 ms/100.0 ms
  `-CVC4: 100.0 ms (Valid)
 `-VC_DIVISION_CHECK sparknacl-car.adb:115:25 => 50.0 ms/100.0 ms
  `-CVC4: 50.0 ms (Valid)
  `-CVC4: 50.0 ms (Valid)
-`-VC_RANGE_CHECK sparknacl-car.adb:103:22 => 90.0 ms/90.0 ms
- `-CVC4: 90.0 ms (Valid)
 `-VC_ASSERT sparknacl-car.adb:110:10 => 90.0 ms/90.0 ms
+ `-CVC4: 90.0 ms (Valid)
+`-VC_RANGE_CHECK sparknacl-car.adb:103:22 => 90.0 ms/90.0 ms
  `-CVC4: 90.0 ms (Valid)
 `-VC_ASSERT sparknacl-car.adb:107:22 => 80.0 ms/80.0 ms
  `-CVC4: 80.0 ms (Valid)
@@ -480,20 +480,20 @@ SPARKNaCl.Car.Sum_To_Nearlynormal                         => 660.0 ms/6.6 s
  `-CVC4: 60.0 ms (Valid)
 `-VC_PREDICATE_CHECK sparknacl-car.adb:154:7 => 120.0 ms/120.0 ms
  `-CVC4: 120.0 ms (Valid)
-`-VC_PREDICATE_CHECK sparknacl-car.adb:153:7 => 110.0 ms/110.0 ms
- `-CVC4: 110.0 ms (Valid)
 `-VC_ASSERT sparknacl-car.adb:157:22 => 110.0 ms/110.0 ms
+ `-CVC4: 110.0 ms (Valid)
+`-VC_PREDICATE_CHECK sparknacl-car.adb:153:7 => 110.0 ms/110.0 ms
  `-CVC4: 110.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-car.adb:153:22 => 100.0 ms/100.0 ms
  `-CVC4: 100.0 ms (Valid)
 `-VC_DIVISION_CHECK sparknacl-car.adb:164:25 => 50.0 ms/100.0 ms
  `-CVC4: 50.0 ms (Valid)
  `-CVC4: 50.0 ms (Valid)
-`-VC_RANGE_CHECK sparknacl-car.adb:152:16 => 90.0 ms/90.0 ms
- `-CVC4: 90.0 ms (Valid)
 `-VC_ASSERT sparknacl-car.adb:156:22 => 90.0 ms/90.0 ms
  `-CVC4: 90.0 ms (Valid)
 `-VC_ASSERT sparknacl-car.adb:159:10 => 90.0 ms/90.0 ms
+ `-CVC4: 90.0 ms (Valid)
+`-VC_RANGE_CHECK sparknacl-car.adb:152:16 => 90.0 ms/90.0 ms
  `-CVC4: 90.0 ms (Valid)
 `-VC_PREDICATE_CHECK sparknacl-car.adb:150:12 => 80.0 ms/80.0 ms
  `-CVC4: 80.0 ms (Valid)
@@ -505,8 +505,6 @@ SPARKNaCl.Car.Sum_To_Nearlynormal.Temp_GFPredicate        => 0.0 s/0.0 s
 SPARKNaCl.Core                                            => 0.0 s/0.0 s
 SPARKNaCl.Core.Construct                                  => 0.0 s/0.0 s
 SPARKNaCl.Core.Core_Common                                => 60.0 ms/1.3 s
-`-VC_RANGE_CHECK sparknacl-core.adb:69:25 => 60.0 ms/60.0 ms
- `-CVC4: 60.0 ms (Valid)
 `-VC_DIVISION_CHECK sparknacl-core.adb:93:35 => 60.0 ms/60.0 ms
  `-CVC4: 60.0 ms (Valid)
 `-VC_DIVISION_CHECK sparknacl-core.adb:94:39 => 60.0 ms/60.0 ms
@@ -519,6 +517,12 @@ SPARKNaCl.Core.Core_Common                                => 60.0 ms/1.3 s
  `-CVC4: 60.0 ms (Valid)
 `-VC_DIVISION_CHECK sparknacl-core.adb:106:33 => 60.0 ms/60.0 ms
  `-CVC4: 60.0 ms (Valid)
+`-VC_RANGE_CHECK sparknacl-core.adb:69:25 => 60.0 ms/60.0 ms
+ `-CVC4: 60.0 ms (Valid)
+`-VC_DIVISION_CHECK sparknacl-core.adb:95:39 => 50.0 ms/50.0 ms
+ `-CVC4: 50.0 ms (Valid)
+`-VC_DIVISION_CHECK sparknacl-core.adb:96:40 => 50.0 ms/50.0 ms
+ `-CVC4: 50.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-core.adb:70:35 => 50.0 ms/50.0 ms
  `-CVC4: 50.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-core.adb:71:25 => 50.0 ms/50.0 ms
@@ -549,10 +553,6 @@ SPARKNaCl.Core.Core_Common                                => 60.0 ms/1.3 s
  `-CVC4: 50.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-core.adb:87:35 => 50.0 ms/50.0 ms
  `-CVC4: 50.0 ms (Valid)
-`-VC_DIVISION_CHECK sparknacl-core.adb:95:39 => 50.0 ms/50.0 ms
- `-CVC4: 50.0 ms (Valid)
-`-VC_DIVISION_CHECK sparknacl-core.adb:96:40 => 50.0 ms/50.0 ms
- `-CVC4: 50.0 ms (Valid)
 SPARKNaCl.Core.HSalsa20                                   => 120.0 ms/650.0 ms
 `-VC_LENGTH_CHECK sparknacl-core.adb:184:16 => 120.0 ms/120.0 ms
  `-CVC4: 120.0 ms (Valid)
@@ -564,11 +564,11 @@ SPARKNaCl.Core.HSalsa20                                   => 120.0 ms/650.0 ms
  `-CVC4: 80.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-core.adb:184:16 => 70.0 ms/70.0 ms
  `-CVC4: 70.0 ms (Valid)
+`-VC_LENGTH_CHECK sparknacl-core.adb:179:41 => 60.0 ms/60.0 ms
+ `-CVC4: 60.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-core.adb:178:41 => 60.0 ms/60.0 ms
  `-CVC4: 60.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-core.adb:179:41 => 60.0 ms/60.0 ms
- `-CVC4: 60.0 ms (Valid)
-`-VC_LENGTH_CHECK sparknacl-core.adb:179:41 => 60.0 ms/60.0 ms
  `-CVC4: 60.0 ms (Valid)
 SPARKNaCl.Core.LD32                                       => 0.0 s/0.0 s
 SPARKNaCl.Core.ST32                                       => 50.0 ms/70.0 ms
@@ -594,9 +594,9 @@ SPARKNaCl.Cryptobox.AfterNM                               => 60.0 ms/260.0 ms
  `-CVC4: 40.0 ms (Valid)
 `-VC_PRECONDITION sparknacl-cryptobox.ads:61:21 => 40.0 ms/40.0 ms
  `-CVC4: 40.0 ms (Valid)
-`-VC_PRECONDITION sparknacl-cryptobox.ads:60:21 => 30.0 ms/30.0 ms
- `-CVC4: 30.0 ms (Valid)
 `-VC_POSTCONDITION sparknacl-cryptobox.ads:61:21 => 30.0 ms/30.0 ms
+ `-CVC4: 30.0 ms (Valid)
+`-VC_PRECONDITION sparknacl-cryptobox.ads:60:21 => 30.0 ms/30.0 ms
  `-CVC4: 30.0 ms (Valid)
 SPARKNaCl.Cryptobox.BeforeNM                              => 0.0 s/0.0 s
 SPARKNaCl.Cryptobox.Construct                             => 0.0 s/0.0 s
@@ -609,15 +609,15 @@ SPARKNaCl.Cryptobox.Create                                => 60.0 ms/260.0 ms
  `-CVC4: 40.0 ms (Valid)
 `-VC_PRECONDITION sparknacl-cryptobox.ads:91:21 => 40.0 ms/40.0 ms
  `-CVC4: 40.0 ms (Valid)
-`-VC_PRECONDITION sparknacl-cryptobox.adb:107:7 => 30.0 ms/30.0 ms
- `-CVC4: 30.0 ms (Valid)
 `-VC_POSTCONDITION sparknacl-cryptobox.ads:91:21 => 30.0 ms/30.0 ms
+ `-CVC4: 30.0 ms (Valid)
+`-VC_PRECONDITION sparknacl-cryptobox.adb:107:7 => 30.0 ms/30.0 ms
  `-CVC4: 30.0 ms (Valid)
 SPARKNaCl.Cryptobox.Keypair                               => 0.0 s/0.0 s
 SPARKNaCl.Cryptobox.Open                                  => 70.0 ms/320.0 ms
-`-VC_RANGE_CHECK sparknacl-cryptobox.ads:106:28 => 70.0 ms/70.0 ms
- `-CVC4: 70.0 ms (Valid)
 `-VC_POSTCONDITION sparknacl-cryptobox.ads:107:21 => 70.0 ms/70.0 ms
+ `-CVC4: 70.0 ms (Valid)
+`-VC_RANGE_CHECK sparknacl-cryptobox.ads:106:28 => 70.0 ms/70.0 ms
  `-CVC4: 70.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-cryptobox.ads:107:28 => 70.0 ms/70.0 ms
  `-CVC4: 70.0 ms (Valid)
@@ -634,11 +634,11 @@ SPARKNaCl.Cryptobox.Open_AfterNM                          => 60.0 ms/240.0 ms
  `-CVC4: 50.0 ms (Valid)
 `-VC_PRECONDITION sparknacl-cryptobox.adb:94:16 => 40.0 ms/40.0 ms
  `-CVC4: 40.0 ms (Valid)
+`-VC_POSTCONDITION sparknacl-cryptobox.ads:76:21 => 30.0 ms/30.0 ms
+ `-CVC4: 30.0 ms (Valid)
 `-VC_PRECONDITION sparknacl-cryptobox.ads:75:21 => 30.0 ms/30.0 ms
  `-CVC4: 30.0 ms (Valid)
 `-VC_PRECONDITION sparknacl-cryptobox.ads:76:21 => 30.0 ms/30.0 ms
- `-CVC4: 30.0 ms (Valid)
-`-VC_POSTCONDITION sparknacl-cryptobox.ads:76:21 => 30.0 ms/30.0 ms
  `-CVC4: 30.0 ms (Valid)
 SPARKNaCl.Cryptobox.Public_Key                            => 0.0 s/0.0 s
 SPARKNaCl.Cryptobox.Sanitize                              => 0.0 s/0.0 s
@@ -683,9 +683,9 @@ SPARKNaCl.Hashing.Hash                                    => 190.0 ms/1.8 s
  `-CVC4: 120.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-hashing.adb:227:28 => 190.0 ms/190.0 ms
  `-CVC4: 190.0 ms (Valid)
-`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:226:39 => 180.0 ms/180.0 ms
- `-CVC4: 180.0 ms (Valid)
 `-VC_LENGTH_CHECK sparknacl-hashing.adb:227:28 => 180.0 ms/180.0 ms
+ `-CVC4: 180.0 ms (Valid)
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:226:39 => 180.0 ms/180.0 ms
  `-CVC4: 180.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-hashing.adb:227:10 => 130.0 ms/130.0 ms
  `-CVC4: 130.0 ms (Valid)
@@ -695,9 +695,9 @@ SPARKNaCl.Hashing.Hash                                    => 190.0 ms/1.8 s
 `-VC_RANGE_CHECK sparknacl-hashing.adb:237:25 => 70.0 ms/130.0 ms
  `-CVC4: 70.0 ms (Valid)
  `-CVC4: 60.0 ms (Valid)
-`-VC_RANGE_CHECK sparknacl-hashing.adb:223:47 => 120.0 ms/120.0 ms
- `-CVC4: 120.0 ms (Valid)
 `-VC_OVERFLOW_CHECK sparknacl-hashing.adb:226:44 => 120.0 ms/120.0 ms
+ `-CVC4: 120.0 ms (Valid)
+`-VC_RANGE_CHECK sparknacl-hashing.adb:223:47 => 120.0 ms/120.0 ms
  `-CVC4: 120.0 ms (Valid)
 `-VC_DIVISION_CHECK sparknacl-hashing.adb:223:47 => 60.0 ms/60.0 ms
  `-CVC4: 60.0 ms (Valid)
@@ -758,19 +758,19 @@ SPARKNaCl.Hashing.Hashblocks                              => 500.0 ms/26.7 s
  `-CVC4: 400.0 ms (Valid)
 `-VC_LENGTH_CHECK sparknacl-hashing.adb:153:37 => 390.0 ms/390.0 ms
  `-CVC4: 390.0 ms (Valid)
-`-VC_LOOP_INVARIANT_PRESERV sparknacl-hashing.adb:136:13 => 380.0 ms/380.0 ms
- `-CVC4: 380.0 ms (Valid)
 `-VC_LENGTH_CHECK sparknacl-hashing.adb:152:37 => 380.0 ms/380.0 ms
  `-CVC4: 380.0 ms (Valid)
 `-VC_LENGTH_CHECK sparknacl-hashing.adb:155:37 => 380.0 ms/380.0 ms
+ `-CVC4: 380.0 ms (Valid)
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-hashing.adb:136:13 => 380.0 ms/380.0 ms
  `-CVC4: 380.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-hashing.adb:144:37 => 360.0 ms/360.0 ms
  `-CVC4: 360.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-hashing.adb:150:37 => 360.0 ms/360.0 ms
  `-CVC4: 360.0 ms (Valid)
-`-VC_RANGE_CHECK sparknacl-hashing.adb:151:37 => 350.0 ms/350.0 ms
- `-CVC4: 350.0 ms (Valid)
 `-VC_LENGTH_CHECK sparknacl-hashing.adb:154:37 => 350.0 ms/350.0 ms
+ `-CVC4: 350.0 ms (Valid)
+`-VC_RANGE_CHECK sparknacl-hashing.adb:151:37 => 350.0 ms/350.0 ms
  `-CVC4: 350.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-hashing.adb:147:37 => 330.0 ms/330.0 ms
  `-CVC4: 330.0 ms (Valid)
@@ -784,11 +784,11 @@ SPARKNaCl.Hashing.Hashblocks                              => 500.0 ms/26.7 s
  `-CVC4: 320.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-hashing.adb:148:37 => 320.0 ms/320.0 ms
  `-CVC4: 320.0 ms (Valid)
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:155:43 => 310.0 ms/310.0 ms
+ `-CVC4: 310.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-hashing.adb:146:37 => 310.0 ms/310.0 ms
  `-CVC4: 310.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-hashing.adb:149:37 => 310.0 ms/310.0 ms
- `-CVC4: 310.0 ms (Valid)
-`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:155:43 => 310.0 ms/310.0 ms
  `-CVC4: 310.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-hashing.adb:145:37 => 300.0 ms/300.0 ms
  `-CVC4: 300.0 ms (Valid)
@@ -802,25 +802,25 @@ SPARKNaCl.Hashing.Hashblocks                              => 500.0 ms/26.7 s
  `-CVC4: 290.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-hashing.adb:154:37 => 280.0 ms/280.0 ms
  `-CVC4: 280.0 ms (Valid)
-`-VC_RANGE_CHECK sparknacl-hashing.adb:153:37 => 270.0 ms/270.0 ms
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-hashing.adb:159:36 => 270.0 ms/270.0 ms
  `-CVC4: 270.0 ms (Valid)
 `-VC_OVERFLOW_CHECK sparknacl-hashing.adb:154:43 => 270.0 ms/270.0 ms
  `-CVC4: 270.0 ms (Valid)
-`-VC_RANGE_CHECK sparknacl-hashing.adb:155:37 => 270.0 ms/270.0 ms
- `-CVC4: 270.0 ms (Valid)
 `-VC_OVERFLOW_CHECK sparknacl-hashing.adb:155:55 => 270.0 ms/270.0 ms
  `-CVC4: 270.0 ms (Valid)
-`-VC_LOOP_INVARIANT_PRESERV sparknacl-hashing.adb:159:36 => 270.0 ms/270.0 ms
+`-VC_RANGE_CHECK sparknacl-hashing.adb:153:37 => 270.0 ms/270.0 ms
+ `-CVC4: 270.0 ms (Valid)
+`-VC_RANGE_CHECK sparknacl-hashing.adb:155:37 => 270.0 ms/270.0 ms
  `-CVC4: 270.0 ms (Valid)
 `-VC_OVERFLOW_CHECK sparknacl-hashing.adb:152:43 => 250.0 ms/250.0 ms
  `-CVC4: 250.0 ms (Valid)
+`-VC_ASSERT sparknacl-hashing.adb:195:25 => 240.0 ms/240.0 ms
+ `-CVC4: 240.0 ms (Valid)
 `-VC_OVERFLOW_CHECK sparknacl-hashing.adb:146:43 => 240.0 ms/240.0 ms
  `-CVC4: 240.0 ms (Valid)
 `-VC_OVERFLOW_CHECK sparknacl-hashing.adb:148:54 => 240.0 ms/240.0 ms
  `-CVC4: 240.0 ms (Valid)
 `-VC_OVERFLOW_CHECK sparknacl-hashing.adb:151:54 => 240.0 ms/240.0 ms
- `-CVC4: 240.0 ms (Valid)
-`-VC_ASSERT sparknacl-hashing.adb:195:25 => 240.0 ms/240.0 ms
  `-CVC4: 240.0 ms (Valid)
 `-VC_OVERFLOW_CHECK sparknacl-hashing.adb:142:43 => 230.0 ms/230.0 ms
  `-CVC4: 230.0 ms (Valid)
@@ -928,11 +928,11 @@ SPARKNaCl.MAC.Onetimeauth                                 => 340.0 ms/3.7 s
  `-CVC4: 200.0 ms (Valid)
  `-CVC4: 100.0 ms (Valid)
  `-CVC4: 50.0 ms (Valid)
-`-VC_OVERFLOW_CHECK sparknacl-mac.adb:113:34 => 110.0 ms/260.0 ms
+`-VC_INDEX_CHECK sparknacl-mac.adb:122:46 => 110.0 ms/260.0 ms
  `-CVC4: 110.0 ms (Valid)
  `-CVC4: 100.0 ms (Valid)
  `-CVC4: 50.0 ms (Valid)
-`-VC_INDEX_CHECK sparknacl-mac.adb:122:46 => 110.0 ms/260.0 ms
+`-VC_OVERFLOW_CHECK sparknacl-mac.adb:113:34 => 110.0 ms/260.0 ms
  `-CVC4: 110.0 ms (Valid)
  `-CVC4: 100.0 ms (Valid)
  `-CVC4: 50.0 ms (Valid)
@@ -950,11 +950,11 @@ SPARKNaCl.MAC.Onetimeauth                                 => 340.0 ms/3.7 s
 `-VC_OVERFLOW_CHECK sparknacl-mac.adb:97:18 => 60.0 ms/110.0 ms
  `-CVC4: 60.0 ms (Valid)
  `-CVC4: 50.0 ms (Valid)
+`-VC_INDEX_CHECK sparknacl-mac.adb:100:39 => 100.0 ms/100.0 ms
+ `-CVC4: 100.0 ms (Valid)
 `-VC_LOOP_INVARIANT_INIT sparknacl-mac.adb:97:16 => 100.0 ms/100.0 ms
  `-CVC4: 100.0 ms (Valid)
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-mac.adb:97:16 => 100.0 ms/100.0 ms
- `-CVC4: 100.0 ms (Valid)
-`-VC_INDEX_CHECK sparknacl-mac.adb:100:39 => 100.0 ms/100.0 ms
  `-CVC4: 100.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-mac.adb:101:20 => 100.0 ms/100.0 ms
  `-CVC4: 100.0 ms (Valid)
@@ -1100,10 +1100,10 @@ SPARKNaCl.Omultiply                                       => 19.1 s/28.6 s
 `-VC_INDEX_CHECK sparknacl.adb:165:20 => 110.0 ms/190.0 ms
  `-CVC4: 110.0 ms (Valid)
  `-CVC4: 80.0 ms (Valid)
-`-VC_OVERFLOW_CHECK sparknacl.adb:165:46 => 110.0 ms/190.0 ms
+`-VC_INDEX_CHECK sparknacl.adb:165:46 => 110.0 ms/190.0 ms
  `-CVC4: 110.0 ms (Valid)
  `-CVC4: 80.0 ms (Valid)
-`-VC_INDEX_CHECK sparknacl.adb:165:46 => 110.0 ms/190.0 ms
+`-VC_OVERFLOW_CHECK sparknacl.adb:165:46 => 110.0 ms/190.0 ms
  `-CVC4: 110.0 ms (Valid)
  `-CVC4: 80.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl.adb:167:22 => 110.0 ms/160.0 ms
@@ -1129,13 +1129,13 @@ SPARKNaCl.Omultiply                                       => 19.1 s/28.6 s
 `-VC_INDEX_CHECK sparknacl.adb:119:19 => 80.0 ms/120.0 ms
  `-CVC4: 80.0 ms (Valid)
  `-CVC4: 40.0 ms (Valid)
+`-VC_INDEX_CHECK sparknacl.adb:123:19 => 80.0 ms/120.0 ms
+ `-CVC4: 80.0 ms (Valid)
+ `-CVC4: 40.0 ms (Valid)
 `-VC_OVERFLOW_CHECK sparknacl.adb:119:33 => 80.0 ms/120.0 ms
  `-CVC4: 80.0 ms (Valid)
  `-CVC4: 40.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl.adb:122:22 => 80.0 ms/120.0 ms
- `-CVC4: 80.0 ms (Valid)
- `-CVC4: 40.0 ms (Valid)
-`-VC_INDEX_CHECK sparknacl.adb:123:19 => 80.0 ms/120.0 ms
  `-CVC4: 80.0 ms (Valid)
  `-CVC4: 40.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl.adb:118:22 => 80.0 ms/110.0 ms
@@ -1146,17 +1146,17 @@ SPARKNaCl.Omultiply                                       => 19.1 s/28.6 s
  `-CVC4: 40.0 ms (Valid)
 `-VC_PREDICATE_CHECK sparknacl.adb:149:13 => 90.0 ms/90.0 ms
  `-CVC4: 90.0 ms (Valid)
-`-VC_LOOP_INVARIANT_INIT sparknacl.adb:116:13 => 80.0 ms/80.0 ms
- `-CVC4: 80.0 ms (Valid)
 `-VC_ASSERT sparknacl.adb:140:10 => 80.0 ms/80.0 ms
+ `-CVC4: 80.0 ms (Valid)
+`-VC_LOOP_INVARIANT_INIT sparknacl.adb:116:13 => 80.0 ms/80.0 ms
  `-CVC4: 80.0 ms (Valid)
 `-VC_PREDICATE_CHECK sparknacl.adb:149:13 => 80.0 ms/80.0 ms
  `-CVC4: 80.0 ms (Valid)
 SPARKNaCl.Osubtract                                       => 70.0 ms/470.0 ms
-`-VC_RANGE_CHECK sparknacl.adb:41:42 => 50.0 ms/80.0 ms
+`-VC_INDEX_CHECK sparknacl.adb:44:55 => 50.0 ms/80.0 ms
  `-CVC4: 50.0 ms (Valid)
  `-CVC4: 30.0 ms (Valid)
-`-VC_INDEX_CHECK sparknacl.adb:44:55 => 50.0 ms/80.0 ms
+`-VC_RANGE_CHECK sparknacl.adb:41:42 => 50.0 ms/80.0 ms
  `-CVC4: 50.0 ms (Valid)
  `-CVC4: 30.0 ms (Valid)
 `-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:43:13 => 70.0 ms/70.0 ms
@@ -1417,9 +1417,9 @@ SPARKNaCl.Secretbox.Open                                  => 270.0 ms/3.3 s
  `-CVC4: 90.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-secretbox.adb:65:20 => 70.0 ms/70.0 ms
  `-CVC4: 70.0 ms (Valid)
-`-VC_RANGE_CHECK sparknacl-secretbox.ads:37:28 => 60.0 ms/60.0 ms
- `-CVC4: 60.0 ms (Valid)
 `-VC_PRECONDITION sparknacl-secretbox.ads:38:21 => 60.0 ms/60.0 ms
+ `-CVC4: 60.0 ms (Valid)
+`-VC_RANGE_CHECK sparknacl-secretbox.ads:37:28 => 60.0 ms/60.0 ms
  `-CVC4: 60.0 ms (Valid)
 `-VC_PRECONDITION sparknacl-secretbox.adb:65:13 => 40.0 ms/40.0 ms
  `-CVC4: 40.0 ms (Valid)
@@ -1458,9 +1458,9 @@ SPARKNaCl.Sign.Hash_Reduce                                => 90.0 ms/560.0 ms
 `-VC_RANGE_CHECK sparknacl-sign.adb:681:21 => 60.0 ms/100.0 ms
  `-CVC4: 60.0 ms (Valid)
  `-CVC4: 40.0 ms (Valid)
-`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:681:13 => 90.0 ms/90.0 ms
- `-CVC4: 90.0 ms (Valid)
 `-VC_ASSERT sparknacl-sign.adb:685:10 => 90.0 ms/90.0 ms
+ `-CVC4: 90.0 ms (Valid)
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:681:13 => 90.0 ms/90.0 ms
  `-CVC4: 90.0 ms (Valid)
 `-VC_PRECONDITION sparknacl-sign.adb:687:14 => 90.0 ms/90.0 ms
  `-CVC4: 90.0 ms (Valid)
@@ -1527,9 +1527,9 @@ SPARKNaCl.Sign.ModL.Eliminate_Limb_63                     => 740.0 ms/10.8 s
 `-VC_INDEX_CHECK sparknacl-sign.adb:351:43 => 150.0 ms/270.0 ms
  `-CVC4: 150.0 ms (Valid)
  `-CVC4: 120.0 ms (Valid)
-`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:346:16 => 260.0 ms/260.0 ms
- `-CVC4: 260.0 ms (Valid)
 `-VC_ASSERT sparknacl-sign.adb:393:28 => 260.0 ms/260.0 ms
+ `-CVC4: 260.0 ms (Valid)
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:346:16 => 260.0 ms/260.0 ms
  `-CVC4: 260.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-sign.adb:395:32 => 260.0 ms/260.0 ms
  `-CVC4: 260.0 ms (Valid)
@@ -1722,16 +1722,16 @@ SPARKNaCl.Sign.ModL.Eliminate_Limbs_62_To_32              => 9.2 s/148.2 s
  `-CVC4: 420.0 ms (Valid)
  `-CVC4: 180.0 ms (Valid)
  `-CVC4: 110.0 ms (Valid)
-`-VC_RANGE_CHECK sparknacl-sign.adb:442:27 => 540.0 ms/1.3 s
- `-CVC4: 540.0 ms (Valid)
- `-CVC4: 440.0 ms (Valid)
- `-CVC4: 180.0 ms (Valid)
- `-CVC4: 90.0 ms (Valid)
 `-VC_OVERFLOW_CHECK sparknacl-sign.adb:445:49 => 540.0 ms/1.3 s
  `-CVC4: 540.0 ms (Valid)
  `-CVC4: 450.0 ms (Valid)
  `-CVC4: 180.0 ms (Valid)
  `-CVC4: 80.0 ms (Valid)
+`-VC_RANGE_CHECK sparknacl-sign.adb:442:27 => 540.0 ms/1.3 s
+ `-CVC4: 540.0 ms (Valid)
+ `-CVC4: 440.0 ms (Valid)
+ `-CVC4: 180.0 ms (Valid)
+ `-CVC4: 90.0 ms (Valid)
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:552:16 => 1.2 s/1.2 s
  `-CVC4: 1.2 s (Valid)
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:540:16 => 1.2 s/1.2 s
@@ -2000,9 +2000,9 @@ SPARKNaCl.Sign.ModL.Finalize                              => 2.1 s/27.1 s
  `-CVC4: 410.0 ms (Valid)
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:651:19 => 380.0 ms/380.0 ms
  `-CVC4: 380.0 ms (Valid)
-`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:648:19 => 360.0 ms/360.0 ms
- `-CVC4: 360.0 ms (Valid)
 `-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:651:19 => 360.0 ms/360.0 ms
+ `-CVC4: 360.0 ms (Valid)
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:648:19 => 360.0 ms/360.0 ms
  `-CVC4: 360.0 ms (Valid)
 `-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:648:19 => 350.0 ms/350.0 ms
  `-CVC4: 350.0 ms (Valid)
@@ -2056,11 +2056,11 @@ SPARKNaCl.Sign.ModL.Finalize                              => 2.1 s/27.1 s
 `-VC_DIVISION_CHECK sparknacl-sign.adb:642:38 => 120.0 ms/230.0 ms
  `-CVC4: 120.0 ms (Valid)
  `-CVC4: 110.0 ms (Valid)
+`-VC_ASSERT sparknacl-sign.adb:618:13 => 220.0 ms/220.0 ms
+ `-CVC4: 220.0 ms (Valid)
 `-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:593:16 => 220.0 ms/220.0 ms
  `-CVC4: 220.0 ms (Valid)
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:614:16 => 220.0 ms/220.0 ms
- `-CVC4: 220.0 ms (Valid)
-`-VC_ASSERT sparknacl-sign.adb:618:13 => 220.0 ms/220.0 ms
  `-CVC4: 220.0 ms (Valid)
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:644:39 => 220.0 ms/220.0 ms
  `-CVC4: 220.0 ms (Valid)
@@ -2088,26 +2088,26 @@ SPARKNaCl.Sign.ModL.Finalize                              => 2.1 s/27.1 s
 `-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:644:39 => 110.0 ms/110.0 ms
  `-CVC4: 110.0 ms (Valid)
 SPARKNaCl.Sign.ModL.Initialize_XL                         => 50.0 ms/430.0 ms
-`-VC_RANGE_CHECK sparknacl-sign.adb:311:72 => 40.0 ms/60.0 ms
+`-VC_INDEX_CHECK sparknacl-sign.adb:311:75 => 40.0 ms/60.0 ms
  `-CVC4: 40.0 ms (Valid)
  `-CVC4: 20.0 ms (Valid)
-`-VC_INDEX_CHECK sparknacl-sign.adb:311:75 => 40.0 ms/60.0 ms
+`-VC_RANGE_CHECK sparknacl-sign.adb:311:72 => 40.0 ms/60.0 ms
  `-CVC4: 40.0 ms (Valid)
  `-CVC4: 20.0 ms (Valid)
 `-VC_POSTCONDITION sparknacl-sign.adb:255:22 => 50.0 ms/50.0 ms
  `-CVC4: 50.0 ms (Valid)
+`-VC_INDEX_CHECK sparknacl-sign.adb:311:58 => 30.0 ms/50.0 ms
+ `-CVC4: 30.0 ms (Valid)
+ `-CVC4: 20.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-sign.adb:309:32 => 30.0 ms/50.0 ms
  `-CVC4: 30.0 ms (Valid)
  `-CVC4: 20.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-sign.adb:311:24 => 30.0 ms/50.0 ms
  `-CVC4: 30.0 ms (Valid)
  `-CVC4: 20.0 ms (Valid)
-`-VC_INDEX_CHECK sparknacl-sign.adb:311:58 => 30.0 ms/50.0 ms
- `-CVC4: 30.0 ms (Valid)
- `-CVC4: 20.0 ms (Valid)
-`-VC_RANGE_CHECK sparknacl-sign.adb:257:66 => 40.0 ms/40.0 ms
- `-CVC4: 40.0 ms (Valid)
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:311:16 => 40.0 ms/40.0 ms
+ `-CVC4: 40.0 ms (Valid)
+`-VC_RANGE_CHECK sparknacl-sign.adb:257:66 => 40.0 ms/40.0 ms
  `-CVC4: 40.0 ms (Valid)
 `-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:311:16 => 30.0 ms/30.0 ms
  `-CVC4: 30.0 ms (Valid)
@@ -2157,13 +2157,13 @@ SPARKNaCl.Sign.Open                                       => 160.0 ms/1.5 s
  `-CVC4: 130.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-sign.adb:1027:7 => 120.0 ms/120.0 ms
  `-CVC4: 120.0 ms (Valid)
-`-VC_RANGE_CHECK sparknacl-sign.adb:1025:34 => 110.0 ms/110.0 ms
- `-CVC4: 110.0 ms (Valid)
 `-VC_OVERFLOW_CHECK sparknacl-sign.adb:1027:18 => 110.0 ms/110.0 ms
  `-CVC4: 110.0 ms (Valid)
-`-VC_RANGE_CHECK sparknacl-sign.adb:1027:26 => 110.0 ms/110.0 ms
- `-CVC4: 110.0 ms (Valid)
 `-VC_OVERFLOW_CHECK sparknacl-sign.adb:1027:39 => 110.0 ms/110.0 ms
+ `-CVC4: 110.0 ms (Valid)
+`-VC_RANGE_CHECK sparknacl-sign.adb:1025:34 => 110.0 ms/110.0 ms
+ `-CVC4: 110.0 ms (Valid)
+`-VC_RANGE_CHECK sparknacl-sign.adb:1027:26 => 110.0 ms/110.0 ms
  `-CVC4: 110.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-sign.adb:1011:24 => 100.0 ms/100.0 ms
  `-CVC4: 100.0 ms (Valid)
@@ -2173,9 +2173,9 @@ SPARKNaCl.Sign.Open                                       => 160.0 ms/1.5 s
  `-CVC4: 90.0 ms (Valid)
 `-VC_LENGTH_CHECK sparknacl-sign.adb:995:12 => 60.0 ms/60.0 ms
  `-CVC4: 60.0 ms (Valid)
-`-VC_PRECONDITION sparknacl-sign.adb:1016:14 => 60.0 ms/60.0 ms
- `-CVC4: 60.0 ms (Valid)
 `-VC_LENGTH_CHECK sparknacl-sign.adb:1027:23 => 60.0 ms/60.0 ms
+ `-CVC4: 60.0 ms (Valid)
+`-VC_PRECONDITION sparknacl-sign.adb:1016:14 => 60.0 ms/60.0 ms
  `-CVC4: 60.0 ms (Valid)
 SPARKNaCl.Sign.PK_From_Bytes                              => 0.0 s/0.0 s
 SPARKNaCl.Sign.Pack                                       => 0.0 s/0.0 s
@@ -2324,9 +2324,9 @@ SPARKNaCl.Sign.Sign                                       => 57.6 s/489.2 s
  `-CVC4: 290.0 ms (Valid)
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:875:13 => 280.0 ms/280.0 ms
  `-CVC4: 280.0 ms (Valid)
-`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:931:13 => 270.0 ms/270.0 ms
- `-CVC4: 270.0 ms (Valid)
 `-VC_ASSERT sparknacl-sign.adb:972:10 => 270.0 ms/270.0 ms
+ `-CVC4: 270.0 ms (Valid)
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:931:13 => 270.0 ms/270.0 ms
  `-CVC4: 270.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-sign.adb:875:22 => 200.0 ms/270.0 ms
  `-CVC4: 200.0 ms (Valid)
@@ -2349,11 +2349,11 @@ SPARKNaCl.Sign.Sign                                       => 57.6 s/489.2 s
  `-CVC4: 120.0 ms (Valid)
 `-VC_OVERFLOW_CHECK sparknacl-sign.ads:60:38 => 100.0 ms/100.0 ms
  `-CVC4: 100.0 ms (Valid)
+`-VC_PRECONDITION sparknacl-sign.adb:974:24 => 70.0 ms/70.0 ms
+ `-CVC4: 70.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-sign.adb:861:27 => 70.0 ms/70.0 ms
  `-CVC4: 70.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-sign.adb:867:24 => 70.0 ms/70.0 ms
- `-CVC4: 70.0 ms (Valid)
-`-VC_PRECONDITION sparknacl-sign.adb:974:24 => 70.0 ms/70.0 ms
  `-CVC4: 70.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-sign.adb:856:24 => 60.0 ms/60.0 ms
  `-CVC4: 60.0 ms (Valid)
@@ -2371,16 +2371,16 @@ SPARKNaCl.Sign.Unpackneg.Pow_2523                         => 0.0 s/0.0 s
 SPARKNaCl.Square                                          => 0.0 s/0.0 s
 SPARKNaCl.Stream                                          => 0.0 s/0.0 s
 SPARKNaCl.Stream.HSalsa20                                 => 40.0 ms/110.0 ms
-`-VC_RANGE_CHECK sparknacl-stream.adb:155:35 => 40.0 ms/40.0 ms
- `-CVC4: 40.0 ms (Valid)
 `-VC_PRECONDITION sparknacl-stream.adb:156:7 => 40.0 ms/40.0 ms
+ `-CVC4: 40.0 ms (Valid)
+`-VC_RANGE_CHECK sparknacl-stream.adb:155:35 => 40.0 ms/40.0 ms
  `-CVC4: 40.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-stream.adb:156:34 => 30.0 ms/30.0 ms
  `-CVC4: 30.0 ms (Valid)
 SPARKNaCl.Stream.HSalsa20_Xor                             => 30.0 ms/90.0 ms
-`-VC_RANGE_CHECK sparknacl-stream.adb:169:35 => 30.0 ms/30.0 ms
- `-CVC4: 30.0 ms (Valid)
 `-VC_PRECONDITION sparknacl-stream.adb:170:7 => 30.0 ms/30.0 ms
+ `-CVC4: 30.0 ms (Valid)
+`-VC_RANGE_CHECK sparknacl-stream.adb:169:35 => 30.0 ms/30.0 ms
  `-CVC4: 30.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-stream.adb:173:50 => 30.0 ms/30.0 ms
  `-CVC4: 30.0 ms (Valid)
@@ -2501,19 +2501,19 @@ SPARKNaCl.Stream.Salsa20_Xor_Local                        => 210.0 ms/9.9 s
  `-CVC4: 130.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-stream.adb:81:20 => 130.0 ms/130.0 ms
  `-CVC4: 130.0 ms (Valid)
+`-VC_OVERFLOW_CHECK sparknacl-stream.adb:87:30 => 120.0 ms/120.0 ms
+ `-CVC4: 120.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-stream.adb:51:17 => 120.0 ms/120.0 ms
  `-CVC4: 120.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-stream.adb:77:33 => 120.0 ms/120.0 ms
  `-CVC4: 120.0 ms (Valid)
-`-VC_OVERFLOW_CHECK sparknacl-stream.adb:87:30 => 120.0 ms/120.0 ms
- `-CVC4: 120.0 ms (Valid)
-`-VC_RANGE_CHECK sparknacl-stream.adb:33:49 => 110.0 ms/110.0 ms
- `-CVC4: 110.0 ms (Valid)
 `-VC_OVERFLOW_CHECK sparknacl-stream.adb:34:64 => 110.0 ms/110.0 ms
  `-CVC4: 110.0 ms (Valid)
-`-VC_RANGE_CHECK sparknacl-stream.adb:34:15 => 100.0 ms/100.0 ms
- `-CVC4: 100.0 ms (Valid)
+`-VC_RANGE_CHECK sparknacl-stream.adb:33:49 => 110.0 ms/110.0 ms
+ `-CVC4: 110.0 ms (Valid)
 `-VC_LOOP_INVARIANT_INIT sparknacl-stream.adb:58:16 => 100.0 ms/100.0 ms
+ `-CVC4: 100.0 ms (Valid)
+`-VC_RANGE_CHECK sparknacl-stream.adb:34:15 => 100.0 ms/100.0 ms
  `-CVC4: 100.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-stream.adb:108:14 => 80.0 ms/80.0 ms
  `-CVC4: 80.0 ms (Valid)
@@ -2589,9 +2589,9 @@ SPARKNaCl.Utils.Pack_25519                                => 150.0 ms/870.0 ms
  `-CVC4: 120.0 ms (Valid)
 `-VC_PRECONDITION sparknacl-utils.adb:184:7 => 70.0 ms/70.0 ms
  `-CVC4: 70.0 ms (Valid)
-`-VC_PREDICATE_CHECK sparknacl-utils.adb:184:19 => 60.0 ms/60.0 ms
- `-CVC4: 60.0 ms (Valid)
 `-VC_PRECONDITION sparknacl-utils.adb:185:7 => 60.0 ms/60.0 ms
+ `-CVC4: 60.0 ms (Valid)
+`-VC_PREDICATE_CHECK sparknacl-utils.adb:184:19 => 60.0 ms/60.0 ms
  `-CVC4: 60.0 ms (Valid)
 SPARKNaCl.Utils.Pack_25519.Subtract_P                     => 180.0 ms/1.8 s
 `-VC_POSTCONDITION sparknacl-utils.adb:91:24 => 180.0 ms/300.0 ms
@@ -2646,9 +2646,9 @@ SPARKNaCl.Utils.Unpack_25519                              => 110.0 ms/1.0 s
 `-VC_INDEX_CHECK sparknacl-utils.adb:214:48 => 60.0 ms/110.0 ms
  `-CVC4: 60.0 ms (Valid)
  `-CVC4: 50.0 ms (Valid)
-`-VC_LOOP_INVARIANT_PRESERV sparknacl-utils.adb:213:16 => 90.0 ms/90.0 ms
- `-CVC4: 90.0 ms (Valid)
 `-VC_INITIALIZATION_CHECK sparknacl-utils.adb:218:14 => 90.0 ms/90.0 ms
+ `-CVC4: 90.0 ms (Valid)
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-utils.adb:213:16 => 90.0 ms/90.0 ms
  `-CVC4: 90.0 ms (Valid)
 `-VC_RANGE_CHECK sparknacl-utils.adb:213:24 => 60.0 ms/90.0 ms
  `-CVC4: 60.0 ms (Valid)
