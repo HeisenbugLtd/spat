@@ -21,6 +21,28 @@ package body SPAT.Proof_Item is
      Checks_Lists.Generic_Sorting ("<" => Proof_Attempt.List."<");
 
    ---------------------------------------------------------------------------
+   --  "<"
+   ---------------------------------------------------------------------------
+   overriding
+   function "<" (Left  : in T;
+                 Right : in T) return Boolean is
+   begin
+      --  First by total time.
+      if Left.Total_Time /= Right.Total_Time then
+         return Left.Total_Time > Right.Total_Time;
+      end if;
+
+      --  Total time does not differ, try max time.
+      if Left.Max_Time /= Right.Max_Time then
+         return Left.Max_Time > Right.Max_Time;
+      end if;
+
+      --  Max time didn't differ either, so do it by name.
+      return Entity_Location."<" (Left  => Entity_Location.T (Left),
+                                  Right => Entity_Location.T (Right));
+   end "<";
+
+   ---------------------------------------------------------------------------
    --  Add_To_Tree
    ---------------------------------------------------------------------------
    procedure Add_To_Tree (Object  : in     JSON_Value;

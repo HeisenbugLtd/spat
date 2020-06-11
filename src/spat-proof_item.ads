@@ -54,6 +54,15 @@ package SPAT.Proof_Item is
                                  Version => GNAT_CE_2019);
 
    ---------------------------------------------------------------------------
+   --  "<"
+   --
+   --  Comparison operator for proof items.
+   ---------------------------------------------------------------------------
+   overriding
+   function "<" (Left  : in Proof_Item.T;
+                 Right : in Proof_Item.T) return Boolean;
+
+   ---------------------------------------------------------------------------
    --  Add_To_Tree
    ---------------------------------------------------------------------------
    procedure Add_To_Tree (Object  : in     JSON_Value;
@@ -62,13 +71,6 @@ package SPAT.Proof_Item is
                           Parent  : in     Entity.Tree.Cursor) with
      Pre => Has_Required_Fields (Object  => Object,
                                  Version => Version);
-
-   ---------------------------------------------------------------------------
-   --  Slower_Than
-   ---------------------------------------------------------------------------
-   not overriding
-   function Slower_Than (Left  : in T;
-                         Right : in T) return Boolean;
 
    ---------------------------------------------------------------------------
    --  Has_Failed_Attempts
@@ -117,10 +119,9 @@ package SPAT.Proof_Item is
    ---------------------------------------------------------------------------
    function Before (Left  : in Entity.T'Class;
                     Right : in Entity.T'Class) return Boolean is
-     (Proof_Item.T (Left).Total_Time > Proof_Item.T (Right).Total_Time);
+     (Proof_Item.T (Left) < Proof_Item.T (Right));
 
-   package By_Duration is new
-     Entity.Tree.Generic_Sorting (Before => Before);
+   package By_Duration is new Entity.Tree.Generic_Sorting (Before => Before);
 
    ---------------------------------------------------------------------------
    --  Sort_By_Duration
@@ -227,14 +228,6 @@ private
    not overriding
    function Rule (This : in T) return Subject_Name is
      (This.Rule);
-
-   ---------------------------------------------------------------------------
-   --  Slower_Than
-   ---------------------------------------------------------------------------
-   not overriding
-   function Slower_Than (Left  : in T;
-                         Right : in T) return Boolean is
-     (Left.Total_Time > Right.Total_Time);
 
    ---------------------------------------------------------------------------
    --  Suppressed
