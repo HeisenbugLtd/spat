@@ -927,9 +927,37 @@ package body SPAT.Spark_Info is
       --  "<"
       ------------------------------------------------------------------------
       function "<" (Left  : in Subject_Name;
-                    Right : in Subject_Name) return Boolean is
-        ((This.Proof_Time (File => Left) + This.Flow_Time (File => Left)) >
-         (This.Proof_Time (File => Right) + This.Flow_Time (File => Right)));
+                    Right : in Subject_Name) return Boolean;
+
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in Subject_Name;
+                    Right : in Subject_Name) return Boolean
+      is
+         Left_Proof  : constant Duration := This.Proof_Time (File => Left);
+         Right_Proof : constant Duration := This.Proof_Time (File => Right);
+         Left_Flow   : constant Duration := This.Flow_Time (File => Left);
+         Right_Flow  : constant Duration := This.Flow_Time (File => Right);
+         Left_Total  : constant Duration := Left_Proof + Left_Flow;
+         Right_Total : constant Duration := Right_Proof + Right_Flow;
+      begin
+         --  First by total time.
+         if Left_Total /= Right_Total then
+            return Left_Total > Right_Total;
+         end if;
+
+         --  If totals differ, prioritize proof time.
+         if Left_Proof /= Right_Proof then
+            return Left_Proof > Right_Proof;
+         end if;
+
+         --  Total and proof times were equal, so flow times must be equal, too.
+         pragma Assert (Left_Flow = Right_Flow);
+
+         --  Last resort, sort by name.
+         return Left < Right;
+      end "<";
 
       package Sorting is new
         Strings.Implementation.Vectors.Generic_Sorting ("<" => "<");
