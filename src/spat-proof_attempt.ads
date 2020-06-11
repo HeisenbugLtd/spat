@@ -57,11 +57,13 @@ package SPAT.Proof_Attempt is
    --  Sorting instantiations.
 
    ---------------------------------------------------------------------------
-   --  Slower_Than
+   --  "<"
+   --
+   --  Comparison operator.
    ---------------------------------------------------------------------------
    not overriding
-   function Slower_Than (Left  : in T;
-                         Right : in T) return Boolean;
+   function "<" (Left  : in T;
+                 Right : in T) return Boolean;
 
    ---------------------------------------------------------------------------
    --  Prover
@@ -105,14 +107,6 @@ private
                                      Prover => To_Name ("Trivial"),
                                      Result => To_Name ("Valid"),
                                      Time   => 0.0);
-
-   ---------------------------------------------------------------------------
-   --  Slower_Than
-   ---------------------------------------------------------------------------
-   not overriding
-   function Slower_Than (Left  : in T;
-                         Right : in T) return Boolean is
-     (Left.Time > Right.Time);
 
    ---------------------------------------------------------------------------
    --  Prover

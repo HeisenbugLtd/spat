@@ -10,6 +10,25 @@ pragma License (Unrestricted);
 package body SPAT.Proof_Attempt is
 
    ---------------------------------------------------------------------------
+   --  "<"
+   ---------------------------------------------------------------------------
+   not overriding
+   function "<" (Left  : in T;
+                 Right : in T) return Boolean is
+   begin
+      --  Sort by time, result, and prover name.
+      if Left.Time /= Right.Time then
+         return Left.Time > Right.Time;
+      end if;
+
+      if Left.Result /= Right.Result then
+         return Left.Result < Right.Result;
+      end if;
+
+      return Left.Prover < Right.Prover;
+   end "<";
+
+   ---------------------------------------------------------------------------
    --  Create
    ---------------------------------------------------------------------------
    function Create (Object : JSON_Value;
