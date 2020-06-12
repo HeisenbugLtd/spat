@@ -5,19 +5,19 @@
 [![Build Linux](https://github.com/HeisenbugLtd/spat/workflows/Build%20Linux/badge.svg)](https://github.com/HeisenbugLtd/spat/actions?query=workflow%3A%22Build+Linux%22)
 
 ## Content
-* ### [Introduction](README.md#introduction)
-* ### [Motivation](README.md#motivation)
-* ### [Compiling the Tool](README.md#compiling-the-tool)
-  * #### [Requirements](README.md#requirements)
-  * #### [Step by Step Instructions](README.md#step-by-step-instructions)
-* ### [Invoking the Tool](README.md#invoking-the-tool)
-  * #### [Command Line](README.md#command-line)
-  * #### [The `--summary` option](README.md#the---summary-option)
-  * #### [The `--report-mode` option](README.md#the---report-mode-option)
-  * #### [The `--details` option](README.md#the---details-option)
-  * #### [The `--verbose` option](README.md#the---verbose-option)
-  * #### [The `--version` option](README.md#the---version-option)
-* ### [Tool Limitations](README.md#tool-limitations)
+* ### 1. [Introduction](README.md#introduction)
+* ### 2. [Motivation](README.md#motivation)
+* ### 3. [Compiling the Tool](README.md#compiling-the-tool)
+  * #### 3.1 [Requirements](README.md#requirements)
+  * #### 3.2 [Step by Step Instructions](README.md#step-by-step-instructions)
+* ### 4. [Invoking the Tool](README.md#invoking-the-tool)
+  * #### 4.1 [Command Line](README.md#command-line)
+  * #### 4.2 [The `--summary` option](README.md#the---summary-option)
+  * #### 4.3 [The `--report-mode` option](README.md#the---report-mode-option)
+  * #### 4.4 [The `--details` option](README.md#the---details-option)
+  * #### 4.5 [The `--verbose` option](README.md#the---verbose-option)
+  * #### 4.6 [The `--version` option](README.md#the---version-option)
+* ### 5. [Tool Limitations](README.md#tool-limitations)
 
 ## Introduction
 
