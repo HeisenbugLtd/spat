@@ -46,7 +46,7 @@ package SPAT.Field_Names is
 
    --  GNAT_CE_2020
    GNAT_Why3_Prefixed : constant UTF8_String := "gnatwhy3.";
-   --  Not really a single field name, but a collection of subfields containing
+   --  Not really a single field name, but a collection of sub-fields containing
    --  timing information.
    Session_Map        : constant UTF8_String := "session_map";
 

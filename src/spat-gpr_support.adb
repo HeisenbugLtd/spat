@@ -179,7 +179,7 @@ package body SPAT.GPR_Support is
       Object_Directory : constant String :=
         +GNATCOLL.Projects.Object_Dir (Project => File_Info.Project).Full_Name.all;
    begin
-      --  .spark files seem to reside in the "gnatprove" subdirectory of the
+      --  .spark files seem to reside in the "gnatprove" sub-directory of the
       --  object directory defined by the project.  As files might come from
       --  different projects, we query the project associated to the file and
       --  then use this project's object directory instead of using the object

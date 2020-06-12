@@ -21,7 +21,7 @@ with System.Multiprocessors;
 package body SPAT.Spark_Files is
 
    ---------------------------------------------------------------------------
-   --  Parallization support.
+   --  Parallelization support.
    --
    --  Reading and parsing the JSON formatted .spark files can easily be
    --  parallelized, there is no dependency between them.
@@ -214,7 +214,7 @@ package body SPAT.Spark_Files is
                --
                --  TODO: Normally we shouldn't be too concerned about
                --        duplicates. This check is a leftover from the times
-               --        when we still got these values from the commandline
+               --        when we still got these values from the command-line
                --        which could have specified the same file more than
                --        once.
                Log.Warning
