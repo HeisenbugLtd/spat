@@ -49,8 +49,8 @@ package SPAT.Command_Line is
    ---------------------------------------------------------------------------
    function Convert (Value : in String) return SPAT.Spark_Info.Sorting_Criterion
    is
-     (if    Value in "=a" | "a" then SPAT.Spark_Info.Name
-      elsif Value in "=t" | "t" then SPAT.Spark_Info.Time
+     (if    Value = "a" then SPAT.Spark_Info.Name
+      elsif Value = "t" then SPAT.Spark_Info.Time
       else  (raise GNATCOLL.Opt_Parse.Opt_Parse_Error with
                  "unknown parameter """ & Value & """"));
 
@@ -58,10 +58,10 @@ package SPAT.Command_Line is
    --  Convert
    ---------------------------------------------------------------------------
    function Convert (Value : in String) return Report_Mode is
-     (if    Value in "=all"         | "a" then All_Proofs
-      elsif Value in "=failed"      | "f" then Failed
-      elsif Value in "=unproved"    | "u" then Unproved
-      elsif Value in "=unjustified" | "j" then Unjustified
+     (if    Value in "all"         | "a" then All_Proofs
+      elsif Value in "failed"      | "f" then Failed
+      elsif Value in "unproved"    | "u" then Unproved
+      elsif Value in "unjustified" | "j" then Unjustified
       else  (raise GNATCOLL.Opt_Parse.Opt_Parse_Error with
                  "unknown parameter """ & Value & """"));
 
