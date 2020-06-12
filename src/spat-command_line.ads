@@ -36,6 +36,11 @@ package SPAT.Command_Line is
    ---------------------------------------------------------------------------
    --  Convert
    ---------------------------------------------------------------------------
+   function Convert (Value : in String) return Duration;
+
+   ---------------------------------------------------------------------------
+   --  Convert
+   ---------------------------------------------------------------------------
    function Convert
      (Value : in String) return SPAT.Spark_Info.Sorting_Criterion;
 
@@ -87,32 +92,48 @@ package SPAT.Command_Line is
 
    --  Report mode.
    package Report is new
-     --  Any of the list modes.
+     --  Any of the report modes.
      GNATCOLL.Opt_Parse.Parse_Option
        (Parser      => Parser,
         Short       => "-r",
         Long        => "--report-mode",
-        Help        => "Report output (REPORT-MODE: a = all, f = failed, u = unproved, j = unjustified)",
+        Help        =>
+           "Output reporting mode (REPORT-MODE: a = all, f = failed, " &
+           "u = unproved, j = unjustified)",
         Arg_Type    => Report_Mode,
         Convert     => Convert,
         Default_Val => None);
 
-   --  Valid for summary and list mode.
+   --  Valid for summary and report mode.
    package Sort_By is new
      GNATCOLL.Opt_Parse.Parse_Option
        (Parser      => Parser,
         Short       => "-c",
         Long        => "--sort-by",
-        Help        => "Sort output (SORT-BY: a = alphabetical, t = by time)",
+        Help        =>
+           "Sorting criterion (SORT-BY: a = alphabetical, t = by time)",
         Arg_Type    => SPAT.Spark_Info.Sorting_Criterion,
         Convert     => Convert,
         Default_Val => SPAT.Spark_Info.None);
 
+   package Cut_Off is new
+     GNATCOLL.Opt_Parse.Parse_Option
+       (Parser      => Parser,
+        Short       => "-p",
+        Long        => "--cut-off",
+        Help        =>
+           "Cut off point. Do not show entities with proof times less than " &
+           "that.",
+        Arg_Type    => Duration,
+        Convert     => Convert,
+        Default_Val => 0.0);
+
    package Details is new
-     GNATCOLL.Opt_Parse.Parse_Flag (Parser   => Parser,
-                                    Short    => "-d",
-                                    Long     => "--details",
-                                    Help     => "Show details for entities (list mode)");
+     GNATCOLL.Opt_Parse.Parse_Flag
+       (Parser   => Parser,
+        Short    => "-d",
+        Long     => "--details",
+        Help     => "Show details for entities (report mode)");
 
    package Version is new
      GNATCOLL.Opt_Parse.Parse_Flag

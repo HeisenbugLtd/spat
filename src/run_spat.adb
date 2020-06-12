@@ -106,6 +106,10 @@ begin
       return;
    end if;
 
+   SPAT.Log.Debug
+     (Message =>
+        "Cut off point set to " & Image (SPAT.Command_Line.Cut_Off.Get) & ".");
+
    Do_Run_SPAT :
    declare
       SPARK_Files  : SPAT.Spark_Files.T;
