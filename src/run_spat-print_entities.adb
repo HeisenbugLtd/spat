@@ -29,7 +29,8 @@ separate (Run_SPAT)
 --  Print_Entities
 ------------------------------------------------------------------------------
 procedure Print_Entities (Info    : in SPAT.Spark_Info.T;
-                          Sort_By : in SPAT.Spark_Info.Sorting_Criterion)
+                          Sort_By : in SPAT.Spark_Info.Sorting_Criterion;
+                          Cut_Off : in Duration)
 is
    Entities : constant SPAT.Strings.Entity_Names :=
      Info.List_All_Entities (Sort_By => Sort_By);
@@ -40,10 +41,13 @@ is
    Second_Column : constant Ada.Text_IO.Count := Entities.Max_Length + 2;
    Mode          : constant SPAT.Command_Line.Report_Mode :=
      SPAT.Command_Line.Report.Get;
+   Count_Omitted : Natural := 0;
    use all type SPAT.Command_Line.Report_Mode;
 begin
    for Entity of Entities loop
-      if
+      if Info.Max_Proof_Time (Entity => Entity) < Cut_Off then
+         Count_Omitted := Count_Omitted + 1;
+      elsif
         (case Mode is
             when None        => False,
             when All_Proofs  => True,
@@ -143,4 +147,11 @@ begin
          end if;
       end if;
    end loop;
+
+   if SPAT.Log.Debug_Enabled then
+      SPAT.Log.Debug
+        (Message =>
+           "Omitted results below cut-off point (" & Image (Cut_Off) & "):" &
+           Count_Omitted'Image & ".");
+   end if;
 end Print_Entities;
