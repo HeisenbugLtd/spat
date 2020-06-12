@@ -122,8 +122,8 @@ package SPAT.Command_Line is
         Short       => "-p",
         Long        => "--cut-off",
         Help        =>
-           "Cut off point. Do not show entities with proof times less than " &
-           "that.",
+           "Cut off point, do not show entities with proof times less than " &
+           "that (CUT-OFF: <numeral>[s|ms])",
         Arg_Type    => Duration,
         Convert     => Convert,
         Default_Val => 0.0);
