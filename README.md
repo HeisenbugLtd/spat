@@ -4,6 +4,21 @@
 
 [![Build Linux](https://github.com/HeisenbugLtd/spat/workflows/Build%20Linux/badge.svg)](https://github.com/HeisenbugLtd/spat/actions?query=workflow%3A%22Build+Linux%22)
 
+## Content
+* ### [Introduction](README.md#introduction)
+* ### [Motivation](README.md#motivation)
+* ### [Compiling the Tool](README.md#compiling-the-tool)
+  * #### [Requirements](README.md#requirements)
+  * #### [Step by Step Instructions](README.md#step-by-step-instructions)
+* ### [Invoking the Tool](README.md#invoking-the-tool)
+  * #### [Command Line](README.md#command-line)
+  * #### [The `--summary` option](README.md#the---summary-option)
+  * #### [The `--report-mode` option](README.md#the---report-mode-option)
+  * #### [The `--details` option](README.md#the---details-option)
+  * #### [The `--verbose` option](README.md#the---verbose-option)
+  * #### [The `--version` option](README.md#the---version-option)
+* ### [Tool Limitations](README.md#tool-limitations)
+
 ## Introduction
 
 The SPARK tools (i.e. GNATprove) leave behind a trove of information after a
@@ -155,7 +170,7 @@ kind of different options, you can take a peek at the repository's
 [test directory](https://github.com/HeisenbugLtd/spat/tree/master/test) where I
 am storing templates for regression testing.
 
-### The `--report-mode=all` option
+#### The `--report-mode=all` option
 
 This reports all entities the tool found in the `.spark` files.
 
@@ -256,7 +271,7 @@ Here, we can see that out of the five entities listed by the previous tool
 invocation with `--report-mode=unproved` only two entities are left which have
 unproven VCs with no justification message.
 
-#### The `--details` option
+### The `--details` option
 
 When invoked together with one of the `--report-mode` options, it will show all
 the individual proof attempts/paths for an entity.
@@ -333,13 +348,30 @@ Justified with: "From definition of arithmetic shift right".
 As above, but here you can see the individual proof results including any
 justification messages (if present).
 
-#### The `--verbose` option
+### The `--verbose` option
 
 This option is mainly used for debugging, it enables extra output about what
 `run_spat` is doing (i.e. files found in the given project file, parse results
 and some timings).
 
-#### The `--version` option
+### The `--version` option
 
 Show version and compiler information for the executable.  If that option is
 encountered, no other options take effect and the program immediately exits.
+
+## Tool Limitations
+
+* `spat` only reports accurate timings if it is used after a
+  [pristine run of](https://github.com/HeisenbugLtd/spat/issues/22#issue-637738483)
+  `gnatprove`.
+
+  That means, let's say you have a failed proof, you change the code, and run
+  `gnatprove` again, all times reported for unchanged entitites will be `0.0 s`.
+
+  *This can be used as an advantage though:* Let's assume you are trying to
+  improve the proof time for a certain proof, so you change the code (like
+  adding helping assertion or restructure the logic) and then run `gnatprove`
+  again. If you now run `spat` again all unchanged proofs will be reported as
+  having a time of 0.0 s, but the verification conditions that had to be
+  re-verified will show the time spent proofing them. Which, in the case of
+  trying to optimize proof times is exactly what you want.
