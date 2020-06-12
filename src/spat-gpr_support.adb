@@ -19,6 +19,13 @@ with SPAT.Log;
 package body SPAT.GPR_Support is
 
    ---------------------------------------------------------------------------
+   --  Add_File
+   ---------------------------------------------------------------------------
+   procedure Add_File (Name  : in     String;
+                       Cache : in out Strings.File_Names;
+                       To    : in out Strings.File_Names);
+
+   ---------------------------------------------------------------------------
    --  Image
    ---------------------------------------------------------------------------
    function Image is new
@@ -34,129 +41,128 @@ package body SPAT.GPR_Support is
       Source_File  : in GNATCOLL.VFS.Virtual_File) return String;
 
    ---------------------------------------------------------------------------
+   --  Add_File
+   ---------------------------------------------------------------------------
+   procedure Add_File (Name  : in     String;
+                       Cache : in out Strings.File_Names;
+                       To    : in out Strings.File_Names) is
+      As_File_Name : constant File_Name := File_Name (To_Name (Source => Name));
+      Simple_Name  : constant String :=
+        Ada.Directories.Simple_Name (Name => Name);
+   begin
+      --  Prevent adding the same file twice. The caller retrieves all files
+      --  from the project, hence in most cases we will encounter both a spec
+      --  and a body file which will still result in the same .spark file.
+      if not Cache.Contains (Item => As_File_Name) then
+         Cache.Append (New_Item => As_File_Name);
+
+         --  This was a new file, so if it exists on disk, add it to the result
+         --  list.
+         if Ada.Directories.Exists (Name => Name) then
+            To.Append (New_Item => As_File_Name);
+            Log.Debug (Message => """" & Simple_Name & """ added to index.");
+         else
+            Log.Debug
+              (Message => """" & Simple_Name & "not found on disk, skipped.");
+         end if;
+      else
+         Log.Debug (Message => """" & Simple_Name & """ already in index.");
+      end if;
+   end Add_File;
+
+   ---------------------------------------------------------------------------
    --  Get_SPARK_Files
    ---------------------------------------------------------------------------
    function Get_SPARK_Files
      (GPR_File : GNATCOLL.VFS.Filesystem_String) return Strings.File_Names
    is
       Start_Time  : Ada.Real_Time.Time;
-      use type Ada.Real_Time.Time;
-   begin
-      Load_Project_Files :
-      declare
-         Project_Tree : GNATCOLL.Projects.Project_Tree;
-      begin
-         Start_Time := Ada.Real_Time.Clock;
 
-         --  Load project tree from command line argument.
-         --  An exception Invalid_Projects may be raised by this call, this is
-         --  handled below.
+      ------------------------------------------------------------------------
+      --  Elapsed_Time
+      ------------------------------------------------------------------------
+      function Elapsed_Time return String;
+
+      ------------------------------------------------------------------------
+      --  Elapsed_Time
+      ------------------------------------------------------------------------
+      function Elapsed_Time return String is
+         use type Ada.Real_Time.Time;
+         Elapsed : constant Duration :=
+           Ada.Real_Time.To_Duration (TS => Ada.Real_Time.Clock - Start_Time);
+      begin
+         return Image (Value => Elapsed);
+      end Elapsed_Time;
+
+      Project_Tree : GNATCOLL.Projects.Project_Tree;
+   begin
+      Load_Project :
+      begin
+         Start_Time := Ada.Real_Time.Clock; --  Reset measurement.
+
          Project_Tree.Load
            (Root_Project_Path =>
               GNATCOLL.VFS.Create (Full_Filename => GPR_File));
 
-         Log.Debug
-           (Message =>
-              "GNAT project loaded in " &
-              Image (Value =>
-                       Ada.Real_Time.To_Duration
-                         (TS => Ada.Real_Time.Clock - Start_Time)) &
-              ".");
-
-         Start_Time := Ada.Real_Time.Clock;
-
-         declare
-            --  Retrieve all project files recursively.
-            Project_Files : GNATCOLL.VFS.File_Array_Access :=
-              Project_Tree.Root_Project.Source_Files (Recursive => True);
-            Capacity : constant Ada.Containers.Count_Type :=
-              Project_Files.all'Length;
-            Raw_List    : Strings.File_Names (Capacity => Capacity); --  Stores candidate .spark files.
-            Result_List : Strings.File_Names (Capacity => Capacity); --  Filtered list of files.
-         begin
-            Load_Source_Files :
-            begin
-               for F of Project_Files.all loop
-                  --  TODO: We should probably check the language of the file
-                  --        here, if it's not Ada, we can likely skip it.
-                  Add_SPARK_File :
-                  declare
-                     --  Translate source file name into it's .spark
-                     --  counterpart.
-                     SPARK_Name : constant String :=
-                       GPR_Support.SPARK_Name (Project_Tree => Project_Tree,
-                                               Source_File  => F);
-                  begin
-                     Log.Debug
-                       (Message  =>
-                          "Found """ & F.Display_Base_Name &
-                          """, checking for """ & SPARK_Name & """...",
-                        New_Line => False);
-
-                     declare
-                        File_Name : constant SPAT.File_Name :=
-                          SPAT.File_Name (SPAT.To_Name (SPARK_Name));
-                     begin
-                        --  Prevent adding the same file twice. Above we
-                        --  retrieve all files from the project, hence in most
-                        --  cases we will encounter both a spec and a body file
-                        --  which will still result in the same .spark file.
-                        if not Raw_List.Contains (Item => File_Name) then
-                           Raw_List.Append (New_Item => File_Name);
-
-                           --  This was a new file, so if it exists on disk, add
-                           --  it to the result list.
-                           if Ada.Directories.Exists (Name => SPARK_Name) then
-                              Result_List.Append (New_Item => File_Name);
-
-                              Log.Debug (Message => "added to index.");
-                           else
-                              Log.Debug
-                                (Message => "not found on disk, skipped.");
-                           end if;
-                        else
-                           Log.Debug (Message => "already in index.");
-                        end if;
-                     end;
-                  end Add_SPARK_File;
-               end loop;
-
-               GNATCOLL.VFS.Unchecked_Free (Arr => Project_Files);
-            end Load_Source_Files;
-
-            Project_Tree.Unload;
-
-            Report_Timing :
-            declare
-               Num_Files : constant Ada.Containers.Count_Type :=
-                 Result_List.Length;
-               use type Ada.Containers.Count_Type;
-            begin
-               Log.Debug
-                 (Message =>
-                    "Search completed in " &
-                    Image
-                      (Value =>
-                         Ada.Real_Time.To_Duration
-                           (TS => Ada.Real_Time.Clock - Start_Time)) &
-                    "," & Num_Files'Image & " file" &
-                  (if Num_Files /= 1
-                     then "s"
-                     else "") & " found so far.");
-            end Report_Timing;
-            return Result_List;
-         end;
+         Log.Debug (Message => "GNAT project loaded in " & Elapsed_Time & ".");
       exception
          when GNATCOLL.Projects.Invalid_Project =>
             Log.Error
               (Message =>
                   "Could not load """ & GNATCOLL.VFS."+" (GPR_File) & """!");
-      end Load_Project_Files;
+            return Strings.Empty_Files;
+      end Load_Project;
 
-      --  If we come here, we had an error.
-      return Result : Strings.File_Names (Capacity => 0) do
-         null;
-      end return;
+      Start_Time := Ada.Real_Time.Clock;
+
+      Load_Source_Files :
+      declare
+         --  Retrieve all project files recursively.
+         Project_Files : GNATCOLL.VFS.File_Array_Access :=
+           Project_Tree.Root_Project.Source_Files (Recursive => True);
+
+         --  Get maximum number of entries we may encounter.
+         Capacity : constant Ada.Containers.Count_Type :=
+           Project_Files.all'Length;
+
+         --  Initialize the lists.
+         Raw_List    : Strings.File_Names (Capacity => Capacity);
+         --  Stores all encountered files.
+         Result_List : Strings.File_Names (Capacity => Capacity);
+         --  Stores only files that exist on disk.
+      begin
+         for F of Project_Files.all loop
+            --  TODO: We should probably check the language of the file here, if
+            --        it's not Ada, we can likely skip it.
+            Log.Debug
+              (Message  => "Found """ & F.Display_Base_Name & """...",
+               New_Line => False);
+
+            Add_File (Name  => SPARK_Name (Project_Tree => Project_Tree,
+                                           Source_File  => F),
+                      Cache => Raw_List,
+                      To    => Result_List);
+         end loop;
+
+         --  Cleanup.
+         GNATCOLL.VFS.Unchecked_Free (Arr => Project_Files);
+         Project_Tree.Unload;
+
+         Report_Timing :
+         declare
+            Num_Files : constant Ada.Containers.Count_Type :=
+              Result_List.Length;
+            use type Ada.Containers.Count_Type;
+         begin
+            Log.Debug
+              (Message =>
+                 "Search completed in " & Elapsed_Time &
+                 "," & Num_Files'Image & " file" &
+               (if Num_Files /= 1 then "s" else "") & " found.");
+         end Report_Timing;
+
+         return Result_List;
+      end Load_Source_Files;
    end Get_SPARK_Files;
 
    ---------------------------------------------------------------------------
