@@ -30,6 +30,9 @@ run_check () {
 
 RESULT=0
 
+# Recompile to be sure we test the latest version.
+gprbuild -P ../spat.gpr
+
 run_check "test-saatana" "saatana.gpr"
 run_check "test-sparknacl" "src/sparknacl.gpr"
 
