@@ -34,6 +34,8 @@ package SPAT.String_Vectors is
 
    type List is new Base_Vectors.Vector with private;
 
+   Empty : constant List;
+
    ---------------------------------------------------------------------
    --  Max_Length
    --
@@ -45,5 +47,7 @@ package SPAT.String_Vectors is
 private
 
    type List is new Base_Vectors.Vector with null record;
+
+   Empty : constant List := (Base_Vectors.Empty_Vector with null record);
 
 end SPAT.String_Vectors;

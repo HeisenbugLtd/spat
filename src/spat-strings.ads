@@ -11,7 +11,7 @@ pragma License (Unrestricted);
 --
 --  SPARK Proof Analysis Tool
 --
---  S.P.A.T. - String list and table support (for output formatting).
+--  S.P.A.T. - Bounded string list and table support (for output formatting).
 --
 ------------------------------------------------------------------------------
 
@@ -20,6 +20,9 @@ with SPAT.String_Vectors;
 package SPAT.Strings is
 
    package Implementation is
+
+      --  Provide instantiations of the bounded vectors for our different string
+      --  types.
 
       package Subjects is new String_Vectors (Element_Type => Subject_Name,
                                               "="    => "=",
@@ -40,10 +43,23 @@ package SPAT.Strings is
    type Entity_Names  is new Implementation.Entities.List   with private;
    type File_Names    is new Implementation.File_Names.List with private;
 
+   Empty_Subjects : constant Subject_Names;
+   Empty_Names    : constant Entity_Names;
+   Empty_Files    : constant File_Names;
+
 private
 
    type Subject_Names is new Implementation.Subjects.List   with null record;
    type Entity_Names  is new Implementation.Entities.List   with null record;
    type File_Names    is new Implementation.File_Names.List with null record;
+
+   Empty_Subjects : constant Subject_Names :=
+     (Implementation.Subjects.Empty with null record);
+
+   Empty_Names    : constant Entity_Names :=
+     (Implementation.Entities.Empty with null record);
+
+   Empty_Files    : constant File_Names :=
+     (Implementation.File_Names.Empty with null record);
 
 end SPAT.Strings;
