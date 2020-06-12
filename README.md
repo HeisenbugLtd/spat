@@ -15,7 +15,7 @@
   * #### 4.2 [The `--summary` option](README.md#the---summary-option)
   * #### 4.3 [The `--report-mode` option](README.md#the---report-mode-option)
   * #### 4.4 [The `--details` option](README.md#the---details-option)
-  * #### 4.5 [The `--cut-off` option](README.md#the--cut-off-option)
+  * #### 4.5 [The `--cut-off` option](README.md#the---cut-off-option)
   * #### 4.6 [The `--verbose` option](README.md#the---verbose-option)
   * #### 4.7 [The `--version` option](README.md#the---version-option)
 * ### 5. [Tool Limitations](README.md#tool-limitations)
