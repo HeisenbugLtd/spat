@@ -19,7 +19,7 @@ package body SPAT.Command_Line is
       pragma Assert (Value'Length > 0);
       --  We should not get called at all with an empty string.
 
-      --  We want to support specifications like "-co=1.2ms", or "20s", so to do
+      --  We want to support specifications like "1.2ms", or "20s", so to do
       --  that we first extract the first part of the string that seems to be
       --  some kind of a number (i.e. contains digits or dots). We do not
       --  include "-" as a valid character, because a negative cutoff point does
