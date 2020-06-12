@@ -41,12 +41,13 @@ is
    Second_Column : constant Ada.Text_IO.Count := Entities.Max_Length + 2;
    Mode          : constant SPAT.Command_Line.Report_Mode :=
      SPAT.Command_Line.Report.Get;
-   Count_Omitted : Natural := 0;
+   Omitted_Entities : Natural := 0;
+   Omitted_VCs      : Natural := 0;
    use all type SPAT.Command_Line.Report_Mode;
 begin
    for Entity of Entities loop
       if Info.Max_Proof_Time (Entity => Entity) < Cut_Off then
-         Count_Omitted := Count_Omitted + 1;
+         Omitted_Entities := Omitted_Entities + 1;
       elsif
         (case Mode is
             when None        => False,
@@ -73,7 +74,10 @@ begin
                     SPAT.Proof_Item.T'Class
                       (SPAT.Entity.Tree.Element (Position => PI_Position));
                begin
-                  if
+                  if The_Proof.Max_Time < Cut_Off then
+                     --  Below cut off point, don't show.
+                     Omitted_VCs := Omitted_VCs + 1;
+                  elsif
                     (case Mode is
                         when None        => False,
                         when All_Proofs  => True,
@@ -148,10 +152,14 @@ begin
       end if;
    end loop;
 
-   if SPAT.Log.Debug_Enabled then
+   if
+     SPAT.Log.Debug_Enabled and then
+     (Omitted_Entities /= 0 or Omitted_VCs /= 0)
+   then
       SPAT.Log.Debug
         (Message =>
            "Omitted results below cut-off point (" & Image (Cut_Off) & "):" &
-           Count_Omitted'Image & ".");
+           Omitted_Entities'Image & " entities, and" &
+           Omitted_VCs'Image & " VCs within the above results.");
    end if;
 end Print_Entities;
