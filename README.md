@@ -408,7 +408,7 @@ is different for the `--report-mode` and `--summary` output.
   reported for that file, and *not* for individual proof time like in the
   `--report-mode` option.  That is because the tool assumes that if you want to
   see the summary on a per file (i.e. Ada `package`) basis, you are more
-  interested in the total times spent for a file than a single proof.
+  interested in the total time spent for a file than a single proof.
 
 ### The `--verbose` option
 
