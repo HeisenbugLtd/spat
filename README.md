@@ -15,8 +15,9 @@
   * #### 4.2 [The `--summary` option](README.md#the---summary-option)
   * #### 4.3 [The `--report-mode` option](README.md#the---report-mode-option)
   * #### 4.4 [The `--details` option](README.md#the---details-option)
-  * #### 4.5 [The `--verbose` option](README.md#the---verbose-option)
-  * #### 4.6 [The `--version` option](README.md#the---version-option)
+  * #### 4.5 [The `--cut-off` option](README.md#the---cut-off-option)
+  * #### 4.6 [The `--verbose` option](README.md#the---verbose-option)
+  * #### 4.7 [The `--version` option](README.md#the---version-option)
 * ### 5. [Tool Limitations](README.md#tool-limitations)
 
 ## Introduction
@@ -99,22 +100,26 @@ Quick help:
 will give you a quick overview over the available command line options:
 
 ```
-usage: run_spat [--help|-h] [--project|-P PROJECT] [--summary|-s] 
-               [--report-mode|-r REPORT-MODE] [--sort-by|-c SORT-BY] 
-               [--details|-d] [--version|-V] [--verbose|-v] 
+usage: run_spat [--help|-h] [--project|-P PROJECT] [--summary|-s]
+               [--report-mode|-r REPORT-MODE] [--sort-by|-c SORT-BY]
+               [--cut-off|-p CUT-OFF] [--details|-d] [--version|-V]
+               [--verbose|-v]
 
 Parses .spark files and outputs information about them.
 
 positional arguments:
-   
+
 optional arguments:
    --help, -h            Show this help message
    --project, -P         PROJECT = GNAT project file (.gpr) (mandatory!)
    --summary, -s         List summary (per file)
-   --report-mode, -r     Report output (REPORT-MODE: a = all, f = failed, u = 
-                         unproved, j = unjustified)
-   --sort-by, -c         Sort output (SORT-BY: a = alphabetical, t = by time)
-   --details, -d         Show details for entities (list mode)
+   --report-mode, -r     Output reporting mode (REPORT-MODE: a = all, f =
+                         failed, u = unproved, j = unjustified)
+   --sort-by, -c         Sorting criterion (SORT-BY: a = alphabetical, t = by
+                         time)
+   --cut-off, -p         Cut off point, do not show entities with proof times
+                         less than that (CUT-OFF: <numeral>[s|ms])
+   --details, -d         Show details for entities (report mode)
    --version, -V         Show version information and exit
    --verbose, -v         Verbose (tracing) output
 ```
@@ -348,6 +353,63 @@ Justified with: "From definition of arithmetic shift right".
 As above, but here you can see the individual proof results including any
 justification messages (if present).
 
+### The `--cut-off` option
+
+This option allows you to prune the output from possibly irrelevant results.
+You can give it a time value (either in seconds, which is the default or in
+milliseconds which you can indicate by appending `ms` to the number). Rational
+numbers are supported.
+
+If you don't specify a cut off point, the default is `0.0`, in other words, no
+cut off.
+
+Please note that due to how `spat` works, the semantics of this cut off point
+is different for the `--report-mode` and `--summary` output.
+
+* For `--report-mode` the value applies to all entities and displayed
+  verification conditions (for `--details`).  Here the *maximum proof* time
+  (i.e. longest time for a single proof) is taken into account, not the
+  *total proof* time.  The rationale behind that is that if you want to
+  optimize proof times, you need to know which proofs take longest, not how
+  many proofs are for a single entity, so I am assuming you are not interested
+  in proofs that take less than the cut off point, even if thousands of them
+  would add up to a total time well beyond the cut-off point.
+
+  Example:
+
+  `run_spat -ra -ct -P saatana.gpr -p 400ms`
+
+  ```sh
+  Saatana.Crypto.Phelix.Setup_Key            => 206.4 s/219.2 s
+  Saatana.Crypto.Phelix.Encrypt_Bytes        => 174.3 s/189.0 s
+  Saatana.Crypto.Phelix.Decrypt_Bytes        => 4.0 s/18.6 s
+  Saatana.Crypto.Phelix.Finalize             => 2.2 s/7.7 s
+  Saatana.Crypto.Phelix.H                    => 6.0 s/6.0 s
+  ```
+  vs.
+  
+  `run_spat -ra -ct -P saatana.gpr -p 5000ms` (or `-p 5s`, or even `-p 5`)
+
+  ```sh
+  Saatana.Crypto.Phelix.Setup_Key            => 206.4 s/219.2 s
+  Saatana.Crypto.Phelix.Encrypt_Bytes        => 174.3 s/189.0 s
+  Saatana.Crypto.Phelix.H                    => 6.0 s/6.0 s
+  ```
+
+  Notice that omitted entries disappear from the middle of the list, because
+  the sorting criterion uses the *total time* spent, while the cut off point
+  uses the *maximum time*.
+
+  Note that this works the same way if the `--details` option is given.  All
+  verification conditions with a proof time below the cut off point will be
+  omitted from the report.
+
+* For the `--summary` option the value applies to the *total proof* time
+  reported for that file, and *not* for individual proof time like in the
+  `--report-mode` option.  That is because the tool assumes that if you want to
+  see the summary on a per file (i.e. Ada `package`) basis, you are more
+  interested in the total time spent for a file than a single proof.
+
 ### The `--verbose` option
 
 This option is mainly used for debugging, it enables extra output about what
@@ -366,7 +428,8 @@ encountered, no other options take effect and the program immediately exits.
   `gnatprove`.
 
   That means, let's say you have a failed proof, you change the code, and run
-  `gnatprove` again, all times reported for unchanged entitites will be `0.0 s`.
+  `gnatprove` again, all times reported for unchanged entitites will be
+  `0.0 s`.
 
   *This can be used as an advantage though:* Let's assume you are trying to
   improve the proof time for a certain proof, so you change the code (like

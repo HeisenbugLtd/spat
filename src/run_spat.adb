@@ -50,27 +50,29 @@ procedure Run_SPAT is
    --  Print_Entities
    ---------------------------------------------------------------------------
    procedure Print_Entities (Info    : in SPAT.Spark_Info.T;
-                             Sort_By : in SPAT.Spark_Info.Sorting_Criterion);
+                             Sort_By : in SPAT.Spark_Info.Sorting_Criterion;
+                             Cut_Off : in Duration);
 
    ---------------------------------------------------------------------------
    --  Print_Summary
    ---------------------------------------------------------------------------
    procedure Print_Summary (Info    : in SPAT.Spark_Info.T;
-                            Sort_By : in SPAT.Spark_Info.Sorting_Criterion);
+                            Sort_By : in SPAT.Spark_Info.Sorting_Criterion;
+                            Cut_Off : in Duration);
 
    ---------------------------------------------------------------------------
    --  Print_Entities
    ---------------------------------------------------------------------------
-   procedure Print_Entities
-     (Info    : in SPAT.Spark_Info.T;
-      Sort_By : in SPAT.Spark_Info.Sorting_Criterion) is separate;
+   procedure Print_Entities (Info    : in SPAT.Spark_Info.T;
+                             Sort_By : in SPAT.Spark_Info.Sorting_Criterion;
+                             Cut_Off : in Duration) is separate;
 
    ---------------------------------------------------------------------------
    --  Print_Summary
    ---------------------------------------------------------------------------
-   procedure Print_Summary
-     (Info    : in SPAT.Spark_Info.T;
-      Sort_By : in SPAT.Spark_Info.Sorting_Criterion) is separate;
+   procedure Print_Summary (Info    : in SPAT.Spark_Info.T;
+                            Sort_By : in SPAT.Spark_Info.Sorting_Criterion;
+                            Cut_Off : in Duration) is separate;
 
    use type Ada.Real_Time.Time;
    use type SPAT.Subject_Name;
@@ -112,6 +114,7 @@ begin
       Start_Time   : Ada.Real_Time.Time;
       Sort_By      : constant SPAT.Spark_Info.Sorting_Criterion :=
         SPAT.Command_Line.Sort_By.Get;
+      Cut_Off      : constant Duration := SPAT.Command_Line.Cut_Off.Get;
       Report_Mode  : constant SPAT.Command_Line.Report_Mode :=
         SPAT.Command_Line.Report.Get;
       Project_File : constant GNATCOLL.VFS.Filesystem_String :=
@@ -182,15 +185,20 @@ begin
                             (TS => Ada.Real_Time.Clock - Start_Time)) & ".");
          end if;
 
+         SPAT.Log.Debug
+           (Message => "Cut off point set to " & Image (Cut_Off) & ".");
+
          --  Step 4: Output the JSON data.
          if SPAT.Command_Line.Summary.Get then
             Print_Summary (Info    => Info,
-                           Sort_By => Sort_By);
+                           Sort_By => Sort_By,
+                           Cut_Off => Cut_Off);
          end if;
 
          if Report_Mode /= SPAT.Command_Line.None then
             Print_Entities (Info    => Info,
-                            Sort_By => Sort_By);
+                            Sort_By => Sort_By,
+                            Cut_Off => Cut_Off);
          end if;
       end Process_And_Output;
    end Do_Run_SPAT;

@@ -29,7 +29,8 @@ separate (Run_SPAT)
 --  Print_Entities
 ------------------------------------------------------------------------------
 procedure Print_Entities (Info    : in SPAT.Spark_Info.T;
-                          Sort_By : in SPAT.Spark_Info.Sorting_Criterion)
+                          Sort_By : in SPAT.Spark_Info.Sorting_Criterion;
+                          Cut_Off : in Duration)
 is
    Entities : constant SPAT.Strings.Entity_Names :=
      Info.List_All_Entities (Sort_By => Sort_By);
@@ -40,10 +41,14 @@ is
    Second_Column : constant Ada.Text_IO.Count := Entities.Max_Length + 2;
    Mode          : constant SPAT.Command_Line.Report_Mode :=
      SPAT.Command_Line.Report.Get;
+   Omitted_Entities : Natural := 0;
+   Omitted_VCs      : Natural := 0;
    use all type SPAT.Command_Line.Report_Mode;
 begin
    for Entity of Entities loop
-      if
+      if Info.Max_Proof_Time (Entity => Entity) < Cut_Off then
+         Omitted_Entities := Omitted_Entities + 1;
+      elsif
         (case Mode is
             when None        => False,
             when All_Proofs  => True,
@@ -69,7 +74,10 @@ begin
                     SPAT.Proof_Item.T'Class
                       (SPAT.Entity.Tree.Element (Position => PI_Position));
                begin
-                  if
+                  if The_Proof.Max_Time < Cut_Off then
+                     --  Below cut off point, don't show.
+                     Omitted_VCs := Omitted_VCs + 1;
+                  elsif
                     (case Mode is
                         when None        => False,
                         when All_Proofs  => True,
@@ -143,4 +151,15 @@ begin
          end if;
       end if;
    end loop;
+
+   if
+     SPAT.Log.Debug_Enabled and then
+     (Omitted_Entities /= 0 or Omitted_VCs /= 0)
+   then
+      SPAT.Log.Debug
+        (Message =>
+           "Omitted results below cut-off point (" & Image (Cut_Off) & "):" &
+           Omitted_Entities'Image & " entities, and" &
+           Omitted_VCs'Image & " VCs within the above results.");
+   end if;
 end Print_Entities;
