@@ -22,14 +22,14 @@ pragma License (Unrestricted);
 ------------------------------------------------------------------------------
 
 limited with Ada.Containers.Hashed_Maps;
-limited with SPAT.File_Lists;
+limited with SPAT.Strings;
 
 package SPAT.Spark_Files is
 
    --  .spark files are stored in a Hash map with the file name as key and the
    --  JSON reading result as value.
    package File_Maps is new Ada.Containers.Hashed_Maps
-     (Key_Type        => Subject_Name,
+     (Key_Type        => File_Name,
       Element_Type    => GNATCOLL.JSON.Read_Result,
       Hash            => Hash,
       Equivalent_Keys => "=",
@@ -44,7 +44,7 @@ package SPAT.Spark_Files is
    ---------------------------------------------------------------------------
    --  Key
    ---------------------------------------------------------------------------
-   function Key (C : in Cursor) return Subject_Name renames File_Maps.Key;
+   function Key (C : in Cursor) return File_Name renames File_Maps.Key;
 
    --
    --  Data collection and operations defined on it.
@@ -58,7 +58,7 @@ package SPAT.Spark_Files is
    ---------------------------------------------------------------------------
    not overriding
    procedure Read (This  : in out T;
-                   Names : in     File_Lists.T'Class);
+                   Names : in     Strings.File_Names);
    --  Reads the list of files, and parses and stores their content in This.
 
    ---------------------------------------------------------------------------

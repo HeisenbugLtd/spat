@@ -25,11 +25,11 @@ with GNATCOLL.VFS;
 with SI_Units.Metric;
 with SI_Units.Names;
 with SPAT.Command_Line;
-with SPAT.File_Lists;
 with SPAT.GPR_Support;
 with SPAT.Log;
 with SPAT.Spark_Files;
 with SPAT.Spark_Info;
+with SPAT.Strings;
 with SPAT.Version;
 with System;
 
@@ -121,7 +121,7 @@ begin
       Collect_And_Parse :
       declare
          --  Step 1: Collect all .spark files.
-         File_List : constant SPAT.File_Lists.T :=
+         File_List : constant SPAT.Strings.File_Names :=
            SPAT.GPR_Support.Get_SPARK_Files (GPR_File => Project_File);
       begin
          --  Step 2: Parse the files into JSON values.
@@ -158,7 +158,7 @@ begin
                declare
                   Read_Result : constant GNATCOLL.JSON.Read_Result :=
                                   SPARK_Files (C);
-                  File        : constant SPAT.Subject_Name :=
+                  File        : constant SPAT.File_Name :=
                                   SPAT.Spark_Files.Key (C);
                begin
                   if Read_Result.Success then

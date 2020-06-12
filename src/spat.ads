@@ -70,6 +70,10 @@ package SPAT is
      (Source : in Ada.Strings.Unbounded.Unbounded_String) return Natural renames
      Ada.Strings.Unbounded.Length;
 
+   --  Derived types for all kind of "names".
+   type File_Name   is new Subject_Name; --  A file on disk.
+   type Entity_Name is new Subject_Name; --  An Ada language entity.
+
    --  Type renames for commonly used JSON types from GNATCOLL.JSON
    subtype JSON_Array      is GNATCOLL.JSON.JSON_Array;
    subtype JSON_Value      is GNATCOLL.JSON.JSON_Value;

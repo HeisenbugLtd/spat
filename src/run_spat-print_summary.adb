@@ -26,8 +26,8 @@ separate (Run_SPAT)
 procedure Print_Summary (Info    : in SPAT.Spark_Info.T;
                          Sort_By : in SPAT.Spark_Info.Sorting_Criterion)
 is
-   Files         : constant SPAT.Strings.List'Class :=
-                     Info.List_All_Files (Sort_By => Sort_By);
+   Files         : constant SPAT.Strings.File_Names :=
+     Info.List_All_Files (Sort_By => Sort_By);
    Second_Column : Ada.Text_IO.Count := 0;
    Third_Column  : Ada.Text_IO.Count;
    use type Ada.Text_IO.Count;

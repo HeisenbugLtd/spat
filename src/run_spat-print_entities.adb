@@ -31,8 +31,8 @@ separate (Run_SPAT)
 procedure Print_Entities (Info    : in SPAT.Spark_Info.T;
                           Sort_By : in SPAT.Spark_Info.Sorting_Criterion)
 is
-   Entities   : constant SPAT.Strings.List'Class :=
-                  Info.List_All_Entities (Sort_By => Sort_By);
+   Entities : constant SPAT.Strings.Entity_Names :=
+     Info.List_All_Entities (Sort_By => Sort_By);
 
    use type Ada.Text_IO.Count;
    use type SPAT.Subject_Name;

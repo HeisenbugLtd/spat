@@ -13,8 +13,8 @@ with Ada.Exceptions;
 with Ada.IO_Exceptions;
 with Ada.Text_IO;
 
-with SPAT.File_Lists;
 with SPAT.Log;
+with SPAT.Strings;
 
 with System.Multiprocessors;
 
@@ -37,7 +37,7 @@ package body SPAT.Spark_Files is
       --  merge them into a single result record type.
       type Parse_Result is
          record
-            Key    : Subject_Name;
+            Key    : File_Name;
             Result : GNATCOLL.JSON.Read_Result;
          end record;
 
@@ -47,7 +47,7 @@ package body SPAT.Spark_Files is
 
          package File_Queue_Interface is new
            Ada.Containers.Synchronized_Queue_Interfaces
-             (Element_Type => Subject_Name);
+             (Element_Type => File_Name);
 
          package File_Queues is new
            Ada.Containers.Unbounded_Synchronized_Queues
@@ -93,13 +93,12 @@ package body SPAT.Spark_Files is
       --  Parse_File
       ------------------------------------------------------------------------
       function Parse_File
-        (Name : in Subject_Name) return GNATCOLL.JSON.Read_Result;
+        (Name : in File_Name) return GNATCOLL.JSON.Read_Result;
 
       ------------------------------------------------------------------------
       --  Parse_File
       ------------------------------------------------------------------------
-      function Parse_File
-        (Name : in Subject_Name) return GNATCOLL.JSON.Read_Result
+      function Parse_File (Name : in File_Name) return GNATCOLL.JSON.Read_Result
       is
          JSON_File    : Ada.Text_IO.File_Type;
          File_Content : JSON_Data;
@@ -120,17 +119,17 @@ package body SPAT.Spark_Files is
       end Parse_File;
 
       task body Parse_Task is
-         File_Name : Subject_Name;
-         Result    : Worker_Tasks.Parse_Result;
+         Element : File_Name;
+         Result  : Worker_Tasks.Parse_Result;
       begin
          Main_Loop :
          loop
-            Input_File_Queue.Dequeue (Element => File_Name);
+            Input_File_Queue.Dequeue (Element => Element);
 
-            Result.Key := File_Name;
+            Result.Key := Element;
 
             begin
-               Result.Result := Parse_File (Name => File_Name);
+               Result.Result := Parse_File (Name => Element);
             exception
                when E : Ada.IO_Exceptions.Name_Error =>
                   Result.Result :=
@@ -181,7 +180,7 @@ package body SPAT.Spark_Files is
    ---------------------------------------------------------------------------
    not overriding
    procedure Read (This  : in out T;
-                   Names : in     File_Lists.T'Class)
+                   Names : in     Strings.File_Names)
    is
       use type File_Maps.Cursor;
    begin

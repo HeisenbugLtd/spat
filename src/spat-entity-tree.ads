@@ -42,6 +42,10 @@ package SPAT.Entity.Tree is
    function Child_Count (Parent : in Cursor) return Ada.Containers.Count_Type
                          renames Implementation.Trees.Child_Count;
 
+   function Child_Depth (Parent : in Cursor;
+                         Child  : in Cursor) return Ada.Containers.Count_Type
+                         renames Implementation.Trees.Child_Depth;
+
    function Element (Position : in Cursor) return Entity.T'Class
                      renames Implementation.Trees.Element;
 
@@ -62,6 +66,9 @@ package SPAT.Entity.Tree is
 
    procedure Previous_Sibling (Position : in out Cursor)
                                renames Implementation.Trees.Previous_Sibling;
+
+   function Iterate_Subtree (Position : Cursor) return Forward_Iterator'Class
+                             renames Implementation.Trees.Iterate_Subtree;
 
    --  Sort a subtree by sorting criteria of elements contained.
    generic

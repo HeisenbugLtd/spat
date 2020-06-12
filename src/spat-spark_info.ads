@@ -41,7 +41,7 @@ package SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    procedure Map_Spark_File (This : in out T;
-                             File : in     Subject_Name;
+                             File : in     File_Name;
                              Root : in     JSON_Value);
 
    ---------------------------------------------------------------------------
@@ -53,7 +53,7 @@ package SPAT.Spark_Info is
    not overriding
    function List_All_Entities
      (This    : in T;
-      Sort_By : in Sorting_Criterion := Name) return Strings.List'Class;
+      Sort_By : in Sorting_Criterion := Name) return Strings.Entity_Names;
 
    ---------------------------------------------------------------------------
    --  List_All_Files
@@ -64,7 +64,7 @@ package SPAT.Spark_Info is
    not overriding
    function List_All_Files
      (This    : in T;
-      Sort_By : in Sorting_Criterion := None) return Strings.List'Class;
+      Sort_By : in Sorting_Criterion := None) return Strings.File_Names;
 
    ---------------------------------------------------------------------------
    --  Num_Flows
@@ -82,7 +82,7 @@ package SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Flow_Time (This : in T;
-                       File : in Subject_Name) return Duration;
+                       File : in File_Name) return Duration;
 
    ---------------------------------------------------------------------------
    --  Num_Proofs
@@ -100,7 +100,7 @@ package SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Proof_Time (This : in T;
-                        File : in Subject_Name) return Duration;
+                        File : in File_Name) return Duration;
 
    ---------------------------------------------------------------------------
    --  Max_Proof_Time
@@ -109,7 +109,7 @@ package SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Max_Proof_Time (This   : in T;
-                            Entity : in Subject_Name) return Duration;
+                            Entity : in Entity_Name) return Duration;
 
    ---------------------------------------------------------------------------
    --  Total_Proof_Time
@@ -118,7 +118,7 @@ package SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Total_Proof_Time (This   : in T;
-                              Entity : in Subject_Name) return Duration;
+                              Entity : in Entity_Name) return Duration;
 
    ---------------------------------------------------------------------------
    --  Proof_List
@@ -128,14 +128,14 @@ package SPAT.Spark_Info is
    not overriding
    function Proof_Tree
      (This   : in T;
-      Entity : in Subject_Name) return SPAT.Entity.Tree.Forward_Iterator'Class;
+      Entity : in Entity_Name) return SPAT.Entity.Tree.Forward_Iterator'Class;
 
    ---------------------------------------------------------------------------
    --  Iterate_Children
    ---------------------------------------------------------------------------
    not overriding
    function Iterate_Children (This     : in T;
-                              Entity   : in Subject_Name;
+                              Entity   : in Entity_Name;
                               Position : in SPAT.Entity.Tree.Cursor)
                               return SPAT.Entity.Tree.Forward_Iterator'Class;
 
@@ -147,7 +147,7 @@ package SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Has_Failed_Attempts (This   : in T;
-                                 Entity : in Subject_Name) return Boolean;
+                                 Entity : in Entity_Name) return Boolean;
 
    ---------------------------------------------------------------------------
    --  Has_Unjustified_Attempts
@@ -158,7 +158,7 @@ package SPAT.Spark_Info is
    not overriding
    function Has_Unjustified_Attempts
      (This   : in T;
-      Entity : in Subject_Name) return Boolean;
+      Entity : in Entity_Name) return Boolean;
 
    ---------------------------------------------------------------------------
    --  Has_Unproved_Attempts
@@ -168,7 +168,7 @@ package SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Has_Unproved_Attempts (This   : in T;
-                                   Entity : in Subject_Name) return Boolean;
+                                   Entity : in Entity_Name) return Boolean;
 
    ---------------------------------------------------------------------------
    --  Print_Trees
@@ -241,7 +241,7 @@ private
 
    type Analyzed_Entity is
       record
-         SPARK_File   : Subject_Name;       --  File the entity was found in.
+         SPARK_File   : File_Name;          --  File the entity was found in.
          The_Tree     : Entity.Tree.T;      --  Holds all entities.
          Source_Lines : Entity.Tree.Cursor; --  Currently unused.
          Flows        : Entity.Tree.Cursor; --  List of Flow_Items
@@ -250,13 +250,13 @@ private
 
    --  Type representing a source (file) entity.
    package Analyzed_Entities is new
-     Ada.Containers.Hashed_Maps (Key_Type        => Subject_Name,
+     Ada.Containers.Hashed_Maps (Key_Type        => Entity_Name,
                                  Element_Type    => Analyzed_Entity,
                                  Hash            => Hash,
                                  Equivalent_Keys => "=");
 
    package File_Timings is new
-     Ada.Containers.Hashed_Maps (Key_Type        => Subject_Name,
+     Ada.Containers.Hashed_Maps (Key_Type        => File_Name,
                                  Element_Type    => Timing_Item.T,
                                  Hash            => Hash,
                                  Equivalent_Keys => "=",

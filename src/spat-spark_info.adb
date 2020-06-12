@@ -61,7 +61,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    procedure Map_Entities (This      : in out T;
                            Root      : in     JSON_Value;
-                           From_File : in     Subject_Name) with
+                           From_File : in     File_Name) with
      Pre => (Preconditions.Ensure_Field (Object => Root,
                                          Field  => Field_Names.Name,
                                          Kind   => JSON_String_Type) and then
@@ -95,13 +95,13 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    procedure Map_Spark_Elements (This      : in out T;
                                  Root      : in     JSON_Array;
-                                 From_File : in     Subject_Name);
+                                 From_File : in     File_Name);
 
    ---------------------------------------------------------------------------
    --  Map_Timings
    ---------------------------------------------------------------------------
    procedure Map_Timings (This    : in out T;
-                          File    : in     Subject_Name;
+                          File    : in     File_Name;
                           Root    : in     JSON_Value;
                           Version : in     File_Version);
 
@@ -112,7 +112,7 @@ package body SPAT.Spark_Info is
    --  Sorting: alphabetical, ascending
    ---------------------------------------------------------------------------
    procedure Sort_Entity_By_Name (This      : in     T;
-                                  Container : in out Strings.List);
+                                  Container : in out Strings.Entity_Names);
 
    ---------------------------------------------------------------------------
    --  Sort_Entity_By_Proof_Time
@@ -120,8 +120,9 @@ package body SPAT.Spark_Info is
    --  Sort code entities by how much total proof time they required.
    --  Sorting: numerical, descending
    ---------------------------------------------------------------------------
-   procedure Sort_Entity_By_Proof_Time (This      : in     T;
-                                        Container : in out Strings.List);
+   procedure Sort_Entity_By_Proof_Time
+     (This      : in     T;
+      Container : in out Strings.Entity_Names);
 
    ---------------------------------------------------------------------------
    --  Sort_File_By_Basename
@@ -131,7 +132,7 @@ package body SPAT.Spark_Info is
    --  Sorting: alphabetical, ascending
    ---------------------------------------------------------------------------
    procedure Sort_File_By_Basename (This      : in     T;
-                                    Container : in out Strings.List);
+                                    Container : in out Strings.File_Names);
 
    ---------------------------------------------------------------------------
    --  Sort_File_By_Proof_Time
@@ -141,7 +142,7 @@ package body SPAT.Spark_Info is
    --  Sorting: numerical, descending
    ---------------------------------------------------------------------------
    procedure Sort_File_By_Proof_Time (This      : in     T;
-                                      Container : in out Strings.List);
+                                      Container : in out Strings.File_Names);
 
    ---------------------------------------------------------------------------
    --  Subprogram implementations
@@ -152,7 +153,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Flow_Time (This : in T;
-                       File : in Subject_Name) return Duration is
+                       File : in File_Name) return Duration is
      (This.Files (File).Flow);
 
    ---------------------------------------------------------------------------
@@ -206,7 +207,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Has_Failed_Attempts (This   : in T;
-                                 Entity : in Subject_Name) return Boolean is
+                                 Entity : in Entity_Name) return Boolean is
       Reference : constant Analyzed_Entities.Constant_Reference_Type :=
         This.Entities.Constant_Reference (Key => Entity);
       Sentinel  : constant Proofs_Sentinel := Get_Sentinel (Node => Reference);
@@ -220,7 +221,7 @@ package body SPAT.Spark_Info is
    not overriding
    function Has_Unjustified_Attempts
      (This   : in T;
-      Entity : in Subject_Name) return Boolean
+      Entity : in Entity_Name) return Boolean
    is
       Reference : constant Analyzed_Entities.Constant_Reference_Type :=
         This.Entities.Constant_Reference (Key => Entity);
@@ -234,7 +235,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Has_Unproved_Attempts (This   : in T;
-                                   Entity : in Subject_Name) return Boolean is
+                                   Entity : in Entity_Name) return Boolean is
       Reference : constant Analyzed_Entities.Constant_Reference_Type :=
         This.Entities.Constant_Reference (Key => Entity);
       Sentinel  : constant Proofs_Sentinel := Get_Sentinel (Node => Reference);
@@ -247,7 +248,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Iterate_Children (This     : in T;
-                              Entity   : in Subject_Name;
+                              Entity   : in Entity_Name;
                               Position : in SPAT.Entity.Tree.Cursor)
                               return SPAT.Entity.Tree.Forward_Iterator'Class is
    begin
@@ -261,9 +262,9 @@ package body SPAT.Spark_Info is
    not overriding
    function List_All_Entities
      (This    : in T;
-      Sort_By : in Sorting_Criterion := Name) return Strings.List'Class is
+      Sort_By : in Sorting_Criterion := Name) return Strings.Entity_Names is
    begin
-      return Result : Strings.List (Capacity => This.Entities.Length) do
+      return Result : Strings.Entity_Names (Capacity => This.Entities.Length) do
          for Position in This.Entities.Iterate loop
             Result.Append
               (New_Item => Analyzed_Entities.Key (Position => Position));
@@ -288,9 +289,9 @@ package body SPAT.Spark_Info is
    not overriding
    function List_All_Files
      (This    : in T;
-      Sort_By : in Sorting_Criterion := None) return Strings.List'Class is
+      Sort_By : in Sorting_Criterion := None) return Strings.File_Names is
    begin
-      return Result : Strings.List (Capacity => This.Entities.Length) do
+      return Result : Strings.File_Names (Capacity => This.Entities.Length) do
          for Position in This.Files.Iterate loop
             Result.Append (New_Item => File_Timings.Key (Position => Position));
          end loop;
@@ -323,10 +324,11 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    procedure Map_Entities (This      : in out T;
                            Root      : in     JSON_Value;
-                           From_File : in     Subject_Name)
+                           From_File : in     File_Name)
    is
-      Obj_Name : constant Subject_Name := Root.Get (Field => Field_Names.Name);
-      Slocs    : constant JSON_Array   := Root.Get (Field => Field_Names.Sloc);
+      Obj_Name : constant Entity_Name :=
+        Entity_Name (Subject_Name'(Root.Get (Field => Field_Names.Name)));
+      Slocs    : constant JSON_Array  := Root.Get (Field => Field_Names.Sloc);
       Index    :          Analyzed_Entities.Cursor :=
         This.Entities.Find (Key => Obj_Name);
    begin
@@ -408,8 +410,10 @@ package body SPAT.Spark_Info is
                                                 Kind   => JSON_String_Type)
                   then
                      declare
-                        The_Key : constant Subject_Name :=
-                          Source_Entity.Get (Field => Field_Names.Name);
+                        The_Key : constant Entity_Name :=
+                          Entity_Name
+                            (Subject_Name'
+                               (Source_Entity.Get (Field => Field_Names.Name)));
                         Update_At : constant Analyzed_Entities.Cursor :=
                           This.Entities.Find (Key => The_Key);
                      begin
@@ -478,8 +482,10 @@ package body SPAT.Spark_Info is
                                                 Kind   => JSON_String_Type)
                   then
                      declare
-                        The_Key : constant Subject_Name :=
-                          Source_Entity.Get (Field => Field_Names.Name);
+                        The_Key : constant Entity_Name :=
+                          Entity_Name
+                            (Subject_Name'
+                               (Source_Entity.Get (Field => Field_Names.Name)));
                         Update_At : constant Analyzed_Entities.Cursor :=
                           This.Entities.Find (Key => The_Key);
                      begin
@@ -602,7 +608,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    procedure Map_Spark_Elements (This      : in out T;
                                  Root      : in     JSON_Array;
-                                 From_File : in     Subject_Name)
+                                 From_File : in     File_Name)
    is
       Length : constant Natural := GNATCOLL.JSON.Length (Arr => Root);
    begin
@@ -634,7 +640,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    procedure Map_Spark_File (This : in out T;
-                             File : in     Subject_Name;
+                             File : in     File_Name;
                              Root : in     JSON_Value)
    is
       Version : constant File_Version := Guess_Version (Root => Root);
@@ -698,7 +704,7 @@ package body SPAT.Spark_Info is
    --  Map_Timings
    ---------------------------------------------------------------------------
    procedure Map_Timings (This    : in out T;
-                          File    : in     Subject_Name;
+                          File    : in     File_Name;
                           Root    : in     JSON_Value;
                           Version : in     File_Version) is
    begin
@@ -721,7 +727,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Max_Proof_Time (This   : in T;
-                            Entity : in Subject_Name) return Duration
+                            Entity : in Entity_Name) return Duration
    is
       Reference : constant Analyzed_Entities.Constant_Reference_Type :=
         This.Entities.Constant_Reference (Key => Entity);
@@ -789,16 +795,16 @@ package body SPAT.Spark_Info is
                  This.Entities.Constant_Reference (Position => Position);
             begin
                for C in
-                 SPAT.Entity.Tree.Implementation.Trees.Iterate_Subtree
-                   (Position => Reference.Proofs)
+                 SPAT.Entity.Tree.Iterate_Subtree (Position => Reference.Proofs)
                loop
                   declare
                      E : constant Entity.T'Class := Entity.Tree.Element (C);
                      use Ada.Strings.Fixed;
                   begin
                      SPAT.Log.Debug
-                       (Natural (SPAT.Entity.Tree.Implementation.Trees.Child_Depth
-                        (Reference.Proofs, C)) * ' ' & "[]: " & E.Image);
+                       (Natural
+                          (SPAT.Entity.Tree.Child_Depth
+                             (Reference.Proofs, C)) * ' ' & "[]: " & E.Image);
                   end;
                end loop;
             end;
@@ -811,7 +817,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Proof_Time (This : in T;
-                        File : in Subject_Name) return Duration is
+                        File : in File_Name) return Duration is
       Timings : constant Timing_Item.T := This.Files (File);
    begin
       case Timings.Version is
@@ -828,7 +834,7 @@ package body SPAT.Spark_Info is
                --  need to sum the proof times of the entities, too.
                for Position in This.Entities.Iterate loop
                   declare
-                     Name : constant Subject_Name :=
+                     Name : constant Entity_Name :=
                        Analyzed_Entities.Key (Position);
                   begin
                      if
@@ -849,9 +855,9 @@ package body SPAT.Spark_Info is
    --  Proof_Tree
    ---------------------------------------------------------------------------
    not overriding
-   function Proof_Tree
-     (This   : in T;
-      Entity : in Subject_Name) return SPAT.Entity.Tree.Forward_Iterator'Class
+   function Proof_Tree (This   : in T;
+                        Entity : in Entity_Name)
+                        return SPAT.Entity.Tree.Forward_Iterator'Class
    is
       Reference : constant Analyzed_Entities.Constant_Reference_Type :=
         This.Entities.Constant_Reference (Key => Entity);
@@ -863,33 +869,35 @@ package body SPAT.Spark_Info is
    --  Sort_Entity_By_Name
    ---------------------------------------------------------------------------
    procedure Sort_Entity_By_Name (This      : in     T;
-                                  Container : in out Strings.List)
+                                  Container : in out Strings.Entity_Names)
    is
       pragma Unreferenced (This);
+
       package Sorting is new
-        Strings.Implementation.Vectors.Generic_Sorting ("<" => "<");
+        Strings.Implementation.Entities.Base_Vectors.Generic_Sorting ("<" => "<");
    begin
       Sorting.Sort
-        (Container => Strings.Implementation.Vectors.Vector (Container));
+        (Container =>
+           Strings.Implementation.Entities.Base_Vectors.Vector (Container));
    end Sort_Entity_By_Name;
 
    ---------------------------------------------------------------------------
    --  Sort_Entity_By_Proof_Time
    ---------------------------------------------------------------------------
    procedure Sort_Entity_By_Proof_Time (This      : in     T;
-                                        Container : in out Strings.List)
+                                        Container : in out Strings.Entity_Names)
    is
       ------------------------------------------------------------------------
       --  "<"
       ------------------------------------------------------------------------
-      function "<" (Left  : in Subject_Name;
-                    Right : in Subject_Name) return Boolean;
+      function "<" (Left  : in Entity_Name;
+                    Right : in Entity_Name) return Boolean;
 
       ------------------------------------------------------------------------
       --  "<"
       ------------------------------------------------------------------------
-      function "<" (Left  : in Subject_Name;
-                    Right : in Subject_Name) return Boolean is
+      function "<" (Left  : in Entity_Name;
+                    Right : in Entity_Name) return Boolean is
          Left_Total  : constant Duration :=
            This.Total_Proof_Time (Entity => Left);
          Right_Total : constant Duration :=
@@ -914,51 +922,54 @@ package body SPAT.Spark_Info is
       end "<";
 
       package Sorting is new
-        Strings.Implementation.Vectors.Generic_Sorting ("<" => "<");
+        Strings.Implementation.Entities.Base_Vectors.Generic_Sorting ("<" => "<");
    begin
       Sorting.Sort
-        (Container => Strings.Implementation.Vectors.Vector (Container));
+        (Container =>
+           Strings.Implementation.Entities.Base_Vectors.Vector (Container));
    end Sort_Entity_By_Proof_Time;
 
    ---------------------------------------------------------------------------
    --  By_Basename
    ---------------------------------------------------------------------------
-   function By_Basename (Left  : in Subject_Name;
-                         Right : in Subject_Name) return Boolean is
+   function By_Basename (Left  : in File_Name;
+                         Right : in File_Name) return Boolean is
      (Ada.Directories.Base_Name (Name => To_String (Source => Left)) <
         Ada.Directories.Base_Name (Name => To_String (Source => Right)));
 
    package File_Name_Sorting is new
-     Strings.Implementation.Vectors.Generic_Sorting ("<" => By_Basename);
+     Strings.Implementation.File_Names.Base_Vectors.Generic_Sorting
+       ("<" => By_Basename);
 
    ---------------------------------------------------------------------------
    --  Sort_File_By_Basename
    ---------------------------------------------------------------------------
    procedure Sort_File_By_Basename (This      : in     T;
-                                    Container : in out Strings.List) is
+                                    Container : in out Strings.File_Names) is
       pragma Unreferenced (This); --  Only provided for consistency.
    begin
       File_Name_Sorting.Sort
-        (Container => Strings.Implementation.Vectors.Vector (Container));
+        (Container =>
+           Strings.Implementation.File_Names.Base_Vectors.Vector (Container));
    end Sort_File_By_Basename;
 
    ---------------------------------------------------------------------------
    --  Sort_File_By_Proof_Time
    ---------------------------------------------------------------------------
    procedure Sort_File_By_Proof_Time (This      : in     T;
-                                      Container : in out Strings.List)
+                                      Container : in out Strings.File_Names)
    is
       ------------------------------------------------------------------------
       --  "<"
       ------------------------------------------------------------------------
-      function "<" (Left  : in Subject_Name;
-                    Right : in Subject_Name) return Boolean;
+      function "<" (Left  : in File_Name;
+                    Right : in File_Name) return Boolean;
 
       ------------------------------------------------------------------------
       --  "<"
       ------------------------------------------------------------------------
-      function "<" (Left  : in Subject_Name;
-                    Right : in Subject_Name) return Boolean
+      function "<" (Left  : in File_Name;
+                    Right : in File_Name) return Boolean
       is
          Left_Proof  : constant Duration := This.Proof_Time (File => Left);
          Right_Proof : constant Duration := This.Proof_Time (File => Right);
@@ -986,10 +997,12 @@ package body SPAT.Spark_Info is
       end "<";
 
       package Sorting is new
-        Strings.Implementation.Vectors.Generic_Sorting ("<" => "<");
+        Strings.Implementation.File_Names.Base_Vectors.Generic_Sorting
+          ("<" => "<");
    begin
       Sorting.Sort
-        (Container => Strings.Implementation.Vectors.Vector (Container));
+        (Container =>
+           Strings.Implementation.File_Names.Base_Vectors.Vector (Container));
    end Sort_File_By_Proof_Time;
 
    ---------------------------------------------------------------------------
@@ -997,7 +1010,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Total_Proof_Time (This   : in T;
-                              Entity : in Subject_Name) return Duration
+                              Entity : in Entity_Name) return Duration
    is
       Reference  : constant Analyzed_Entities.Constant_Reference_Type :=
         This.Entities.Constant_Reference (Key => Entity);

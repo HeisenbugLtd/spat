@@ -7,12 +7,10 @@
 ------------------------------------------------------------------------------
 pragma License (Unrestricted);
 
-package body SPAT.Strings is
+package body SPAT.String_Vectors is
 
    ---------------------------------------------------------------------------
    --  Max_Length
-   --
-   --  Returns the length of the longest string in the array.
    ---------------------------------------------------------------------------
    not overriding
    function Max_Length (Source : in List) return Ada.Text_IO.Count is
@@ -27,4 +25,4 @@ package body SPAT.Strings is
       return Result;
    end Max_Length;
 
-end SPAT.Strings;
+end SPAT.String_Vectors;
