@@ -28,9 +28,9 @@ generic
 package SPAT.String_Vectors is
 
    package Base_Vectors is new
-     Ada.Containers.Bounded_Vectors (Index_Type => Positive,
+     Ada.Containers.Bounded_Vectors (Index_Type   => Positive,
                                      Element_Type => Element_Type,
-                                     "=" => "=");
+                                     "="          => "=");
 
    type List is new Base_Vectors.Vector with private;
 
