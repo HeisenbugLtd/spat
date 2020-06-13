@@ -157,7 +157,7 @@ package body SPAT.Proof_Item is
          end;
       end loop;
 
-      --  Sort checks list ascending by duration.
+      --  Sort checks list descending by duration.
       Checks_By_Duration.Sort (Container => Checks_List);
 
       declare
