@@ -7,8 +7,10 @@
 ------------------------------------------------------------------------------
 pragma License (Unrestricted);
 
+with Ada.Containers.Indefinite_Hashed_Sets;
 with Ada.Directories;
 with Ada.Real_Time;
+with Ada.Strings.Hash;
 
 with GNATCOLL.Projects;
 with SI_Units.Metric;
@@ -18,11 +20,28 @@ with SPAT.Log;
 
 package body SPAT.GPR_Support is
 
+   package File_Name_Caches is new
+     Ada.Containers.Indefinite_Hashed_Sets
+       (Element_Type        => String,
+        Hash                => Ada.Strings.Hash,
+        Equivalent_Elements => "=");
+   --  The Add_File subroutine below receives the filename as a string, so I
+   --  decided to use these as set elements, hence we need to use the indefinite
+   --  version of Hashed_Sets.
+   --  The reasoning behind that is that even though storing the
+   --  Unbounded_String would probably require less memory allocations while
+   --  adding elements to the set, that also happens at the cost of an extra
+   --  conversion back to String when the runtime calculates the hash. While
+   --  secondary stack is relatively cheap (at least in comparison to a memory
+   --  allocator), the additional copy of the actual string probably still beats
+   --  that. Also, the Hashing must be done twice when inserting an element,
+   --  while we expect only about half of actual insertions.
+
    ---------------------------------------------------------------------------
    --  Add_File
    ---------------------------------------------------------------------------
    procedure Add_File (Name  : in     String;
-                       Cache : in out Strings.File_Names;
+                       Cache : in out File_Name_Caches.Set;
                        To    : in out Strings.File_Names);
 
    ---------------------------------------------------------------------------
@@ -44,18 +63,22 @@ package body SPAT.GPR_Support is
    --  Add_File
    ---------------------------------------------------------------------------
    procedure Add_File (Name  : in     String;
-                       Cache : in out Strings.File_Names;
+                       Cache : in out File_Name_Caches.Set;
                        To    : in out Strings.File_Names) is
       As_File_Name : constant File_Name := File_Name (To_Name (Source => Name));
       Simple_Name  : constant String :=
         Ada.Directories.Simple_Name (Name => Name);
+      Dummy_Cursor : File_Name_Caches.Cursor; --  Don't care about the position.
+      Inserted     : Boolean;
    begin
       --  Prevent adding the same file twice. The caller retrieves all files
       --  from the project, hence in most cases we will encounter both a spec
       --  and a body file which will still result in the same .spark file.
-      if not Cache.Contains (Item => As_File_Name) then
-         Cache.Append (New_Item => As_File_Name);
+      Cache.Insert (New_Item => Name, --  Original input.
+                    Position => Dummy_Cursor,
+                    Inserted => Inserted);
 
+      if Inserted then
          --  This was a new file, so if it exists on disk, add it to the result
          --  list.
          if Ada.Directories.Exists (Name => Name) then
@@ -126,11 +149,13 @@ package body SPAT.GPR_Support is
            Project_Files.all'Length;
 
          --  Initialize the lists.
-         Raw_List    : Strings.File_Names (Capacity => Capacity);
+         Raw_List    : File_Name_Caches.Set;
          --  Stores all encountered files.
          Result_List : Strings.File_Names (Capacity => Capacity);
          --  Stores only files that exist on disk.
       begin
+         Raw_List.Reserve_Capacity (Capacity => Capacity);
+
          for F of Project_Files.all loop
             --  TODO: We should probably check the language of the file here, if
             --        it's not Ada, we can likely skip it.
