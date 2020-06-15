@@ -54,7 +54,7 @@ package SPAT.Entity_Line is
    --  File
    ---------------------------------------------------------------------------
    not overriding
-   function File (This : in T) return Subject_Name;
+   function File (This : in T) return File_Name;
 
    ---------------------------------------------------------------------------
    --  Line
@@ -66,7 +66,7 @@ private
 
    type T is new Entity.T with
       record
-         File : Subject_Name;
+         File : File_Name;
          Line : Natural;
       end record;
 
@@ -74,7 +74,7 @@ private
    --  File
    ---------------------------------------------------------------------------
    not overriding
-   function File (This : in T) return Subject_Name is
+   function File (This : in T) return File_Name is
       (This.File);
 
    ---------------------------------------------------------------------------
