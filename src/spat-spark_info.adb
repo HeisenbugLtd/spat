@@ -61,7 +61,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    procedure Map_Entities (This      : in out T;
                            Root      : in     JSON_Value;
-                           From_File : in     File_Name) with
+                           From_File : in     File_Sets.Cursor) with
      Pre => (Preconditions.Ensure_Field (Object => Root,
                                          Field  => Field_Names.Name,
                                          Kind   => JSON_String_Type) and then
@@ -95,7 +95,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    procedure Map_Spark_Elements (This      : in out T;
                                  Root      : in     JSON_Array;
-                                 From_File : in     File_Name);
+                                 From_File : in     File_Sets.Cursor);
 
    ---------------------------------------------------------------------------
    --  Map_Timings
@@ -154,7 +154,7 @@ package body SPAT.Spark_Info is
    not overriding
    function Flow_Time (This : in T;
                        File : in File_Name) return Duration is
-     (This.Files (File).Flow);
+     (This.Timings (File).Flow);
 
    ---------------------------------------------------------------------------
    --  Get_Sentinel (Flows)
@@ -292,7 +292,7 @@ package body SPAT.Spark_Info is
       Sort_By : in Sorting_Criterion := None) return Strings.File_Names is
    begin
       return Result : Strings.File_Names (Capacity => This.Entities.Length) do
-         for Position in This.Files.Iterate loop
+         for Position in This.Timings.Iterate loop
             Result.Append (New_Item => File_Timings.Key (Position => Position));
          end loop;
 
@@ -324,7 +324,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    procedure Map_Entities (This      : in out T;
                            Root      : in     JSON_Value;
-                           From_File : in     File_Name)
+                           From_File : in     File_Sets.Cursor)
    is
       Obj_Name : constant Entity_Name :=
         Entity_Name (Subject_Name'(Root.Get (Field => Field_Names.Name)));
@@ -608,7 +608,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    procedure Map_Spark_Elements (This      : in out T;
                                  Root      : in     JSON_Array;
-                                 From_File : in     File_Name)
+                                 From_File : in     File_Sets.Cursor)
    is
       Length : constant Natural := GNATCOLL.JSON.Length (Arr => Root);
    begin
@@ -656,9 +656,20 @@ package body SPAT.Spark_Info is
                                     Field  => Field_Names.Spark,
                                     Kind   => JSON_Array_Type)
       then
-         This.Map_Spark_Elements
-           (Root      => Root.Get (Field => Field_Names.Spark),
-            From_File => File);
+         declare
+            File_Cursor    : File_Sets.Cursor;
+            Dummy_Inserted : Boolean;
+         begin
+            --  Establish reference to file. May add it to the Files list if
+            --  it was not known yet.
+            This.Files.Insert (New_Item => File,
+                               Position => File_Cursor,
+                               Inserted => Dummy_Inserted);
+
+            This.Map_Spark_Elements
+              (Root      => Root.Get (Field => Field_Names.Spark),
+               From_File => File_Cursor);
+         end;
       end if;
 
       if
@@ -712,13 +723,13 @@ package body SPAT.Spark_Info is
         Timing_Item.Has_Required_Fields (Object  => Root,
                                          Version => Version)
       then
-         This.Files.Insert
+         This.Timings.Insert
            (Key      => File,
             New_Item => Timing_Item.Create (Object  => Root,
                                             Version => Version));
       else
-         This.Files.Insert (Key      => File,
-                            New_Item => Timing_Item.None);
+         This.Timings.Insert (Key      => File,
+                              New_Item => Timing_Item.None);
       end if;
    end Map_Timings;
 
@@ -817,8 +828,9 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Proof_Time (This : in T;
-                        File : in File_Name) return Duration is
-      Timings : constant Timing_Item.T := This.Files (File);
+                        File : in File_Name) return Duration
+   is
+      Timings : constant Timing_Item.T := This.Timings (File);
    begin
       case Timings.Version is
          when GNAT_CE_2019 =>
@@ -828,6 +840,12 @@ package body SPAT.Spark_Info is
 
          when GNAT_CE_2020 =>
             declare
+               File_Cursor       : constant File_Sets.Cursor :=
+                 This.Files.Find (Item => File);
+               --  No need to compare filenames, just check the cursor to the
+               --  expected file.
+               use type File_Sets.Cursor;
+
                Summed_Proof_Time : Duration := Timings.Proof;
             begin
                --  In this version there's no proof timing field anymore, so we
@@ -838,7 +856,8 @@ package body SPAT.Spark_Info is
                        Analyzed_Entities.Key (Position);
                   begin
                      if
-                       Analyzed_Entities.Element (Position).SPARK_File = File
+                       Analyzed_Entities.Element
+                         (Position).SPARK_File = File_Cursor
                      then
                         Summed_Proof_Time :=
                           Summed_Proof_Time + This.Total_Proof_Time (Name);

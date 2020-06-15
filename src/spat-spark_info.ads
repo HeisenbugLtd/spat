@@ -19,6 +19,7 @@ pragma License (Unrestricted);
 
 private with Ada.Tags;
 limited private with Ada.Containers.Hashed_Maps;
+limited private with Ada.Containers.Hashed_Sets;
 with SPAT.Entity.Tree;
 limited with SPAT.Strings;
 with SPAT.Timing_Item;
@@ -239,22 +240,32 @@ private
                             Has_Unproved_Attempts    => False,
                             Has_Unjustified_Attempts => False));
 
+   --  Ordered set of known filenames.  Used to build a cross reference from
+   --  an entity to the .spark file it has been found in.
+   package File_Sets is new
+     Ada.Containers.Hashed_Sets (Element_Type        => File_Name,
+                                 Hash                => SPAT.Hash,
+                                 Equivalent_Elements => "=",
+                                 "="                 => "=");
+
+   --  Type representing a source (file) entity.
    type Analyzed_Entity is
       record
-         SPARK_File   : File_Name;          --  File the entity was found in.
+         SPARK_File   : File_Sets.Cursor;   --  File the entity was found in.
          The_Tree     : Entity.Tree.T;      --  Holds all entities.
          Source_Lines : Entity.Tree.Cursor; --  Currently unused.
          Flows        : Entity.Tree.Cursor; --  List of Flow_Items
          Proofs       : Entity.Tree.Cursor; --  List of Proof_Items
       end record;
 
-   --  Type representing a source (file) entity.
+   --  Entity_Name -> Analyzed_Entity mapping
    package Analyzed_Entities is new
      Ada.Containers.Hashed_Maps (Key_Type        => Entity_Name,
                                  Element_Type    => Analyzed_Entity,
                                  Hash            => Hash,
                                  Equivalent_Keys => "=");
 
+   --  File_Name -> Timings mapping
    package File_Timings is new
      Ada.Containers.Hashed_Maps (Key_Type        => File_Name,
                                  Element_Type    => Timing_Item.T,
@@ -264,8 +275,9 @@ private
 
    type T is tagged limited
       record
-         Entities : Analyzed_Entities.Map;
-         Files    : File_Timings.Map;
+         Files    : File_Sets.Set;
+         Entities : Analyzed_Entities.Map; --  The list of entities.
+         Timings  : File_Timings.Map;      --  The "timings" block for a file.
          --  Cached data
          Flow_Count  : Ada.Containers.Count_Type'Base;
          Proof_Count : Ada.Containers.Count_Type'Base;
