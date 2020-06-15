@@ -82,6 +82,12 @@ private
    type T is new Entity.T with
       record
          Version : File_Version; --  version of file encountered.
+
+         --  FIXME: Storing the version here is a bit stupid. The only time
+         --         we need this, we also have a file name and makes much
+         --         more sense to store the version information there,
+         --         albeit maybe slightly more inefficient.
+
          Proof   : Duration;     --  Total time the prover spent.
          Flow    : Duration;     --  Total time of flow analysis.
       end record;
