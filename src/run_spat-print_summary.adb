@@ -62,20 +62,22 @@ begin
          SPAT.Log.Message
            (Message  =>
               "=> (Flow  => " &
-              Image (Value => Info.Flow_Time (File => File)) & ",",
+              SPAT.Image (Value => Info.Flow_Time (File => File)) & ",",
             New_Line => False);
          Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
                               To   => Third_Column);
          SPAT.Log.Message
            (Message =>
-              "Proof => " & Image (Value => Info.Proof_Time (File => File)) & ")");
+              "Proof => " &
+              SPAT.Image (Value => Info.Proof_Time (File => File)) & ")");
       end if;
    end loop;
 
    if Count_Omitted /= 0 and then SPAT.Log.Debug_Enabled then
       SPAT.Log.Debug
         (Message =>
-           "Omitted results below cut-off point (" & Image (Cut_Off) & "):" &
+           "Omitted results below cut-off point (" &
+           SPAT.Image (Cut_Off) & "):" &
            Count_Omitted'Image & ".");
    end if;
 

@@ -64,8 +64,10 @@ begin
                               To   => Second_Column);
          SPAT.Log.Message
            (Message =>
-              "=> " & Image (Value => Info.Max_Proof_Time (Entity => Entity)) &
-              "/" & Image (Value => Info.Total_Proof_Time (Entity => Entity)));
+              "=> " &
+              SPAT.Image (Value => Info.Max_Proof_Time (Entity => Entity)) &
+              "/" &
+              SPAT.Image (Value => Info.Total_Proof_Time (Entity => Entity)));
 
          if SPAT.Command_Line.Details.Get then
             for PI_Position in Info.Proof_Tree (Entity => Entity) loop
@@ -87,12 +89,7 @@ begin
                           The_Proof.Has_Unproved_Attempts and then
                           The_Proof.Is_Unjustified)
                   then
-                     SPAT.Log.Message
-                       (Message =>
-                          "`-" & SPAT.To_String (The_Proof.Rule) & " " &
-                          The_Proof.Image & " => " &
-                          Image (The_Proof.Max_Time) & "/" &
-                          Image (The_Proof.Total_Time));
+                     SPAT.Log.Message (Message => "`-" & The_Proof.Image);
 
                      for Check_Position in
                        Info.Iterate_Children (Entity   => Entity,
@@ -129,10 +126,7 @@ begin
                                     Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
                                                          To   => 3);
                                     SPAT.Log.Message
-                                      (Message =>
-                                         "-" & SPAT.To_String (The_Attempt.Prover) & ": " &
-                                         Image (The_Attempt.Time) &
-                                         " (" & SPAT.To_String (The_Attempt.Result) & ")");
+                                      (Message => "-" & The_Attempt.Image);
                                  end;
                               end loop;
                            end if;
@@ -158,7 +152,8 @@ begin
    then
       SPAT.Log.Debug
         (Message =>
-           "Omitted results below cut-off point (" & Image (Cut_Off) & "):" &
+           "Omitted results below cut-off point (" &
+           SPAT.Image (Cut_Off) & "):" &
            Omitted_Entities'Image & " entities, and" &
            Omitted_VCs'Image & " VCs within the above results.");
    end if;

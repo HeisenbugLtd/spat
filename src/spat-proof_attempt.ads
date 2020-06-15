@@ -15,7 +15,6 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
-private with Ada.Tags;
 with SPAT.Entity;
 with SPAT.Field_Names;
 with SPAT.Preconditions;
@@ -101,10 +100,9 @@ private
    ---------------------------------------------------------------------------
    overriding
    function Image (This : in T) return String is
-     (Ada.Tags.External_Tag (T'Class (This)'Tag) & ": (" &
-        "Prover => " & To_String (This.Prover) &
-        ", Result => " & To_String (This.Result) &
-        ", Time => " & This.Time'Image & ")");
+     (To_String (This.Prover) & ": " &
+        Image (Value => This.Time) &
+        " (" & To_String (This.Result) & ")");
 
    Trivial_True : constant T := T'(Entity.T with
                                      Prover => To_Name ("Trivial"),
