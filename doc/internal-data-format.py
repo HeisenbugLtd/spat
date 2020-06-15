@@ -25,8 +25,8 @@ def main():
                                   '\tordering=out',
                                   '\tbgcolor="#EEEEEE"'),
                      node_attr = {"shape":"record"})
-    AE = graph.node (name  = "Analyzed_Entity",
-                     label = "Analyzed_Entity|{|{<t>The_Tree|<f>Flows|<p>Proofs}}")
+    graph.node (name  = "Analyzed_Entity",
+                label = "Analyzed_Entity|{|{<t>The_Tree|<f>Flows|<p>Proofs}}")
 
     # The "root" of the entity tree
     with graph.subgraph (name = "Tree_Root") as s:
