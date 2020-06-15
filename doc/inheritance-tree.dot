@@ -1,18 +1,18 @@
 digraph "Inheritance Tree"
 {
   rankdir=TB;
-  viewport="800,600,0.9";
+  viewport="800,600,0.8";
   ordering="out";
   bgcolor="#EEEEEE";
   node [shape=record];
 
-  "SPAT.Entity.T"          [label="{Entity.T|{abstract|}}"];
-  "SPAT.Entity_Line.T"     [label="{Entity_Line.T|{|{\+file|\+line}}}"];
-  "SPAT.Entity_Location.T" [label="{SPAT.Entity_Location.T|{|{+column}}}"];
-  "SPAT.Flow_Item.T"       [label="{SPAT.Flow_Item.T|{|+flow-information}}"];
-  "SPAT.Proof_Item.T"      [label="{SPAT.Proof_Item.T|{|+proof-information}}"];
-  "SPAT.Proof_Attempt.T"   [label="{SPAT.Proof_Attempt.T|{|+proof-attempt}}"];
-  "SPAT.Timing_Item.T"     [label="{SPAT.Timing_Item.T|{|+file_times}}}"];
+  "SPAT.Entity.T"          [label="{Entity.T\l|{abstract\l|}}"];
+  "SPAT.Entity_Line.T"     [label="{Entity_Line.T\l|{|{+File : File_Name\l|+Line : Natural\l}}}"];
+  "SPAT.Entity_Location.T" [label="{SPAT.Entity_Location.T\l|{|{+Column : Natural\l}}}"];
+  "SPAT.Flow_Item.T"       [label="{SPAT.Flow_Item.T\l|{|{+Rule : Subject_Name\l|+Severity : Subject_Name\l}}}"];
+  "SPAT.Proof_Item.T"      [label="{SPAT.Proof_Item.T\l|{|{+Suppressed : Subject_Name\l|+Rule : Subject_Name\l|+Severity : Subject_Name\l|+Max_Time : Duration\l|+Total_Time : Duration\l|+Has_Failed_Attempts : Boolean\l|+Has_Unproved_Attempts : Boolean\l|+Is_Unjustified : Boolean\l}}}"];
+  "SPAT.Proof_Attempt.T"   [label="{SPAT.Proof_Attempt.T\l|{|{+Prover : Subject_Name\l|+Result : Subject_Name\l|+Time : Duration\l}}}"];
+  "SPAT.Timing_Item.T"     [label="{SPAT.Timing_Item.T\l|{|{+Version : File_Version\l|+Proof : Duration\l|+Flow : Duration\l}}}"];
 
   //.Entity.T (abstract) - Denotes some kind of entity
   //+- SPAT.Entity_Line.T - Denotes an entity from a file with line information
