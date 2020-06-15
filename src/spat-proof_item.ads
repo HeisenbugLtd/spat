@@ -59,14 +59,14 @@ package SPAT.Proof_Item is
    --  Comparison operator for proof items.
    ---------------------------------------------------------------------------
    overriding
-   function "<" (Left  : in Proof_Item.T;
-                 Right : in Proof_Item.T) return Boolean;
+   function "<" (Left  : in T;
+                 Right : in T) return Boolean;
 
    ---------------------------------------------------------------------------
    --  Add_To_Tree
    ---------------------------------------------------------------------------
    procedure Add_To_Tree (Object  : in     JSON_Value;
-                          Version : in File_Version;
+                          Version : in     File_Version;
                           Tree    : in out Entity.Tree.T;
                           Parent  : in     Entity.Tree.Cursor) with
      Pre => Has_Required_Fields (Object  => Object,
@@ -79,10 +79,14 @@ package SPAT.Proof_Item is
    function Has_Failed_Attempts (This : in T) return Boolean;
 
    ---------------------------------------------------------------------------
-   --  Has_Unproved_Attempts
-   ---------------------------------------------------------------------------
    not overriding
    function Has_Unproved_Attempts (This : in T) return Boolean;
+
+   ---------------------------------------------------------------------------
+   --  Image
+   ---------------------------------------------------------------------------
+   overriding
+   function Image (This : in T) return String;
 
    ---------------------------------------------------------------------------
    --  Is_Unjustified
@@ -207,6 +211,16 @@ private
    not overriding
    function Has_Failed_Attempts (This : in T) return Boolean is
       (This.Has_Failed_Attempts);
+
+   ---------------------------------------------------------------------------
+   --  Image
+   ---------------------------------------------------------------------------
+   overriding
+   function Image (This : in T) return String is
+     (To_String (This.Rule) & " " &
+        Entity_Location.T (This).Image & " => " &
+        Image (Value => This.Max_Time) & "/" &
+        Image (Value => This.Total_Time));
 
    ---------------------------------------------------------------------------
    --  Is_Unjustified
