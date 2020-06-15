@@ -291,9 +291,9 @@ package body SPAT.Spark_Info is
      (This    : in T;
       Sort_By : in Sorting_Criterion := None) return Strings.File_Names is
    begin
-      return Result : Strings.File_Names (Capacity => This.Entities.Length) do
-         for Position in This.Timings.Iterate loop
-            Result.Append (New_Item => File_Timings.Key (Position => Position));
+      return Result : Strings.File_Names (Capacity => This.Files.Length) do
+         for File of This.Files loop
+            Result.Append (New_Item => File);
          end loop;
 
          case Sort_By is
