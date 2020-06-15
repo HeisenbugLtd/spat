@@ -1065,8 +1065,8 @@ SPARKNaCl.Car.Nearlynormal_To_Normal                      => 1.4 s/17.5 s
  `-CVC4: 1.4 s (Unknown (unknown))
   -Z3: 590.0 ms (Unknown (unknown))
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:322:13 => 810.0 ms/1.6 s
- `-CVC4: 810.0 ms (Unknown (unknown))
-  -Z3: 810.0 ms (Valid)
+ `-Z3: 810.0 ms (Valid)
+  -CVC4: 810.0 ms (Unknown (unknown))
 `-VC_PREDICATE_CHECK sparknacl-car.adb:308:10 => 1.0 s/1.2 s
  `-CVC4: 1.0 s (Valid)
  `-CVC4: 180.0 ms (Valid)

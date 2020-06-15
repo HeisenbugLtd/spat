@@ -33,7 +33,10 @@ package SPAT.Proof_Attempt is
                                   Kind   => JSON_String_Type) and
       Preconditions.Ensure_Field (Object        => Object,
                                   Field         => Field_Names.Time,
-                                  Kinds_Allowed => Preconditions.Number_Kind));
+                                  Kinds_Allowed => Preconditions.Number_Kind) and
+      Preconditions.Ensure_Field (Object => Object,
+                                  Field  => Field_Names.Steps,
+                                  Kind   => JSON_Int_Type));
 
    type T is new Entity.T with private;
 
@@ -87,10 +90,10 @@ private
 
    type T is new Entity.T with
       record
-         Prover     : Subject_Name; --  Prover involved.
-         Result     : Subject_Name; --  "Valid", "Unknown", etc.
-         Time       : Duration;     --  time spent during proof
-         --  Steps -- part of the JSON data, but we don't care.
+         Prover : Subject_Name; --  Prover involved.
+         Result : Subject_Name; --  "Valid", "Unknown", etc.
+         Time   : Duration;     --  time spent during proof
+         Steps  : Natural;      -- number of steps the prover took
       end record;
 
    ---------------------------------------------------------------------------
@@ -106,7 +109,8 @@ private
    Trivial_True : constant T := T'(Entity.T with
                                      Prover => To_Name ("Trivial"),
                                      Result => To_Name ("Valid"),
-                                     Time   => 0.0);
+                                     Time   => 0.0,
+                                     Steps  => 0);
 
    ---------------------------------------------------------------------------
    --  Prover
