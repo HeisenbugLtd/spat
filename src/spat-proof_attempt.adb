@@ -16,9 +16,13 @@ package body SPAT.Proof_Attempt is
    function "<" (Left  : in T;
                  Right : in T) return Boolean is
    begin
-      --  Sort by time, result, and prover name.
+      --  Sort by time, steps, result, and then prover name.
       if Left.Time /= Right.Time then
          return Left.Time > Right.Time;
+      end if;
+
+      if Left.Steps /= Right.Steps then
+         return Left.Steps > Right.Steps;
       end if;
 
       if Left.Result /= Right.Result then
@@ -50,7 +54,8 @@ package body SPAT.Proof_Attempt is
                            raise Program_Error
                              with
                                "Fatal: Impossible Kind """ &
-                               Time_Field.Kind'Image & """ of JSON object!"));
+                               Time_Field.Kind'Image & """ of JSON object!"),
+                   Steps => Object.Get (Field => Field_Names.Steps));
    end Create;
 
 end SPAT.Proof_Attempt;
