@@ -554,5 +554,5 @@ from (this VC would not be shown at all in `--report-mode=failed`).
   adding helping assertion or restructure the logic) and then run `gnatprove`
   again. If you now run `spat` again all unchanged proofs will be reported as
   having a time of 0.0 s, but the verification conditions that had to be
-  re-verified will show the time spent proofing them. Which, in the case of
+  re-verified will show the time spent proving them. Which, in the case of
   trying to optimize proof times is exactly what you want.
