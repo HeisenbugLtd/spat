@@ -15,6 +15,7 @@ package body SPAT.Proof_Attempt is
    not overriding
    function "<" (Left  : in T;
                  Right : in T) return Boolean is
+      use type Proof_Attempt_Ids.Id;
    begin
       --  Sort by time, steps, result, and then prover name.
       if Left.Time /= Right.Time then
@@ -29,7 +30,12 @@ package body SPAT.Proof_Attempt is
          return Left.Result < Right.Result;
       end if;
 
-      return Left.Prover < Right.Prover;
+      if Left.Prover /= Right.Prover then
+         return Left.Prover < Right.Prover;
+      end if;
+
+      --  Last resort, the unique id.
+      return Left.Id < Right.Id;
    end "<";
 
    ---------------------------------------------------------------------------
@@ -55,7 +61,8 @@ package body SPAT.Proof_Attempt is
                              with
                                "Fatal: Impossible Kind """ &
                                Time_Field.Kind'Image & """ of JSON object!"),
-                   Steps => Object.Get (Field => Field_Names.Steps));
+                  Steps => Object.Get (Field => Field_Names.Steps),
+                  Id    => Proof_Attempt_Ids.Next);
    end Create;
 
 end SPAT.Proof_Attempt;
