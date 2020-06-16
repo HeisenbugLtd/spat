@@ -20,6 +20,7 @@ with SPAT.Entity_Location;
 with SPAT.Entity.Tree;
 with SPAT.Field_Names;
 with SPAT.Preconditions;
+with SPAT.Unique_Ids;
 
 package SPAT.Proof_Item is
 
@@ -150,6 +151,8 @@ package SPAT.Proof_Item is
 
 private
 
+   package Proof_Item_Ids is new Unique_Ids;
+
    type Checks_Sentinel is new Entity.T with
       record
          Has_Failed_Attempts : Boolean;
@@ -195,6 +198,7 @@ private
          Severity              : Subject_Name;
          Max_Time              : Duration; --  Longest time spent in proof (successful or not)
          Total_Time            : Duration; --  Accumulated proof time.
+         Id                    : Proof_Item_Ids.Id; --  Id for stable sorting.
          Has_Failed_Attempts   : Boolean;
          Has_Unproved_Attempts : Boolean;
          Is_Unjustified        : Boolean;

@@ -2447,9 +2447,9 @@ SPARKNaCl                                                 => 80.0 ms/260.0 ms
 `-VC_PREDICATE_CHECK sparknacl.ads:340:38 => 80.0 ms/80.0 ms
  `-CVC4: 80.0 ms (Valid, 787 steps)
 `-VC_PREDICATE_CHECK sparknacl.ads:339:38 => 60.0 ms/60.0 ms
- `-CVC4: 60.0 ms (Valid, 5 steps)
-`-VC_PREDICATE_CHECK sparknacl.ads:339:38 => 60.0 ms/60.0 ms
  `-CVC4: 60.0 ms (Valid, 620 steps)
+`-VC_PREDICATE_CHECK sparknacl.ads:339:38 => 60.0 ms/60.0 ms
+ `-CVC4: 60.0 ms (Valid, 5 steps)
 `-VC_PREDICATE_CHECK sparknacl.ads:340:38 => 60.0 ms/60.0 ms
  `-CVC4: 60.0 ms (Valid, 5 steps)
 SPARKNaCl.Cryptobox.AfterNM                               => 60.0 ms/260.0 ms
