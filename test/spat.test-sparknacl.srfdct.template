@@ -29,14 +29,14 @@ sparknacl-debug.spark     => (Flow  => 469.0 µs,
                               Proof => 0.0 s)
 SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
 `-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36 => --/57.6 s/238.7 s
- `-CVC4: 57.6 s (Unknown (unknown))
-  -Z3: 4.3 s (Valid)
- `-CVC4: 51.6 s (Unknown (unknown))
-  -Z3: 7.9 s (Unknown (unknown))
- `-CVC4: 50.5 s (Unknown (unknown))
-  -Z3: 8.8 s (Unknown (unknown))
- `-CVC4: 50.7 s (Unknown (unknown))
-  -Z3: 7.2 s (Unknown (unknown))
+ `-CVC4: 57.6 s (Unknown (unknown), 505002 steps)
+  -Z3: 4.3 s (Valid, 5205347 steps)
+ `-CVC4: 51.6 s (Unknown (unknown), 505013 steps)
+  -Z3: 7.9 s (Unknown (unknown), 11654552 steps)
+ `-CVC4: 50.5 s (Unknown (unknown), 505013 steps)
+  -Z3: 8.8 s (Unknown (unknown), 11654285 steps)
+ `-CVC4: 50.7 s (Unknown (unknown), 505013 steps)
+  -Z3: 7.2 s (Unknown (unknown), 11654931 steps)
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:896:16 => 8.2 s/51.5 s/115.1 s
  `-CVC4: 51.5 s (Unknown (unknown))
   -Z3: 8.2 s (Valid)
@@ -100,4 +100,5 @@ SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
 `-VC_POSTCONDITION sparknacl.ads:379:35 => --/1.2 s/1.3 s
  `-Z3: 1.2 s (Unknown (unknown))
   -CVC4: 80.0 ms (Unknown (unknown))
+ `-CVC4: 51.5 s (Unknown (unknown), 505013 steps)
 Justified with: "From definition of arithmetic shift right".

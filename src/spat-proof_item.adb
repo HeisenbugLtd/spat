@@ -27,6 +27,7 @@ package body SPAT.Proof_Item is
    overriding
    function "<" (Left  : in T;
                  Right : in T) return Boolean is
+      use type Proof_Item_Ids.Id;
    begin
       --  First by total time.
       if Left.Total_Time /= Right.Total_Time then
@@ -50,7 +51,15 @@ package body SPAT.Proof_Item is
          return Left.Severity < Right.Severity;
       end if;
 
-      --  Last resort, by location (i.e. file:line:column).
+      --  Locations are equal, go for last resort, the unique id.
+      if Entity_Location."=" (X => Entity_Location.T (Left),
+                              Y => Entity_Location.T (Right))
+      then
+         --  Last resort. By unique id.
+         return Left.Id < Right.Id;
+      end if;
+
+      --  By location (i.e. file:line:column).
       return Entity_Location."<" (Left  => Entity_Location.T (Left),
                                   Right => Entity_Location.T (Right));
    end "<";
@@ -165,7 +174,7 @@ package body SPAT.Proof_Item is
 
             --  If not empty, add the current check tree to our list.
             if not Attempts.Is_Empty then
-               Attempts.Sort_By_Duration;
+               Attempts.Sort_By_Duration; --  FIXME: Potentially unstable.
                Checks_List.Append (New_Item => Attempts);
             end if;
          end;
@@ -238,6 +247,7 @@ package body SPAT.Proof_Item is
                                               else Max_Success_Time),
                     Max_Time              => Max_Time,
                     Total_Time            => Total_Time,
+                    Id                    => Proof_Item_Ids.Next,
                     Has_Failed_Attempts   => Has_Failed_Attempts,
                     Has_Unproved_Attempts => Has_Unproved_Attempts,
                     Is_Unjustified        => Is_Unjustified));
