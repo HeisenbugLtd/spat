@@ -20,7 +20,7 @@ with SPAT.Entity_Location;
 with SPAT.Entity.Tree;
 with SPAT.Field_Names;
 with SPAT.Preconditions;
-with SPAT.Unique_Ids;
+private with SPAT.Unique_Ids;
 
 package SPAT.Proof_Item is
 
