@@ -10,5 +10,5 @@ test_phelix_api.spark       => (Flow  => 14.4 ms,
                                 Proof => 23.1 s)
 Saatana.Crypto.Phelix.Setup_Key            => 206.4 s/219.2 s
 `-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44 => 206.4 s/207.1 s
- `-Z3: 206.4 s (Unknown (unknown), 105312169 steps)
-  -CVC4: 640.0 ms (Valid, 22722 steps)
+ `-Z3: 206.4 s [ 206.410000000] (Unknown (unknown), 105312169 steps)
+  -CVC4: 640.0 ms [ 0.640000000] (Valid, 22722 steps)

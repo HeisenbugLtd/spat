@@ -101,6 +101,7 @@ private
    overriding
    function Image (This : in T) return String is
      (To_String (This.Prover) & ": " & Image (Value => This.Time) &
+        " [" & This.Time'Image & "]" & --  FIXME: Test output only.
         " (" & To_String (This.Result) & "," & This.Steps'Image & " steps)");
 
    Trivial_True : constant T := T'(Entity.T with
