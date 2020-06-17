@@ -1,3 +1,4 @@
+Warning: Sorting files by success time not implemented yet, falling back to maximum time.
 sparknacl-sign.spark      => (Flow  => 253.6 ms,
                               Proof => 764.5 s)
 sparknacl-car.spark       => (Flow  => 86.1 ms,
