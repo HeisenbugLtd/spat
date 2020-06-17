@@ -23,6 +23,7 @@ package body SPAT.Proof_Item is
    ---------------------------------------------------------------------------
    --  "<"
    ---------------------------------------------------------------------------
+   --  FIXME: We should be able to sort by Max_Success_Time, too.
    overriding
    function "<" (Left  : in T;
                  Right : in T) return Boolean is
@@ -232,9 +233,9 @@ package body SPAT.Proof_Item is
                       Object.Get (Field => Field_Names.Rule),
                     Severity              =>
                       Object.Get (Field => Field_Names.Severity),
-                    Max_Success_Time      => (if not Has_Unproved_Attempts
-                                              then Max_Success_Time
-                                              else -1.0), -- no failed attempts.
+                    Max_Success_Time      => (if Has_Unproved_Attempts
+                                              then 0.0
+                                              else Max_Success_Time),
                     Max_Time              => Max_Time,
                     Total_Time            => Total_Time,
                     Has_Failed_Attempts   => Has_Failed_Attempts,
