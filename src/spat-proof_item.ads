@@ -223,6 +223,9 @@ private
    function Image (This : in T) return String is
      (To_String (This.Rule) & " " &
         Entity_Location.T (This).Image & " => " &
+        (if This.Has_Unproved_Attempts
+         then "--"
+         else Image (Value => This.Max_Success_Time)) & "/" &
         Image (Value => This.Max_Time) & "/" &
         Image (Value => This.Total_Time));
 

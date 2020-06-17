@@ -27,7 +27,6 @@ random.spark              => (Flow  => 517.0 µs,
                               Proof => 0.0 s)
 sparknacl-debug.spark     => (Flow  => 469.0 µs,
                               Proof => 0.0 s)
-<<<<<<< HEAD
 SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
 `-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36 => --/57.6 s/238.7 s
  `-CVC4: 51.6 s (Unknown (unknown), 505013 steps)
