@@ -460,8 +460,8 @@ counter-intuitive way.
 First of all, as mentioned earlier, it is *not* implemented for the summary
 display. If you try that, `spat` will warn you and resort to sorting by time.
 
-Similar goes for the `--cut-off` option, which still only takes the total proof
-time into account.
+Similar goes for the `--cut-off` option, which still only takes the maximum
+proof time into account.
 
 The [idea behind this sorting option](https://github.com/HeisenbugLtd/spat/issues/29)
 is that you may want to know where provers spend useless time (e.g. where a
