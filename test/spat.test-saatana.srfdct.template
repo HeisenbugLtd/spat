@@ -8,7 +8,7 @@ saatana-crypto-lemmas.spark => (Flow  => 2.1 ms,
                                 Proof => 2.2 s)
 saatana.spark               => (Flow  => 464.0 µs,
                                 Proof => 0.0 s)
-Saatana.Crypto.Phelix.Setup_Key            => 206.4 s/219.2 s
-`-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44 => 206.4 s/207.1 s
+Saatana.Crypto.Phelix.Setup_Key            => 640.0 ms/206.4 s/219.2 s
+`-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44 => 640.0 ms/206.4 s/207.1 s
  `-Z3: 206.4 s (Unknown (unknown))
   -CVC4: 640.0 ms (Valid)
