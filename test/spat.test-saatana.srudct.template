@@ -1,3 +1,4 @@
+Warning: Sorting files by success time not implemented yet, falling back to maximum time.
 saatana-crypto-phelix.spark => (Flow  => 206.5 ms,
                                 Proof => 568.7 s)
 test_phelix_api.spark       => (Flow  => 14.4 ms,

@@ -64,7 +64,11 @@ begin
                               To   => Second_Column);
          SPAT.Log.Message
            (Message =>
-              "=> " & Image (Value => Info.Max_Proof_Time (Entity => Entity)) &
+              "=> " &
+              (if Info.Has_Unproved_Attempts (Entity => Entity)
+               then "--" -- Useless if nothing is proven.
+               else Image (Value => Info.Max_Success_Proof_Time (Entity => Entity))) &
+              "/" & Image (Value => Info.Max_Proof_Time (Entity => Entity)) &
               "/" & Image (Value => Info.Total_Proof_Time (Entity => Entity)));
 
          if SPAT.Command_Line.Details.Get then
@@ -91,6 +95,9 @@ begin
                        (Message =>
                           "`-" & SPAT.To_String (The_Proof.Rule) & " " &
                           The_Proof.Image & " => " &
+                          (if The_Proof.Has_Unproved_Attempts
+                           then "--" --  Useless if nothing is proven.
+                           else Image (The_Proof.Max_Success_Time)) & "/" &
                           Image (The_Proof.Max_Time) & "/" &
                           Image (The_Proof.Total_Time));
 

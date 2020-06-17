@@ -26,15 +26,15 @@ sparknacl-stream.spark    => (Flow  => 72.6 ms,
                               Proof => 21.2 s)
 sparknacl-utils.spark     => (Flow  => 49.8 ms,
                               Proof => 17.4 s)
-SPARKNaCl.Car.Nearlynormal_To_Normal                      => 1.4 s/17.5 s
-`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => 1.4 s/1.9 s
+SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => --/1.4 s/1.9 s
  `-CVC4: 1.4 s (Unknown (unknown))
   -Z3: 590.0 ms (Unknown (unknown))
-`-VC_ASSERT sparknacl-car.adb:343:31 => 790.0 ms/1.2 s
+`-VC_ASSERT sparknacl-car.adb:343:31 => --/790.0 ms/1.2 s
  `-Z3: 790.0 ms (Unknown (unknown))
   -CVC4: 410.0 ms (Unknown (unknown))
-SPARKNaCl.Sign.Sign                                       => 57.6 s/489.2 s
-`-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36 => 57.6 s/238.7 s
+SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36 => --/57.6 s/238.7 s
  `-CVC4: 51.6 s (Unknown (unknown))
   -Z3: 7.9 s (Unknown (unknown))
  `-CVC4: 50.5 s (Unknown (unknown))

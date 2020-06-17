@@ -18,7 +18,8 @@
   * #### 4.5 [The `--cut-off` option](README.md#the---cut-off-option)
   * #### 4.6 [The `--verbose` option](README.md#the---verbose-option)
   * #### 4.7 [The `--version` option](README.md#the---version-option)
-* ### 5. [Tool Limitations](README.md#tool-limitations)
+* ### 5. [Some Notes on sorting](README.md#some-notes-on-sorting)
+* ### 6. [Tool Limitations](README.md#tool-limitations)
 
 ## Introduction
 
@@ -100,24 +101,26 @@ Quick help:
 will give you a quick overview over the available command line options:
 
 ```
-usage: run_spat [--help|-h] [--project|-P PROJECT] [--summary|-s]
-               [--report-mode|-r REPORT-MODE] [--sort-by|-c SORT-BY]
-               [--cut-off|-p CUT-OFF] [--details|-d] [--version|-V]
-               [--verbose|-v]
+usage: run_spat [--help|-h] [--project|-P PROJECT] [--summary|-s] 
+               [--report-mode|-r REPORT-MODE] [--sort-by|-c SORT-BY] 
+               [--cut-off|-p CUT-OFF] [--details|-d] [--version|-V] 
+               [--verbose|-v] 
 
 Parses .spark files and outputs information about them.
 
 positional arguments:
-
+   
 optional arguments:
    --help, -h            Show this help message
    --project, -P         PROJECT = GNAT project file (.gpr) (mandatory!)
    --summary, -s         List summary (per file)
-   --report-mode, -r     Output reporting mode (REPORT-MODE: a = all, f =
-                         failed, u = unproved, j = unjustified)
-   --sort-by, -c         Sorting criterion (SORT-BY: a = alphabetical, t = by
-                         time)
-   --cut-off, -p         Cut off point, do not show entities with proof times
+   --report-mode, -r     Output reporting mode (REPORT-MODE: a = all, f = 
+                         failed, u = unproved, j = unjustified [implies 
+                         unproved])
+   --sort-by, -c         Sorting criterion (SORT-BY: a = alphabetical, s = by 
+                         minimum time for successful proof, t = by maximum proof
+                          time)
+   --cut-off, -p         Cut off point, do not show entities with proof times 
                          less than that (CUT-OFF: <numeral>[s|ms])
    --details, -d         Show details for entities (report mode)
    --version, -V         Show version information and exit
@@ -151,9 +154,11 @@ test_phelix_api.spark       => (Flow  => 14.4 ms,
 ```
 
 You can use the `--sort-by` option with `--summary`, either for an alphabetical
-list or a list sorted by time (descending order, so files with the most time
-needed by the provers come first).  By default, no particular order is imposed
-on the output.
+list (`--sort-by=a`), or a list sorted by time (`--sort-by=t` descending order,
+so files with the most time needed by the provers come first).  The option
+`--sort-by=s` (see below) has the same effect as `--sort-by=t`, except for a
+warning that what you requested has not been implemented yet.  By default, no
+particular order is imposed on the output.
 
 *Note* that the `--details` option has no effect on the output here, this
 option is designed to work with the `--report-mode` option only.
@@ -188,22 +193,42 @@ run_spat -ra -P saatana.gpr
 Typical output looks like this:
 
 ```
-Saatana.Crypto.Phelix.Encrypt_Bytes        => 174.3 s/189.0 s
-Saatana.Crypto.Phelix.Setup_Key            => 206.4 s/219.2 s
-Saatana.Crypto.Phelix.Ctx_AAD_Len          => 0.0 s/0.0 s
-Saatana.Crypto.Phelix.Encrypt_Packet       => 100.0 ms/2.0 s
-Saatana.Crypto.Phelix.MAC_Size_32Predicate => 30.0 ms/30.0 ms
-Saatana.Crypto.Phelix.Ctx_Msg_Len          => 0.0 s/0.0 s
-Saatana.Crypto.Phelix.Ctx_I                => 0.0 s/0.0 s
-Saatana.Crypto                             => 0.0 s/0.0 s
-Saatana.Crypto.Phelix.Setup_Key_Called     => 0.0 s/0.0 s
-Saatana.Crypto.Phelix.Ctx_Mac_Size         => 0.0 s/0.0 s
-Saatana.Crypto.Phelix.Exclusive_Or         => 110.0 ms/540.0 ms
+Saatana.Crypto.Phelix.Encrypt_Bytes        => 174.3 s/174.3 s/189.0 s
+Saatana.Crypto.Phelix.Setup_Key            => 640.0 ms/206.4 s/219.2 s
+Saatana.Crypto.Phelix.Ctx_AAD_Len          => 0.0 s/0.0 s/0.0 s
+Saatana.Crypto.Phelix.Encrypt_Packet       => 100.0 ms/100.0 ms/2.0 s
+Saatana.Crypto.Phelix.MAC_Size_32Predicate => 30.0 ms/30.0 ms/30.0 ms
+Saatana.Crypto.Phelix.Ctx_Msg_Len          => 0.0 s/0.0 s/0.0 s
+Saatana.Crypto.Phelix.Ctx_I                => 0.0 s/0.0 s/0.0 s
+Saatana.Crypto                             => 0.0 s/0.0 s/0.0 s
+Saatana.Crypto.Phelix.Setup_Key_Called     => 0.0 s/0.0 s/0.0 s
+Saatana.Crypto.Phelix.Ctx_Mac_Size         => 0.0 s/0.0 s/0.0 s
+Saatana.Crypto.Phelix.Exclusive_Or         => 110.0 ms/110.0 ms/540.0 ms
 ...
 ```
 
-The first value you see after the Ada entity is the longest proof time, the
-second value is the total sum of all proof times for this entity.
+The first value you see after the Ada entity is the longest time needed for a
+single successful proof, the second value is the maximum time needed for a
+proof (successful or not), and the third value is the total sum of all proof
+times for this entity.
+
+If the first and the second value vastly differ, that usually means that one of
+the provers involved could not prove a certain item, but another one could and
+was better at it. See below how to analyze this in a more detailed way.
+
+If the first value is shown as `--`, then that means, there was at least one
+unsuccessful proof for this entity.  An example:
+
+```
+...
+SPARKNaCl.MAC.Onetimeauth                                 => 340.0 ms/340.0 ms/3.7 s
+SPARKNaCl.Seminormal_GFPredicate                          => 0.0 s/0.0 s/0.0 s
+SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
+SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
+SPARKNaCl.ASR_8                                           => --/3.3 s/3.5 s
+SPARKNaCl.Sign.Unpackneg.Pow_2523                         => 0.0 s/0.0 s/0.0 s
+...
+```
 
 #### The `--report-mode=failed` option
 
@@ -222,11 +247,14 @@ run_spat -ct -rf -P saatana.gpr
 Typical output:
 
 ```
-Saatana.Crypto.Phelix.Setup_Key            => 206.4 s/219.2 s
+Saatana.Crypto.Phelix.Setup_Key            => 640.0 ms/206.4 s/219.2 s
 ```
 
 Here, we can see that there is one entity where a prover failed to prove the
-verification condition.
+verification condition.  As mentioned above, here you can see that the time for
+*longest successful proof* (640 ms) greatly differs from the
+*maximum time for a single proof* (206 s).  This is a clear indicator, that one
+is not well suited to prove a certain verification condition.
 
 #### The `--report-mode=unproved` option
 
@@ -243,15 +271,16 @@ run_spat -ct -ru -P sparknacl.gpr
 Typical output:
 
 ```
-SPARKNaCl.Sign.Sign                                       => 57.6 s/489.2 s
-SPARKNaCl.Car.Nearlynormal_To_Normal                      => 1.4 s/17.5 s
-SPARKNaCl.ASR_16                                          => 5.7 s/5.9 s
-SPARKNaCl.ASR_8                                           => 3.3 s/3.5 s
-SPARKNaCl.ASR_4                                           => 1.2 s/1.4 s
+SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
+SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
+SPARKNaCl.ASR_16                                          => --/5.7 s/5.9 s
+SPARKNaCl.ASR_8                                           => --/3.3 s/3.5 s
+SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
 ```
 
 Here, we can see that there are five entities with unproven verification
-conditions.
+conditions (and no reported maximum time for successful proof, of course, so it
+is shown as `--`).
 
 #### The `--report-mode=unjustified` option
 
@@ -268,8 +297,8 @@ run_spat -ct -rj -P sparknacl.gpr
 Typical output:
 
 ```
-SPARKNaCl.Sign.Sign                                       => 57.6 s/489.2 s
-SPARKNaCl.Car.Nearlynormal_To_Normal                      => 1.4 s/17.5 s
+SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
+SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
 ```
 
 Here, we can see that out of the five entities listed by the previous tool
@@ -290,8 +319,8 @@ run_spat -ct -rf -d -P saatana.gpr
 Output:
 
 ```
-Saatana.Crypto.Phelix.Setup_Key            => 206.4 s/219.2 s
-`-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44 => 206.4 s/207.1 s
+Saatana.Crypto.Phelix.Setup_Key            => 640.0 ms/206.4 s/219.2 s
+`-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44 => 640.0 ms/206.4 s/207.1 s
  `-Z3: 206.4 s (Unknown (unknown))
   -CVC4: 640.0 ms (Valid)
 ```
@@ -318,33 +347,33 @@ run_spat -ct -ru -d -P sparknacl.gpr
 Typical output:
 
 ```
-SPARKNaCl.Sign.Sign                                       => 57.6 s/489.2 s
-`-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36 => 57.6 s/238.7 s
+SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36 => --/57.6 s/238.7 s
  `-CVC4: 51.6 s (Unknown (unknown))
   -Z3: 7.9 s (Unknown (unknown))
  `-CVC4: 50.5 s (Unknown (unknown))
   -Z3: 8.8 s (Unknown (unknown))
  `-CVC4: 50.7 s (Unknown (unknown))
   -Z3: 7.2 s (Unknown (unknown))
-SPARKNaCl.Car.Nearlynormal_To_Normal                      => 1.4 s/17.5 s
-`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => 1.4 s/1.9 s
+SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => --/1.4 s/1.9 s
  `-CVC4: 1.4 s (Unknown (unknown))
   -Z3: 590.0 ms (Unknown (unknown))
-`-VC_ASSERT sparknacl-car.adb:343:31 => 790.0 ms/1.2 s
+`-VC_ASSERT sparknacl-car.adb:343:31 => --/790.0 ms/1.2 s
  `-Z3: 790.0 ms (Unknown (unknown))
   -CVC4: 410.0 ms (Unknown (unknown))
-SPARKNaCl.ASR_16                                          => 5.7 s/5.9 s
-`-VC_POSTCONDITION sparknacl.ads:355:35 => 5.7 s/5.8 s
+SPARKNaCl.ASR_16                                          => --/5.7 s/5.9 s
+`-VC_POSTCONDITION sparknacl.ads:355:35 => --/5.7 s/5.8 s
  `-Z3: 5.7 s (Unknown (unknown))
   -CVC4: 80.0 ms (Unknown (unknown))
 Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.ASR_8                                           => 3.3 s/3.5 s
-`-VC_POSTCONDITION sparknacl.ads:367:35 => 3.3 s/3.4 s
+SPARKNaCl.ASR_8                                           => --/3.3 s/3.5 s
+`-VC_POSTCONDITION sparknacl.ads:367:35 => --/3.3 s/3.4 s
  `-Z3: 3.3 s (Unknown (unknown))
   -CVC4: 90.0 ms (Unknown (unknown))
 Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.ASR_4                                           => 1.2 s/1.4 s
-`-VC_POSTCONDITION sparknacl.ads:379:35 => 1.2 s/1.3 s
+SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
+`-VC_POSTCONDITION sparknacl.ads:379:35 => --/1.2 s/1.3 s
  `-Z3: 1.2 s (Unknown (unknown))
   -CVC4: 80.0 ms (Unknown (unknown))
 Justified with: "From definition of arithmetic shift right".
@@ -377,23 +406,24 @@ is different for the `--report-mode` and `--summary` output.
 
   Example:
 
-  `run_spat -ra -ct -P saatana.gpr -p 400ms`
+  `run_spat -ra -ct -p 400 ms -P saatana.gpr`
 
   ```sh
-  Saatana.Crypto.Phelix.Setup_Key            => 206.4 s/219.2 s
-  Saatana.Crypto.Phelix.Encrypt_Bytes        => 174.3 s/189.0 s
-  Saatana.Crypto.Phelix.Decrypt_Bytes        => 4.0 s/18.6 s
-  Saatana.Crypto.Phelix.Finalize             => 2.2 s/7.7 s
-  Saatana.Crypto.Phelix.H                    => 6.0 s/6.0 s
+  Saatana.Crypto.Phelix.Setup_Key            => 640.0 ms/206.4 s/219.2 s
+  Saatana.Crypto.Phelix.Encrypt_Bytes        => 174.3 s/174.3 s/189.0 s
+  Saatana.Crypto.Phelix.Decrypt_Bytes        => 4.0 s/4.0 s/18.6 s
+  Saatana.Crypto.Phelix.Finalize             => 2.2 s/2.2 s/7.7 s
+  Saatana.Crypto.Phelix.H                    => 6.0 s/6.0 s/6.0 s
   ```
+
   vs.
   
   `run_spat -ra -ct -P saatana.gpr -p 5000ms` (or `-p 5s`, or even `-p 5`)
 
   ```sh
-  Saatana.Crypto.Phelix.Setup_Key            => 206.4 s/219.2 s
-  Saatana.Crypto.Phelix.Encrypt_Bytes        => 174.3 s/189.0 s
-  Saatana.Crypto.Phelix.H                    => 6.0 s/6.0 s
+  Saatana.Crypto.Phelix.Setup_Key            => 640.0 ms/206.4 s/219.2 s
+  Saatana.Crypto.Phelix.Encrypt_Bytes        => 174.3 s/174.3 s/189.0 s
+  Saatana.Crypto.Phelix.H                    => 6.0 s/6.0 s/6.0 s
   ```
 
   Notice that omitted entries disappear from the middle of the list, because
@@ -420,6 +450,94 @@ and some timings).
 
 Show version and compiler information for the executable.  If that option is
 encountered, no other options take effect and the program immediately exits.
+
+## Some Notes on Sorting
+
+The sort option *by successful proof time* (i.e. `--sort-by=s`) is newly
+implemented, so apart from implementation defects, it may work in a slightly
+counter-intuitive way.
+
+First of all, as mentioned earlier, it is *not* implemented for the summary
+display. If you try that, `spat` will warn you and resort to sorting by time.
+
+Similar goes for the `--cut-off` option, which still only takes the total proof
+time into account.
+
+The [idea behind this sorting option](https://github.com/HeisenbugLtd/spat/issues/29)
+is that you may want to know where provers spend useless time (e.g. where a
+prover is called which is known to not be able to prove a certain verification
+condition). After all, all provers have their strengths and weaknesses.
+
+Sorting by maximum successful proof time usually only makes sense when also
+invoked with the `--report-mode=failed` (or even more restrictive) filter
+option.  That is because if there are no failed attempts, it doesn't really
+matter what the *best* proof time would be, after all, the provers take all the
+time they need.  If you want to know the total effort spent, you can just as
+well use `--sort-by=t`.
+
+Examples (mostly to show how the difference between `--sort-by=t` and
+`--sort-by=s` work):
+
+* By time:
+  `run_spat -ct -rf -P sparknacl.gpr`
+  
+  ```
+  SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
+  SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/28.6 s
+  SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
+  SPARKNaCl.ASR_16                                          => --/5.7 s/5.9 s
+  SPARKNaCl.ASR_8                                           => --/3.3 s/3.5 s
+  SPARKNaCl.Utils.Pack_25519.Subtract_P                     => 150.0 ms/180.0 ms/1.8 s
+  SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
+  ```
+* By successful proof:
+
+  `run_spat -cs -rf -p 1 -P sparknacl.gpr`
+  
+  ```
+  SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
+  SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
+  SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/28.6 s
+  SPARKNaCl.Utils.Pack_25519.Subtract_P                     => 150.0 ms/180.0 ms/1.8 s
+  SPARKNaCl.ASR_16                                          => --/5.7 s/5.9 s
+  SPARKNaCl.ASR_8                                           => --/3.3 s/3.5 s
+  SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
+  ```
+
+Notice, how the entry for `SPARKNaCl.Utils.Pack_25519.Subtract_P` moved up?
+
+For now, you should ignore all unproved items, they are still shown, but due to
+the fact that they are unproved, there is no successful proof time (although
+there may be partial successes for the involved VCs).
+
+Developer's note: *This is something I am still planning to fix.*
+
+Looking at `Omultiply` in detail:
+
+`run_spat -d -cs -ra -P sparknacl.gpr | grep -A 50 Omultiply`
+
+(`grep` is a nifty tool to filter for certain entities, even in
+`--report-mode=all`).
+
+```
+SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/28.6 s
+SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/28.6 s
+`-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:164:13 => 40.0 ms/19.1 s/19.1 s
+ `-CVC4: 19.1 s (Unknown (unknown))
+  -Z3: 40.0 ms (Valid)
+`-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:80:16 => 700.0 ms/700.0 ms/930.0 ms
+ `-CVC4: 700.0 ms (Valid)
+ `-CVC4: 230.0 ms (Valid)
+`-VC_RANGE_CHECK sparknacl.adb:75:36 => 170.0 ms/170.0 ms/480.0 ms
+ `-CVC4: 170.0 ms (Valid)
+ `-CVC4: 120.0 ms (Valid)
+ `-CVC4: 110.0 ms (Valid)
+ `-CVC4: 80.0 ms (Valid)
+ ...
+```
+
+You can see, where the 700 ms for the longest time for a successful proof comes
+from (this VC would not be shown at all in `--report-mode=failed`).
 
 ## Tool Limitations
 

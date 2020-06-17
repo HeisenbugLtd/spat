@@ -23,6 +23,7 @@ package body SPAT.Proof_Item is
    ---------------------------------------------------------------------------
    --  "<"
    ---------------------------------------------------------------------------
+   --  FIXME: We should be able to sort by Max_Success_Time, too.
    overriding
    function "<" (Left  : in T;
                  Right : in T) return Boolean is
@@ -64,8 +65,11 @@ package body SPAT.Proof_Item is
    is
       pragma Unreferenced (Version); --  Only for precondition.
 
-      Max_Time    : Duration := 0.0;
-      Total_Time  : Duration := 0.0;
+      --  Collect information about the timing of dependent attempts.
+      Max_Time         : Duration := 0.0;
+      Max_Success_Time : Duration := 0.0;
+      Total_Time       : Duration := 0.0;
+
       Checks_List : Checks_Lists.Vector;
       Check_Tree  : constant JSON_Array :=
         Object.Get (Field => Field_Names.Check_Tree);
@@ -112,10 +116,20 @@ package body SPAT.Proof_Item is
                                        Proof_Attempt.Create
                                          (Prover => To_Name (Name),
                                           Object => Value);
+                           use type SPAT.Subject_Name;
                         begin
                            Attempts.Append (New_Item => Attempt);
 
-                           Max_Time   := Duration'Max (Max_Time, Attempt.Time);
+                           Max_Time := Duration'Max (Max_Time, Attempt.Time);
+
+                           --  FIXME: Attempt should have a property telling us
+                           --         that.
+                           if Attempt.Result = "Valid" then
+                              Max_Success_Time :=
+                                Duration'Max (Max_Success_Time,
+                                              Attempt.Time);
+                           end if;
+
                            Total_Time := Total_Time + Attempt.Time;
                         end;
                      end if;
@@ -202,24 +216,32 @@ package body SPAT.Proof_Item is
          end;
 
          --  And finally replace the sentinel node with the full object.
-         Tree.Replace_Element
-           (Position => PI_Node,
-            New_Item =>
-              T'(Entity_Location.Create (Object => Object) with
-                 Suppressed            => Justification,
-                 Rule                  =>
-                   Object.Get (Field => Field_Names.Rule),
-                 Severity              =>
-                   Object.Get (Field => Field_Names.Severity),
-                 Max_Time              => Max_Time,
-                 Total_Time            => Total_Time,
-                 Has_Failed_Attempts   => (for some Check of Checks_List =>
-                                             Check.Has_Failed_Attempts),
-                 Has_Unproved_Attempts => (for some Check of Checks_List =>
-                                              Check.Is_Unproved),
-                 Is_Unjustified        => (for some Check of Checks_List =>
-                                             Check.Is_Unproved) and then
-                                          Justification = Null_Name));
+         declare
+            Has_Failed_Attempts : constant Boolean :=
+              (for some Check of Checks_List => Check.Has_Failed_Attempts);
+            Has_Unproved_Attempts : constant Boolean :=
+              (for some Check of Checks_List => Check.Is_Unproved);
+            Is_Unjustified : constant Boolean :=
+              Has_Unproved_Attempts and then Justification = Null_Name;
+         begin
+            Tree.Replace_Element
+              (Position => PI_Node,
+               New_Item =>
+                 T'(Entity_Location.Create (Object => Object) with
+                    Suppressed            => Justification,
+                    Rule                  =>
+                      Object.Get (Field => Field_Names.Rule),
+                    Severity              =>
+                      Object.Get (Field => Field_Names.Severity),
+                    Max_Success_Time      => (if Has_Unproved_Attempts
+                                              then 0.0
+                                              else Max_Success_Time),
+                    Max_Time              => Max_Time,
+                    Total_Time            => Total_Time,
+                    Has_Failed_Attempts   => Has_Failed_Attempts,
+                    Has_Unproved_Attempts => Has_Unproved_Attempts,
+                    Is_Unjustified        => Is_Unjustified));
+         end;
       end;
    end Add_To_Tree;
 

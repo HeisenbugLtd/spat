@@ -79,22 +79,28 @@ package SPAT.Proof_Item is
    function Has_Failed_Attempts (This : in T) return Boolean;
 
    ---------------------------------------------------------------------------
-   --  Is_Unjustified
-   ---------------------------------------------------------------------------
-   not overriding
-   function Is_Unjustified (This : in T) return Boolean;
-
-   ---------------------------------------------------------------------------
    --  Has_Unproved_Attempts
    ---------------------------------------------------------------------------
    not overriding
    function Has_Unproved_Attempts (This : in T) return Boolean;
 
    ---------------------------------------------------------------------------
+   --  Is_Unjustified
+   ---------------------------------------------------------------------------
+   not overriding
+   function Is_Unjustified (This : in T) return Boolean;
+
+   ---------------------------------------------------------------------------
    --  Rule
    ---------------------------------------------------------------------------
    not overriding
    function Rule (This : in T) return Subject_Name;
+
+   ---------------------------------------------------------------------------
+   --  Max_Success_Time
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Time (This : in T) return Duration;
 
    ---------------------------------------------------------------------------
    --  Max_Time
@@ -187,6 +193,7 @@ private
          Suppressed            : Subject_Name;
          Rule                  : Subject_Name;
          Severity              : Subject_Name;
+         Max_Success_Time      : Duration; --  Longest time for a successful proof.
          Max_Time              : Duration; --  Longest time spent in proof (successful or not)
          Total_Time            : Duration; --  Accumulated proof time.
          Has_Failed_Attempts   : Boolean;
@@ -214,6 +221,13 @@ private
    not overriding
    function Has_Unproved_Attempts (This : in T) return Boolean is
       (This.Has_Unproved_Attempts);
+
+   ---------------------------------------------------------------------------
+   --  Max_Success_Time
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Time (This : in T) return Duration is
+     (This.Max_Success_Time);
 
    ---------------------------------------------------------------------------
    --  Max_Time

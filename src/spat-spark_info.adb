@@ -125,6 +125,16 @@ package body SPAT.Spark_Info is
       Container : in out Strings.Entity_Names);
 
    ---------------------------------------------------------------------------
+   --  Sort_Entity_By_Success_Time
+   --
+   --  Sort code entities by how much maximum time for a successful proofs.
+   --  Sorting: numerical, descending
+   ---------------------------------------------------------------------------
+   procedure Sort_Entity_By_Success_Time
+     (This      : in     T;
+      Container : in out Strings.Entity_Names);
+
+   ---------------------------------------------------------------------------
    --  Sort_File_By_Basename
    --
    --  Sort files by their base name (i.e. without containing directory or
@@ -277,7 +287,10 @@ package body SPAT.Spark_Info is
             when Name =>
                This.Sort_Entity_By_Name (Container => Result);
 
-            when Time =>
+            when Max_Success_Time =>
+               This.Sort_Entity_By_Success_Time (Container => Result);
+
+            when Max_Time =>
                This.Sort_Entity_By_Proof_Time (Container => Result);
          end case;
       end return;
@@ -303,7 +316,11 @@ package body SPAT.Spark_Info is
             when Name =>
                This.Sort_File_By_Basename (Container => Result);
 
-            when Time =>
+            when Max_Success_Time | Max_Time =>
+               Log.Warning
+                 (Message =>
+                     "Sorting files by success time not implemented yet, " &
+                     "falling back to maximum time.");
                This.Sort_File_By_Proof_Time (Container => Result);
          end case;
       end return;
@@ -506,6 +523,10 @@ package body SPAT.Spark_Info is
                                     Tree    => Reference.The_Tree,
                                     Parent  => Reference.Proofs);
 
+                                 --  FIXME: This should be factored out into
+                                 --         a subprogram, the indent level is
+                                 --         getting insane.
+
                                  --  Update parent sentinel with new proof
                                  --  times.
                                  declare
@@ -535,7 +556,10 @@ package body SPAT.Spark_Info is
                                          Proof_Cache'
                                            (Max_Proof_Time =>
                                               Duration'Max (S.Cache.Max_Proof_Time,
-                                                N.Max_Time),
+                                                            N.Max_Time),
+                                            Max_Success_Proof_Time =>
+                                              Duration'Max (S.Cache.Max_Success_Proof_Time,
+                                                            N.Max_Success_Time),
                                             Total_Proof_Time =>
                                               S.Cache.Total_Proof_Time +
                                                 N.Total_Time,
@@ -553,9 +577,6 @@ package body SPAT.Spark_Info is
                                     Reference.The_Tree.Update_Element
                                       (Position => Reference.Proofs,
                                        Process  => Update_Sentinel'Access);
-                                    null;
-                                    --  Reference.The_Tree.Update_Element
-                                    --       ();
                                  end;
                               end;
                            end if;
@@ -737,6 +758,20 @@ package body SPAT.Spark_Info is
    end Max_Proof_Time;
 
    ---------------------------------------------------------------------------
+   --  Max_Success_Proof_Time
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Proof_Time (This   : in T;
+                                    Entity : in Entity_Name) return Duration
+   is
+      Reference : constant Analyzed_Entities.Constant_Reference_Type :=
+        This.Entities.Constant_Reference (Key => Entity);
+      Sentinel  : constant Proofs_Sentinel := Get_Sentinel (Node => Reference);
+   begin
+      return Sentinel.Cache.Max_Success_Proof_Time;
+   end Max_Success_Proof_Time;
+
+   ---------------------------------------------------------------------------
    --  Num_Flows
    ---------------------------------------------------------------------------
    not overriding
@@ -906,8 +941,78 @@ package body SPAT.Spark_Info is
            This.Max_Proof_Time (Entity => Left);
          Right_Max   : constant Duration :=
            This.Max_Proof_Time (Entity => Right);
+         Left_Success : constant Duration :=
+           This.Max_Success_Proof_Time (Entity => Left);
+         Right_Success : constant Duration :=
+           This.Max_Success_Proof_Time (Entity => Right);
       begin
          --  First by total time.
+         if Left_Total /= Right_Total then
+            return Left_Total > Right_Total;
+         end if;
+
+         --  Total time is the same, try to sort by max time.
+         if Left_Max /= Right_Max then
+            return Left_Max > Right_Max;
+         end if;
+
+         --  Try sorting by max time for successful proof.
+         if Left_Success /= Right_Success then
+            return Left_Success > Right_Success;
+         end if;
+
+         --  Resort to alphabetical order.
+         return SPAT."<" (Left, Right); --  Trap! "Left < Right" is recursive.
+      end "<";
+
+      package Sorting is new
+        Strings.Implementation.Entities.Base_Vectors.Generic_Sorting ("<" => "<");
+   begin
+      Sorting.Sort
+        (Container =>
+           Strings.Implementation.Entities.Base_Vectors.Vector (Container));
+   end Sort_Entity_By_Proof_Time;
+
+   ---------------------------------------------------------------------------
+   --  Sort_Entity_By_Success_Time
+   --
+   --  Sort code entities by how much maximum time for a successful proofs.
+   --  Sorting: numerical, descending
+   ---------------------------------------------------------------------------
+   procedure Sort_Entity_By_Success_Time
+     (This      : in     T;
+      Container : in out Strings.Entity_Names)
+   is
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in Entity_Name;
+                    Right : in Entity_Name) return Boolean;
+
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in Entity_Name;
+                    Right : in Entity_Name) return Boolean is
+         Left_Success : constant Duration :=
+           This.Max_Success_Proof_Time (Entity => Left);
+         Right_Success : constant Duration :=
+           This.Max_Success_Proof_Time (Entity => Right);
+         Left_Total  : constant Duration :=
+           This.Total_Proof_Time (Entity => Left);
+         Right_Total : constant Duration :=
+           This.Total_Proof_Time (Entity => Right);
+         Left_Max    : constant Duration :=
+           This.Max_Proof_Time (Entity => Left);
+         Right_Max   : constant Duration :=
+           This.Max_Proof_Time (Entity => Right);
+      begin
+         --  First by success time.
+         if Left_Success /= Right_Success then
+            return Left_Success > Right_Success;
+         end if;
+
+         --  Total time.
          if Left_Total /= Right_Total then
             return Left_Total > Right_Total;
          end if;
@@ -927,7 +1032,7 @@ package body SPAT.Spark_Info is
       Sorting.Sort
         (Container =>
            Strings.Implementation.Entities.Base_Vectors.Vector (Container));
-   end Sort_Entity_By_Proof_Time;
+   end Sort_Entity_By_Success_Time;
 
    ---------------------------------------------------------------------------
    --  By_Basename
