@@ -319,7 +319,7 @@ package body SPAT.Spark_Info is
             when Max_Success_Time | Max_Time =>
                Log.Warning
                  (Message =>
-                     "Sorting files by minimum success time not implemented, " &
+                     "Sorting files by success time not implemented yet, " &
                      "falling back to maximum time.");
                This.Sort_File_By_Proof_Time (Container => Result);
          end case;
