@@ -506,6 +506,10 @@ package body SPAT.Spark_Info is
                                     Tree    => Reference.The_Tree,
                                     Parent  => Reference.Proofs);
 
+                                 --  FIXME: This should be factored out into
+                                 --         a subprogram, the indent level is
+                                 --         getting insane.
+
                                  --  Update parent sentinel with new proof
                                  --  times.
                                  declare
@@ -535,7 +539,10 @@ package body SPAT.Spark_Info is
                                          Proof_Cache'
                                            (Max_Proof_Time =>
                                               Duration'Max (S.Cache.Max_Proof_Time,
-                                                N.Max_Time),
+                                                            N.Max_Time),
+                                            Max_Success_Proof_Time =>
+                                              Duration'Max (S.Cache.Max_Success_Proof_Time,
+                                                            N.Max_Success_Time),
                                             Total_Proof_Time =>
                                               S.Cache.Total_Proof_Time +
                                                 N.Total_Time,
@@ -553,9 +560,6 @@ package body SPAT.Spark_Info is
                                     Reference.The_Tree.Update_Element
                                       (Position => Reference.Proofs,
                                        Process  => Update_Sentinel'Access);
-                                    null;
-                                    --  Reference.The_Tree.Update_Element
-                                    --       ();
                                  end;
                               end;
                            end if;
@@ -735,6 +739,20 @@ package body SPAT.Spark_Info is
    begin
       return Sentinel.Cache.Max_Proof_Time;
    end Max_Proof_Time;
+
+   ---------------------------------------------------------------------------
+   --  Max_Success_Proof_Time
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Proof_Time (This   : in T;
+                                    Entity : in Entity_Name) return Duration
+   is
+      Reference : constant Analyzed_Entities.Constant_Reference_Type :=
+        This.Entities.Constant_Reference (Key => Entity);
+      Sentinel  : constant Proofs_Sentinel := Get_Sentinel (Node => Reference);
+   begin
+      return Sentinel.Cache.Max_Success_Proof_Time;
+   end Max_Success_Proof_Time;
 
    ---------------------------------------------------------------------------
    --  Num_Flows

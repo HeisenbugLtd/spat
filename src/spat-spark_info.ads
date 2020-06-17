@@ -112,6 +112,16 @@ package SPAT.Spark_Info is
                             Entity : in Entity_Name) return Duration;
 
    ---------------------------------------------------------------------------
+   --  Max_Success_Proof_Time
+   --
+   --  Maximum time taken for a single successful proof for Entity,
+   --  considering all verification conditions and proof paths in them.
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Proof_Time (This   : in T;
+                                    Entity : in Entity_Name) return Duration;
+
+   ---------------------------------------------------------------------------
    --  Total_Proof_Time
    --
    --  Total (accumulated) time taken for all proofs for Entity.
@@ -208,6 +218,7 @@ private
    type Proof_Cache is
       record
          Max_Proof_Time           : Duration;
+         Max_Success_Proof_Time   : Duration;
          Total_Proof_Time         : Duration;
          Has_Failed_Attempts      : Boolean;
          Has_Unproved_Attempts    : Boolean;
@@ -234,6 +245,7 @@ private
    Empty_Proofs_Sentinel : constant Proofs_Sentinel :=
      (Entity.T with
       Cache => Proof_Cache'(Max_Proof_Time           => 0.0,
+                            Max_Success_Proof_Time   => 0.0,
                             Total_Proof_Time         => 0.0,
                             Has_Failed_Attempts      => False,
                             Has_Unproved_Attempts    => False,
