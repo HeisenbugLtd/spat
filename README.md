@@ -18,7 +18,7 @@
   * #### 4.5 [The `--cut-off` option](README.md#the---cut-off-option)
   * #### 4.6 [The `--verbose` option](README.md#the---verbose-option)
   * #### 4.7 [The `--version` option](README.md#the---version-option)
-* ### 5. [Some Notes on sorting](README.md#some-notes-on-sorting)
+* ### 5. [Some Notes on Sorting](README.md#some-notes-on-sorting)
 * ### 6. [Tool Limitations](README.md#tool-limitations)
 
 ## Introduction
@@ -101,26 +101,26 @@ Quick help:
 will give you a quick overview over the available command line options:
 
 ```
-usage: run_spat [--help|-h] [--project|-P PROJECT] [--summary|-s] 
-               [--report-mode|-r REPORT-MODE] [--sort-by|-c SORT-BY] 
-               [--cut-off|-p CUT-OFF] [--details|-d] [--version|-V] 
-               [--verbose|-v] 
+usage: run_spat [--help|-h] [--project|-P PROJECT] [--summary|-s]
+               [--report-mode|-r REPORT-MODE] [--sort-by|-c SORT-BY]
+               [--cut-off|-p CUT-OFF] [--details|-d] [--version|-V]
+               [--verbose|-v]
 
 Parses .spark files and outputs information about them.
 
 positional arguments:
-   
+
 optional arguments:
    --help, -h            Show this help message
    --project, -P         PROJECT = GNAT project file (.gpr) (mandatory!)
    --summary, -s         List summary (per file)
-   --report-mode, -r     Output reporting mode (REPORT-MODE: a = all, f = 
-                         failed, u = unproved, j = unjustified [implies 
+   --report-mode, -r     Output reporting mode (REPORT-MODE: a = all, f =
+                         failed, u = unproved, j = unjustified [implies
                          unproved])
-   --sort-by, -c         Sorting criterion (SORT-BY: a = alphabetical, s = by 
+   --sort-by, -c         Sorting criterion (SORT-BY: a = alphabetical, s = by
                          minimum time for successful proof, t = by maximum proof
                           time)
-   --cut-off, -p         Cut off point, do not show entities with proof times 
+   --cut-off, -p         Cut off point, do not show entities with proof times
                          less than that (CUT-OFF: <numeral>[s|ms])
    --details, -d         Show details for entities (report mode)
    --version, -V         Show version information and exit
@@ -254,7 +254,7 @@ Here, we can see that there is one entity where a prover failed to prove the
 verification condition.  As mentioned above, here you can see that the time for
 *longest successful proof* (640 ms) greatly differs from the
 *maximum time for a single proof* (206 s).  This is a clear indicator, that one
-is not well suited to prove a certain verification condition.
+of the provers is not well suited to prove a certain verification condition.
 
 #### The `--report-mode=unproved` option
 
@@ -466,7 +466,7 @@ time into account.
 The [idea behind this sorting option](https://github.com/HeisenbugLtd/spat/issues/29)
 is that you may want to know where provers spend useless time (e.g. where a
 prover is called which is known to not be able to prove a certain verification
-condition). After all, all provers have their strengths and weaknesses.
+condition).  After all, all provers have their strengths and weaknesses.
 
 Sorting by maximum successful proof time usually only makes sense when also
 invoked with the `--report-mode=failed` (or even more restrictive) filter
