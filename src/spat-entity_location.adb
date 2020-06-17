@@ -21,15 +21,15 @@ package body SPAT.Entity_Location is
    function "<" (Left  : in T;
                  Right : in T) return Boolean is
    begin
-      if Left.File = Right.File then
-         if Left.Line = Right.Line then
+      if Left.Source_File = Right.Source_File then
+         if Left.Source_Line = Right.Source_Line then
             return Left.Column < Right.Column;
          end if;
 
-         return Left.Line < Right.Line;
+         return Left.Source_Line < Right.Source_Line;
       end if;
 
-      return Left.File < Right.File;
+      return Left.Source_File < Right.Source_File;
    end "<";
 
    ---------------------------------------------------------------------------

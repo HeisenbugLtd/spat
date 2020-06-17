@@ -18,6 +18,8 @@ pragma License (Unrestricted);
 limited with Ada.Containers;
 limited with Ada.Strings.Unbounded.Hash;
 with GNATCOLL.JSON;
+with SI_Units.Metric;
+with SI_Units.Names;
 
 package SPAT is
 
@@ -28,6 +30,14 @@ package SPAT is
 
    Null_Name : Subject_Name renames Ada.Strings.Unbounded.Null_Unbounded_String;
    --  Provide a renaming for the null string.
+
+   ---------------------------------------------------------------------------
+   --  Image function for Duration. Used by certain Image functions.
+   ---------------------------------------------------------------------------
+   function Image is new
+     SI_Units.Metric.Fixed_Image (Item        => Duration,
+                                  Default_Aft => 0,
+                                  Unit        => SI_Units.Names.Second);
 
    ---------------------------------------------------------------------------
    --  To_String

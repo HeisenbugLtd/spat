@@ -51,37 +51,38 @@ package SPAT.Entity_Line is
    function Image (This : T) return String;
 
    ---------------------------------------------------------------------------
-   --  File
+   --  Source_File
    ---------------------------------------------------------------------------
    not overriding
-   function File (This : in T) return Subject_Name;
+   function Source_File (This : in T) return File_Name;
 
    ---------------------------------------------------------------------------
-   --  Line
+   --  Source_Line
    ---------------------------------------------------------------------------
    not overriding
-   function Line (This : in T) return Natural;
+   function Source_Line (This : in T) return Natural;
 
 private
 
    type T is new Entity.T with
       record
-         File : Subject_Name;
+         --  These are source file references.
+         File : File_Name;
          Line : Natural;
       end record;
 
    ---------------------------------------------------------------------------
-   --  File
+   --  Source_File
    ---------------------------------------------------------------------------
    not overriding
-   function File (This : in T) return Subject_Name is
+   function Source_File (This : in T) return File_Name is
       (This.File);
 
    ---------------------------------------------------------------------------
-   --  Line
+   --  Source_Line
    ---------------------------------------------------------------------------
    not overriding
-   function Line (This : in T) return Natural is
+   function Source_Line (This : in T) return Natural is
      (This.Line);
 
 end SPAT.Entity_Line;

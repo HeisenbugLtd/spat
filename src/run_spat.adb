@@ -22,8 +22,6 @@ with Ada.Real_Time;
 with GNATCOLL.JSON;
 with GNATCOLL.Projects;
 with GNATCOLL.VFS;
-with SI_Units.Metric;
-with SI_Units.Names;
 with SPAT.Command_Line;
 with SPAT.GPR_Support;
 with SPAT.Log;
@@ -37,14 +35,6 @@ with System;
 --  Run_SPAT
 ------------------------------------------------------------------------------
 procedure Run_SPAT is
-
-   ---------------------------------------------------------------------------
-   --  Image
-   ---------------------------------------------------------------------------
-   function Image is new
-     SI_Units.Metric.Fixed_Image (Item        => Duration,
-                                  Default_Aft => 0,
-                                  Unit        => SI_Units.Names.Second);
 
    ---------------------------------------------------------------------------
    --  Print_Entities
@@ -141,7 +131,7 @@ begin
             SPAT.Log.Debug
               (Message =>
                  "Parsing completed in " &
-                 Image
+                 SPAT.Image
                    (Value =>
                       Ada.Real_Time.To_Duration
                         (TS => Ada.Real_Time.Clock - Start_Time)) & ".");
@@ -180,13 +170,14 @@ begin
             SPAT.Log.Debug
               (Message =>
                  "Reading completed in " &
-                 Image (Value =>
-                          Ada.Real_Time.To_Duration
-                            (TS => Ada.Real_Time.Clock - Start_Time)) & ".");
+                 SPAT.Image
+                   (Value =>
+                      Ada.Real_Time.To_Duration
+                        (TS => Ada.Real_Time.Clock - Start_Time)) & ".");
          end if;
 
          SPAT.Log.Debug
-           (Message => "Cut off point set to " & Image (Cut_Off) & ".");
+           (Message => "Cut off point set to " & SPAT.Image (Cut_Off) & ".");
 
          --  Step 4: Output the JSON data.
          if SPAT.Command_Line.Summary.Get then

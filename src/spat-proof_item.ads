@@ -20,6 +20,7 @@ with SPAT.Entity_Location;
 with SPAT.Entity.Tree;
 with SPAT.Field_Names;
 with SPAT.Preconditions;
+private with SPAT.Unique_Ids;
 
 package SPAT.Proof_Item is
 
@@ -59,14 +60,14 @@ package SPAT.Proof_Item is
    --  Comparison operator for proof items.
    ---------------------------------------------------------------------------
    overriding
-   function "<" (Left  : in Proof_Item.T;
-                 Right : in Proof_Item.T) return Boolean;
+   function "<" (Left  : in T;
+                 Right : in T) return Boolean;
 
    ---------------------------------------------------------------------------
    --  Add_To_Tree
    ---------------------------------------------------------------------------
    procedure Add_To_Tree (Object  : in     JSON_Value;
-                          Version : in File_Version;
+                          Version : in     File_Version;
                           Tree    : in out Entity.Tree.T;
                           Parent  : in     Entity.Tree.Cursor) with
      Pre => Has_Required_Fields (Object  => Object,
@@ -79,10 +80,14 @@ package SPAT.Proof_Item is
    function Has_Failed_Attempts (This : in T) return Boolean;
 
    ---------------------------------------------------------------------------
-   --  Has_Unproved_Attempts
-   ---------------------------------------------------------------------------
    not overriding
    function Has_Unproved_Attempts (This : in T) return Boolean;
+
+   ---------------------------------------------------------------------------
+   --  Image
+   ---------------------------------------------------------------------------
+   overriding
+   function Image (This : in T) return String;
 
    ---------------------------------------------------------------------------
    --  Is_Unjustified
@@ -150,6 +155,8 @@ package SPAT.Proof_Item is
 
 private
 
+   package Proof_Item_Ids is new Unique_Ids;
+
    type Checks_Sentinel is new Entity.T with
       record
          Has_Failed_Attempts : Boolean;
@@ -196,6 +203,7 @@ private
          Max_Success_Time      : Duration; --  Longest time for a successful proof.
          Max_Time              : Duration; --  Longest time spent in proof (successful or not)
          Total_Time            : Duration; --  Accumulated proof time.
+         Id                    : Proof_Item_Ids.Id; --  Id for stable sorting.
          Has_Failed_Attempts   : Boolean;
          Has_Unproved_Attempts : Boolean;
          Is_Unjustified        : Boolean;
@@ -207,6 +215,19 @@ private
    not overriding
    function Has_Failed_Attempts (This : in T) return Boolean is
       (This.Has_Failed_Attempts);
+
+   ---------------------------------------------------------------------------
+   --  Image
+   ---------------------------------------------------------------------------
+   overriding
+   function Image (This : in T) return String is
+     (To_String (This.Rule) & " " &
+        Entity_Location.T (This).Image & " => " &
+        (if This.Has_Unproved_Attempts
+         then "--"
+         else Image (Value => This.Max_Success_Time)) & "/" &
+        Image (Value => This.Max_Time) & "/" &
+        Image (Value => This.Total_Time));
 
    ---------------------------------------------------------------------------
    --  Is_Unjustified

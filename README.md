@@ -321,8 +321,8 @@ Output:
 ```
 Saatana.Crypto.Phelix.Setup_Key            => 640.0 ms/206.4 s/219.2 s
 `-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44 => 640.0 ms/206.4 s/207.1 s
- `-Z3: 206.4 s (Unknown (unknown))
-  -CVC4: 640.0 ms (Valid)
+ `-Z3: 206.4 s (Unknown (unknown), 105312169 steps)
+  -CVC4: 640.0 ms (Valid, 22722 steps)
 ```
 
 Same example as the one a little above, but here you can see the individual
@@ -349,33 +349,33 @@ Typical output:
 ```
 SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
 `-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36 => --/57.6 s/238.7 s
- `-CVC4: 51.6 s (Unknown (unknown))
-  -Z3: 7.9 s (Unknown (unknown))
- `-CVC4: 50.5 s (Unknown (unknown))
-  -Z3: 8.8 s (Unknown (unknown))
- `-CVC4: 50.7 s (Unknown (unknown))
-  -Z3: 7.2 s (Unknown (unknown))
+ `-CVC4: 51.6 s (Unknown (unknown), 505013 steps)
+  -Z3: 7.9 s (Unknown (unknown), 11654552 steps)
+ `-CVC4: 50.5 s (Unknown (unknown), 505013 steps)
+  -Z3: 8.8 s (Unknown (unknown), 11654285 steps)
+ `-CVC4: 50.7 s (Unknown (unknown), 505013 steps)
+  -Z3: 7.2 s (Unknown (unknown), 11654931 steps)
 SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => --/1.4 s/1.9 s
- `-CVC4: 1.4 s (Unknown (unknown))
-  -Z3: 590.0 ms (Unknown (unknown))
+ `-CVC4: 1.4 s (Unknown (unknown), 13011 steps)
+  -Z3: 590.0 ms (Unknown (unknown), 743088 steps)
 `-VC_ASSERT sparknacl-car.adb:343:31 => --/790.0 ms/1.2 s
- `-Z3: 790.0 ms (Unknown (unknown))
-  -CVC4: 410.0 ms (Unknown (unknown))
+ `-Z3: 790.0 ms (Unknown (unknown), 957357 steps)
+  -CVC4: 410.0 ms (Unknown (unknown), 4809 steps)
 SPARKNaCl.ASR_16                                          => --/5.7 s/5.9 s
 `-VC_POSTCONDITION sparknacl.ads:355:35 => --/5.7 s/5.8 s
- `-Z3: 5.7 s (Unknown (unknown))
-  -CVC4: 80.0 ms (Unknown (unknown))
+ `-Z3: 5.7 s (Unknown (unknown), 11650768 steps)
+  -CVC4: 80.0 ms (Unknown (unknown), 993 steps)
 Justified with: "From definition of arithmetic shift right".
 SPARKNaCl.ASR_8                                           => --/3.3 s/3.5 s
 `-VC_POSTCONDITION sparknacl.ads:367:35 => --/3.3 s/3.4 s
- `-Z3: 3.3 s (Unknown (unknown))
-  -CVC4: 90.0 ms (Unknown (unknown))
+ `-Z3: 3.3 s (Unknown (unknown), 11650768 steps)
+  -CVC4: 90.0 ms (Unknown (unknown), 993 steps)
 Justified with: "From definition of arithmetic shift right".
 SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
 `-VC_POSTCONDITION sparknacl.ads:379:35 => --/1.2 s/1.3 s
- `-Z3: 1.2 s (Unknown (unknown))
-  -CVC4: 80.0 ms (Unknown (unknown))
+ `-Z3: 1.2 s (Unknown (unknown), 11650768 steps)
+  -CVC4: 80.0 ms (Unknown (unknown), 993 steps)
 Justified with: "From definition of arithmetic shift right".
 ```
 
@@ -554,5 +554,5 @@ from (this VC would not be shown at all in `--report-mode=failed`).
   adding helping assertion or restructure the logic) and then run `gnatprove`
   again. If you now run `spat` again all unchanged proofs will be reported as
   having a time of 0.0 s, but the verification conditions that had to be
-  re-verified will show the time spent proofing them. Which, in the case of
+  re-verified will show the time spent proving them. Which, in the case of
   trying to optimize proof times is exactly what you want.

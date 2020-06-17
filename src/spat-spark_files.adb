@@ -67,7 +67,7 @@ package body SPAT.Spark_Files is
       --  parse and any instantiated worker tasks will pick it up from there.
       Input_File_Queue : Implementation.File_Queues.Queue;
 
-      --  Establish the input queue type. Here you can pick up the parsing
+      --  Establish the output queue type. Here you can pick up the parsing
       --  results.
       Result_Queue     : Implementation.Result_Queues.Queue;
 
@@ -199,9 +199,9 @@ package body SPAT.Spark_Files is
             if This.Find (Key => Name) = File_Maps.No_Element then
                This.Insert (Key      => Name,
                             New_Item => Pending);
-               --  Establish key/value pair. The value will be established
-               --  later, but we need the key in the table , otherwise Find
-               --  above will never find anything.
+               --  Establish key/value pair. The actual value will be
+               --  established later, but we need the key in the table,
+               --  otherwise Find above will never find anything.
 
                Log.Debug
                  (Message =>

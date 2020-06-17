@@ -1,0 +1,28 @@
+digraph "Inheritance Tree"
+{
+  rankdir=TB;
+  viewport="800,600,0.8";
+  ordering="out";
+  bgcolor="#EEEEEE";
+  node [shape=record];
+
+  "SPAT.Entity.T"          [label="{Entity.T\l|{abstract\l|}}"];
+  "SPAT.Entity_Line.T"     [label="{Entity_Line.T\l|{|{+File : File_Name\l|+Line : Natural\l}}}"];
+  "SPAT.Entity_Location.T" [label="{SPAT.Entity_Location.T\l|{|{+Column : Natural\l}}}"];
+  "SPAT.Flow_Item.T"       [label="{SPAT.Flow_Item.T\l|{|{+Rule : Subject_Name\l|+Severity : Subject_Name\l}}}"];
+  "SPAT.Proof_Item.T"      [label="{SPAT.Proof_Item.T\l|{|{+Suppressed : Subject_Name\l|+Rule : Subject_Name\l|+Severity : Subject_Name\l|+Max_Success_Time : Duration\l|+Max_Time : Duration\l|+Total_Time : Duration\l|+Id : Proof_Item_Ids.Id\l|+Has_Failed_Attempts : Boolean\l|+Has_Unproved_Attempts : Boolean\l|+Is_Unjustified : Boolean\l}}}"];
+  "SPAT.Proof_Attempt.T"   [label="{SPAT.Proof_Attempt.T\l|{|{+Prover : Subject_Name\l|+Result : Subject_Name\l|+Time : Duration\l|+Steps : Natural\l|+Id : Proof_Attempt_Ids.Id}}}"];
+  "SPAT.Timing_Item.T"     [label="{SPAT.Timing_Item.T\l|{|{+Version : File_Version\l|+Proof : Duration\l|+Flow : Duration\l}}}"];
+
+  "dummy" [style="invis"];
+
+  "SPAT.Entity.T" -> "SPAT.Proof_Attempt.T" [weight=4];
+  "SPAT.Entity.T" -> "SPAT.Timing_Item.T";
+  "SPAT.Entity.T" -> "SPAT.Entity_Line.T" [weight=0];
+  "SPAT.Entity_Line.T" -> "SPAT.Entity_Location.T" [weight=0];
+  "SPAT.Entity_Location.T" -> "SPAT.Flow_Item.T";
+  "SPAT.Entity_Location.T" -> "SPAT.Proof_Item.T";
+  "SPAT.Flow_Item.T" -> "dummy" [style="invis"];
+
+  {rank=same "dummy", "SPAT.Proof_Attempt.T", "SPAT.Timing_Item.T"}
+}

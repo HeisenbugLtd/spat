@@ -16,7 +16,7 @@ run_check () {
   for SPAT_OPTIONS in "-s -ca" "-s -cs" "-s -ct" "-ra -ca" "-ra -cs" "-ra -ct" "-rf -ca" "-rf -cs" "-rf -ct" "-ru -ca" "-ru -cs" "-ru -ct" "-s -ra -d -ca" "-s -ra -d -cs" "-s -ra -d -ct" "-s -rf -d -ca" "-s -rf -d -cs" "-s -rf -d -ct" "-s -ru -d -ca" "-s -ru -d -cs" "-s -ru -d -ct" "-s -rj -d -ca" "-s -rj -d -cs" "-s -rj -d -ct"; do
     OPT_NAME=$1.`echo "$SPAT_OPTIONS" | sed -e "s/[- ]//g"`
     #echo $OPT_NAME
-    
+
     # (older reference version for template generation)
     # run_spat $SPAT_OPTIONS -P "$1/$2" > "spat.$OPT_NAME.template"
 

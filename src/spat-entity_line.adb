@@ -17,7 +17,8 @@ package body SPAT.Entity_Line is
    not overriding
    function Create (Object : in JSON_Value) return T is
      (T'(Entity.T with
-           File => Object.Get (Field => Field_Names.File),
+           File =>
+             File_Name (Subject_Name'(Object.Get (Field => Field_Names.File))),
            Line => Object.Get (Field => Field_Names.Line)));
 
    ---------------------------------------------------------------------------

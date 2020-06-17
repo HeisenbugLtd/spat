@@ -45,17 +45,23 @@ package SPAT.Entity_Location is
      Pre => Has_Required_Fields (Object => Object);
 
    ---------------------------------------------------------------------------
+   --  "<"
+   ---------------------------------------------------------------------------
+   not overriding
+   function "<" (Left  : in T;
+                 Right : in T) return Boolean;
+
+   ---------------------------------------------------------------------------
    --  Image
    ---------------------------------------------------------------------------
    overriding
    function Image (This : in T) return String;
 
    ---------------------------------------------------------------------------
-   --  "<"
+   --  Source_Column
    ---------------------------------------------------------------------------
    not overriding
-   function "<" (Left  : in T;
-                 Right : in T) return Boolean;
+   function Source_Column (This : in T) return Natural;
 
 private
 
@@ -63,5 +69,12 @@ private
       record
          Column : Natural;
       end record;
+
+   ---------------------------------------------------------------------------
+   --  Source_Column
+   ---------------------------------------------------------------------------
+   not overriding
+   function Source_Column (This : in T) return Natural is
+     (This.Column);
 
 end SPAT.Entity_Location;
