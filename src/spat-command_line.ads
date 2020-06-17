@@ -55,7 +55,8 @@ package SPAT.Command_Line is
    function Convert (Value : in String) return SPAT.Spark_Info.Sorting_Criterion
    is
      (if    Value = "a" then SPAT.Spark_Info.Name
-      elsif Value = "t" then SPAT.Spark_Info.Time
+      elsif Value = "s" then SPAT.Spark_Info.Max_Success_Time
+      elsif Value = "t" then SPAT.Spark_Info.Max_Time
       else  (raise GNATCOLL.Opt_Parse.Opt_Parse_Error with
                  "unknown parameter """ & Value & """"));
 
@@ -99,7 +100,7 @@ package SPAT.Command_Line is
         Long        => "--report-mode",
         Help        =>
            "Output reporting mode (REPORT-MODE: a = all, f = failed, " &
-           "u = unproved, j = unjustified)",
+           "u = unproved, j = unjustified [implies unproved])",
         Arg_Type    => Report_Mode,
         Convert     => Convert,
         Default_Val => None);
@@ -111,7 +112,9 @@ package SPAT.Command_Line is
         Short       => "-c",
         Long        => "--sort-by",
         Help        =>
-           "Sorting criterion (SORT-BY: a = alphabetical, t = by time)",
+           "Sorting criterion (SORT-BY: a = alphabetical, " &
+           "s = by minimum time for successful proof, " &
+           "t = by maximum proof time)",
         Arg_Type    => SPAT.Spark_Info.Sorting_Criterion,
         Convert     => Convert,
         Default_Val => SPAT.Spark_Info.None);

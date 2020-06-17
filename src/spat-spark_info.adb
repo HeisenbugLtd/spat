@@ -125,6 +125,16 @@ package body SPAT.Spark_Info is
       Container : in out Strings.Entity_Names);
 
    ---------------------------------------------------------------------------
+   --  Sort_Entity_By_Success_Time
+   --
+   --  Sort code entities by how much maximum time for a successful proofs.
+   --  Sorting: numerical, descending
+   ---------------------------------------------------------------------------
+   procedure Sort_Entity_By_Success_Time
+     (This      : in     T;
+      Container : in out Strings.Entity_Names);
+
+   ---------------------------------------------------------------------------
    --  Sort_File_By_Basename
    --
    --  Sort files by their base name (i.e. without containing directory or
@@ -277,7 +287,10 @@ package body SPAT.Spark_Info is
             when Name =>
                This.Sort_Entity_By_Name (Container => Result);
 
-            when Time =>
+            when Max_Success_Time =>
+               This.Sort_Entity_By_Success_Time (Container => Result);
+
+            when Max_Time =>
                This.Sort_Entity_By_Proof_Time (Container => Result);
          end case;
       end return;
@@ -303,7 +316,11 @@ package body SPAT.Spark_Info is
             when Name =>
                This.Sort_File_By_Basename (Container => Result);
 
-            when Time =>
+            when Max_Success_Time | Max_Time =>
+               Log.Warning
+                 (Message =>
+                     "Sorting files by minimum success time not implemented, " &
+                     "falling back to maximum time.");
                This.Sort_File_By_Proof_Time (Container => Result);
          end case;
       end return;
@@ -924,8 +941,78 @@ package body SPAT.Spark_Info is
            This.Max_Proof_Time (Entity => Left);
          Right_Max   : constant Duration :=
            This.Max_Proof_Time (Entity => Right);
+         Left_Success : constant Duration :=
+           This.Max_Success_Proof_Time (Entity => Left);
+         Right_Success : constant Duration :=
+           This.Max_Success_Proof_Time (Entity => Right);
       begin
          --  First by total time.
+         if Left_Total /= Right_Total then
+            return Left_Total > Right_Total;
+         end if;
+
+         --  Total time is the same, try to sort by max time.
+         if Left_Max /= Right_Max then
+            return Left_Max > Right_Max;
+         end if;
+
+         --  Try sorting by max time for successful proof.
+         if Left_Success /= Right_Success then
+            return Left_Success > Right_Success;
+         end if;
+
+         --  Resort to alphabetical order.
+         return SPAT."<" (Left, Right); --  Trap! "Left < Right" is recursive.
+      end "<";
+
+      package Sorting is new
+        Strings.Implementation.Entities.Base_Vectors.Generic_Sorting ("<" => "<");
+   begin
+      Sorting.Sort
+        (Container =>
+           Strings.Implementation.Entities.Base_Vectors.Vector (Container));
+   end Sort_Entity_By_Proof_Time;
+
+   ---------------------------------------------------------------------------
+   --  Sort_Entity_By_Success_Time
+   --
+   --  Sort code entities by how much maximum time for a successful proofs.
+   --  Sorting: numerical, descending
+   ---------------------------------------------------------------------------
+   procedure Sort_Entity_By_Success_Time
+     (This      : in     T;
+      Container : in out Strings.Entity_Names)
+   is
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in Entity_Name;
+                    Right : in Entity_Name) return Boolean;
+
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in Entity_Name;
+                    Right : in Entity_Name) return Boolean is
+         Left_Success : constant Duration :=
+           This.Max_Success_Proof_Time (Entity => Left);
+         Right_Success : constant Duration :=
+           This.Max_Success_Proof_Time (Entity => Right);
+         Left_Total  : constant Duration :=
+           This.Total_Proof_Time (Entity => Left);
+         Right_Total : constant Duration :=
+           This.Total_Proof_Time (Entity => Right);
+         Left_Max    : constant Duration :=
+           This.Max_Proof_Time (Entity => Left);
+         Right_Max   : constant Duration :=
+           This.Max_Proof_Time (Entity => Right);
+      begin
+         --  First by success time.
+         if Left_Success /= Right_Success then
+            return Left_Success > Right_Success;
+         end if;
+
+         --  Total time.
          if Left_Total /= Right_Total then
             return Left_Total > Right_Total;
          end if;
@@ -945,7 +1032,7 @@ package body SPAT.Spark_Info is
       Sorting.Sort
         (Container =>
            Strings.Implementation.Entities.Base_Vectors.Vector (Container));
-   end Sort_Entity_By_Proof_Time;
+   end Sort_Entity_By_Success_Time;
 
    ---------------------------------------------------------------------------
    --  By_Basename

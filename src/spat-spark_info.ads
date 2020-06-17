@@ -25,7 +25,7 @@ with SPAT.Timing_Item;
 
 package SPAT.Spark_Info is
 
-   type Sorting_Criterion is (None, Name, Time);
+   type Sorting_Criterion is (None, Name, Max_Time, Max_Success_Time);
 
    type T is tagged limited private;
    --  Binary representation of the information obtained from a .spark JSON
