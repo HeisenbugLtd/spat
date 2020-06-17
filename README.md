@@ -460,13 +460,13 @@ counter-intuitive way.
 First of all, as mentioned earlier, it is *not* implemented for the summary
 display. If you try that, `spat` will warn you and resort to sorting by time.
 
-Similar goes for the `--cut-off` option, which still only takes the maximum
-proof time into account.
+Similar goes for the `--cut-off` option, which still only takes the
+[maximum proof time into account](../../issues/33).
 
-The [idea behind this sorting option](https://github.com/HeisenbugLtd/spat/issues/29)
-is that you may want to know where provers spend useless time (e.g. where a
-prover is called which is known to not be able to prove a certain verification
-condition).  After all, all provers have their strengths and weaknesses.
+The [idea behind this sorting option](../../issues/29) is that you may want to
+know where provers spend useless time (e.g. where a prover is called which is
+known to not be able to prove a certain verification condition).  After all,
+all provers have their strengths and weaknesses.
 
 Sorting by maximum successful proof time usually only makes sense when also
 invoked with the `--report-mode=failed` (or even more restrictive) filter
@@ -542,8 +542,7 @@ from (this VC would not be shown at all in `--report-mode=failed`).
 ## Tool Limitations
 
 * `spat` only reports accurate timings if it is used after a
-  [pristine run of](https://github.com/HeisenbugLtd/spat/issues/22#issue-637738483)
-  `gnatprove`.
+  [pristine run](../../issues/22#issue-637738483) of `gnatprove`.
 
   That means, let's say you have a failed proof, you change the code, and run
   `gnatprove` again, all times reported for unchanged entitites will be
