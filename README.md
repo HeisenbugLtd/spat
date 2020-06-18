@@ -516,26 +516,33 @@ Developer's note: *This is something I am still planning to fix.*
 
 Looking at `Omultiply` in detail:
 
-`run_spat -d -cs -ra -P sparknacl.gpr | grep -A 50 Omultiply`
+`run_spat -d -cs -ra -P sparknacl.gpr | grep -A 20 Omultiply`
 
 (`grep` is a nifty tool to filter for certain entities, even in
 `--report-mode=all`).
 
 ```
 SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/28.6 s
-SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/28.6 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:164:13 => 40.0 ms/19.1 s/19.1 s
- `-CVC4: 19.1 s (Unknown (unknown))
-  -Z3: 40.0 ms (Valid)
+ `-CVC4: 19.1 s (Unknown (unknown), 505013 steps)
+  -Z3: 40.0 ms (Valid, 68029 steps)
 `-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:80:16 => 700.0 ms/700.0 ms/930.0 ms
- `-CVC4: 700.0 ms (Valid)
- `-CVC4: 230.0 ms (Valid)
+ `-CVC4: 700.0 ms (Valid, 11484 steps)
+ `-CVC4: 230.0 ms (Valid, 3586 steps)
 `-VC_RANGE_CHECK sparknacl.adb:75:36 => 170.0 ms/170.0 ms/480.0 ms
- `-CVC4: 170.0 ms (Valid)
- `-CVC4: 120.0 ms (Valid)
- `-CVC4: 110.0 ms (Valid)
- `-CVC4: 80.0 ms (Valid)
- ...
+ `-CVC4: 170.0 ms (Valid, 1970 steps)
+ `-CVC4: 120.0 ms (Valid, 1311 steps)
+ `-CVC4: 110.0 ms (Valid, 1301 steps)
+ `-CVC4: 80.0 ms (Valid, 975 steps)
+`-VC_OVERFLOW_CHECK sparknacl.adb:75:48 => 140.0 ms/140.0 ms/420.0 ms
+ `-CVC4: 140.0 ms (Valid, 1545 steps)
+ `-CVC4: 110.0 ms (Valid, 1055 steps)
+ `-CVC4: 100.0 ms (Valid, 996 steps)
+ `-CVC4: 70.0 ms (Valid, 878 steps)
+`-VC_LOOP_INVARIANT_INIT sparknacl.adb:80:16 => 120.0 ms/220.0 ms/400.0 ms
+ `-CVC4: 220.0 ms (Unknown (unknown), 3309 steps)
+  -Z3: 60.0 ms (Valid, 57212 steps)
+ `-CVC4: 120.0 ms (Valid, 1319 steps)
 ```
 
 You can see, where the 700 ms for the longest time for a successful proof comes
