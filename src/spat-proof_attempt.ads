@@ -99,7 +99,10 @@ private
          Prover : Subject_Name;         --  Prover involved.
          Result : Subject_Name;         --  "Valid", "Unknown", etc.
          Time   : Duration;             --  time spent during proof
-         Steps  : Natural;              --  number of steps the prover took
+         Steps  : Long_Integer;         --  number of steps the prover took
+                                        --  This might be negative (e.g. with
+                                        --  Z3, the number of steps is recorded
+                                        --  as -1, if Z3 ran out of memory.
          Id     : Proof_Attempt_Ids.Id; --  unique id for stable sorting
       end record;
 
