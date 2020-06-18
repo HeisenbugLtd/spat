@@ -779,6 +779,39 @@ package body SPAT.Spark_Info is
    end Max_Proof_Time;
 
    ---------------------------------------------------------------------------
+   --  Max_Proof_Time
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Proof_Time (This : in T;
+                            File : in File_Name) return Duration
+   is
+      Result      : Duration := -1.0;
+      File_Cursor : constant File_Sets.Cursor := This.Files.Find (Item => File);
+      use type File_Sets.Cursor;
+   begin
+      --  FIXME: We shouldn't need to iterate through all entities each time
+      --         this subprogram is called.
+      for Position in This.Entities.Iterate loop
+         if
+           Analyzed_Entities.Element (Position => Position).SPARK_File =
+             File_Cursor
+         then
+            declare
+               Reference : constant Analyzed_Entities.Constant_Reference_Type :=
+                 This.Entities.Constant_Reference (Position => Position);
+               Sentinel  : constant Proofs_Sentinel :=
+                 Get_Sentinel (Node => Reference);
+            begin
+               Result := Duration'Max (Result,
+                                       Sentinel.Cache.Max_Proof_Time);
+            end;
+         end if;
+      end loop;
+
+      return Result;
+   end Max_Proof_Time;
+
+   ---------------------------------------------------------------------------
    --  Max_Success_Proof_Time
    ---------------------------------------------------------------------------
    not overriding
@@ -790,6 +823,43 @@ package body SPAT.Spark_Info is
       Sentinel  : constant Proofs_Sentinel := Get_Sentinel (Node => Reference);
    begin
       return Sentinel.Cache.Max_Success_Proof_Time;
+   end Max_Success_Proof_Time;
+
+   ---------------------------------------------------------------------------
+   --  Max_Success_Proof_Time
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Proof_Time (This : in T;
+                                    File : in File_Name) return Duration
+   is
+      Result      : Duration := -1.0;
+      File_Cursor : constant File_Sets.Cursor := This.Files.Find (Item => File);
+      use type File_Sets.Cursor;
+   begin
+      --  FIXME: We shouldn't need to iterate through all entities each time
+      --         this subprogram is called.
+      for Position in This.Entities.Iterate loop
+         if
+           Analyzed_Entities.Element (Position => Position).SPARK_File =
+             File_Cursor
+         then
+            declare
+               Reference : constant Analyzed_Entities.Constant_Reference_Type :=
+                 This.Entities.Constant_Reference (Position => Position);
+               Sentinel  : constant Proofs_Sentinel :=
+                 Get_Sentinel (Node => Reference);
+            begin
+               if Sentinel.Cache.Has_Unproved_Attempts then
+                  null; --  Unproved, so skip.
+               else
+                  Result := Duration'Max (Result,
+                                          Sentinel.Cache.Max_Success_Proof_Time);
+               end if;
+            end;
+         end if;
+      end loop;
+
+      return Result;
    end Max_Success_Proof_Time;
 
    ---------------------------------------------------------------------------

@@ -37,6 +37,8 @@ begin
    for File of Files loop
       --  Can't use Files.Max_Length here, because we use the Simple_Name, not
       --  the actual string stored.
+      --  FIXME: This assumes that everything is displayed, the actual output
+      --         might be less and the tabulation is a bit wide.
       Second_Column :=
         Ada.Text_IO.Count'Max (Second_Column,
                                Ada.Directories.Simple_Name
@@ -66,10 +68,20 @@ begin
             New_Line => False);
          Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
                               To   => Third_Column);
-         SPAT.Log.Message
-           (Message =>
-              "Proof => " &
-              SPAT.Image (Value => Info.Proof_Time (File => File)) & ")");
+
+         declare
+            Max_Success_Proof_Time : constant Duration :=
+              Info.Max_Success_Proof_Time (File => File);
+         begin
+            SPAT.Log.Message
+              (Message =>
+                 "Proof => " &
+                 (if Max_Success_Proof_Time = -1.0 --  nothing valid found
+                  then "--"
+                  else SPAT.Image (Value => Max_Success_Proof_Time)) & "/" &
+                 SPAT.Image (Value => Info.Max_Proof_Time (File => File)) & "/" &
+                 SPAT.Image (Value => Info.Proof_Time (File => File)) & ")");
+         end;
       end if;
    end loop;
 

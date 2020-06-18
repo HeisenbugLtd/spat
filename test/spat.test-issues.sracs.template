@@ -1,6 +1,6 @@
 Warning: Sorting files by success time not implemented yet, falling back to maximum time.
 rflx-rflx_types.spark => (Flow  => 7.2 ms,
-                          Proof => 4.5 ks)
+                          Proof => 54.2 s/120.0 s/4.5 ks)
 RFLX.RFLX_Types.U64_Insert               => 54.2 s/120.0 s/1.6 ks
 RFLX.RFLX_Types.U64_Extract              => 37.9 s/120.0 s/1.8 ks
 RFLX.RFLX_Types.U64_Extract_Remaining    => 10.1 s/120.0 s/376.5 s

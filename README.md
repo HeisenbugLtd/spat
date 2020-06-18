@@ -142,15 +142,15 @@ Typical output would look like this:
 
 ```
 saatana-crypto.spark        => (Flow  => 9.0 ms,
-                                Proof => 6.8 s)
+                                Proof => 80.0 ms/80.0 ms/6.8 s)
 saatana-crypto-phelix.spark => (Flow  => 206.5 ms,
-                                Proof => 568.7 s)
+                                Proof => 174.3 s/206.4 s/568.7 s)
 saatana.spark               => (Flow  => 464.0 µs,
-                                Proof => 0.0 s)
+                                Proof => 0.0 s/0.0 s/0.0 s)
 saatana-crypto-lemmas.spark => (Flow  => 2.1 ms,
-                                Proof => 2.2 s)
+                                Proof => 210.0 ms/210.0 ms/2.2 s)
 test_phelix_api.spark       => (Flow  => 14.4 ms,
-                                Proof => 23.1 s)
+                                Proof => 240.0 ms/240.0 ms/23.1 s)
 ```
 
 You can use the `--sort-by` option with `--summary`, either for an alphabetical
@@ -159,6 +159,8 @@ so files with the most time needed by the provers come first).  The option
 `--sort-by=s` (see below) has the same effect as `--sort-by=t`, except for a
 warning that what you requested has not been implemented yet.  By default, no
 particular order is imposed on the output.
+
+For the meaning of the three timings after `Proof =>`, please see below.
 
 *Note* that the `--details` option has no effect on the output here, this
 option is designed to work with the `--report-mode` option only.

@@ -105,6 +105,23 @@ package SPAT.Spark_Info is
 
    ---------------------------------------------------------------------------
    --  Max_Proof_Time
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Proof_Time (This : in T;
+                            File : in File_Name) return Duration;
+
+   ---------------------------------------------------------------------------
+   --  Max_Success_Proof_Time
+   --
+   --  Reported time for the longest successful proof.
+   --  If the time returned is -1.0, then nothing is proven.
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Proof_Time (This : in T;
+                                    File : in File_Name) return Duration;
+
+   ---------------------------------------------------------------------------
+   --  Max_Proof_Time
    --
    --  Maximum time taken for a single proof for Entity.
    ---------------------------------------------------------------------------
