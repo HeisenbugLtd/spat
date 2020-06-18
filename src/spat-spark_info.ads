@@ -302,12 +302,28 @@ private
                                  Equivalent_Keys => "=",
                                  "="             => Timing_Item."=");
 
+   --  Cached information for calls to Max_Proof_Time and Max_Success_Proof_Time
+   --  on files.
+   type Cache_Info is
+      record
+         Max_Success_Proof_Time : Duration;
+         Max_Proof_Time         : Duration;
+      end record;
+
+   package File_Cached_Info is new
+     Ada.Containers.Hashed_Maps (Key_Type        => SPARK_File_Name,
+                                 Element_Type    => Cache_Info,
+                                 Hash            => Hash,
+                                 Equivalent_Keys => "=",
+                                 "="             => "=");
+
    type T is tagged limited
       record
          Files    : File_Sets.Set;
          Entities : Analyzed_Entities.Map; --  The list of entities.
          Timings  : File_Timings.Map;      --  The "timings" block for a file.
          --  Cached data
+         Cached      : File_Cached_Info.Map; --  Info per file
          Flow_Count  : Ada.Containers.Count_Type'Base;
          Proof_Count : Ada.Containers.Count_Type'Base;
       end record;

@@ -78,9 +78,11 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Map_Proof_Elements
    ---------------------------------------------------------------------------
-   procedure Map_Proof_Elements (This    : in out T;
-                                 Version : in     File_Version;
-                                 Root    : in     JSON_Array);
+   procedure Map_Proof_Elements
+     (This         : in out T;
+      Version      : in     File_Version;
+      Root         : in     JSON_Array;
+      Cache_Cursor : in     File_Cached_Info.Cursor);
 
    ---------------------------------------------------------------------------
    --  Map_Sloc_Elements
@@ -477,9 +479,101 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Map_Proof_Elements
    ---------------------------------------------------------------------------
-   procedure Map_Proof_Elements (This    : in out T;
-                                 Version : in     File_Version;
-                                 Root    : in     JSON_Array) is
+   procedure Map_Proof_Elements
+     (This         : in out T;
+      Version      : in     File_Version;
+      Root         : in     JSON_Array;
+      Cache_Cursor : in     File_Cached_Info.Cursor)
+   is
+      ------------------------------------------------------------------------
+      --  Update_Caches
+      ------------------------------------------------------------------------
+      procedure Update_Caches
+        (Reference : in Analyzed_Entities.Reference_Type);
+
+      ------------------------------------------------------------------------
+      --  Update_Caches
+      ------------------------------------------------------------------------
+      procedure Update_Caches
+        (Reference : in Analyzed_Entities.Reference_Type)
+      is
+         N : constant Proof_Item.T :=
+           Proof_Item.T
+             (Entity.T'Class'
+                (Reference.The_Tree
+                   (Entity.Tree.Last_Child (Position => Reference.Proofs))));
+      begin
+         Update_Sentinel :
+         declare
+            ------------------------------------------------------------------
+            --  Local_Update
+            ------------------------------------------------------------------
+            procedure Local_Update (Element : in out Entity.T'Class);
+
+            ------------------------------------------------------------------
+            --  Local_Update
+            ------------------------------------------------------------------
+            procedure Local_Update (Element : in out Entity.T'Class) is
+               S : Proofs_Sentinel renames Proofs_Sentinel (Element);
+            begin
+               --  Update sentinel (proof list specific).
+               S.Cache :=
+                 Proof_Cache'(Max_Proof_Time =>
+                                Duration'Max (S.Cache.Max_Proof_Time,
+                                              N.Max_Time),
+                              Max_Success_Proof_Time =>
+                                Duration'Max (S.Cache.Max_Success_Proof_Time,
+                                              N.Max_Success_Time),
+                              Total_Proof_Time =>
+                                S.Cache.Total_Proof_Time + N.Total_Time,
+                              Has_Failed_Attempts =>
+                                S.Cache.Has_Failed_Attempts or else
+                                  N.Has_Failed_Attempts,
+                              Has_Unproved_Attempts =>
+                                S.Cache.Has_Unproved_Attempts or else
+                                  N.Has_Unproved_Attempts,
+                              Has_Unjustified_Attempts =>
+                                S.Cache.Has_Unjustified_Attempts or else
+                                  N.Is_Unjustified);
+            end Local_Update;
+         begin
+            Reference.The_Tree.Update_Element (Position => Reference.Proofs,
+                                               Process  => Local_Update'Access);
+         end Update_Sentinel;
+
+         Update_File_Cache :
+         declare
+            ------------------------------------------------------------------
+            --  Local_Update
+            ------------------------------------------------------------------
+            procedure Local_Update (Key     : in     SPARK_File_Name;
+                                    Element : in out Cache_Info);
+
+            ------------------------------------------------------------------
+            --  Local_Update
+            ------------------------------------------------------------------
+            procedure Local_Update (Key     : in     SPARK_File_Name;
+                                    Element : in out Cache_Info)
+            is
+               pragma Unreferenced (Key);
+            begin
+               if N.Has_Unproved_Attempts then
+                  null; --  VC is not fully proven, so don't update the max
+                        --  time for successful proofs
+               else
+                  Element.Max_Success_Proof_Time :=
+                    Duration'Max (Element.Max_Success_Proof_Time,
+                                  N.Max_Success_Time);
+               end if;
+
+               Element.Max_Proof_Time := Duration'Max (Element.Max_Proof_Time,
+                                                       N.Max_Time);
+            end Local_Update;
+         begin
+            This.Cached.Update_Element (Position => Cache_Cursor,
+                                        Process  => Local_Update'Access);
+         end Update_File_Cache;
+      end Update_Caches;
    begin
       for I in 1 .. GNATCOLL.JSON.Length (Arr => Root) loop
          declare
@@ -527,61 +621,9 @@ package body SPAT.Spark_Info is
                                     Tree    => Reference.The_Tree,
                                     Parent  => Reference.Proofs);
 
-                                 --  FIXME: This should be factored out into
-                                 --         a subprogram, the indent level is
-                                 --         getting insane.
-
-                                 --  Update parent sentinel with new proof
-                                 --  times.
-                                 declare
-                                    ------------------------------------------
-                                    --  Update_Sentinel
-                                    ------------------------------------------
-                                    procedure Update_Sentinel
-                                      (Element : in out Entity.T'Class);
-
-                                    ------------------------------------------
-                                    --  Update_Sentinel
-                                    ------------------------------------------
-                                    procedure Update_Sentinel
-                                      (Element : in out Entity.T'Class)
-                                    is
-                                       S : Proofs_Sentinel renames
-                                         Proofs_Sentinel (Element);
-                                       N : constant Proof_Item.T :=
-                                         Proof_Item.T
-                                           (Entity.T'Class'
-                                              (Reference.The_Tree
-                                                 (Entity.Tree.Last_Child
-                                                      (Position =>
-                                                           Reference.Proofs))));
-                                    begin
-                                       S.Cache :=
-                                         Proof_Cache'
-                                           (Max_Proof_Time =>
-                                              Duration'Max (S.Cache.Max_Proof_Time,
-                                                            N.Max_Time),
-                                            Max_Success_Proof_Time =>
-                                              Duration'Max (S.Cache.Max_Success_Proof_Time,
-                                                            N.Max_Success_Time),
-                                            Total_Proof_Time =>
-                                              S.Cache.Total_Proof_Time +
-                                                N.Total_Time,
-                                            Has_Failed_Attempts =>
-                                              S.Cache.Has_Failed_Attempts or else
-                                            N.Has_Failed_Attempts,
-                                            Has_Unproved_Attempts =>
-                                              S.Cache.Has_Unproved_Attempts or else
-                                            N.Has_Unproved_Attempts,
-                                            Has_Unjustified_Attempts =>
-                                              S.Cache.Has_Unjustified_Attempts or else
-                                            N.Is_Unjustified);
-                                    end Update_Sentinel;
-                                 begin
-                                    Reference.The_Tree.Update_Element
-                                      (Position => Reference.Proofs,
-                                       Process  => Update_Sentinel'Access);
-                                 end;
+                                 --  Update parent sentinel and file info with
+                                 --  new proof times.
+                                 Update_Caches (Reference => Reference);
                               end;
                            end if;
                         else
@@ -668,11 +710,31 @@ package body SPAT.Spark_Info is
                              File : in     SPARK_File_Name;
                              Root : in     JSON_Value)
    is
-      Version : constant File_Version := Guess_Version (Root => Root);
+      Version      : constant File_Version := Guess_Version (Root => Root);
+      Cache_Cursor : File_Cached_Info.Cursor;
+      File_Cursor  : File_Sets.Cursor;
    begin
       --  Clear cache data.
       This.Flow_Count  := -1;
       This.Proof_Count := -1;
+
+      --  Establish reference to file. May add it to the Files list if it was
+      --  not known yet.
+      declare
+         Dummy_Inserted : Boolean;
+      begin
+         This.Files.Insert (New_Item => File,
+                            Position => File_Cursor,
+                            Inserted => Dummy_Inserted);
+
+         --  Same for the cached information (which may get updated).
+         This.Cached.Insert
+           (Key => File,
+            New_Item => Cache_Info'(Max_Success_Proof_Time => 0.0,
+                                    Max_Proof_Time         => 0.0),
+            Position => Cache_Cursor,
+            Inserted => Dummy_Inserted);
+      end;
 
       --  If I understand the .spark file format correctly, this should
       --  establish the table of all known analysis elements.
@@ -681,20 +743,9 @@ package body SPAT.Spark_Info is
                                     Field  => Field_Names.Spark,
                                     Kind   => JSON_Array_Type)
       then
-         declare
-            File_Cursor    : File_Sets.Cursor;
-            Dummy_Inserted : Boolean;
-         begin
-            --  Establish reference to file. May add it to the Files list if
-            --  it was not known yet.
-            This.Files.Insert (New_Item => File,
-                               Position => File_Cursor,
-                               Inserted => Dummy_Inserted);
-
-            This.Map_Spark_Elements
-              (Root      => Root.Get (Field => Field_Names.Spark),
-               From_File => File_Cursor);
-         end;
+         This.Map_Spark_Elements
+           (Root      => Root.Get (Field => Field_Names.Spark),
+            From_File => File_Cursor);
       end if;
 
       if
@@ -711,8 +762,9 @@ package body SPAT.Spark_Info is
                                     Kind   => JSON_Array_Type)
       then
          This.Map_Proof_Elements
-           (Root    => Root.Get (Field => Field_Names.Proof),
-            Version => Version);
+           (Root         => Root.Get (Field => Field_Names.Proof),
+            Version      => Version,
+            Cache_Cursor => Cache_Cursor);
       end if;
 
       if
@@ -787,33 +839,8 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Max_Proof_Time (This : in T;
-                            File : in SPARK_File_Name) return Duration
-   is
-      Result      : Duration := -1.0;
-      File_Cursor : constant File_Sets.Cursor := This.Files.Find (Item => File);
-      use type File_Sets.Cursor;
-   begin
-      --  FIXME: We shouldn't need to iterate through all entities each time
-      --         this subprogram is called.
-      for Position in This.Entities.Iterate loop
-         if
-           Analyzed_Entities.Element (Position => Position).SPARK_File =
-             File_Cursor
-         then
-            declare
-               Reference : constant Analyzed_Entities.Constant_Reference_Type :=
-                 This.Entities.Constant_Reference (Position => Position);
-               Sentinel  : constant Proofs_Sentinel :=
-                 Get_Sentinel (Node => Reference);
-            begin
-               Result := Duration'Max (Result,
-                                       Sentinel.Cache.Max_Proof_Time);
-            end;
-         end if;
-      end loop;
-
-      return Result;
-   end Max_Proof_Time;
+                            File : in SPARK_File_Name) return Duration is
+     (This.Cached (File).Max_Proof_Time);
 
    ---------------------------------------------------------------------------
    --  Max_Success_Proof_Time
@@ -836,57 +863,30 @@ package body SPAT.Spark_Info is
    function Max_Success_Proof_Time (This : in T;
                                     File : in SPARK_File_Name) return Duration
    is
-      Result      : Duration := -1.0;
-      File_Cursor : constant File_Sets.Cursor := This.Files.Find (Item => File);
-      use type File_Sets.Cursor;
-   begin
-      --  FIXME: We shouldn't need to iterate through all entities each time
-      --         this subprogram is called.
-      for Position in This.Entities.Iterate loop
-         if
-           Analyzed_Entities.Element (Position => Position).SPARK_File =
-             File_Cursor
-         then
-            declare
-               Reference : constant Analyzed_Entities.Constant_Reference_Type :=
-                 This.Entities.Constant_Reference (Position => Position);
-               Sentinel  : constant Proofs_Sentinel :=
-                 Get_Sentinel (Node => Reference);
-            begin
-               if Sentinel.Cache.Has_Unproved_Attempts then
-                  null; --  Unproved, so skip.
-               else
-                  Result := Duration'Max (Result,
-                                          Sentinel.Cache.Max_Success_Proof_Time);
-               end if;
-            end;
-         end if;
-      end loop;
-
-      return Result;
-   end Max_Success_Proof_Time;
+     (This.Cached (File).Max_Success_Proof_Time);
 
    ---------------------------------------------------------------------------
    --  Num_Flows
    ---------------------------------------------------------------------------
    not overriding
    function Num_Flows (This : not null access T)
-                       return Ada.Containers.Count_Type
-   is
-      Result : Ada.Containers.Count_Type := 0;
+                       return Ada.Containers.Count_Type is
    begin
-      --  Data already cached?
-      if This.Flow_Count /= -1 then
-         return This.Flow_Count;
+      --  Data not yet cached?
+      if This.Flow_Count = -1 then
+         declare
+            Result : Ada.Containers.Count_Type := 0;
+         begin
+            for E of This.Entities loop
+               Result := Result + Entity.Tree.Child_Count (Parent => E.Flows);
+            end loop;
+
+            --  Update cache.
+            This.Flow_Count := Result;
+         end;
       end if;
 
-      for E of This.Entities loop
-         Result := Result + Entity.Tree.Child_Count (Parent => E.Flows);
-      end loop;
-
-      --  Update cache.
-      This.Flow_Count := Result;
-      return Result;
+      return This.Flow_Count;
    end Num_Flows;
 
    ---------------------------------------------------------------------------
@@ -894,22 +894,23 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Num_Proofs (This : not null access T)
-                        return Ada.Containers.Count_Type
-   is
-      Result : Ada.Containers.Count_Type := 0;
+                        return Ada.Containers.Count_Type is
    begin
-      --  Data already cached?
-      if This.Proof_Count /= -1 then
-         return This.Proof_Count;
+      --  Data not yet cached?
+      if This.Proof_Count = -1 then
+         declare
+            Result : Ada.Containers.Count_Type := 0;
+         begin
+            for E of This.Entities loop
+               Result := Result + Entity.Tree.Child_Count (Parent => E.Proofs);
+            end loop;
+
+            --  Update cache.
+            This.Proof_Count := Result;
+         end;
       end if;
 
-      for E of This.Entities loop
-         Result := Result + Entity.Tree.Child_Count (Parent => E.Proofs);
-      end loop;
-
-      --  Update cache.
-      This.Proof_Count := Result;
-      return Result;
+      return This.Proof_Count;
    end Num_Proofs;
 
    ---------------------------------------------------------------------------
