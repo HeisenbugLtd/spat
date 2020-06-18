@@ -1,0 +1,110 @@
+RFLX.RFLX_Types.U64_Extract              => 37.9 s/120.0 s/1.8 ks
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:131:29 => 37.9 s/120.0 s/1.1 ks
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 37.9 s (Valid, 1655746 steps)
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 33.5 s (Valid, 2636744 steps)
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 23.4 s (Valid, 3483618 steps)
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 16.6 s (Valid, 2432646 steps)
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 14.8 s (Valid, 2217881 steps)
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 13.2 s (Valid, 1092361 steps)
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 10.9 s (Valid, 1602776 steps)
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 4.3 s (Valid, 467184 steps)
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:131:27 => 27.1 s/120.0 s/147.1 s
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 27.1 s (Valid, 1240724 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-rflx_generic_types.adb:137:33 => 25.0 s/120.0 s/145.0 s
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 25.0 s (Valid, 1410144 steps)
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:147:30 => 24.8 s/120.0 s/144.8 s
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 24.8 s (Valid, 1259723 steps)
+`-VC_POSTCONDITION rflx-rflx_generic_types.adb:101:9 => 23.3 s/120.0 s/143.3 s
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 23.3 s (Valid, 1724694 steps)
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:151:52 => 19.6 s/120.0 s/139.6 s
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 19.6 s (Valid, 1380321 steps)
+RFLX.RFLX_Types.U64_Insert               => 54.2 s/120.0 s/1.6 ks
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:221:39 => 5.2 s/120.0 s/490.6 s
+ `-CVC4: 120.0 s (Timeout,-1 steps)
+  -Z3: 120.0 s (Timeout,-1 steps)
+  -altergo: 181.9 ms (Valid, 3009 steps)
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 5.2 s (Valid, 228208 steps)
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 5.1 s (Valid, 228208 steps)
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:259:19 => 5.9 s/120.0 s/251.9 s
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 5.9 s (Valid, 598266 steps)
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 5.9 s (Valid, 598266 steps)
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:251:19 => 1.6 s/120.0 s/243.2 s
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 1.6 s (Valid, 173075 steps)
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 1.5 s (Valid, 173075 steps)
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:282:48 => 297.4 ms/120.0 s/240.3 s
+ `-CVC4: 120.0 s (Timeout,-1 steps)
+  -Z3: 120.0 s (Timeout,-1 steps)
+  -altergo: 297.4 ms (Valid, 4074 steps)
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:229:59 => 54.2 s/120.0 s/174.2 s
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 54.2 s (Valid, 3321417 steps)
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:278:38 => 26.6 s/120.0 s/146.7 s
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 26.6 s (Valid, 1851151 steps)
+RFLX.RFLX_Types.U64_Extract_Intermediate => 6.7 s/120.0 s/617.3 s
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:62:39 => 6.7 s/120.0 s/126.8 s
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 6.7 s (Valid, 206823 steps)
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:62:61 => 3.0 s/120.0 s/123.0 s
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 3.0 s (Valid, 179947 steps)
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:65:14 => 1.5 s/120.0 s/122.0 s
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 1.5 s (Valid, 3051 steps)
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:58:82 => 1.3 s/120.0 s/121.3 s
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 1.3 s (Valid, 2082 steps)
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:63:49 => 40.0 ms/120.0 s/120.0 s
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 40.0 ms (Valid, 742 steps)
+RFLX.RFLX_Types.U64_Extract_Remaining    => 10.1 s/120.0 s/376.5 s
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:85:91 => 10.1 s/120.0 s/130.1 s
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 10.1 s (Valid, 910628 steps)
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:87:40 => 3.5 s/120.0 s/123.6 s
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 3.5 s (Valid, 196625 steps)
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:87:58 => 1.2 s/120.0 s/121.2 s
+ `-Z3: 120.0 s (Timeout,-1 steps)
+  -CVC4: 1.2 s (Valid, 78886 steps)
+RFLX.RFLX_Types.U64_Extract.D            => 4.7 s/9.5 s/70.6 s
+`-VC_ASSERT rflx-rflx_generic_types.adb:117:25 => 4.7 s/9.5 s/14.2 s
+ `-Z3: 9.5 s (Out Of Memory,-1 steps)
+  -CVC4: 4.7 s (Valid, 25745 steps)
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:117:41 => 2.1 s/9.3 s/11.4 s
+ `-Z3: 9.3 s (Out Of Memory,-1 steps)
+  -CVC4: 2.1 s (Valid, 12361 steps)
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:120:77 => 60.0 ms/9.0 s/9.1 s
+ `-Z3: 9.0 s (Out Of Memory,-1 steps)
+  -CVC4: 60.0 ms (Valid, 841 steps)
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:123:45 => 70.0 ms/9.0 s/9.1 s
+ `-Z3: 9.0 s (Out Of Memory,-1 steps)
+  -CVC4: 70.0 ms (Valid, 965 steps)
+`-VC_INDEX_CHECK rflx-rflx_generic_types.adb:121:43 => 40.0 ms/9.0 s/9.0 s
+ `-Z3: 9.0 s (Out Of Memory,-1 steps)
+  -CVC4: 40.0 ms (Valid, 72 steps)
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:123:34 => 50.0 ms/9.0 s/9.0 s
+ `-Z3: 9.0 s (Out Of Memory,-1 steps)
+  -CVC4: 50.0 ms (Valid, 681 steps)
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:121:75 => 40.0 ms/8.6 s/8.7 s
+ `-Z3: 8.6 s (Out Of Memory,-1 steps)
+  -CVC4: 40.0 ms (Valid, 72 steps)
