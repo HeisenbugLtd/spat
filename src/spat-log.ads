@@ -15,6 +15,8 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
+with Ada.Exceptions;
+
 package SPAT.Log is
 
    ---------------------------------------------------------------------------
@@ -54,5 +56,21 @@ package SPAT.Log is
    --  Returns True if Debug would output something.
    ---------------------------------------------------------------------------
    function Debug_Enabled return Boolean;
+
+   ---------------------------------------------------------------------------
+   --  Dump_Exception
+   --
+   --  Print the error Message followed by exception information to
+   --  Standard_Error.
+   --
+   --  The (symbolic) stacktrace only works if the binder option "-E" has been
+   --  enabled when compiling the program.
+   --
+   --  The optional parameter File can be used to also print a file name, if
+   --  the error may have been related to a file.
+   ---------------------------------------------------------------------------
+   procedure Dump_Exception (E       : in Ada.Exceptions.Exception_Occurrence;
+                             Message : in String;
+                             File    : in String := "");
 
 end SPAT.Log;

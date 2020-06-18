@@ -9,6 +9,7 @@ pragma License (Unrestricted);
 
 with Ada.Text_IO;
 
+with GNAT.Traceback.Symbolic;
 with GNATCOLL.Opt_Parse;
 with SPAT.Command_Line;
 
@@ -40,6 +41,32 @@ package body SPAT.Log is
    ---------------------------------------------------------------------------
    function Debug_Enabled return Boolean is
      (Verbose.Get);
+
+   ---------------------------------------------------------------------------
+   --  Dump_Exception
+   ---------------------------------------------------------------------------
+   procedure Dump_Exception (E       : in Ada.Exceptions.Exception_Occurrence;
+                             Message : in String;
+                             File    : in String := "") is
+   begin
+      Error (Message => Message);
+      Error (Message => "Please file a bug report.");
+
+      if File'Length > 0 then
+         Error (Message => "If possible, include the file ");
+         Error (Message => """" & File & """");
+         Error (Message => "and the following stack trace in your report.");
+      else
+         Error
+           (Message =>
+              "Please include the following stack trace in your report.");
+      end if;
+
+      Error (Message => Ada.Exceptions.Exception_Information (X => E));
+
+      --  This only works, if the binder is invoked with the "-E" option.
+      Error (Message => GNAT.Traceback.Symbolic.Symbolic_Traceback (E => E));
+   end Dump_Exception;
 
    ---------------------------------------------------------------------------
    --  Error
