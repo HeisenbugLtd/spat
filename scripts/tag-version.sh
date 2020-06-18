@@ -21,7 +21,7 @@ confirm()
 # Validate input version number.
 
 # Check format
-if [ -z `echo $VERSION_NUMBER | grep -P '^(\d+\.)+(\d+\.)+(\d+)+([-][a-z]*)?$'` ]; then
+if [ -z `echo $VERSION_NUMBER | grep -P '^(\d+\.)+(\d+\.)+(\d+)+(([-][a-z0-9]+)*)?$'` ]; then
     echo "Version number \"${VERSION_NUMBER}\" is not in format d.d.d[-suffix]"
     exit 2
 fi
