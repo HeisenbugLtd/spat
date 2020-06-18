@@ -9,6 +9,26 @@
 # Remove possibly leftover temp files
 rm -f test.diff *.out
 
+# Arguments: project directory ($1), project file ($2), options ($3)
+single_check () {
+  echo "Testing \"$1\" with options \"$3\"..." # Show some progress.
+  OPT_NAME="$1".`echo "$3" | sed -e "s/[- ]//g"`
+
+  # run_spat $3 -P "$1/$2" > "spat.${OPT_NAME}.template" # Recreate templates
+  ../obj/run_spat $3 -P "$1/$2" > "spat.${OPT_NAME}.out"
+
+  # Show template differences
+  (git diff --no-index "spat.${OPT_NAME}.template" "spat.${OPT_NAME}.out") > test.diff || RESULT=$?
+
+  # Remove temp files
+  rm -f test.diff spat*.out
+
+  # Abort if not successful so far.
+  if [ ${RESULT} -ne 0 ]; then
+    exit ${RESULT}
+  fi
+}
+
 # First argument is the project directory
 # Second argument the project file (.gpr) within that project.
 run_check () {
@@ -18,18 +38,9 @@ run_check () {
       if [[ -n "${SUMMARY}" || -n ${REPORT} ]]; then # neither report nor summary, skip that
         for DETAILS in "" "-d"; do # details off, details on
           for SORTING in "-ca" "-cs" "-ct"; do # sort alphabetical, by success time, by max time
-            SPAT_OPTIONS=`echo "${SUMMARY} ${REPORT} ${DETAILS} ${SORTING}" | sed -e "s/ \+/ /g;s/^ *//;s/ *$//"`
-            OPT_NAME="$1".`echo "${SPAT_OPTIONS}" | sed -e "s/[- ]//g"`
+              SPAT_OPTIONS=`echo "${SUMMARY} ${REPORT} ${DETAILS} ${SORTING}" | sed -e "s/ \+/ /g;s/^ *//;s/ *$//"`
 
-            # (older reference version for template generation)
-            # run_spat ${SPAT_OPTIONS} -P "$1/$2" > "spat.${OPT_NAME}.template"
-
-            # Run test
-            echo "Testing \"$1\" with options \"${SPAT_OPTIONS}\"..." # Show some progress.
-            ../obj/run_spat ${SPAT_OPTIONS} -P "$1/$2" > "spat.${OPT_NAME}.out"
-
-            # Show template differences (FIXME: 'diff' might not be installed)
-            (git diff --no-index "spat.${OPT_NAME}.template" "spat.${OPT_NAME}.out") >> test.diff || RESULT=$?
+              single_check "$1" "$2" "${SPAT_OPTIONS}"
           done # sorting
         done # details
       fi
@@ -37,30 +48,29 @@ run_check () {
   done # summary
 }
 
+# First argument is the project directory
+# Second argument the project file (.gpr) within that project.
+run_cut_off_check () {
+  for REPORT in "-ra" "-rf" "-ru" "-rj"; do # report all, failed, unproved, unjustified
+    for SORTING in "-ca" "-cs" "-ct"; do # sort alphabetical, by success time, by max time
+      for CUT_OFF in "-p 500ms" "-p 1" "-p 5s"; do # some cut-off options
+        SPAT_OPTIONS=`echo "${REPORT} -d ${SORTING} ${CUT_OFF}"`
+
+        single_check "$1" "$2" "${SPAT_OPTIONS}"
+      done # cut-off
+    done # sorting
+  done # report
+}
+
 RESULT=0
 
 # Recompile to be sure we test the latest version.
 gprbuild -P ../spat.gpr
 
+# Basic checks first.
 run_check "test-saatana" "saatana.gpr"
 run_check "test-sparknacl" "src/sparknacl.gpr"
-
-case ${RESULT} in
-[0-1])
-  if [ -s test.diff ]; then
-    echo "Test failed, there are differences."
-    cat test.diff
-    RESULT=1
-  else
-    echo "Test succeeded."
-    RESULT=0
-  fi
-  ;;
-*)
-  echo "One or more diffs failed."
-esac
-
-# Remove temp files
-rm -f test.diff spat*.out
+run_cut_off_check "test-saatana" "saatana.gpr"
+run_cut_off_check "test-sparknacl" "src/sparknacl.gpr"
 
 exit ${RESULT}
