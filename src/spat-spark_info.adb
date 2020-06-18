@@ -730,6 +730,16 @@ package body SPAT.Spark_Info is
                            Root    => Root.Get (Field => Field_Names.Timings),
                            Version => Version);
       end if;
+   exception
+      when E : others =>
+         Log.Dump_Exception
+           (E       => E,
+            Message =>
+               "Internal problem encountered while mapping JSON objects.",
+            File    => To_String (Source => File));
+         Log.Warning
+           (Message =>
+               "Internal error encountered, results will be inaccurate.");
    end Map_Spark_File;
 
    ---------------------------------------------------------------------------
