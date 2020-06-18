@@ -71,7 +71,12 @@ gprbuild -P ../spat.gpr
 # Basic checks first.
 run_check "test-saatana" "saatana.gpr"
 run_check "test-sparknacl" "src/sparknacl.gpr"
+
+# Cut off checks.
 run_cut_off_check "test-saatana" "saatana.gpr"
 run_cut_off_check "test-sparknacl" "src/sparknacl.gpr"
+
+# From issue reports
+run_check "test-issues" "issues.gpr"
 
 exit ${RESULT}
