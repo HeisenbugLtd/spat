@@ -21,10 +21,11 @@ single_check () {
   (git diff --no-index "spat.${OPT_NAME}.template" "spat.${OPT_NAME}.out") > test.diff || RESULT=$?
 
   # Remove temp files
-  rm -f test.diff spat*.out
+  rm -f spat*.out
 
   # Abort if not successful so far.
   if [ ${RESULT} -ne 0 ]; then
+    cat test.diff # Leave file on disk for further inspection.
     exit ${RESULT}
   fi
 }
