@@ -1,32 +1,32 @@
 Warning: Sorting files by success time not implemented yet, falling back to maximum time.
 sparknacl-sign.spark      => (Flow  => 253.6 ms,
-                              Proof => 764.5 s)
+                              Proof => 9.2 s/57.6 s/764.5 s)
 sparknacl-car.spark       => (Flow  => 86.1 ms,
-                              Proof => 59.0 s)
+                              Proof => 950.0 ms/1.4 s/59.0 s)
 sparknacl.spark           => (Flow  => 164.3 ms,
-                              Proof => 57.3 s)
+                              Proof => 700.0 ms/19.1 s/57.3 s)
 sparknacl-hashing.spark   => (Flow  => 70.5 ms,
-                              Proof => 43.8 s)
+                              Proof => 500.0 ms/500.0 ms/43.8 s)
 sparknacl-scalar.spark    => (Flow  => 62.5 ms,
-                              Proof => 22.1 s)
+                              Proof => 550.0 ms/550.0 ms/22.1 s)
 sparknacl-stream.spark    => (Flow  => 72.6 ms,
-                              Proof => 21.2 s)
+                              Proof => 210.0 ms/210.0 ms/21.2 s)
 sparknacl-utils.spark     => (Flow  => 49.8 ms,
-                              Proof => 17.4 s)
+                              Proof => 900.0 ms/900.0 ms/17.4 s)
 sparknacl-secretbox.spark => (Flow  => 7.6 ms,
-                              Proof => 10.3 s)
+                              Proof => 270.0 ms/270.0 ms/10.3 s)
 sparknacl-core.spark      => (Flow  => 351.9 ms,
-                              Proof => 8.9 s)
+                              Proof => 120.0 ms/120.0 ms/8.9 s)
 sparknacl-mac.spark       => (Flow  => 58.0 ms,
-                              Proof => 8.0 s)
+                              Proof => 340.0 ms/340.0 ms/8.0 s)
 sparknacl-cryptobox.spark => (Flow  => 69.2 ms,
-                              Proof => 4.9 s)
+                              Proof => 70.0 ms/70.0 ms/4.9 s)
 sparknacl-pdebug.spark    => (Flow  => 2.2 ms,
-                              Proof => 0.0 s)
+                              Proof => 0.0 s/0.0 s/0.0 s)
 random.spark              => (Flow  => 517.0 µs,
-                              Proof => 0.0 s)
+                              Proof => 0.0 s/0.0 s/0.0 s)
 sparknacl-debug.spark     => (Flow  => 469.0 µs,
-                              Proof => 0.0 s)
+                              Proof => 0.0 s/0.0 s/0.0 s)
 SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
 `-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36 => --/57.6 s/238.7 s
  `-CVC4: 51.6 s (Unknown (unknown), 505013 steps)

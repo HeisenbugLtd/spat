@@ -1,5 +1,5 @@
 rflx-rflx_types.spark => (Flow  => 7.2 ms,
-                          Proof => 4.5 ks)
+                          Proof => 54.2 s/120.0 s/4.5 ks)
 RFLX.RFLX_Types                          => 0.0 s/0.0 s/0.0 s
 RFLX.RFLX_Types.Byte_Index               => 10.0 ms/10.0 ms/30.0 ms
 `-VC_DIVISION_CHECK rflx-rflx_generic_types.ads:36:36 => 10.0 ms/10.0 ms/10.0 ms
