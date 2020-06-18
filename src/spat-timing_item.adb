@@ -63,7 +63,7 @@ package body SPAT.Timing_Item is
              Flow    =>
                Duration
                  (Object.Get_Long_Float (Field => Field_Names.Flow_Analysis)));
+      --  TODO: Maybe accept integer values, too.
    end Create;
-   --  TODO: Maybe accept integer values, too.
 
 end SPAT.Timing_Item;
