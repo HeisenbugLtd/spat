@@ -2,7 +2,7 @@ Warning: Sorting files by success time not implemented yet, falling back to maxi
 sparknacl-sign.spark      => (Flow  => 253.6 ms,
                               Proof => 9.2 s/57.6 s/764.5 s)
 sparknacl-car.spark       => (Flow  => 86.1 ms,
-                              Proof => 950.0 ms/1.4 s/59.0 s)
+                              Proof => 1.0 s/1.4 s/59.0 s)
 sparknacl.spark           => (Flow  => 164.3 ms,
                               Proof => 700.0 ms/19.1 s/57.3 s)
 sparknacl-hashing.spark   => (Flow  => 70.5 ms,

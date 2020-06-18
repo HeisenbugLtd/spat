@@ -3,7 +3,7 @@ random.spark              => (Flow  => 517.0 µs,
 sparknacl.spark           => (Flow  => 164.3 ms,
                               Proof => 700.0 ms/19.1 s/57.3 s)
 sparknacl-car.spark       => (Flow  => 86.1 ms,
-                              Proof => 950.0 ms/1.4 s/59.0 s)
+                              Proof => 1.0 s/1.4 s/59.0 s)
 sparknacl-core.spark      => (Flow  => 351.9 ms,
                               Proof => 120.0 ms/120.0 ms/8.9 s)
 sparknacl-cryptobox.spark => (Flow  => 69.2 ms,
