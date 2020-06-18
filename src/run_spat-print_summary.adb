@@ -27,7 +27,7 @@ procedure Print_Summary (Info    : in SPAT.Spark_Info.T;
                          Sort_By : in SPAT.Spark_Info.Sorting_Criterion;
                          Cut_Off : in Duration)
 is
-   Files         : constant SPAT.Strings.File_Names :=
+   Files         : constant SPAT.Strings.SPARK_File_Names :=
      Info.List_All_Files (Sort_By => Sort_By);
    Count_Omitted : Natural := 0;
    Second_Column : Ada.Text_IO.Count := 0;

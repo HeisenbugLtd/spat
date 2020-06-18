@@ -84,6 +84,9 @@ package SPAT is
    type File_Name   is new Subject_Name; --  A file on disk.
    type Entity_Name is new Subject_Name; --  An Ada language entity.
 
+   type SPARK_File_Name  is new File_Name; --  Name of a ".spark" file.
+   type Source_File_Name is new File_Name; --  Name of an "Ada" source file.
+
    --  Type renames for commonly used JSON types from GNATCOLL.JSON
    subtype JSON_Array      is GNATCOLL.JSON.JSON_Array;
    subtype JSON_Value      is GNATCOLL.JSON.JSON_Value;

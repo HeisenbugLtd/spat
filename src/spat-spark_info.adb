@@ -101,7 +101,7 @@ package body SPAT.Spark_Info is
    --  Map_Timings
    ---------------------------------------------------------------------------
    procedure Map_Timings (This    : in out T;
-                          File    : in     File_Name;
+                          File    : in     SPARK_File_Name;
                           Root    : in     JSON_Value;
                           Version : in     File_Version);
 
@@ -141,8 +141,9 @@ package body SPAT.Spark_Info is
    --  extension).
    --  Sorting: alphabetical, ascending
    ---------------------------------------------------------------------------
-   procedure Sort_File_By_Basename (This      : in     T;
-                                    Container : in out Strings.File_Names);
+   procedure Sort_File_By_Basename
+     (This      : in     T;
+      Container : in out Strings.SPARK_File_Names);
 
    ---------------------------------------------------------------------------
    --  Sort_File_By_Proof_Time
@@ -151,8 +152,9 @@ package body SPAT.Spark_Info is
    --  and proof.
    --  Sorting: numerical, descending
    ---------------------------------------------------------------------------
-   procedure Sort_File_By_Proof_Time (This      : in     T;
-                                      Container : in out Strings.File_Names);
+   procedure Sort_File_By_Proof_Time
+     (This      : in     T;
+      Container : in out Strings.SPARK_File_Names);
 
    ---------------------------------------------------------------------------
    --  Subprogram implementations
@@ -163,7 +165,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Flow_Time (This : in T;
-                       File : in File_Name) return Duration is
+                       File : in SPARK_File_Name) return Duration is
      (This.Timings (File).Flow);
 
    ---------------------------------------------------------------------------
@@ -302,9 +304,11 @@ package body SPAT.Spark_Info is
    not overriding
    function List_All_Files
      (This    : in T;
-      Sort_By : in Sorting_Criterion := None) return Strings.File_Names is
+      Sort_By : in Sorting_Criterion := None) return Strings.SPARK_File_Names is
    begin
-      return Result : Strings.File_Names (Capacity => This.Files.Length) do
+      return
+        Result : Strings.SPARK_File_Names (Capacity => This.Files.Length)
+      do
          for File of This.Files loop
             Result.Append (New_Item => File);
          end loop;
@@ -661,7 +665,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    procedure Map_Spark_File (This : in out T;
-                             File : in     File_Name;
+                             File : in     SPARK_File_Name;
                              Root : in     JSON_Value)
    is
       Version : constant File_Version := Guess_Version (Root => Root);
@@ -746,7 +750,7 @@ package body SPAT.Spark_Info is
    --  Map_Timings
    ---------------------------------------------------------------------------
    procedure Map_Timings (This    : in out T;
-                          File    : in     File_Name;
+                          File    : in     SPARK_File_Name;
                           Root    : in     JSON_Value;
                           Version : in     File_Version) is
    begin
@@ -783,7 +787,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Max_Proof_Time (This : in T;
-                            File : in File_Name) return Duration
+                            File : in SPARK_File_Name) return Duration
    is
       Result      : Duration := -1.0;
       File_Cursor : constant File_Sets.Cursor := This.Files.Find (Item => File);
@@ -830,7 +834,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Max_Success_Proof_Time (This : in T;
-                                    File : in File_Name) return Duration
+                                    File : in SPARK_File_Name) return Duration
    is
       Result      : Duration := -1.0;
       File_Cursor : constant File_Sets.Cursor := This.Files.Find (Item => File);
@@ -943,7 +947,7 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Proof_Time (This : in T;
-                        File : in File_Name) return Duration
+                        File : in SPARK_File_Name) return Duration
    is
       Timings : constant Timing_Item.T := This.Timings (File);
    begin
@@ -1136,44 +1140,48 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  By_Basename
    ---------------------------------------------------------------------------
-   function By_Basename (Left  : in File_Name;
-                         Right : in File_Name) return Boolean is
+   function By_Basename (Left  : in SPARK_File_Name;
+                         Right : in SPARK_File_Name) return Boolean is
      (Ada.Directories.Base_Name (Name => To_String (Source => Left)) <
         Ada.Directories.Base_Name (Name => To_String (Source => Right)));
 
    package File_Name_Sorting is new
-     Strings.Implementation.File_Names.Base_Vectors.Generic_Sorting
+     Strings.Implementation.SPARK_File_Names.Base_Vectors.Generic_Sorting
        ("<" => By_Basename);
 
    ---------------------------------------------------------------------------
    --  Sort_File_By_Basename
    ---------------------------------------------------------------------------
-   procedure Sort_File_By_Basename (This      : in     T;
-                                    Container : in out Strings.File_Names) is
+   procedure Sort_File_By_Basename
+     (This      : in     T;
+      Container : in out Strings.SPARK_File_Names)
+   is
       pragma Unreferenced (This); --  Only provided for consistency.
    begin
       File_Name_Sorting.Sort
         (Container =>
-           Strings.Implementation.File_Names.Base_Vectors.Vector (Container));
+           Strings.Implementation.SPARK_File_Names.Base_Vectors.Vector
+             (Container));
    end Sort_File_By_Basename;
 
    ---------------------------------------------------------------------------
    --  Sort_File_By_Proof_Time
    ---------------------------------------------------------------------------
-   procedure Sort_File_By_Proof_Time (This      : in     T;
-                                      Container : in out Strings.File_Names)
+   procedure Sort_File_By_Proof_Time
+     (This      : in     T;
+      Container : in out Strings.SPARK_File_Names)
    is
       ------------------------------------------------------------------------
       --  "<"
       ------------------------------------------------------------------------
-      function "<" (Left  : in File_Name;
-                    Right : in File_Name) return Boolean;
+      function "<" (Left  : in SPARK_File_Name;
+                    Right : in SPARK_File_Name) return Boolean;
 
       ------------------------------------------------------------------------
       --  "<"
       ------------------------------------------------------------------------
-      function "<" (Left  : in File_Name;
-                    Right : in File_Name) return Boolean
+      function "<" (Left  : in SPARK_File_Name;
+                    Right : in SPARK_File_Name) return Boolean
       is
          Left_Proof  : constant Duration := This.Proof_Time (File => Left);
          Right_Proof : constant Duration := This.Proof_Time (File => Right);
@@ -1201,12 +1209,13 @@ package body SPAT.Spark_Info is
       end "<";
 
       package Sorting is new
-        Strings.Implementation.File_Names.Base_Vectors.Generic_Sorting
+        Strings.Implementation.SPARK_File_Names.Base_Vectors.Generic_Sorting
           ("<" => "<");
    begin
       Sorting.Sort
         (Container =>
-           Strings.Implementation.File_Names.Base_Vectors.Vector (Container));
+           Strings.Implementation.SPARK_File_Names.Base_Vectors.Vector
+             (Container));
    end Sort_File_By_Proof_Time;
 
    ---------------------------------------------------------------------------

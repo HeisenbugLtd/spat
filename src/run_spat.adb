@@ -114,7 +114,7 @@ begin
       Collect_And_Parse :
       declare
          --  Step 1: Collect all .spark files.
-         File_List : constant SPAT.Strings.File_Names :=
+         File_List : constant SPAT.Strings.SPARK_File_Names :=
            SPAT.GPR_Support.Get_SPARK_Files (GPR_File => Project_File);
       begin
          --  Step 2: Parse the files into JSON values.
@@ -151,7 +151,7 @@ begin
                declare
                   Read_Result : constant GNATCOLL.JSON.Read_Result :=
                                   SPARK_Files (C);
-                  File        : constant SPAT.File_Name :=
+                  File        : constant SPAT.SPARK_File_Name :=
                                   SPAT.Spark_Files.Key (C);
                begin
                   if Read_Result.Success then

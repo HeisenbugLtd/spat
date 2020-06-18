@@ -18,7 +18,8 @@ package body SPAT.Entity_Line is
    function Create (Object : in JSON_Value) return T is
      (T'(Entity.T with
            File =>
-             File_Name (Subject_Name'(Object.Get (Field => Field_Names.File))),
+             Source_File_Name
+               (Subject_Name'(Object.Get (Field => Field_Names.File))),
            Line => Object.Get (Field => Field_Names.Line)));
 
    ---------------------------------------------------------------------------

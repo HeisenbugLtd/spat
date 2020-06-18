@@ -37,7 +37,7 @@ package body SPAT.Spark_Files is
       --  merge them into a single result record type.
       type Parse_Result is
          record
-            Key    : File_Name;
+            Key    : SPARK_File_Name;
             Result : GNATCOLL.JSON.Read_Result;
          end record;
 
@@ -47,7 +47,7 @@ package body SPAT.Spark_Files is
 
          package File_Queue_Interface is new
            Ada.Containers.Synchronized_Queue_Interfaces
-             (Element_Type => File_Name);
+             (Element_Type => SPARK_File_Name);
 
          package File_Queues is new
            Ada.Containers.Unbounded_Synchronized_Queues
@@ -93,12 +93,13 @@ package body SPAT.Spark_Files is
       --  Parse_File
       ------------------------------------------------------------------------
       function Parse_File
-        (Name : in File_Name) return GNATCOLL.JSON.Read_Result;
+        (Name : in SPARK_File_Name) return GNATCOLL.JSON.Read_Result;
 
       ------------------------------------------------------------------------
       --  Parse_File
       ------------------------------------------------------------------------
-      function Parse_File (Name : in File_Name) return GNATCOLL.JSON.Read_Result
+      function Parse_File (Name : in SPARK_File_Name)
+                           return GNATCOLL.JSON.Read_Result
       is
          JSON_File    : Ada.Text_IO.File_Type;
          File_Content : JSON_Data;
@@ -119,7 +120,7 @@ package body SPAT.Spark_Files is
       end Parse_File;
 
       task body Parse_Task is
-         Element : File_Name;
+         Element : SPARK_File_Name;
          Result  : Worker_Tasks.Parse_Result;
       begin
          Main_Loop :
@@ -180,7 +181,7 @@ package body SPAT.Spark_Files is
    ---------------------------------------------------------------------------
    not overriding
    procedure Read (This  : in out T;
-                   Names : in     Strings.File_Names)
+                   Names : in     Strings.SPARK_File_Names)
    is
       use type File_Maps.Cursor;
    begin

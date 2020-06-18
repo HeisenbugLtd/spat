@@ -7,7 +7,7 @@ digraph "Inheritance Tree"
   node [shape=record];
 
   "SPAT.Entity.T"          [label="{Entity.T\l|{abstract\l|}}"];
-  "SPAT.Entity_Line.T"     [label="{Entity_Line.T\l|{|{+File : File_Name\l|+Line : Natural\l}}}"];
+  "SPAT.Entity_Line.T"     [label="{Entity_Line.T\l|{|{+File : Source_File_Name\l|+Line : Natural\l}}}"];
   "SPAT.Entity_Location.T" [label="{SPAT.Entity_Location.T\l|{|{+Column : Natural\l}}}"];
   "SPAT.Flow_Item.T"       [label="{SPAT.Flow_Item.T\l|{|{+Rule : Subject_Name\l|+Severity : Subject_Name\l}}}"];
   "SPAT.Proof_Item.T"      [label="{SPAT.Proof_Item.T\l|{|{+Suppressed : Subject_Name\l|+Rule : Subject_Name\l|+Severity : Subject_Name\l|+Max_Success_Time : Duration\l|+Max_Time : Duration\l|+Total_Time : Duration\l|+Id : Proof_Item_Ids.Id\l|+Has_Failed_Attempts : Boolean\l|+Has_Unproved_Attempts : Boolean\l|+Is_Unjustified : Boolean\l}}}"];

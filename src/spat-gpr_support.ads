@@ -26,6 +26,7 @@ package SPAT.GPR_Support is
    --  Retrieve all (existing) .spark files from the project.
    ---------------------------------------------------------------------------
    function Get_SPARK_Files
-     (GPR_File : GNATCOLL.VFS.Filesystem_String) return Strings.File_Names;
+     (GPR_File : GNATCOLL.VFS.Filesystem_String)
+      return Strings.SPARK_File_Names;
 
 end SPAT.GPR_Support;

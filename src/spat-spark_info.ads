@@ -42,7 +42,7 @@ package SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    procedure Map_Spark_File (This : in out T;
-                             File : in     File_Name;
+                             File : in     SPARK_File_Name;
                              Root : in     JSON_Value);
 
    ---------------------------------------------------------------------------
@@ -65,7 +65,7 @@ package SPAT.Spark_Info is
    not overriding
    function List_All_Files
      (This    : in T;
-      Sort_By : in Sorting_Criterion := None) return Strings.File_Names;
+      Sort_By : in Sorting_Criterion := None) return Strings.SPARK_File_Names;
 
    ---------------------------------------------------------------------------
    --  Num_Flows
@@ -83,7 +83,7 @@ package SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Flow_Time (This : in T;
-                       File : in File_Name) return Duration;
+                       File : in SPARK_File_Name) return Duration;
 
    ---------------------------------------------------------------------------
    --  Num_Proofs
@@ -101,14 +101,14 @@ package SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Proof_Time (This : in T;
-                        File : in File_Name) return Duration;
+                        File : in SPARK_File_Name) return Duration;
 
    ---------------------------------------------------------------------------
    --  Max_Proof_Time
    ---------------------------------------------------------------------------
    not overriding
    function Max_Proof_Time (This : in T;
-                            File : in File_Name) return Duration;
+                            File : in SPARK_File_Name) return Duration;
 
    ---------------------------------------------------------------------------
    --  Max_Success_Proof_Time
@@ -118,7 +118,7 @@ package SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    function Max_Success_Proof_Time (This : in T;
-                                    File : in File_Name) return Duration;
+                                    File : in SPARK_File_Name) return Duration;
 
    ---------------------------------------------------------------------------
    --  Max_Proof_Time
@@ -272,7 +272,7 @@ private
    --  Ordered set of known filenames.  Used to build a cross reference from
    --  an entity to the .spark file it has been found in.
    package File_Sets is new
-     Ada.Containers.Hashed_Sets (Element_Type        => File_Name,
+     Ada.Containers.Hashed_Sets (Element_Type        => SPARK_File_Name,
                                  Hash                => SPAT.Hash,
                                  Equivalent_Elements => "=",
                                  "="                 => "=");
@@ -296,7 +296,7 @@ private
 
    --  File_Name -> Timings mapping
    package File_Timings is new
-     Ada.Containers.Hashed_Maps (Key_Type        => File_Name,
+     Ada.Containers.Hashed_Maps (Key_Type        => SPARK_File_Name,
                                  Element_Type    => Timing_Item.T,
                                  Hash            => Hash,
                                  Equivalent_Keys => "=",

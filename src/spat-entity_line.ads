@@ -54,7 +54,7 @@ package SPAT.Entity_Line is
    --  Source_File
    ---------------------------------------------------------------------------
    not overriding
-   function Source_File (This : in T) return File_Name;
+   function Source_File (This : in T) return Source_File_Name;
 
    ---------------------------------------------------------------------------
    --  Source_Line
@@ -67,7 +67,7 @@ private
    type T is new Entity.T with
       record
          --  These are source file references.
-         File : File_Name;
+         File : Source_File_Name;
          Line : Natural;
       end record;
 
@@ -75,7 +75,7 @@ private
    --  Source_File
    ---------------------------------------------------------------------------
    not overriding
-   function Source_File (This : in T) return File_Name is
+   function Source_File (This : in T) return Source_File_Name is
       (This.File);
 
    ---------------------------------------------------------------------------

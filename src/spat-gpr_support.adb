@@ -42,7 +42,7 @@ package body SPAT.GPR_Support is
    ---------------------------------------------------------------------------
    procedure Add_File (Name  : in     String;
                        Cache : in out File_Name_Caches.Set;
-                       To    : in out Strings.File_Names);
+                       To    : in out Strings.SPARK_File_Names);
 
    ---------------------------------------------------------------------------
    --  Image
@@ -64,8 +64,10 @@ package body SPAT.GPR_Support is
    ---------------------------------------------------------------------------
    procedure Add_File (Name  : in     String;
                        Cache : in out File_Name_Caches.Set;
-                       To    : in out Strings.File_Names) is
-      As_File_Name : constant File_Name := File_Name (To_Name (Source => Name));
+                       To    : in out Strings.SPARK_File_Names)
+   is
+      As_File_Name : constant SPARK_File_Name :=
+        SPARK_File_Name (To_Name (Source => Name));
       Simple_Name  : constant String :=
         Ada.Directories.Simple_Name (Name => Name);
       Dummy_Cursor : File_Name_Caches.Cursor; --  Don't care about the position.
@@ -97,7 +99,7 @@ package body SPAT.GPR_Support is
    --  Get_SPARK_Files
    ---------------------------------------------------------------------------
    function Get_SPARK_Files
-     (GPR_File : GNATCOLL.VFS.Filesystem_String) return Strings.File_Names
+     (GPR_File : GNATCOLL.VFS.Filesystem_String) return Strings.SPARK_File_Names
    is
       Start_Time  : Ada.Real_Time.Time;
 
@@ -151,7 +153,7 @@ package body SPAT.GPR_Support is
          --  Initialize the lists.
          Raw_List    : File_Name_Caches.Set;
          --  Stores all encountered files.
-         Result_List : Strings.File_Names (Capacity => Capacity);
+         Result_List : Strings.SPARK_File_Names (Capacity => Capacity);
          --  Stores only files that exist on disk.
       begin
          Raw_List.Reserve_Capacity (Capacity => Capacity);
