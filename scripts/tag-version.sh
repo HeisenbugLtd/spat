@@ -4,6 +4,8 @@
 
 if [ "$#" -ne 1 ]; then
     echo "No or more than one version number given. Please provide exactly one."
+    echo "Here is a list of existing tags:"
+    (echo "TAG|DATE" && git tag --sort="creatordate" --format="%(refname:short)|%(authordate:iso8601)") | column -s\| -t -x
     exit 1
 fi
 
