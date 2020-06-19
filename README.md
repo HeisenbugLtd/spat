@@ -16,8 +16,9 @@
   * #### 4.3 [The `--report-mode` option](README.md#the---report-mode-option)
   * #### 4.4 [The `--details` option](README.md#the---details-option)
   * #### 4.5 [The `--cut-off` option](README.md#the---cut-off-option)
-  * #### 4.6 [The `--verbose` option](README.md#the---verbose-option)
-  * #### 4.7 [The `--version` option](README.md#the---version-option)
+  * #### 4.6 [The `--suggest` option](README.md#the---suggest-option)
+  * #### 4.7 [The `--verbose` option](README.md#the---verbose-option)
+  * #### 4.8 [The `--version` option](README.md#the---version-option)
 * ### 5. [Some Notes on Sorting](README.md#some-notes-on-sorting)
 * ### 6. [Tool Limitations](README.md#tool-limitations)
 
@@ -101,26 +102,27 @@ Quick help:
 will give you a quick overview over the available command line options:
 
 ```
-usage: run_spat [--help|-h] [--project|-P PROJECT] [--summary|-s]
-               [--report-mode|-r REPORT-MODE] [--sort-by|-c SORT-BY]
-               [--cut-off|-p CUT-OFF] [--details|-d] [--version|-V]
-               [--verbose|-v]
+usage: run_spat [--help|-h] [--project|-P PROJECT] [--summary|-s] 
+               [--report-mode|-r REPORT-MODE] [--suggest|-g] [--sort-by|-c 
+               SORT-BY] [--cut-off|-p CUT-OFF] [--details|-d] [--version|-V] 
+               [--verbose|-v] 
 
 Parses .spark files and outputs information about them.
 
 positional arguments:
-
+   
 optional arguments:
    --help, -h            Show this help message
    --project, -P         PROJECT = GNAT project file (.gpr) (mandatory!)
    --summary, -s         List summary (per file)
-   --report-mode, -r     Output reporting mode (REPORT-MODE: a = all, f =
-                         failed, u = unproved, j = unjustified [implies
+   --report-mode, -r     Output reporting mode (REPORT-MODE: a = all, f = 
+                         failed, u = unproved, j = unjustified [implies 
                          unproved])
-   --sort-by, -c         Sorting criterion (SORT-BY: a = alphabetical, s = by
+   --suggest, -g         Show suggestion for an optimal prover configuration
+   --sort-by, -c         Sorting criterion (SORT-BY: a = alphabetical, s = by 
                          minimum time for successful proof, t = by maximum proof
                           time)
-   --cut-off, -p         Cut off point, do not show entities with proof times
+   --cut-off, -p         Cut off point, do not show entities with proof times 
                          less than that (CUT-OFF: <numeral>[s|ms])
    --details, -d         Show details for entities (report mode)
    --version, -V         Show version information and exit
@@ -128,8 +130,8 @@ optional arguments:
 ```
 
 The `--project` argument is the only argument that is not optional, but without
-a `--report-mode`, or `--summary` argument, `run_spat` will not output
-anything.  It will still try to parse the files it finds, though.
+a `--report-mode`, or `--summary`, or `--suggest` argument, `run_spat` will not
+output anything.  It will still try to parse the files it finds, though.
 
 ### The `--summary` option
 
@@ -441,6 +443,10 @@ is different for the `--report-mode` and `--summary` output.
   `--report-mode` option.  That is because the tool assumes that if you want to
   see the summary on a per file (i.e. Ada `package`) basis, you are more
   interested in the total time spent for a file than a single proof.
+
+### The `--suggest` option
+
+Not implemented yet.
 
 ### The `--verbose` option
 
