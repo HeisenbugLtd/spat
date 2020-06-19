@@ -88,7 +88,8 @@ package body SPAT.GPR_Support is
             Log.Debug (Message => """" & Simple_Name & """ added to index.");
          else
             Log.Debug
-              (Message => """" & Simple_Name & "not found on disk, skipped.");
+              (Message =>
+                 """" & Simple_Name & """ not found on disk, skipped.");
          end if;
       else
          Log.Debug (Message => """" & Simple_Name & """ already in index.");
