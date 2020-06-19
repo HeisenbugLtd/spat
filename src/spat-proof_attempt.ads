@@ -38,6 +38,10 @@ package SPAT.Proof_Attempt is
                                   Field  => Field_Names.Steps,
                                   Kind   => JSON_Int_Type));
 
+   type Prover_Result is (Valid, Unproved);
+   --  FIXME: There are more, but right now we're only concerned with if it's
+   --         proven or not.
+
    type T is new Entity.T with private;
 
    ---------------------------------------------------------------------------
@@ -82,7 +86,7 @@ package SPAT.Proof_Attempt is
    --  Result
    ---------------------------------------------------------------------------
    not overriding
-   function Result (This : in T) return Subject_Name;
+   function Result (This : in T) return Prover_Result;
 
    ---------------------------------------------------------------------------
    --  Time
@@ -133,8 +137,10 @@ private
    --  Result
    ---------------------------------------------------------------------------
    not overriding
-   function Result (This : in T) return Subject_Name is
-     (This.Result);
+   function Result (This : in T) return Prover_Result is
+     (if This.Result = To_Name ("Valid")
+      then Valid
+      else Unproved);
 
    ---------------------------------------------------------------------------
    --  Time

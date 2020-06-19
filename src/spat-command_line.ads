@@ -105,6 +105,13 @@ package SPAT.Command_Line is
         Convert     => Convert,
         Default_Val => None);
 
+   package Suggest is new
+     GNATCOLL.Opt_Parse.Parse_Flag
+       (Parser  => Parser,
+        Short   => "-g",
+        Long    => "--suggest",
+        Help    => "Show suggestion for an optimal prover configuration");
+
    --  Valid for summary and report mode.
    package Sort_By is new
      GNATCOLL.Opt_Parse.Parse_Option
