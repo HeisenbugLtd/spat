@@ -14,8 +14,17 @@ pragma License (Unrestricted);
 --  S.P.A.T. - Main program - separate Print_Suggestion
 --
 ------------------------------------------------------------------------------
-with Ada.Text_IO;
 
+with SPAT.Log;
+
+------------------------------------------------------------------------------
+--  NOTE: As of now, this implementation is highly inefficient.
+--
+--        It uses a lot of lookups where a proper data structure would have
+--        been able to prevent that.
+--        I just found it more important to get a working prototype, than a
+--        blazingly fast one which doesn't.
+------------------------------------------------------------------------------
 with SPAT.Strings;
 
 separate (Run_SPAT)
@@ -23,8 +32,8 @@ separate (Run_SPAT)
 ------------------------------------------------------------------------------
 --  Print_Suggestion
 ------------------------------------------------------------------------------
-procedure Print_Suggestion (Info : in SPAT.Spark_Info.T)
-is
+procedure Print_Suggestion (Info : in SPAT.Spark_Info.T) is
 begin
-   raise Program_Error with "Not implemented yet.";
+   SPAT.Log.Message (Message => "Not implemented yet.");
+   Info.ZZZ_Find_Optimum;
 end Print_Suggestion;

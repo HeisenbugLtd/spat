@@ -207,6 +207,8 @@ package SPAT.Spark_Info is
    not overriding
    procedure Print_Trees (This : in T);
 
+   procedure ZZZ_Find_Optimum (This : in T);
+
 private
 
    type Source_Lines_Sentinel is new Entity.T with null record;
