@@ -191,13 +191,23 @@ begin
                             Sort_By => Sort_By,
                             Cut_Off => Cut_Off);
          end if;
+      exception
+         when E : others =>
+            SPAT.Log.Dump_Exception
+              (E       => E,
+               Message => "Internal error encountered when processing data!");
       end Process_And_Output;
    end Do_Run_SPAT;
 
    SPAT.Spark_Files.Shutdown;
    Ada.Command_Line.Set_Exit_Status (Code => Ada.Command_Line.Success);
 exception
-   when others =>
+   when E : others =>
       SPAT.Spark_Files.Shutdown;
-      raise;
+
+      --  This shouldn't happen, other exception handlers should have caught
+      --  such earlier.
+      SPAT.Log.Dump_Exception
+        (E       => E,
+         Message => "Fatal error encountered in SPAT!");
 end Run_SPAT;
