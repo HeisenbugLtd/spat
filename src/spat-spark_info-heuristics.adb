@@ -15,9 +15,21 @@ package body SPAT.Spark_Info.Heuristics is
 
    type Times is
       record
-         Success : Duration;
-         Failed  : Duration;
+         Success     : Duration;
+         --  accumulated time of successful attempts
+         Failed      : Duration;
+         --  accumulated time of failed attempts
+         Max_Success : Duration;
+         --  maximum time for a successful attempt
+         Max_Steps   : Prover_Steps;
+         --  maximum number of steps for a successful proof
       end record;
+
+   Null_Times : constant Times :=
+     Times'(Success     => 0.0,
+            Failed      => 0.0,
+            Max_Success => 0.0,
+            Max_Steps   => 0);
 
    package Prover_Maps is new
      Ada.Containers.Hashed_Maps (Key_Type        => Subject_Name,
@@ -167,7 +179,7 @@ package body SPAT.Spark_Info.Heuristics is
                                  --  New prover name, insert it.
                                  File_Ref.Element.Insert
                                    (Key      => The_Attempt.Prover,
-                                    New_Item => Times'(others => 0.0),
+                                    New_Item => Null_Times,
                                     Position => Prover_Cursor,
                                     Inserted => Dummy_Inserted);
                               end if;
@@ -179,6 +191,14 @@ package body SPAT.Spark_Info.Heuristics is
                                  if The_Attempt.Result = Proof_Attempt.Valid then
                                     Prover_Element.Success :=
                                       Prover_Element.Success + The_Attempt.Time;
+
+                                    Prover_Element.Max_Success :=
+                                      Duration'Max (Prover_Element.Max_Success,
+                                                    The_Attempt.Time);
+
+                                    Prover_Element.Max_Steps :=
+                                      Prover_Steps'Max (Prover_Element.Max_Steps,
+                                                        The_Attempt.Steps);
                                  else
                                     Prover_Element.Failed :=
                                       Prover_Element.Failed + The_Attempt.Time;
@@ -207,8 +227,10 @@ package body SPAT.Spark_Info.Heuristics is
                     (Message =>
                        "  " &
                        To_String (Prover_Maps.Key (Position => Prover)));
-                  Log.Debug (Message => "    S  " & SPAT.Image (E.Success));
-                  Log.Debug (Message => "    F  " & SPAT.Image (E.Failed));
+                  Log.Debug (Message => "    t(Success) " & SPAT.Image (E.Success));
+                  Log.Debug (Message => "    t(Failed)  " & SPAT.Image (E.Failed));
+                  Log.Debug (Message => "    T(Success) " & SPAT.Image (E.Max_Success));
+                  Log.Debug (Message => "    S(Success)" & E.Max_Steps'Image);
                end;
             end loop;
          end loop;
