@@ -486,8 +486,8 @@ with a rather simplistic heuristic which can be boiled down to two points:
 > 2. The more time a prover spends in successful proofs, the more likely it is
 >    to succeed.
 
-This results in a very simple sorting order. The less "fail" time a prover has,
-the better is seems to be and if that cannot be decided because the accumulated
+This results in a very simple sorting order:  The less "fail" time a prover has,
+the better it seems to be, and if that cannot be decided because the accumulated
 "fail" time of the provers for the source file is equal, the prover with the
 greater "success" time wins.
 
