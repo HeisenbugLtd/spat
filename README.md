@@ -17,6 +17,8 @@
   * #### 4.4 [The `--details` option](README.md#the---details-option)
   * #### 4.5 [The `--cut-off` option](README.md#the---cut-off-option)
   * #### 4.6 [The `--suggest` option](README.md#the---suggest-option)
+  * ##### 4.6.1 [Assumptions](README.md#assumpptions)
+  * ##### 4.6.2 [How does it Work?](README.md#how-does-it-work)
   * #### 4.7 [The `--verbose` option](README.md#the---verbose-option)
   * #### 4.8 [The `--version` option](README.md#the---version-option)
 * ### 5. [Some Notes on Sorting](README.md#some-notes-on-sorting)
@@ -446,7 +448,90 @@ is different for the `--report-mode` and `--summary` output.
 
 ### The `--suggest` option
 
-Not implemented yet.
+  > *First of all, this option is highly experimental.* At some time in the
+  > near future I might write something more extensive about the implementation
+  > in the project's Wiki, but for now, the following must suffice.
+
+When `spat` is called with the option, it will try to find a better
+configuration, i.e. file specific options for `gnatprove` which you can add to
+your project file.
+
+#### Assumptions
+
+* `spat` assumes that the files are fully proven to the extent of the
+  capability of the provers.  Some undischarged VCs might remain, but in
+  general, the project should be in a good state and the provers should be able
+  to prove what can be proved.
+
+#### How does it Work?
+
+The only information available to `spat` when a prover succeeds is the time and
+the steps it took it to succeed.  Only when a prover fails and the next one in
+the chain is called, `spat` can infer more information.
+
+For each source file referenced in the parsed `.spark` files, `spat` records
+which provers were involved and also the maximum number of steps and the
+longest time for each discharged VC (i.e. `spat` assumes that undischarged VCs
+are there by design).
+
+That means, the output regarding steps and time (see example below) takes the
+*current* state of the project into account.
+
+As for the order of the provers, that is a bit more tricky due to the lack of
+information.  Because `spat` cannot know what is not known, I decided to go
+with a rather simplistic heuristic which can be boiled down to two points:
+
+> 1. The more time a prover spends in unsuccessful proofs, the less likely it
+>    is to succeed.
+> 2. The more time a prover spends in successful proofs, the more likely it is
+>    to succeed.
+
+This results in a very simple sorting order. The less "fail" time a prover has,
+the better is seems to be and if that cannot be decided.  If the accumulated
+"fail" time of the provers for the source file is equal, the prover with the
+greater "success" time wins.
+
+Of course, in most practical scenarios, the prover that will always be called
+first will likely also have the most success time.
+
+Example:
+
+`run_spat -g -P sparknacl.gpr`
+
+```
+Warning: You requested a suggested prover configuration.
+Warning: This feature is highly experimental.
+Warning: Please consult the documentation.
+
+package Prove is
+   for Prover_Switches ("sparknacl-car.adb") use ("--provers=CVC4", "--steps=5882"", "--timeout=1");
+   for Prover_Switches ("sparknacl-core.adb") use ("--provers=CVC4", "--steps=5"", "--timeout=1");
+   for Prover_Switches ("sparknacl-cryptobox.adb") use ("--provers=CVC4", "--steps=261"", "--timeout=1");
+   for Prover_Switches ("sparknacl-cryptobox.ads") use ("--provers=CVC4", "--steps=14"", "--timeout=1");
+   for Prover_Switches ("sparknacl-hashing.adb") use ("--provers=CVC4", "--steps=1058"", "--timeout=1");
+   for Prover_Switches ("sparknacl-mac.adb") use ("--provers=CVC4", "--steps=320"", "--timeout=1");
+   for Prover_Switches ("sparknacl-sanitize.adb") use ("--provers=CVC4,Z3", "--steps=1994"", "--timeout=1");
+   for Prover_Switches ("sparknacl-sanitize_i64_seq.adb") use ("--provers=CVC4", "--steps=136"", "--timeout=1");
+   for Prover_Switches ("sparknacl-scalar.adb") use ("--provers=CVC4", "--steps=157187"", "--timeout=10");
+   for Prover_Switches ("sparknacl-secretbox.adb") use ("--provers=CVC4", "--steps=1001"", "--timeout=1");
+   for Prover_Switches ("sparknacl-secretbox.ads") use ("--provers=CVC4,Z3", "--steps=68758"", "--timeout=1");
+   for Prover_Switches ("sparknacl-sign.adb") use ("--provers=CVC4", "--steps=16135"", "--timeout=1");
+   for Prover_Switches ("sparknacl-sign.ads") use ("--provers=CVC4", "--steps=16776"", "--timeout=1");
+   for Prover_Switches ("sparknacl-stream.adb") use ("--provers=CVC4", "--steps=1429"", "--timeout=1");
+   for Prover_Switches ("sparknacl-utils.adb") use ("--provers=CVC4,Z3", "--steps=155440"", "--timeout=1");
+   for Prover_Switches ("sparknacl-utils.ads") use ("--provers=Z3,CVC4", "--steps=11655208"", "--timeout=9");
+   for Prover_Switches ("sparknacl.adb") use ("--provers=CVC4", "--steps=1760"", "--timeout=1");
+   for Prover_Switches ("sparknacl.ads") use ("--provers=CVC4,Z3", "--steps=1092364"", "--timeout=2");
+end Prove;
+```
+
+*Here you may want to add the `--verbose` switch to see some debug output.*
+
+As explained above, the `steps` and `timeout` output should be fairly accurate.
+The call order of the provers is at best an educated guess.
+
+Also, please note that this output never lists provers that have never been
+called, simply because we know nothing about them.
 
 ### The `--verbose` option
 
@@ -571,3 +656,6 @@ from (this VC would not be shown at all in `--report-mode=failed`).
   having a time of 0.0 s, but the verification conditions that had to be
   re-verified will show the time spent proving them. Which, in the case of
   trying to optimize proof times is exactly what you want.
+
+* The `--suggest` option is highly experimental.  As the name says, it is a
+  suggestion.
