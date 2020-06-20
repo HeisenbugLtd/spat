@@ -199,6 +199,20 @@ package SPAT.Spark_Info is
                                    Entity : in Entity_Name) return Boolean;
 
    ---------------------------------------------------------------------------
+   --  Experimental feature.
+   --
+   --  Tries to find an "optimal" prover configuration.
+   --
+   --  NOTE: As of now, this implementation is highly inefficient.
+   --
+   --        It uses a lot of lookups where a proper data structure would have
+   --        been able to prevent that.
+   --        I just found it more important to get a working prototype, than a
+   --        blazingly fast one which doesn't.
+   ---------------------------------------------------------------------------
+   procedure Find_Optimum (This : in T); --   Out parameter not clear yet.
+
+   ---------------------------------------------------------------------------
    --  Print_Trees
    --
    --  Debugging subroutine to print the trees to Standard_Output. Only does
@@ -206,8 +220,6 @@ package SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    not overriding
    procedure Print_Trees (This : in T);
-
-   procedure ZZZ_Find_Optimum (This : in T);
 
 private
 
