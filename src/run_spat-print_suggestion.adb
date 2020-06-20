@@ -16,7 +16,7 @@ pragma License (Unrestricted);
 ------------------------------------------------------------------------------
 
 with SPAT.Log;
-
+with SPAT.Spark_Info.Heuristics;
 with SPAT.Strings;
 
 separate (Run_SPAT)
@@ -27,5 +27,5 @@ separate (Run_SPAT)
 procedure Print_Suggestion (Info : in SPAT.Spark_Info.T) is
 begin
    SPAT.Log.Message (Message => "Not implemented yet.");
-   Info.Find_Optimum;
+   SPAT.Spark_Info.Heuristics.Find_Optimum (Info => Info);
 end Print_Suggestion;
