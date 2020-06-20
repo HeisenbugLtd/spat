@@ -487,7 +487,7 @@ with a rather simplistic heuristic which can be boiled down to two points:
 >    to succeed.
 
 This results in a very simple sorting order. The less "fail" time a prover has,
-the better is seems to be and if that cannot be decided.  If the accumulated
+the better is seems to be and if that cannot be decided because the accumulated
 "fail" time of the provers for the source file is equal, the prover with the
 greater "success" time wins.
 
