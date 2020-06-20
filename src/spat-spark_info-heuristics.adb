@@ -13,23 +13,48 @@ with SPAT.Proof_Item;
 
 package body SPAT.Spark_Info.Heuristics is
 
-   type Times is
-      record
-         Success     : Duration;
-         --  accumulated time of successful attempts
-         Failed      : Duration;
-         --  accumulated time of failed attempts
-         Max_Success : Duration;
-         --  maximum time for a successful attempt
-         Max_Steps   : Prover_Steps;
-         --  maximum number of steps for a successful proof
-      end record;
-
    Null_Times : constant Times :=
      Times'(Success     => 0.0,
             Failed      => 0.0,
             Max_Success => 0.0,
             Max_Steps   => 0);
+
+   ---------------------------------------------------------------------------
+   --  Min_Failed_Time
+   --
+   --  Comparison operator for a proof attempts.
+   --
+   --  If we have a total failed time, this takes precedence, as this may mean
+   --  that the prover fails a lot.
+   --
+   --  If none of the provers have a failed time (i.e. = 0.0) that means, they
+   --  all succeeded whenever they were being called.
+   --
+   --  Assuming that the one being called more ofte is also the most successful
+   --  one in general, we sort by highest success time.
+   --
+   --  NOTE: This is all guesswork and despite the subrouting being called
+   --        "Find_Optimum", this is definitely far from optimal.  For an
+   --        optimal result, we would need the data for all provers which
+   --        defeats the whole purpose.
+   ---------------------------------------------------------------------------
+   function Min_Failed_Time (Left  : in Prover_Data;
+                             Right : in Prover_Data) return Boolean;
+
+   ---------------------------------------------------------------------------
+   --  By_Name
+   --
+   --  Comparison operator for file list.
+   ---------------------------------------------------------------------------
+   function By_Name (Left  : in File_Data;
+                     Right : in File_Data) return Boolean is
+      (Left.Name < Right.Name);
+
+   package File_Sorting is new
+     File_Vectors.Generic_Sorting ("<" => By_Name);
+
+   package Prover_Sorting is new
+     Prover_Vectors.Generic_Sorting ("<" => Min_Failed_Time);
 
    package Prover_Maps is new
      Ada.Containers.Hashed_Maps (Key_Type        => Subject_Name,
@@ -47,8 +72,15 @@ package body SPAT.Spark_Info.Heuristics is
 
    ---------------------------------------------------------------------------
    --  Find_Optimum
+   --
+   --  NOTE: As of now, this implementation is also highly inefficient.
+   --
+   --        It uses a lot of lookups where a proper data structure would have
+   --        been able to prevent that.
+   --        I just found it more important to get a working prototype, than a
+   --        blazingly fast one which doesn't.
    ---------------------------------------------------------------------------
-   procedure Find_Optimum (Info : in T)
+   function Find_Optimum (Info : in T) return File_Vectors.Vector
    is
       --  FIXME: This should probably go into the README.md instead of here.
       --
@@ -125,92 +157,78 @@ package body SPAT.Spark_Info.Heuristics is
    begin
       --  Collect all proof items in the Per_File/Proof_Records structure.
       for E of Info.Entities loop
-         if
-           --  Quick check. No failed attempts, no preferred prover.
-           Proofs_Sentinel (Entity.Tree.Element (Position => E.Proofs)).Cache.Has_Failed_Attempts
-         then
-            for Proof in
-              E.The_Tree.Iterate_Children (Parent => E.Proofs)
-            loop
-               declare
-                  --  Extract our proof component from the tree.
-                  The_Proof : constant Proof_Item.T'Class :=
-                    Proof_Item.T'Class (Entity.Tree.Element (Position => Proof));
-               begin
-                  if
-                    Source_List.Find
-                      (Key => The_Proof.Source_File) = Per_File.No_Element
-                  then
-                     Source_List.Insert
-                       (Key      => The_Proof.Source_File,
-                        New_Item => Prover_Maps.Empty_Map,
-                        Position => Times_Position,
+         for Proof in E.The_Tree.Iterate_Children (Parent => E.Proofs) loop
+            declare
+               --  Extract our proof component from the tree.
+               The_Proof : constant Proof_Item.T'Class :=
+                 Proof_Item.T'Class (Entity.Tree.Element (Position => Proof));
+            begin
+               if
+                 Source_List.Find
+                   (Key => The_Proof.Source_File) = Per_File.No_Element
+               then
+                  Source_List.Insert
+                    (Key      => The_Proof.Source_File,
+                     New_Item => Prover_Maps.Empty_Map,
+                     Position => Times_Position,
                         Inserted => Dummy_Inserted);
-                     Log.Debug (Message => To_String (The_Proof.Source_File));
-                  end if;
+               end if;
 
-                  if The_Proof.Has_Failed_Attempts then
-                     Log.Debug (Message => The_Proof.Image);
+               --  Iterate over all the verification conditions within the
+               --  proof.
+               for VC in
+                 E.The_Tree.Iterate_Children
+                   (Parent => Entity.Tree.First_Child (Position => Proof))
+               loop
+                  declare
+                     --  Extract our VC component from the tree.
+                     The_Attempt : constant Proof_Attempt.T'Class :=
+                       Proof_Attempt.T'Class
+                         (Entity.Tree.Element (Position => VC));
+                     use type Proof_Attempt.Prover_Result;
+                  begin
+                     declare
+                        File_Ref : constant Per_File.Reference_Type :=
+                          Source_List.Reference
+                            (Position => Times_Position);
+                        Prover_Cursor :  Prover_Maps.Cursor :=
+                          File_Ref.Element.Find (The_Attempt.Prover);
+                        use type Prover_Maps.Cursor;
+                     begin
+                        if Prover_Cursor = Prover_Maps.No_Element then
+                           --  New prover name, insert it.
+                           File_Ref.Element.Insert
+                             (Key      => The_Attempt.Prover,
+                              New_Item => Null_Times,
+                              Position => Prover_Cursor,
+                              Inserted => Dummy_Inserted);
+                        end if;
 
-                     --  Iterate over all the verification conditions within
-                     --  the proof.
-                     for VC in
-                       E.The_Tree.Iterate_Children
-                         (Parent => Entity.Tree.First_Child (Position => Proof))
-                     loop
                         declare
-                           --  Extract our VC component from the tree.
-                           The_Attempt : constant Proof_Attempt.T'Class :=
-                             Proof_Attempt.T'Class
-                               (Entity.Tree.Element (Position => VC));
-                           use type Proof_Attempt.Prover_Result;
+                           Prover_Element : constant Prover_Maps.Reference_Type :=
+                             File_Ref.Reference (Position => Prover_Cursor);
                         begin
-                           Log.Debug (Message => "  " & The_Attempt.Image);
+                           if The_Attempt.Result = Proof_Attempt.Valid then
+                              Prover_Element.Success :=
+                                Prover_Element.Success + The_Attempt.Time;
 
-                           declare
-                              File_Ref : constant Per_File.Reference_Type :=
-                                Source_List.Reference
-                                  (Position => Times_Position);
-                              Prover_Cursor :  Prover_Maps.Cursor :=
-                                File_Ref.Element.Find (The_Attempt.Prover);
-                              use type Prover_Maps.Cursor;
-                           begin
-                              if Prover_Cursor = Prover_Maps.No_Element then
-                                 --  New prover name, insert it.
-                                 File_Ref.Element.Insert
-                                   (Key      => The_Attempt.Prover,
-                                    New_Item => Null_Times,
-                                    Position => Prover_Cursor,
-                                    Inserted => Dummy_Inserted);
-                              end if;
+                              Prover_Element.Max_Success :=
+                                Duration'Max (Prover_Element.Max_Success,
+                                              The_Attempt.Time);
 
-                              declare
-                                 Prover_Element : constant Prover_Maps.Reference_Type :=
-                                   File_Ref.Reference (Position => Prover_Cursor);
-                              begin
-                                 if The_Attempt.Result = Proof_Attempt.Valid then
-                                    Prover_Element.Success :=
-                                      Prover_Element.Success + The_Attempt.Time;
-
-                                    Prover_Element.Max_Success :=
-                                      Duration'Max (Prover_Element.Max_Success,
-                                                    The_Attempt.Time);
-
-                                    Prover_Element.Max_Steps :=
-                                      Prover_Steps'Max (Prover_Element.Max_Steps,
-                                                        The_Attempt.Steps);
-                                 else
-                                    Prover_Element.Failed :=
-                                      Prover_Element.Failed + The_Attempt.Time;
-                                 end if;
-                              end;
-                           end;
+                              Prover_Element.Max_Steps :=
+                                Prover_Steps'Max (Prover_Element.Max_Steps,
+                                                  The_Attempt.Steps);
+                           else
+                              Prover_Element.Failed :=
+                                Prover_Element.Failed + The_Attempt.Time;
+                           end if;
                         end;
-                     end loop;
-                  end if;
-               end;
-            end loop;
-         end if;
+                     end;
+                  end;
+               end loop;
+            end;
+         end loop;
       end loop;
 
       --  Debug output result.
@@ -235,6 +253,56 @@ package body SPAT.Spark_Info.Heuristics is
             end loop;
          end loop;
       end if;
+
+      --  Build the result vector.
+      declare
+         Result : File_Vectors.Vector;
+      begin
+         for Source_Cursor in Source_List.Iterate loop
+            declare
+               Prover_Vector : Prover_Vectors.Vector;
+            begin
+               for Prover_Cursor in Source_List (Source_Cursor).Iterate loop
+                  Prover_Vector.Append
+                    (New_Item =>
+                       Prover_Data'
+                         (Name =>
+                            Prover_Maps.Key (Position => Prover_Cursor),
+                          Time =>
+                            Prover_Maps.Element (Position => Prover_Cursor)));
+                  --  Sort provers by minimum failed time.
+                  Prover_Sorting.Sort (Container => Prover_Vector);
+               end loop;
+
+               Result.Append
+                 (New_Item =>
+                    File_Data'(Name    =>
+                                 Per_File.Key (Position => Source_Cursor),
+                               Provers => Prover_Vector));
+            end;
+         end loop;
+
+         File_Sorting.Sort (Container => Result);
+
+         return Result;
+      end;
    end Find_Optimum;
+
+   ---------------------------------------------------------------------------
+   --  Min_Failed_Time
+   ---------------------------------------------------------------------------
+   function Min_Failed_Time (Left  : in Prover_Data;
+                             Right : in Prover_Data) return Boolean is
+   begin
+      if Left.Time.Failed /= Right.Time.Failed then
+         --  Failed time is equal (likely zero, so prefer the prover with the
+         --  *higher* success time.  This can be wrong, because this value
+         --  mostly depends on which prover is called first.
+         return Left.Time.Success > Right.Time.Success;
+      end if;
+
+      --  Prefer the prover that spends less wasted time.
+      return Left.Time.Failed < Right.Time.Failed;
+   end Min_Failed_Time;
 
 end SPAT.Spark_Info.Heuristics;

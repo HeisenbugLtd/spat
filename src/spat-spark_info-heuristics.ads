@@ -15,20 +15,50 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
+with Ada.Containers.Vectors;
+
 package SPAT.Spark_Info.Heuristics is
 
+   type Times is
+      record
+         --  The name of the prover.
+         Success     : Duration;
+         --  accumulated time of successful attempts
+         Failed      : Duration;
+         --  accumulated time of failed attempts
+         Max_Success : Duration;
+         --  maximum time for a successful attempt
+         Max_Steps   : Prover_Steps;
+         --  maximum number of steps for a successful proof
+      end record;
+
+   type Prover_Data is
+      record
+         Name : Subject_Name;
+         Time : Times;
+      end record;
+
+   package Prover_Vectors is new
+     Ada.Containers.Vectors (Index_Type   => Positive,
+                             Element_Type => Prover_Data);
+
+   type File_Data is
+      record
+         Name    : Source_File_Name;
+         Provers : Prover_Vectors.Vector;
+      end record;
+
+   package File_Vectors is new
+     Ada.Containers.Vectors (Index_Type   => Positive,
+                             Element_Type => File_Data);
+
    ---------------------------------------------------------------------------
-   --  Experimental feature.
+   --  Find_Optimum
+   --
+   --  This is a highly experimental feature.
    --
    --  Tries to find an "optimal" prover configuration.
-   --
-   --  NOTE: As of now, this implementation is highly inefficient.
-   --
-   --        It uses a lot of lookups where a proper data structure would have
-   --        been able to prevent that.
-   --        I just found it more important to get a working prototype, than a
-   --        blazingly fast one which doesn't.
    ---------------------------------------------------------------------------
-   procedure Find_Optimum (Info : in T); --   Out parameter not clear yet.
+   function Find_Optimum (Info : in T) return File_Vectors.Vector;
 
 end SPAT.Spark_Info.Heuristics;
