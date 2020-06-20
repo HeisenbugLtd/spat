@@ -125,15 +125,13 @@ package body SPAT.Proof_Item is
                                        Proof_Attempt.Create
                                          (Prover => To_Name (Name),
                                           Object => Value);
-                           use type SPAT.Subject_Name;
+                           use type Proof_Attempt.Prover_Result;
                         begin
                            Attempts.Append (New_Item => Attempt);
 
                            Max_Time := Duration'Max (Max_Time, Attempt.Time);
 
-                           --  FIXME: Attempt should have a property telling us
-                           --         that.
-                           if Attempt.Result = "Valid" then
+                           if Attempt.Result = Proof_Attempt.Valid then
                               Max_Success_Time :=
                                 Duration'Max (Max_Success_Time,
                                               Attempt.Time);

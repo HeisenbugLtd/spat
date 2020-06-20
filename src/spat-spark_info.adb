@@ -11,6 +11,7 @@ with Ada.Directories;
 with Ada.Strings.Fixed;
 
 with SPAT.Entity_Line;
+with SPAT.Entity_Location;
 with SPAT.Field_Names;
 with SPAT.Flow_Item;
 with SPAT.Log;

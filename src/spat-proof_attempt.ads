@@ -38,6 +38,10 @@ package SPAT.Proof_Attempt is
                                   Field  => Field_Names.Steps,
                                   Kind   => JSON_Int_Type));
 
+   type Prover_Result is (Valid, Unproved);
+   --  FIXME: There are more, but right now we're only concerned with if it's
+   --         proven or not.
+
    type T is new Entity.T with private;
 
    ---------------------------------------------------------------------------
@@ -82,7 +86,13 @@ package SPAT.Proof_Attempt is
    --  Result
    ---------------------------------------------------------------------------
    not overriding
-   function Result (This : in T) return Subject_Name;
+   function Result (This : in T) return Prover_Result;
+
+   ---------------------------------------------------------------------------
+   --  Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Steps (This : in T) return Prover_Steps;
 
    ---------------------------------------------------------------------------
    --  Time
@@ -99,7 +109,7 @@ private
          Prover : Subject_Name;         --  Prover involved.
          Result : Subject_Name;         --  "Valid", "Unknown", etc.
          Time   : Duration;             --  time spent during proof
-         Steps  : Long_Integer;         --  number of steps the prover took
+         Steps  : Prover_Steps;         --  number of steps the prover took
                                         --  This might be negative (e.g. with
                                         --  Z3, the number of steps is recorded
                                         --  as -1, if Z3 ran out of memory.
@@ -133,8 +143,17 @@ private
    --  Result
    ---------------------------------------------------------------------------
    not overriding
-   function Result (This : in T) return Subject_Name is
-     (This.Result);
+   function Result (This : in T) return Prover_Result is
+     (if This.Result = To_Name ("Valid")
+      then Valid
+      else Unproved);
+
+   ---------------------------------------------------------------------------
+   --  Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Steps (This : in T) return Prover_Steps is
+     (This.Steps);
 
    ---------------------------------------------------------------------------
    --  Time

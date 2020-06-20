@@ -44,6 +44,11 @@ procedure Run_SPAT is
                              Cut_Off : in Duration);
 
    ---------------------------------------------------------------------------
+   --  Print_Suggestion
+   ---------------------------------------------------------------------------
+   procedure Print_Suggestion (Info : in SPAT.Spark_Info.T);
+
+   ---------------------------------------------------------------------------
    --  Print_Summary
    ---------------------------------------------------------------------------
    procedure Print_Summary (Info    : in SPAT.Spark_Info.T;
@@ -56,6 +61,11 @@ procedure Run_SPAT is
    procedure Print_Entities (Info    : in SPAT.Spark_Info.T;
                              Sort_By : in SPAT.Spark_Info.Sorting_Criterion;
                              Cut_Off : in Duration) is separate;
+
+   ---------------------------------------------------------------------------
+   --  Print_Suggestion
+   ---------------------------------------------------------------------------
+   procedure Print_Suggestion (Info : in SPAT.Spark_Info.T) is separate;
 
    ---------------------------------------------------------------------------
    --  Print_Summary
@@ -191,6 +201,10 @@ begin
                             Sort_By => Sort_By,
                             Cut_Off => Cut_Off);
          end if;
+
+         if SPAT.Command_Line.Suggest.Get then
+            Print_Suggestion (Info => Info);
+         end if;
       exception
          when E : others =>
             SPAT.Log.Dump_Exception
@@ -210,4 +224,5 @@ exception
       SPAT.Log.Dump_Exception
         (E       => E,
          Message => "Fatal error encountered in SPAT!");
+      Ada.Command_Line.Set_Exit_Status (Code => Ada.Command_Line.Failure);
 end Run_SPAT;

@@ -97,4 +97,12 @@ package SPAT is
    --  Version information. Right now I only have access to the community
    --  releases of SPARK, so these are the only ones fully supported.
 
+   type Prover_Steps is range -2 ** 63 .. 2 ** 63 - 1;
+   --  Define our own type instead of using Long_Integer;
+
+   pragma Compile_Time_Warning (Long_Integer'Size < Prover_Steps'Size,
+                                "Long_Integer is less than 64 bit.");
+   --  We use the Long_Integer version of GNATCOLL.JSON.Get to read values of
+   --  this type, so the size of Long_Integer must be sufficient.
+
 end SPAT;

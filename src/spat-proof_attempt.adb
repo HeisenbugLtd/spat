@@ -61,7 +61,9 @@ package body SPAT.Proof_Attempt is
                              with
                                "Fatal: Impossible Kind """ &
                                Time_Field.Kind'Image & """ of JSON object!"),
-                  Steps => Object.Get (Field => Field_Names.Steps),
+                Steps =>
+                  Prover_Steps
+                    (Long_Integer'(Object.Get (Field => Field_Names.Steps))),
                   Id    => Proof_Attempt_Ids.Next);
    end Create;
 
