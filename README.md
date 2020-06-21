@@ -117,30 +117,33 @@ Quick help:
 will give you a quick overview over the available command line options:
 
 ```
-usage: run_spat [--help|-h] [--project|-P PROJECT] [--summary|-s] 
-               [--report-mode|-r REPORT-MODE] [--suggest|-g] [--sort-by|-c 
-               SORT-BY] [--cut-off|-p CUT-OFF] [--details|-d] [--version|-V] 
-               [--verbose|-v] 
+usage: run_spat [--help|-h] [--project|-P PROJECT] [--summary|-s]
+               [--report-mode|-r REPORT-MODE] [--suggest|-g] [--entity|-e
+               ENTITY[ENTITY...]] [--sort-by|-c SORT-BY] [--cut-off|-p CUT-OFF]
+               [--details|-d] [--version|-V] [--raw|-R] [--verbose|-v]
 
 Parses .spark files and outputs information about them.
 
 positional arguments:
-   
+
 optional arguments:
    --help, -h            Show this help message
    --project, -P         PROJECT = GNAT project file (.gpr) (mandatory!)
    --summary, -s         List summary (per file)
-   --report-mode, -r     Output reporting mode (REPORT-MODE: a = all, f = 
-                         failed, u = unproved, j = unjustified [implies 
+   --report-mode, -r     Output reporting mode (REPORT-MODE: a = all, f =
+                         failed, u = unproved, j = unjustified [implies
                          unproved])
    --suggest, -g         Show suggestion for an optimal prover configuration
-   --sort-by, -c         Sorting criterion (SORT-BY: a = alphabetical, s = by 
+   --entity, -e          Filter output by ENTITY (regular expression), this
+                         option can  be specified multiple times
+   --sort-by, -c         Sorting criterion (SORT-BY: a = alphabetical, s = by
                          minimum time for successful proof, t = by maximum proof
                           time)
-   --cut-off, -p         Cut off point, do not show entities with proof times 
+   --cut-off, -p         Cut off point, do not show entities with proof times
                          less than that (CUT-OFF: <numeral>[s|ms])
    --details, -d         Show details for entities (report mode)
    --version, -V         Show version information and exit
+   --raw, -R             Output timings in raw format (for script use)
    --verbose, -v         Verbose (tracing) output
 ```
 
