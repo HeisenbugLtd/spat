@@ -21,7 +21,8 @@
   * ##### 4.7.1 [Assumptions](README.md#assumpptions)
   * ##### 4.7.2 [How does it Work?](README.md#how-does-it-work)
   * #### 4.8 [The `--verbose` option](README.md#the---verbose-option)
-  * #### 4.9 [The `--version` option](README.md#the---version-option)
+  * #### 4.9 [The `--raw` option](README.md#the---raw-option)
+  * #### 4.10 [The `--version` option](README.md#the---version-option)
 * ### 5. [Some Notes on Sorting](README.md#some-notes-on-sorting)
 * ### 6. [Tool Limitations](README.md#tool-limitations)
 
@@ -587,6 +588,12 @@ and some timings).
 
 Show version and compiler information for the executable.  If that option is
 encountered, no other options take effect and the program immediately exits.
+
+### The `--raw` option
+
+This is intended for scripts parsing the output of `spat`.  If this switch is
+specified times are shown as raw numbers instead of properly scaled, human
+readable output.  This should make it easier for scripts to parse the numbers.
 
 ## Some Notes on Sorting
 
