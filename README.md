@@ -10,7 +10,7 @@
 * ### 3. [Compiling the Tool](README.md#compiling-the-tool)
   * #### 3.1 [Requirements](README.md#requirements)
   * #### 3.2 [Step by Step Instructions](README.md#step-by-step-instructions)
-  * #### 3.3 [The `spat.py` plug-in](README.md#the-spat-py-plug-in)
+  * #### 3.3 [The `spat.py` plug-in](README.md#the-spatpy-plug-in)
 * ### 4. [Invoking the Tool](README.md#invoking-the-tool)
   * #### 4.1 [Command Line](README.md#command-line)
   * #### 4.2 [The `--summary` option](README.md#the---summary-option)
