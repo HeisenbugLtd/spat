@@ -12,7 +12,7 @@ rm -f test.diff *.out
 # Arguments: project directory ($1), project file ($2), options ($3)
 single_check () {
   echo "Testing \"$1\" with options \"$3\"..." # Show some progress.
-  OPT_NAME="$1".`echo "$3" | sed -e "s/[- ]//g"`
+  OPT_NAME="$1".`echo "$3" | sed -e "s/[- \.\*]//g"`
 
   # run_spat $3 -P "$1/$2" > "spat.${OPT_NAME}.template" # Recreate templates
   ../obj/run_spat $3 -P "$1/$2" > "spat.${OPT_NAME}.out"
@@ -83,5 +83,10 @@ run_cut_off_check "test-sparknacl" "src/sparknacl.gpr"
 single_check "test-saatana" "saatana.gpr" "-g"
 single_check "test-sparknacl" "src/sparknacl.gpr" "-g"
 single_check "test-issues" "issues.gpr" "-g"
+
+# Very simple --entity checks
+single_check "test-saatana" "saatana.gpr" "-ra -e .*Setup.*"
+single_check "test-sparknacl" "src/sparknacl.gpr" "-ra -e .*ASR.*"
+single_check "test-issues" "issues.gpr" "-ra -e .*U64.*"
 
 exit ${RESULT}
