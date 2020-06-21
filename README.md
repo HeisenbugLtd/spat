@@ -10,6 +10,7 @@
 * ### 3. [Compiling the Tool](README.md#compiling-the-tool)
   * #### 3.1 [Requirements](README.md#requirements)
   * #### 3.2 [Step by Step Instructions](README.md#step-by-step-instructions)
+  * #### 3.3 [The `spat.py` plug-in](README.md#the-spatpy-plug-in)
 * ### 4. [Invoking the Tool](README.md#invoking-the-tool)
   * #### 4.1 [Command Line](README.md#command-line)
   * #### 4.2 [The `--summary` option](README.md#the---summary-option)
@@ -21,7 +22,8 @@
   * ##### 4.7.1 [Assumptions](README.md#assumpptions)
   * ##### 4.7.2 [How does it Work?](README.md#how-does-it-work)
   * #### 4.8 [The `--verbose` option](README.md#the---verbose-option)
-  * #### 4.9 [The `--version` option](README.md#the---version-option)
+  * #### 4.9 [The `--raw` option](README.md#the---raw-option)
+  * #### 4.10 [The `--version` option](README.md#the---version-option)
 * ### 5. [Some Notes on Sorting](README.md#some-notes-on-sorting)
 * ### 6. [Tool Limitations](README.md#tool-limitations)
 
@@ -89,6 +91,16 @@ instruction above.
 
 After that, the **`run_spat`** executable should be installed in your GNAT
 installation and is ready to use.
+
+### The `spat.py` plug-in
+
+I added a tiny plug-in for `GNAT Studio` that parses the output of `spat` and
+shows the proofs with their respective maximum times in the location window.
+To make use of the script, you need to link or copy it into your
+`~/.gnatstudio/plug-ins` directory.
+
+The plug-in adds the new menu item `SPAT` into the `SPARK` menu in
+`GNAT Studio` with the two entries `Show All` and `Show Unproved`.
 
 ## Invoking the tool
 
@@ -587,6 +599,12 @@ and some timings).
 
 Show version and compiler information for the executable.  If that option is
 encountered, no other options take effect and the program immediately exits.
+
+### The `--raw` option
+
+This is intended for scripts parsing the output of `spat`.  If this switch is
+specified times are shown as raw numbers instead of properly scaled, human
+readable output.  This should make it easier for scripts to parse the numbers.
 
 ## Some Notes on Sorting
 
