@@ -28,9 +28,10 @@ separate (Run_SPAT)
 ------------------------------------------------------------------------------
 --  Print_Entities
 ------------------------------------------------------------------------------
-procedure Print_Entities (Info    : in SPAT.Spark_Info.T;
-                          Sort_By : in SPAT.Spark_Info.Sorting_Criterion;
-                          Cut_Off : in Duration)
+procedure Print_Entities (Info          : in SPAT.Spark_Info.T;
+                          Sort_By       : in SPAT.Spark_Info.Sorting_Criterion;
+                          Cut_Off       : in Duration;
+                          Entity_Filter : in Reg_Exp_List.Vector)
 is
    Entities : constant SPAT.Strings.Entity_Names :=
      Info.List_All_Entities (Sort_By => Sort_By);
@@ -44,11 +45,39 @@ is
    Omitted_Entities : Natural := 0;
    Omitted_VCs      : Natural := 0;
    use all type SPAT.Command_Line.Report_Mode;
-begin
-   for Entity of Entities loop
+
+   ---------------------------------------------------------------------------
+   --  Should_Show_Entity
+   --
+   --  Applies given filters (cut off point, entity filter regexp) and returns
+   --  True if the entity matches this filter and should be shown.
+   ---------------------------------------------------------------------------
+   function Should_Show_Entity (Entity : in SPAT.Entity_Name) return Boolean;
+
+   ---------------------------------------------------------------------------
+   --  Should_Show_Entity
+   ---------------------------------------------------------------------------
+   function Should_Show_Entity (Entity : in SPAT.Entity_Name) return Boolean is
+   begin
       if Info.Max_Proof_Time (Entity => Entity) < Cut_Off then
          Omitted_Entities := Omitted_Entities + 1;
-      elsif
+         return False;
+      end if;
+
+      if Entity_Filter.Is_Empty then
+         --  No filters, so show the entity.
+         return True;
+      end if;
+
+      return (for some Expression of Entity_Filter =>
+                GNAT.Regexp.Match (S => SPAT.To_String (Entity),
+                                   R => Expression));
+   end Should_Show_Entity;
+
+begin --  Print_Entities
+   for Entity of Entities loop
+      if
+        Should_Show_Entity (Entity => Entity) and then
         (case Mode is
             when None        => False,
             when All_Proofs  => True,
