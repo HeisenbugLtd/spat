@@ -263,22 +263,32 @@ package body SPAT.Spark_Info.Heuristics is
                Prover_Vector : Prover_Vectors.Vector;
             begin
                for Prover_Cursor in Source_List (Source_Cursor).Iterate loop
-                  Prover_Vector.Append
-                    (New_Item =>
-                       Prover_Data'
-                         (Name =>
-                            Prover_Maps.Key (Position => Prover_Cursor),
-                          Time =>
-                            Prover_Maps.Element (Position => Prover_Cursor)));
-                  --  Sort provers by minimum failed time.
-                  Prover_Sorting.Sort (Container => Prover_Vector);
+                  --  Special handling for the "Trivial" prover. We never want
+                  --  to show this one.
+                  if
+                    Prover_Maps.Key (Position => Prover_Cursor) /=
+                    To_Name ("Trivial")
+                  then
+                     Prover_Vector.Append
+                       (New_Item =>
+                          Prover_Data'
+                            (Name =>
+                               Prover_Maps.Key (Position => Prover_Cursor),
+                             Time =>
+                               Prover_Maps.Element
+                                 (Position => Prover_Cursor)));
+                  end if;
                end loop;
 
-               Result.Append
-                 (New_Item =>
-                    File_Data'(Name    =>
-                                 Per_File.Key (Position => Source_Cursor),
-                               Provers => Prover_Vector));
+               if not Prover_Vector.Is_Empty then
+                  --  Sort provers by minimum failed time.
+                  Prover_Sorting.Sort (Container => Prover_Vector);
+                  Result.Append
+                    (New_Item =>
+                       File_Data'(Name    =>
+                                    Per_File.Key (Position => Source_Cursor),
+                                  Provers => Prover_Vector));
+               end if;
             end;
          end loop;
 
@@ -294,7 +304,7 @@ package body SPAT.Spark_Info.Heuristics is
    function Min_Failed_Time (Left  : in Prover_Data;
                              Right : in Prover_Data) return Boolean is
    begin
-      if Left.Time.Failed /= Right.Time.Failed then
+      if Left.Time.Failed = Right.Time.Failed then
          --  Failed time is equal (likely zero, so prefer the prover with the
          --  *higher* success time.  This can be wrong, because this value
          --  mostly depends on which prover is called first.
