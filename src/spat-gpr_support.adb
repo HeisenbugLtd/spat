@@ -13,8 +13,6 @@ with Ada.Real_Time;
 with Ada.Strings.Hash;
 
 with GNATCOLL.Projects;
-with SI_Units.Metric;
-with SI_Units.Names;
 with SPAT.Strings;
 with SPAT.Log;
 
@@ -43,14 +41,6 @@ package body SPAT.GPR_Support is
    procedure Add_File (Name  : in     String;
                        Cache : in out File_Name_Caches.Set;
                        To    : in out Strings.SPARK_File_Names);
-
-   ---------------------------------------------------------------------------
-   --  Image
-   ---------------------------------------------------------------------------
-   function Image is new
-     SI_Units.Metric.Fixed_Image (Item        => Duration,
-                                  Default_Aft => 0,
-                                  Unit        => SI_Units.Names.Second);
 
    ---------------------------------------------------------------------------
    --  SPARK_Name

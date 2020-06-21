@@ -164,4 +164,11 @@ package SPAT.Command_Line is
         Long    => "--version",
         Help    => "Show version information and exit");
 
+   package Raw_Mode is new
+     GNATCOLL.Opt_Parse.Parse_Flag
+       (Parser  => Parser,
+        Short   => "-R",
+        Long    => "--raw",
+        Help    => "Output timings in raw format (for script use)");
+
 end SPAT.Command_Line;
