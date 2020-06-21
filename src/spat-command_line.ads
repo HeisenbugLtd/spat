@@ -112,6 +112,18 @@ package SPAT.Command_Line is
         Long    => "--suggest",
         Help    => "Show suggestion for an optimal prover configuration");
 
+   package Entity_Filter is new
+     GNATCOLL.Opt_Parse.Parse_Option_List
+       (Parser     => Parser,
+        Short      => "-e",
+        Long       => "--entity",
+        Help       =>
+           "Filter output by ENTITY (regular expression), this option can " &
+           " be specified multiple times",
+        Accumulate => True,
+        Arg_Type   => Subject_Name,
+        Convert    => GNATCOLL.Opt_Parse.Convert);
+
    --  Valid for summary and report mode.
    package Sort_By is new
      GNATCOLL.Opt_Parse.Parse_Option
