@@ -10,6 +10,7 @@
 * ### 3. [Compiling the Tool](README.md#compiling-the-tool)
   * #### 3.1 [Requirements](README.md#requirements)
   * #### 3.2 [Step by Step Instructions](README.md#step-by-step-instructions)
+  * #### 3.3 [The `spat.py` plug-in](README.md#the-spat-py-plug-in)
 * ### 4. [Invoking the Tool](README.md#invoking-the-tool)
   * #### 4.1 [Command Line](README.md#command-line)
   * #### 4.2 [The `--summary` option](README.md#the---summary-option)
@@ -90,6 +91,16 @@ instruction above.
 
 After that, the **`run_spat`** executable should be installed in your GNAT
 installation and is ready to use.
+
+### The `spat.py` plug-in
+
+I added a tiny plug-in for `GNAT Studio` that parses the output of `spat` and
+shows the proofs with their respective maximum times in the location window.
+To make use of the script, you need to link or copy it into your
+`~/.gnatstudio/plug-ins` directory.
+
+The plug-in adds the new menu item `SPAT` into the `SPARK` menu in
+`GNAT Studio` with the two entries `Show All` and `Show Unproved`.
 
 ## Invoking the tool
 
