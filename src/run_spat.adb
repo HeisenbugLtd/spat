@@ -16,9 +16,11 @@ pragma License (Unrestricted);
 ------------------------------------------------------------------------------
 
 with Ada.Command_Line;
+with Ada.Containers.Vectors;
 with Ada.Directories;
 with Ada.Real_Time;
 
+with GNAT.Regexp;
 with GNATCOLL.JSON;
 with GNATCOLL.Projects;
 with GNATCOLL.VFS;
@@ -36,12 +38,19 @@ with System;
 ------------------------------------------------------------------------------
 procedure Run_SPAT is
 
+   package Reg_Exp_List is new
+     Ada.Containers.Vectors (Index_Type   => Positive,
+                             Element_Type => GNAT.Regexp.Regexp,
+                             "="          => GNAT.Regexp."=");
+
    ---------------------------------------------------------------------------
    --  Print_Entities
    ---------------------------------------------------------------------------
-   procedure Print_Entities (Info    : in SPAT.Spark_Info.T;
-                             Sort_By : in SPAT.Spark_Info.Sorting_Criterion;
-                             Cut_Off : in Duration);
+   procedure Print_Entities
+     (Info          : in SPAT.Spark_Info.T;
+      Sort_By       : in SPAT.Spark_Info.Sorting_Criterion;
+      Cut_Off       : in Duration;
+      Entity_Filter : in Reg_Exp_List.Vector);
 
    ---------------------------------------------------------------------------
    --  Print_Suggestion
@@ -58,9 +67,11 @@ procedure Run_SPAT is
    ---------------------------------------------------------------------------
    --  Print_Entities
    ---------------------------------------------------------------------------
-   procedure Print_Entities (Info    : in SPAT.Spark_Info.T;
-                             Sort_By : in SPAT.Spark_Info.Sorting_Criterion;
-                             Cut_Off : in Duration) is separate;
+   procedure Print_Entities
+     (Info          : in SPAT.Spark_Info.T;
+      Sort_By       : in SPAT.Spark_Info.Sorting_Criterion;
+      Cut_Off       : in Duration;
+      Entity_Filter : in Reg_Exp_List.Vector) is separate;
 
    ---------------------------------------------------------------------------
    --  Print_Suggestion
@@ -77,6 +88,7 @@ procedure Run_SPAT is
    use type Ada.Real_Time.Time;
    use type SPAT.Subject_Name;
 
+   Entity_Filter : Reg_Exp_List.Vector;
 begin
    if not SPAT.Command_Line.Parser.Parse then
       SPAT.Spark_Files.Shutdown;
@@ -107,6 +119,39 @@ begin
       Ada.Command_Line.Set_Exit_Status (Code => Ada.Command_Line.Failure);
       return;
    end if;
+
+   --  If there were entity filter options given, try compiling the reg exps.
+   --
+   --  for Expression of SPAT.Command_Line.Entity_Filter.Get loop
+   --  The above triggers a GNAT bug box with GNAT CE 2020.
+   --
+   declare
+      Filter : constant SPAT.Command_Line.Entity_Filter.Result_Array
+        := SPAT.Command_Line.Entity_Filter.Get;
+   begin
+      for Expression of Filter loop
+         begin
+            Entity_Filter.Append
+              (New_Item =>
+                 GNAT.Regexp.Compile
+                   (Pattern        => SPAT.To_String (Expression),
+                    Glob           => False,
+                    Case_Sensitive => False));
+            null;
+         exception
+            when GNAT.Regexp.Error_In_Regexp =>
+               SPAT.Log.Message
+                 (Message =>
+                    "Argument parsing failed: """ &
+                    SPAT.To_String (Source => Expression) &
+                    """ is not a valid regular expression.");
+               SPAT.Spark_Files.Shutdown;
+               Ada.Command_Line.Set_Exit_Status
+                 (Code => Ada.Command_Line.Failure);
+               return;
+         end;
+      end loop;
+   end;
 
    Do_Run_SPAT :
    declare
@@ -197,9 +242,10 @@ begin
          end if;
 
          if Report_Mode /= SPAT.Command_Line.None then
-            Print_Entities (Info    => Info,
-                            Sort_By => Sort_By,
-                            Cut_Off => Cut_Off);
+            Print_Entities (Info          => Info,
+                            Sort_By       => Sort_By,
+                            Cut_Off       => Cut_Off,
+                            Entity_Filter => Entity_Filter);
          end if;
 
          if SPAT.Command_Line.Suggest.Get then

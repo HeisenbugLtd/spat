@@ -15,12 +15,13 @@
   * #### 4.2 [The `--summary` option](README.md#the---summary-option)
   * #### 4.3 [The `--report-mode` option](README.md#the---report-mode-option)
   * #### 4.4 [The `--details` option](README.md#the---details-option)
-  * #### 4.5 [The `--cut-off` option](README.md#the---cut-off-option)
-  * #### 4.6 [The `--suggest` option](README.md#the---suggest-option)
-  * ##### 4.6.1 [Assumptions](README.md#assumpptions)
-  * ##### 4.6.2 [How does it Work?](README.md#how-does-it-work)
-  * #### 4.7 [The `--verbose` option](README.md#the---verbose-option)
-  * #### 4.8 [The `--version` option](README.md#the---version-option)
+  * #### 4.5 [The `--entity` option](README.md#the---entity-option)
+  * #### 4.6 [The `--cut-off` option](README.md#the---cut-off-option)
+  * #### 4.7 [The `--suggest` option](README.md#the---suggest-option)
+  * ##### 4.7.1 [Assumptions](README.md#assumpptions)
+  * ##### 4.7.2 [How does it Work?](README.md#how-does-it-work)
+  * #### 4.8 [The `--verbose` option](README.md#the---verbose-option)
+  * #### 4.9 [The `--version` option](README.md#the---version-option)
 * ### 5. [Some Notes on Sorting](README.md#some-notes-on-sorting)
 * ### 6. [Tool Limitations](README.md#tool-limitations)
 
@@ -387,6 +388,49 @@ Justified with: "From definition of arithmetic shift right".
 
 As above, but here you can see the individual proof results including any
 justification messages (if present).
+
+### The `--entity` option
+
+Sometimes the (detailed) output is just too much and if you want to only see
+the results for certain entities, the the `--entity` option is for you.  You
+can specify multiple `--entity` options.  When invoked together with one of the
+`--report-mode` options, it will show only those entities that match one of the
+given filters.
+
+The expression after `--entity` is expected to be a valid regular expression.
+That means, in most cases when you do not want to specify the fully qualified
+name you should start the expression with a "match anything" `.*`.
+
+Example (with `--unproved`), show only those entities matching "ASR"
+(Arithmetic Shift Right):
+
+```sh
+run_spat -ct -ru -d -e ".*ASR.*" -P sparknacl.gpr
+```
+
+This shows all unproved entities that match the expression `".*ASR.*"`:
+
+```
+SPARKNaCl.ASR_16                                          => --/5.7 s/5.9 s
+`-VC_POSTCONDITION sparknacl.ads:355:35 => --/5.7 s/5.8 s
+ `-Z3: 5.7 s (Unknown (unknown), 11650768 steps)
+  -CVC4: 80.0 ms (Unknown (unknown), 993 steps)
+Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.ASR_8                                           => --/3.3 s/3.5 s
+`-VC_POSTCONDITION sparknacl.ads:367:35 => --/3.3 s/3.4 s
+ `-Z3: 3.3 s (Unknown (unknown), 11650768 steps)
+  -CVC4: 90.0 ms (Unknown (unknown), 993 steps)
+Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
+`-VC_POSTCONDITION sparknacl.ads:379:35 => --/1.2 s/1.3 s
+ `-Z3: 1.2 s (Unknown (unknown), 11650768 steps)
+  -CVC4: 80.0 ms (Unknown (unknown), 993 steps)
+Justified with: "From definition of arithmetic shift right".
+```
+
+As above, but the `SPARKNaCl.Sign.Sign` and
+`SPARKNaCl.Car.Nearlynormal_To_Normal` have been omitted as they don't match
+the given filter expression.
 
 ### The `--cut-off` option
 
