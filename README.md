@@ -408,7 +408,7 @@ justification messages (if present).
 ### The `--entity` option
 
 Sometimes the (detailed) output is just too much and if you want to only see
-the results for certain entities, the the `--entity` option is for you.  You
+the results for certain entities, then the `--entity` option is for you.  You
 can specify multiple `--entity` options.  When invoked together with one of the
 `--report-mode` options, it will show only those entities that match one of the
 given filters.
