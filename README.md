@@ -2,7 +2,8 @@
 
 # SPARK Proof Analysis Tool
 
-[![Build Linux](https://github.com/HeisenbugLtd/spat/workflows/Build%20Linux/badge.svg)](https://github.com/HeisenbugLtd/spat/actions?query=workflow%3A%22Build+Linux%22) [![Join the chat at https://gitter.im/HeisenbugLtd/spat-discussion](https://badges.gitter.im/HeisenbugLtd/spat-discussion.svg)](https://gitter.im/HeisenbugLtd/spat-discussion?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Linux](https://github.com/HeisenbugLtd/spat/workflows/Build%20Linux/badge.svg)](https://github.com/HeisenbugLtd/spat/actions?query=workflow%3A%22Build+Linux%22)
+[![Join the chat at https://gitter.im/HeisenbugLtd/spat-discussion](https://badges.gitter.im/HeisenbugLtd/spat-discussion.svg)](https://gitter.im/HeisenbugLtd/spat-discussion?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Content
 * ### 1. [Introduction](README.md#introduction)
