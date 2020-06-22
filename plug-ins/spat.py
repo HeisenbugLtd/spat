@@ -96,39 +96,30 @@ class SPATParser:
         if result == 0 and len(self.loc_list) > 0:
             self.loc_list.sort(key=by_time, reverse=True)
 
-            # List is sorted in descending order, starts with highest value
-            bucket_high = int(math.ceil(self.loc_list[0].times))
+            # List is sorted, so maximum and minimum are at their ends
+            histogram = list()
+            hist_last = int(math.ceil(self.loc_list[0].times))
 
-            # Slice indices
-            start = index = 0
+            hist_high = 1
+            hist_low = hist_high / 2
 
-            # While there is still a bucket to fill.
-            while bucket_high > 0:
-                bucket_low = bucket_high / 2 # Half the range on each iteration
+            while hist_low < hist_last:
+                histogram = ([x for x in self.loc_list if hist_low <= x.times < hist_high])
+                category = "SPAT Results [" + str(hist_low) + " s .. " + str(hist_high) + " s]"
 
-                # Find last index to value fitting into current bucket.
-                while index < len(self.loc_list) and self.loc_list(index) > bucket_low:
-                    index = index + 1
+                for loc in histogram:
+                    if not self.vc_dictionary.has_key(loc.vc):
+                        #  Set dictionary entry to same string if not known.
+                        self.vc_dictionary[loc.vc] = loc.vc
 
-                # Range not empty?
-                if index > start:
-                    # Add all locations in the slice to their new category
-                    category = "SPAT Results [" + str(bucket_low) + " s .. " + str(bucket_high) + " s]"
+                    GPS.Locations.add(category=category,
+                                      file=GPS.File(loc.file),
+                                      line=loc.line,
+                                      column=loc.column,
+                                      message=self.vc_dictionary[loc.vc] + " took " + str(loc.times) + " s")
 
-                    for loc in self.loc_list[start:index]:
-                        if not self.vc_dictionary.has_key(loc.vc):
-                            #  Set dictionary entry to same string if not known.
-                            self.vc_dictionary[loc.vc] = loc.vc
-
-                        GPS.Locations.add(category=category,
-                                          file=GPS.File(loc.file),
-                                          line=loc.line,
-                                          column=loc.column,
-                                          message=self.vc_dictionary[loc.vc] + " took " + str(loc.times) + " s")
-
-                # Move start position and bucket interval
-                start = index
-                bucket_high = bucket_low
+                hist_low = hist_high
+                hist_high = hist_high * 2
 
 # Create singleton instance of parser
 SPAT_PARSER = SPATParser()
