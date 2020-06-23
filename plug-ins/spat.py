@@ -104,7 +104,7 @@ class SPATParser:
             while idx < max_idx:
                 category = "SPAT Results [" + str(bucket_low) + " s .. " + str(bucket_high) + " s]"
 
-                while idx < max_idx and self.loc_list[idx] < bucket_high:
+                while idx < max_idx and self.loc_list[idx].times < bucket_high:
                     loc = self.loc_list[idx]
                     idx = idx + 1
 
