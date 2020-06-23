@@ -30,8 +30,8 @@ package body SPAT.Spark_Info.Heuristics is
    --  If none of the provers have a failed time (i.e. = 0.0) that means, they
    --  all succeeded whenever they were being called.
    --
-   --  Assuming that the one being called more ofte is also the most successful
-   --  one in general, we sort by highest success time.
+   --  Assuming that the one being called more often is also the most
+   --  successful one in general, we sort by highest success time.
    --
    --  NOTE: This is all guesswork and despite the subrouting being called
    --        "Find_Optimum", this is definitely far from optimal.  For an
@@ -305,7 +305,7 @@ package body SPAT.Spark_Info.Heuristics is
                              Right : in Prover_Data) return Boolean is
    begin
       if Left.Time.Failed = Right.Time.Failed then
-         --  Failed time is equal (likely zero, so prefer the prover with the
+         --  Failed time is equal (likely zero), so prefer the prover with the
          --  *higher* success time.  This can be wrong, because this value
          --  mostly depends on which prover is called first.
          return Left.Time.Success > Right.Time.Success;
