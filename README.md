@@ -2,8 +2,10 @@
 
 # SPARK Proof Analysis Tool
 
+There's a chat now in case you have questions or suggestions: [![Join the chat at https://gitter.im/HeisenbugLtd/spat-discussion](https://badges.gitter.im/HeisenbugLtd/spat-discussion.svg)](https://gitter.im/HeisenbugLtd/spat-discussion?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+(This might be a bit more lightweight than opening an issue and we can more easily discuss features.)
+
 [![Build Linux](https://github.com/HeisenbugLtd/spat/workflows/Build%20Linux/badge.svg)](https://github.com/HeisenbugLtd/spat/actions?query=workflow%3A%22Build+Linux%22)
-[![Join the chat at https://gitter.im/HeisenbugLtd/spat-discussion](https://badges.gitter.im/HeisenbugLtd/spat-discussion.svg)](https://gitter.im/HeisenbugLtd/spat-discussion?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Content
 * ### 1. [Introduction](README.md#introduction)
@@ -673,10 +675,7 @@ Developer's note: *This is something I am still planning to fix.*
 
 Looking at `Omultiply` in detail:
 
-`run_spat -d -cs -ra -P sparknacl.gpr | grep -A 20 Omultiply`
-
-(`grep` is a nifty tool to filter for certain entities, even in
-`--report-mode=all`).
+`run_spat -d -cs -ra -P sparknacl.gpr -e .*Omultiply`
 
 ```
 SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/28.6 s
@@ -700,6 +699,7 @@ SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/2
  `-CVC4: 220.0 ms (Unknown (unknown), 3309 steps)
   -Z3: 60.0 ms (Valid, 57212 steps)
  `-CVC4: 120.0 ms (Valid, 1319 steps)
+...
 ```
 
 You can see, where the 700 ms for the longest time for a successful proof comes
