@@ -94,20 +94,20 @@ class SPATParser:
         result = proc.wait()
 
         if result == 0 and len(self.loc_list) > 0:
-            self.loc_list.sort(key=by_time, reverse=True)
+            self.loc_list.sort(key=by_time) # sort ascending
 
-            # List is sorted, so maximum and minimum are at their ends
-            histogram = list()
-            hist_last = int(math.ceil(self.loc_list[0].times))
+            bucket_high = 1
+            bucket_low = 0
+            idx = 0
+            max_idx = len(self.loc_list)
 
-            hist_high = 1
-            hist_low = hist_high / 2
+            while idx < max_idx:
+                category = "SPAT Results [" + str(bucket_low) + " s .. " + str(bucket_high) + " s]"
 
-            while hist_low < hist_last:
-                histogram = ([x for x in self.loc_list if hist_low <= x.times < hist_high])
-                category = "SPAT Results [" + str(hist_low) + " s .. " + str(hist_high) + " s]"
+                while idx < max_idx and self.loc_list[idx] < bucket_high:
+                    loc = self.loc_list[idx]
+                    idx = idx + 1
 
-                for loc in histogram:
                     if not self.vc_dictionary.has_key(loc.vc):
                         #  Set dictionary entry to same string if not known.
                         self.vc_dictionary[loc.vc] = loc.vc
@@ -118,8 +118,8 @@ class SPATParser:
                                       column=loc.column,
                                       message=self.vc_dictionary[loc.vc] + " took " + str(loc.times) + " s")
 
-                hist_low = hist_high
-                hist_high = hist_high * 2
+                bucket_low = bucket_high
+                bucket_high = bucket_high * 2
 
 # Create singleton instance of parser
 SPAT_PARSER = SPATParser()
