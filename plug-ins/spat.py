@@ -1,6 +1,5 @@
-#!/usr/bin/python
-
-"""Provides a GNATStudio plugin for SPAT (SPARK Proof Analysis Tool).
+"""
+Provides integration of SPAT (SPARK Proof Analysis Tool) into GNATStudio.
 """
 
 # Copyright (C) 2020 by Heisenbug Ltd.
