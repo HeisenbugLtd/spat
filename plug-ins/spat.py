@@ -78,7 +78,9 @@ class SPATParser:
             pass
 
     def run(self, options):
-        """Run SPAT with given extra options and parse the output."""
+        """
+        Runs SPAT in --raw mode on current project file with given extra options and parses the output.
+        """
         # Clear previous results (if any)
         categories = GPS.Locations.list_categories()
 
@@ -87,7 +89,7 @@ class SPATParser:
                 GPS.Locations.remove_category(category)
 
         self.loc_list = list() # Clear list.
-        proc = GPS.Process(command="run_spat -R " + options,
+        proc = GPS.Process(command=" ".join(["run_spat", "-P", '"%s"'%GPS.Project.root().file().path, "-R"] + options),
                            regexp=LINE_PATTERN,
                            on_match=self.on_match,
                            show_command=True)
@@ -127,11 +129,9 @@ SPAT_PARSER = SPATParser()
 @interactive("Show All", menu="/SPARK/SPAT/Show All")
 def run_spat_all():
     """Run SPAT with report mode 'all' option."""
-    options = "-ra -ct -d -P " + GPS.Project.root().file().path
-    SPAT_PARSER.run(options)
+    SPAT_PARSER.run(options=["-ra", "-ct", "-d"])
 
 @interactive("Show Unproved", menu="/SPARK/SPAT/Show Unproved")
 def run_spat_unproved():
     """Run SPAT with report mode 'unproved' option."""
-    options = "-ru -ct -d -P " + GPS.Project.root().file().path
-    SPAT_PARSER.run(options)
+    SPAT_PARSER.run(options=["-ru", "-ct", "-d"])
