@@ -20,7 +20,7 @@ from gs_utils import interactive
 MESSAGES = "Messages"
 
 # Regexp patterns.
-FNAME_PATTERN = r"([a-z0-9-]+\.ad[bs]):(\d+):(\d+)"
+FNAME_PATTERN = r"([\w\.-]+):(\d+):(\d+)"
 LINE_PATTERN = r"^.*" + FNAME_PATTERN + r".*$" # For GPS.Process pattern match.
 VC_PATTERN = r"^.*(VC_[A-Z_]+)\ +" + FNAME_PATTERN + r" +=> +(.*)$"
 # proof checks all start with 'VC_'
