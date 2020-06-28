@@ -174,8 +174,8 @@ package SPAT.Command_Line is
         Long        => "--details",
         Help        =>
            "Show details for entities (report mode) (DETAILS: [1|2|f] for " &
-           "level 1, 2 and full details. Please note that 2 and f currently " &
-           "equivalent.)",
+           "level 1, 2 and full details. Please note that 2 and f are " &
+           "currently equivalent.)",
         Arg_Type    => Detail_Level,
         Convert     => Convert,
         Default_Val => None);
