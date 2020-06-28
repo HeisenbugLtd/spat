@@ -128,9 +128,9 @@ SPAT_PARSER = SPATParser()
 @interactive("Show All", menu="/SPARK/SPAT/Show All")
 def run_spat_all():
     """Run SPAT with report mode 'all' option."""
-    SPAT_PARSER.run(options=["-ra", "-ct", "-d"])
+    SPAT_PARSER.run(options=["-ra", "-ct", "-d 1"])
 
 @interactive("Show Unproved", menu="/SPARK/SPAT/Show Unproved")
 def run_spat_unproved():
     """Run SPAT with report mode 'unproved' option."""
-    SPAT_PARSER.run(options=["-ru", "-ct", "-d"])
+    SPAT_PARSER.run(options=["-ru", "-ct", "-d 1"])
