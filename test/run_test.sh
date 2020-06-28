@@ -55,9 +55,11 @@ run_cut_off_check () {
   for REPORT in "-ra" "-rf" "-ru" "-rj"; do # report all, failed, unproved, unjustified
     for SORTING in "-ca" "-cs" "-ct"; do # sort alphabetical, by success time, by max time
       for CUT_OFF in "-p 500ms" "-p 1" "-p 5s"; do # some cut-off options
-        SPAT_OPTIONS=`echo "${REPORT} -d ${SORTING} ${CUT_OFF}"`
+        for DETAILS in "-d 1" "-d"; do # detail level 1, full details
+          SPAT_OPTIONS=`echo "${REPORT} ${DETAILS} ${SORTING} ${CUT_OFF}"`
 
-        single_check "$1" "$2" "${SPAT_OPTIONS}"
+          single_check "$1" "$2" "${SPAT_OPTIONS}"
+        done # details
       done # cut-off
     done # sorting
   done # report
