@@ -123,7 +123,7 @@ will give you a quick overview over the available command line options:
 usage: run_spat [--help|-h] [--project|-P PROJECT] [--summary|-s]
                [--report-mode|-r REPORT-MODE] [--suggest|-g] [--entity|-e
                ENTITY[ENTITY...]] [--sort-by|-c SORT-BY] [--cut-off|-p CUT-OFF]
-               [--details|-d] [--version|-V] [--raw|-R] [--verbose|-v]
+               [--details|-d DETAILS] [--version|-V] [--raw|-R] [--verbose|-v]
 
 Parses .spark files and outputs information about them.
 
@@ -142,9 +142,11 @@ optional arguments:
    --sort-by, -c         Sorting criterion (SORT-BY: a = alphabetical, s = by
                          minimum time for successful proof, t = by maximum proof
                           time)
-   --cut-off, -p         Cut off point, do not show entities with proof times
+   --cut-off, -p         Cut off point, do not show entities with proof times 
                          less than that (CUT-OFF: <numeral>[s|ms])
-   --details, -d         Show details for entities (report mode)
+   --details, -d         Show details for entities (report mode) (DETAILS:
+                         [1|2|f] for level 1, 2 and full details. Please note
+                         that 2 and f are currently equivalent.)
    --version, -V         Show version information and exit
    --raw, -R             Output timings in raw format (for script use)
    --verbose, -v         Verbose (tracing) output
@@ -333,7 +335,20 @@ unproven VCs with no justification message.
 ### The `--details` option
 
 When invoked together with one of the `--report-mode` options, it will show all
-the individual proof attempts/paths for an entity.
+the individual proof attempts (level 1) and paths (level 2) for an entity.
+
+Example (with `--report-mode=failed` and detail level 1):
+
+```sh
+run_spat -ct -rf -d 1 -P saatana.gpr
+```
+
+Output:
+
+```
+Saatana.Crypto.Phelix.Setup_Key            => 640.0 ms/206.4 s/219.2 s
+`-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44 => 640.0 ms/206.4 s/207.1 s
+```
 
 Example (with `--report-mode=failed`):
 
@@ -464,13 +479,13 @@ Please note that due to how `spat` works, the semantics of this cut off point
 is different for the `--report-mode` and `--summary` output.
 
 * For `--report-mode` the value applies to all entities and displayed
-  verification conditions (for `--details`).  Here the *maximum proof* time
-  (i.e. longest time for a single proof) is taken into account, not the
-  *total proof* time.  The rationale behind that is that if you want to
-  optimize proof times, you need to know which proofs take longest, not how
-  many proofs are for a single entity, so I am assuming you are not interested
-  in proofs that take less than the cut off point, even if thousands of them
-  would add up to a total time well beyond the cut-off point.
+  verification conditions (for `--details` with at least level 1).  Here the
+  *maximum proof* time (i.e. longest time for a single proof) is taken into
+  account, not the *total proof* time.  The rationale behind that is that if
+  you want to optimize proof times, you need to know which proofs take longest,
+  not how many proofs are for a single entity, so I am assuming you are not
+  interested in proofs that take less than the cut off point, even if thousands
+  of them would add up to a total time well beyond the cut-off point.
 
   Example:
 

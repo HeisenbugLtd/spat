@@ -37,7 +37,7 @@ run_check () {
   for SUMMARY in "" "-s"; do # w/o summary, with summary
     for REPORT in "" "-ra" "-rf" "-ru" "-rj"; do # report none, all, failed, unproved, unjustified
       if [[ -n "${SUMMARY}" || -n ${REPORT} ]]; then # neither report nor summary, skip that
-        for DETAILS in "" "-d"; do # details off, details on
+        for DETAILS in "" "-d" "-d 1"; do # details off, full details, details level 1
           for SORTING in "-ca" "-cs" "-ct"; do # sort alphabetical, by success time, by max time
               SPAT_OPTIONS=`echo "${SUMMARY} ${REPORT} ${DETAILS} ${SORTING}" | sed -e "s/ \+/ /g;s/^ *//;s/ *$//"`
 
@@ -55,9 +55,11 @@ run_cut_off_check () {
   for REPORT in "-ra" "-rf" "-ru" "-rj"; do # report all, failed, unproved, unjustified
     for SORTING in "-ca" "-cs" "-ct"; do # sort alphabetical, by success time, by max time
       for CUT_OFF in "-p 500ms" "-p 1" "-p 5s"; do # some cut-off options
-        SPAT_OPTIONS=`echo "${REPORT} -d ${SORTING} ${CUT_OFF}"`
+        for DETAILS in "-d 1" "-d"; do # detail level 1, full details
+          SPAT_OPTIONS=`echo "${REPORT} ${DETAILS} ${SORTING} ${CUT_OFF}"`
 
-        single_check "$1" "$2" "${SPAT_OPTIONS}"
+          single_check "$1" "$2" "${SPAT_OPTIONS}"
+        done # details
       done # cut-off
     done # sorting
   done # report

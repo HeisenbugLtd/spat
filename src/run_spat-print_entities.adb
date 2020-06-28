@@ -42,8 +42,11 @@ is
    Second_Column : constant Ada.Text_IO.Count := Entities.Max_Length + 2;
    Mode          : constant SPAT.Command_Line.Report_Mode :=
      SPAT.Command_Line.Report.Get;
+   Detail_Level  : constant SPAT.Command_Line.Detail_Level :=
+     SPAT.Command_Line.Details.Get;
    Omitted_Entities : Natural := 0;
    Omitted_VCs      : Natural := 0;
+   use all type SPAT.Command_Line.Detail_Level;
    use all type SPAT.Command_Line.Report_Mode;
 
    ---------------------------------------------------------------------------
@@ -100,7 +103,7 @@ begin --  Print_Entities
               "/" & SPAT.Image (Value => Info.Max_Proof_Time (Entity => Entity)) &
               "/" & SPAT.Image (Value => Info.Total_Proof_Time (Entity => Entity)));
 
-         if SPAT.Command_Line.Details.Get then
+         if Detail_Level > SPAT.Command_Line.None then
             for PI_Position in Info.Proof_Tree (Entity => Entity) loop
                declare
                   The_Proof : SPAT.Proof_Item.T'Class renames
@@ -122,47 +125,49 @@ begin --  Print_Entities
                   then
                      SPAT.Log.Message (Message => "`-" & The_Proof.Image);
 
-                     for Check_Position in
-                       Info.Iterate_Children (Entity   => Entity,
-                                              Position => PI_Position)
-                     loop
-                        declare
-                           The_Check : SPAT.Proof_Item.Checks_Sentinel'Class renames
-                             SPAT.Proof_Item.Checks_Sentinel'Class
-                               (SPAT.Entity.Tree.Element (Position => Check_Position));
-                        begin
-                           if
-                             (case Mode is
-                                 when None        => False,
-                                 when All_Proofs  => True,
-                                 when Failed      => The_Check.Has_Failed_Attempts,
-                                 when Unproved |
-                                      Unjustified => The_Check.Is_Unproved)
-                           then
-                              Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
-                                                   To   => 2);
-                              SPAT.Log.Message (Message  => "`",
-                                                New_Line => False);
+                     if Detail_Level > Level_1 then
+                        for Check_Position in
+                          Info.Iterate_Children (Entity   => Entity,
+                                                 Position => PI_Position)
+                        loop
+                           declare
+                              The_Check : SPAT.Proof_Item.Checks_Sentinel'Class renames
+                                SPAT.Proof_Item.Checks_Sentinel'Class
+                                  (SPAT.Entity.Tree.Element (Position => Check_Position));
+                           begin
+                              if
+                                (case Mode is
+                                    when None        => False,
+                                    when All_Proofs  => True,
+                                    when Failed      => The_Check.Has_Failed_Attempts,
+                                    when Unproved |
+                                         Unjustified => The_Check.Is_Unproved)
+                              then
+                                 Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
+                                                      To   => 2);
+                                 SPAT.Log.Message (Message  => "`",
+                                                   New_Line => False);
 
-                              for Attempt_Position in
-                                Info.Iterate_Children (Entity   => Entity,
-                                                       Position => Check_Position)
-                              loop
-                                 declare
-                                    The_Attempt : SPAT.Proof_Attempt.T'Class renames
-                                      SPAT.Proof_Attempt.T'Class
-                                        (SPAT.Entity.Tree.Element
-                                           (Position => Attempt_Position));
-                                 begin
-                                    Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
-                                                         To   => 3);
-                                    SPAT.Log.Message
-                                      (Message => "-" & The_Attempt.Image);
-                                 end;
-                              end loop;
-                           end if;
-                        end;
-                     end loop;
+                                 for Attempt_Position in
+                                   Info.Iterate_Children (Entity   => Entity,
+                                                          Position => Check_Position)
+                                 loop
+                                    declare
+                                       The_Attempt : SPAT.Proof_Attempt.T'Class renames
+                                         SPAT.Proof_Attempt.T'Class
+                                           (SPAT.Entity.Tree.Element
+                                              (Position => Attempt_Position));
+                                    begin
+                                       Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
+                                                            To   => 3);
+                                       SPAT.Log.Message
+                                         (Message => "-" & The_Attempt.Image);
+                                    end;
+                                 end loop;
+                              end if;
+                           end;
+                        end loop;
+                     end if;
 
                      if The_Proof.Suppressed /= SPAT.Null_Name then
                         SPAT.Log.Message
