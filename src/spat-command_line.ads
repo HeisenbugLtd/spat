@@ -15,7 +15,7 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
-with GNATCOLL.Opt_Parse;
+with GNATCOLL.Opt_Parse.Extension;
 with SPAT.Spark_Info;
 
 package SPAT.Command_Line is
@@ -25,6 +25,9 @@ package SPAT.Command_Line is
    --  Later ones imply earlier ones.
    type Report_Mode is (All_Proofs, Failed, Unproved, Unjustified, None);
 
+   --  Detail levels.
+   type Detail_Level is (None, Level_1, Full);
+
    Parser : GNATCOLL.Opt_Parse.Argument_Parser :=
      GNATCOLL.Opt_Parse.Create_Argument_Parser
        (Help         => "Parses .spark files and outputs information about them.",
@@ -32,6 +35,11 @@ package SPAT.Command_Line is
 
    --  Before using the below functions you should have called Parser.Parse and
    --  evaluated its return status.
+
+   ---------------------------------------------------------------------------
+   --  Convert
+   ---------------------------------------------------------------------------
+   function Convert (Value : in String) return Detail_Level;
 
    ---------------------------------------------------------------------------
    --  Convert
@@ -48,6 +56,15 @@ package SPAT.Command_Line is
    --  Convert
    ---------------------------------------------------------------------------
    function Convert (Value : in String) return Report_Mode;
+
+   ---------------------------------------------------------------------------
+   --  Convert
+   ---------------------------------------------------------------------------
+   function Convert (Value : in String) return Detail_Level is
+     (if    Value = "1" then Level_1
+      elsif Value in "" | "2" | "f" then Full
+      else  (raise GNATCOLL.Opt_Parse.Opt_Parse_Error with
+                 "unknown parameter """ & Value & """"));
 
    ---------------------------------------------------------------------------
    --  Convert
@@ -151,11 +168,17 @@ package SPAT.Command_Line is
         Default_Val => 0.0);
 
    package Details is new
-     GNATCOLL.Opt_Parse.Parse_Flag
-       (Parser   => Parser,
-        Short    => "-d",
-        Long     => "--details",
-        Help     => "Show details for entities (report mode)");
+     GNATCOLL.Opt_Parse.Extension.Parse_Option_With_Default
+       (Parser      => Parser,
+        Short       => "-d",
+        Long        => "--details",
+        Help        =>
+           "Show details for entities (report mode) (DETAILS: [1|2|f] for " &
+           "level 1, 2 and full details. Please note that 2 and f currently " &
+           "equivalent.)",
+        Arg_Type    => Detail_Level,
+        Convert     => Convert,
+        Default_Val => None);
 
    package Version is new
      GNATCOLL.Opt_Parse.Parse_Flag
