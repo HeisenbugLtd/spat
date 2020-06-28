@@ -37,7 +37,7 @@ run_check () {
   for SUMMARY in "" "-s"; do # w/o summary, with summary
     for REPORT in "" "-ra" "-rf" "-ru" "-rj"; do # report none, all, failed, unproved, unjustified
       if [[ -n "${SUMMARY}" || -n ${REPORT} ]]; then # neither report nor summary, skip that
-        for DETAILS in "" "-d"; do # details off, details on
+        for DETAILS in "" "-d" "-d 1"; do # details off, full details, details level 1
           for SORTING in "-ca" "-cs" "-ct"; do # sort alphabetical, by success time, by max time
               SPAT_OPTIONS=`echo "${SUMMARY} ${REPORT} ${DETAILS} ${SORTING}" | sed -e "s/ \+/ /g;s/^ *//;s/ *$//"`
 
