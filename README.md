@@ -581,24 +581,24 @@ Warning: This feature is highly experimental.
 Warning: Please consult the documentation.
 
 package Prove is
-   for Prover_Switches ("sparknacl-car.adb") use ("--provers=CVC4", "--steps=5882"", "--timeout=1");
-   for Prover_Switches ("sparknacl-core.adb") use ("--provers=CVC4", "--steps=5"", "--timeout=1");
-   for Prover_Switches ("sparknacl-cryptobox.adb") use ("--provers=CVC4", "--steps=261"", "--timeout=1");
-   for Prover_Switches ("sparknacl-cryptobox.ads") use ("--provers=CVC4", "--steps=14"", "--timeout=1");
-   for Prover_Switches ("sparknacl-hashing.adb") use ("--provers=CVC4", "--steps=1058"", "--timeout=1");
-   for Prover_Switches ("sparknacl-mac.adb") use ("--provers=CVC4", "--steps=320"", "--timeout=1");
-   for Prover_Switches ("sparknacl-sanitize.adb") use ("--provers=CVC4,Z3", "--steps=1994"", "--timeout=1");
-   for Prover_Switches ("sparknacl-sanitize_i64_seq.adb") use ("--provers=CVC4", "--steps=136"", "--timeout=1");
-   for Prover_Switches ("sparknacl-scalar.adb") use ("--provers=CVC4", "--steps=157187"", "--timeout=10");
-   for Prover_Switches ("sparknacl-secretbox.adb") use ("--provers=CVC4", "--steps=1001"", "--timeout=1");
-   for Prover_Switches ("sparknacl-secretbox.ads") use ("--provers=CVC4,Z3", "--steps=68758"", "--timeout=1");
-   for Prover_Switches ("sparknacl-sign.adb") use ("--provers=CVC4", "--steps=16135"", "--timeout=1");
-   for Prover_Switches ("sparknacl-sign.ads") use ("--provers=CVC4", "--steps=16776"", "--timeout=1");
-   for Prover_Switches ("sparknacl-stream.adb") use ("--provers=CVC4", "--steps=1429"", "--timeout=1");
-   for Prover_Switches ("sparknacl-utils.adb") use ("--provers=CVC4,Z3", "--steps=155440"", "--timeout=1");
-   for Prover_Switches ("sparknacl-utils.ads") use ("--provers=Z3,CVC4", "--steps=11655208"", "--timeout=9");
-   for Prover_Switches ("sparknacl.adb") use ("--provers=CVC4", "--steps=1760"", "--timeout=1");
-   for Prover_Switches ("sparknacl.ads") use ("--provers=CVC4,Z3", "--steps=1092364"", "--timeout=2");
+   for Prover_Switches ("sparknacl-car.adb") use ("--provers=CVC4", "--steps=5882", "--timeout=1");
+   for Prover_Switches ("sparknacl-core.adb") use ("--provers=CVC4", "--steps=5", "--timeout=1");
+   for Prover_Switches ("sparknacl-cryptobox.adb") use ("--provers=CVC4", "--steps=261", "--timeout=1");
+   for Prover_Switches ("sparknacl-cryptobox.ads") use ("--provers=CVC4", "--steps=14", "--timeout=1");
+   for Prover_Switches ("sparknacl-hashing.adb") use ("--provers=CVC4", "--steps=1058", "--timeout=1");
+   for Prover_Switches ("sparknacl-mac.adb") use ("--provers=CVC4", "--steps=320", "--timeout=1");
+   for Prover_Switches ("sparknacl-sanitize.adb") use ("--provers=CVC4,Z3", "--steps=1994", "--timeout=1");
+   for Prover_Switches ("sparknacl-sanitize_i64_seq.adb") use ("--provers=CVC4", "--steps=136", "--timeout=1");
+   for Prover_Switches ("sparknacl-scalar.adb") use ("--provers=CVC4", "--steps=157187", "--timeout=10");
+   for Prover_Switches ("sparknacl-secretbox.adb") use ("--provers=CVC4", "--steps=1001", "--timeout=1");
+   for Prover_Switches ("sparknacl-secretbox.ads") use ("--provers=CVC4,Z3", "--steps=68758", "--timeout=1");
+   for Prover_Switches ("sparknacl-sign.adb") use ("--provers=CVC4", "--steps=16135", "--timeout=1");
+   for Prover_Switches ("sparknacl-sign.ads") use ("--provers=CVC4", "--steps=16776", "--timeout=1");
+   for Prover_Switches ("sparknacl-stream.adb") use ("--provers=CVC4", "--steps=1429", "--timeout=1");
+   for Prover_Switches ("sparknacl-utils.adb") use ("--provers=CVC4,Z3", "--steps=155440", "--timeout=1");
+   for Prover_Switches ("sparknacl-utils.ads") use ("--provers=Z3,CVC4", "--steps=11655208", "--timeout=9");
+   for Prover_Switches ("sparknacl.adb") use ("--provers=CVC4", "--steps=1760", "--timeout=1");
+   for Prover_Switches ("sparknacl.ads") use ("--provers=CVC4,Z3", "--steps=1092364", "--timeout=2");
 end Prove;
 ```
 
