@@ -87,7 +87,7 @@ begin
                  """",
                New_Line => False);
 
-            SPAT.Log.Message (Message  => """, ",
+            SPAT.Log.Message (Message  => ", ",
                               New_Line => False);
 
             SPAT.Log.Message
