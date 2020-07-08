@@ -3,7 +3,7 @@ Warning: This feature is highly experimental.
 Warning: Please consult the documentation.
 
 package Prove is
-   for Proof_Switches ("rflx-rflx_generic_types.adb") use ("--provers=CVC4,Z3", "--steps=910628", "--timeout=11");
-   for Proof_Switches ("rflx-rflx_generic_types.ads") use ("--provers=altergo,CVC4,Z3", "--steps=8989120", "--timeout=55");
+   for Proof_Switches ("rflx-rflx_generic_types.adb") use ("--prover=CVC4,Z3", "--steps=910628", "--timeout=11");
+   for Proof_Switches ("rflx-rflx_generic_types.ads") use ("--prover=altergo,CVC4,Z3", "--steps=8989120", "--timeout=55");
 end Prove;
 
