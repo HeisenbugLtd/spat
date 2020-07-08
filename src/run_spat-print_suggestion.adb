@@ -54,7 +54,7 @@ begin
                  SPAT.To_String (Source => File.Name) & """) use (""",
                New_Line => False);
 
-            SPAT.Log.Message (Message  => "--provers=",
+            SPAT.Log.Message (Message  => "--prover=",
                               New_Line => False);
 
             For_Each_Prover :
