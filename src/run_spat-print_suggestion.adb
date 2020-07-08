@@ -50,7 +50,7 @@ begin
          if not File.Provers.Is_Empty then
             SPAT.Log.Message
               (Message =>
-                 Indent & "for Prover_Switches (""" &
+                 Indent & "for Proof_Switches (""" &
                  SPAT.To_String (Source => File.Name) & """) use (""",
                New_Line => False);
 
