@@ -20,6 +20,14 @@ package body SPAT.Spark_Info.Heuristics is
             Max_Steps   => 0);
 
    ---------------------------------------------------------------------------
+   --  Scaled
+   --
+   --  Implement prover specific steps scaling.
+   ---------------------------------------------------------------------------
+   function Scaled (Prover    : in Subject_Name;
+                    Raw_Steps : in Prover_Steps) return Prover_Steps;
+
+   ---------------------------------------------------------------------------
    --  Min_Failed_Time
    --
    --  Comparison operator for a proof attempts.
@@ -217,8 +225,10 @@ package body SPAT.Spark_Info.Heuristics is
                                               The_Attempt.Time);
 
                               Prover_Element.Max_Steps :=
-                                Prover_Steps'Max (Prover_Element.Max_Steps,
-                                                  The_Attempt.Steps);
+                                Prover_Steps'Max
+                                  (Prover_Element.Max_Steps,
+                                   Scaled (Prover    => The_Attempt.Prover,
+                                           Raw_Steps => The_Attempt.Steps));
                            else
                               Prover_Element.Failed :=
                                 Prover_Element.Failed + The_Attempt.Time;
@@ -314,5 +324,29 @@ package body SPAT.Spark_Info.Heuristics is
       --  Prefer the prover that spends less wasted time.
       return Left.Time.Failed < Right.Time.Failed;
    end Min_Failed_Time;
+
+   ---------------------------------------------------------------------------
+   --  Scaled
+   --
+   --  See https://github.com/AdaCore/why3/blob/master/src/gnat/gnat_config.ml#L538
+   ---------------------------------------------------------------------------
+   function Scaled (Prover    : in Subject_Name;
+                    Raw_Steps : in Prover_Steps) return Prover_Steps is
+   begin
+      if Ada.Strings.Unbounded.Index (Source  => Prover,
+                                      Pattern => "CVC4") = 1
+      then
+         --  add = 15_000, mult = 35
+         return Prover_Steps'Max (Raw_Steps - 15_000, 0) / 35 + 1;
+      elsif Ada.Strings.Unbounded.Index (Source => Prover,
+                                         Pattern => "Z3") = 1
+      then
+         --  add = 450_000, mult = 800
+         return Prover_Steps'Max (Raw_Steps - 450_000, 0) / 800 + 1;
+      else
+         --  alt-ergo, and others => no scaling
+         return Raw_Steps + 1;
+      end if;
+   end Scaled;
 
 end SPAT.Spark_Info.Heuristics;
