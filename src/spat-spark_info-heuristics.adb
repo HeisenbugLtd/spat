@@ -145,10 +145,9 @@ package body SPAT.Spark_Info.Heuristics is
       --  "CVC4",    "altergo", "Z3"  : *maybe* -114.6 s
       --  "altergo", "Z3",      "CVC4": *maybe* -119.8 s
 
-      --  We need to split the proofs per compilation unit, as this is the
-      --  minimum granularity we can specify for the order of provers.
-      --  In other words, a compilation unit is handled as one, so whatever data
-      --  we collect for spec, body, or even separates need to be combined.
+      --  We need to split the proofs per file, as this is the minimum
+      --  granularity we can specify for the order of provers.
+      --  TODO: Handle spec/body/separates correctly.
 
       Source_List : Per_File.Map;
       use type Per_File.Cursor;
@@ -172,7 +171,7 @@ package body SPAT.Spark_Info.Heuristics is
                     (Key      => The_Proof.Source_File,
                      New_Item => Prover_Maps.Empty_Map,
                      Position => Times_Position,
-                     Inserted => Dummy_Inserted);
+                        Inserted => Dummy_Inserted);
                end if;
 
                --  Iterate over all the verification conditions within the

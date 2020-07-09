@@ -9,7 +9,6 @@ pragma License (Unrestricted);
 
 with Ada.Containers.Vectors;
 with SPAT.Proof_Attempt.List;
-with SPAT.Log;
 
 package body SPAT.Proof_Item is
 
@@ -83,10 +82,6 @@ package body SPAT.Proof_Item is
       Checks_List : Checks_Lists.Vector;
       Check_Tree  : constant JSON_Array :=
         Object.Get (Field => Field_Names.Check_Tree);
-      Stats  : constant JSON_Value :=
-        (if Object.Has_Field (Field => Field_Names.Stats)
-         then Object.Get (Field => Field_Names.Stats)
-         else JSON_Null);
       Justification : constant Subject_Name :=
         (if Object.Has_Field (Field => Field_Names.Suppressed)
          then Object.Get (Field => Field_Names.Suppressed)
@@ -131,7 +126,6 @@ package body SPAT.Proof_Item is
                                          (Prover => To_Name (Name),
                                           Object => Value);
                            use type Proof_Attempt.Prover_Result;
-                           use type SPAT.JSON_Value;
                         begin
                            Attempts.Append (New_Item => Attempt);
 
@@ -141,25 +135,6 @@ package body SPAT.Proof_Item is
                               Max_Success_Time :=
                                 Duration'Max (Max_Success_Time,
                                               Attempt.Time);
-                              --  FIXME: If the proof is valid (i.e. all paths
-                              --         have at least one valid attempt), there
-                              --         may be an entry for that prover in the
-                              --         stats object denoting the maximum
-                              --         number of (scaled) steps taken by this
-                              --         prover. It may not be present if only a
-                              --         partial path is proven.
-                              if
-                                Stats /= JSON_Null and then
-                                Preconditions.Ensure_Field
-                                  (Object      => Stats,
-                                   Field       => To_String (Attempt.Prover),
-                                   Kind        => JSON_Object_Type,
-                                   Is_Optional => True)
-                              then
-                                 Log.Debug
-                                   (Message =>
-                                      "Reading of 'stats' object not implemented yet.");
-                              end if;
                            end if;
 
                            Total_Time := Total_Time + Attempt.Time;
