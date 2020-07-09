@@ -25,6 +25,7 @@ package SPAT.Field_Names is
    Flow            : constant UTF8_String := "flow";
    Flow_Analysis   : constant UTF8_String := "flow analysis";
    Line            : constant UTF8_String := "line";
+   Max_Steps       : constant UTF8_String := "max_steps";
    Name            : constant UTF8_String := "name";
    Proof           : constant UTF8_String := "proof";
    Proof_Attempts  : constant UTF8_String := "proof_attempts";
@@ -33,6 +34,7 @@ package SPAT.Field_Names is
    Severity        : constant UTF8_String := "severity";
    Sloc            : constant UTF8_String := "sloc";
    Spark           : constant UTF8_String := "spark";
+   Stats           : constant UTF8_String := "stats";
    Steps           : constant UTF8_String := "steps";
    Suppressed      : constant UTF8_String := "suppressed";
    Time            : constant UTF8_String := "time";

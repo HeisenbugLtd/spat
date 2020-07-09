@@ -46,6 +46,7 @@ package body SPAT.Proof_Attempt is
    is
       Time_Field : constant JSON_Value :=
                      Object.Get (Field => Field_Names.Time);
+
    begin
       return T'(Entity.T with
                   Prover => Prover,
@@ -61,10 +62,10 @@ package body SPAT.Proof_Attempt is
                              with
                                "Fatal: Impossible Kind """ &
                                Time_Field.Kind'Image & """ of JSON object!"),
-                Steps =>
-                  Prover_Steps
-                    (Long_Integer'(Object.Get (Field => Field_Names.Steps))),
-                  Id    => Proof_Attempt_Ids.Next);
+                  Steps  =>
+                    Prover_Steps
+                      (Long_Integer'(Object.Get (Field => Field_Names.Steps))),
+                  Id     => Proof_Attempt_Ids.Next);
    end Create;
 
 end SPAT.Proof_Attempt;
