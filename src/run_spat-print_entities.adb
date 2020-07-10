@@ -44,8 +44,25 @@ is
      SPAT.Command_Line.Report.Get;
    Detail_Level  : constant SPAT.Command_Line.Detail_Level :=
      SPAT.Command_Line.Details.Get;
-   Omitted_Entities : Natural := 0;
-   Omitted_VCs      : Natural := 0;
+
+   type Filtered is
+      record
+         Omitted_Entities : Natural;
+         Omitted_VCs      : Natural;
+      end record;
+
+   function Has_Omitted (F : in Filtered) return Boolean is
+     (F.Omitted_Entities /= 0 or F.Omitted_VCs /= 0);
+
+   function Image (F : in Filtered) return String is
+      (F.Omitted_Entities'Image & " entities, and" &
+       F.Omitted_VCs'Image & " VCs within the above results");
+
+   None_Filtered : constant Filtered := Filtered'(Omitted_Entities => 0,
+                                                  Omitted_VCs      => 0);
+
+   Cut_Off_Filter : Filtered := None_Filtered;
+
    use all type SPAT.Command_Line.Detail_Level;
    use all type SPAT.Command_Line.Report_Mode;
 
@@ -94,7 +111,7 @@ is
    function Should_Show_Entity (Entity : in SPAT.Entity_Name) return Boolean is
    begin
       if Info.Max_Proof_Time (Entity => Entity) < Cut_Off then
-         Omitted_Entities := Omitted_Entities + 1;
+         Cut_Off_Filter.Omitted_Entities := Cut_Off_Filter.Omitted_Entities + 1;
          return False;
       end if;
 
@@ -139,7 +156,7 @@ is
    begin
       if The_Proof.Max_Time < Cut_Off then
          --  Below cut off point, don't show.
-         Omitted_VCs := Omitted_VCs + 1;
+         Cut_Off_Filter.Omitted_VCs := Cut_Off_Filter.Omitted_VCs + 1;
          return False;
       end if;
 
@@ -232,15 +249,11 @@ begin --  Print_Entities
       end if;
    end loop;
 
-   if
-     SPAT.Log.Debug_Enabled and then
-     (Omitted_Entities /= 0 or Omitted_VCs /= 0)
-   then
+   if SPAT.Log.Debug_Enabled and then Has_Omitted (F => Cut_Off_Filter) then
       SPAT.Log.Debug
         (Message =>
            "Omitted results below cut-off point (" &
            SPAT.Image (Cut_Off) & "):" &
-           Omitted_Entities'Image & " entities, and" &
-           Omitted_VCs'Image & " VCs within the above results.");
+           Image (F => Cut_Off_Filter) & ".");
    end if;
 end Print_Entities;
