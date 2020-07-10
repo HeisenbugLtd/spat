@@ -33,10 +33,6 @@ jobs:
           distrib: ${{ matrix.tag }}
           target: native
           community_year: ${{ matrix.year }}
-      - name: Install GNATColl
-        if: ${{ matrix.tag }} == "fsf"
-        run: >
-          sudo apt-get install libgnatcoll19
       - name: Build
         run: >
           bash .github/scripts/ci-build.sh
