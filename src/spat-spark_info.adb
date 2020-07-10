@@ -1099,10 +1099,14 @@ package body SPAT.Spark_Info is
       ------------------------------------------------------------------------
       function "<" (Left  : in Entity_Name;
                     Right : in Entity_Name) return Boolean is
-         Left_Success : constant Duration :=
-           This.Max_Success_Proof_Time (Entity => Left);
+         Left_Success   : constant Duration :=
+           (if This.Has_Unproved_Attempts (Entity => Left)
+            then Duration'First
+            else This.Max_Success_Proof_Time (Entity => Left));
          Right_Success : constant Duration :=
-           This.Max_Success_Proof_Time (Entity => Right);
+           (if This.Has_Unproved_Attempts (Entity => Right)
+            then Duration'First
+            else This.Max_Success_Proof_Time (Entity => Right));
          Left_Total  : constant Duration :=
            This.Total_Proof_Time (Entity => Left);
          Right_Total : constant Duration :=
