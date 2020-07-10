@@ -604,12 +604,12 @@ The call order of the provers is at best an educated guess.
 Also, please note that this output never lists provers that have never been
 called, simply because we know nothing about them.
 
-Worth mentioning is also that the `steps` reported here are different from the
+Worth mentioning is also that the steps reported here are different from the
 steps reported in the `--report-mode` option.  This is due to the fact that
-within the `.spark` files steps are currently reported differently that the way
+within the `.spark` files steps are currently reported differently than the way
 `gnatprove` looks at them.  The thing is that each prover has their own notion
 of steps, but giving a `--steps` option to `gnatprove` should behave the same
-regardless of the prover involved, so `gnatprove` implements same transformation
+regardless of the prover involved, so `gnatprove` implements some transformation
 to scale the number of steps to roughly the equivalent of alt-ergo steps.
 
 I decided to implement the same scaling values that `gnatprove` uses (which are
