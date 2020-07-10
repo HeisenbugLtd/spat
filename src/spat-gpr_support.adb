@@ -37,9 +37,10 @@ package body SPAT.GPR_Support is
    ---------------------------------------------------------------------------
    --  Add_File
    ---------------------------------------------------------------------------
-   procedure Add_File (Name  : in     String;
-                       Cache : in out File_Name_Caches.Set;
-                       To    : in out SPARK_Source_Maps.Map);
+   procedure Add_File (Project_Tree : in     GNATCOLL.Projects.Project_Tree;
+                       Source_File  : in     GNATCOLL.VFS.Virtual_File;
+                       Cache        : in out File_Name_Caches.Set;
+                       To           : in out SPARK_Source_Maps.Map);
 
    ---------------------------------------------------------------------------
    --  SPARK_Name
@@ -49,32 +50,50 @@ package body SPAT.GPR_Support is
       Source_File  : in GNATCOLL.VFS.Virtual_File) return String;
 
    ---------------------------------------------------------------------------
+   --  Prefer_Spec_File
+   --
+   --  Checks if for the given key a mapping already exists and updates it if
+   --  the given Value seems a better fit (i.e. is a spec file).
+   ---------------------------------------------------------------------------
+   procedure Prefer_Spec_File
+     (File_Map     : in out SPARK_Source_Maps.Map;
+      Project_Tree : in     GNATCOLL.Projects.Project_Tree;
+      Key          : in     SPARK_File_Name;
+      Value        : in     GNATCOLL.VFS.Virtual_File);
+
+   ---------------------------------------------------------------------------
    --  Add_File
    ---------------------------------------------------------------------------
-   procedure Add_File (Name  : in     String;
-                       Cache : in out File_Name_Caches.Set;
-                       To    : in out SPARK_Source_Maps.Map)
+   procedure Add_File (Project_Tree : in     GNATCOLL.Projects.Project_Tree;
+                       Source_File  : in     GNATCOLL.VFS.Virtual_File;
+                       Cache        : in out File_Name_Caches.Set;
+                       To           : in out SPARK_Source_Maps.Map)
    is
+      SPARK_Name   : constant String :=
+        GPR_Support.SPARK_Name (Project_Tree => Project_Tree,
+                                Source_File  => Source_File);
       As_File_Name : constant SPARK_File_Name :=
-        SPARK_File_Name (To_Name (Source => Name));
+        SPARK_File_Name (To_Name (Source => SPARK_Name));
       Simple_Name  : constant String :=
-        Ada.Directories.Simple_Name (Name => Name);
+        Ada.Directories.Simple_Name (Name => SPARK_Name);
       Dummy_Cursor : File_Name_Caches.Cursor; --  Don't care about the position.
       Inserted     : Boolean;
    begin
       --  Prevent adding the same file twice. The caller retrieves all files
       --  from the project, hence in most cases we will encounter both a spec
       --  and a body file which will still result in the same .spark file.
-      Cache.Insert (New_Item => Name, --  Original input.
+      Cache.Insert (New_Item => SPARK_Name, --  Original input.
                     Position => Dummy_Cursor,
                     Inserted => Inserted);
 
       if Inserted then
          --  This was a new file, so if it exists on disk, add it to the result
          --  list.
-         if Ada.Directories.Exists (Name => Name) then
-            To.Include (Key      => As_File_Name,
-                        New_Item => Source_File_Name (To_Name (Name)));
+         if Ada.Directories.Exists (Name => SPARK_Name) then
+            Prefer_Spec_File (File_Map     => To,
+                              Project_Tree => Project_Tree,
+                              Key          => As_File_Name,
+                              Value        => Source_File);
             Log.Debug (Message => """" & Simple_Name & """ added to index.");
          else
             Log.Debug
@@ -156,10 +175,10 @@ package body SPAT.GPR_Support is
               (Message  => "Found """ & F.Display_Base_Name & """...",
                New_Line => False);
 
-            Add_File (Name  => SPARK_Name (Project_Tree => Project_Tree,
-                                           Source_File  => F),
-                      Cache => Raw_List,
-                      To    => Result_List);
+            Add_File (Project_Tree => Project_Tree,
+                      Source_File  => F,
+                      Cache        => Raw_List,
+                      To           => Result_List);
          end loop;
 
          --  Cleanup.
@@ -182,6 +201,30 @@ package body SPAT.GPR_Support is
          return Result_List;
       end Load_Source_Files;
    end Get_SPARK_Files;
+
+   ---------------------------------------------------------------------------
+   --  Prefer_Spec_File
+   ---------------------------------------------------------------------------
+   procedure Prefer_Spec_File
+     (File_Map     : in out SPARK_Source_Maps.Map;
+      Project_Tree : in     GNATCOLL.Projects.Project_Tree;
+      Key          : in     SPARK_File_Name;
+      Value        : in     GNATCOLL.VFS.Virtual_File)
+   is
+      use all type GNATCOLL.Projects.Unit_Parts;
+   begin
+      if not File_Map.Contains (Key => Key) then
+         --  Not yet in map, insert unconditionally.
+         File_Map.Insert
+           (Key => Key,
+            New_Item => Source_File_Name (To_Name (Value.Display_Base_Name)));
+      elsif Project_Tree.Info (File => Value).Unit_Part = Unit_Spec then
+         --  We already have an entry, but this is (a/the) spec, we prefer that.
+         File_Map.Include
+           (Key      => Key,
+            New_Item => Source_File_Name (To_Name (Value.Display_Base_Name)));
+      end if;
+   end Prefer_Spec_File;
 
    ---------------------------------------------------------------------------
    --  SPARK_Name
