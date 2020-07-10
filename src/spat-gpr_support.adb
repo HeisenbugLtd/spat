@@ -7,10 +7,9 @@
 ------------------------------------------------------------------------------
 pragma License (Unrestricted);
 
-with Ada.Containers.Indefinite_Hashed_Sets;
+with Ada.Containers.Hashed_Sets;
 with Ada.Directories;
 with Ada.Real_Time;
-with Ada.Strings.Hash;
 
 with GNATCOLL.Projects;
 with SPAT.Log;
@@ -18,21 +17,10 @@ with SPAT.Log;
 package body SPAT.GPR_Support is
 
    package File_Name_Caches is new
-     Ada.Containers.Indefinite_Hashed_Sets
-       (Element_Type        => String,
-        Hash                => Ada.Strings.Hash,
+     Ada.Containers.Hashed_Sets
+       (Element_Type        => SPARK_File_Name,
+        Hash                => SPAT.Hash,
         Equivalent_Elements => "=");
-   --  The Add_File subroutine below receives the filename as a string, so I
-   --  decided to use these as set elements, hence we need to use the indefinite
-   --  version of Hashed_Sets.
-   --  The reasoning behind that is that even though storing the
-   --  Unbounded_String would probably require less memory allocations while
-   --  adding elements to the set, that also happens at the cost of an extra
-   --  conversion back to String when the runtime calculates the hash. While
-   --  secondary stack is relatively cheap (at least in comparison to a memory
-   --  allocator), the additional copy of the actual string probably still beats
-   --  that. Also, the Hashing must be done twice when inserting an element,
-   --  while we expect only about half of actual insertions.
 
    ---------------------------------------------------------------------------
    --  Add_File
@@ -76,32 +64,35 @@ package body SPAT.GPR_Support is
         SPARK_File_Name (To_Name (Source => SPARK_Name));
       Simple_Name  : constant String :=
         Ada.Directories.Simple_Name (Name => SPARK_Name);
+      Exists       : constant Boolean :=
+        Ada.Directories.Exists (Name => SPARK_Name);
       Dummy_Cursor : File_Name_Caches.Cursor; --  Don't care about the position.
       Inserted     : Boolean;
    begin
       --  Prevent adding the same file twice. The caller retrieves all files
       --  from the project, hence in most cases we will encounter both a spec
       --  and a body file which will still result in the same .spark file.
-      Cache.Insert (New_Item => SPARK_Name, --  Original input.
+      Cache.Insert (New_Item => As_File_Name,
                     Position => Dummy_Cursor,
                     Inserted => Inserted);
 
-      if Inserted then
-         --  This was a new file, so if it exists on disk, add it to the result
-         --  list.
-         if Ada.Directories.Exists (Name => SPARK_Name) then
-            Prefer_Spec_File (File_Map     => To,
-                              Project_Tree => Project_Tree,
-                              Key          => As_File_Name,
-                              Value        => Source_File);
-            Log.Debug (Message => """" & Simple_Name & """ added to index.");
-         else
-            Log.Debug
-              (Message =>
-                 """" & Simple_Name & """ not found on disk, skipped.");
-         end if;
+      Log.Debug (Message  =>
+                   """" & Simple_Name & """ " &
+                   (if Inserted
+                    then "added to"
+                    else "already in") & " index.");
+
+      --  If the .spark file exists, add it to the result map, possibly
+      --  updating the file mapping as we do prefer the spec file.
+      if Exists then
+         Prefer_Spec_File (File_Map     => To,
+                           Project_Tree => Project_Tree,
+                           Key          => As_File_Name,
+                           Value        => Source_File);
       else
-         Log.Debug (Message => """" & Simple_Name & """ already in index.");
+         Log.Debug
+           (Message =>
+              """" & Simple_Name & """ not found on disk, skipped.");
       end if;
    end Add_File;
 
@@ -216,7 +207,7 @@ package body SPAT.GPR_Support is
       if not File_Map.Contains (Key => Key) then
          --  Not yet in map, insert unconditionally.
          File_Map.Insert
-           (Key => Key,
+           (Key      => Key,
             New_Item => Source_File_Name (To_Name (Value.Display_Base_Name)));
       elsif Project_Tree.Info (File => Value).Unit_Part = Unit_Spec then
          --  We already have an entry, but this is (a/the) spec, we prefer that.
