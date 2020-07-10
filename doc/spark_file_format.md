@@ -348,10 +348,10 @@ running a specific prover and the object is named after the prover.
 }
 ```
 
-As far as I have seen so far, `result` will be "Valid" if the proof was
-successful. `steps` holds the number of proof steps the prover has done (what
-these steps mean may depend on the prover used), and `time` is obviously the
-(wall clock) time the prover spent doing all this.
+As far as I have seen, `result` will be "Valid" if the proof was successful.
+`steps` holds the number of proof steps the prover has done (what these steps
+mean depends on the prover used), and `time` is obviously the (wall clock) time
+the prover spent doing all this.
 
 ##### 3.3.2.2 The `transformations` object
 
@@ -384,9 +384,9 @@ justified.
 
 #### 3.3.5 The `stats` object
 
-Contains, for each prover involved, an object with the name of the prover, and
-the three fields `count` (`json-int`), `max-steps` (`json-int`), and `max_time`
-(`json-float`).
+Contains, for each prover involved in a successful proof, an object with the
+name of the prover, and the three fields `count` (`json-int`), `max-steps`
+(`json-int`), and `max_time` (`json-float`).
 
 * Example:
 ```json
@@ -399,16 +399,15 @@ the three fields `count` (`json-int`), `max-steps` (`json-int`), and `max_time`
 }
 ```
 
-* `count` seems to correspond to the number of paths from the `check-tree`
-  array where the prover could successfully proof the VC.
+* `count` corresponds to the number of paths from the `check-tree` array where
+  the prover could successfully proof the VC.
 
-* `max_steps` is unclear, this value has no obvious correlation to `steps` 
-  (which I would have had expected).
+* `max_steps` is a version of the steps reported in the `proof_attempt` object
+  transformed by a set of prover specific values.
 
-* `max-time` seems to contain the time of the path where the the prover spent
-  its most time (with minor variations which I attribute to accuracy issues)
-  proving it. Please note that the object contained in `stats` does not seem to
-  include failed proof attempts.
+* `max-time` contains the time of the path where the the prover spent its most
+  time successfully proving it.  There are minor (i.e. negligible) variations
+  compared to the value from the corresponding `proof_attempt`.
 
 ### 3.4 The `assumptions` array
 

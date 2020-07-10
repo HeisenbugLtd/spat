@@ -3,7 +3,8 @@
 # SPARK Proof Analysis Tool
 
 There's a chat now in case you have questions or suggestions: [![Join the chat at https://gitter.im/HeisenbugLtd/spat-discussion](https://badges.gitter.im/HeisenbugLtd/spat-discussion.svg)](https://gitter.im/HeisenbugLtd/spat-discussion?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-(This might be a bit more lightweight than opening an issue and we can more easily discuss features.)
+(This might be a bit more lightweight than opening an issue and we can more
+easily discuss features.)
 
 [![Build Linux](https://github.com/HeisenbugLtd/spat/workflows/Build%20Linux/badge.svg)](https://github.com/HeisenbugLtd/spat/actions?query=workflow%3A%22Build+Linux%22)
 
@@ -202,8 +203,8 @@ previous chapter, with the `--sort-by` option you can force one.
 Output can be filtered progressively by applying more restrictions.  These will
 be explained below.
 
-If you just want to take a look at how the output of the tool looks like with all
-kind of different options, you can take a peek at the repository's
+If you just want to take a look at how the output of the tool looks like with
+all kind of different options, you can take a peek at the repository's
 [test directory](https://github.com/HeisenbugLtd/spat/tree/master/test) where I
 am storing templates for regression testing.
 
@@ -540,7 +541,7 @@ your project file.
   general, the project should be in a good state and the provers should be able
   to prove what can be proved.
 
-#### How does it Work?
+#### How Does it Work?
 
 The only information available to `spat` when a prover succeeds is the time and
 the steps it took it to succeed.  Only when a prover fails and the next one in
@@ -603,6 +604,17 @@ The call order of the provers is at best an educated guess.
 Also, please note that this output never lists provers that have never been
 called, simply because we know nothing about them.
 
+Worth mentioning is also that the steps reported here are different from the
+steps reported in the `--report-mode` option.  This is due to the fact that
+within the `.spark` files steps are currently reported differently than the way
+`gnatprove` looks at them.  The thing is that each prover has their own notion
+of steps, but giving a `--steps` option to `gnatprove` should behave the same
+regardless of the prover involved, so `gnatprove` implements some transformation
+to scale the number of steps to roughly the equivalent of alt-ergo steps.
+
+I decided to implement the same scaling values that `gnatprove` uses (which are
+also the steps which are reported in the `stats` object of the `.spark` files).
+
 ### The `--verbose` option
 
 This option is mainly used for debugging, it enables extra output about what
@@ -622,9 +634,8 @@ readable output.  This should make it easier for scripts to parse the numbers.
 
 ## Some Notes on Sorting
 
-The sort option *by successful proof time* (i.e. `--sort-by=s`) is newly
-implemented, so apart from implementation defects, it may work in a slightly
-counter-intuitive way.
+The sort option *by successful proof time* (i.e. `--sort-by=s`) is may work in a
+slightly counter-intuitive way, so I explain it a bit.
 
 First of all, as mentioned earlier, it is *not* implemented for the summary
 display. If you try that, `spat` will warn you and resort to sorting by time.
@@ -648,8 +659,9 @@ Examples (mostly to show how the difference between `--sort-by=t` and
 `--sort-by=s` work):
 
 * By time:
+
   `run_spat -ct -rf -P sparknacl.gpr`
-  
+
   ```
   SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
   SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/28.6 s
@@ -659,27 +671,28 @@ Examples (mostly to show how the difference between `--sort-by=t` and
   SPARKNaCl.Utils.Pack_25519.Subtract_P                     => 150.0 ms/180.0 ms/1.8 s
   SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
   ```
+
 * By successful proof:
 
-  `run_spat -cs -rf -p 1 -P sparknacl.gpr`
-  
+  `run_spat -cs -rf -P sparknacl.gpr`
+
   ```
-  SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
-  SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
   SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/28.6 s
   SPARKNaCl.Utils.Pack_25519.Subtract_P                     => 150.0 ms/180.0 ms/1.8 s
+  SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
+  SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
   SPARKNaCl.ASR_16                                          => --/5.7 s/5.9 s
   SPARKNaCl.ASR_8                                           => --/3.3 s/3.5 s
   SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
   ```
 
-Notice, how the entry for `SPARKNaCl.Utils.Pack_25519.Subtract_P` moved up?
+Notice, how the entries for `SPARKNaCl.Omultiply` and
+`SPARKNaCl.Utils.Pack_25519.Subtract_P` moved up?
 
-For now, you should ignore all unproved items, they are still shown, but due to
-the fact that they are unproved, there is no successful proof time (although
-there may be partial successes for the involved VCs).
-
-Developer's note: *This is something I am still planning to fix.*
+Please note that unproved items are still shown, but due to the fact that they
+are unproved, they have no successful proof time (although there may be partial
+successes for the involved VCs), so with this sorting option they will always
+appear at the end.
 
 Looking at `Omultiply` in detail:
 

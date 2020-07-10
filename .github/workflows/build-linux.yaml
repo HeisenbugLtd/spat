@@ -7,6 +7,7 @@ on:
     - 'README.md'
     - 'SECURITY.md'
     - '_config.yml'
+    - '.github/ISSUE_TEMPLATE'
 
 jobs:
   build:
@@ -14,10 +15,10 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
-      fail-fast: false # Don't cancel other runs
+      fail-fast: true # false # Don't cancel other runs
       matrix:
         tag:
-          # - fsf # disabled for now, compilation of SI_Units hangs.
+          # - fsf Disable FSF again until we figure out how to get a recent GNATColl into the image
           - community
         year:
           - 2019

@@ -27,6 +27,17 @@ random.spark              => (Flow  => 517.0 µs,
                               Proof => 0.0 s/0.0 s/0.0 s)
 sparknacl-debug.spark     => (Flow  => 469.0 µs,
                               Proof => 0.0 s/0.0 s/0.0 s)
+SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/28.6 s
+`-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:164:13 => 40.0 ms/19.1 s/19.1 s
+ `-CVC4: 19.1 s (Unknown (unknown), 505013 steps)
+  -Z3: 40.0 ms (Valid, 68029 steps)
+`-VC_LOOP_INVARIANT_INIT sparknacl.adb:80:16 => 120.0 ms/220.0 ms/400.0 ms
+ `-CVC4: 220.0 ms (Unknown (unknown), 3309 steps)
+  -Z3: 60.0 ms (Valid, 57212 steps)
+SPARKNaCl.Utils.Pack_25519.Subtract_P                     => 150.0 ms/180.0 ms/1.8 s
+`-VC_POSTCONDITION sparknacl-utils.adb:91:24 => 120.0 ms/180.0 ms/300.0 ms
+ `-CVC4: 180.0 ms (Unknown (unknown), 1827 steps)
+  -Z3: 120.0 ms (Valid, 155440 steps)
 SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
 `-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36 => --/57.6 s/238.7 s
  `-CVC4: 57.6 s (Unknown (unknown), 505002 steps)
@@ -75,17 +86,6 @@ SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
 `-VC_ASSERT sparknacl-car.adb:302:10 => 60.0 ms/140.0 ms/200.0 ms
  `-CVC4: 140.0 ms (Unknown (unknown), 1260 steps)
   -Z3: 60.0 ms (Valid, 52341 steps)
-SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/28.6 s
-`-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:164:13 => 40.0 ms/19.1 s/19.1 s
- `-CVC4: 19.1 s (Unknown (unknown), 505013 steps)
-  -Z3: 40.0 ms (Valid, 68029 steps)
-`-VC_LOOP_INVARIANT_INIT sparknacl.adb:80:16 => 120.0 ms/220.0 ms/400.0 ms
- `-CVC4: 220.0 ms (Unknown (unknown), 3309 steps)
-  -Z3: 60.0 ms (Valid, 57212 steps)
-SPARKNaCl.Utils.Pack_25519.Subtract_P                     => 150.0 ms/180.0 ms/1.8 s
-`-VC_POSTCONDITION sparknacl-utils.adb:91:24 => 120.0 ms/180.0 ms/300.0 ms
- `-CVC4: 180.0 ms (Unknown (unknown), 1827 steps)
-  -Z3: 120.0 ms (Valid, 155440 steps)
 SPARKNaCl.ASR_16                                          => --/5.7 s/5.9 s
 `-VC_POSTCONDITION sparknacl.ads:355:35 => --/5.7 s/5.8 s
  `-Z3: 5.7 s (Unknown (unknown), 11650768 steps)
