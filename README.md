@@ -3,7 +3,8 @@
 # SPARK Proof Analysis Tool
 
 There's a chat now in case you have questions or suggestions: [![Join the chat at https://gitter.im/HeisenbugLtd/spat-discussion](https://badges.gitter.im/HeisenbugLtd/spat-discussion.svg)](https://gitter.im/HeisenbugLtd/spat-discussion?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-(This might be a bit more lightweight than opening an issue and we can more easily discuss features.)
+(This might be a bit more lightweight than opening an issue and we can more
+easily discuss features.)
 
 [![Build Linux](https://github.com/HeisenbugLtd/spat/workflows/Build%20Linux/badge.svg)](https://github.com/HeisenbugLtd/spat/actions?query=workflow%3A%22Build+Linux%22)
 
@@ -202,8 +203,8 @@ previous chapter, with the `--sort-by` option you can force one.
 Output can be filtered progressively by applying more restrictions.  These will
 be explained below.
 
-If you just want to take a look at how the output of the tool looks like with all
-kind of different options, you can take a peek at the repository's
+If you just want to take a look at how the output of the tool looks like with
+all kind of different options, you can take a peek at the repository's
 [test directory](https://github.com/HeisenbugLtd/spat/tree/master/test) where I
 am storing templates for regression testing.
 
@@ -540,7 +541,7 @@ your project file.
   general, the project should be in a good state and the provers should be able
   to prove what can be proved.
 
-#### How does it Work?
+#### How Does it Work?
 
 The only information available to `spat` when a prover succeeds is the time and
 the steps it took it to succeed.  Only when a prover fails and the next one in
@@ -581,24 +582,17 @@ Warning: This feature is highly experimental.
 Warning: Please consult the documentation.
 
 package Prove is
-   for Proof_Switches ("sparknacl-car.adb") use ("--prover=CVC4", "--steps=5882", "--timeout=1");
-   for Proof_Switches ("sparknacl-core.adb") use ("--prover=CVC4", "--steps=5", "--timeout=1");
-   for Proof_Switches ("sparknacl-cryptobox.adb") use ("--prover=CVC4", "--steps=261", "--timeout=1");
-   for Proof_Switches ("sparknacl-cryptobox.ads") use ("--prover=CVC4", "--steps=14", "--timeout=1");
-   for Proof_Switches ("sparknacl-hashing.adb") use ("--prover=CVC4", "--steps=1058", "--timeout=1");
-   for Proof_Switches ("sparknacl-mac.adb") use ("--prover=CVC4", "--steps=320", "--timeout=1");
-   for Proof_Switches ("sparknacl-sanitize.adb") use ("--prover=CVC4,Z3", "--steps=1994", "--timeout=1");
-   for Proof_Switches ("sparknacl-sanitize_i64_seq.adb") use ("--prover=CVC4", "--steps=136", "--timeout=1");
-   for Proof_Switches ("sparknacl-scalar.adb") use ("--prover=CVC4", "--steps=157187", "--timeout=10");
-   for Proof_Switches ("sparknacl-secretbox.adb") use ("--prover=CVC4", "--steps=1001", "--timeout=1");
-   for Proof_Switches ("sparknacl-secretbox.ads") use ("--prover=CVC4,Z3", "--steps=68758", "--timeout=1");
-   for Proof_Switches ("sparknacl-sign.adb") use ("--prover=CVC4", "--steps=16135", "--timeout=1");
-   for Proof_Switches ("sparknacl-sign.ads") use ("--prover=CVC4", "--steps=16776", "--timeout=1");
-   for Proof_Switches ("sparknacl-stream.adb") use ("--prover=CVC4", "--steps=1429", "--timeout=1");
-   for Proof_Switches ("sparknacl-utils.adb") use ("--prover=CVC4,Z3", "--steps=155440", "--timeout=1");
-   for Proof_Switches ("sparknacl-utils.ads") use ("--prover=Z3,CVC4", "--steps=11655208", "--timeout=9");
-   for Proof_Switches ("sparknacl.adb") use ("--prover=CVC4", "--steps=1760", "--timeout=1");
-   for Proof_Switches ("sparknacl.ads") use ("--prover=CVC4,Z3", "--steps=1092364", "--timeout=2");
+   for Proof_Switches ("sparknacl-car.adb") use ("--prover=Z3,CVC4", "--steps=803", "--timeout=2");
+   for Proof_Switches ("sparknacl-core.adb") use ("--prover=CVC4", "--steps=1", "--timeout=1");
+   for Proof_Switches ("sparknacl-cryptobox.ads") use ("--prover=CVC4", "--steps=1", "--timeout=1");
+   for Proof_Switches ("sparknacl-hashing.adb") use ("--prover=CVC4", "--steps=1", "--timeout=1");
+   for Proof_Switches ("sparknacl-mac.adb") use ("--prover=CVC4", "--steps=1", "--timeout=1");
+   for Proof_Switches ("sparknacl-scalar.adb") use ("--prover=CVC4", "--steps=1", "--timeout=1");
+   for Proof_Switches ("sparknacl-secretbox.ads") use ("--prover=CVC4", "--steps=1", "--timeout=1");
+   for Proof_Switches ("sparknacl-sign.adb") use ("--prover=Z3,CVC4", "--steps=14007", "--timeout=10");
+   for Proof_Switches ("sparknacl-stream.adb") use ("--prover=CVC4", "--steps=1", "--timeout=1");
+   for Proof_Switches ("sparknacl-utils.adb") use ("--prover=Z3,CVC4", "--steps=1536", "--timeout=1");
+   for Proof_Switches ("sparknacl.ads") use ("--prover=Z3,CVC4", "--steps=1", "--timeout=1");
 end Prove;
 ```
 
@@ -609,6 +603,17 @@ The call order of the provers is at best an educated guess.
 
 Also, please note that this output never lists provers that have never been
 called, simply because we know nothing about them.
+
+Worth mentioning is also that the `steps` reported here are different from the
+steps reported in the `--report-mode` option.  This is due to the fact that
+within the `.spark` files steps are currently reported differently that the way
+`gnatprove` looks at them.  The thing is that each prover has their own notion
+of steps, but giving a `--steps` option to `gnatprove` should behave the same
+regardless of the prover involved, so `gnatprove` implements same transformation
+to scale the number of steps to roughly the equivalent of alt-ergo steps.
+
+I decided to implement the same scaling values that `gnatprove` uses (which are
+also the steps which are reported in the `stats` object of the `.spark` files).
 
 ### The `--verbose` option
 
