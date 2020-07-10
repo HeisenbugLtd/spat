@@ -7,46 +7,16 @@
 ------------------------------------------------------------------------------
 pragma License (Unrestricted);
 
-with Ada.Directories;
 with SPAT.Log;
 with SPAT.Proof_Attempt;
-with SPAT.Proof_Item;
 
 package body SPAT.Spark_Info.Heuristics is
-
-   Null_Name : constant Source_File_Name := Source_File_Name (SPAT.Null_Name);
 
    Null_Times : constant Times :=
      Times'(Success     => 0.0,
             Failed      => 0.0,
             Max_Success => 0.0,
             Max_Steps   => 0);
-
-   type Source_Times is
-      record
-         Source_File : Source_File_Name;
-         --  Ada source file name.
-         --  It is actually stupid to store it here.
-         Timings     : Times;
-      end record;
-
-   Null_Source : constant Source_Times :=
-     Source_Times'(Source_File => Null_Name,
-                   Timings     => Null_Times);
-
-   ---------------------------------------------------------------------------
-   --  Better_Source_Name
-   --
-   --  Given a current name and a new candidate returns the "better" of the
-   --  two names.
-   --
-   --  Selection is as follows:
-   --    1) The shorter name (i.e. to filter out separates).
-   --    2) The spec file.
-   ---------------------------------------------------------------------------
-   function Better_Source_Name
-     (Current_Name : in Source_File_Name;
-      Candidate    : in Source_File_Name) return Source_File_Name;
 
    ---------------------------------------------------------------------------
    --  Scaled
@@ -95,7 +65,7 @@ package body SPAT.Spark_Info.Heuristics is
 
    package Prover_Maps is new
      Ada.Containers.Hashed_Maps (Key_Type        => Subject_Name,
-                                 Element_Type    => Source_Times,
+                                 Element_Type    => Times,
                                  Hash            => SPAT.Hash,
                                  Equivalent_Keys => "=",
                                  "="             => "=");
@@ -108,41 +78,6 @@ package body SPAT.Spark_Info.Heuristics is
                                  "="             => Prover_Maps."=");
 
    ---------------------------------------------------------------------------
-   --  Better_Source_Name
-   --
-   --  Given a current name and a new candidate returns the "better" of the
-   --  two names.
-   --
-   --  Selection is as follows:
-   --    1) The shorter name (i.e. to filter out separates).
-   --    2) The spec file.
-   ---------------------------------------------------------------------------
-   function Better_Source_Name
-     (Current_Name : in Source_File_Name;
-      Candidate    : in Source_File_Name) return Source_File_Name is
-   begin
-      --  Current name has not been set yet, so just return the new one.
-      if Length (Current_Name) = 0 then
-         return Candidate;
-      end if;
-
-      --  Select shorter name.
-      if Length (Candidate) < Length (Current_Name) then
-         return Candidate;
-      end if;
-
-      --  If it looks like a spec file, select that.
-      if
-        Ada.Directories.Extension
-          (Name => To_String (Source => Candidate)) in "ads" | "ADS" | "Ads"
-      then
-         return Candidate;
-      end if;
-
-      return Current_Name;
-   end Better_Source_Name;
-
-   ---------------------------------------------------------------------------
    --  Find_Optimum
    --
    --  NOTE: As of now, this implementation is also highly inefficient.
@@ -152,7 +87,10 @@ package body SPAT.Spark_Info.Heuristics is
    --        I just found it more important to get a working prototype, than a
    --        blazingly fast one which doesn't.
    ---------------------------------------------------------------------------
-   function Find_Optimum (Info : in T) return File_Vectors.Vector
+   function Find_Optimum
+     (Info     : in T;
+      File_Map : in SPAT.GPR_Support.SPARK_Source_Maps.Map)
+      return File_Vectors.Vector
    is
       --  FIXME: This should probably go into the README.md instead of here.
       --
@@ -269,7 +207,7 @@ package body SPAT.Spark_Info.Heuristics is
                            --  New prover name, insert it.
                            File_Ref.Element.Insert
                              (Key      => The_Attempt.Prover,
-                              New_Item => Null_Source,
+                              New_Item => Null_Times,
                               Position => Prover_Cursor,
                               Inserted => Dummy_Inserted);
                         end if;
@@ -278,27 +216,22 @@ package body SPAT.Spark_Info.Heuristics is
                            Prover_Element : constant Prover_Maps.Reference_Type :=
                              File_Ref.Reference (Position => Prover_Cursor);
                         begin
-                           Prover_Element.Source_File :=
-                             Proof_Item.T'Class
-                               (Entity.Tree.Element
-                                  (Position => Proof)).Source_File;
-
                            if The_Attempt.Result = Proof_Attempt.Valid then
-                              Prover_Element.Timings.Success :=
-                                Prover_Element.Timings.Success + The_Attempt.Time;
+                              Prover_Element.Success :=
+                                Prover_Element.Success + The_Attempt.Time;
 
-                              Prover_Element.Timings.Max_Success :=
-                                Duration'Max (Prover_Element.Timings.Max_Success,
+                              Prover_Element.Max_Success :=
+                                Duration'Max (Prover_Element.Max_Success,
                                               The_Attempt.Time);
 
-                              Prover_Element.Timings.Max_Steps :=
+                              Prover_Element.Max_Steps :=
                                 Prover_Steps'Max
-                                  (Prover_Element.Timings.Max_Steps,
+                                  (Prover_Element.Max_Steps,
                                    Scaled (Prover    => The_Attempt.Prover,
                                            Raw_Steps => The_Attempt.Steps));
                            else
-                              Prover_Element.Timings.Failed :=
-                                Prover_Element.Timings.Failed + The_Attempt.Time;
+                              Prover_Element.Failed :=
+                                Prover_Element.Failed + The_Attempt.Time;
                            end if;
                         end;
                      end;
@@ -315,18 +248,17 @@ package body SPAT.Spark_Info.Heuristics is
 
             for Prover in Per_File.Element (Position => C).Iterate loop
                declare
-                  E : constant Source_Times :=
+                  E : constant Times :=
                     Prover_Maps.Element (Position => Prover);
                begin
                   Log.Debug
                     (Message =>
                        "  " &
                        To_String (Prover_Maps.Key (Position => Prover)));
-                  Log.Debug (Message => "    t(Success) " & SPAT.Image (E.Timings.Success));
-                  Log.Debug (Message => "    t(Failed)  " & SPAT.Image (E.Timings.Failed));
-                  Log.Debug (Message => "    T(Success) " & SPAT.Image (E.Timings.Max_Success));
-                  Log.Debug (Message => "    S(Success)" & E.Timings.Max_Steps'Image);
-                  Log.Debug (Message => "    file     """ & To_String (E.Source_File) & """");
+                  Log.Debug (Message => "    t(Success) " & SPAT.Image (E.Success));
+                  Log.Debug (Message => "    t(Failed)  " & SPAT.Image (E.Failed));
+                  Log.Debug (Message => "    T(Success) " & SPAT.Image (E.Max_Success));
+                  Log.Debug (Message => "    S(Success)" & E.Max_Steps'Image);
                end;
             end loop;
          end loop;
@@ -338,42 +270,33 @@ package body SPAT.Spark_Info.Heuristics is
       begin
          for Source_Cursor in SPARK_List.Iterate loop
             declare
-               Prover_Vector    : Prover_Vectors.Vector;
-               Best_Source_Name : Source_File_Name := Null_Name;
+               Prover_Vector : Prover_Vectors.Vector;
             begin
                for Prover_Cursor in SPARK_List (Source_Cursor).Iterate loop
-                  declare
-                     Element_Ref : constant Prover_Maps.Constant_Reference_Type :=
-                       SPARK_List (Source_Cursor).Constant_Reference
-                         (Position => Prover_Cursor);
-                  begin
-                     --  Special handling for the "Trivial" prover. We never
-                     --  want to show this one.
-                     if
-                       Prover_Maps.Key (Position => Prover_Cursor) /=
-                       To_Name ("Trivial")
-                     then
-                        Prover_Vector.Append
-                          (New_Item =>
-                             Prover_Data'
-                               (Name =>
-                                  Prover_Maps.Key (Position => Prover_Cursor),
-                                Time => Element_Ref.Timings));
-                     end if;
-
-                     Best_Source_Name :=
-                       Better_Source_Name
-                         (Current_Name => Best_Source_Name,
-                          Candidate    => Element_Ref.Source_File);
-                  end;
+                  --  Special handling for the "Trivial" prover. We never
+                  --  want to show this one.
+                  if
+                    Prover_Maps.Key (Position => Prover_Cursor) /=
+                    To_Name ("Trivial")
+                  then
+                     Prover_Vector.Append
+                       (New_Item =>
+                          Prover_Data'
+                            (Name =>
+                               Prover_Maps.Key (Position => Prover_Cursor),
+                             Time => Prover_Maps.Element (Prover_Cursor)));
+                  end if;
                end loop;
 
                if not Prover_Vector.Is_Empty then
                   --  Sort provers by minimum failed time.
                   Prover_Sorting.Sort (Container => Prover_Vector);
                   Result.Append
-                    (New_Item => File_Data'(Name    => Best_Source_Name,
-                                            Provers => Prover_Vector));
+                    (New_Item =>
+                       File_Data'
+                         (Name    =>
+                            File_Map (Per_File.Key (Position => Source_Cursor)),
+                          Provers => Prover_Vector));
                end if;
             end;
          end loop;

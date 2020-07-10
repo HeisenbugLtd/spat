@@ -15,10 +15,17 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
-limited with SPAT.Strings;
+limited with Ada.Containers.Hashed_Maps;
 limited with GNATCOLL.VFS;
 
 package SPAT.GPR_Support is
+
+   package SPARK_Source_Maps is new
+     Ada.Containers.Hashed_Maps (Key_Type        => SPARK_File_Name,
+                                 Element_Type    => Source_File_Name,
+                                 Hash            => SPAT.Hash,
+                                 Equivalent_Keys => "=",
+                                 "="             => "=");
 
    ---------------------------------------------------------------------------
    --  Get_SPARK_Files
@@ -26,7 +33,6 @@ package SPAT.GPR_Support is
    --  Retrieve all (existing) .spark files from the project.
    ---------------------------------------------------------------------------
    function Get_SPARK_Files
-     (GPR_File : GNATCOLL.VFS.Filesystem_String)
-      return Strings.SPARK_File_Names;
+     (GPR_File : GNATCOLL.VFS.Filesystem_String) return SPARK_Source_Maps.Map;
 
 end SPAT.GPR_Support;

@@ -582,16 +582,16 @@ Warning: This feature is highly experimental.
 Warning: Please consult the documentation.
 
 package Prove is
-   for Proof_Switches ("sparknacl-car.adb") use ("--prover=Z3,CVC4", "--steps=803", "--timeout=2");
-   for Proof_Switches ("sparknacl-core.adb") use ("--prover=CVC4", "--steps=1", "--timeout=1");
+   for Proof_Switches ("sparknacl-car.ads") use ("--prover=Z3,CVC4", "--steps=803", "--timeout=2");
+   for Proof_Switches ("sparknacl-core.ads") use ("--prover=CVC4", "--steps=1", "--timeout=1");
    for Proof_Switches ("sparknacl-cryptobox.ads") use ("--prover=CVC4", "--steps=1", "--timeout=1");
-   for Proof_Switches ("sparknacl-hashing.adb") use ("--prover=CVC4", "--steps=1", "--timeout=1");
-   for Proof_Switches ("sparknacl-mac.adb") use ("--prover=CVC4", "--steps=1", "--timeout=1");
-   for Proof_Switches ("sparknacl-scalar.adb") use ("--prover=CVC4", "--steps=1", "--timeout=1");
+   for Proof_Switches ("sparknacl-hashing.ads") use ("--prover=CVC4", "--steps=1", "--timeout=1");
+   for Proof_Switches ("sparknacl-mac.ads") use ("--prover=CVC4", "--steps=1", "--timeout=1");
+   for Proof_Switches ("sparknacl-scalar.ads") use ("--prover=CVC4", "--steps=1", "--timeout=1");
    for Proof_Switches ("sparknacl-secretbox.ads") use ("--prover=CVC4", "--steps=1", "--timeout=1");
-   for Proof_Switches ("sparknacl-sign.adb") use ("--prover=Z3,CVC4", "--steps=14007", "--timeout=10");
-   for Proof_Switches ("sparknacl-stream.adb") use ("--prover=CVC4", "--steps=1", "--timeout=1");
-   for Proof_Switches ("sparknacl-utils.adb") use ("--prover=Z3,CVC4", "--steps=1536", "--timeout=1");
+   for Proof_Switches ("sparknacl-sign.ads") use ("--prover=Z3,CVC4", "--steps=14007", "--timeout=10");
+   for Proof_Switches ("sparknacl-stream.ads") use ("--prover=CVC4", "--steps=1", "--timeout=1");
+   for Proof_Switches ("sparknacl-utils.ads") use ("--prover=Z3,CVC4", "--steps=1536", "--timeout=1");
    for Proof_Switches ("sparknacl.ads") use ("--prover=Z3,CVC4", "--steps=1", "--timeout=1");
 end Prove;
 ```
