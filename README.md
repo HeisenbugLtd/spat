@@ -634,9 +634,8 @@ readable output.  This should make it easier for scripts to parse the numbers.
 
 ## Some Notes on Sorting
 
-The sort option *by successful proof time* (i.e. `--sort-by=s`) is newly
-implemented, so apart from implementation defects, it may work in a slightly
-counter-intuitive way.
+The sort option *by successful proof time* (i.e. `--sort-by=s`) is may work in a
+slightly counter-intuitive way, so I explain it a bit.
 
 First of all, as mentioned earlier, it is *not* implemented for the summary
 display. If you try that, `spat` will warn you and resort to sorting by time.
@@ -660,8 +659,9 @@ Examples (mostly to show how the difference between `--sort-by=t` and
 `--sort-by=s` work):
 
 * By time:
+
   `run_spat -ct -rf -P sparknacl.gpr`
-  
+
   ```
   SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
   SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/28.6 s
@@ -671,27 +671,28 @@ Examples (mostly to show how the difference between `--sort-by=t` and
   SPARKNaCl.Utils.Pack_25519.Subtract_P                     => 150.0 ms/180.0 ms/1.8 s
   SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
   ```
+
 * By successful proof:
 
-  `run_spat -cs -rf -p 1 -P sparknacl.gpr`
-  
+  `run_spat -cs -rf -P sparknacl.gpr`
+
   ```
-  SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
-  SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
   SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/28.6 s
   SPARKNaCl.Utils.Pack_25519.Subtract_P                     => 150.0 ms/180.0 ms/1.8 s
+  SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
+  SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
   SPARKNaCl.ASR_16                                          => --/5.7 s/5.9 s
   SPARKNaCl.ASR_8                                           => --/3.3 s/3.5 s
   SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
   ```
 
-Notice, how the entry for `SPARKNaCl.Utils.Pack_25519.Subtract_P` moved up?
+Notice, how the entries for `SPARKNaCl.Omultiply` and
+`SPARKNaCl.Utils.Pack_25519.Subtract_P` moved up?
 
-For now, you should ignore all unproved items, they are still shown, but due to
-the fact that they are unproved, there is no successful proof time (although
-there may be partial successes for the involved VCs).
-
-Developer's note: *This is something I am still planning to fix.*
+Please note that unproved items are still shown, but due to the fact that they
+are unproved, they have no successful proof time (although there may be partial
+successes for the involved VCs), so with this sorting option they will always
+appear at the end.
 
 Looking at `Omultiply` in detail:
 
