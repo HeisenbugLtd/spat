@@ -15,6 +15,7 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
+with SPAT.GPR_Support;
 with Ada.Containers.Vectors;
 
 package SPAT.Spark_Info.Heuristics is
@@ -59,6 +60,9 @@ package SPAT.Spark_Info.Heuristics is
    --
    --  Tries to find an "optimal" prover configuration.
    ---------------------------------------------------------------------------
-   function Find_Optimum (Info : in T) return File_Vectors.Vector;
+   function Find_Optimum
+     (Info     : in T;
+      File_Map : in GPR_Support.SPARK_Source_Maps.Map)
+      return File_Vectors.Vector;
 
 end SPAT.Spark_Info.Heuristics;

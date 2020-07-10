@@ -13,7 +13,6 @@ with Ada.Real_Time;
 with Ada.Strings.Hash;
 
 with GNATCOLL.Projects;
-with SPAT.Strings;
 with SPAT.Log;
 
 package body SPAT.GPR_Support is
@@ -40,7 +39,7 @@ package body SPAT.GPR_Support is
    ---------------------------------------------------------------------------
    procedure Add_File (Name  : in     String;
                        Cache : in out File_Name_Caches.Set;
-                       To    : in out Strings.SPARK_File_Names);
+                       To    : in out SPARK_Source_Maps.Map);
 
    ---------------------------------------------------------------------------
    --  SPARK_Name
@@ -54,7 +53,7 @@ package body SPAT.GPR_Support is
    ---------------------------------------------------------------------------
    procedure Add_File (Name  : in     String;
                        Cache : in out File_Name_Caches.Set;
-                       To    : in out Strings.SPARK_File_Names)
+                       To    : in out SPARK_Source_Maps.Map)
    is
       As_File_Name : constant SPARK_File_Name :=
         SPARK_File_Name (To_Name (Source => Name));
@@ -74,7 +73,8 @@ package body SPAT.GPR_Support is
          --  This was a new file, so if it exists on disk, add it to the result
          --  list.
          if Ada.Directories.Exists (Name => Name) then
-            To.Append (New_Item => As_File_Name);
+            To.Include (Key      => As_File_Name,
+                        New_Item => Source_File_Name (To_Name (Name)));
             Log.Debug (Message => """" & Simple_Name & """ added to index.");
          else
             Log.Debug
@@ -90,7 +90,7 @@ package body SPAT.GPR_Support is
    --  Get_SPARK_Files
    ---------------------------------------------------------------------------
    function Get_SPARK_Files
-     (GPR_File : GNATCOLL.VFS.Filesystem_String) return Strings.SPARK_File_Names
+     (GPR_File : GNATCOLL.VFS.Filesystem_String) return SPARK_Source_Maps.Map
    is
       Start_Time  : Ada.Real_Time.Time;
 
@@ -126,7 +126,7 @@ package body SPAT.GPR_Support is
             Log.Error
               (Message =>
                   "Could not load """ & GNATCOLL.VFS."+" (GPR_File) & """!");
-            return Strings.Empty_Files;
+            return SPARK_Source_Maps.Empty_Map;
       end Load_Project;
 
       Start_Time := Ada.Real_Time.Clock;
@@ -144,7 +144,7 @@ package body SPAT.GPR_Support is
          --  Initialize the lists.
          Raw_List    : File_Name_Caches.Set;
          --  Stores all encountered files.
-         Result_List : Strings.SPARK_File_Names (Capacity => Capacity);
+         Result_List : SPARK_Source_Maps.Map;
          --  Stores only files that exist on disk.
       begin
          Raw_List.Reserve_Capacity (Capacity => Capacity);

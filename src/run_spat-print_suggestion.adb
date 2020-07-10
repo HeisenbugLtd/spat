@@ -25,7 +25,10 @@ separate (Run_SPAT)
 ------------------------------------------------------------------------------
 --  Print_Suggestion
 ------------------------------------------------------------------------------
-procedure Print_Suggestion (Info : in SPAT.Spark_Info.T) is
+procedure Print_Suggestion
+  (Info     : in SPAT.Spark_Info.T;
+   File_Map : in SPAT.GPR_Support.SPARK_Source_Maps.Map)
+is
    Indent  : constant String := "   ";
    Results : SPAT.Spark_Info.Heuristics.File_Vectors.Vector;
    use type SPAT.Spark_Info.Heuristics.Prover_Vectors.Cursor;
@@ -35,7 +38,8 @@ begin
    SPAT.Log.Warning (Message => "This feature is highly experimental.");
    SPAT.Log.Warning (Message => "Please consult the documentation.");
 
-   Results := SPAT.Spark_Info.Heuristics.Find_Optimum (Info => Info);
+   Results := SPAT.Spark_Info.Heuristics.Find_Optimum (Info     => Info,
+                                                       File_Map => File_Map);
 
    SPAT.Log.Message (Message => "");
    SPAT.Log.Message (Message => "package Prove is");

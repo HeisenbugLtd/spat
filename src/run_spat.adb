@@ -55,7 +55,9 @@ procedure Run_SPAT is
    ---------------------------------------------------------------------------
    --  Print_Suggestion
    ---------------------------------------------------------------------------
-   procedure Print_Suggestion (Info : in SPAT.Spark_Info.T);
+   procedure Print_Suggestion
+     (Info     : in SPAT.Spark_Info.T;
+      File_Map : in SPAT.GPR_Support.SPARK_Source_Maps.Map);
 
    ---------------------------------------------------------------------------
    --  Print_Summary
@@ -76,7 +78,9 @@ procedure Run_SPAT is
    ---------------------------------------------------------------------------
    --  Print_Suggestion
    ---------------------------------------------------------------------------
-   procedure Print_Suggestion (Info : in SPAT.Spark_Info.T) is separate;
+   procedure Print_Suggestion
+     (Info     : in SPAT.Spark_Info.T;
+      File_Map : in SPAT.GPR_Support.SPARK_Source_Maps.Map) is separate;
 
    ---------------------------------------------------------------------------
    --  Print_Summary
@@ -164,13 +168,11 @@ begin
         SPAT.Command_Line.Report.Get;
       Project_File : constant GNATCOLL.VFS.Filesystem_String :=
         GNATCOLL.VFS."+" (S => SPAT.To_String (SPAT.Command_Line.Project.Get));
+      File_List : constant SPAT.GPR_Support.SPARK_Source_Maps.Map :=
+        SPAT.GPR_Support.Get_SPARK_Files (GPR_File => Project_File);
       use type SPAT.Command_Line.Report_Mode;
    begin
       Collect_And_Parse :
-      declare
-         --  Step 1: Collect all .spark files.
-         File_List : constant SPAT.Strings.SPARK_File_Names :=
-           SPAT.GPR_Support.Get_SPARK_Files (GPR_File => Project_File);
       begin
          --  Step 2: Parse the files into JSON values.
          if not File_List.Is_Empty then
@@ -181,7 +183,15 @@ begin
 
             Start_Time := Ada.Real_Time.Clock;
 
-            SPARK_Files.Read (Names => File_List);
+            declare
+               File_Names : SPAT.Strings.SPARK_File_Names (Capacity => File_List.Length);
+            begin
+               for X in File_List.Iterate loop
+                  File_Names.Append (SPAT.GPR_Support.SPARK_Source_Maps.Key (X));
+               end loop;
+
+               SPARK_Files.Read (Names => File_Names);
+            end;
 
             SPAT.Log.Debug
               (Message =>
@@ -249,7 +259,8 @@ begin
          end if;
 
          if SPAT.Command_Line.Suggest.Get then
-            Print_Suggestion (Info => Info);
+            Print_Suggestion (Info     => Info,
+                              File_Map => File_List);
          end if;
       exception
          when E : others =>
