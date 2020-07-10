@@ -18,7 +18,7 @@ jobs:
       fail-fast: true # false # Don't cancel other runs
       matrix:
         tag:
-          - fsf
+          # - fsf Disable FSF again until we figure out how to get a recent GNATColl into the image
           - community
         year:
           - 2019
