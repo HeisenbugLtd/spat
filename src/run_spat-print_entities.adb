@@ -33,18 +33,6 @@ procedure Print_Entities (Info          : in SPAT.Spark_Info.T;
                           Cut_Off       : in Duration;
                           Entity_Filter : in Reg_Exp_List.Vector)
 is
-   Entities : constant SPAT.Strings.Entity_Names :=
-     Info.List_All_Entities (Sort_By => Sort_By);
-
-   use type Ada.Text_IO.Count;
-   use type SPAT.Subject_Name;
-
-   Second_Column : constant Ada.Text_IO.Count := Entities.Max_Length + 2;
-   Mode          : constant SPAT.Command_Line.Report_Mode :=
-     SPAT.Command_Line.Report.Get;
-   Detail_Level  : constant SPAT.Command_Line.Detail_Level :=
-     SPAT.Command_Line.Details.Get;
-
    type Filtered is
       record
          Omitted_Entities : Natural;
@@ -63,7 +51,11 @@ is
 
    Cut_Off_Filter : Filtered := None_Filtered;
 
-   use all type SPAT.Command_Line.Detail_Level;
+   Mode          : constant SPAT.Command_Line.Report_Mode :=
+     SPAT.Command_Line.Report.Get;
+   Detail_Level  : constant SPAT.Command_Line.Detail_Level :=
+     SPAT.Command_Line.Details.Get;
+
    use all type SPAT.Command_Line.Report_Mode;
 
    ---------------------------------------------------------------------------
@@ -168,6 +160,15 @@ is
                  when Unjustified => (The_Proof.Has_Unproved_Attempts and then
                                       The_Proof.Is_Unjustified));
    end Should_Show_Proof;
+
+   use type Ada.Text_IO.Count;
+   use type SPAT.Subject_Name;
+   use all type SPAT.Command_Line.Detail_Level;
+
+   Entities : constant SPAT.Strings.Entity_Names :=
+     Info.List_All_Entities (Sort_By => Sort_By);
+
+   Second_Column : constant Ada.Text_IO.Count := Entities.Max_Length + 2;
 
 begin --  Print_Entities
    for Entity of Entities loop
