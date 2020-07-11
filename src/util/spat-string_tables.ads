@@ -18,13 +18,11 @@ pragma License (Unrestricted);
 ------------------------------------------------------------------------------
 
 with Ada.Containers.Vectors;
-with Ada.Strings.Maps;
 with Ada.Strings.Unbounded;
 with Ada.Text_IO;
 
 generic
-   Columns              : in Positive;
-   Ignorable_Characters : in Ada.Strings.Maps.Character_Set;
+   Columns : in Positive;
 package SPAT.String_Tables is
 
    type Row is array (1 .. Columns) of Ada.Strings.Unbounded.Unbounded_String;

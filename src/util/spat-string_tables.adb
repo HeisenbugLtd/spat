@@ -13,16 +13,6 @@ package body SPAT.String_Tables is
    type Column_Positions is array (1 .. Columns) of Ada.Text_IO.Positive_Count;
 
    ---------------------------------------------------------------------------
-   --  Starts_With_Ignorable_Character
-   --
-   --  Very special handling of continuation lines.  If a string starts with
-   --  one of the ignorable characters it is not considered to be counted in
-   --  the column width.
-   ---------------------------------------------------------------------------
-   function Starts_With_Ignorable_Character
-     (Source : in Ada.Strings.Unbounded.Unbounded_String) return Boolean;
-
-   ---------------------------------------------------------------------------
    --  Put
    ---------------------------------------------------------------------------
    procedure Put
@@ -35,24 +25,27 @@ package body SPAT.String_Tables is
    begin
       --  Retrieve maximum length of each column.
       for Row of Item loop
-         for Col in 1 .. Columns loop
+         for Col in Col_Length'Range loop
             Col_Length (Col) :=
               Ada.Text_IO.Count'Max
                 (Col_Length (Col),
-                 (if Starts_With_Ignorable_Character (Source => Row (Col))
-                  then 0 -- Ignore lines starting with special characters.
+                 (if
+                    Col = Col_Length'First and then
+                    Col /= Col_Length'Last and then
+                    Ada.Strings.Unbounded.Length (Row (Col + 1)) = 0
+                  then 0
+                  --  Ignore length of first field if no other field follows.
                   else Ada.Text_IO.Count (Ada.Strings.Unbounded.Length (Row (Col)))));
          end loop;
       end loop;
 
       --  Now each Length entry contains the maximum length of each item.
-      --  Let's turn these length into absolute positions. We assume one space
-      --  character between each column.
+      --  Let's turn these length into absolute positions.
       for Col in Col_Length'Range loop
          Start_Col (Col) :=
            (if Col = Col_Length'First
             then 1
-            else 1 + Start_Col (Col - 1) + Col_Length (Col - 1));
+            else Start_Col (Col - 1) + Col_Length (Col - 1));
       end loop;
 
       --  Finally print each entry.
@@ -70,24 +63,5 @@ package body SPAT.String_Tables is
          Ada.Text_IO.New_Line (File => File);
       end loop;
    end Put;
-
-   ---------------------------------------------------------------------------
-   --  Starts_With_Ignorable_Character
-   ---------------------------------------------------------------------------
-   function Starts_With_Ignorable_Character
-     (Source : in Ada.Strings.Unbounded.Unbounded_String) return Boolean
-   is
-   begin
-      if Ada.Strings.Unbounded.Length (Source => Source) = 0 then
-         return True;
-         --  Minor optimization to avoid an additional call to Length.
-      end if;
-
-      return
-        Ada.Strings.Maps.Is_In
-          (Element => Ada.Strings.Unbounded.Element (Source => Source,
-                                                     Index  => 1),
-           Set     => Ignorable_Characters);
-   end Starts_With_Ignorable_Character;
 
 end SPAT.String_Tables;

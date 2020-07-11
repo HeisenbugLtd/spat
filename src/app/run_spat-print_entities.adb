@@ -15,7 +15,7 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
-with Ada.Strings.Maps;
+with Ada.Strings.Fixed;
 with Ada.Strings.Unbounded;
 with SPAT.Entity.Tree;
 with SPAT.Log;
@@ -167,25 +167,66 @@ is
    Entities : constant SPAT.Strings.Entity_Names :=
      Info.List_All_Entities (Sort_By => Sort_By);
 
-   package Output_Columns is new
-     SPAT.String_Tables
-       (Columns              => 3,
-        Ignorable_Characters => Ada.Strings.Maps.To_Set (Sequence => " `"));
+   package Output_Columns is new SPAT.String_Tables (Columns => 4);
+
+   ---------------------------------------------------------------------------
+   --  Split_Into
+   ---------------------------------------------------------------------------
+   procedure Split_Into (Source   : in     String;
+                         Split_By : in     String;
+                         Target   :    out Output_Columns.Row);
+
+   ---------------------------------------------------------------------------
+   --  Split_Into
+   ---------------------------------------------------------------------------
+   procedure Split_Into (Source   : in     String;
+                         Split_By : in     String;
+                         Target   :    out Output_Columns.Row)
+   is
+      Split_At : constant Natural :=
+        Ada.Strings.Fixed.Index (Source  => Source,
+                                 Pattern => Split_By);
+   begin
+      if Split_At > Source'First then
+         Target :=
+           (1 =>
+              SPAT.To_Name
+                (Source =>
+                   Ada.Strings.Fixed.Trim
+                     (Source => Source (Source'First .. Split_At - 1),
+                      Side   => Ada.Strings.Both)),
+            2 => SPAT.To_Name (Source => Split_By),
+            3 =>
+              SPAT.To_Name
+                (Source =>
+                   Ada.Strings.Fixed.Trim
+                     (Source =>
+                        Source (Split_At + Split_By'Length .. Source'Last),
+                      Side   => Ada.Strings.Both)),
+            4 => SPAT.Null_Name);
+      else
+         Target := (1      => SPAT.To_Name (Source => Source),
+                    others => SPAT.Null_Name);
+      end if;
+   end Split_Into;
 
    Output_List : Output_Columns.Row_Vectors.Vector;
    Current_Row : Output_Columns.Row;
 begin --  Print_Entities
    for Entity of Entities loop
       if Should_Show_Entity (Entity => Entity) then
-         Current_Row (1) := SPAT.Subject_Name (Entity);
-         Current_Row (2) := SPAT.To_Name (Source => "=>");
-         Current_Row (3) :=
-           SPAT.To_Name (Source =>
-                           (if Info.Has_Unproved_Attempts (Entity => Entity)
-                            then "--" -- Useless if nothing is proven.
-                            else SPAT.Image (Value => Info.Max_Success_Proof_Time (Entity => Entity))) &
-                           "/" & SPAT.Image (Value => Info.Max_Proof_Time (Entity => Entity)) &
-                           "/" & SPAT.Image (Value => Info.Total_Proof_Time (Entity => Entity)));
+         Current_Row :=
+           (1 => SPAT.Subject_Name (Entity),
+            2 => SPAT.To_Name (" => "),
+            3 => SPAT.Null_Name,
+            4 =>
+              SPAT.To_Name
+                (Source =>
+                   (if Info.Has_Unproved_Attempts (Entity => Entity)
+                    then "--" -- Useless if nothing is proven.
+                    else SPAT.Image (Value => Info.Max_Success_Proof_Time (Entity => Entity))) &
+                   "/" & SPAT.Image (Value => Info.Max_Proof_Time (Entity => Entity)) &
+                   "/" & SPAT.Image (Value => Info.Total_Proof_Time (Entity => Entity))));
          Output_List.Append (New_Item => Current_Row);
 
          if Detail_Level > SPAT.Command_Line.None then
@@ -197,10 +238,9 @@ begin --  Print_Entities
                   use type SPAT.Justification;
                begin
                   if Should_Show_Proof (The_Proof => The_Proof) then
-                     Current_Row :=
-                       (1      =>
-                          SPAT.To_Name (Source => "`-" & The_Proof.Image),
-                        others => SPAT.Null_Name);
+                     Split_Into (Source   => "`-" & The_Proof.Image,
+                                 Split_By => " => ",
+                                 Target   => Current_Row);
                      Output_List.Append (New_Item => Current_Row);
 
                      if Detail_Level > Level_1 then
@@ -254,8 +294,8 @@ begin --  Print_Entities
                           (1 =>
                              SPAT.To_Name
                                (Source =>
-                                  "`-Justified with: """ &
-                                    SPAT.To_String (The_Proof.Suppressed) & """."),
+                                  "Justified with: """ &
+                                  SPAT.To_String (The_Proof.Suppressed) & """."),
                            others => SPAT.Null_Name);
                         Output_List.Append (New_Item => Current_Row);
                      end if;
