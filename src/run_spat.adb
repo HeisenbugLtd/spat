@@ -18,7 +18,6 @@ pragma License (Unrestricted);
 with Ada.Command_Line;
 with Ada.Containers.Vectors;
 with Ada.Directories;
-with Ada.Real_Time;
 
 with GNAT.Regexp;
 with GNATCOLL.JSON;
@@ -29,6 +28,7 @@ with SPAT.GPR_Support;
 with SPAT.Log;
 with SPAT.Spark_Files;
 with SPAT.Spark_Info;
+with SPAT.Stop_Watch;
 with SPAT.Strings;
 with SPAT.Version;
 with System;
@@ -89,7 +89,6 @@ procedure Run_SPAT is
                             Sort_By : in SPAT.Spark_Info.Sorting_Criterion;
                             Cut_Off : in Duration) is separate;
 
-   use type Ada.Real_Time.Time;
    use type SPAT.Subject_Name;
 
    Entity_Filter : Reg_Exp_List.Vector;
@@ -160,7 +159,7 @@ begin
    Do_Run_SPAT :
    declare
       SPARK_Files  : SPAT.Spark_Files.T;
-      Start_Time   : Ada.Real_Time.Time;
+      Timer        : SPAT.Stop_Watch.T := SPAT.Stop_Watch.Create;
       Sort_By      : constant SPAT.Spark_Info.Sorting_Criterion :=
         SPAT.Command_Line.Sort_By.Get;
       Cut_Off      : constant Duration := SPAT.Command_Line.Cut_Off.Get;
@@ -181,7 +180,7 @@ begin
                  "Using up to" & SPAT.Spark_Files.Num_Workers'Image &
                  " parsing threads.");
 
-            Start_Time := Ada.Real_Time.Clock;
+            Timer.Start;
 
             declare
                File_Names : SPAT.Strings.SPARK_File_Names (Capacity => File_List.Length);
@@ -194,12 +193,7 @@ begin
             end;
 
             SPAT.Log.Debug
-              (Message =>
-                 "Parsing completed in " &
-                 SPAT.Image
-                   (Value =>
-                      Ada.Real_Time.To_Duration
-                        (TS => Ada.Real_Time.Clock - Start_Time)) & ".");
+              (Message => "Parsing completed in " & Timer.Elapsed & ".");
          end if;
       end Collect_And_Parse;
 
@@ -209,7 +203,7 @@ begin
       begin
          --  Step 3: Process the JSON data.
          if not SPARK_Files.Is_Empty then
-            Start_Time := Ada.Real_Time.Clock;
+            Timer.Start;
 
             for C in SPARK_Files.Iterate loop
                Parse_JSON_File :
@@ -233,13 +227,12 @@ begin
             end loop;
 
             SPAT.Log.Debug
-              (Message =>
-                 "Reading completed in " &
-                 SPAT.Image
-                   (Value =>
-                      Ada.Real_Time.To_Duration
-                        (TS => Ada.Real_Time.Clock - Start_Time)) & ".");
+              (Message => "Reading completed in " & Timer.Elapsed & ".");
          end if;
+
+         SPAT.Log.Debug
+           (Message =>
+              "Collecting files completed in " & Timer.Elapsed_Total & ".");
 
          SPAT.Log.Debug
            (Message => "Cut off point set to " & SPAT.Image (Cut_Off) & ".");

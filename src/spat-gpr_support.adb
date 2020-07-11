@@ -9,10 +9,10 @@ pragma License (Unrestricted);
 
 with Ada.Containers.Hashed_Sets;
 with Ada.Directories;
-with Ada.Real_Time;
 
 with GNATCOLL.Projects;
 with SPAT.Log;
+with SPAT.Stop_Watch;
 
 package body SPAT.GPR_Support is
 
@@ -31,9 +31,9 @@ package body SPAT.GPR_Support is
                        To           : in out SPARK_Source_Maps.Map);
 
    ---------------------------------------------------------------------------
-   --  SPARK_Name
+   --  To_SPARK_Name
    ---------------------------------------------------------------------------
-   function SPARK_Name
+   function To_SPARK_Name
      (Project_Tree : in GNATCOLL.Projects.Project_Tree;
       Source_File  : in GNATCOLL.VFS.Virtual_File) return String;
 
@@ -58,8 +58,8 @@ package body SPAT.GPR_Support is
                        To           : in out SPARK_Source_Maps.Map)
    is
       SPARK_Name   : constant String :=
-        GPR_Support.SPARK_Name (Project_Tree => Project_Tree,
-                                Source_File  => Source_File);
+        To_SPARK_Name (Project_Tree => Project_Tree,
+                       Source_File  => Source_File);
       As_File_Name : constant SPARK_File_Name :=
         SPARK_File_Name (To_Name (Source => SPARK_Name));
       Simple_Name  : constant String :=
@@ -102,35 +102,19 @@ package body SPAT.GPR_Support is
    function Get_SPARK_Files
      (GPR_File : GNATCOLL.VFS.Filesystem_String) return SPARK_Source_Maps.Map
    is
-      Start_Time  : Ada.Real_Time.Time;
-
-      ------------------------------------------------------------------------
-      --  Elapsed_Time
-      ------------------------------------------------------------------------
-      function Elapsed_Time return String;
-
-      ------------------------------------------------------------------------
-      --  Elapsed_Time
-      ------------------------------------------------------------------------
-      function Elapsed_Time return String is
-         use type Ada.Real_Time.Time;
-         Elapsed : constant Duration :=
-           Ada.Real_Time.To_Duration (TS => Ada.Real_Time.Clock - Start_Time);
-      begin
-         return Image (Value => Elapsed);
-      end Elapsed_Time;
+      Timer : Stop_Watch.T := Stop_Watch.Create;
 
       Project_Tree : GNATCOLL.Projects.Project_Tree;
    begin
       Load_Project :
       begin
-         Start_Time := Ada.Real_Time.Clock; --  Reset measurement.
+         Timer.Start; --  Start lap measurement.
 
          Project_Tree.Load
            (Root_Project_Path =>
               GNATCOLL.VFS.Create (Full_Filename => GPR_File));
 
-         Log.Debug (Message => "GNAT project loaded in " & Elapsed_Time & ".");
+         Log.Debug (Message => "GNAT project loaded in " & Timer.Elapsed & ".");
       exception
          when GNATCOLL.Projects.Invalid_Project =>
             Log.Error
@@ -139,7 +123,7 @@ package body SPAT.GPR_Support is
             return SPARK_Source_Maps.Empty_Map;
       end Load_Project;
 
-      Start_Time := Ada.Real_Time.Clock;
+      Timer.Start; --  Next lap measurement
 
       Load_Source_Files :
       declare
@@ -184,7 +168,7 @@ package body SPAT.GPR_Support is
          begin
             Log.Debug
               (Message =>
-                 "Search completed in " & Elapsed_Time &
+                 "Search completed in " & Timer.Elapsed &
                  "," & Num_Files'Image & " file" &
                (if Num_Files /= 1 then "s" else "") & " found.");
          end Report_Timing;
@@ -220,7 +204,7 @@ package body SPAT.GPR_Support is
    ---------------------------------------------------------------------------
    --  SPARK_Name
    ---------------------------------------------------------------------------
-   function SPARK_Name
+   function To_SPARK_Name
      (Project_Tree : in GNATCOLL.Projects.Project_Tree;
       Source_File  : in GNATCOLL.VFS.Virtual_File) return String
    is
@@ -251,6 +235,6 @@ package body SPAT.GPR_Support is
              Ada.Directories.Base_Name
                (Name => Source_File.Display_Full_Name),
            Extension            => "spark");
-   end SPARK_Name;
+   end To_SPARK_Name;
 
 end SPAT.GPR_Support;
