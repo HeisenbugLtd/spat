@@ -199,7 +199,7 @@ private
       record
          Suppressed            : Justification;
          Rule                  : Rule_Name;
-         Severity              : Subject_Name;
+         Severity              : Severity_Name;
          Max_Success_Time      : Duration; --  Longest time for a successful proof.
          Max_Time              : Duration; --  Longest time spent in proof (successful or not)
          Total_Time            : Duration; --  Accumulated proof time.

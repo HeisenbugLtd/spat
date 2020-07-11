@@ -244,7 +244,9 @@ package body SPAT.Proof_Item is
                           (Subject_Name'(Object.Get
                                            (Field => Field_Names.Rule))),
                       Severity              =>
-                        Object.Get (Field => Field_Names.Severity),
+                        Severity_Name
+                          (Subject_Name'(Object.Get
+                                           (Field => Field_Names.Severity))),
                       Max_Success_Time      => (if Has_Unproved_Attempts
                                                 then 0.0
                                                 else Max_Success_Time),

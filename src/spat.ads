@@ -83,16 +83,19 @@ package SPAT is
    type Source_File_Name is new File_Name; --  Name of an "Ada" source file.
 
    type Prover_Name is new Subject_Name;
-   --  Name of a prover, i.e. "altergo", "Z3", ...
+   --  Name of a prover (e.g. "altergo", "Z3", ...)
 
    type Justification is new Subject_Name;
    --  Justification info (i.e. the "suppressed" field in a failed check).
 
    type Result_Name is new Subject_Name;
-   --  A proof result, i.e. "Valid", "Unknown", "Timeout", ...
+   --  A proof result (e.g. "Valid", "Unknown", "Timeout", ...)
 
    type Rule_Name is new Subject_Name;
-   --  A verification condition rule (i.e. something like VC_RANGE_CHECK, ...)
+   --  A verification condition rule (e.g. something like VC_RANGE_CHECK, ...)
+
+   type Severity_Name is new Subject_Name;
+   --  Severity of a message (e.g. "info", "medium", "error", ...)
 
    --  Type renames for commonly used JSON types from GNATCOLL.JSON
    subtype JSON_Array      is GNATCOLL.JSON.JSON_Array;
