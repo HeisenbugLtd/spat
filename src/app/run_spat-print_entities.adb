@@ -15,13 +15,14 @@ pragma License (Unrestricted);
 --
 ------------------------------------------------------------------------------
 
-with Ada.Text_IO;
-
+with Ada.Strings.Maps;
+with Ada.Strings.Unbounded;
 with SPAT.Entity.Tree;
 with SPAT.Log;
 with SPAT.Proof_Attempt;
 with SPAT.Proof_Item;
 with SPAT.Strings;
+with SPAT.String_Tables;
 
 separate (Run_SPAT)
 
@@ -161,29 +162,31 @@ is
                                       The_Proof.Is_Unjustified));
    end Should_Show_Proof;
 
-   use type Ada.Text_IO.Count;
    use all type SPAT.Command_Line.Detail_Level;
 
    Entities : constant SPAT.Strings.Entity_Names :=
      Info.List_All_Entities (Sort_By => Sort_By);
 
-   Second_Column : constant Ada.Text_IO.Count := Entities.Max_Length + 2;
+   package Output_Columns is new
+     SPAT.String_Tables
+       (Columns              => 3,
+        Ignorable_Characters => Ada.Strings.Maps.To_Set (Sequence => " `"));
 
+   Output_List : Output_Columns.Row_Vectors.Vector;
+   Current_Row : Output_Columns.Row;
 begin --  Print_Entities
    for Entity of Entities loop
       if Should_Show_Entity (Entity => Entity) then
-         SPAT.Log.Message (Message  => SPAT.To_String (Source => Entity),
-                           New_Line => False);
-         Ada.Text_IO.Set_Col (File => Ada.Text_IO.Standard_Output,
-                              To   => Second_Column);
-         SPAT.Log.Message
-           (Message =>
-              "=> " &
-              (if Info.Has_Unproved_Attempts (Entity => Entity)
-               then "--" -- Useless if nothing is proven.
-               else SPAT.Image (Value => Info.Max_Success_Proof_Time (Entity => Entity))) &
-              "/" & SPAT.Image (Value => Info.Max_Proof_Time (Entity => Entity)) &
-              "/" & SPAT.Image (Value => Info.Total_Proof_Time (Entity => Entity)));
+         Current_Row (1) := SPAT.Subject_Name (Entity);
+         Current_Row (2) := SPAT.To_Name (Source => "=>");
+         Current_Row (3) :=
+           SPAT.To_Name (Source =>
+                           (if Info.Has_Unproved_Attempts (Entity => Entity)
+                            then "--" -- Useless if nothing is proven.
+                            else SPAT.Image (Value => Info.Max_Success_Proof_Time (Entity => Entity))) &
+                           "/" & SPAT.Image (Value => Info.Max_Proof_Time (Entity => Entity)) &
+                           "/" & SPAT.Image (Value => Info.Total_Proof_Time (Entity => Entity)));
+         Output_List.Append (New_Item => Current_Row);
 
          if Detail_Level > SPAT.Command_Line.None then
             for PI_Position in Info.Proof_Tree (Entity => Entity) loop
@@ -194,7 +197,11 @@ begin --  Print_Entities
                   use type SPAT.Justification;
                begin
                   if Should_Show_Proof (The_Proof => The_Proof) then
-                     SPAT.Log.Message (Message => "`-" & The_Proof.Image);
+                     Current_Row :=
+                       (1      =>
+                          SPAT.To_Name (Source => "`-" & The_Proof.Image),
+                        others => SPAT.Null_Name);
+                     Output_List.Append (New_Item => Current_Row);
 
                      if Detail_Level > Level_1 then
                         for Check_Position in
@@ -208,11 +215,8 @@ begin --  Print_Entities
                                      (Position => Check_Position));
                            begin
                               if Should_Show_Check (The_Check => The_Check) then
-                                 Ada.Text_IO.Set_Col
-                                   (File => Ada.Text_IO.Standard_Output,
-                                    To   => 2);
-                                 SPAT.Log.Message (Message  => "`",
-                                                   New_Line => False);
+                                 Current_Row := (1      => SPAT.To_Name (" `"),
+                                                 others => SPAT.Null_Name);
 
                                  for Attempt_Position in
                                    Info.Iterate_Children
@@ -225,11 +229,17 @@ begin --  Print_Entities
                                            (SPAT.Entity.Tree.Element
                                               (Position => Attempt_Position));
                                     begin
-                                       Ada.Text_IO.Set_Col
-                                         (File => Ada.Text_IO.Standard_Output,
-                                          To   => 3);
-                                       SPAT.Log.Message
-                                         (Message => "-" & The_Attempt.Image);
+                                       Ada.Strings.Unbounded.Append
+                                         (Source => Current_Row (1),
+                                          New_Item => "-");
+                                       Ada.Strings.Unbounded.Append
+                                         (Source   => Current_Row (1),
+                                          New_Item => The_Attempt.Image);
+                                       Output_List.Append
+                                         (New_Item => Current_Row);
+                                       Current_Row :=
+                                         (1      => SPAT.To_Name ("  "),
+                                          others => SPAT.Null_Name);
                                     end;
                                  end loop;
                               end if;
@@ -240,10 +250,14 @@ begin --  Print_Entities
                      if
                        The_Proof.Suppressed /= SPAT.Justification (SPAT.Null_Name)
                      then
-                        SPAT.Log.Message
-                          (Message =>
-                             "Justified with: """ &
-                             SPAT.To_String (The_Proof.Suppressed) & """.");
+                        Current_Row :=
+                          (1 =>
+                             SPAT.To_Name
+                               (Source =>
+                                  "`-Justified with: """ &
+                                    SPAT.To_String (The_Proof.Suppressed) & """."),
+                           others => SPAT.Null_Name);
+                        Output_List.Append (New_Item => Current_Row);
                      end if;
                   end if;
                end;
@@ -251,6 +265,8 @@ begin --  Print_Entities
          end if;
       end if;
    end loop;
+
+   Output_Columns.Put (Item => Output_List);
 
    if SPAT.Log.Debug_Enabled and then Has_Omitted (F => Cut_Off_Filter) then
       SPAT.Log.Debug

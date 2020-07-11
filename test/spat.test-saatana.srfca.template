@@ -14,4 +14,4 @@ test_phelix.spark                        => (Flow  => 180.0 µs,
                                              Proof => 0.0 s/0.0 s/0.0 s)
 test_phelix_api.spark                    => (Flow  => 14.4 ms,
                                              Proof => 240.0 ms/240.0 ms/23.1 s)
-Saatana.Crypto.Phelix.Setup_Key            => 640.0 ms/206.4 s/219.2 s
+Saatana.Crypto.Phelix.Setup_Key => 640.0 ms/206.4 s/219.2 s

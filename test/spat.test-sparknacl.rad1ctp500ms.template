@@ -1,4 +1,4 @@
-SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
+SPARKNaCl.Sign.Sign                          => --/57.6 s/489.2 s
 `-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36 => --/57.6 s/238.7 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:896:16 => 8.2 s/51.5 s/115.1 s
 `-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:896:16 => 6.0 s/51.0 s/112.4 s
@@ -6,7 +6,7 @@ SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
 `-VC_INDEX_CHECK sparknacl-sign.adb:915:22 => 520.0 ms/520.0 ms/1.4 s
 `-VC_INDEX_CHECK sparknacl-sign.adb:920:22 => 500.0 ms/500.0 ms/1.2 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:931:13 => 550.0 ms/550.0 ms/550.0 ms
-SPARKNaCl.Sign.ModL.Eliminate_Limbs_62_To_32              => 9.2 s/9.2 s/148.2 s
+SPARKNaCl.Sign.ModL.Eliminate_Limbs_62_To_32 => 9.2 s/9.2 s/148.2 s
 `-VC_RANGE_CHECK sparknacl-sign.adb:433:54 => 9.2 s/9.2 s/11.3 s
 `-VC_RANGE_CHECK sparknacl-sign.adb:435:25 => 5.2 s/5.2 s/7.8 s
 `-VC_INDEX_CHECK sparknacl-sign.adb:548:22 => 820.0 ms/820.0 ms/4.6 s
@@ -107,10 +107,10 @@ SPARKNaCl.Sign.ModL.Eliminate_Limbs_62_To_32              => 9.2 s/9.2 s/148.2
 `-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:547:16 => 630.0 ms/630.0 ms/630.0 ms
 `-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:526:16 => 570.0 ms/570.0 ms/570.0 ms
 `-VC_POSTCONDITION sparknacl-sign.adb:289:22 => 540.0 ms/540.0 ms/540.0 ms
-SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/28.6 s
+SPARKNaCl.Omultiply                          => 700.0 ms/19.1 s/28.6 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:164:13 => 40.0 ms/19.1 s/19.1 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:80:16 => 700.0 ms/700.0 ms/930.0 ms
-SPARKNaCl.Sign.ModL.Finalize                              => 2.1 s/2.1 s/27.1 s
+SPARKNaCl.Sign.ModL.Finalize                 => 2.1 s/2.1 s/27.1 s
 `-VC_RANGE_CHECK sparknacl-sign.adb:577:30 => 2.1 s/2.1 s/2.4 s
 `-VC_OVERFLOW_CHECK sparknacl-sign.adb:577:39 => 1.7 s/1.7 s/2.0 s
 `-VC_OVERFLOW_CHECK sparknacl-sign.adb:577:30 => 1.7 s/1.7 s/1.9 s
@@ -120,35 +120,35 @@ SPARKNaCl.Sign.ModL.Finalize                              => 2.1 s/2.1 s/27.1�
 `-VC_ASSERT sparknacl-sign.adb:580:28 => 1.0 s/1.0 s/1.2 s
 `-VC_RANGE_CHECK sparknacl-sign.adb:609:30 => 620.0 ms/620.0 ms/1.0 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:611:16 => 920.0 ms/920.0 ms/920.0 ms
-SPARKNaCl.Hashing.Hashblocks                              => 500.0 ms/500.0 ms/26.7 s
+SPARKNaCl.Hashing.Hashblocks                 => 500.0 ms/500.0 ms/26.7 s
 `-VC_LENGTH_CHECK sparknacl-hashing.adb:145:37 => 500.0 ms/500.0 ms/500.0 ms
-SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
+SPARKNaCl.Car.Nearlynormal_To_Normal         => --/1.4 s/17.5 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => --/1.4 s/1.9 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:322:13 => 810.0 ms/810.0 ms/1.6 s
 `-VC_PREDICATE_CHECK sparknacl-car.adb:308:10 => 1.0 s/1.0 s/1.2 s
 `-VC_ASSERT sparknacl-car.adb:343:31 => --/790.0 ms/1.2 s
 `-VC_ASSERT sparknacl-car.adb:345:10 => 760.0 ms/760.0 ms/1.2 s
-SPARKNaCl.Scalar.Mult                                     => 550.0 ms/550.0 ms/14.1 s
+SPARKNaCl.Scalar.Mult                        => 550.0 ms/550.0 ms/14.1 s
 `-VC_RANGE_CHECK sparknacl-scalar.adb:33:30 => 550.0 ms/550.0 ms/930.0 ms
 `-VC_INDEX_CHECK sparknacl-scalar.adb:32:20 => 550.0 ms/550.0 ms/910.0 ms
 `-VC_RANGE_CHECK sparknacl-scalar.adb:32:25 => 540.0 ms/540.0 ms/900.0 ms
-SPARKNaCl.Sign.ModL.Eliminate_Limb_63                     => 740.0 ms/740.0 ms/10.8 s
+SPARKNaCl.Sign.ModL.Eliminate_Limb_63        => 740.0 ms/740.0 ms/10.8 s
 `-VC_RANGE_CHECK sparknacl-sign.adb:340:45 => 720.0 ms/720.0 ms/900.0 ms
 `-VC_ASSERT sparknacl-sign.adb:411:13 => 740.0 ms/740.0 ms/740.0 ms
 `-VC_POSTCONDITION sparknacl-sign.adb:267:22 => 520.0 ms/520.0 ms/520.0 ms
 `-VC_ASSERT sparknacl-sign.adb:419:25 => 500.0 ms/500.0 ms/500.0 ms
-SPARKNaCl.Car.Seminormal_To_Nearlynormal                  => 950.0 ms/950.0 ms/8.0 s
+SPARKNaCl.Car.Seminormal_To_Nearlynormal     => 950.0 ms/950.0 ms/8.0 s
 `-VC_PREDICATE_CHECK sparknacl-car.adb:114:10 => 950.0 ms/950.0 ms/1.1 s
-SPARKNaCl.Car.Sum_To_Nearlynormal                         => 660.0 ms/660.0 ms/6.6 s
+SPARKNaCl.Car.Sum_To_Nearlynormal            => 660.0 ms/660.0 ms/6.6 s
 `-VC_PREDICATE_CHECK sparknacl-car.adb:163:10 => 660.0 ms/660.0 ms/830.0 ms
-SPARKNaCl.ASR_16                                          => --/5.7 s/5.9 s
+SPARKNaCl.ASR_16                             => --/5.7 s/5.9 s
 `-VC_POSTCONDITION sparknacl.ads:355:35 => --/5.7 s/5.8 s
-Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.Utils.CSwap                                     => 900.0 ms/900.0 ms/4.8 s
+`-Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.Utils.CSwap                        => 900.0 ms/900.0 ms/4.8 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-utils.adb:51:13 => 900.0 ms/900.0 ms/900.0 ms
-SPARKNaCl.ASR_8                                           => --/3.3 s/3.5 s
+SPARKNaCl.ASR_8                              => --/3.3 s/3.5 s
 `-VC_POSTCONDITION sparknacl.ads:367:35 => --/3.3 s/3.4 s
-Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
+`-Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.ASR_4                              => --/1.2 s/1.4 s
 `-VC_POSTCONDITION sparknacl.ads:379:35 => --/1.2 s/1.3 s
-Justified with: "From definition of arithmetic shift right".
+`-Justified with: "From definition of arithmetic shift right".

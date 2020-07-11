@@ -1,30 +1,30 @@
-SPARKNaCl.ASR_16                                          => --/5.7 s/5.9 s
+SPARKNaCl.ASR_16                             => --/5.7 s/5.9 s
 `-VC_POSTCONDITION sparknacl.ads:355:35 => --/5.7 s/5.8 s
  `-Z3: 5.7 s (Unknown (unknown), 11650768 steps)
   -CVC4: 80.0 ms (Unknown (unknown), 993 steps)
-Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
+`-Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.ASR_4                              => --/1.2 s/1.4 s
 `-VC_POSTCONDITION sparknacl.ads:379:35 => --/1.2 s/1.3 s
  `-Z3: 1.2 s (Unknown (unknown), 11650768 steps)
   -CVC4: 80.0 ms (Unknown (unknown), 993 steps)
-Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.ASR_8                                           => --/3.3 s/3.5 s
+`-Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.ASR_8                              => --/3.3 s/3.5 s
 `-VC_POSTCONDITION sparknacl.ads:367:35 => --/3.3 s/3.4 s
  `-Z3: 3.3 s (Unknown (unknown), 11650768 steps)
   -CVC4: 90.0 ms (Unknown (unknown), 993 steps)
-Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
+`-Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.Car.Nearlynormal_To_Normal         => --/1.4 s/17.5 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => --/1.4 s/1.9 s
  `-CVC4: 1.4 s (Unknown (unknown), 13011 steps)
   -Z3: 590.0 ms (Unknown (unknown), 743088 steps)
 `-VC_PREDICATE_CHECK sparknacl-car.adb:308:10 => 1.0 s/1.0 s/1.2 s
  `-CVC4: 1.0 s (Valid, 22738 steps)
  `-CVC4: 180.0 ms (Valid, 1717 steps)
-SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/28.6 s
+SPARKNaCl.Omultiply                          => 700.0 ms/19.1 s/28.6 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:164:13 => 40.0 ms/19.1 s/19.1 s
  `-CVC4: 19.1 s (Unknown (unknown), 505013 steps)
   -Z3: 40.0 ms (Valid, 68029 steps)
-SPARKNaCl.Sign.ModL.Eliminate_Limbs_62_To_32              => 9.2 s/9.2 s/148.2 s
+SPARKNaCl.Sign.ModL.Eliminate_Limbs_62_To_32 => 9.2 s/9.2 s/148.2 s
 `-VC_RANGE_CHECK sparknacl-sign.adb:433:54 => 9.2 s/9.2 s/11.3 s
  `-CVC4: 9.2 s (Valid, 157187 steps)
  `-CVC4: 1.5 s (Valid, 22699 steps)
@@ -75,7 +75,7 @@ SPARKNaCl.Sign.ModL.Eliminate_Limbs_62_To_32              => 9.2 s/9.2 s/148.2
  `-CVC4: 1.2 s (Valid, 1811 steps)
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:526:16 => 1.1 s/1.1 s/1.1 s
  `-CVC4: 1.1 s (Valid, 2514 steps)
-SPARKNaCl.Sign.ModL.Finalize                              => 2.1 s/2.1 s/27.1 s
+SPARKNaCl.Sign.ModL.Finalize                 => 2.1 s/2.1 s/27.1 s
 `-VC_RANGE_CHECK sparknacl-sign.adb:577:30 => 2.1 s/2.1 s/2.4 s
  `-CVC4: 2.1 s (Valid, 47542 steps)
  `-CVC4: 270.0 ms (Valid, 3357 steps)
@@ -94,7 +94,7 @@ SPARKNaCl.Sign.ModL.Finalize                              => 2.1 s/2.1 s/27.1�
 `-VC_ASSERT sparknacl-sign.adb:579:28 => 1.1 s/1.1 s/1.4 s
  `-CVC4: 1.1 s (Valid, 23896 steps)
  `-CVC4: 260.0 ms (Valid, 3031 steps)
-SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
+SPARKNaCl.Sign.Sign                          => --/57.6 s/489.2 s
 `-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36 => --/57.6 s/238.7 s
  `-CVC4: 57.6 s (Unknown (unknown), 505002 steps)
   -Z3: 4.3 s (Valid, 5205347 steps)
