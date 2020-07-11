@@ -255,12 +255,12 @@ unsuccessful proof for this entity.  An example:
 
 ```
 ...
-SPARKNaCl.MAC.Onetimeauth                                 => 340.0 ms/340.0 ms/3.7 s
-SPARKNaCl.Seminormal_GFPredicate                          => 0.0 s/0.0 s/0.0 s
-SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
-SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
-SPARKNaCl.ASR_8                                           => --/3.3 s/3.5 s
-SPARKNaCl.Sign.Unpackneg.Pow_2523                         => 0.0 s/0.0 s/0.0 s
+SPARKNaCl.MAC.Onetimeauth            => 340.0 ms/340.0 ms/3.7 s
+SPARKNaCl.Seminormal_GFPredicate     => 0.0 s/0.0 s/0.0 s
+SPARKNaCl.ASR_4                      => --/1.2 s/1.4 s
+SPARKNaCl.Car.Nearlynormal_To_Normal => --/1.4 s/17.5 s
+SPARKNaCl.ASR_8                      => --/3.3 s/3.5 s
+SPARKNaCl.Sign.Unpackneg.Pow_2523    => 0.0 s/0.0 s/0.0 s
 ...
 ```
 
@@ -281,7 +281,7 @@ run_spat -ct -rf -P saatana.gpr
 Typical output:
 
 ```
-Saatana.Crypto.Phelix.Setup_Key            => 640.0 ms/206.4 s/219.2 s
+Saatana.Crypto.Phelix.Setup_Key => 640.0 ms/206.4 s/219.2 s
 ```
 
 Here, we can see that there is one entity where a prover failed to prove the
@@ -305,11 +305,11 @@ run_spat -ct -ru -P sparknacl.gpr
 Typical output:
 
 ```
-SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
-SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
-SPARKNaCl.ASR_16                                          => --/5.7 s/5.9 s
-SPARKNaCl.ASR_8                                           => --/3.3 s/3.5 s
-SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
+SPARKNaCl.Sign.Sign                  => --/57.6 s/489.2 s
+SPARKNaCl.Car.Nearlynormal_To_Normal => --/1.4 s/17.5 s
+SPARKNaCl.ASR_16                     => --/5.7 s/5.9 s
+SPARKNaCl.ASR_8                      => --/3.3 s/3.5 s
+SPARKNaCl.ASR_4                      => --/1.2 s/1.4 s
 ```
 
 Here, we can see that there are five entities with unproven verification
@@ -331,8 +331,8 @@ run_spat -ct -rj -P sparknacl.gpr
 Typical output:
 
 ```
-SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
-SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
+SPARKNaCl.Sign.Sign                  => --/57.6 s/489.2 s
+SPARKNaCl.Car.Nearlynormal_To_Normal => --/1.4 s/17.5 s
 ```
 
 Here, we can see that out of the five entities listed by the previous tool
@@ -353,7 +353,7 @@ run_spat -ct -rf -d 1 -P saatana.gpr
 Output:
 
 ```
-Saatana.Crypto.Phelix.Setup_Key            => 640.0 ms/206.4 s/219.2 s
+Saatana.Crypto.Phelix.Setup_Key => 640.0 ms/206.4 s/219.2 s
 `-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44 => 640.0 ms/206.4 s/207.1 s
 ```
 
@@ -366,7 +366,7 @@ run_spat -ct -rf -d -P saatana.gpr
 Output:
 
 ```
-Saatana.Crypto.Phelix.Setup_Key            => 640.0 ms/206.4 s/219.2 s
+Saatana.Crypto.Phelix.Setup_Key => 640.0 ms/206.4 s/219.2 s
 `-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44 => 640.0 ms/206.4 s/207.1 s
  `-Z3: 206.4 s (Unknown (unknown), 105312169 steps)
   -CVC4: 640.0 ms (Valid, 22722 steps)
@@ -394,7 +394,7 @@ run_spat -ct -ru -d -P sparknacl.gpr
 Typical output:
 
 ```
-SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
+SPARKNaCl.Sign.Sign                  => --/57.6 s/489.2 s
 `-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36 => --/57.6 s/238.7 s
  `-CVC4: 51.6 s (Unknown (unknown), 505013 steps)
   -Z3: 7.9 s (Unknown (unknown), 11654552 steps)
@@ -402,28 +402,28 @@ SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
   -Z3: 8.8 s (Unknown (unknown), 11654285 steps)
  `-CVC4: 50.7 s (Unknown (unknown), 505013 steps)
   -Z3: 7.2 s (Unknown (unknown), 11654931 steps)
-SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
+SPARKNaCl.Car.Nearlynormal_To_Normal => --/1.4 s/17.5 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => --/1.4 s/1.9 s
  `-CVC4: 1.4 s (Unknown (unknown), 13011 steps)
   -Z3: 590.0 ms (Unknown (unknown), 743088 steps)
 `-VC_ASSERT sparknacl-car.adb:343:31 => --/790.0 ms/1.2 s
  `-Z3: 790.0 ms (Unknown (unknown), 957357 steps)
   -CVC4: 410.0 ms (Unknown (unknown), 4809 steps)
-SPARKNaCl.ASR_16                                          => --/5.7 s/5.9 s
+SPARKNaCl.ASR_16                     => --/5.7 s/5.9 s
 `-VC_POSTCONDITION sparknacl.ads:355:35 => --/5.7 s/5.8 s
  `-Z3: 5.7 s (Unknown (unknown), 11650768 steps)
   -CVC4: 80.0 ms (Unknown (unknown), 993 steps)
-Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.ASR_8                                           => --/3.3 s/3.5 s
+`-Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.ASR_8                      => --/3.3 s/3.5 s
 `-VC_POSTCONDITION sparknacl.ads:367:35 => --/3.3 s/3.4 s
  `-Z3: 3.3 s (Unknown (unknown), 11650768 steps)
   -CVC4: 90.0 ms (Unknown (unknown), 993 steps)
-Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
+`-Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.ASR_4                      => --/1.2 s/1.4 s
 `-VC_POSTCONDITION sparknacl.ads:379:35 => --/1.2 s/1.3 s
  `-Z3: 1.2 s (Unknown (unknown), 11650768 steps)
   -CVC4: 80.0 ms (Unknown (unknown), 993 steps)
-Justified with: "From definition of arithmetic shift right".
+`-Justified with: "From definition of arithmetic shift right".
 ```
 
 As above, but here you can see the individual proof results including any
@@ -451,21 +451,21 @@ run_spat -ct -ru -d -e ".*ASR.*" -P sparknacl.gpr
 This shows all unproved entities that match the expression `".*ASR.*"`:
 
 ```
-SPARKNaCl.ASR_16                                          => --/5.7 s/5.9 s
+SPARKNaCl.ASR_16 => --/5.7 s/5.9 s
 `-VC_POSTCONDITION sparknacl.ads:355:35 => --/5.7 s/5.8 s
  `-Z3: 5.7 s (Unknown (unknown), 11650768 steps)
   -CVC4: 80.0 ms (Unknown (unknown), 993 steps)
-Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.ASR_8                                           => --/3.3 s/3.5 s
+`-Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.ASR_8  => --/3.3 s/3.5 s
 `-VC_POSTCONDITION sparknacl.ads:367:35 => --/3.3 s/3.4 s
  `-Z3: 3.3 s (Unknown (unknown), 11650768 steps)
   -CVC4: 90.0 ms (Unknown (unknown), 993 steps)
-Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
+`-Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.ASR_4  => --/1.2 s/1.4 s
 `-VC_POSTCONDITION sparknacl.ads:379:35 => --/1.2 s/1.3 s
  `-Z3: 1.2 s (Unknown (unknown), 11650768 steps)
   -CVC4: 80.0 ms (Unknown (unknown), 993 steps)
-Justified with: "From definition of arithmetic shift right".
+`-Justified with: "From definition of arithmetic shift right".
 ```
 
 As above, but the `SPARKNaCl.Sign.Sign` and
@@ -499,11 +499,11 @@ is different for the `--report-mode` and `--summary` output.
   `run_spat -ra -ct -p 400ms -P saatana.gpr`
 
   ```sh
-  Saatana.Crypto.Phelix.Setup_Key            => 640.0 ms/206.4 s/219.2 s
-  Saatana.Crypto.Phelix.Encrypt_Bytes        => 174.3 s/174.3 s/189.0 s
-  Saatana.Crypto.Phelix.Decrypt_Bytes        => 4.0 s/4.0 s/18.6 s
-  Saatana.Crypto.Phelix.Finalize             => 2.2 s/2.2 s/7.7 s
-  Saatana.Crypto.Phelix.H                    => 6.0 s/6.0 s/6.0 s
+  Saatana.Crypto.Phelix.Setup_Key     => 640.0 ms/206.4 s/219.2 s
+  Saatana.Crypto.Phelix.Encrypt_Bytes => 174.3 s/174.3 s/189.0 s
+  Saatana.Crypto.Phelix.Decrypt_Bytes => 4.0 s/4.0 s/18.6 s
+  Saatana.Crypto.Phelix.Finalize      => 2.2 s/2.2 s/7.7 s
+  Saatana.Crypto.Phelix.H             => 6.0 s/6.0 s/6.0 s
   ```
 
   vs.
@@ -511,9 +511,9 @@ is different for the `--report-mode` and `--summary` output.
   `run_spat -ra -ct -P saatana.gpr -p 5000ms` (or `-p 5s`, or even `-p 5`)
 
   ```sh
-  Saatana.Crypto.Phelix.Setup_Key            => 640.0 ms/206.4 s/219.2 s
-  Saatana.Crypto.Phelix.Encrypt_Bytes        => 174.3 s/174.3 s/189.0 s
-  Saatana.Crypto.Phelix.H                    => 6.0 s/6.0 s/6.0 s
+  Saatana.Crypto.Phelix.Setup_Key     => 640.0 ms/206.4 s/219.2 s
+  Saatana.Crypto.Phelix.Encrypt_Bytes => 174.3 s/174.3 s/189.0 s
+  Saatana.Crypto.Phelix.H             => 6.0 s/6.0 s/6.0 s
   ```
 
   Notice that omitted entries disappear from the middle of the list, because
@@ -669,13 +669,13 @@ Examples (mostly to show how the difference between `--sort-by=t` and
   `run_spat -ct -rf -P sparknacl.gpr`
 
   ```
-  SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
-  SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/28.6 s
-  SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
-  SPARKNaCl.ASR_16                                          => --/5.7 s/5.9 s
-  SPARKNaCl.ASR_8                                           => --/3.3 s/3.5 s
-  SPARKNaCl.Utils.Pack_25519.Subtract_P                     => 150.0 ms/180.0 ms/1.8 s
-  SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
+  SPARKNaCl.Sign.Sign                   => --/57.6 s/489.2 s
+  SPARKNaCl.Omultiply                   => 700.0 ms/19.1 s/28.6 s
+  SPARKNaCl.Car.Nearlynormal_To_Normal  => --/1.4 s/17.5 s
+  SPARKNaCl.ASR_16                      => --/5.7 s/5.9 s
+  SPARKNaCl.ASR_8                       => --/3.3 s/3.5 s
+  SPARKNaCl.Utils.Pack_25519.Subtract_P => 150.0 ms/180.0 ms/1.8 s
+  SPARKNaCl.ASR_4                       => --/1.2 s/1.4 s
   ```
 
 * By successful proof:
@@ -683,13 +683,13 @@ Examples (mostly to show how the difference between `--sort-by=t` and
   `run_spat -cs -rf -P sparknacl.gpr`
 
   ```
-  SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/28.6 s
-  SPARKNaCl.Utils.Pack_25519.Subtract_P                     => 150.0 ms/180.0 ms/1.8 s
-  SPARKNaCl.Sign.Sign                                       => --/57.6 s/489.2 s
-  SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s/17.5 s
-  SPARKNaCl.ASR_16                                          => --/5.7 s/5.9 s
-  SPARKNaCl.ASR_8                                           => --/3.3 s/3.5 s
-  SPARKNaCl.ASR_4                                           => --/1.2 s/1.4 s
+  SPARKNaCl.Omultiply                   => 700.0 ms/19.1 s/28.6 s
+  SPARKNaCl.Utils.Pack_25519.Subtract_P => 150.0 ms/180.0 ms/1.8 s
+  SPARKNaCl.Sign.Sign                   => --/57.6 s/489.2 s
+  SPARKNaCl.Car.Nearlynormal_To_Normal  => --/1.4 s/17.5 s
+  SPARKNaCl.ASR_16                      => --/5.7 s/5.9 s
+  SPARKNaCl.ASR_8                       => --/3.3 s/3.5 s
+  SPARKNaCl.ASR_4                       => --/1.2 s/1.4 s
   ```
 
 Notice, how the entries for `SPARKNaCl.Omultiply` and
@@ -705,7 +705,7 @@ Looking at `Omultiply` in detail:
 `run_spat -d -cs -ra -P sparknacl.gpr -e .*Omultiply`
 
 ```
-SPARKNaCl.Omultiply                                       => 700.0 ms/19.1 s/28.6 s
+SPARKNaCl.Omultiply => 700.0 ms/19.1 s/28.6 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:164:13 => 40.0 ms/19.1 s/19.1 s
  `-CVC4: 19.1 s (Unknown (unknown), 505013 steps)
   -Z3: 40.0 ms (Valid, 68029 steps)
