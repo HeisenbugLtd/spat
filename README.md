@@ -167,16 +167,22 @@ run_spat -s -P saatana.gpr
 Typical output would look like this:
 
 ```
-saatana-crypto.spark        => (Flow  => 9.0 ms,
-                                Proof => 80.0 ms/80.0 ms/6.8 s)
-saatana-crypto-phelix.spark => (Flow  => 206.5 ms,
-                                Proof => 174.3 s/206.4 s/568.7 s)
-saatana.spark               => (Flow  => 464.0 µs,
-                                Proof => 0.0 s/0.0 s/0.0 s)
-saatana-crypto-lemmas.spark => (Flow  => 2.1 ms,
-                                Proof => 210.0 ms/210.0 ms/2.2 s)
-test_phelix_api.spark       => (Flow  => 14.4 ms,
-                                Proof => 240.0 ms/240.0 ms/23.1 s)
+saatana-crypto.spark                     => (Flow  => 9.0 ms,
+                                             Proof => 80.0 ms/80.0 ms/6.8 s)
+test_phelix.spark                        => (Flow  => 180.0 µs,
+                                             Proof => 0.0 s/0.0 s/0.0 s)
+saatana-crypto-phelix.spark              => (Flow  => 206.5 ms,
+                                             Proof => 174.3 s/206.4 s/568.7 s)
+saatana.spark                            => (Flow  => 464.0 µs,
+                                             Proof => 0.0 s/0.0 s/0.0 s)
+saatana-crypto-lemmas.spark              => (Flow  => 2.1 ms,
+                                             Proof => 210.0 ms/210.0 ms/2.2 s)
+test_phelix_api.spark                    => (Flow  => 14.4 ms,
+                                             Proof => 240.0 ms/240.0 ms/23.1 s)
+saatana-crypto-stream_tools.spark        => (Flow  => 71.0 µs,
+                                             Proof => 0.0 s/0.0 s/0.0 s)
+saatana-crypto-phelix-test_vectors.spark => (Flow  => 24.0 µs,
+                                             Proof => 0.0 s/0.0 s/0.0 s)
 ```
 
 You can use the `--sort-by` option with `--summary`, either for an alphabetical
@@ -490,7 +496,7 @@ is different for the `--report-mode` and `--summary` output.
 
   Example:
 
-  `run_spat -ra -ct -p 400 ms -P saatana.gpr`
+  `run_spat -ra -ct -p 400ms -P saatana.gpr`
 
   ```sh
   Saatana.Crypto.Phelix.Setup_Key            => 640.0 ms/206.4 s/219.2 s
