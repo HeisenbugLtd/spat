@@ -91,6 +91,9 @@ package SPAT is
    type Result_Name is new Subject_Name;
    --  A proof result, i.e. "Valid", "Unknown", "Timeout", ...
 
+   type Rule_Name is new Subject_Name;
+   --  A verification condition rule (i.e. something like VC_RANGE_CHECK, ...)
+
    --  Type renames for commonly used JSON types from GNATCOLL.JSON
    subtype JSON_Array      is GNATCOLL.JSON.JSON_Array;
    subtype JSON_Value      is GNATCOLL.JSON.JSON_Value;

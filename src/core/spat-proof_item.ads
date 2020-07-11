@@ -99,7 +99,7 @@ package SPAT.Proof_Item is
    --  Rule
    ---------------------------------------------------------------------------
    not overriding
-   function Rule (This : in T) return Subject_Name;
+   function Rule (This : in T) return Rule_Name;
 
    ---------------------------------------------------------------------------
    --  Max_Success_Time
@@ -198,7 +198,7 @@ private
    type T is new Entity_Location.T with
       record
          Suppressed            : Justification;
-         Rule                  : Subject_Name;
+         Rule                  : Rule_Name;
          Severity              : Subject_Name;
          Max_Success_Time      : Duration; --  Longest time for a successful proof.
          Max_Time              : Duration; --  Longest time spent in proof (successful or not)
@@ -261,7 +261,7 @@ private
    --  Rule
    ---------------------------------------------------------------------------
    not overriding
-   function Rule (This : in T) return Subject_Name is
+   function Rule (This : in T) return Rule_Name is
      (This.Rule);
 
    ---------------------------------------------------------------------------

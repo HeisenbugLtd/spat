@@ -238,20 +238,22 @@ package body SPAT.Proof_Item is
               (Position => PI_Node,
                New_Item =>
                  T'(Entity_Location.Create (Object => Object) with
-                    Suppressed            => Suppressed_Msg,
-                    Rule                  =>
-                      Object.Get (Field => Field_Names.Rule),
-                    Severity              =>
-                      Object.Get (Field => Field_Names.Severity),
-                    Max_Success_Time      => (if Has_Unproved_Attempts
-                                              then 0.0
-                                              else Max_Success_Time),
-                    Max_Time              => Max_Time,
-                    Total_Time            => Total_Time,
-                    Id                    => Proof_Item_Ids.Next,
-                    Has_Failed_Attempts   => Has_Failed_Attempts,
-                    Has_Unproved_Attempts => Has_Unproved_Attempts,
-                    Is_Unjustified        => Is_Unjustified));
+                      Suppressed            => Suppressed_Msg,
+                      Rule                  =>
+                        Rule_Name
+                          (Subject_Name'(Object.Get
+                                           (Field => Field_Names.Rule))),
+                      Severity              =>
+                        Object.Get (Field => Field_Names.Severity),
+                      Max_Success_Time      => (if Has_Unproved_Attempts
+                                                then 0.0
+                                                else Max_Success_Time),
+                      Max_Time              => Max_Time,
+                      Total_Time            => Total_Time,
+                      Id                    => Proof_Item_Ids.Next,
+                      Has_Failed_Attempts   => Has_Failed_Attempts,
+                      Has_Unproved_Attempts => Has_Unproved_Attempts,
+                      Is_Unjustified        => Is_Unjustified));
          end;
       end;
    end Add_To_Tree;
