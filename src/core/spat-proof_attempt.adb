@@ -50,7 +50,9 @@ package body SPAT.Proof_Attempt is
    begin
       return T'(Entity.T with
                   Prover => Prover,
-                  Result => Object.Get (Field => Field_Names.Result),
+                  Result =>
+                    Result_Name
+                      (Subject_Name'(Object.Get (Field => Field_Names.Result))),
                   Time   =>
                     (case Time_Field.Kind is
                         when JSON_Float_Type =>
