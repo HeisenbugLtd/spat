@@ -42,7 +42,7 @@ package body SPAT.Proof_Attempt is
    --  Create
    ---------------------------------------------------------------------------
    function Create (Object : JSON_Value;
-                    Prover : Subject_Name) return T
+                    Prover : Prover_Name) return T
    is
       Time_Field : constant JSON_Value :=
                      Object.Get (Field => Field_Names.Time);

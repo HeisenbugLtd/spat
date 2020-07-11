@@ -49,7 +49,7 @@ package SPAT.Proof_Attempt is
    ---------------------------------------------------------------------------
    not overriding
    function Create (Object : JSON_Value;
-                    Prover : Subject_Name) return T
+                    Prover : Prover_Name) return T
      with Pre => Has_Required_Fields (Object => Object);
 
    ---------------------------------------------------------------------------
@@ -80,7 +80,7 @@ package SPAT.Proof_Attempt is
    --  Prover
    ---------------------------------------------------------------------------
    not overriding
-   function Prover (This : in T) return Subject_Name;
+   function Prover (This : in T) return Prover_Name;
 
    ---------------------------------------------------------------------------
    --  Result
@@ -106,7 +106,7 @@ private
 
    type T is new Entity.T with
       record
-         Prover : Subject_Name;         --  Prover involved.
+         Prover : Prover_Name;          --  Prover involved.
          Result : Subject_Name;         --  "Valid", "Unknown", etc.
          Time   : Duration;             --  time spent during proof
          Steps  : Prover_Steps;         --  number of steps the prover took
@@ -126,7 +126,7 @@ private
 
    function Trivial_True return T is
       (T'(Entity.T with
-              Prover => To_Name ("Trivial"),
+              Prover => Prover_Name (To_Name ("Trivial")),
               Result => To_Name ("Valid"),
               Time   => 0.0,
               Steps  => 0,
@@ -136,7 +136,7 @@ private
    --  Prover
    ---------------------------------------------------------------------------
    not overriding
-   function Prover (This : in T) return Subject_Name is
+   function Prover (This : in T) return Prover_Name is
      (This.Prover);
 
    ---------------------------------------------------------------------------

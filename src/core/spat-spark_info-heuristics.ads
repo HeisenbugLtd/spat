@@ -35,7 +35,7 @@ package SPAT.Spark_Info.Heuristics is
 
    type Prover_Data is
       record
-         Name : Subject_Name;
+         Name : Prover_Name;
          Time : Times;
       end record;
 

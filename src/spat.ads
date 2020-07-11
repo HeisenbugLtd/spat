@@ -82,6 +82,9 @@ package SPAT is
    type SPARK_File_Name  is new File_Name; --  Name of a ".spark" file.
    type Source_File_Name is new File_Name; --  Name of an "Ada" source file.
 
+   type Prover_Name is new Subject_Name;
+   --  Name of a prover, i.e. "altergo", "Z3", ...
+
    --  Type renames for commonly used JSON types from GNATCOLL.JSON
    subtype JSON_Array      is GNATCOLL.JSON.JSON_Array;
    subtype JSON_Value      is GNATCOLL.JSON.JSON_Value;

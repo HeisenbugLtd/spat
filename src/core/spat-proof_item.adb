@@ -123,7 +123,7 @@ package body SPAT.Proof_Item is
                         declare
                            Attempt : constant Proof_Attempt.T :=
                                        Proof_Attempt.Create
-                                         (Prover => To_Name (Name),
+                                         (Prover => Prover_Name (To_Name (Name)),
                                           Object => Value);
                            use type Proof_Attempt.Prover_Result;
                         begin
