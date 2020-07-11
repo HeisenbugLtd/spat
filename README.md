@@ -353,7 +353,7 @@ run_spat -ct -rf -d 1 -P saatana.gpr
 Output:
 
 ```
-Saatana.Crypto.Phelix.Setup_Key => 640.0 ms/206.4 s/219.2 s
+Saatana.Crypto.Phelix.Setup_Key                   =>                            640.0 ms/206.4 s/219.2 s
 `-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44 => 640.0 ms/206.4 s/207.1 s
 ```
 
@@ -366,7 +366,7 @@ run_spat -ct -rf -d -P saatana.gpr
 Output:
 
 ```
-Saatana.Crypto.Phelix.Setup_Key => 640.0 ms/206.4 s/219.2 s
+Saatana.Crypto.Phelix.Setup_Key                   =>                            640.0 ms/206.4 s/219.2 s
 `-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44 => 640.0 ms/206.4 s/207.1 s
  `-Z3: 206.4 s (Unknown (unknown), 105312169 steps)
   -CVC4: 640.0 ms (Valid, 22722 steps)
@@ -394,36 +394,36 @@ run_spat -ct -ru -d -P sparknacl.gpr
 Typical output:
 
 ```
-SPARKNaCl.Sign.Sign                  => --/57.6 s/489.2 s
-`-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36 => --/57.6 s/238.7 s
+SPARKNaCl.Sign.Sign                                  =>                    --/57.6 s/489.2 s
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36        => --/57.6 s/238.7 s
  `-CVC4: 51.6 s (Unknown (unknown), 505013 steps)
   -Z3: 7.9 s (Unknown (unknown), 11654552 steps)
  `-CVC4: 50.5 s (Unknown (unknown), 505013 steps)
   -Z3: 8.8 s (Unknown (unknown), 11654285 steps)
  `-CVC4: 50.7 s (Unknown (unknown), 505013 steps)
   -Z3: 7.2 s (Unknown (unknown), 11654931 steps)
-SPARKNaCl.Car.Nearlynormal_To_Normal => --/1.4 s/17.5 s
+SPARKNaCl.Car.Nearlynormal_To_Normal                 =>                    --/1.4 s/17.5 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => --/1.4 s/1.9 s
  `-CVC4: 1.4 s (Unknown (unknown), 13011 steps)
   -Z3: 590.0 ms (Unknown (unknown), 743088 steps)
-`-VC_ASSERT sparknacl-car.adb:343:31 => --/790.0 ms/1.2 s
+`-VC_ASSERT sparknacl-car.adb:343:31                 => --/790.0 ms/1.2 s
  `-Z3: 790.0 ms (Unknown (unknown), 957357 steps)
   -CVC4: 410.0 ms (Unknown (unknown), 4809 steps)
-SPARKNaCl.ASR_16                     => --/5.7 s/5.9 s
-`-VC_POSTCONDITION sparknacl.ads:355:35 => --/5.7 s/5.8 s
+SPARKNaCl.ASR_16                                     =>                    --/5.7 s/5.9 s
+`-VC_POSTCONDITION sparknacl.ads:355:35              => --/5.7 s/5.8 s
  `-Z3: 5.7 s (Unknown (unknown), 11650768 steps)
   -CVC4: 80.0 ms (Unknown (unknown), 993 steps)
-`-Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.ASR_8                      => --/3.3 s/3.5 s
-`-VC_POSTCONDITION sparknacl.ads:367:35 => --/3.3 s/3.4 s
+Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.ASR_8                                      =>                    --/3.3 s/3.5 s
+`-VC_POSTCONDITION sparknacl.ads:367:35              => --/3.3 s/3.4 s
  `-Z3: 3.3 s (Unknown (unknown), 11650768 steps)
   -CVC4: 90.0 ms (Unknown (unknown), 993 steps)
-`-Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.ASR_4                      => --/1.2 s/1.4 s
-`-VC_POSTCONDITION sparknacl.ads:379:35 => --/1.2 s/1.3 s
+Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.ASR_4                                      =>                    --/1.2 s/1.4 s
+`-VC_POSTCONDITION sparknacl.ads:379:35              => --/1.2 s/1.3 s
  `-Z3: 1.2 s (Unknown (unknown), 11650768 steps)
   -CVC4: 80.0 ms (Unknown (unknown), 993 steps)
-`-Justified with: "From definition of arithmetic shift right".
+Justified with: "From definition of arithmetic shift right".
 ```
 
 As above, but here you can see the individual proof results including any
@@ -451,21 +451,21 @@ run_spat -ct -ru -d -e ".*ASR.*" -P sparknacl.gpr
 This shows all unproved entities that match the expression `".*ASR.*"`:
 
 ```
-SPARKNaCl.ASR_16 => --/5.7 s/5.9 s
+SPARKNaCl.ASR_16                        =>                 --/5.7 s/5.9 s
 `-VC_POSTCONDITION sparknacl.ads:355:35 => --/5.7 s/5.8 s
  `-Z3: 5.7 s (Unknown (unknown), 11650768 steps)
   -CVC4: 80.0 ms (Unknown (unknown), 993 steps)
-`-Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.ASR_8  => --/3.3 s/3.5 s
+Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.ASR_8                         =>                 --/3.3 s/3.5 s
 `-VC_POSTCONDITION sparknacl.ads:367:35 => --/3.3 s/3.4 s
  `-Z3: 3.3 s (Unknown (unknown), 11650768 steps)
   -CVC4: 90.0 ms (Unknown (unknown), 993 steps)
-`-Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.ASR_4  => --/1.2 s/1.4 s
+Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.ASR_4                         =>                 --/1.2 s/1.4 s
 `-VC_POSTCONDITION sparknacl.ads:379:35 => --/1.2 s/1.3 s
  `-Z3: 1.2 s (Unknown (unknown), 11650768 steps)
   -CVC4: 80.0 ms (Unknown (unknown), 993 steps)
-`-Justified with: "From definition of arithmetic shift right".
+Justified with: "From definition of arithmetic shift right".
 ```
 
 As above, but the `SPARKNaCl.Sign.Sign` and
@@ -705,24 +705,24 @@ Looking at `Omultiply` in detail:
 `run_spat -d -cs -ra -P sparknacl.gpr -e .*Omultiply`
 
 ```
-SPARKNaCl.Omultiply => 700.0 ms/19.1 s/28.6 s
+SPARKNaCl.Omultiply                              =>                              700.0 ms/19.1 s/28.6 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:164:13 => 40.0 ms/19.1 s/19.1 s
  `-CVC4: 19.1 s (Unknown (unknown), 505013 steps)
   -Z3: 40.0 ms (Valid, 68029 steps)
-`-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:80:16 => 700.0 ms/700.0 ms/930.0 ms
+`-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:80:16  => 700.0 ms/700.0 ms/930.0 ms
  `-CVC4: 700.0 ms (Valid, 11484 steps)
  `-CVC4: 230.0 ms (Valid, 3586 steps)
-`-VC_RANGE_CHECK sparknacl.adb:75:36 => 170.0 ms/170.0 ms/480.0 ms
+`-VC_RANGE_CHECK sparknacl.adb:75:36             => 170.0 ms/170.0 ms/480.0 ms
  `-CVC4: 170.0 ms (Valid, 1970 steps)
  `-CVC4: 120.0 ms (Valid, 1311 steps)
  `-CVC4: 110.0 ms (Valid, 1301 steps)
  `-CVC4: 80.0 ms (Valid, 975 steps)
-`-VC_OVERFLOW_CHECK sparknacl.adb:75:48 => 140.0 ms/140.0 ms/420.0 ms
+`-VC_OVERFLOW_CHECK sparknacl.adb:75:48          => 140.0 ms/140.0 ms/420.0 ms
  `-CVC4: 140.0 ms (Valid, 1545 steps)
  `-CVC4: 110.0 ms (Valid, 1055 steps)
  `-CVC4: 100.0 ms (Valid, 996 steps)
  `-CVC4: 70.0 ms (Valid, 878 steps)
-`-VC_LOOP_INVARIANT_INIT sparknacl.adb:80:16 => 120.0 ms/220.0 ms/400.0 ms
+`-VC_LOOP_INVARIANT_INIT sparknacl.adb:80:16     => 120.0 ms/220.0 ms/400.0 ms
  `-CVC4: 220.0 ms (Unknown (unknown), 3309 steps)
   -Z3: 60.0 ms (Valid, 57212 steps)
  `-CVC4: 120.0 ms (Valid, 1319 steps)
