@@ -49,7 +49,8 @@ package body SPAT.Spark_Info is
    --  Checks for presence of certain fields that are presumed version
    --  specific.
    ---------------------------------------------------------------------------
-   function Guess_Version (Root : in JSON_Value) return File_Version;
+   function Guess_Version (Name : in String;
+                           Root : in JSON_Value) return File_Version;
 
    ---------------------------------------------------------------------------
    --  Map_Assumptions_Elements
@@ -190,7 +191,8 @@ package body SPAT.Spark_Info is
    ---------------------------------------------------------------------------
    --  Guess_Version
    ---------------------------------------------------------------------------
-   function Guess_Version (Root : in JSON_Value) return File_Version
+   function Guess_Version (Name : in String;
+                           Root : in JSON_Value) return File_Version
    is
       Result : File_Version := GNAT_CE_2019;
    begin
@@ -202,7 +204,10 @@ package body SPAT.Spark_Info is
             Timings : constant GNATCOLL.JSON.JSON_Value :=
               Root.Get (Field => Field_Names.Timings);
          begin
-            if Timings.Has_Field (Field => Field_Names.Translation_Of_Compilation_Unit) then
+            if
+              Timings.Has_Field
+                (Field => Field_Names.Translation_Of_Compilation_Unit)
+            then
                --  This field seems to have disappeared in GNAT CE 2020, so if
                --  it is present, we assume GNAT CE 2019.
                Result := GNAT_CE_2019;
@@ -212,7 +217,11 @@ package body SPAT.Spark_Info is
          end;
       end if;
 
-      Log.Debug (Message => "File version: " & Result'Image);
+      Log.Debug
+        (Message =>
+           "Detected file version of """ &
+           Ada.Directories.Simple_Name (Name => Name) & """ is " &
+           Result'Image & ".");
 
       return Result;
    end Guess_Version;
@@ -711,7 +720,9 @@ package body SPAT.Spark_Info is
                              File : in     SPARK_File_Name;
                              Root : in     JSON_Value)
    is
-      Version      : constant File_Version := Guess_Version (Root => Root);
+      Version      : constant File_Version :=
+        Guess_Version (Name => To_String (File),
+                       Root => Root);
       Cache_Cursor : File_Cached_Info.Cursor;
       File_Cursor  : File_Sets.Cursor;
    begin
