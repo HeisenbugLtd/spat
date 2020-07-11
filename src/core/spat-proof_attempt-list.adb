@@ -36,23 +36,15 @@ package body SPAT.Proof_Attempt.List is
    --  Has_Failed_Attempts
    ---------------------------------------------------------------------------
    not overriding
-   function Has_Failed_Attempts (This : in T) return Boolean
-   is
-      use type Subject_Name;
-   begin
-      return (for some A of This => A.Result /= "Valid");
-   end Has_Failed_Attempts;
+   function Has_Failed_Attempts (This : in T) return Boolean is
+     (for some A of This => A.Result /= "Valid");
 
    ---------------------------------------------------------------------------
    --  Is_Unproved
    ---------------------------------------------------------------------------
    not overriding
-   function Is_Unproved (This : in T) return Boolean
-   is
-      use type Subject_Name;
-   begin
-      return (for all A of This => A.Result /= "Valid");
-   end Is_Unproved;
+   function Is_Unproved (This : in T) return Boolean is
+     (for all A of This => A.Result /= "Valid");
 
    package By_Duration is new
      Implementation.Vectors.Generic_Sorting ("<" => "<");

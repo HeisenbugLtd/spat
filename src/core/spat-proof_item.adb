@@ -82,10 +82,12 @@ package body SPAT.Proof_Item is
       Checks_List : Checks_Lists.Vector;
       Check_Tree  : constant JSON_Array :=
         Object.Get (Field => Field_Names.Check_Tree);
-      Justification : constant Subject_Name :=
+      Suppressed_Msg : constant Justification :=
         (if Object.Has_Field (Field => Field_Names.Suppressed)
-         then Object.Get (Field => Field_Names.Suppressed)
-         else Null_Name); --  FIXME: Missing type check.
+         then
+            Justification
+              (Subject_Name'(Object.Get (Field => Field_Names.Suppressed)))
+         else Justification (Null_Name)); --  FIXME: Missing type check.
    begin
       --  Walk along the check_tree array to find all proof attempts and their
       --  respective times.
@@ -229,13 +231,14 @@ package body SPAT.Proof_Item is
             Has_Unproved_Attempts : constant Boolean :=
               (for some Check of Checks_List => Check.Is_Unproved);
             Is_Unjustified : constant Boolean :=
-              Has_Unproved_Attempts and then Justification = Null_Name;
+              Has_Unproved_Attempts and then
+              Suppressed_Msg = Justification (Null_Name);
          begin
             Tree.Replace_Element
               (Position => PI_Node,
                New_Item =>
                  T'(Entity_Location.Create (Object => Object) with
-                    Suppressed            => Justification,
+                    Suppressed            => Suppressed_Msg,
                     Rule                  =>
                       Object.Get (Field => Field_Names.Rule),
                     Severity              =>

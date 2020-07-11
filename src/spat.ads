@@ -85,6 +85,9 @@ package SPAT is
    type Prover_Name is new Subject_Name;
    --  Name of a prover, i.e. "altergo", "Z3", ...
 
+   type Justification is new Subject_Name;
+   --  Justification info (i.e. the "suppressed" field in a failed check).
+
    type Result_Name is new Subject_Name;
    --  A proof result, i.e. "Valid", "Unknown", "Timeout", ...
 

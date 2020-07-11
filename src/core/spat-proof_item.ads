@@ -123,7 +123,7 @@ package SPAT.Proof_Item is
    --  Suppressed
    ---------------------------------------------------------------------------
    not overriding
-   function Suppressed (This : in T) return Subject_Name;
+   function Suppressed (This : in T) return Justification;
 
    ---------------------------------------------------------------------------
    --  Before
@@ -197,7 +197,7 @@ private
 
    type T is new Entity_Location.T with
       record
-         Suppressed            : Subject_Name;
+         Suppressed            : Justification;
          Rule                  : Subject_Name;
          Severity              : Subject_Name;
          Max_Success_Time      : Duration; --  Longest time for a successful proof.
@@ -268,7 +268,7 @@ private
    --  Suppressed
    ---------------------------------------------------------------------------
    not overriding
-   function Suppressed (This : in T) return Subject_Name is
+   function Suppressed (This : in T) return Justification is
      (This.Suppressed);
 
    ---------------------------------------------------------------------------

@@ -162,7 +162,6 @@ is
    end Should_Show_Proof;
 
    use type Ada.Text_IO.Count;
-   use type SPAT.Subject_Name;
    use all type SPAT.Command_Line.Detail_Level;
 
    Entities : constant SPAT.Strings.Entity_Names :=
@@ -192,6 +191,7 @@ begin --  Print_Entities
                   The_Proof : SPAT.Proof_Item.T'Class renames
                     SPAT.Proof_Item.T'Class
                       (SPAT.Entity.Tree.Element (Position => PI_Position));
+                  use type SPAT.Justification;
                begin
                   if Should_Show_Proof (The_Proof => The_Proof) then
                      SPAT.Log.Message (Message => "`-" & The_Proof.Image);
@@ -237,7 +237,9 @@ begin --  Print_Entities
                         end loop;
                      end if;
 
-                     if The_Proof.Suppressed /= SPAT.Null_Name then
+                     if
+                       The_Proof.Suppressed /= SPAT.Justification (SPAT.Null_Name)
+                     then
                         SPAT.Log.Message
                           (Message =>
                              "Justified with: """ &
