@@ -4,8 +4,8 @@ Warning: Please consult the documentation.
 
 package Prove is
    for Proof_Switches ("saatana-crypto-lemmas.ads") use ("--prover=Z3", "--steps=1", "--timeout=1");
-   for Proof_Switches ("saatana-crypto-phelix.ads") use ("--prover=CVC4,Z3", "--steps=14009", "--timeout=175");
-   for Proof_Switches ("saatana-crypto.ads") use ("--prover=Z3", "--steps=1", "--timeout=1");
+   for Proof_Switches ("saatana-crypto-phelix.adb") use ("--prover=CVC4,Z3", "--steps=14009", "--timeout=175");
+   for Proof_Switches ("saatana-crypto.adb") use ("--prover=Z3", "--steps=1", "--timeout=1");
    for Proof_Switches ("test_phelix_api.adb") use ("--prover=Z3", "--steps=1", "--timeout=1");
 end Prove;
 
