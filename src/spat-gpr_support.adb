@@ -38,12 +38,15 @@ package body SPAT.GPR_Support is
       Source_File  : in GNATCOLL.VFS.Virtual_File) return String;
 
    ---------------------------------------------------------------------------
-   --  Prefer_Spec_File
+   --  Prefer_Body_File
    --
    --  Checks if for the given key a mapping already exists and updates it if
-   --  the given Value seems a better fit (i.e. is a spec file).
+   --  the given Value seems a better fit (i.e. is a body file).
+   --  Apparently steps and timeout values should be given to the body file,
+   --  if they are specified for the spec, proofs seem to fail, see
+   --  https://github.com/HeisenbugLtd/spat/issues/55#issuecomment-657505781
    ---------------------------------------------------------------------------
-   procedure Prefer_Spec_File
+   procedure Prefer_Body_File
      (File_Map     : in out SPARK_Source_Maps.Map;
       Project_Tree : in     GNATCOLL.Projects.Project_Tree;
       Key          : in     SPARK_File_Name;
@@ -85,7 +88,7 @@ package body SPAT.GPR_Support is
       --  If the .spark file exists, add it to the result map, possibly
       --  updating the file mapping as we do prefer the spec file.
       if Exists then
-         Prefer_Spec_File (File_Map     => To,
+         Prefer_Body_File (File_Map     => To,
                            Project_Tree => Project_Tree,
                            Key          => As_File_Name,
                            Value        => Source_File);
@@ -194,9 +197,9 @@ package body SPAT.GPR_Support is
    end Get_SPARK_Files;
 
    ---------------------------------------------------------------------------
-   --  Prefer_Spec_File
+   --  Prefer_Body_File
    ---------------------------------------------------------------------------
-   procedure Prefer_Spec_File
+   procedure Prefer_Body_File
      (File_Map     : in out SPARK_Source_Maps.Map;
       Project_Tree : in     GNATCOLL.Projects.Project_Tree;
       Key          : in     SPARK_File_Name;
@@ -209,13 +212,13 @@ package body SPAT.GPR_Support is
          File_Map.Insert
            (Key      => Key,
             New_Item => Source_File_Name (To_Name (Value.Display_Base_Name)));
-      elsif Project_Tree.Info (File => Value).Unit_Part = Unit_Spec then
-         --  We already have an entry, but this is (a/the) spec, we prefer that.
+      elsif Project_Tree.Info (File => Value).Unit_Part = Unit_Body then
+         --  We already have an entry, but this is (a/the) body, we prefer that.
          File_Map.Include
            (Key      => Key,
             New_Item => Source_File_Name (To_Name (Value.Display_Base_Name)));
       end if;
-   end Prefer_Spec_File;
+   end Prefer_Body_File;
 
    ---------------------------------------------------------------------------
    --  SPARK_Name
