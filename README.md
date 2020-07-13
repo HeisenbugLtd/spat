@@ -186,7 +186,7 @@ saatana-crypto-phelix-test_vectors.spark => (Flow  => 24.0 µs,
 ```
 
 You can use the `--sort-by` option with `--summary`, either for an alphabetical
-list (`--sort-by=a`), or a list sorted by time (`--sort-by=t` descending order,
+list (`--sort-by=a`), or a list sorted by time (`--sort-by=t`, descending order,
 so files with the most time needed by the provers come first).  The option
 `--sort-by=s` (see below) has the same effect as `--sort-by=t`, except for a
 warning that what you requested has not been implemented yet.  By default, no
