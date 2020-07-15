@@ -1,15 +1,1626 @@
-RFLX.RFLX_Types                                                =>                              0.0 s/0.0 s/0.0 s
-RFLX.RFLX_Types.Byte_Index                                     =>                              10.0 ms/10.0 ms/30.0 ms
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.ads:36:36          => 10.0 ms/10.0 ms/10.0 ms
+RFLX.Arrays.Tests.Name                                                                                =>                              0.0 s/0.0 s/0.0 s
+RFLX.Arrays.Tests.Register_Tests                                                                      =>                              0.0 s/0.0 s/0.0 s
+RFLX.Arrays.Tests.Test_Generating_Arrays_Message                                                      =>                              0.0 s/0.0 s/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:928:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 380553 steps)
+ `-Z3: 0.0 s (Valid, 58436 steps)
+ `-Z3: 0.0 s (Valid, 58442 steps)
+ `-Z3: 0.0 s (Valid, 379046 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:929:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 59383 steps)
+ `-Z3: 0.0 s (Valid, 59263 steps)
+ `-Z3: 0.0 s (Valid, 59269 steps)
+ `-Z3: 0.0 s (Valid, 59492 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:930:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 60293 steps)
+ `-Z3: 0.0 s (Valid, 60152 steps)
+ `-Z3: 0.0 s (Valid, 60158 steps)
+ `-Z3: 0.0 s (Valid, 60386 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:931:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 61179 steps)
+ `-Z3: 0.0 s (Valid, 61017 steps)
+ `-Z3: 0.0 s (Valid, 61023 steps)
+ `-Z3: 0.0 s (Valid, 61272 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:932:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 62065 steps)
+ `-Z3: 0.0 s (Valid, 61882 steps)
+ `-Z3: 0.0 s (Valid, 61888 steps)
+ `-Z3: 0.0 s (Valid, 62158 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:934:34                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 214564 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:937:57                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 271345 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:949:55                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 329666 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:960:61                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 384455 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:972:64                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 438173 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:984:44                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 99065 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:924:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 67895 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:926:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 67895 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:928:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 867681 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:929:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 867411 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:930:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 867411 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:931:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 867411 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:932:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 867411 steps)
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:986:61                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 100901 steps)
+ `-Z3: 0.0 s (Valid, 100901 steps)
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:988:22                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 106309 steps)
+ `-Z3: 0.0 s (Valid, 106309 steps)
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:988:22                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 106359 steps)
+ `-Z3: 0.0 s (Valid, 106359 steps)
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:988:22                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 106731 steps)
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:988:116                                           => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 101512 steps)
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:986:55                                                      => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 865411 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:934:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 62701 steps)
+ `-Z3: 0.0 s (Valid, 428721 steps)
+ `-Z3: 0.0 s (Valid, 429058 steps)
+ `-Z3: 0.0 s (Valid, 39887 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:935:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 40606 steps)
+ `-Z3: 0.0 s (Valid, 438317 steps)
+ `-Z3: 0.0 s (Valid, 441143 steps)
+ `-Z3: 0.0 s (Valid, 40606 steps)
+ `-Z3: 0.0 s (Valid, 446815 steps)
+ `-Z3: 0.0 s (Valid, 438352 steps)
+ `-Z3: 0.0 s (Valid, 455802 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:937:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 41166 steps)
+ `-Z3: 0.0 s (Valid, 41166 steps)
+ `-Z3: 0.0 s (Valid, 480397 steps)
+ `-Z3: 0.0 s (Valid, 41168 steps)
+ `-Z3: 0.0 s (Valid, 478504 steps)
+ `-Z3: 0.0 s (Valid, 455368 steps)
+ `-Z3: 0.0 s (Valid, 478050 steps)
+ `-Z3: 0.0 s (Valid, 41164 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:938:28                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 43749 steps)
+ `-Z3: 0.0 s (Valid, 542677 steps)
+ `-Z3: 0.0 s (Valid, 495597 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:939:28                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 44309 steps)
+ `-Z3: 0.0 s (Valid, 633667 steps)
+ `-Z3: 0.0 s (Valid, 502349 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:944:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 45071 steps)
+ `-Z3: 0.0 s (Valid, 45061 steps)
+ `-Z3: 0.0 s (Valid, 526421 steps)
+ `-Z3: 0.0 s (Valid, 45061 steps)
+ `-Z3: 0.0 s (Valid, 511573 steps)
+ `-Z3: 0.0 s (Valid, 511569 steps)
+ `-Z3: 0.0 s (Valid, 536919 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:947:33                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 47392 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:949:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 47453 steps)
+ `-Z3: 0.0 s (Valid, 730006 steps)
+ `-Z3: 0.0 s (Valid, 747049 steps)
+ `-Z3: 0.0 s (Valid, 47455 steps)
+ `-Z3: 0.0 s (Valid, 748444 steps)
+ `-Z3: 0.0 s (Valid, 564187 steps)
+ `-Z3: 0.0 s (Valid, 656757 steps)
+ `-Z3: 0.0 s (Valid, 47451 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:950:26                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 49865 steps)
+ `-Z3: 0.0 s (Valid, 826801 steps)
+ `-Z3: 0.0 s (Valid, 607594 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:951:26                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 50425 steps)
+ `-Z3: 0.0 s (Valid, 802682 steps)
+ `-Z3: 0.0 s (Valid, 615058 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:955:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51187 steps)
+ `-Z3: 0.0 s (Valid, 51177 steps)
+ `-Z3: 0.0 s (Valid, 635932 steps)
+ `-Z3: 0.0 s (Valid, 51177 steps)
+ `-Z3: 0.0 s (Valid, 610348 steps)
+ `-Z3: 0.0 s (Valid, 610344 steps)
+ `-Z3: 0.0 s (Valid, 679045 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:958:33                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 53508 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:960:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 53569 steps)
+ `-Z3: 0.0 s (Valid, 1049750 steps)
+ `-Z3: 0.0 s (Valid, 1025167 steps)
+ `-Z3: 0.0 s (Valid, 53571 steps)
+ `-Z3: 0.0 s (Valid, 1173288 steps)
+ `-Z3: 0.0 s (Valid, 667753 steps)
+ `-Z3: 0.0 s (Valid, 775393 steps)
+ `-Z3: 0.0 s (Valid, 53567 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:961:32                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 55966 steps)
+ `-Z3: 0.0 s (Valid, 913042 steps)
+ `-Z3: 0.0 s (Valid, 692328 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:962:32                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 56526 steps)
+ `-Z3: 0.0 s (Valid, 1367155 steps)
+ `-Z3: 0.0 s (Valid, 699091 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:967:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 57288 steps)
+ `-Z3: 0.0 s (Valid, 57278 steps)
+ `-Z3: 0.0 s (Valid, 744735 steps)
+ `-Z3: 0.0 s (Valid, 57278 steps)
+ `-Z3: 0.0 s (Valid, 707730 steps)
+ `-Z3: 0.0 s (Valid, 707726 steps)
+ `-Z3: 0.0 s (Valid, 806095 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:970:33                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 59609 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:972:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 59670 steps)
+ `-Z3: 0.0 s (Valid, 1373827 steps)
+ `-Z3: 0.0 s (Valid, 1398835 steps)
+ `-Z3: 0.0 s (Valid, 59672 steps)
+ `-Z3: 0.0 s (Valid, 1864090 steps)
+ `-Z3: 0.0 s (Valid, 770113 steps)
+ `-Z3: 0.0 s (Valid, 993096 steps)
+ `-Z3: 0.0 s (Valid, 59668 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:973:35                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 62064 steps)
+ `-Z3: 0.0 s (Valid, 1223054 steps)
+ `-Z3: 0.0 s (Valid, 787928 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:974:35                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 62647 steps)
+ `-Z3: 0.0 s (Valid, 1207198 steps)
+ `-Z3: 0.0 s (Valid, 795039 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:979:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 63409 steps)
+ `-Z3: 0.0 s (Valid, 63399 steps)
+ `-Z3: 0.0 s (Valid, 853327 steps)
+ `-Z3: 0.0 s (Valid, 63399 steps)
+ `-Z3: 0.0 s (Valid, 804228 steps)
+ `-Z3: 0.0 s (Valid, 804224 steps)
+ `-Z3: 0.0 s (Valid, 1073971 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:982:29                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 65730 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:984:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 65791 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:928:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 556870 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:929:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 251443 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:930:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 255294 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:931:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 259094 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:932:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 262894 steps)
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:988:22                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 916188 steps)
+ `-Z3: 0.0 s (Valid, 912303 steps)
+ `-Z3: 0.0 s (Valid, 910153 steps)
+ `-Z3: 0.0 s (Valid, 910133 steps)
+RFLX.Arrays.Tests.Test_Generating_Arrays_Messages_Message                                             =>                              0.0 s/0.0 s/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:1011:7                                           => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 332217 steps)
+ `-Z3: 0.0 s (Valid, 51004 steps)
+ `-Z3: 0.0 s (Valid, 51010 steps)
+ `-Z3: 0.0 s (Valid, 331152 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:1012:7                                           => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51951 steps)
+ `-Z3: 0.0 s (Valid, 51831 steps)
+ `-Z3: 0.0 s (Valid, 51837 steps)
+ `-Z3: 0.0 s (Valid, 52060 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:1013:7                                           => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 52827 steps)
+ `-Z3: 0.0 s (Valid, 52686 steps)
+ `-Z3: 0.0 s (Valid, 52692 steps)
+ `-Z3: 0.0 s (Valid, 52920 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:1015:43                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 179953 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:1018:60                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 230079 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:1021:58                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 243213 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:1029:61                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 472506 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:1044:59                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 69185 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:1055:63                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 75395 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:1009:7                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 48695 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:1010:7                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 48695 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:1011:7                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 656818 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:1012:7                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 602485 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:1013:7                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 671065 steps)
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:1046:67                                           => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 71021 steps)
+ `-Z3: 0.0 s (Valid, 71021 steps)
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:1047:28                                           => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 72441 steps)
+ `-Z3: 0.0 s (Valid, 72441 steps)
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:1047:28                                           => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 72491 steps)
+ `-Z3: 0.0 s (Valid, 72491 steps)
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:1047:28                                           => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 72863 steps)
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:1048:30                                           => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 71632 steps)
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:1046:61                                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 576896 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:1015:30                                                       => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 53455 steps)
+ `-Z3: 0.0 s (Valid, 367728 steps)
+ `-Z3: 0.0 s (Valid, 368065 steps)
+ `-Z3: 0.0 s (Valid, 34355 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:1016:30                                                       => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 35074 steps)
+ `-Z3: 0.0 s (Valid, 377517 steps)
+ `-Z3: 0.0 s (Valid, 379632 steps)
+ `-Z3: 0.0 s (Valid, 35074 steps)
+ `-Z3: 0.0 s (Valid, 385010 steps)
+ `-Z3: 0.0 s (Valid, 377552 steps)
+ `-Z3: 0.0 s (Valid, 385765 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:1018:30                                                       => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 35607 steps)
+ `-Z3: 0.0 s (Valid, 35607 steps)
+ `-Z3: 0.0 s (Valid, 411068 steps)
+ `-Z3: 0.0 s (Valid, 35609 steps)
+ `-Z3: 0.0 s (Valid, 418053 steps)
+ `-Z3: 0.0 s (Valid, 392623 steps)
+ `-Z3: 0.0 s (Valid, 405132 steps)
+ `-Z3: 0.0 s (Valid, 35605 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:1021:31                                                       => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 37131 steps)
+ `-Z3: 0.0 s (Valid, 57767 steps)
+ `-Z3: 0.0 s (Valid, 37123 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:1022:30                                                       => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 38226 steps)
+ `-Z3: 0.0 s (Valid, 432310 steps)
+ `-Z3: 0.0 s (Valid, 438534 steps)
+ `-Z3: 0.0 s (Valid, 38226 steps)
+ `-Z3: 0.0 s (Valid, 494656 steps)
+ `-Z3: 0.0 s (Valid, 432345 steps)
+ `-Z3: 0.0 s (Valid, 490630 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:1024:10                                                       => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 514521 steps)
+ `-Z3: 0.0 s (Valid, 451545 steps)
+ `-Z3: 0.0 s (Valid, 563011 steps)
+ `-Z3: 0.0 s (Valid, 38760 steps)
+ `-Z3: 0.0 s (Valid, 38758 steps)
+ `-Z3: 0.0 s (Valid, 524639 steps)
+ `-Z3: 0.0 s (Valid, 516686 steps)
+ `-Z3: 0.0 s (Valid, 524614 steps)
+ `-Z3: 0.0 s (Valid, 38760 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:1025:38                                                       => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 39266 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:1026:31                                                       => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 39366 steps)
+ `-Z3: 0.0 s (Valid, 39366 steps)
+ `-Z3: 0.0 s (Valid, 474824 steps)
+ `-Z3: 0.0 s (Valid, 39370 steps)
+ `-Z3: 0.0 s (Valid, 531571 steps)
+ `-Z3: 0.0 s (Valid, 418911 steps)
+ `-Z3: 0.0 s (Valid, 486371 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:1029:34                                                       => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 40443 steps)
+ `-Z3: 0.0 s (Valid, 62699 steps)
+ `-Z3: 0.0 s (Valid, 40439 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:1030:33                                                       => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 41540 steps)
+ `-Z3: 0.0 s (Valid, 490874 steps)
+ `-Z3: 0.0 s (Valid, 501201 steps)
+ `-Z3: 0.0 s (Valid, 41538 steps)
+ `-Z3: 0.0 s (Valid, 620536 steps)
+ `-Z3: 0.0 s (Valid, 490909 steps)
+ `-Z3: 0.0 s (Valid, 603349 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:1032:13                                                       => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 602416 steps)
+ `-Z3: 0.0 s (Valid, 514206 steps)
+ `-Z3: 0.0 s (Valid, 833142 steps)
+ `-Z3: 0.0 s (Valid, 42072 steps)
+ `-Z3: 0.0 s (Valid, 42070 steps)
+ `-Z3: 0.0 s (Valid, 599553 steps)
+ `-Z3: 0.0 s (Valid, 711098 steps)
+ `-Z3: 0.0 s (Valid, 707033 steps)
+ `-Z3: 0.0 s (Valid, 42072 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:1033:41                                                       => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 42578 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:1034:34                                                       => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 42678 steps)
+ `-Z3: 0.0 s (Valid, 42678 steps)
+ `-Z3: 0.0 s (Valid, 543739 steps)
+ `-Z3: 0.0 s (Valid, 42682 steps)
+ `-Z3: 0.0 s (Valid, 732639 steps)
+ `-Z3: 0.0 s (Valid, 455125 steps)
+ `-Z3: 0.0 s (Valid, 558973 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:1040:36                                                       => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 43857 steps)
+ `-Z3: 0.0 s (Valid, 43847 steps)
+ `-Z3: 0.0 s (Valid, 564068 steps)
+ `-Z3: 0.0 s (Valid, 43847 steps)
+ `-Z3: 0.0 s (Valid, 581690 steps)
+ `-Z3: 0.0 s (Valid, 583456 steps)
+ `-Z3: 0.0 s (Valid, 579936 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:1044:36                                                       => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 45251 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:1055:31                                                       => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 73048 steps)
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:1021:58                                                    => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 38219 steps)
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:1026:58                                                    => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 39339 steps)
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:1026:58                                                    => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 40342 steps)
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:1029:61                                                    => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 41533 steps)
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:1034:61                                                    => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 42651 steps)
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:1034:61                                                    => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 43654 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:1011:7                                    => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 478927 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:1012:7                                    => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 217775 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:1013:7                                    => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 503926 steps)
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:1047:28                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 601944 steps)
+ `-Z3: 0.0 s (Valid, 600940 steps)
+ `-Z3: 0.0 s (Valid, 600828 steps)
+ `-Z3: 0.0 s (Valid, 600808 steps)
+RFLX.Arrays.Tests.Test_Generating_Arrays_Messages_Message.set_payloadGP51671                          =>                              0.0 s/0.0 s/0.0 s
+RFLX.Arrays.Tests.Test_Generating_Arrays_Messages_Message.set_payloadGP51671.Set_Payload              =>                              0.0 s/0.0 s/0.0 s
+`-VC_DIVISION_CHECK rflx-arrays-generic_inner_message.ads:232:46                                      => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 14809 steps)
+`-VC_DIVISION_CHECK rflx-arrays-generic_inner_message.ads:233:47                                      => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 14911 steps)
+`-VC_DIVISION_CHECK rflx-arrays-generic_inner_message.ads:234:75                                      => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 14999 steps)
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-generic_inner_message.adb:406:35                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 170417 steps)
+ `-Z3: 0.0 s (Valid, 170417 steps)
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-generic_inner_message.adb:406:35                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 170908 steps)
+ `-Z3: 0.0 s (Valid, 170908 steps)
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-generic_inner_message.adb:406:35                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 172734 steps)
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-generic_inner_message.adb:406:35                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 175408 steps)
+`-VC_POSTCONDITION rflx-arrays-generic_inner_message.ads:236:8                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 74185 steps)
+ `-Z3: 0.0 s (Valid, 196709 steps)
+ `-Z3: 0.0 s (Valid, 211862 steps)
+ `-Z3: 0.0 s (Valid, 74185 steps)
+ `-Z3: 0.0 s (Valid, 181660 steps)
+ `-Z3: 0.0 s (Valid, 184713 steps)
+ `-Z3: 0.0 s (Valid, 219118 steps)
+ `-Z3: 0.0 s (Valid, 74251 steps)
+ `-Z3: 0.0 s (Valid, 74185 steps)
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.adb:398:43                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 14313 steps)
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.adb:399:42                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 14455 steps)
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.adb:405:7                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 14545 steps)
+ `-Z3: 0.0 s (Valid, 14543 steps)
+ `-Z3: 0.0 s (Valid, 14545 steps)
+ `-Z3: 0.0 s (Valid, 14545 steps)
+ `-Z3: 0.0 s (Valid, 14555 steps)
+ `-Z3: 0.0 s (Valid, 14555 steps)
+ `-Z3: 0.0 s (Valid, 14551 steps)
+ `-Z3: 0.0 s (Valid, 14547 steps)
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.adb:406:7                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 602572 steps)
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.ads:229:17                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 14341 steps)
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.ads:230:17                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 21820 steps)
+ `-Z3: 0.0 s (Valid, 21878 steps)
+ `-Z3: 0.0 s (Valid, 21820 steps)
+ `-Z3: 0.0 s (Valid, 14440 steps)
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.ads:231:17                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 22200 steps)
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.ads:231:53                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 21950 steps)
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.ads:232:17                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 22364 steps)
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.ads:233:17                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 22580 steps)
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.ads:234:45                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 22712 steps)
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.ads:242:12                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 192994 steps)
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.ads:242:31                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 154466 steps)
+`-VC_PREDICATE_CHECK rflx-arrays-generic_inner_message.adb:406:27                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 187958 steps)
+`-VC_RANGE_CHECK rflx-arrays-generic_inner_message.adb:406:35                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 193597 steps)
+ `-Z3: 0.0 s (Valid, 196682 steps)
+ `-Z3: 0.0 s (Valid, 186927 steps)
+ `-Z3: 0.0 s (Valid, 186777 steps)
+`-VC_RANGE_CHECK rflx-arrays-generic_inner_message.ads:234:75                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 168947 steps)
+RFLX.Arrays.Tests.Test_Generating_Arrays_Messages_Message.set_payloadGP51671.Set_Payload.Buffer_First =>                              0.0 s/0.0 s/0.0 s
+RFLX.Arrays.Tests.Test_Generating_Arrays_Messages_Message.set_payloadGP51671.Set_Payload.Buffer_Last  =>                              0.0 s/0.0 s/0.0 s
+RFLX.Arrays.Tests.Test_Parsing_Arrays_AV_Enumeration_Loop                                             =>                              0.0 s/0.0 s/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:506:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 263306 steps)
+ `-Z3: 0.0 s (Valid, 39039 steps)
+ `-Z3: 0.0 s (Valid, 39045 steps)
+ `-Z3: 0.0 s (Valid, 262343 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:508:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 39938 steps)
+ `-Z3: 0.0 s (Valid, 39870 steps)
+ `-Z3: 0.0 s (Valid, 39876 steps)
+ `-Z3: 0.0 s (Valid, 40047 steps)
+`-VC_DISCRIMINANT_CHECK rflx-arrays-tests.adb:529:24                                                  => 0.0 s/0.0 s/0.0 s
+ `-Trivial: 0.0 s (Valid, 0 steps)
+ `-Z3: 0.0 s (Valid, 30740 steps)
+`-VC_DISCRIMINANT_CHECK rflx-arrays-tests.adb:531:66                                                  => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 58062 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:523:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 30122 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:524:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 30139 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:525:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 30152 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:526:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 30159 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:527:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 30170 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:523:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 31746 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:524:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 405735 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:525:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 393246 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:526:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 406307 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:527:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 406360 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:512:34                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 140698 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:520:70                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 183386 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:561:47                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 53929 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:505:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 36097 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:506:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 470179 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:508:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 494706 steps)
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:538:23                                                      => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 376410 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:512:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 40819 steps)
+ `-Z3: 0.0 s (Valid, 288725 steps)
+ `-Z3: 0.0 s (Valid, 289945 steps)
+ `-Z3: 0.0 s (Valid, 25959 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:516:34                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 42785 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:520:27                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 42900 steps)
+ `-Z3: 0.0 s (Valid, 355217 steps)
+ `-Z3: 0.0 s (Valid, 337932 steps)
+ `-Z3: 0.0 s (Valid, 27402 steps)
+ `-Z3: 0.0 s (Valid, 345087 steps)
+ `-Z3: 0.0 s (Valid, 319829 steps)
+ `-Z3: 0.0 s (Valid, 333714 steps)
+ `-Z3: 0.0 s (Valid, 27398 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:529:55                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 30704 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:537:44                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 30976 steps)
+ `-Z3: 0.0 s (Valid, 30978 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:548:27                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 32024 steps)
+ `-Z3: 0.0 s (Valid, 173261 steps)
+ `-Z3: 0.0 s (Valid, 405827 steps)
+ `-Z3: 0.0 s (Valid, 32014 steps)
+ `-Z3: 0.0 s (Valid, 410845 steps)
+ `-Z3: 0.0 s (Valid, 411839 steps)
+ `-Z3: 0.0 s (Valid, 410662 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:558:33                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 344408 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:561:24                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 54011 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:506:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 395099 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:508:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 173720 steps)
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:532:55                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 395729 steps)
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:534:62                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 395750 steps)
+RFLX.Arrays.Tests.Test_Parsing_Arrays_AV_Enumeration_Sequential                                       =>                              0.0 s/0.0 s/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:431:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 268363 steps)
+ `-Z3: 0.0 s (Valid, 39974 steps)
+ `-Z3: 0.0 s (Valid, 39980 steps)
+ `-Z3: 0.0 s (Valid, 267400 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:433:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 40873 steps)
+ `-Z3: 0.0 s (Valid, 40805 steps)
+ `-Z3: 0.0 s (Valid, 40811 steps)
+ `-Z3: 0.0 s (Valid, 40982 steps)
+`-VC_DISCRIMINANT_CHECK rflx-arrays-tests.adb:447:24                                                  => 0.0 s/0.0 s/0.0 s
+ `-Trivial: 0.0 s (Valid, 0 steps)
+ `-Z3: 0.0 s (Valid, 30438 steps)
+`-VC_DISCRIMINANT_CHECK rflx-arrays-tests.adb:449:34                                                  => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 57728 steps)
+`-VC_DISCRIMINANT_CHECK rflx-arrays-tests.adb:456:27                                                  => 0.0 s/0.0 s/0.0 s
+ `-Trivial: 0.0 s (Valid, 0 steps)
+ `-Z3: 0.0 s (Valid, 31165 steps)
+`-VC_DISCRIMINANT_CHECK rflx-arrays-tests.adb:458:37                                                  => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 59101 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:436:34                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 143589 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:444:70                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 186871 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:491:47                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 54107 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:493:70                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 54113 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:430:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 36889 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:431:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 609082 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:433:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 661534 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:436:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 41702 steps)
+ `-Z3: 0.0 s (Valid, 294056 steps)
+ `-Z3: 0.0 s (Valid, 295276 steps)
+ `-Z3: 0.0 s (Valid, 26354 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:440:34                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 43665 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:444:27                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 43783 steps)
+ `-Z3: 0.0 s (Valid, 360548 steps)
+ `-Z3: 0.0 s (Valid, 343261 steps)
+ `-Z3: 0.0 s (Valid, 27797 steps)
+ `-Z3: 0.0 s (Valid, 350416 steps)
+ `-Z3: 0.0 s (Valid, 325144 steps)
+ `-Z3: 0.0 s (Valid, 339043 steps)
+ `-Z3: 0.0 s (Valid, 27793 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:447:55                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 48259 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:454:44                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 48462 steps)
+ `-Z3: 0.0 s (Valid, 30496 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:456:58                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 49378 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:463:47                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 49577 steps)
+ `-Z3: 0.0 s (Valid, 31221 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:470:33                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 31962 steps)
+ `-Z3: 0.0 s (Valid, 31952 steps)
+ `-Z3: 0.0 s (Valid, 399482 steps)
+ `-Z3: 0.0 s (Valid, 31952 steps)
+ `-Z3: 0.0 s (Valid, 411854 steps)
+ `-Z3: 0.0 s (Valid, 411944 steps)
+ `-Z3: 0.0 s (Valid, 411312 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:487:78                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 34548 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:491:24                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 54186 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:493:38                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 447050 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:431:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 402607 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:433:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 177290 steps)
+RFLX.Arrays.Tests.Test_Parsing_Arrays_Enumeration_Loop                                                =>                              0.0 s/0.0 s/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:368:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 255331 steps)
+ `-Z3: 0.0 s (Valid, 37892 steps)
+ `-Z3: 0.0 s (Valid, 37898 steps)
+ `-Z3: 0.0 s (Valid, 254368 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:370:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 38791 steps)
+ `-Z3: 0.0 s (Valid, 38723 steps)
+ `-Z3: 0.0 s (Valid, 38729 steps)
+ `-Z3: 0.0 s (Valid, 38900 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:385:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29570 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:386:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29587 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:387:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29600 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:388:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29607 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:389:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29618 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:385:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 31158 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:386:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 396648 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:387:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 385708 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:388:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 397186 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:389:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 397243 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:374:34                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 135617 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:382:67                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 177555 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:418:47                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 52477 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:367:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 35489 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:368:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 465737 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:370:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 489375 steps)
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:396:23                                                      => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 367894 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:374:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 39665 steps)
+ `-Z3: 0.0 s (Valid, 280400 steps)
+ `-Z3: 0.0 s (Valid, 281620 steps)
+ `-Z3: 0.0 s (Valid, 25365 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:378:34                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 41635 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:382:27                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 41746 steps)
+ `-Z3: 0.0 s (Valid, 343326 steps)
+ `-Z3: 0.0 s (Valid, 326935 steps)
+ `-Z3: 0.0 s (Valid, 26808 steps)
+ `-Z3: 0.0 s (Valid, 331951 steps)
+ `-Z3: 0.0 s (Valid, 311517 steps)
+ `-Z3: 0.0 s (Valid, 323519 steps)
+ `-Z3: 0.0 s (Valid, 26804 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:391:52                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 30186 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:395:41                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 30388 steps)
+ `-Z3: 0.0 s (Valid, 30390 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:405:27                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 31418 steps)
+ `-Z3: 0.0 s (Valid, 169213 steps)
+ `-Z3: 0.0 s (Valid, 396587 steps)
+ `-Z3: 0.0 s (Valid, 31408 steps)
+ `-Z3: 0.0 s (Valid, 400273 steps)
+ `-Z3: 0.0 s (Valid, 401263 steps)
+ `-Z3: 0.0 s (Valid, 401160 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:415:33                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 338287 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:418:24                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 52563 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:368:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 381183 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:370:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 167842 steps)
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:393:52                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 387346 steps)
+RFLX.Arrays.Tests.Test_Parsing_Arrays_Enumeration_Sequential                                          =>                              0.0 s/0.0 s/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:301:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 255592 steps)
+ `-Z3: 0.0 s (Valid, 38136 steps)
+ `-Z3: 0.0 s (Valid, 38142 steps)
+ `-Z3: 0.0 s (Valid, 254629 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:303:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 39035 steps)
+ `-Z3: 0.0 s (Valid, 38967 steps)
+ `-Z3: 0.0 s (Valid, 38973 steps)
+ `-Z3: 0.0 s (Valid, 39144 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:306:34                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 136002 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:314:67                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 177926 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:353:47                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 52140 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:355:67                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 52146 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:300:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 35852 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:301:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 599043 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:303:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 648918 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:306:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 39857 steps)
+ `-Z3: 0.0 s (Valid, 280630 steps)
+ `-Z3: 0.0 s (Valid, 281850 steps)
+ `-Z3: 0.0 s (Valid, 25369 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:310:34                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 41824 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:314:27                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 41938 steps)
+ `-Z3: 0.0 s (Valid, 343556 steps)
+ `-Z3: 0.0 s (Valid, 327168 steps)
+ `-Z3: 0.0 s (Valid, 26812 steps)
+ `-Z3: 0.0 s (Valid, 332188 steps)
+ `-Z3: 0.0 s (Valid, 311731 steps)
+ `-Z3: 0.0 s (Valid, 323751 steps)
+ `-Z3: 0.0 s (Valid, 26808 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:317:52                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 46394 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:320:41                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 46489 steps)
+ `-Z3: 0.0 s (Valid, 29514 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:322:55                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 47430 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:325:44                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 47521 steps)
+ `-Z3: 0.0 s (Valid, 30198 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:332:33                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 30939 steps)
+ `-Z3: 0.0 s (Valid, 30929 steps)
+ `-Z3: 0.0 s (Valid, 386873 steps)
+ `-Z3: 0.0 s (Valid, 30929 steps)
+ `-Z3: 0.0 s (Valid, 397679 steps)
+ `-Z3: 0.0 s (Valid, 397765 steps)
+ `-Z3: 0.0 s (Valid, 397137 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:349:78                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 33511 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:353:24                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 52223 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:355:35                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 435538 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:301:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 380870 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:303:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 168298 steps)
+RFLX.Arrays.Tests.Test_Parsing_Arrays_Message                                                         =>                              0.0 s/0.0 s/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:574:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 486856 steps)
+ `-Z3: 0.0 s (Valid, 74245 steps)
+ `-Z3: 0.0 s (Valid, 74251 steps)
+ `-Z3: 0.0 s (Valid, 485893 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:587:13                                           => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 77288 steps)
+ `-Z3: 0.0 s (Valid, 77207 steps)
+ `-Z3: 0.0 s (Valid, 77213 steps)
+ `-Z3: 0.0 s (Valid, 77694 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:628:13                                           => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 89315 steps)
+ `-Z3: 0.0 s (Valid, 89214 steps)
+ `-Z3: 0.0 s (Valid, 89220 steps)
+ `-Z3: 0.0 s (Valid, 91181 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:669:13                                           => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 100607 steps)
+ `-Z3: 0.0 s (Valid, 100478 steps)
+ `-Z3: 0.0 s (Valid, 100484 steps)
+ `-Z3: 0.0 s (Valid, 102481 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:711:13                                           => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 111879 steps)
+ `-Z3: 0.0 s (Valid, 111722 steps)
+ `-Z3: 0.0 s (Valid, 111728 steps)
+ `-Z3: 0.0 s (Valid, 113751 steps)
+`-VC_DISCRIMINANT_CHECK rflx-arrays-tests.adb:725:27                                                  => 0.0 s/0.0 s/0.0 s
+ `-Trivial: 0.0 s (Valid, 0 steps)
+ `-Z3: 0.0 s (Valid, 75842 steps)
+`-VC_DISCRIMINANT_CHECK rflx-arrays-tests.adb:727:69                                                  => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 144812 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:595:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51851 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:596:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51868 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:597:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51881 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:598:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51888 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:599:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51899 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:636:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 59924 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:637:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 59941 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:638:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 59954 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:639:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 59961 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:640:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 59972 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:677:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 67591 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:678:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 67608 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:679:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 67621 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:680:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 67628 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:681:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 67639 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:719:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 75226 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:720:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 75243 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:721:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 75256 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:722:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 75263 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:723:42                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 75274 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:595:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 53378 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:596:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 641983 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:597:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 630755 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:598:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 642531 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:599:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 642596 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:636:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 61508 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:637:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 755334 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:638:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 750160 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:639:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 756002 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:640:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 745526 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:677:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 69173 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:678:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 1247544 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:679:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 849896 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:680:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 936768 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:681:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 1097236 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:719:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 76842 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:720:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 956085 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:721:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 954332 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:722:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 956745 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:723:42                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 957893 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:577:34                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 255230 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:592:66                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 330053 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:633:64                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 409014 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:674:70                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 486975 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:716:73                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 562773 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:760:44                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 122945 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:573:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 80934 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:574:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 1110943 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:587:13                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 678566 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:628:13                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 782925 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:669:13                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 886808 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:711:13                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 988907 steps)
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:605:26                                                      => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 611957 steps)
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:646:26                                                      => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 717561 steps)
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:688:26                                                      => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 822987 steps)
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:734:26                                                      => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 925746 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:577:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 75046 steps)
+ `-Z3: 0.0 s (Valid, 520537 steps)
+ `-Z3: 0.0 s (Valid, 521685 steps)
+ `-Z3: 0.0 s (Valid, 46870 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:581:34                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 76992 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:584:36                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 76990 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:592:30                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 78145 steps)
+ `-Z3: 0.0 s (Valid, 600607 steps)
+ `-Z3: 0.0 s (Valid, 598200 steps)
+ `-Z3: 0.0 s (Valid, 49059 steps)
+ `-Z3: 0.0 s (Valid, 575095 steps)
+ `-Z3: 0.0 s (Valid, 558174 steps)
+ `-Z3: 0.0 s (Valid, 572357 steps)
+ `-Z3: 0.0 s (Valid, 49055 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:601:51                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 52437 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:604:40                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 52608 steps)
+ `-Z3: 0.0 s (Valid, 52610 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:614:30                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 54089 steps)
+ `-Z3: 0.0 s (Valid, 295511 steps)
+ `-Z3: 0.0 s (Valid, 642559 steps)
+ `-Z3: 0.0 s (Valid, 54079 steps)
+ `-Z3: 0.0 s (Valid, 645561 steps)
+ `-Z3: 0.0 s (Valid, 646539 steps)
+ `-Z3: 0.0 s (Valid, 646438 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:625:36                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 281390 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:633:30                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 285921 steps)
+ `-Z3: 0.0 s (Valid, 1134263 steps)
+ `-Z3: 0.0 s (Valid, 793336 steps)
+ `-Z3: 0.0 s (Valid, 57305 steps)
+ `-Z3: 0.0 s (Valid, 815234 steps)
+ `-Z3: 0.0 s (Valid, 663933 steps)
+ `-Z3: 0.0 s (Valid, 725279 steps)
+ `-Z3: 0.0 s (Valid, 57301 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:642:49                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 60538 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:645:38                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 60738 steps)
+ `-Z3: 0.0 s (Valid, 60740 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:655:30                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 61772 steps)
+ `-Z3: 0.0 s (Valid, 363975 steps)
+ `-Z3: 0.0 s (Valid, 760958 steps)
+ `-Z3: 0.0 s (Valid, 61762 steps)
+ `-Z3: 0.0 s (Valid, 763821 steps)
+ `-Z3: 0.0 s (Valid, 764727 steps)
+ `-Z3: 0.0 s (Valid, 764493 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:666:36                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 629834 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:674:30                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 635634 steps)
+ `-Z3: 0.0 s (Valid, 1503212 steps)
+ `-Z3: 0.0 s (Valid, 963420 steps)
+ `-Z3: 0.0 s (Valid, 64987 steps)
+ `-Z3: 0.0 s (Valid, 992992 steps)
+ `-Z3: 0.0 s (Valid, 769707 steps)
+ `-Z3: 0.0 s (Valid, 834585 steps)
+ `-Z3: 0.0 s (Valid, 64983 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:683:55                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 68205 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:687:44                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 68403 steps)
+ `-Z3: 0.0 s (Valid, 68405 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:697:30                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 69439 steps)
+ `-Z3: 0.0 s (Valid, 432596 steps)
+ `-Z3: 0.0 s (Valid, 855275 steps)
+ `-Z3: 0.0 s (Valid, 69429 steps)
+ `-Z3: 0.0 s (Valid, 855981 steps)
+ `-Z3: 0.0 s (Valid, 856895 steps)
+ `-Z3: 0.0 s (Valid, 856008 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:708:36                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 751640 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:716:30                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 758163 steps)
+ `-Z3: 0.0 s (Valid, 1786890 steps)
+ `-Z3: 0.0 s (Valid, 1245479 steps)
+ `-Z3: 0.0 s (Valid, 72664 steps)
+ `-Z3: 0.0 s (Valid, 1247489 steps)
+ `-Z3: 0.0 s (Valid, 873237 steps)
+ `-Z3: 0.0 s (Valid, 939560 steps)
+ `-Z3: 0.0 s (Valid, 72660 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:725:58                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 75806 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:733:47                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 76072 steps)
+ `-Z3: 0.0 s (Valid, 76074 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:744:30                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 77124 steps)
+ `-Z3: 0.0 s (Valid, 499176 steps)
+ `-Z3: 0.0 s (Valid, 960960 steps)
+ `-Z3: 0.0 s (Valid, 77114 steps)
+ `-Z3: 0.0 s (Valid, 963026 steps)
+ `-Z3: 0.0 s (Valid, 963948 steps)
+ `-Z3: 0.0 s (Valid, 963085 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:758:29                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 1013938 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:760:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 1018318 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:574:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 728410 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:587:13                                    => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 329821 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:628:13                                    => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 408888 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:669:13                                    => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 486845 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:711:13                                    => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 562680 steps)
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:602:89                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 632654 steps)
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:643:89                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 735158 steps)
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:685:55                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 1164678 steps)
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:728:58                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 945831 steps)
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:730:65                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 945852 steps)
+RFLX.Arrays.Tests.Test_Parsing_Arrays_Messages_Message_Loop                                           =>                              0.0 s/0.0 s/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:855:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 308256 steps)
+ `-Z3: 0.0 s (Valid, 46816 steps)
+ `-Z3: 0.0 s (Valid, 46822 steps)
+ `-Z3: 0.0 s (Valid, 307508 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:857:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 47715 steps)
+ `-Z3: 0.0 s (Valid, 47647 steps)
+ `-Z3: 0.0 s (Valid, 47653 steps)
+ `-Z3: 0.0 s (Valid, 47824 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:858:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 48591 steps)
+ `-Z3: 0.0 s (Valid, 48502 steps)
+ `-Z3: 0.0 s (Valid, 48508 steps)
+ `-Z3: 0.0 s (Valid, 48684 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:872:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 34773 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:873:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 34790 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:874:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 34803 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:875:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 34810 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:876:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 34817 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:877:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 393239 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:872:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 39105 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:873:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 474966 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:874:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 463758 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:875:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 476575 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:876:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 475921 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:877:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 39164 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:861:43                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 167117 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:869:66                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 215817 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:879:64                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 404306 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:911:56                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 65067 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:854:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 44462 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:855:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 499940 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:857:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 511751 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:858:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 531266 steps)
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:891:23                                                      => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 448769 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:861:30                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 49323 steps)
+ `-Z3: 0.0 s (Valid, 341736 steps)
+ `-Z3: 0.0 s (Valid, 342760 steps)
+ `-Z3: 0.0 s (Valid, 31699 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:865:43                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51300 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:869:36                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51404 steps)
+ `-Z3: 0.0 s (Valid, 381330 steps)
+ `-Z3: 0.0 s (Valid, 388305 steps)
+ `-Z3: 0.0 s (Valid, 33142 steps)
+ `-Z3: 0.0 s (Valid, 381571 steps)
+ `-Z3: 0.0 s (Valid, 370552 steps)
+ `-Z3: 0.0 s (Valid, 378235 steps)
+ `-Z3: 0.0 s (Valid, 33138 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:879:37                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 35754 steps)
+ `-Z3: 0.0 s (Valid, 35750 steps)
+ `-Z3: 0.0 s (Valid, 35752 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:883:49                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 58155 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:886:44                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 57943 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:889:37                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 58053 steps)
+ `-Z3: 0.0 s (Valid, 37895 steps)
+ `-Z3: 0.0 s (Valid, 446514 steps)
+ `-Z3: 0.0 s (Valid, 37899 steps)
+ `-Z3: 0.0 s (Valid, 402632 steps)
+ `-Z3: 0.0 s (Valid, 402653 steps)
+ `-Z3: 0.0 s (Valid, 456986 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:898:36                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 41284 steps)
+ `-Z3: 0.0 s (Valid, 196656 steps)
+ `-Z3: 0.0 s (Valid, 471262 steps)
+ `-Z3: 0.0 s (Valid, 41274 steps)
+ `-Z3: 0.0 s (Valid, 479296 steps)
+ `-Z3: 0.0 s (Valid, 481058 steps)
+ `-Z3: 0.0 s (Valid, 480268 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:908:38                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 396929 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:911:33                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 65160 steps)
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:879:64                                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 36850 steps)
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:889:64                                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 37868 steps)
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:889:64                                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 38871 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:855:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 434412 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:857:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 202166 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:858:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 475117 steps)
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:884:82                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 458069 steps)
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:887:54                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 456565 steps)
+RFLX.Arrays.Tests.Test_Parsing_Arrays_Messages_Message_Sequential                                     =>                              0.0 s/0.0 s/0.0 s
+`-VC_ASSERT rflx-arrays-tests.adb:779:22                                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 53371 steps)
+`-VC_ASSERT rflx-arrays-tests.adb:821:34                                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 43249 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:771:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 323673 steps)
+ `-Z3: 0.0 s (Valid, 49248 steps)
+ `-Z3: 0.0 s (Valid, 49254 steps)
+ `-Z3: 0.0 s (Valid, 322925 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:773:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 50147 steps)
+ `-Z3: 0.0 s (Valid, 50079 steps)
+ `-Z3: 0.0 s (Valid, 50085 steps)
+ `-Z3: 0.0 s (Valid, 50256 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:774:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51023 steps)
+ `-Z3: 0.0 s (Valid, 50934 steps)
+ `-Z3: 0.0 s (Valid, 50940 steps)
+ `-Z3: 0.0 s (Valid, 51116 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:776:43                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 175426 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:785:66                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 226057 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:788:64                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 237614 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:800:67                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 448355 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:839:56                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 67524 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:841:63                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 67653 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:770:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 46082 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:771:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 743494 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:773:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 777553 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:774:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 795961 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:776:30                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51703 steps)
+ `-Z3: 0.0 s (Valid, 358120 steps)
+ `-Z3: 0.0 s (Valid, 359144 steps)
+ `-Z3: 0.0 s (Valid, 32953 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:781:43                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 53687 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:785:36                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 34397 steps)
+ `-Z3: 0.0 s (Valid, 397684 steps)
+ `-Z3: 0.0 s (Valid, 404663 steps)
+ `-Z3: 0.0 s (Valid, 34403 steps)
+ `-Z3: 0.0 s (Valid, 397931 steps)
+ `-Z3: 0.0 s (Valid, 386895 steps)
+ `-Z3: 0.0 s (Valid, 394594 steps)
+ `-Z3: 0.0 s (Valid, 34399 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:788:37                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 35927 steps)
+ `-Z3: 0.0 s (Valid, 56254 steps)
+ `-Z3: 0.0 s (Valid, 35919 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:792:49                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 58788 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:795:44                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 58490 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:797:37                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 58600 steps)
+ `-Z3: 0.0 s (Valid, 37757 steps)
+ `-Z3: 0.0 s (Valid, 444811 steps)
+ `-Z3: 0.0 s (Valid, 37761 steps)
+ `-Z3: 0.0 s (Valid, 406088 steps)
+ `-Z3: 0.0 s (Valid, 406109 steps)
+ `-Z3: 0.0 s (Valid, 454377 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:800:40                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 38834 steps)
+ `-Z3: 0.0 s (Valid, 60611 steps)
+ `-Z3: 0.0 s (Valid, 38830 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:804:52                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 63139 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:807:47                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 62745 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:810:40                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 62855 steps)
+ `-Z3: 0.0 s (Valid, 40676 steps)
+ `-Z3: 0.0 s (Valid, 491062 steps)
+ `-Z3: 0.0 s (Valid, 40680 steps)
+ `-Z3: 0.0 s (Valid, 438199 steps)
+ `-Z3: 0.0 s (Valid, 438220 steps)
+ `-Z3: 0.0 s (Valid, 502396 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:817:42                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 41855 steps)
+ `-Z3: 0.0 s (Valid, 41845 steps)
+ `-Z3: 0.0 s (Valid, 509256 steps)
+ `-Z3: 0.0 s (Valid, 41845 steps)
+ `-Z3: 0.0 s (Valid, 523704 steps)
+ `-Z3: 0.0 s (Valid, 524632 steps)
+ `-Z3: 0.0 s (Valid, 521909 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:835:92                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 43620 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:839:33                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 67614 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:841:31                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 67743 steps)
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:788:64                                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 37015 steps)
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:797:64                                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 37730 steps)
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:797:64                                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 38733 steps)
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:800:67                                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 39924 steps)
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:810:67                                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 40649 steps)
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:810:67                                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 41652 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:771:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 457953 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:773:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 212478 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:774:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 484900 steps)
+RFLX.Arrays.Tests.Test_Parsing_Arrays_Modular_Loop                                                    =>                              0.0 s/0.0 s/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:110:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 245920 steps)
+ `-Z3: 0.0 s (Valid, 36898 steps)
+ `-Z3: 0.0 s (Valid, 36904 steps)
+ `-Z3: 0.0 s (Valid, 244957 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:112:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 37797 steps)
+ `-Z3: 0.0 s (Valid, 37729 steps)
+ `-Z3: 0.0 s (Valid, 37735 steps)
+ `-Z3: 0.0 s (Valid, 37906 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:127:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29121 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:128:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29138 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:129:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29151 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:130:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29158 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:131:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29169 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:127:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 30648 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:128:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 384999 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:129:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 373916 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:130:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 385489 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:131:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 385622 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:116:34                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 131112 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:124:63                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 171742 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:159:47                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51846 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:109:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 35424 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:110:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 463847 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:112:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 485682 steps)
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:137:23                                                      => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 355117 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:116:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 38628 steps)
+ `-Z3: 0.0 s (Valid, 270188 steps)
+ `-Z3: 0.0 s (Valid, 271408 steps)
+ `-Z3: 0.0 s (Valid, 24886 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:120:34                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 40594 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:124:27                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 40709 steps)
+ `-Z3: 0.0 s (Valid, 346428 steps)
+ `-Z3: 0.0 s (Valid, 314505 steps)
+ `-Z3: 0.0 s (Valid, 26329 steps)
+ `-Z3: 0.0 s (Valid, 321835 steps)
+ `-Z3: 0.0 s (Valid, 301301 steps)
+ `-Z3: 0.0 s (Valid, 310205 steps)
+ `-Z3: 0.0 s (Valid, 26325 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:133:48                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29707 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:136:37                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29878 steps)
+ `-Z3: 0.0 s (Valid, 29880 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:146:27                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 31359 steps)
+ `-Z3: 0.0 s (Valid, 167338 steps)
+ `-Z3: 0.0 s (Valid, 385686 steps)
+ `-Z3: 0.0 s (Valid, 31349 steps)
+ `-Z3: 0.0 s (Valid, 388688 steps)
+ `-Z3: 0.0 s (Valid, 389666 steps)
+ `-Z3: 0.0 s (Valid, 389565 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:156:33                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 328831 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:159:24                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51928 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:110:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 375279 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:112:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 162172 steps)
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:134:86                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 375612 steps)
+RFLX.Arrays.Tests.Test_Parsing_Arrays_Modular_Sequential                                              =>                              0.0 s/0.0 s/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:44:7                                             => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 245425 steps)
+ `-Z3: 0.0 s (Valid, 37015 steps)
+ `-Z3: 0.0 s (Valid, 37021 steps)
+ `-Z3: 0.0 s (Valid, 244462 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:46:7                                             => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 37914 steps)
+ `-Z3: 0.0 s (Valid, 37846 steps)
+ `-Z3: 0.0 s (Valid, 37852 steps)
+ `-Z3: 0.0 s (Valid, 38023 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:49:34                                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 131067 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:57:63                                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 171579 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:95:47                                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 50932 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:97:63                                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 50938 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:43:7                                           => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 35272 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:44:7                                           => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 595370 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:46:7                                           => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 646634 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:49:21                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 38693 steps)
+ `-Z3: 0.0 s (Valid, 269577 steps)
+ `-Z3: 0.0 s (Valid, 270797 steps)
+ `-Z3: 0.0 s (Valid, 24825 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:53:34                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 40656 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:57:27                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 40774 steps)
+ `-Z3: 0.0 s (Valid, 345808 steps)
+ `-Z3: 0.0 s (Valid, 313897 steps)
+ `-Z3: 0.0 s (Valid, 26268 steps)
+ `-Z3: 0.0 s (Valid, 321222 steps)
+ `-Z3: 0.0 s (Valid, 300688 steps)
+ `-Z3: 0.0 s (Valid, 309600 steps)
+ `-Z3: 0.0 s (Valid, 26264 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:60:48                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 45068 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:63:37                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 45120 steps)
+ `-Z3: 0.0 s (Valid, 28969 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:65:51                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 46059 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:68:40                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 46111 steps)
+ `-Z3: 0.0 s (Valid, 29626 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:74:33                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 30367 steps)
+ `-Z3: 0.0 s (Valid, 30357 steps)
+ `-Z3: 0.0 s (Valid, 373529 steps)
+ `-Z3: 0.0 s (Valid, 30357 steps)
+ `-Z3: 0.0 s (Valid, 384281 steps)
+ `-Z3: 0.0 s (Valid, 384359 steps)
+ `-Z3: 0.0 s (Valid, 383739 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:91:78                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 32931 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:95:24                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51011 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:97:31                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 430561 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:44:7                                      => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 370572 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:46:7                                      => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 162094 steps)
+RFLX.Arrays.Tests.Test_Parsing_Arrays_Range_Loop                                                      =>                              0.0 s/0.0 s/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:239:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 250217 steps)
+ `-Z3: 0.0 s (Valid, 37167 steps)
+ `-Z3: 0.0 s (Valid, 37173 steps)
+ `-Z3: 0.0 s (Valid, 249254 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:241:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 38066 steps)
+ `-Z3: 0.0 s (Valid, 37998 steps)
+ `-Z3: 0.0 s (Valid, 38004 steps)
+ `-Z3: 0.0 s (Valid, 38175 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:256:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29166 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:257:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29183 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:258:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29196 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:259:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29203 steps)
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:260:39                                                 => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29214 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:256:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 30754 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:257:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 389872 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:258:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 380428 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:259:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 390424 steps)
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:260:39                                              => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 390485 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:245:34                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 132983 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:253:61                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 174279 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:288:47                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51768 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:238:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 35082 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:239:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 464515 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:241:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 487248 steps)
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:266:23                                                      => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 361818 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:245:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 38940 steps)
+ `-Z3: 0.0 s (Valid, 275004 steps)
+ `-Z3: 0.0 s (Valid, 276224 steps)
+ `-Z3: 0.0 s (Valid, 24946 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:249:34                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 40910 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:253:27                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 41021 steps)
+ `-Z3: 0.0 s (Valid, 344612 steps)
+ `-Z3: 0.0 s (Valid, 318941 steps)
+ `-Z3: 0.0 s (Valid, 26389 steps)
+ `-Z3: 0.0 s (Valid, 319768 steps)
+ `-Z3: 0.0 s (Valid, 306103 steps)
+ `-Z3: 0.0 s (Valid, 316199 steps)
+ `-Z3: 0.0 s (Valid, 26385 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:262:46                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29782 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:265:35                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 29984 steps)
+ `-Z3: 0.0 s (Valid, 29986 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:275:27                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 31014 steps)
+ `-Z3: 0.0 s (Valid, 167711 steps)
+ `-Z3: 0.0 s (Valid, 389720 steps)
+ `-Z3: 0.0 s (Valid, 31004 steps)
+ `-Z3: 0.0 s (Valid, 393200 steps)
+ `-Z3: 0.0 s (Valid, 394186 steps)
+ `-Z3: 0.0 s (Valid, 394091 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:285:33                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 332344 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:288:24                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51854 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:239:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 381699 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:241:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 164566 steps)
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:263:86                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 380571 steps)
+RFLX.Arrays.Tests.Test_Parsing_Arrays_Range_Sequential                                                =>                              0.0 s/0.0 s/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:172:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 252002 steps)
+ `-Z3: 0.0 s (Valid, 37620 steps)
+ `-Z3: 0.0 s (Valid, 37626 steps)
+ `-Z3: 0.0 s (Valid, 251039 steps)
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:174:7                                            => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 38519 steps)
+ `-Z3: 0.0 s (Valid, 38451 steps)
+ `-Z3: 0.0 s (Valid, 38457 steps)
+ `-Z3: 0.0 s (Valid, 38628 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:177:34                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 134136 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:185:61                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 175604 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:224:47                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51640 steps)
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:226:61                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51646 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:171:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 35572 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:172:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 599420 steps)
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:174:7                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 650506 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:177:21                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 39341 steps)
+ `-Z3: 0.0 s (Valid, 276815 steps)
+ `-Z3: 0.0 s (Valid, 278035 steps)
+ `-Z3: 0.0 s (Valid, 25077 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:181:34                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 41308 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:185:27                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 41422 steps)
+ `-Z3: 0.0 s (Valid, 346441 steps)
+ `-Z3: 0.0 s (Valid, 320768 steps)
+ `-Z3: 0.0 s (Valid, 26520 steps)
+ `-Z3: 0.0 s (Valid, 321595 steps)
+ `-Z3: 0.0 s (Valid, 307916 steps)
+ `-Z3: 0.0 s (Valid, 318026 steps)
+ `-Z3: 0.0 s (Valid, 26516 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:188:46                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 45799 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:191:35                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 45894 steps)
+ `-Z3: 0.0 s (Valid, 29237 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:193:49                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 46835 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:196:38                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 46926 steps)
+ `-Z3: 0.0 s (Valid, 29921 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:203:33                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 30662 steps)
+ `-Z3: 0.0 s (Valid, 30652 steps)
+ `-Z3: 0.0 s (Valid, 383380 steps)
+ `-Z3: 0.0 s (Valid, 30652 steps)
+ `-Z3: 0.0 s (Valid, 392588 steps)
+ `-Z3: 0.0 s (Valid, 392670 steps)
+ `-Z3: 0.0 s (Valid, 392046 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:220:78                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 33231 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:224:24                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 51723 steps)
+`-VC_PRECONDITION rflx-arrays-tests.adb:226:29                                                        => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 432907 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:172:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 379739 steps)
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:174:7                                     => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 165976 steps)
+RFLX.Arrays.Tests.Valid_Data_Length                                                                   =>                              0.0 s/0.0 s/0.0 s
+RFLX.Arrays.Tests.Write_Data                                                                          =>                              0.0 s/0.0 s/0.0 s
+`-VC_LENGTH_CHECK rflx-arrays-tests.adb:36:14                                                         => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 18488 steps)
+ `-Z3: 0.0 s (Valid, 19039 steps)
+ `-Z3: 0.0 s (Valid, 19388 steps)
+ `-Trivial: 0.0 s (Valid, 0 steps)
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:36:48                                                       => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 16808 steps)
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:33:39                                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 16165 steps)
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:36:17                                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 1507 steps)
+ `-Z3: 0.0 s (Valid, 17144 steps)
+ `-Z3: 0.0 s (Valid, 1507 steps)
+ `-Z3: 0.0 s (Valid, 1507 steps)
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:36:56                                                          => 0.0 s/0.0 s/0.0 s
+ `-Z3: 0.0 s (Valid, 16504 steps)
+RFLX.RFLX_Types                                                                                       =>                              0.0 s/0.0 s/0.0 s
+RFLX.RFLX_Types.Byte_Index                                                                            =>                              10.0 ms/10.0 ms/30.0 ms
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.ads:36:36                                                 => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 821 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.ads:36:41          => 10.0 ms/10.0 ms/10.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.ads:36:41                                                 => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 9016 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.ads:36:36             => 10.0 ms/10.0 ms/10.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.ads:36:36                                                    => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 8926 steps)
-RFLX.RFLX_Types.First_Bit_Index                                =>                              0.0 s/0.0 s/0.0 s
-RFLX.RFLX_Types.Last_Bit_Index                                 =>                              0.0 s/0.0 s/0.0 s
-RFLX.RFLX_Types.U64_Extract                                    =>                              37.9 s/120.0 s/1.8 ks
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:131:29           => 37.9 s/120.0 s/1.1 ks
+RFLX.RFLX_Types.First_Bit_Index                                                                       =>                              0.0 s/0.0 s/0.0 s
+RFLX.RFLX_Types.Last_Bit_Index                                                                        =>                              0.0 s/0.0 s/0.0 s
+RFLX.RFLX_Types.U64_Extract                                                                           =>                              37.9 s/120.0 s/1.8 ks
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:131:29                                                  => 37.9 s/120.0 s/1.1 ks
  `-Z3: 120.0 s (Timeout,-1 steps)
   -CVC4: 37.9 s (Valid, 1655746 steps)
  `-Z3: 120.0 s (Timeout,-1 steps)
@@ -50,25 +1661,25 @@ RFLX.RFLX_Types.U64_Extract                                    =>               
  `-Z3: 10.0 ms (Valid, 10476 steps)
  `-Z3: 10.0 ms (Valid, 10482 steps)
  `-Z3: 10.0 ms (Valid, 4685 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:131:27         => 27.1 s/120.0 s/147.1 s
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:131:27                                                => 27.1 s/120.0 s/147.1 s
  `-Z3: 120.0 s (Timeout,-1 steps)
   -CVC4: 27.1 s (Valid, 1240724 steps)
  `-Z3: 20.0 ms (Valid, 5232 steps)
-`-VC_LOOP_INVARIANT_PRESERV rflx-rflx_generic_types.adb:137:33 => 25.0 s/120.0 s/145.0 s
+`-VC_LOOP_INVARIANT_PRESERV rflx-rflx_generic_types.adb:137:33                                        => 25.0 s/120.0 s/145.0 s
  `-Z3: 120.0 s (Timeout,-1 steps)
   -CVC4: 25.0 s (Valid, 1410144 steps)
  `-Z3: 10.0 ms (Valid, 4770 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:147:30         => 24.8 s/120.0 s/144.8 s
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:147:30                                                => 24.8 s/120.0 s/144.8 s
  `-Z3: 120.0 s (Timeout,-1 steps)
   -CVC4: 24.8 s (Valid, 1259723 steps)
-`-VC_POSTCONDITION rflx-rflx_generic_types.adb:101:9           => 23.3 s/120.0 s/143.3 s
+`-VC_POSTCONDITION rflx-rflx_generic_types.adb:101:9                                                  => 23.3 s/120.0 s/143.3 s
  `-Z3: 120.0 s (Timeout,-1 steps)
   -CVC4: 23.3 s (Valid, 1724694 steps)
  `-Trivial: 0.0 s (Valid, 0 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:151:52         => 19.6 s/120.0 s/139.6 s
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:151:52                                                => 19.6 s/120.0 s/139.6 s
  `-Z3: 120.0 s (Timeout,-1 steps)
   -CVC4: 19.6 s (Valid, 1380321 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:132:65           => 170.0 ms/170.0 ms/580.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:132:65                                                  => 170.0 ms/170.0 ms/580.0 ms
  `-Z3: 170.0 ms (Valid, 216496 steps)
  `-Z3: 60.0 ms (Valid, 127425 steps)
  `-Z3: 60.0 ms (Valid, 102805 steps)
@@ -85,7 +1696,7 @@ RFLX.RFLX_Types.U64_Extract                                    =>               
  `-Z3: 20.0 ms (Valid, 4054 steps)
  `-Z3: 10.0 ms (Valid, 4396 steps)
  `-Z3: 10.0 ms (Valid, 4400 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:131:65           => 180.0 ms/180.0 ms/570.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:131:65                                                  => 180.0 ms/180.0 ms/570.0 ms
  `-Z3: 180.0 ms (Valid, 217200 steps)
  `-Z3: 60.0 ms (Valid, 128342 steps)
  `-Z3: 50.0 ms (Valid, 104029 steps)
@@ -102,7 +1713,7 @@ RFLX.RFLX_Types.U64_Extract                                    =>               
  `-Z3: 10.0 ms (Valid, 4668 steps)
  `-Z3: 10.0 ms (Valid, 4664 steps)
  `-Z3: 10.0 ms (Valid, 4069 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:145:35           => 160.0 ms/160.0 ms/280.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:145:35                                                  => 160.0 ms/160.0 ms/280.0 ms
  `-Z3: 160.0 ms (Valid, 602295 steps)
  `-Z3: 30.0 ms (Valid, 41264 steps)
  `-Z3: 20.0 ms (Valid, 13995 steps)
@@ -110,158 +1721,158 @@ RFLX.RFLX_Types.U64_Extract                                    =>               
  `-Z3: 20.0 ms (Valid, 4482 steps)
  `-Z3: 20.0 ms (Valid, 13995 steps)
  `-Z3: 10.0 ms (Valid, 4482 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:131:59            => 130.0 ms/130.0 ms/190.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:131:59                                                   => 130.0 ms/130.0 ms/190.0 ms
  `-Z3: 130.0 ms (Valid, 263445 steps)
  `-Z3: 20.0 ms (Valid, 5255 steps)
  `-Z3: 20.0 ms (Valid, 6120 steps)
  `-Z3: 20.0 ms (Valid, 47928 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:132:59            => 90.0 ms/90.0 ms/130.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:132:59                                                   => 90.0 ms/90.0 ms/130.0 ms
  `-Z3: 90.0 ms (Valid, 193988 steps)
  `-Z3: 20.0 ms (Valid, 43983 steps)
  `-Z3: 10.0 ms (Valid, 6101 steps)
  `-Z3: 10.0 ms (Valid, 5240 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:145:62            => 100.0 ms/100.0 ms/100.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:145:62                                                   => 100.0 ms/100.0 ms/100.0 ms
  `-Z3: 100.0 ms (Valid, 169010 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:145:68           => 50.0 ms/50.0 ms/100.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:145:68                                                  => 50.0 ms/50.0 ms/100.0 ms
  `-Z3: 50.0 ms (Valid, 78683 steps)
  `-Z3: 20.0 ms (Valid, 19788 steps)
  `-Z3: 20.0 ms (Valid, 4457 steps)
  `-Z3: 10.0 ms (Valid, 4461 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:132:70         => 40.0 ms/40.0 ms/100.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:132:70                                                => 40.0 ms/40.0 ms/100.0 ms
  `-Z3: 40.0 ms (Valid, 50177 steps)
  `-Z3: 30.0 ms (Valid, 35380 steps)
  `-Z3: 20.0 ms (Valid, 6082 steps)
  `-Z3: 10.0 ms (Valid, 5225 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:135:78         => 40.0 ms/40.0 ms/100.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:135:78                                                => 40.0 ms/40.0 ms/100.0 ms
  `-Z3: 40.0 ms (Valid, 48091 steps)
  `-Z3: 20.0 ms (Valid, 5190 steps)
  `-Z3: 20.0 ms (Valid, 6031 steps)
  `-Z3: 20.0 ms (Valid, 10008 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:135:65         => 40.0 ms/40.0 ms/90.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:135:65                                                => 40.0 ms/40.0 ms/90.0 ms
  `-Z3: 40.0 ms (Valid, 48522 steps)
  `-Z3: 20.0 ms (Valid, 5212 steps)
  `-Z3: 20.0 ms (Valid, 10216 steps)
  `-Z3: 10.0 ms (Valid, 6065 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:135:78            => 30.0 ms/30.0 ms/70.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:135:78                                                   => 30.0 ms/30.0 ms/70.0 ms
  `-Z3: 30.0 ms (Valid, 48278 steps)
  `-Z3: 20.0 ms (Valid, 10081 steps)
  `-Z3: 10.0 ms (Valid, 6048 steps)
  `-Z3: 10.0 ms (Valid, 5203 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:137:58         => 40.0 ms/40.0 ms/60.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:137:58                                                => 40.0 ms/40.0 ms/60.0 ms
  `-Z3: 40.0 ms (Valid, 50949 steps)
  `-Z3: 20.0 ms (Valid, 11529 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:139:61         => 40.0 ms/40.0 ms/60.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:139:61                                                => 40.0 ms/40.0 ms/60.0 ms
  `-Z3: 40.0 ms (Valid, 51540 steps)
  `-Z3: 20.0 ms (Valid, 11807 steps)
-`-VC_LOOP_INVARIANT_PRESERV rflx-rflx_generic_types.adb:136:33 => 50.0 ms/50.0 ms/50.0 ms
+`-VC_LOOP_INVARIANT_PRESERV rflx-rflx_generic_types.adb:136:33                                        => 50.0 ms/50.0 ms/50.0 ms
  `-Z3: 50.0 ms (Valid, 72552 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:137:46         => 40.0 ms/40.0 ms/50.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:137:46                                                => 40.0 ms/40.0 ms/50.0 ms
  `-Z3: 40.0 ms (Valid, 51146 steps)
  `-Z3: 10.0 ms (Valid, 11614 steps)
-`-VC_LOOP_INVARIANT_INIT rflx-rflx_generic_types.adb:137:33    => 30.0 ms/30.0 ms/50.0 ms
+`-VC_LOOP_INVARIANT_INIT rflx-rflx_generic_types.adb:137:33                                           => 30.0 ms/30.0 ms/50.0 ms
  `-Z3: 30.0 ms (Valid, 47021 steps)
  `-Z3: 20.0 ms (Valid, 4175 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:144:68            => 40.0 ms/40.0 ms/40.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:144:68                                                   => 40.0 ms/40.0 ms/40.0 ms
  `-Z3: 40.0 ms (Valid, 51182 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:136:35         => 20.0 ms/20.0 ms/40.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:136:35                                                => 20.0 ms/20.0 ms/40.0 ms
  `-Z3: 20.0 ms (Valid, 6201 steps)
  `-Z3: 20.0 ms (Valid, 5370 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:139:73         => 20.0 ms/20.0 ms/40.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:139:73                                                => 20.0 ms/20.0 ms/40.0 ms
  `-Z3: 20.0 ms (Valid, 6336 steps)
  `-Z3: 20.0 ms (Valid, 5505 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:139:86            => 20.0 ms/20.0 ms/40.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:139:86                                                   => 20.0 ms/20.0 ms/40.0 ms
  `-Z3: 20.0 ms (Valid, 6319 steps)
  `-Z3: 20.0 ms (Valid, 5488 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:109:52         => 30.0 ms/30.0 ms/30.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:109:52                                                => 30.0 ms/30.0 ms/30.0 ms
  `-Z3: 30.0 ms (Valid, 34859 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:109:65         => 30.0 ms/30.0 ms/30.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:109:65                                                => 30.0 ms/30.0 ms/30.0 ms
  `-Z3: 30.0 ms (Valid, 34340 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:129:39         => 30.0 ms/30.0 ms/30.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:129:39                                                => 30.0 ms/30.0 ms/30.0 ms
  `-Z3: 30.0 ms (Valid, 35336 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:144:68         => 30.0 ms/30.0 ms/30.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:144:68                                                => 30.0 ms/30.0 ms/30.0 ms
  `-Z3: 30.0 ms (Valid, 50838 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:137:63         => 20.0 ms/20.0 ms/30.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:137:63                                                => 20.0 ms/20.0 ms/30.0 ms
  `-Z3: 20.0 ms (Valid, 5387 steps)
  `-Z3: 10.0 ms (Valid, 6218 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:139:86         => 20.0 ms/20.0 ms/30.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:139:86                                                => 20.0 ms/20.0 ms/30.0 ms
  `-Z3: 20.0 ms (Valid, 5471 steps)
  `-Z3: 10.0 ms (Valid, 6302 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:97:66          => 20.0 ms/20.0 ms/20.0 ms
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:97:66                                                 => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 3275 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:98:52          => 20.0 ms/20.0 ms/20.0 ms
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:98:52                                                 => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 3372 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:104:91         => 20.0 ms/20.0 ms/20.0 ms
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:104:91                                                => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 3411 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:106:64         => 20.0 ms/20.0 ms/20.0 ms
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:106:64                                                => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 3445 steps)
-`-VC_LOOP_INVARIANT_INIT rflx-rflx_generic_types.adb:136:33    => 20.0 ms/20.0 ms/20.0 ms
+`-VC_LOOP_INVARIANT_INIT rflx-rflx_generic_types.adb:136:33                                           => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 11414 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:97:48          => 20.0 ms/20.0 ms/20.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:97:48                                                 => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 33640 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:98:34          => 20.0 ms/20.0 ms/20.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:98:34                                                 => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 5411 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:104:73         => 20.0 ms/20.0 ms/20.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:104:73                                                => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 35107 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:107:50            => 20.0 ms/20.0 ms/20.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:107:50                                                   => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 9289 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:109:96            => 20.0 ms/20.0 ms/20.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:109:96                                                   => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 3608 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:99:46          => 10.0 ms/10.0 ms/10.0 ms
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:99:46                                                 => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 3385 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:103:64         => 10.0 ms/10.0 ms/10.0 ms
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:103:64                                                => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 3346 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:109:82         => 10.0 ms/10.0 ms/10.0 ms
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:109:82                                                => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 3586 steps)
-RFLX.RFLX_Types.U64_Extract.D                                  =>                              4.7 s/9.5 s/70.6 s
-`-VC_ASSERT rflx-rflx_generic_types.adb:117:25                 => 4.7 s/9.5 s/14.2 s
+RFLX.RFLX_Types.U64_Extract.D                                                                         =>                              4.7 s/9.5 s/70.6 s
+`-VC_ASSERT rflx-rflx_generic_types.adb:117:25                                                        => 4.7 s/9.5 s/14.2 s
  `-Z3: 9.5 s (Out Of Memory,-1 steps)
   -CVC4: 4.7 s (Valid, 25745 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:117:41         => 2.1 s/9.3 s/11.4 s
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:117:41                                                => 2.1 s/9.3 s/11.4 s
  `-Z3: 9.3 s (Out Of Memory,-1 steps)
   -CVC4: 2.1 s (Valid, 12361 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:120:77         => 60.0 ms/9.0 s/9.1 s
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:120:77                                                => 60.0 ms/9.0 s/9.1 s
  `-Z3: 9.0 s (Out Of Memory,-1 steps)
   -CVC4: 60.0 ms (Valid, 841 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:123:45            => 70.0 ms/9.0 s/9.1 s
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:123:45                                                   => 70.0 ms/9.0 s/9.1 s
  `-Z3: 9.0 s (Out Of Memory,-1 steps)
   -CVC4: 70.0 ms (Valid, 965 steps)
-`-VC_INDEX_CHECK rflx-rflx_generic_types.adb:121:43            => 40.0 ms/9.0 s/9.0 s
+`-VC_INDEX_CHECK rflx-rflx_generic_types.adb:121:43                                                   => 40.0 ms/9.0 s/9.0 s
  `-Z3: 9.0 s (Out Of Memory,-1 steps)
   -CVC4: 40.0 ms (Valid, 72 steps)
  `-Z3: 20.0 ms (Valid, 17767 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:123:34            => 50.0 ms/9.0 s/9.0 s
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:123:34                                                   => 50.0 ms/9.0 s/9.0 s
  `-Z3: 9.0 s (Out Of Memory,-1 steps)
   -CVC4: 50.0 ms (Valid, 681 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:121:75            => 40.0 ms/8.6 s/8.7 s
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:121:75                                                   => 40.0 ms/8.6 s/8.7 s
  `-Z3: 8.6 s (Out Of Memory,-1 steps)
   -CVC4: 40.0 ms (Valid, 72 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:116:46         => 30.0 ms/30.0 ms/30.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:116:46                                                => 30.0 ms/30.0 ms/30.0 ms
  `-Z3: 30.0 ms (Valid, 36011 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:116:59         => 30.0 ms/30.0 ms/30.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:116:59                                                => 30.0 ms/30.0 ms/30.0 ms
  `-Z3: 30.0 ms (Valid, 35631 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:121:75         => 30.0 ms/30.0 ms/30.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:121:75                                                => 30.0 ms/30.0 ms/30.0 ms
  `-Z3: 30.0 ms (Valid, 61787 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:123:45         => 20.0 ms/20.0 ms/20.0 ms
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:123:45                                                => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 38748 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:116:83         => 20.0 ms/20.0 ms/20.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:116:83                                                => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 4436 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:116:83            => 20.0 ms/20.0 ms/20.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:116:83                                                   => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 4461 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:120:66            => 20.0 ms/20.0 ms/20.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:120:66                                                   => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 5734 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:120:77            => 20.0 ms/20.0 ms/20.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:120:77                                                   => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 37189 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:121:37            => 20.0 ms/20.0 ms/20.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:121:37                                                   => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 3694 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:116:76         => 10.0 ms/10.0 ms/10.0 ms
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:116:76                                                => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 4390 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:120:66         => 10.0 ms/10.0 ms/10.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:120:66                                                => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 5701 steps)
-RFLX.RFLX_Types.U64_Extract.D.ES                               =>                              10.0 ms/10.0 ms/10.0 ms
-`-VC_POSTCONDITION rflx-rflx_generic_types.adb:115:65          => 10.0 ms/10.0 ms/10.0 ms
+RFLX.RFLX_Types.U64_Extract.D.ES                                                                      =>                              10.0 ms/10.0 ms/10.0 ms
+`-VC_POSTCONDITION rflx-rflx_generic_types.adb:115:65                                                 => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 14 steps)
-RFLX.RFLX_Types.U64_Extract_Intermediate                       =>                              6.7 s/120.0 s/617.3 s
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:62:39            => 6.7 s/120.0 s/126.8 s
+RFLX.RFLX_Types.U64_Extract_Intermediate                                                              =>                              6.7 s/120.0 s/617.3 s
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:62:39                                                   => 6.7 s/120.0 s/126.8 s
  `-Z3: 120.0 s (Timeout,-1 steps)
   -CVC4: 6.7 s (Valid, 206823 steps)
  `-Z3: 30.0 ms (Valid, 14168 steps)
@@ -269,10 +1880,10 @@ RFLX.RFLX_Types.U64_Extract_Intermediate                       =>               
  `-Z3: 10.0 ms (Valid, 4001 steps)
  `-Z3: 10.0 ms (Valid, 4001 steps)
  `-Trivial: 0.0 s (Valid, 0 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:62:61          => 3.0 s/120.0 s/123.0 s
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:62:61                                                 => 3.0 s/120.0 s/123.0 s
  `-Z3: 120.0 s (Timeout,-1 steps)
   -CVC4: 3.0 s (Valid, 179947 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:65:14            => 1.5 s/120.0 s/122.0 s
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:65:14                                                   => 1.5 s/120.0 s/122.0 s
  `-Z3: 120.0 s (Timeout,-1 steps)
   -CVC4: 1.5 s (Valid, 3051 steps)
  `-Z3: 280.0 ms (Valid, 15609 steps)
@@ -280,22 +1891,22 @@ RFLX.RFLX_Types.U64_Extract_Intermediate                       =>               
  `-Z3: 20.0 ms (Valid, 1540 steps)
  `-Z3: 10.0 ms (Valid, 1536 steps)
  `-Trivial: 0.0 s (Valid, 0 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:58:82          => 1.3 s/120.0 s/121.3 s
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:58:82                                                 => 1.3 s/120.0 s/121.3 s
  `-Z3: 120.0 s (Timeout,-1 steps)
   -CVC4: 1.3 s (Valid, 2082 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:63:49          => 40.0 ms/120.0 s/120.0 s
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:63:49                                                 => 40.0 ms/120.0 s/120.0 s
  `-Z3: 120.0 s (Timeout,-1 steps)
   -CVC4: 40.0 ms (Valid, 742 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:65:34          => 2.7 s/2.7 s/2.7 s
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:65:34                                                 => 2.7 s/2.7 s/2.7 s
  `-Z3: 2.7 s (Valid, 8989120 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:58:58          => 330.0 ms/330.0 ms/650.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:58:58                                                 => 330.0 ms/330.0 ms/650.0 ms
  `-Z3: 330.0 ms (Valid, 32665 steps)
  `-Z3: 320.0 ms (Valid, 32499 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:57:85          => 360.0 ms/360.0 ms/360.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:57:85                                                 => 360.0 ms/360.0 ms/360.0 ms
  `-Z3: 360.0 ms (Valid, 155180 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:56:22          => 270.0 ms/270.0 ms/270.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:56:22                                                 => 270.0 ms/270.0 ms/270.0 ms
  `-Z3: 270.0 ms (Valid, 20213 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:60:33            => 20.0 ms/20.0 ms/80.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:60:33                                                   => 20.0 ms/20.0 ms/80.0 ms
  `-Z3: 20.0 ms (Valid, 12669 steps)
  `-Z3: 20.0 ms (Valid, 1289 steps)
  `-Z3: 10.0 ms (Valid, 1252 steps)
@@ -303,21 +1914,21 @@ RFLX.RFLX_Types.U64_Extract_Intermediate                       =>               
  `-Z3: 10.0 ms (Valid, 5321 steps)
  `-Z3: 10.0 ms (Valid, 5333 steps)
  `-Trivial: 0.0 s (Valid, 0 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:57:69          => 20.0 ms/20.0 ms/30.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:57:69                                                 => 20.0 ms/20.0 ms/30.0 ms
  `-Z3: 20.0 ms (Valid, 2328 steps)
  `-Z3: 10.0 ms (Valid, 2210 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:62:86             => 20.0 ms/20.0 ms/20.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:62:86                                                    => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 14011 steps)
-`-VC_POSTCONDITION rflx-rflx_generic_types.adb:56:9            => 10.0 ms/10.0 ms/20.0 ms
+`-VC_POSTCONDITION rflx-rflx_generic_types.adb:56:9                                                   => 10.0 ms/10.0 ms/20.0 ms
  `-Z3: 10.0 ms (Valid, 6663 steps)
  `-Z3: 10.0 ms (Valid, 6846 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:54:26          => 10.0 ms/10.0 ms/10.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:54:26                                                 => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 12948 steps)
-RFLX.RFLX_Types.U64_Extract_Remaining                          =>                              10.1 s/120.0 s/376.5 s
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:85:91          => 10.1 s/120.0 s/130.1 s
+RFLX.RFLX_Types.U64_Extract_Remaining                                                                 =>                              10.1 s/120.0 s/376.5 s
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:85:91                                                 => 10.1 s/120.0 s/130.1 s
  `-Z3: 120.0 s (Timeout,-1 steps)
   -CVC4: 10.1 s (Valid, 910628 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:87:40            => 3.5 s/120.0 s/123.6 s
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:87:40                                                   => 3.5 s/120.0 s/123.6 s
  `-Z3: 120.0 s (Timeout,-1 steps)
   -CVC4: 3.5 s (Valid, 196625 steps)
  `-Z3: 20.0 ms (Valid, 11813 steps)
@@ -326,73 +1937,73 @@ RFLX.RFLX_Types.U64_Extract_Remaining                          =>               
  `-Z3: 20.0 ms (Valid, 11853 steps)
  `-Z3: 20.0 ms (Valid, 11857 steps)
  `-Trivial: 0.0 s (Valid, 0 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:87:58          => 1.2 s/120.0 s/121.2 s
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:87:58                                                 => 1.2 s/120.0 s/121.2 s
  `-Z3: 120.0 s (Timeout,-1 steps)
   -CVC4: 1.2 s (Valid, 78886 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:89:14            => 90.0 ms/90.0 ms/360.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:89:14                                                   => 90.0 ms/90.0 ms/360.0 ms
  `-Z3: 90.0 ms (Valid, 13648 steps)
  `-Z3: 90.0 ms (Valid, 13789 steps)
  `-Z3: 80.0 ms (Valid, 13796 steps)
  `-Z3: 80.0 ms (Valid, 13600 steps)
  `-Z3: 20.0 ms (Valid, 5599 steps)
  `-Trivial: 0.0 s (Valid, 0 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:85:52          => 120.0 ms/120.0 ms/240.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:85:52                                                 => 120.0 ms/120.0 ms/240.0 ms
  `-Z3: 120.0 ms (Valid, 38747 steps)
  `-Z3: 120.0 ms (Valid, 38551 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:82:43          => 200.0 ms/200.0 ms/200.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:82:43                                                 => 200.0 ms/200.0 ms/200.0 ms
  `-Z3: 200.0 ms (Valid, 157435 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:79:33          => 110.0 ms/110.0 ms/110.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:79:33                                                 => 110.0 ms/110.0 ms/110.0 ms
  `-Z3: 110.0 ms (Valid, 15332 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:83:47             => 100.0 ms/100.0 ms/100.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:83:47                                                    => 100.0 ms/100.0 ms/100.0 ms
  `-Z3: 100.0 ms (Valid, 15706 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:89:75          => 90.0 ms/90.0 ms/90.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:89:75                                                 => 90.0 ms/90.0 ms/90.0 ms
  `-Z3: 90.0 ms (Valid, 13565 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:89:51          => 80.0 ms/80.0 ms/80.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:89:51                                                 => 80.0 ms/80.0 ms/80.0 ms
  `-Z3: 80.0 ms (Valid, 13764 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:85:74          => 20.0 ms/20.0 ms/60.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:85:74                                                 => 20.0 ms/20.0 ms/60.0 ms
  `-Z3: 20.0 ms (Valid, 2134 steps)
  `-Z3: 20.0 ms (Valid, 2044 steps)
  `-Z3: 10.0 ms (Valid, 2176 steps)
  `-Z3: 10.0 ms (Valid, 2092 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:81:75          => 20.0 ms/20.0 ms/40.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:81:75                                                 => 20.0 ms/20.0 ms/40.0 ms
  `-Z3: 20.0 ms (Valid, 2360 steps)
  `-Z3: 20.0 ms (Valid, 2189 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:81:62          => 20.0 ms/20.0 ms/30.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:81:62                                                 => 20.0 ms/20.0 ms/30.0 ms
  `-Z3: 20.0 ms (Valid, 2202 steps)
  `-Z3: 10.0 ms (Valid, 2373 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:82:65          => 20.0 ms/20.0 ms/30.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:82:65                                                 => 20.0 ms/20.0 ms/30.0 ms
  `-Z3: 20.0 ms (Valid, 2278 steps)
  `-Z3: 10.0 ms (Valid, 2320 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:81:75             => 20.0 ms/20.0 ms/30.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:81:75                                                    => 20.0 ms/20.0 ms/30.0 ms
  `-Z3: 20.0 ms (Valid, 2373 steps)
  `-Z3: 10.0 ms (Valid, 2202 steps)
-`-VC_POSTCONDITION rflx-rflx_generic_types.adb:78:9            => 10.0 ms/10.0 ms/30.0 ms
+`-VC_POSTCONDITION rflx-rflx_generic_types.adb:78:9                                                   => 10.0 ms/10.0 ms/30.0 ms
  `-Z3: 10.0 ms (Valid, 6631 steps)
  `-Z3: 10.0 ms (Valid, 6432 steps)
  `-Z3: 10.0 ms (Valid, 1979 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:75:21          => 20.0 ms/20.0 ms/20.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:75:21                                                 => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 11440 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:83:34          => 20.0 ms/20.0 ms/20.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:83:34                                                 => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 2101 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:83:47          => 20.0 ms/20.0 ms/20.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:83:47                                                 => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 2084 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:83:60          => 20.0 ms/20.0 ms/20.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:83:60                                                 => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 2090 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:87:81             => 20.0 ms/20.0 ms/20.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:87:81                                                    => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 12034 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:89:51             => 20.0 ms/20.0 ms/20.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:89:51                                                    => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 1789 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:81:88          => 10.0 ms/10.0 ms/20.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:81:88                                                 => 10.0 ms/10.0 ms/20.0 ms
  `-Z3: 10.0 ms (Valid, 2362 steps)
  `-Z3: 10.0 ms (Valid, 2191 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:79:20          => 10.0 ms/10.0 ms/10.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:79:20                                                 => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 1987 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:79:46          => 10.0 ms/10.0 ms/10.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:79:46                                                 => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 1976 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:83:101         => 10.0 ms/10.0 ms/10.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:83:101                                                => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 2042 steps)
-RFLX.RFLX_Types.U64_Insert                                     =>                              54.2 s/120.0 s/1.6 ks
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:221:39           => 5.2 s/120.0 s/490.6 s
+RFLX.RFLX_Types.U64_Insert                                                                            =>                              54.2 s/120.0 s/1.6 ks
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:221:39                                                  => 5.2 s/120.0 s/490.6 s
  `-CVC4: 120.0 s (Timeout,-1 steps)
   -Z3: 120.0 s (Timeout,-1 steps)
   -altergo: 181.9 ms (Valid, 3009 steps)
@@ -404,7 +2015,7 @@ RFLX.RFLX_Types.U64_Insert                                     =>               
  `-Z3: 30.0 ms (Valid, 46841 steps)
  `-Z3: 20.0 ms (Valid, 4080 steps)
  `-Trivial: 0.0 s (Valid, 0 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:259:19           => 5.9 s/120.0 s/251.9 s
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:259:19                                                  => 5.9 s/120.0 s/251.9 s
  `-Z3: 120.0 s (Timeout,-1 steps)
   -CVC4: 5.9 s (Valid, 598266 steps)
  `-Z3: 120.0 s (Timeout,-1 steps)
@@ -414,7 +2025,7 @@ RFLX.RFLX_Types.U64_Insert                                     =>               
  `-Z3: 10.0 ms (Valid, 4764 steps)
  `-Z3: 10.0 ms (Valid, 4785 steps)
  `-Trivial: 0.0 s (Valid, 0 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:251:19           => 1.6 s/120.0 s/243.2 s
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:251:19                                                  => 1.6 s/120.0 s/243.2 s
  `-Z3: 120.0 s (Timeout,-1 steps)
   -CVC4: 1.6 s (Valid, 173075 steps)
  `-Z3: 120.0 s (Timeout,-1 steps)
@@ -424,16 +2035,16 @@ RFLX.RFLX_Types.U64_Insert                                     =>               
  `-Z3: 10.0 ms (Valid, 4129 steps)
  `-Z3: 10.0 ms (Valid, 5718 steps)
  `-Trivial: 0.0 s (Valid, 0 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:282:48            => 297.4 ms/120.0 s/240.3 s
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:282:48                                                   => 297.4 ms/120.0 s/240.3 s
  `-CVC4: 120.0 s (Timeout,-1 steps)
   -Z3: 120.0 s (Timeout,-1 steps)
   -altergo: 297.4 ms (Valid, 4074 steps)
  `-Z3: 20.0 ms (Valid, 5376 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:229:59            => 54.2 s/120.0 s/174.2 s
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:229:59                                                   => 54.2 s/120.0 s/174.2 s
  `-Z3: 120.0 s (Timeout,-1 steps)
   -CVC4: 54.2 s (Valid, 3321417 steps)
  `-Z3: 20.0 ms (Valid, 4565 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:278:38           => 26.6 s/120.0 s/146.7 s
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:278:38                                                  => 26.6 s/120.0 s/146.7 s
  `-Z3: 120.0 s (Timeout,-1 steps)
   -CVC4: 26.6 s (Valid, 1851151 steps)
  `-Z3: 20.0 ms (Valid, 15627 steps)
@@ -442,189 +2053,189 @@ RFLX.RFLX_Types.U64_Insert                                     =>               
  `-Z3: 20.0 ms (Valid, 15645 steps)
  `-Z3: 10.0 ms (Valid, 5142 steps)
  `-Trivial: 0.0 s (Valid, 0 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:229:49         => 160.0 ms/160.0 ms/320.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:229:49                                                => 160.0 ms/160.0 ms/320.0 ms
  `-Z3: 160.0 ms (Valid, 407010 steps)
  `-Z3: 160.0 ms (Valid, 407010 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:224:39           => 210.0 ms/210.0 ms/310.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:224:39                                                  => 210.0 ms/210.0 ms/310.0 ms
  `-Z3: 210.0 ms (Valid, 379425 steps)
  `-Z3: 50.0 ms (Valid, 51825 steps)
  `-Z3: 20.0 ms (Valid, 18573 steps)
  `-Z3: 20.0 ms (Valid, 23777 steps)
  `-Z3: 10.0 ms (Valid, 12969 steps)
  `-Trivial: 0.0 s (Valid, 0 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:229:59         => 250.0 ms/250.0 ms/250.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:229:59                                                => 250.0 ms/250.0 ms/250.0 ms
  `-Z3: 250.0 ms (Valid, 705274 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:229:13           => 200.0 ms/200.0 ms/250.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:229:13                                                  => 200.0 ms/200.0 ms/250.0 ms
  `-Z3: 200.0 ms (Valid, 392024 steps)
  `-Z3: 50.0 ms (Valid, 54528 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:278:55            => 240.0 ms/240.0 ms/240.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:278:55                                                   => 240.0 ms/240.0 ms/240.0 ms
  `-Z3: 240.0 ms (Valid, 583857 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:282:13           => 180.0 ms/180.0 ms/200.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:282:13                                                  => 180.0 ms/180.0 ms/200.0 ms
  `-Z3: 180.0 ms (Valid, 442489 steps)
  `-Z3: 20.0 ms (Valid, 23738 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:258:13           => 90.0 ms/90.0 ms/140.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:258:13                                                  => 90.0 ms/90.0 ms/140.0 ms
  `-Z3: 90.0 ms (Valid, 188490 steps)
  `-Z3: 50.0 ms (Valid, 58440 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:257:67            => 70.0 ms/70.0 ms/140.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:257:67                                                   => 70.0 ms/70.0 ms/140.0 ms
  `-Z3: 70.0 ms (Valid, 150308 steps)
  `-Z3: 70.0 ms (Valid, 101594 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:226:45           => 50.0 ms/50.0 ms/140.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:226:45                                                  => 50.0 ms/50.0 ms/140.0 ms
  `-Z3: 50.0 ms (Valid, 53246 steps)
  `-Z3: 40.0 ms (Valid, 54181 steps)
  `-Z3: 20.0 ms (Valid, 4373 steps)
  `-Z3: 20.0 ms (Valid, 19611 steps)
  `-Z3: 10.0 ms (Valid, 4373 steps)
  `-Trivial: 0.0 s (Valid, 0 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:278:61           => 110.0 ms/110.0 ms/130.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:278:61                                                  => 110.0 ms/110.0 ms/130.0 ms
  `-Z3: 110.0 ms (Valid, 329402 steps)
  `-Z3: 20.0 ms (Valid, 22016 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:250:13           => 60.0 ms/60.0 ms/110.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:250:13                                                  => 60.0 ms/60.0 ms/110.0 ms
  `-Z3: 60.0 ms (Valid, 91997 steps)
  `-Z3: 50.0 ms (Valid, 63407 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:282:48         => 100.0 ms/100.0 ms/100.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:282:48                                                => 100.0 ms/100.0 ms/100.0 ms
  `-Z3: 100.0 ms (Valid, 111130 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:248:39           => 20.0 ms/20.0 ms/100.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:248:39                                                  => 20.0 ms/20.0 ms/100.0 ms
  `-Z3: 20.0 ms (Valid, 14514 steps)
  `-Z3: 20.0 ms (Valid, 12382 steps)
  `-Z3: 20.0 ms (Valid, 12408 steps)
  `-Z3: 20.0 ms (Valid, 17900 steps)
  `-Z3: 20.0 ms (Valid, 12408 steps)
  `-Trivial: 0.0 s (Valid, 0 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:257:92            => 70.0 ms/70.0 ms/90.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:257:92                                                   => 70.0 ms/70.0 ms/90.0 ms
  `-Z3: 70.0 ms (Valid, 67881 steps)
  `-Z3: 20.0 ms (Valid, 13641 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:280:59           => 20.0 ms/20.0 ms/90.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:280:59                                                  => 20.0 ms/20.0 ms/90.0 ms
  `-Z3: 20.0 ms (Valid, 18888 steps)
  `-Z3: 20.0 ms (Valid, 16296 steps)
  `-Z3: 20.0 ms (Valid, 16322 steps)
  `-Z3: 20.0 ms (Valid, 23096 steps)
  `-Z3: 10.0 ms (Valid, 16322 steps)
  `-Trivial: 0.0 s (Valid, 0 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:245:52            => 80.0 ms/80.0 ms/80.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:245:52                                                   => 80.0 ms/80.0 ms/80.0 ms
  `-Z3: 80.0 ms (Valid, 174427 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:259:58            => 80.0 ms/80.0 ms/80.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:259:58                                                   => 80.0 ms/80.0 ms/80.0 ms
  `-Z3: 80.0 ms (Valid, 151084 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:280:79            => 80.0 ms/80.0 ms/80.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:280:79                                                   => 80.0 ms/80.0 ms/80.0 ms
  `-Z3: 80.0 ms (Valid, 71819 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:221:62           => 60.0 ms/60.0 ms/80.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:221:62                                                  => 60.0 ms/60.0 ms/80.0 ms
  `-Z3: 60.0 ms (Valid, 98482 steps)
  `-Z3: 20.0 ms (Valid, 17908 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:245:58           => 50.0 ms/50.0 ms/80.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:245:58                                                  => 50.0 ms/50.0 ms/80.0 ms
  `-Z3: 50.0 ms (Valid, 106652 steps)
  `-Z3: 30.0 ms (Valid, 44373 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:257:67         => 50.0 ms/50.0 ms/70.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:257:67                                                => 50.0 ms/50.0 ms/70.0 ms
  `-Z3: 50.0 ms (Valid, 68427 steps)
  `-Z3: 20.0 ms (Valid, 24993 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:257:80         => 50.0 ms/50.0 ms/70.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:257:80                                                => 50.0 ms/50.0 ms/70.0 ms
  `-Z3: 50.0 ms (Valid, 67575 steps)
  `-Z3: 20.0 ms (Valid, 13477 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:257:97         => 50.0 ms/50.0 ms/70.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:257:97                                                => 50.0 ms/50.0 ms/70.0 ms
  `-Z3: 50.0 ms (Valid, 68129 steps)
  `-Z3: 20.0 ms (Valid, 13796 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:219:59           => 40.0 ms/40.0 ms/70.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:219:59                                                  => 40.0 ms/40.0 ms/70.0 ms
  `-Z3: 40.0 ms (Valid, 77794 steps)
  `-Z3: 30.0 ms (Valid, 36745 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:255:29         => 60.0 ms/60.0 ms/60.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:255:29                                                => 60.0 ms/60.0 ms/60.0 ms
  `-Z3: 60.0 ms (Valid, 72649 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:259:71         => 60.0 ms/60.0 ms/60.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:259:71                                                => 60.0 ms/60.0 ms/60.0 ms
  `-Z3: 60.0 ms (Valid, 97074 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:259:88         => 60.0 ms/60.0 ms/60.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:259:88                                                => 60.0 ms/60.0 ms/60.0 ms
  `-Z3: 60.0 ms (Valid, 100062 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:221:56            => 60.0 ms/60.0 ms/60.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:221:56                                                   => 60.0 ms/60.0 ms/60.0 ms
  `-Z3: 60.0 ms (Valid, 101701 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:259:83            => 60.0 ms/60.0 ms/60.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:259:83                                                   => 60.0 ms/60.0 ms/60.0 ms
  `-Z3: 60.0 ms (Valid, 99601 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:250:48            => 50.0 ms/50.0 ms/60.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:250:48                                                   => 50.0 ms/50.0 ms/60.0 ms
  `-Z3: 50.0 ms (Valid, 99654 steps)
  `-Z3: 10.0 ms (Valid, 4141 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:257:56         => 40.0 ms/40.0 ms/60.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:257:56                                                => 40.0 ms/40.0 ms/60.0 ms
  `-Z3: 40.0 ms (Valid, 54789 steps)
  `-Z3: 20.0 ms (Valid, 6726 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:226:84         => 50.0 ms/50.0 ms/50.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:226:84                                                => 50.0 ms/50.0 ms/50.0 ms
  `-Z3: 50.0 ms (Valid, 54358 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:255:46         => 50.0 ms/50.0 ms/50.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:255:46                                                => 50.0 ms/50.0 ms/50.0 ms
  `-Z3: 50.0 ms (Valid, 62954 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:259:58         => 50.0 ms/50.0 ms/50.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:259:58                                                => 50.0 ms/50.0 ms/50.0 ms
  `-Z3: 50.0 ms (Valid, 62293 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:259:83         => 50.0 ms/50.0 ms/50.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:259:83                                                => 50.0 ms/50.0 ms/50.0 ms
  `-Z3: 50.0 ms (Valid, 60311 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:219:53            => 50.0 ms/50.0 ms/50.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:219:53                                                   => 50.0 ms/50.0 ms/50.0 ms
  `-Z3: 50.0 ms (Valid, 96112 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:173:46         => 40.0 ms/40.0 ms/40.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:173:46                                                => 40.0 ms/40.0 ms/40.0 ms
  `-Z3: 40.0 ms (Valid, 75112 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:176:73         => 40.0 ms/40.0 ms/40.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:176:73                                                => 40.0 ms/40.0 ms/40.0 ms
  `-Z3: 40.0 ms (Valid, 56549 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:250:48         => 40.0 ms/40.0 ms/40.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:250:48                                                => 40.0 ms/40.0 ms/40.0 ms
  `-Z3: 40.0 ms (Valid, 59967 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:226:84            => 40.0 ms/40.0 ms/40.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:226:84                                                   => 40.0 ms/40.0 ms/40.0 ms
  `-Z3: 40.0 ms (Valid, 53154 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:257:92         => 20.0 ms/20.0 ms/40.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:257:92                                                => 20.0 ms/20.0 ms/40.0 ms
  `-Z3: 20.0 ms (Valid, 27588 steps)
  `-Z3: 20.0 ms (Valid, 13564 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:181:52         => 30.0 ms/30.0 ms/30.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:181:52                                                => 30.0 ms/30.0 ms/30.0 ms
  `-Z3: 30.0 ms (Valid, 36029 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:217:44            => 30.0 ms/30.0 ms/30.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:217:44                                                   => 30.0 ms/30.0 ms/30.0 ms
  `-Z3: 30.0 ms (Valid, 36500 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:173:64         => 20.0 ms/20.0 ms/20.0 ms
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:173:64                                                => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 3507 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:176:101        => 20.0 ms/20.0 ms/20.0 ms
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:176:101                                               => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 3548 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:181:82         => 20.0 ms/20.0 ms/20.0 ms
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:181:82                                                => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 3725 steps)
-`-VC_LOOP_INVARIANT_INIT rflx-rflx_generic_types.adb:257:36    => 20.0 ms/20.0 ms/20.0 ms
+`-VC_LOOP_INVARIANT_INIT rflx-rflx_generic_types.adb:257:36                                           => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 20132 steps)
-`-VC_LOOP_INVARIANT_PRESERV rflx-rflx_generic_types.adb:257:36 => 20.0 ms/20.0 ms/20.0 ms
+`-VC_LOOP_INVARIANT_PRESERV rflx-rflx_generic_types.adb:257:36                                        => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 22836 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:181:65         => 20.0 ms/20.0 ms/20.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:181:65                                                => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 35354 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:221:99         => 20.0 ms/20.0 ms/20.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:221:99                                                => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 22826 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:225:50         => 20.0 ms/20.0 ms/20.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:225:50                                                => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 5770 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:226:101        => 20.0 ms/20.0 ms/20.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:226:101                                               => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 5796 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:219:39           => 20.0 ms/20.0 ms/20.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:219:39                                                  => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 12134 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:245:38           => 20.0 ms/20.0 ms/20.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:245:38                                                  => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 11918 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:246:38           => 20.0 ms/20.0 ms/20.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:246:38                                                  => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 14240 steps)
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:277:38           => 20.0 ms/20.0 ms/20.0 ms
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:277:38                                                  => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 15322 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:179:50            => 20.0 ms/20.0 ms/20.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:179:50                                                   => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 10024 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:181:96            => 20.0 ms/20.0 ms/20.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:181:96                                                   => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 3747 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:224:59            => 20.0 ms/20.0 ms/20.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:224:59                                                   => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 18636 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:248:59            => 20.0 ms/20.0 ms/20.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:248:59                                                   => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 14543 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:175:64         => 10.0 ms/10.0 ms/10.0 ms
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:175:64                                                => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 3483 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:178:64         => 10.0 ms/10.0 ms/10.0 ms
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:178:64                                                => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 3582 steps)
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:258:36         => 10.0 ms/10.0 ms/10.0 ms
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:258:36                                                => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 4635 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:259:47         => 10.0 ms/10.0 ms/10.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:259:47                                                => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 6385 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:182:50            => 10.0 ms/10.0 ms/10.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:182:50                                                   => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 10526 steps)
-RFLX.RFLX_Types.U64_Insert.Read                                =>                              20.0 ms/20.0 ms/70.0 ms
-`-VC_INDEX_CHECK rflx-rflx_generic_types.adb:189:23            => 20.0 ms/20.0 ms/30.0 ms
+RFLX.RFLX_Types.U64_Insert.Read                                                                       =>                              20.0 ms/20.0 ms/70.0 ms
+`-VC_INDEX_CHECK rflx-rflx_generic_types.adb:189:23                                                   => 20.0 ms/20.0 ms/30.0 ms
  `-Z3: 20.0 ms (Valid, 16959 steps)
  `-Z3: 10.0 ms (Valid, 6549 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:189:55         => 20.0 ms/20.0 ms/20.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:189:55                                                => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 16501 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:189:55            => 20.0 ms/20.0 ms/20.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:189:55                                                   => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 16744 steps)
-RFLX.RFLX_Types.U64_Insert.Write                               =>                              20.0 ms/20.0 ms/70.0 ms
-`-VC_INDEX_CHECK rflx-rflx_generic_types.adb:197:16            => 20.0 ms/20.0 ms/30.0 ms
+RFLX.RFLX_Types.U64_Insert.Write                                                                      =>                              20.0 ms/20.0 ms/70.0 ms
+`-VC_INDEX_CHECK rflx-rflx_generic_types.adb:197:16                                                   => 20.0 ms/20.0 ms/30.0 ms
  `-Z3: 20.0 ms (Valid, 6596 steps)
  `-Z3: 10.0 ms (Valid, 17006 steps)
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:197:48         => 20.0 ms/20.0 ms/20.0 ms
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:197:48                                                => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 16548 steps)
-`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:197:48            => 20.0 ms/20.0 ms/20.0 ms
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:197:48                                                   => 20.0 ms/20.0 ms/20.0 ms
  `-Z3: 20.0 ms (Valid, 16791 steps)
-RFLX.RFLX_Types.Unreachable_Bit_Length                         =>                              10.0 ms/10.0 ms/10.0 ms
-`-VC_INCONSISTENT_PRE rflx-rflx_generic_types.ads:69:10        => 10.0 ms/10.0 ms/10.0 ms
+RFLX.RFLX_Types.Unreachable_Bit_Length                                                                =>                              10.0 ms/10.0 ms/10.0 ms
+`-VC_INCONSISTENT_PRE rflx-rflx_generic_types.ads:69:10                                               => 10.0 ms/10.0 ms/10.0 ms
  `-Z3: 10.0 ms (Valid, 5 steps)

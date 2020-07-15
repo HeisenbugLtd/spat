@@ -1,6 +1,8 @@
 Warning: Sorting files by success time not implemented yet, falling back to maximum time.
-rflx-rflx_types.spark => (Flow  => 7.2 ms,
-                          Proof => 54.2 s/120.0 s/4.5 ks)
+rflx-rflx_types.spark   => (Flow  => 7.2 ms,
+                            Proof => 54.2 s/120.0 s/4.5 ks)
+rflx-arrays-tests.spark => (Flow  => 87.1 ms,
+                            Proof => 0.0 s/0.0 s/54.1 s)
 RFLX.RFLX_Types.U64_Insert                                     =>                            54.2 s/120.0 s/1.6 ks
 `-VC_PRECONDITION rflx-rflx_generic_types.adb:221:39           => 5.2 s/120.0 s/490.6 s
 `-VC_PRECONDITION rflx-rflx_generic_types.adb:259:19           => 5.9 s/120.0 s/251.9 s

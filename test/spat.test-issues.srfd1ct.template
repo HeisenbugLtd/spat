@@ -1,6 +1,8 @@
 Warning: Sorting files by success time not implemented yet, falling back to maximum time.
-rflx-rflx_types.spark => (Flow  => 7.2 ms,
-                          Proof => 54.2 s/120.0 s/4.5 ks)
+rflx-rflx_types.spark   => (Flow  => 7.2 ms,
+                            Proof => 54.2 s/120.0 s/4.5 ks)
+rflx-arrays-tests.spark => (Flow  => 87.1 ms,
+                            Proof => 0.0 s/0.0 s/54.1 s)
 RFLX.RFLX_Types.U64_Extract                                    =>                            37.9 s/120.0 s/1.8 ks
 `-VC_PRECONDITION rflx-rflx_generic_types.adb:131:29           => 37.9 s/120.0 s/1.1 ks
 `-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:131:27         => 27.1 s/120.0 s/147.1 s
