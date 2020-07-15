@@ -167,78 +167,79 @@ package body SPAT.Spark_Info.Heuristics is
    begin
       --  Collect all proof items in the Per_File/Proof_Records structure.
       for E of Info.Entities loop
-         for Proof in E.The_Tree.Iterate_Children (Parent => E.Proofs) loop
+         declare
+            SPARK_File : constant SPARK_File_Name :=
+              Spark_Info.File_Sets.Element (E.SPARK_File);
+         begin
+            Times_Position := SPARK_List.Find (Key => SPARK_File);
+
+            if Times_Position = Per_File.No_Element then
+               SPARK_List.Insert
+                 (Key      => SPARK_File,
+                  New_Item => Prover_Maps.Empty_Map,
+                  Position => Times_Position,
+                  Inserted => Dummy_Inserted);
+            end if;
+
             declare
-               SPARK_File : constant SPARK_File_Name :=
-                 Spark_Info.File_Sets.Element (E.SPARK_File);
+               File_Ref : constant Per_File.Reference_Type :=
+                 SPARK_List.Reference (Position => Times_Position);
             begin
-               Times_Position := SPARK_List.Find (Key => SPARK_File);
-
-               if Times_Position = Per_File.No_Element then
-                  SPARK_List.Insert
-                    (Key      => SPARK_File,
-                     New_Item => Prover_Maps.Empty_Map,
-                     Position => Times_Position,
-                     Inserted => Dummy_Inserted);
-               end if;
-
-               --  Iterate over all the verification conditions within the
-               --  proof.
-               for VC in
-                 E.The_Tree.Iterate_Children
-                   (Parent => Entity.Tree.First_Child (Position => Proof))
-               loop
-                  declare
-                     --  Extract our VC component from the tree.
-                     The_Attempt : constant Proof_Attempt.T'Class :=
-                       Proof_Attempt.T'Class
-                         (Entity.Tree.Element (Position => VC));
-                     use type Proof_Attempt.Prover_Result;
-                  begin
-                     declare
-                        File_Ref : constant Per_File.Reference_Type :=
-                          SPARK_List.Reference
-                            (Position => Times_Position);
-                        Prover_Cursor : Prover_Maps.Cursor :=
-                          File_Ref.Element.Find (The_Attempt.Prover);
-                        use type Prover_Maps.Cursor;
-                     begin
-                        if Prover_Cursor = Prover_Maps.No_Element then
-                           --  New prover name, insert it.
-                           File_Ref.Element.Insert
-                             (Key      => The_Attempt.Prover,
-                              New_Item => Null_Times,
-                              Position => Prover_Cursor,
-                              Inserted => Dummy_Inserted);
-                        end if;
-
+               for Proof in E.The_Tree.Iterate_Children (Parent => E.Proofs) loop
+                  --  Iterate over all the verification conditions within the
+                  --  proof.
+                  for VC in E.The_Tree.Iterate_Children (Parent => Proof) loop
+                     for Attempt in E.The_Tree.Iterate_Children (Parent => VC) loop
                         declare
-                           Prover_Element : constant Prover_Maps.Reference_Type :=
-                             File_Ref.Reference (Position => Prover_Cursor);
+                           --  Extract our VC component from the tree.
+                           The_Attempt : constant Proof_Attempt.T'Class :=
+                             Proof_Attempt.T'Class
+                               (Entity.Tree.Element (Position => Attempt));
+                           use type Proof_Attempt.Prover_Result;
                         begin
-                           if The_Attempt.Result = Proof_Attempt.Valid then
-                              Prover_Element.Success :=
-                                Prover_Element.Success + The_Attempt.Time;
+                           declare
+                              Prover_Cursor : Prover_Maps.Cursor :=
+                                File_Ref.Element.Find (The_Attempt.Prover);
+                              use type Prover_Maps.Cursor;
+                           begin
+                              if Prover_Cursor = Prover_Maps.No_Element then
+                                 --  New prover name, insert it.
+                                 File_Ref.Element.Insert
+                                   (Key      => The_Attempt.Prover,
+                                    New_Item => Null_Times,
+                                    Position => Prover_Cursor,
+                                    Inserted => Dummy_Inserted);
+                              end if;
 
-                              Prover_Element.Max_Success :=
-                                Duration'Max (Prover_Element.Max_Success,
-                                              The_Attempt.Time);
+                              declare
+                                 Prover_Element : constant Prover_Maps.Reference_Type :=
+                                   File_Ref.Reference (Position => Prover_Cursor);
+                              begin
+                                 if The_Attempt.Result = Proof_Attempt.Valid then
+                                    Prover_Element.Success :=
+                                      Prover_Element.Success + The_Attempt.Time;
 
-                              Prover_Element.Max_Steps :=
-                                Prover_Steps'Max
-                                  (Prover_Element.Max_Steps,
-                                   Scaled (Prover    => The_Attempt.Prover,
-                                           Raw_Steps => The_Attempt.Steps));
-                           else
-                              Prover_Element.Failed :=
-                                Prover_Element.Failed + The_Attempt.Time;
-                           end if;
+                                    Prover_Element.Max_Success :=
+                                      Duration'Max (Prover_Element.Max_Success,
+                                                    The_Attempt.Time);
+
+                                    Prover_Element.Max_Steps :=
+                                      Prover_Steps'Max
+                                        (Prover_Element.Max_Steps,
+                                         Scaled (Prover    => The_Attempt.Prover,
+                                                 Raw_Steps => The_Attempt.Steps));
+                                 else
+                                    Prover_Element.Failed :=
+                                      Prover_Element.Failed + The_Attempt.Time;
+                                 end if;
+                              end;
+                           end;
                         end;
-                     end;
-                  end;
+                     end loop;
+                  end loop;
                end loop;
             end;
-         end loop;
+         end;
       end loop;
 
       --  Debug output result.
