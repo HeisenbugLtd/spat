@@ -185,16 +185,22 @@ package body SPAT.Spark_Info.Heuristics is
                File_Ref : constant Per_File.Reference_Type :=
                  SPARK_List.Reference (Position => Times_Position);
             begin
-               for Proof in E.The_Tree.Iterate_Children (Parent => E.Proofs) loop
-                  --  Iterate over all the verification conditions within the
-                  --  proof.
-                  for VC in E.The_Tree.Iterate_Children (Parent => Proof) loop
-                     for Attempt in E.The_Tree.Iterate_Children (Parent => VC) loop
+               --  Instead of manually iterating through each of the subtrees in
+               --  a proof, we just collect all Proof_Attempts we find.
+               for
+                 Item_Position in Entity.Tree.Iterate_Subtree (Position => E.Proofs)
+               loop
+                  declare
+                     Item : constant SPAT.Entity.T'Class :=
+                       SPAT.Entity.T'Class
+                         (Entity.Tree.Element (Position => Item_Position));
+                  begin
+                     if Item in Proof_Attempt.T'Class then
+                        --  Item is a Proof_Attempt, so evaluate it.
                         declare
                            --  Extract our VC component from the tree.
                            The_Attempt : constant Proof_Attempt.T'Class :=
-                             Proof_Attempt.T'Class
-                               (Entity.Tree.Element (Position => Attempt));
+                             Proof_Attempt.T'Class (Item);
                            use type Proof_Attempt.Prover_Result;
                         begin
                            declare
@@ -235,8 +241,8 @@ package body SPAT.Spark_Info.Heuristics is
                               end;
                            end;
                         end;
-                     end loop;
-                  end loop;
+                     end if;
+                  end;
                end loop;
             end;
          end;
