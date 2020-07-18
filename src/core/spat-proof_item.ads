@@ -200,10 +200,18 @@ private
          Suppressed            : Justification;
          Rule                  : Rule_Name;
          Severity              : Severity_Name;
-         Max_Success_Time      : Duration; --  Longest time for a successful proof.
-         Max_Time              : Duration; --  Longest time spent in proof (successful or not)
-         Total_Time            : Duration; --  Accumulated proof time.
-         Id                    : Proof_Item_Ids.Id; --  Id for stable sorting.
+         Max_Success_Time      : Duration;
+         --  Longest time for a successful proof.
+         Max_Success_Steps     : Prover_Steps;
+         --  Minimum number of steps for successful proof.
+         Max_Time              : Duration;
+         --  Longest time spent in proof (successful or not).
+         Max_Steps             : Prover_Steps;
+         --  Maximum number of steps for a proof (successful or not).
+         Total_Time            : Duration;
+         --  Accumulated proof time.
+         Id                    : Proof_Item_Ids.Id;
+         --  Id for stable sorting.
          Has_Failed_Attempts   : Boolean;
          Has_Unproved_Attempts : Boolean;
          Is_Unjustified        : Boolean;
