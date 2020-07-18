@@ -620,10 +620,16 @@ package body SPAT.Spark_Info is
                   Element.Max_Success_Proof_Time :=
                     Duration'Max (Element.Max_Success_Proof_Time,
                                   N.Max_Success_Time);
+                  Element.Max_Success_Proof_Steps :=
+                    Prover_Steps'Max (Element.Max_Success_Proof_Steps,
+                                      N.Max_Success_Steps);
                end if;
 
                Element.Max_Proof_Time := Duration'Max (Element.Max_Proof_Time,
                                                        N.Max_Time);
+               Element.Max_Proof_Steps :=
+                 Prover_Steps'Max (Element.Max_Proof_Steps,
+                                   N.Max_Steps);
             end Local_Update;
          begin
             This.Cached.Update_Element (Position => Cache_Cursor,
@@ -788,8 +794,10 @@ package body SPAT.Spark_Info is
          --  Same for the cached information (which may get updated).
          This.Cached.Insert
            (Key => File,
-            New_Item => Cache_Info'(Max_Success_Proof_Time => 0.0,
-                                    Max_Proof_Time         => 0.0),
+            New_Item => Cache_Info'(Max_Success_Proof_Time  => 0.0,
+                                    Max_Success_Proof_Steps => 0,
+                                    Max_Proof_Time          => 0.0,
+                                    Max_Proof_Steps         => 0),
             Position => Cache_Cursor,
             Inserted => Dummy_Inserted);
       end;
@@ -915,6 +923,14 @@ package body SPAT.Spark_Info is
      (This.Cached (File).Max_Proof_Time);
 
    ---------------------------------------------------------------------------
+   --  Max_Proof_Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Proof_Steps (This : in T;
+                             File : in SPARK_File_Name) return Prover_Steps is
+     (This.Cached (File).Max_Proof_Steps);
+
+   ---------------------------------------------------------------------------
    --  Max_Success_Proof_Steps
    ---------------------------------------------------------------------------
    not overriding
@@ -942,6 +958,16 @@ package body SPAT.Spark_Info is
    begin
       return Sentinel.Cache.Max_Success_Proof_Time;
    end Max_Success_Proof_Time;
+
+   ---------------------------------------------------------------------------
+   --  Max_Success_Proof_Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Proof_Steps
+     (This : in T;
+      File : in SPARK_File_Name) return Prover_Steps
+   is
+     (This.Cached (File).Max_Success_Proof_Steps);
 
    ---------------------------------------------------------------------------
    --  Max_Success_Proof_Time

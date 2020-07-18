@@ -111,6 +111,13 @@ package SPAT.Spark_Info is
                         File : in SPARK_File_Name) return Duration;
 
    ---------------------------------------------------------------------------
+   --  Max_Proof_Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Proof_Steps (This : in T;
+                             File : in SPARK_File_Name) return Prover_Steps;
+
+   ---------------------------------------------------------------------------
    --  Max_Proof_Time
    ---------------------------------------------------------------------------
    not overriding
@@ -118,10 +125,19 @@ package SPAT.Spark_Info is
                             File : in SPARK_File_Name) return Duration;
 
    ---------------------------------------------------------------------------
+   --  Max_Success_Proof_Steps
+   --
+   --  Reported steps for the longest successful proof.
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Proof_Steps
+     (This : in T;
+      File : in SPARK_File_Name) return Prover_Steps;
+
+   ---------------------------------------------------------------------------
    --  Max_Success_Proof_Time
    --
    --  Reported time for the longest successful proof.
-   --  If the time returned is -1.0, then nothing is proven.
    ---------------------------------------------------------------------------
    not overriding
    function Max_Success_Proof_Time (This : in T;
@@ -340,8 +356,10 @@ private
    --  on files.
    type Cache_Info is
       record
-         Max_Success_Proof_Time : Duration;
-         Max_Proof_Time         : Duration;
+         Max_Success_Proof_Time  : Duration;
+         Max_Success_Proof_Steps : Prover_Steps;
+         Max_Proof_Time          : Duration;
+         Max_Proof_Steps         : Prover_Steps;
       end record;
 
    package File_Cached_Info is new
