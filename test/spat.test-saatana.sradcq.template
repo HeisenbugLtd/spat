@@ -1,4 +1,3 @@
-Warning: Sorting files by max success steps ("-cq") not implemented yet, reverting to sorting by max success time ("-cs").
 saatana-crypto-phelix.spark              => (Flow  => 206.5 ms,
                                              Proof => 174.3 s/206.4 s/568.7 s)
 test_phelix_api.spark                    => (Flow  => 14.4 ms,
