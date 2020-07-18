@@ -1,5 +1,5 @@
 Warning: Sorting by max steps ("-cp") not implemented yet, reverting to sorting by max time ("-ct").
 Saatana.Crypto.Phelix.Setup_Key                   =>                            640.0 ms/206.4 s/219.2 s
 `-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44 => 640.0 ms/206.4 s/207.1 s
- `-Z3: 206.4 s (Unknown (unknown), 105312169 steps)
-  -CVC4: 640.0 ms (Valid, 22722 steps)
+ `-Z3: 206.4 s, 105312169 steps, Unknown (unknown)
+  -CVC4: 640.0 ms, 22722 steps, Valid
