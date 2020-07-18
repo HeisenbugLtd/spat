@@ -74,6 +74,8 @@ package SPAT.Command_Line is
      (if    Value = "a" then SPAT.Spark_Info.Name
       elsif Value = "s" then SPAT.Spark_Info.Max_Success_Time
       elsif Value = "t" then SPAT.Spark_Info.Max_Time
+      elsif Value = "p" then SPAT.Spark_Info.Max_Steps
+      elsif Value = "q" then SPAT.Spark_Info.Max_Success_Steps
       else  (raise GNATCOLL.Opt_Parse.Opt_Parse_Error with
                  "unknown parameter """ & Value & """"));
 
@@ -150,7 +152,9 @@ package SPAT.Command_Line is
         Help        =>
            "Sorting criterion (SORT-BY: a = alphabetical, " &
            "s = by minimum time for successful proof, " &
-           "t = by maximum proof time)",
+           "t = by maximum proof time, " &
+           "p = by minimum steps for successful proof, " &
+           "q = by maximum steps)",
         Arg_Type    => SPAT.Spark_Info.Sorting_Criterion,
         Convert     => Convert,
         Default_Val => SPAT.Spark_Info.None);

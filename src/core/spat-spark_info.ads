@@ -26,7 +26,14 @@ with SPAT.Timing_Item;
 
 package SPAT.Spark_Info is
 
-   type Sorting_Criterion is (None, Name, Max_Time, Max_Success_Time);
+   type Sorting_Criterion is
+     (None,
+      Name,             --  Alphabetical
+      Max_Time,         --  Maximum (accumulated) proof time
+      Max_Success_Time, --  Minimum time for successful proof
+      Max_Steps,        --  Maximum (accumulated) proof steps
+      Max_Success_Steps --  Minimum steps for successful proof
+     );
 
    type T is tagged limited private;
    --  Binary representation of the information obtained from a .spark JSON

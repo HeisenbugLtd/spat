@@ -161,6 +161,16 @@ package body SPAT.Spark_Info is
       Container : in out Strings.SPARK_File_Names);
 
    ---------------------------------------------------------------------------
+   --  Sort_File_By_Max_Success_Time
+   --
+   --  Sort files by minimum time required for successful proof.
+   --  Sorting: numerical, descending
+   ---------------------------------------------------------------------------
+   procedure Sort_File_By_Max_Success_Time
+     (This      : in     T;
+      Container : in out Strings.SPARK_File_Names);
+
+   ---------------------------------------------------------------------------
    --  Subprogram implementations
    ---------------------------------------------------------------------------
 
@@ -295,16 +305,31 @@ package body SPAT.Spark_Info is
          end loop;
 
          case Sort_By is
-            when None =>
+            when None              =>
                null;
 
-            when Name =>
+            when Name              =>
                This.Sort_Entity_By_Name (Container => Result);
 
-            when Max_Success_Time =>
+            when Max_Success_Time  =>
                This.Sort_Entity_By_Success_Time (Container => Result);
 
-            when Max_Time =>
+            when Max_Time          =>
+               This.Sort_Entity_By_Proof_Time (Container => Result);
+
+            when Max_Success_Steps =>
+               Log.Warning
+                 (Message =>
+                    "Sorting by max success steps (""-cq"") not " &
+                    "implemented yet, reverting to sorting by max success " &
+                    "time (""-cs"").");
+               This.Sort_Entity_By_Success_Time (Container => Result);
+
+            when Max_Steps         =>
+               Log.Warning
+                 (Message =>
+                    "Sorting by max steps (""-cp"") not implemented yet, " &
+                    "reverting to sorting by max time (""-ct"").");
                This.Sort_Entity_By_Proof_Time (Container => Result);
          end case;
       end return;
@@ -326,17 +351,32 @@ package body SPAT.Spark_Info is
          end loop;
 
          case Sort_By is
-            when None =>
+            when None              =>
                null;
 
-            when Name =>
+            when Name              =>
                This.Sort_File_By_Basename (Container => Result);
 
-            when Max_Success_Time | Max_Time =>
+            when Max_Success_Time  =>
+               This.Sort_File_By_Max_Success_Time (Container => Result);
+
+            when Max_Time          =>
+               This.Sort_File_By_Proof_Time (Container => Result);
+
+            when Max_Success_Steps =>
                Log.Warning
                  (Message =>
-                     "Sorting files by success time not implemented yet, " &
-                     "falling back to maximum time.");
+                     "Sorting files by max success steps (""-cq"") not " &
+                     "implemented yet, reverting to sorting by max success " &
+                    "time (""-cs"").");
+               This.Sort_File_By_Max_Success_Time (Container => Result);
+
+            when Max_Steps         =>
+               Log.Warning
+                 (Message =>
+                     "Sorting files by max steps (""-cp"") not " &
+                     "implemented yet, reverting to sorting by max " &
+                     "time (""-ct"").");
                This.Sort_File_By_Proof_Time (Container => Result);
          end case;
       end return;
@@ -1182,6 +1222,69 @@ package body SPAT.Spark_Info is
    end Sort_File_By_Basename;
 
    ---------------------------------------------------------------------------
+   --  Sort_File_By_Max_Success_Time
+   ---------------------------------------------------------------------------
+   procedure Sort_File_By_Max_Success_Time
+     (This      : in     T;
+      Container : in out Strings.SPARK_File_Names)
+   is
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in SPARK_File_Name;
+                    Right : in SPARK_File_Name) return Boolean;
+
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in SPARK_File_Name;
+                    Right : in SPARK_File_Name) return Boolean
+      is
+         Left_Success  : constant Duration :=
+           This.Max_Success_Proof_Time (File => Left);
+         Right_Success : constant Duration :=
+           This.Max_Success_Proof_Time (File => Right);
+         Left_Proof    : constant Duration := This.Proof_Time (File => Left);
+         Right_Proof   : constant Duration := This.Proof_Time (File => Right);
+         Left_Flow     : constant Duration := This.Flow_Time (File => Left);
+         Right_Flow    : constant Duration := This.Flow_Time (File => Right);
+         Left_Total    : constant Duration := Left_Proof + Left_Flow;
+         Right_Total   : constant Duration := Right_Proof + Right_Flow;
+      begin
+         --  First by success time.
+         if Left_Success /= Right_Success then
+            return Left_Success > Right_Success;
+         end if;
+
+         --  If success times do not differ, prioritize proof time.
+         if Left_Proof /= Right_Proof then
+            return Left_Proof > Right_Proof;
+         end if;
+
+         --  If proof times are equal, try total time.
+         if Left_Total /= Right_Total then
+            return Left_Total > Right_Total;
+         end if;
+
+         --  Total and proof times were equal, so flow times must be equal, too.
+         pragma Assert (Left_Flow = Right_Flow);
+
+         --  Last resort, sort by name.
+         return By_Basename (Left  => Left,
+                             Right => Right);
+      end "<";
+
+      package Sorting is new
+        Strings.Implementation.SPARK_File_Names.Base_Vectors.Generic_Sorting
+          ("<" => "<");
+   begin
+      Sorting.Sort
+        (Container =>
+           Strings.Implementation.SPARK_File_Names.Base_Vectors.Vector
+             (Container));
+   end Sort_File_By_Max_Success_Time;
+
+   ---------------------------------------------------------------------------
    --  Sort_File_By_Proof_Time
    ---------------------------------------------------------------------------
    procedure Sort_File_By_Proof_Time
@@ -1212,7 +1315,7 @@ package body SPAT.Spark_Info is
             return Left_Total > Right_Total;
          end if;
 
-         --  If totals differ, prioritize proof time.
+         --  If totals do not differ, prioritize proof time.
          if Left_Proof /= Right_Proof then
             return Left_Proof > Right_Proof;
          end if;
