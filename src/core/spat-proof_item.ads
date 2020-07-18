@@ -102,6 +102,12 @@ package SPAT.Proof_Item is
    function Rule (This : in T) return Rule_Name;
 
    ---------------------------------------------------------------------------
+   --  Max_Success_Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Steps (This : in T) return Prover_Steps;
+
+   ---------------------------------------------------------------------------
    --  Max_Success_Time
    ---------------------------------------------------------------------------
    not overriding
@@ -263,6 +269,13 @@ private
    not overriding
    function Max_Steps (This : in T) return Prover_Steps is
      (This.Max_Steps);
+
+   ---------------------------------------------------------------------------
+   --  Max_Success_Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Steps (This : in T) return Prover_Steps is
+     (This.Max_Success_Steps);
 
    ---------------------------------------------------------------------------
    --  Max_Success_Time
