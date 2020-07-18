@@ -201,44 +201,41 @@ package body SPAT.Spark_Info.Heuristics is
                            --  Extract our VC component from the tree.
                            The_Attempt : constant Proof_Attempt.T'Class :=
                              Proof_Attempt.T'Class (Item);
-                           use type Proof_Attempt.Prover_Result;
+                           Prover_Cursor : Prover_Maps.Cursor :=
+                             File_Ref.Element.Find (The_Attempt.Prover);
+                           use type Prover_Maps.Cursor;
                         begin
+                           if Prover_Cursor = Prover_Maps.No_Element then
+                              --  New prover name, insert it.
+                              File_Ref.Element.Insert
+                                (Key      => The_Attempt.Prover,
+                                 New_Item => Null_Times,
+                                 Position => Prover_Cursor,
+                                 Inserted => Dummy_Inserted);
+                           end if;
+
                            declare
-                              Prover_Cursor : Prover_Maps.Cursor :=
-                                File_Ref.Element.Find (The_Attempt.Prover);
-                              use type Prover_Maps.Cursor;
+                              Prover_Element : constant Prover_Maps.Reference_Type :=
+                                File_Ref.Reference (Position => Prover_Cursor);
+                              use type Proof_Attempt.Prover_Result;
                            begin
-                              if Prover_Cursor = Prover_Maps.No_Element then
-                                 --  New prover name, insert it.
-                                 File_Ref.Element.Insert
-                                   (Key      => The_Attempt.Prover,
-                                    New_Item => Null_Times,
-                                    Position => Prover_Cursor,
-                                    Inserted => Dummy_Inserted);
+                              if The_Attempt.Result = Proof_Attempt.Valid then
+                                 Prover_Element.Success :=
+                                   Prover_Element.Success + The_Attempt.Time;
+
+                                 Prover_Element.Max_Success :=
+                                   Duration'Max (Prover_Element.Max_Success,
+                                                 The_Attempt.Time);
+
+                                 Prover_Element.Max_Steps :=
+                                   Prover_Steps'Max
+                                     (Prover_Element.Max_Steps,
+                                      Scaled (Prover    => The_Attempt.Prover,
+                                              Raw_Steps => The_Attempt.Steps));
+                              else
+                                 Prover_Element.Failed :=
+                                   Prover_Element.Failed + The_Attempt.Time;
                               end if;
-
-                              declare
-                                 Prover_Element : constant Prover_Maps.Reference_Type :=
-                                   File_Ref.Reference (Position => Prover_Cursor);
-                              begin
-                                 if The_Attempt.Result = Proof_Attempt.Valid then
-                                    Prover_Element.Success :=
-                                      Prover_Element.Success + The_Attempt.Time;
-
-                                    Prover_Element.Max_Success :=
-                                      Duration'Max (Prover_Element.Max_Success,
-                                                    The_Attempt.Time);
-
-                                    Prover_Element.Max_Steps :=
-                                      Prover_Steps'Max
-                                        (Prover_Element.Max_Steps,
-                                         Scaled (Prover    => The_Attempt.Prover,
-                                                 Raw_Steps => The_Attempt.Steps));
-                                 else
-                                    Prover_Element.Failed :=
-                                      Prover_Element.Failed + The_Attempt.Time;
-                                 end if;
-                              end;
                            end;
                         end;
                      end if;
