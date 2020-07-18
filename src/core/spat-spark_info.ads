@@ -137,6 +137,16 @@ package SPAT.Spark_Info is
                              Entity : in Entity_Name) return Prover_Steps;
 
    ---------------------------------------------------------------------------
+   --  Max_Success_Proof_Steps
+   --
+   --  Maximum steps taken for a single successful proof for Entity.
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Proof_Steps
+     (This   : in T;
+      Entity : in Entity_Name) return Prover_Steps;
+
+   ---------------------------------------------------------------------------
    --  Max_Proof_Time
    --
    --  Maximum time taken for a single proof for Entity.
@@ -254,6 +264,7 @@ private
          Max_Proof_Time           : Duration;
          Max_Proof_Steps          : Prover_Steps;
          Max_Success_Proof_Time   : Duration;
+         Max_Success_Proof_Steps  : Prover_Steps;
          Total_Proof_Time         : Duration;
          Has_Failed_Attempts      : Boolean;
          Has_Unproved_Attempts    : Boolean;
@@ -282,6 +293,7 @@ private
       Cache => Proof_Cache'(Max_Proof_Time           => 0.0,
                             Max_Proof_Steps          => 0,
                             Max_Success_Proof_Time   => 0.0,
+                            Max_Success_Proof_Steps  => 0,
                             Total_Proof_Time         => 0.0,
                             Has_Failed_Attempts      => False,
                             Has_Unproved_Attempts    => False,

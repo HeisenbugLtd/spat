@@ -577,6 +577,9 @@ package body SPAT.Spark_Info is
                               Max_Success_Proof_Time   =>
                                 Duration'Max (S.Cache.Max_Success_Proof_Time,
                                               N.Max_Success_Time),
+                              Max_Success_Proof_Steps   =>
+                                Prover_Steps'Max (S.Cache.Max_Success_Proof_Steps,
+                                                  N.Max_Success_Steps),
                               Total_Proof_Time         =>
                                 S.Cache.Total_Proof_Time + N.Total_Time,
                               Has_Failed_Attempts      =>
@@ -910,6 +913,21 @@ package body SPAT.Spark_Info is
    function Max_Proof_Time (This : in T;
                             File : in SPARK_File_Name) return Duration is
      (This.Cached (File).Max_Proof_Time);
+
+   ---------------------------------------------------------------------------
+   --  Max_Success_Proof_Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Proof_Steps
+     (This   : in T;
+      Entity : in Entity_Name) return Prover_Steps
+   is
+      Reference : constant Analyzed_Entities.Constant_Reference_Type :=
+        This.Entities.Constant_Reference (Key => Entity);
+      Sentinel  : constant Proofs_Sentinel := Get_Sentinel (Node => Reference);
+   begin
+      return Sentinel.Cache.Max_Success_Proof_Steps;
+   end Max_Success_Proof_Steps;
 
    ---------------------------------------------------------------------------
    --  Max_Success_Proof_Time
