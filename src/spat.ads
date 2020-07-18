@@ -29,10 +29,24 @@ package SPAT is
    Null_Name : Subject_Name renames Ada.Strings.Unbounded.Null_Unbounded_String;
    --  Provide a renaming for the null string.
 
+   type Prover_Steps is range -2 ** 63 .. 2 ** 63 - 1;
+   --  Define our own type instead of using Long_Integer;
+
+   pragma Compile_Time_Warning (Long_Integer'Size < Prover_Steps'Size,
+                                "Long_Integer is less than 64 bit.");
+   --  We use the Long_Integer version of GNATCOLL.JSON.Get to read values of
+   --  this type, so the size of Long_Integer must be sufficient.
+
    ---------------------------------------------------------------------------
    --  Image function for Duration. Used by certain Image functions.
    ---------------------------------------------------------------------------
    function Image (Value : in Duration) return String;
+
+   ---------------------------------------------------------------------------
+   --  Image function for Duration and associated steps.
+   ---------------------------------------------------------------------------
+   function Image (Value : in Duration;
+                   Steps : in Prover_Steps) return String;
 
    ---------------------------------------------------------------------------
    --  To_String
@@ -106,13 +120,5 @@ package SPAT is
    type File_Version is (GNAT_CE_2019, GNAT_CE_2020);
    --  Version information. Right now I only have access to the community
    --  releases of SPARK, so these are the only ones fully supported.
-
-   type Prover_Steps is range -2 ** 63 .. 2 ** 63 - 1;
-   --  Define our own type instead of using Long_Integer;
-
-   pragma Compile_Time_Warning (Long_Integer'Size < Prover_Steps'Size,
-                                "Long_Integer is less than 64 bit.");
-   --  We use the Long_Integer version of GNATCOLL.JSON.Get to read values of
-   --  this type, so the size of Long_Integer must be sufficient.
 
 end SPAT;

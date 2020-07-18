@@ -245,8 +245,10 @@ private
         Entity_Location.T (This).Image & " => " &
         (if This.Has_Unproved_Attempts
          then "--"
-         else Image (Value => This.Max_Success_Time)) & "/" &
-        Image (Value => This.Max_Time) & "/" &
+         else Image (Value => This.Max_Success_Time,
+                     Steps => This.Max_Success_Steps)) & "/" &
+        Image (Value => This.Max_Time,
+               Steps => This.Max_Steps) & "/" &
         Image (Value => This.Total_Time));
 
    ---------------------------------------------------------------------------

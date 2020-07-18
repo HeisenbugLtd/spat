@@ -14,6 +14,7 @@ pragma License (Unrestricted);
 --  S.P.A.T. - Main program - separate Print_Summary
 --
 ------------------------------------------------------------------------------
+
 with Ada.Text_IO;
 
 with SPAT.Strings;
@@ -78,8 +79,14 @@ begin
                  "Proof => " &
                  (if Max_Success_Proof_Time = -1.0 --  nothing valid found
                   then "--"
-                  else SPAT.Image (Value => Max_Success_Proof_Time)) & "/" &
-                 SPAT.Image (Value => Info.Max_Proof_Time (File => File)) & "/" &
+                  else
+                    SPAT.Image
+                      (Value => Max_Success_Proof_Time,
+                       Steps => Info.Max_Success_Proof_Steps (File => File))) &
+                 "/" &
+                 SPAT.Image (Value => Info.Max_Proof_Time (File => File),
+                             Steps => Info.Max_Proof_Steps (File => File)) &
+                 "/" &
                  SPAT.Image (Value => Info.Proof_Time (File => File)) & ")");
          end;
       end if;
