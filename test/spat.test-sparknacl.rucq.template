@@ -1,6 +1,6 @@
 Warning: Sorting by max success steps ("-cq") not implemented yet, reverting to sorting by max success time ("-cs").
-SPARKNaCl.Sign.Sign                  => --/57.6 s/489.2 s
-SPARKNaCl.Car.Nearlynormal_To_Normal => --/1.4 s/17.5 s
-SPARKNaCl.ASR_16                     => --/5.7 s/5.9 s
-SPARKNaCl.ASR_8                      => --/3.3 s/3.5 s
-SPARKNaCl.ASR_4                      => --/1.2 s/1.4 s
+SPARKNaCl.Sign.Sign                  => --
+SPARKNaCl.Car.Nearlynormal_To_Normal => --
+SPARKNaCl.ASR_16                     => --
+SPARKNaCl.ASR_8                      => --
+SPARKNaCl.ASR_4                      => --

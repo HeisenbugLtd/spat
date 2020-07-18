@@ -1,13 +1,13 @@
 Warning: Sorting by max steps ("-cp") not implemented yet, reverting to sorting by max time ("-ct").
-SPARKNaCl.Sign.Sign                                  =>                    --/57.6 s/489.2 s
-`-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36        => --/57.6 s/238.7 s
+SPARKNaCl.Sign.Sign                                  =>                                    --
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36        => --/57.6 s, 11654931 steps/238.7 s
  `-CVC4: 51.6 s, 505013 steps, Unknown (unknown)
   -Z3: 7.9 s, 11654552 steps, Unknown (unknown)
  `-CVC4: 50.5 s, 505013 steps, Unknown (unknown)
   -Z3: 8.8 s, 11654285 steps, Unknown (unknown)
  `-CVC4: 50.7 s, 505013 steps, Unknown (unknown)
   -Z3: 7.2 s, 11654931 steps, Unknown (unknown)
-SPARKNaCl.Car.Nearlynormal_To_Normal                 =>                    --/1.4 s/17.5 s
-`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => --/1.4 s/1.9 s
+SPARKNaCl.Car.Nearlynormal_To_Normal                 =>                                    --
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => --/1.4 s, 743088 steps/1.9 s
  `-CVC4: 1.4 s, 13011 steps, Unknown (unknown)
   -Z3: 590.0 ms, 743088 steps, Unknown (unknown)

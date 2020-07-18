@@ -1,31 +1,31 @@
 sparknacl-sign.spark      => (Flow  => 253.6 ms,
-                              Proof => 9.2 s/57.6 s/764.5 s)
+                              Proof => 9.2 s, 11655208 steps/57.6 s, 11655208 steps/764.5 s)
 sparknacl-car.spark       => (Flow  => 86.1 ms,
-                              Proof => 1.0 s/1.4 s/59.0 s)
+                              Proof => 1.0 s, 1092364 steps/1.4 s, 1092364 steps/59.0 s)
 sparknacl-utils.spark     => (Flow  => 49.8 ms,
-                              Proof => 900.0 ms/900.0 ms/17.4 s)
+                              Proof => 900.0 ms, 155440 steps/900.0 ms, 155440 steps/17.4 s)
 sparknacl.spark           => (Flow  => 164.3 ms,
-                              Proof => 700.0 ms/19.1 s/57.3 s)
+                              Proof => 700.0 ms, 68029 steps/19.1 s, 11650768 steps/57.3 s)
 sparknacl-scalar.spark    => (Flow  => 62.5 ms,
-                              Proof => 550.0 ms/550.0 ms/22.1 s)
+                              Proof => 550.0 ms, 4128 steps/550.0 ms, 4128 steps/22.1 s)
 sparknacl-secretbox.spark => (Flow  => 7.6 ms,
-                              Proof => 270.0 ms/270.0 ms/10.3 s)
+                              Proof => 270.0 ms, 2131 steps/270.0 ms, 2131 steps/10.3 s)
 sparknacl-core.spark      => (Flow  => 351.9 ms,
-                              Proof => 120.0 ms/120.0 ms/8.9 s)
+                              Proof => 120.0 ms, 1704 steps/120.0 ms, 1704 steps/8.9 s)
 sparknacl-stream.spark    => (Flow  => 72.6 ms,
-                              Proof => 210.0 ms/210.0 ms/21.2 s)
+                              Proof => 210.0 ms, 1429 steps/210.0 ms, 1429 steps/21.2 s)
 sparknacl-hashing.spark   => (Flow  => 70.5 ms,
-                              Proof => 500.0 ms/500.0 ms/43.8 s)
+                              Proof => 500.0 ms, 1058 steps/500.0 ms, 1058 steps/43.8 s)
 sparknacl-mac.spark       => (Flow  => 58.0 ms,
-                              Proof => 340.0 ms/340.0 ms/8.0 s)
+                              Proof => 340.0 ms, 320 steps/340.0 ms, 320 steps/8.0 s)
 sparknacl-cryptobox.spark => (Flow  => 69.2 ms,
-                              Proof => 70.0 ms/70.0 ms/4.9 s)
+                              Proof => 70.0 ms, 14 steps/70.0 ms, 14 steps/4.9 s)
 sparknacl-pdebug.spark    => (Flow  => 2.2 ms,
-                              Proof => 0.0 s/0.0 s/0.0 s)
+                              Proof => 0.0 s, 0 steps/0.0 s, 0 steps/0.0 s)
 random.spark              => (Flow  => 517.0 µs,
-                              Proof => 0.0 s/0.0 s/0.0 s)
+                              Proof => 0.0 s, 0 steps/0.0 s, 0 steps/0.0 s)
 sparknacl-debug.spark     => (Flow  => 469.0 µs,
-                              Proof => 0.0 s/0.0 s/0.0 s)
+                              Proof => 0.0 s, 0 steps/0.0 s, 0 steps/0.0 s)
 Warning: Sorting by max success steps ("-cq") not implemented yet, reverting to sorting by max success time ("-cs").
-SPARKNaCl.Sign.Sign                  => --/57.6 s/489.2 s
-SPARKNaCl.Car.Nearlynormal_To_Normal => --/1.4 s/17.5 s
+SPARKNaCl.Sign.Sign                  => --
+SPARKNaCl.Car.Nearlynormal_To_Normal => --
