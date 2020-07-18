@@ -282,11 +282,15 @@ private
    overriding
    function Image (This : in Proofs_Sentinel) return String is
      (Ada.Tags.External_Tag (T => Proofs_Sentinel'Class (This)'Tag) & ":" &
-      ("(Max_Proof_Time => " & This.Cache.Max_Proof_Time'Image &
-         ", Total_Proof_Time => " & This.Cache.Total_Proof_Time'Image &
-         ", Has_Failed_Attempts => " & This.Cache.Has_Failed_Attempts'Image &
-         ", Has_Unproved_Attempts => " & This.Cache.Has_Unproved_Attempts'Image &
-         ")"));
+      "(Max_Proof_Time =>" & This.Cache.Max_Proof_Time'Image &
+      ", Max_Proof_Steps =>" & This.Cache.Max_Proof_Steps'Image &
+      ", Max_Success_Proof_Time =>" & This.Cache.Max_Success_Proof_Time'Image &
+      ", Max_Success_Proof_Steps =>" & This.Cache.Max_Success_Proof_Steps'Image &
+      ", Total_Proof_Time => " & This.Cache.Total_Proof_Time'Image &
+      ", Has_Failed_Attempts => " & This.Cache.Has_Failed_Attempts'Image &
+      ", Has_Unproved_Attempts => " & This.Cache.Has_Unproved_Attempts'Image &
+      ", Has_Unjustified_Attempts => " & This.Cache.Has_Unjustified_Attempts'Image &
+      ")");
 
    Empty_Proofs_Sentinel : constant Proofs_Sentinel :=
      (Entity.T with
