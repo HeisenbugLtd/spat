@@ -108,6 +108,12 @@ package SPAT.Proof_Item is
    function Max_Success_Time (This : in T) return Duration;
 
    ---------------------------------------------------------------------------
+   --  Max_Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Steps (This : in T) return Prover_Steps;
+
+   ---------------------------------------------------------------------------
    --  Max_Time
    ---------------------------------------------------------------------------
    not overriding
@@ -250,6 +256,13 @@ private
    not overriding
    function Has_Unproved_Attempts (This : in T) return Boolean is
       (This.Has_Unproved_Attempts);
+
+   ---------------------------------------------------------------------------
+   --  Max_Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Steps (This : in T) return Prover_Steps is
+     (This.Max_Steps);
 
    ---------------------------------------------------------------------------
    --  Max_Success_Time

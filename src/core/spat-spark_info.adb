@@ -568,18 +568,21 @@ package body SPAT.Spark_Info is
             begin
                --  Update sentinel (proof list specific).
                S.Cache :=
-                 Proof_Cache'(Max_Proof_Time =>
+                 Proof_Cache'(Max_Proof_Time           =>
                                 Duration'Max (S.Cache.Max_Proof_Time,
                                               N.Max_Time),
-                              Max_Success_Proof_Time =>
+                              Max_Proof_Steps          =>
+                                Prover_Steps'Max (S.Cache.Max_Proof_Steps,
+                                                  N.Max_Steps),
+                              Max_Success_Proof_Time   =>
                                 Duration'Max (S.Cache.Max_Success_Proof_Time,
                                               N.Max_Success_Time),
-                              Total_Proof_Time =>
+                              Total_Proof_Time         =>
                                 S.Cache.Total_Proof_Time + N.Total_Time,
-                              Has_Failed_Attempts =>
+                              Has_Failed_Attempts      =>
                                 S.Cache.Has_Failed_Attempts or else
                                   N.Has_Failed_Attempts,
-                              Has_Unproved_Attempts =>
+                              Has_Unproved_Attempts    =>
                                 S.Cache.Has_Unproved_Attempts or else
                                   N.Has_Unproved_Attempts,
                               Has_Unjustified_Attempts =>
@@ -871,6 +874,20 @@ package body SPAT.Spark_Info is
                               New_Item => Timing_Item.None);
       end if;
    end Map_Timings;
+
+   ---------------------------------------------------------------------------
+   --  Max_Proof_Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Proof_Steps (This   : in T;
+                             Entity : in Entity_Name) return Prover_Steps
+   is
+      Reference : constant Analyzed_Entities.Constant_Reference_Type :=
+        This.Entities.Constant_Reference (Key => Entity);
+      Sentinel  : constant Proofs_Sentinel := Get_Sentinel (Node => Reference);
+   begin
+      return Sentinel.Cache.Max_Proof_Steps;
+   end Max_Proof_Steps;
 
    ---------------------------------------------------------------------------
    --  Max_Proof_Time
