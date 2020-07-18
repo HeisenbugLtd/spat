@@ -1,0 +1,7 @@
+Warning: Sorting by max steps ("-cp") not implemented yet, reverting to sorting by max time ("-ct").
+Saatana.Crypto.Phelix.Setup_Key                    =>                            640.0 ms/206.4 s/219.2 s
+`-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44  => 640.0 ms/206.4 s/207.1 s
+Saatana.Crypto.Phelix.Encrypt_Bytes                =>                            174.3 s/174.3 s/189.0 s
+`-VC_RANGE_CHECK saatana-crypto-phelix.adb:231:19  => 174.3 s/174.3 s/175.0 s
+Saatana.Crypto.Phelix.H                            =>                            6.0 s/6.0 s/6.0 s
+`-VC_POSTCONDITION saatana-crypto-phelix.adb:49:17 => 6.0 s/6.0 s/6.0 s

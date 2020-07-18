@@ -1,0 +1,45 @@
+Warning: Sorting files by max success steps ("-cq") not implemented yet, reverting to sorting by max success time ("-cs").
+sparknacl-sign.spark      => (Flow  => 253.6 ms,
+                              Proof => 9.2 s/57.6 s/764.5 s)
+sparknacl-car.spark       => (Flow  => 86.1 ms,
+                              Proof => 1.0 s/1.4 s/59.0 s)
+sparknacl-utils.spark     => (Flow  => 49.8 ms,
+                              Proof => 900.0 ms/900.0 ms/17.4 s)
+sparknacl.spark           => (Flow  => 164.3 ms,
+                              Proof => 700.0 ms/19.1 s/57.3 s)
+sparknacl-scalar.spark    => (Flow  => 62.5 ms,
+                              Proof => 550.0 ms/550.0 ms/22.1 s)
+sparknacl-hashing.spark   => (Flow  => 70.5 ms,
+                              Proof => 500.0 ms/500.0 ms/43.8 s)
+sparknacl-mac.spark       => (Flow  => 58.0 ms,
+                              Proof => 340.0 ms/340.0 ms/8.0 s)
+sparknacl-secretbox.spark => (Flow  => 7.6 ms,
+                              Proof => 270.0 ms/270.0 ms/10.3 s)
+sparknacl-stream.spark    => (Flow  => 72.6 ms,
+                              Proof => 210.0 ms/210.0 ms/21.2 s)
+sparknacl-core.spark      => (Flow  => 351.9 ms,
+                              Proof => 120.0 ms/120.0 ms/8.9 s)
+sparknacl-cryptobox.spark => (Flow  => 69.2 ms,
+                              Proof => 70.0 ms/70.0 ms/4.9 s)
+sparknacl-pdebug.spark    => (Flow  => 2.2 ms,
+                              Proof => 0.0 s/0.0 s/0.0 s)
+random.spark              => (Flow  => 517.0 µs,
+                              Proof => 0.0 s/0.0 s/0.0 s)
+sparknacl-debug.spark     => (Flow  => 469.0 µs,
+                              Proof => 0.0 s/0.0 s/0.0 s)
+Warning: Sorting by max success steps ("-cq") not implemented yet, reverting to sorting by max success time ("-cs").
+SPARKNaCl.Sign.Sign                                  =>                    --/57.6 s/489.2 s
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36        => --/57.6 s/238.7 s
+ `-CVC4: 51.6 s (Unknown (unknown), 505013 steps)
+  -Z3: 7.9 s (Unknown (unknown), 11654552 steps)
+ `-CVC4: 50.5 s (Unknown (unknown), 505013 steps)
+  -Z3: 8.8 s (Unknown (unknown), 11654285 steps)
+ `-CVC4: 50.7 s (Unknown (unknown), 505013 steps)
+  -Z3: 7.2 s (Unknown (unknown), 11654931 steps)
+SPARKNaCl.Car.Nearlynormal_To_Normal                 =>                    --/1.4 s/17.5 s
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => --/1.4 s/1.9 s
+ `-CVC4: 1.4 s (Unknown (unknown), 13011 steps)
+  -Z3: 590.0 ms (Unknown (unknown), 743088 steps)
+`-VC_ASSERT sparknacl-car.adb:343:31                 => --/790.0 ms/1.2 s
+ `-Z3: 790.0 ms (Unknown (unknown), 957357 steps)
+  -CVC4: 410.0 ms (Unknown (unknown), 4809 steps)

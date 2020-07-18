@@ -1,0 +1,5 @@
+Warning: Sorting files by max success steps ("-cq") not implemented yet, reverting to sorting by max success time ("-cs").
+rflx-rflx_types.spark   => (Flow  => 7.2 ms,
+                            Proof => 54.2 s/120.0 s/4.5 ks)
+rflx-arrays-tests.spark => (Flow  => 87.1 ms,
+                            Proof => 0.0 s/0.0 s/54.1 s)
