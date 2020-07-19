@@ -49,20 +49,24 @@ package body SPAT is
    function Scaled (Prover    : in Prover_Name;
                     Raw_Steps : in Prover_Steps) return Prover_Steps is
    begin
-      if Ada.Strings.Unbounded.Index (Source  => Subject_Name (Prover),
-                                      Pattern => "CVC4") = 1
+      if
+        Ada.Strings.Unbounded.Index (Source  => Subject_Name (Prover),
+                                     Pattern => "CVC4") = 1
       then
          --  add = 15_000, mult = 35
          return Prover_Steps'Max (Raw_Steps - 15_000, 0) / 35 + 1;
-      elsif Ada.Strings.Unbounded.Index (Source => Subject_Name (Prover),
-                                         Pattern => "Z3") = 1
+      end if;
+
+      if
+        Ada.Strings.Unbounded.Index (Source => Subject_Name (Prover),
+                                     Pattern => "Z3") = 1
       then
          --  add = 450_000, mult = 800
          return Prover_Steps'Max (Raw_Steps - 450_000, 0) / 800 + 1;
-      else
-         --  alt-ergo, and others => no scaling
-         return Raw_Steps + 1;
       end if;
+
+      --  alt-ergo, and others => no scaling
+      return Raw_Steps + 1;
    end Scaled;
 
 end SPAT;
