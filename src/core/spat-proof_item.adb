@@ -47,7 +47,7 @@ package body SPAT.Proof_Item is
       --  By Severity (i.e. "info", "warning", ...)
       if Left.Severity /= Right.Severity then
          --  TODO: We should get a list of severities and actually sort them by
-         --        by priority.   For now, textual is all we have.
+         --        priority.   For now, textual is all we have.
          return Left.Severity < Right.Severity;
       end if;
 
@@ -55,7 +55,6 @@ package body SPAT.Proof_Item is
       if Entity_Location."=" (X => Entity_Location.T (Left),
                               Y => Entity_Location.T (Right))
       then
-         --  Last resort. By unique id.
          return Left.Id < Right.Id;
       end if;
 
@@ -75,10 +74,8 @@ package body SPAT.Proof_Item is
       pragma Unreferenced (Version); --  Only for precondition.
 
       --  Collect information about the timing of dependent attempts.
-      Max_Proof   : Time_And_Steps := Time_And_Steps'(Time  => 0.0,
-                                                      Steps => 0);
-      Max_Success : Time_And_Steps := Time_And_Steps'(Time  => 0.0,
-                                                      Steps => 0);
+      Max_Proof   : Time_And_Steps := None;
+      Max_Success : Time_And_Steps := None;
       Total_Time  : Duration := 0.0;
 
       Checks_List : Checks_Lists.Vector;
@@ -263,8 +260,7 @@ package body SPAT.Proof_Item is
                                            (Field => Field_Names.Severity))),
                       Max_Success           =>
                         (if Has_Unproved_Attempts
-                         then Time_And_Steps'(Time => 0.0,
-                                              Steps => 0)
+                         then None
                          else Max_Success),
                       Max_Proof             => Max_Proof,
                       Total_Time            => Total_Time,

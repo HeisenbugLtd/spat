@@ -130,6 +130,8 @@ package SPAT is
          --  Number of steps it took.
       end record;
 
+   None : constant Time_And_Steps;
+
    ---------------------------------------------------------------------------
    --  Scaled
    --
@@ -144,5 +146,10 @@ package SPAT is
    ---------------------------------------------------------------------------
    function Scaled (Prover    : in Prover_Name;
                     Raw_Steps : in Prover_Steps) return Prover_Steps;
+
+private
+
+   None : constant Time_And_Steps := Time_And_Steps'(Time  => 0.0,
+                                                     Steps => 0);
 
 end SPAT;

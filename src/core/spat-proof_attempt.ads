@@ -129,8 +129,7 @@ private
       (T'(Entity.T with
               Prover    => Prover_Name (To_Name (Source => "Trivial")),
               Result    => Result_Name (To_Name (Source => "Valid")),
-              Workload  => Time_And_Steps'(Time  => 0.0,
-                                           Steps => 0),
+              Workload  => None,
               Id        => Proof_Attempt_Ids.Next));
 
    ---------------------------------------------------------------------------
