@@ -49,6 +49,14 @@ package body SPAT is
    function Scaled (Prover    : in Prover_Name;
                     Raw_Steps : in Prover_Steps) return Prover_Steps is
    begin
+      --  Especially with Z3, negative steps indicate a proof failure (i.e. out
+      --  of memory situation etc.), so if the input number is negative leave it
+      --  as is.  At least I find it counterintuitive, that -1 would be
+      --  converted to +1 instead.
+      if Raw_Steps < 0 then
+         return Raw_Steps;
+      end if;
+
       if
         Ada.Strings.Unbounded.Index (Source  => Subject_Name (Prover),
                                      Pattern => "CVC4") = 1
