@@ -1,8 +1,8 @@
 Warning: Sorting by max steps ("-cp") not implemented yet, reverting to sorting by max time ("-ct").
 SPARKNaCl.Sign.Sign                   => --
-SPARKNaCl.Omultiply                   => 700.0 ms, 68029 steps/19.1 s, 505013 steps/28.6 s
+SPARKNaCl.Omultiply                   => 700.0 ms (68029 steps)/19.1 s (505013 steps)/28.6 s
 SPARKNaCl.Car.Nearlynormal_To_Normal  => --
 SPARKNaCl.ASR_16                      => --
 SPARKNaCl.ASR_8                       => --
-SPARKNaCl.Utils.Pack_25519.Subtract_P => 150.0 ms, 155440 steps/180.0 ms, 155440 steps/1.8 s
+SPARKNaCl.Utils.Pack_25519.Subtract_P => 150.0 ms (155440 steps)/180.0 ms (155440 steps)/1.8 s
 SPARKNaCl.ASR_4                       => --

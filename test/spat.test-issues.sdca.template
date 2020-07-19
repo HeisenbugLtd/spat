@@ -1,4 +1,4 @@
 rflx-arrays-tests.spark => (Flow  => 87.1 ms,
-                            Proof => 0.0 s, 1864090 steps/0.0 s, 1864090 steps/54.1 s)
+                            Proof => 0.0 s (1864090 steps)/0.0 s (1864090 steps)/54.1 s)
 rflx-rflx_types.spark   => (Flow  => 7.2 ms,
-                            Proof => 54.2 s, 8989120 steps/120.0 s, 8989120 steps/4.5 ks)
+                            Proof => 54.2 s (8989120 steps)/120.0 s (8989120 steps)/4.5 ks)

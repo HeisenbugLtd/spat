@@ -1,5 +1,5 @@
-SPARKNaCl.Omultiply                   => 700.0 ms, 68029 steps/19.1 s, 505013 steps/28.6 s
-SPARKNaCl.Utils.Pack_25519.Subtract_P => 150.0 ms, 155440 steps/180.0 ms, 155440 steps/1.8 s
+SPARKNaCl.Omultiply                   => 700.0 ms (68029 steps)/19.1 s (505013 steps)/28.6 s
+SPARKNaCl.Utils.Pack_25519.Subtract_P => 150.0 ms (155440 steps)/180.0 ms (155440 steps)/1.8 s
 SPARKNaCl.Sign.Sign                   => --
 SPARKNaCl.Car.Nearlynormal_To_Normal  => --
 SPARKNaCl.ASR_16                      => --
