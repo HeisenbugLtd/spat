@@ -58,11 +58,9 @@ You need a recent version of GNAT with the GNATCOLL library.  GNAT CE 2019 or
 GNAT CE 2020 should suffice.
 
 You also need the [si_units](https://github.com/HeisenbugLtd/si_units) library
-to be installed.
-
-***Please note*** Currently the SI_Units library does not seem to compile with
-some GNAT FSF versions.  The compiler gets stuck and never finishes.  Hence,
-the GNAT Community Release is recommended, but you may try if it works for you.
+to be installed. Version 0.1.1 is recommended, because older version did not
+compile with some GNAT FSF versions.  The compiler got stuck and never
+finished.
 
 ### Step by step instructions
 
@@ -121,32 +119,33 @@ Quick help:
 will give you a quick overview over the available command line options:
 
 ```
-usage: run_spat [--help|-h] [--project|-P PROJECT] [--summary|-s]
-               [--report-mode|-r REPORT-MODE] [--suggest|-g] [--entity|-e
-               ENTITY[ENTITY...]] [--sort-by|-c SORT-BY] [--cut-off|-p CUT-OFF]
-               [--details|-d DETAILS] [--version|-V] [--raw|-R] [--verbose|-v]
+usage: run_spat [--help|-h] [--project|-P PROJECT] [--summary|-s] 
+               [--report-mode|-r REPORT-MODE] [--suggest|-g] [--entity|-e 
+               ENTITY[ENTITY...]] [--sort-by|-c SORT-BY] [--cut-off|-p CUT-OFF] 
+               [--details|-d DETAILS] [--version|-V] [--raw|-R] [--verbose|-v] 
 
 Parses .spark files and outputs information about them.
 
 positional arguments:
-
+   
 optional arguments:
    --help, -h            Show this help message
    --project, -P         PROJECT = GNAT project file (.gpr) (mandatory!)
    --summary, -s         List summary (per file)
-   --report-mode, -r     Output reporting mode (REPORT-MODE: a = all, f =
-                         failed, u = unproved, j = unjustified [implies
+   --report-mode, -r     Output reporting mode (REPORT-MODE: a = all, f = 
+                         failed, u = unproved, j = unjustified [implies 
                          unproved])
    --suggest, -g         Show suggestion for an optimal prover configuration
-   --entity, -e          Filter output by ENTITY (regular expression), this
+   --entity, -e          Filter output by ENTITY (regular expression), this 
                          option can  be specified multiple times
-   --sort-by, -c         Sorting criterion (SORT-BY: a = alphabetical, s = by
+   --sort-by, -c         Sorting criterion (SORT-BY: a = alphabetical, s = by 
                          minimum time for successful proof, t = by maximum proof
-                          time)
+                          time, p = by minimum steps for successful proof, q = 
+                         by maximum steps)
    --cut-off, -p         Cut off point, do not show entities with proof times 
                          less than that (CUT-OFF: <numeral>[s|ms])
-   --details, -d         Show details for entities (report mode) (DETAILS:
-                         [1|2|f] for level 1, 2 and full details. Please note
+   --details, -d         Show details for entities (report mode) (DETAILS: 
+                         [1|2|f] for level 1, 2 and full details. Please note 
                          that 2 and f are currently equivalent.)
    --version, -V         Show version information and exit
    --raw, -R             Output timings in raw format (for script use)
@@ -168,29 +167,30 @@ Typical output would look like this:
 
 ```
 saatana-crypto.spark                     => (Flow  => 9.0 ms,
-                                             Proof => 80.0 ms/80.0 ms/6.8 s)
+                                             Proof => 80.0 ms (72790 steps)/80.0 ms (72790 steps)/6.8 s)
 test_phelix.spark                        => (Flow  => 180.0 µs,
-                                             Proof => 0.0 s/0.0 s/0.0 s)
+                                             Proof => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s)
 saatana-crypto-phelix.spark              => (Flow  => 206.5 ms,
-                                             Proof => 174.3 s/206.4 s/568.7 s)
+                                             Proof => 174.3 s (11657168 steps)/206.4 s (105312169 steps)/568.7 s)
 saatana.spark                            => (Flow  => 464.0 µs,
-                                             Proof => 0.0 s/0.0 s/0.0 s)
+                                             Proof => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s)
 saatana-crypto-lemmas.spark              => (Flow  => 2.1 ms,
-                                             Proof => 210.0 ms/210.0 ms/2.2 s)
+                                             Proof => 210.0 ms (186828 steps)/210.0 ms (186828 steps)/2.2 s)
 test_phelix_api.spark                    => (Flow  => 14.4 ms,
-                                             Proof => 240.0 ms/240.0 ms/23.1 s)
+                                             Proof => 240.0 ms (276585 steps)/240.0 ms (276585 steps)/23.1 s)
 saatana-crypto-stream_tools.spark        => (Flow  => 71.0 µs,
-                                             Proof => 0.0 s/0.0 s/0.0 s)
+                                             Proof => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s)
 saatana-crypto-phelix-test_vectors.spark => (Flow  => 24.0 µs,
-                                             Proof => 0.0 s/0.0 s/0.0 s)
+                                             Proof => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s)
+
 ```
 
 You can use the `--sort-by` option with `--summary`, either for an alphabetical
-list (`--sort-by=a`), or a list sorted by time (`--sort-by=t`, descending order,
-so files with the most time needed by the provers come first).  The option
-`--sort-by=s` (see below) has the same effect as `--sort-by=t`, except for a
-warning that what you requested has not been implemented yet.  By default, no
-particular order is imposed on the output.
+list (`--sort-by=a`), a list sorted by time (`--sort-by=t`, descending order,
+so files with the most time needed by the provers come first), or a list sorted
+by steps (`--sort-by=p`).  The options to sort by maximum time for successful
+proof (`--sort-by=s`) or by maximum steps for successful proof (`--sort-by=q`)
+are also available.  By default, no particular order is imposed on the output.
 
 For the meaning of the three timings after `Proof =>`, please see below.
 
@@ -227,24 +227,24 @@ run_spat -ra -P saatana.gpr
 Typical output looks like this:
 
 ```
-Saatana.Crypto.Phelix.Encrypt_Bytes        => 174.3 s/174.3 s/189.0 s
-Saatana.Crypto.Phelix.Setup_Key            => 640.0 ms/206.4 s/219.2 s
-Saatana.Crypto.Phelix.Ctx_AAD_Len          => 0.0 s/0.0 s/0.0 s
-Saatana.Crypto.Phelix.Encrypt_Packet       => 100.0 ms/100.0 ms/2.0 s
-Saatana.Crypto.Phelix.MAC_Size_32Predicate => 30.0 ms/30.0 ms/30.0 ms
-Saatana.Crypto.Phelix.Ctx_Msg_Len          => 0.0 s/0.0 s/0.0 s
-Saatana.Crypto.Phelix.Ctx_I                => 0.0 s/0.0 s/0.0 s
-Saatana.Crypto                             => 0.0 s/0.0 s/0.0 s
-Saatana.Crypto.Phelix.Setup_Key_Called     => 0.0 s/0.0 s/0.0 s
-Saatana.Crypto.Phelix.Ctx_Mac_Size         => 0.0 s/0.0 s/0.0 s
-Saatana.Crypto.Phelix.Exclusive_Or         => 110.0 ms/110.0 ms/540.0 ms
+Saatana.Crypto.Phelix.Encrypt_Bytes        => 174.3 s (8585912 steps)/174.3 s (8585912 steps)/189.0 s
+Saatana.Crypto.Phelix.Setup_Key            => 640.0 ms (416173 steps)/206.4 s (105312169 steps)/219.2 s
+Saatana.Crypto.Phelix.Ctx_AAD_Len          => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+Saatana.Crypto.Phelix.Encrypt_Packet       => 100.0 ms (122333 steps)/100.0 ms (122333 steps)/2.0 s
+Saatana.Crypto.Phelix.MAC_Size_32Predicate => 30.0 ms (480 steps)/30.0 ms (480 steps)/30.0 ms
+Saatana.Crypto.Phelix.Ctx_Msg_Len          => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+Saatana.Crypto.Phelix.Ctx_I                => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+Saatana.Crypto                             => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+Saatana.Crypto.Phelix.Setup_Key_Called     => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+Saatana.Crypto.Phelix.Ctx_Mac_Size         => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+Saatana.Crypto.Phelix.Exclusive_Or         => 110.0 ms (223374 steps)/110.0 ms (223374 steps)/540.0 ms
 ...
 ```
 
-The first value you see after the Ada entity is the longest time needed for a
-single successful proof, the second value is the maximum time needed for a
-proof (successful or not), and the third value is the total sum of all proof
-times for this entity.
+The first value you see after the Ada entity is the longest time (and steps)
+needed for a single successful proof, the second value is the maximum time (and
+steps) needed for a proof (successful or not), and the third value is the total
+sum of all proof times for this entity.
 
 If the first and the second value vastly differ, that usually means that one of
 the provers involved could not prove a certain item, but another one could and
@@ -255,12 +255,12 @@ unsuccessful proof for this entity.  An example:
 
 ```
 ...
-SPARKNaCl.MAC.Onetimeauth            => 340.0 ms/340.0 ms/3.7 s
-SPARKNaCl.Seminormal_GFPredicate     => 0.0 s/0.0 s/0.0 s
-SPARKNaCl.ASR_4                      => --/1.2 s/1.4 s
-SPARKNaCl.Car.Nearlynormal_To_Normal => --/1.4 s/17.5 s
-SPARKNaCl.ASR_8                      => --/3.3 s/3.5 s
-SPARKNaCl.Sign.Unpackneg.Pow_2523    => 0.0 s/0.0 s/0.0 s
+SPARKNaCl.MAC.Onetimeauth                                 => 340.0 ms (320 steps)/340.0 ms (320 steps)/3.7 s
+SPARKNaCl.Seminormal_GFPredicate                          => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.ASR_4                                           => --/1.2 s (11650768 steps)/1.4 s
+SPARKNaCl.Car.Nearlynormal_To_Normal                      => --/1.4 s (1092364 steps)/17.5 s
+SPARKNaCl.ASR_8                                           => --/3.3 s (11650768 steps)/3.5 s
+SPARKNaCl.Sign.Unpackneg.Pow_2523                         => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
 ...
 ```
 
@@ -281,7 +281,7 @@ run_spat -ct -rf -P saatana.gpr
 Typical output:
 
 ```
-Saatana.Crypto.Phelix.Setup_Key => 640.0 ms/206.4 s/219.2 s
+Saatana.Crypto.Phelix.Setup_Key => 640.0 ms (416173 steps)/206.4 s (105312169 steps)/219.2 s
 ```
 
 Here, we can see that there is one entity where a prover failed to prove the
@@ -305,11 +305,11 @@ run_spat -ct -ru -P sparknacl.gpr
 Typical output:
 
 ```
-SPARKNaCl.Sign.Sign                  => --/57.6 s/489.2 s
-SPARKNaCl.Car.Nearlynormal_To_Normal => --/1.4 s/17.5 s
-SPARKNaCl.ASR_16                     => --/5.7 s/5.9 s
-SPARKNaCl.ASR_8                      => --/3.3 s/3.5 s
-SPARKNaCl.ASR_4                      => --/1.2 s/1.4 s
+SPARKNaCl.Sign.Sign                  => --/57.6 s (11655208 steps)/489.2 s
+SPARKNaCl.Car.Nearlynormal_To_Normal => --/1.4 s (1092364 steps)/17.5 s
+SPARKNaCl.ASR_16                     => --/5.7 s (11650768 steps)/5.9 s
+SPARKNaCl.ASR_8                      => --/3.3 s (11650768 steps)/3.5 s
+SPARKNaCl.ASR_4                      => --/1.2 s (11650768 steps)/1.4 s
 ```
 
 Here, we can see that there are five entities with unproven verification
@@ -331,8 +331,8 @@ run_spat -ct -rj -P sparknacl.gpr
 Typical output:
 
 ```
-SPARKNaCl.Sign.Sign                  => --/57.6 s/489.2 s
-SPARKNaCl.Car.Nearlynormal_To_Normal => --/1.4 s/17.5 s
+SPARKNaCl.Sign.Sign                  => --/57.6 s (11655208 steps)/489.2 s
+SPARKNaCl.Car.Nearlynormal_To_Normal => --/1.4 s (1092364 steps)/17.5 s
 ```
 
 Here, we can see that out of the five entities listed by the previous tool
@@ -353,8 +353,8 @@ run_spat -ct -rf -d 1 -P saatana.gpr
 Output:
 
 ```
-Saatana.Crypto.Phelix.Setup_Key                   =>                            640.0 ms/206.4 s/219.2 s
-`-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44 => 640.0 ms/206.4 s/207.1 s
+Saatana.Crypto.Phelix.Setup_Key                   =>                                                            640.0 ms (416173 steps)/206.4 s (105312169 steps)/219.2 s
+`-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44 => 640.0 ms (22722 steps)/206.4 s (105312169 steps)/207.1 s
 ```
 
 Example (with `--report-mode=failed`):
@@ -366,10 +366,10 @@ run_spat -ct -rf -d -P saatana.gpr
 Output:
 
 ```
-Saatana.Crypto.Phelix.Setup_Key                   =>                            640.0 ms/206.4 s/219.2 s
-`-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44 => 640.0 ms/206.4 s/207.1 s
- `-Z3: 206.4 s (Unknown (unknown), 105312169 steps)
-  -CVC4: 640.0 ms (Valid, 22722 steps)
+Saatana.Crypto.Phelix.Setup_Key                   =>                                                            640.0 ms (416173 steps)/206.4 s (105312169 steps)/219.2 s
+`-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44 => 640.0 ms (22722 steps)/206.4 s (105312169 steps)/207.1 s
+ `-Z3: 206.4 s (105312169 steps), Unknown (unknown)
+  -CVC4: 640.0 ms (22722 steps), Valid
 ```
 
 Same example as the one a little above, but here you can see the individual
@@ -394,35 +394,35 @@ run_spat -ct -ru -d -P sparknacl.gpr
 Typical output:
 
 ```
-SPARKNaCl.Sign.Sign                                  =>                    --/57.6 s/489.2 s
-`-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36        => --/57.6 s/238.7 s
- `-CVC4: 51.6 s (Unknown (unknown), 505013 steps)
-  -Z3: 7.9 s (Unknown (unknown), 11654552 steps)
- `-CVC4: 50.5 s (Unknown (unknown), 505013 steps)
-  -Z3: 8.8 s (Unknown (unknown), 11654285 steps)
- `-CVC4: 50.7 s (Unknown (unknown), 505013 steps)
-  -Z3: 7.2 s (Unknown (unknown), 11654931 steps)
-SPARKNaCl.Car.Nearlynormal_To_Normal                 =>                    --/1.4 s/17.5 s
-`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => --/1.4 s/1.9 s
- `-CVC4: 1.4 s (Unknown (unknown), 13011 steps)
-  -Z3: 590.0 ms (Unknown (unknown), 743088 steps)
-`-VC_ASSERT sparknacl-car.adb:343:31                 => --/790.0 ms/1.2 s
- `-Z3: 790.0 ms (Unknown (unknown), 957357 steps)
-  -CVC4: 410.0 ms (Unknown (unknown), 4809 steps)
-SPARKNaCl.ASR_16                                     =>                    --/5.7 s/5.9 s
-`-VC_POSTCONDITION sparknacl.ads:355:35              => --/5.7 s/5.8 s
- `-Z3: 5.7 s (Unknown (unknown), 11650768 steps)
-  -CVC4: 80.0 ms (Unknown (unknown), 993 steps)
+SPARKNaCl.Sign.Sign                                  =>                                     --/57.6 s (11655208 steps)/489.2 s
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36        => --/57.6 s (11654931 steps)/238.7 s
+ `-CVC4: 51.6 s (505013 steps), Unknown (unknown)
+  -Z3: 7.9 s (11654552 steps), Unknown (unknown)
+ `-CVC4: 50.5 s (505013 steps), Unknown (unknown)
+  -Z3: 8.8 s (11654285 steps), Unknown (unknown)
+ `-CVC4: 50.7 s (505013 steps), Unknown (unknown)
+  -Z3: 7.2 s (11654931 steps), Unknown (unknown)
+SPARKNaCl.Car.Nearlynormal_To_Normal                 =>                                     --/1.4 s (1092364 steps)/17.5 s
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => --/1.4 s (743088 steps)/1.9 s
+ `-CVC4: 1.4 s (13011 steps), Unknown (unknown)
+  -Z3: 590.0 ms (743088 steps), Unknown (unknown)
+`-VC_ASSERT sparknacl-car.adb:343:31                 => --/790.0 ms (957357 steps)/1.2 s
+ `-Z3: 790.0 ms (957357 steps), Unknown (unknown)
+  -CVC4: 410.0 ms (4809 steps), Unknown (unknown)
+SPARKNaCl.ASR_16                                     =>                                     --/5.7 s (11650768 steps)/5.9 s
+`-VC_POSTCONDITION sparknacl.ads:355:35              => --/5.7 s (11650768 steps)/5.8 s
+ `-Z3: 5.7 s (11650768 steps), Unknown (unknown)
+  -CVC4: 80.0 ms (993 steps), Unknown (unknown)
 Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.ASR_8                                      =>                    --/3.3 s/3.5 s
-`-VC_POSTCONDITION sparknacl.ads:367:35              => --/3.3 s/3.4 s
- `-Z3: 3.3 s (Unknown (unknown), 11650768 steps)
-  -CVC4: 90.0 ms (Unknown (unknown), 993 steps)
+SPARKNaCl.ASR_8                                      =>                                     --/3.3 s (11650768 steps)/3.5 s
+`-VC_POSTCONDITION sparknacl.ads:367:35              => --/3.3 s (11650768 steps)/3.4 s
+ `-Z3: 3.3 s (11650768 steps), Unknown (unknown)
+  -CVC4: 90.0 ms (993 steps), Unknown (unknown)
 Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.ASR_4                                      =>                    --/1.2 s/1.4 s
-`-VC_POSTCONDITION sparknacl.ads:379:35              => --/1.2 s/1.3 s
- `-Z3: 1.2 s (Unknown (unknown), 11650768 steps)
-  -CVC4: 80.0 ms (Unknown (unknown), 993 steps)
+SPARKNaCl.ASR_4                                      =>                                     --/1.2 s (11650768 steps)/1.4 s
+`-VC_POSTCONDITION sparknacl.ads:379:35              => --/1.2 s (11650768 steps)/1.3 s
+ `-Z3: 1.2 s (11650768 steps), Unknown (unknown)
+  -CVC4: 80.0 ms (993 steps), Unknown (unknown)
 Justified with: "From definition of arithmetic shift right".
 ```
 
@@ -451,20 +451,20 @@ run_spat -ct -ru -d -e ".*ASR.*" -P sparknacl.gpr
 This shows all unproved entities that match the expression `".*ASR.*"`:
 
 ```
-SPARKNaCl.ASR_16                        =>                 --/5.7 s/5.9 s
-`-VC_POSTCONDITION sparknacl.ads:355:35 => --/5.7 s/5.8 s
- `-Z3: 5.7 s (Unknown (unknown), 11650768 steps)
-  -CVC4: 80.0 ms (Unknown (unknown), 993 steps)
+SPARKNaCl.ASR_16                        =>                                  --/5.7 s (11650768 steps)/5.9 s
+`-VC_POSTCONDITION sparknacl.ads:355:35 => --/5.7 s (11650768 steps)/5.8 s
+ `-Z3: 5.7 s (11650768 steps), Unknown (unknown)
+  -CVC4: 80.0 ms (993 steps), Unknown (unknown)
 Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.ASR_8                         =>                 --/3.3 s/3.5 s
-`-VC_POSTCONDITION sparknacl.ads:367:35 => --/3.3 s/3.4 s
- `-Z3: 3.3 s (Unknown (unknown), 11650768 steps)
-  -CVC4: 90.0 ms (Unknown (unknown), 993 steps)
+SPARKNaCl.ASR_8                         =>                                  --/3.3 s (11650768 steps)/3.5 s
+`-VC_POSTCONDITION sparknacl.ads:367:35 => --/3.3 s (11650768 steps)/3.4 s
+ `-Z3: 3.3 s (11650768 steps), Unknown (unknown)
+  -CVC4: 90.0 ms (993 steps), Unknown (unknown)
 Justified with: "From definition of arithmetic shift right".
-SPARKNaCl.ASR_4                         =>                 --/1.2 s/1.4 s
-`-VC_POSTCONDITION sparknacl.ads:379:35 => --/1.2 s/1.3 s
- `-Z3: 1.2 s (Unknown (unknown), 11650768 steps)
-  -CVC4: 80.0 ms (Unknown (unknown), 993 steps)
+SPARKNaCl.ASR_4                         =>                                  --/1.2 s (11650768 steps)/1.4 s
+`-VC_POSTCONDITION sparknacl.ads:379:35 => --/1.2 s (11650768 steps)/1.3 s
+ `-Z3: 1.2 s (11650768 steps), Unknown (unknown)
+  -CVC4: 80.0 ms (993 steps), Unknown (unknown)
 Justified with: "From definition of arithmetic shift right".
 ```
 
@@ -499,11 +499,11 @@ is different for the `--report-mode` and `--summary` output.
   `run_spat -ra -ct -p 400ms -P saatana.gpr`
 
   ```sh
-  Saatana.Crypto.Phelix.Setup_Key     => 640.0 ms/206.4 s/219.2 s
-  Saatana.Crypto.Phelix.Encrypt_Bytes => 174.3 s/174.3 s/189.0 s
-  Saatana.Crypto.Phelix.Decrypt_Bytes => 4.0 s/4.0 s/18.6 s
-  Saatana.Crypto.Phelix.Finalize      => 2.2 s/2.2 s/7.7 s
-  Saatana.Crypto.Phelix.H             => 6.0 s/6.0 s/6.0 s
+  Saatana.Crypto.Phelix.Setup_Key     => 640.0 ms (416173 steps)/206.4 s (105312169 steps)/219.2 s
+  Saatana.Crypto.Phelix.Encrypt_Bytes => 174.3 s (8585912 steps)/174.3 s (8585912 steps)/189.0 s
+  Saatana.Crypto.Phelix.Decrypt_Bytes => 4.0 s (3114117 steps)/4.0 s (3114117 steps)/18.6 s
+  Saatana.Crypto.Phelix.Finalize      => 2.2 s (2873006 steps)/2.2 s (2873006 steps)/7.7 s
+  Saatana.Crypto.Phelix.H             => 6.0 s (11657168 steps)/6.0 s (11657168 steps)/6.0 s
   ```
 
   vs.
@@ -511,9 +511,9 @@ is different for the `--report-mode` and `--summary` output.
   `run_spat -ra -ct -P saatana.gpr -p 5000ms` (or `-p 5s`, or even `-p 5`)
 
   ```sh
-  Saatana.Crypto.Phelix.Setup_Key     => 640.0 ms/206.4 s/219.2 s
-  Saatana.Crypto.Phelix.Encrypt_Bytes => 174.3 s/174.3 s/189.0 s
-  Saatana.Crypto.Phelix.H             => 6.0 s/6.0 s/6.0 s
+  Saatana.Crypto.Phelix.Setup_Key     => 640.0 ms (416173 steps)/206.4 s (105312169 steps)/219.2 s
+  Saatana.Crypto.Phelix.Encrypt_Bytes => 174.3 s (8585912 steps)/174.3 s (8585912 steps)/189.0 s
+  Saatana.Crypto.Phelix.H             => 6.0 s (11657168 steps)/6.0 s (11657168 steps)/6.0 s
   ```
 
   Notice that omitted entries disappear from the middle of the list, because
@@ -641,13 +641,11 @@ readable output.  This should make it easier for scripts to parse the numbers.
 ## Some Notes on Sorting
 
 The sort option *by successful proof time* (i.e. `--sort-by=s`) is may work in a
-slightly counter-intuitive way, so I explain it a bit.
+slightly counter-intuitive way, so I explain it a bit.  The explanation is
+similar for sorting *by successful proof steps* (i.e. `--sort-by=q`).
 
-First of all, as mentioned earlier, it is *not* implemented for the summary
-display. If you try that, `spat` will warn you and resort to sorting by time.
-
-Similar goes for the `--cut-off` option, which still only takes the
-[maximum proof time into account](https://github.com/HeisenbugLtd/spat/issues/33).
+This option does not apply for the `--cut-off` option, which still only takes
+the [maximum proof time into account](https://github.com/HeisenbugLtd/spat/issues/33).
 
 The [idea behind this sorting option](https://github.com/HeisenbugLtd/spat/issues/29)
 is that you may want to know where provers spend useless time (e.g. where a
@@ -669,13 +667,13 @@ Examples (mostly to show how the difference between `--sort-by=t` and
   `run_spat -ct -rf -P sparknacl.gpr`
 
   ```
-  SPARKNaCl.Sign.Sign                   => --/57.6 s/489.2 s
-  SPARKNaCl.Omultiply                   => 700.0 ms/19.1 s/28.6 s
-  SPARKNaCl.Car.Nearlynormal_To_Normal  => --/1.4 s/17.5 s
-  SPARKNaCl.ASR_16                      => --/5.7 s/5.9 s
-  SPARKNaCl.ASR_8                       => --/3.3 s/3.5 s
-  SPARKNaCl.Utils.Pack_25519.Subtract_P => 150.0 ms/180.0 ms/1.8 s
-  SPARKNaCl.ASR_4                       => --/1.2 s/1.4 s
+  SPARKNaCl.Sign.Sign                   => --/57.6 s (11655208 steps)/489.2 s
+  SPARKNaCl.Omultiply                   => 700.0 ms (68029 steps)/19.1 s (505013 steps)/28.6 s
+  SPARKNaCl.Car.Nearlynormal_To_Normal  => --/1.4 s (1092364 steps)/17.5 s
+  SPARKNaCl.ASR_16                      => --/5.7 s (11650768 steps)/5.9 s
+  SPARKNaCl.ASR_8                       => --/3.3 s (11650768 steps)/3.5 s
+  SPARKNaCl.Utils.Pack_25519.Subtract_P => 150.0 ms (155440 steps)/180.0 ms (155440 steps)/1.8 s
+  SPARKNaCl.ASR_4                       => --/1.2 s (11650768 steps)/1.4 s
   ```
 
 * By successful proof:
@@ -683,13 +681,13 @@ Examples (mostly to show how the difference between `--sort-by=t` and
   `run_spat -cs -rf -P sparknacl.gpr`
 
   ```
-  SPARKNaCl.Omultiply                   => 700.0 ms/19.1 s/28.6 s
-  SPARKNaCl.Utils.Pack_25519.Subtract_P => 150.0 ms/180.0 ms/1.8 s
-  SPARKNaCl.Sign.Sign                   => --/57.6 s/489.2 s
-  SPARKNaCl.Car.Nearlynormal_To_Normal  => --/1.4 s/17.5 s
-  SPARKNaCl.ASR_16                      => --/5.7 s/5.9 s
-  SPARKNaCl.ASR_8                       => --/3.3 s/3.5 s
-  SPARKNaCl.ASR_4                       => --/1.2 s/1.4 s
+  SPARKNaCl.Omultiply                   => 700.0 ms (68029 steps)/19.1 s (505013 steps)/28.6 s
+  SPARKNaCl.Utils.Pack_25519.Subtract_P => 150.0 ms (155440 steps)/180.0 ms (155440 steps)/1.8 s
+  SPARKNaCl.Sign.Sign                   => --/57.6 s (11655208 steps)/489.2 s
+  SPARKNaCl.Car.Nearlynormal_To_Normal  => --/1.4 s (1092364 steps)/17.5 s
+  SPARKNaCl.ASR_16                      => --/5.7 s (11650768 steps)/5.9 s
+  SPARKNaCl.ASR_8                       => --/3.3 s (11650768 steps)/3.5 s
+  SPARKNaCl.ASR_4                       => --/1.2 s (11650768 steps)/1.4 s
   ```
 
 Notice, how the entries for `SPARKNaCl.Omultiply` and
@@ -705,27 +703,27 @@ Looking at `Omultiply` in detail:
 `run_spat -d -cs -ra -P sparknacl.gpr -e .*Omultiply`
 
 ```
-SPARKNaCl.Omultiply                              =>                              700.0 ms/19.1 s/28.6 s
-`-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:164:13 => 40.0 ms/19.1 s/19.1 s
- `-CVC4: 19.1 s (Unknown (unknown), 505013 steps)
-  -Z3: 40.0 ms (Valid, 68029 steps)
-`-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:80:16  => 700.0 ms/700.0 ms/930.0 ms
- `-CVC4: 700.0 ms (Valid, 11484 steps)
- `-CVC4: 230.0 ms (Valid, 3586 steps)
-`-VC_RANGE_CHECK sparknacl.adb:75:36             => 170.0 ms/170.0 ms/480.0 ms
- `-CVC4: 170.0 ms (Valid, 1970 steps)
- `-CVC4: 120.0 ms (Valid, 1311 steps)
- `-CVC4: 110.0 ms (Valid, 1301 steps)
- `-CVC4: 80.0 ms (Valid, 975 steps)
-`-VC_OVERFLOW_CHECK sparknacl.adb:75:48          => 140.0 ms/140.0 ms/420.0 ms
- `-CVC4: 140.0 ms (Valid, 1545 steps)
- `-CVC4: 110.0 ms (Valid, 1055 steps)
- `-CVC4: 100.0 ms (Valid, 996 steps)
- `-CVC4: 70.0 ms (Valid, 878 steps)
-`-VC_LOOP_INVARIANT_INIT sparknacl.adb:80:16     => 120.0 ms/220.0 ms/400.0 ms
- `-CVC4: 220.0 ms (Unknown (unknown), 3309 steps)
-  -Z3: 60.0 ms (Valid, 57212 steps)
- `-CVC4: 120.0 ms (Valid, 1319 steps)
+SPARKNaCl.Omultiply                              =>                                                          700.0 ms (68029 steps)/19.1 s (505013 steps)/28.6 s
+`-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:164:13 => 40.0 ms (68029 steps)/19.1 s (505013 steps)/19.1 s
+ `-CVC4: 19.1 s (505013 steps), Unknown (unknown)
+  -Z3: 40.0 ms (68029 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:80:16  => 700.0 ms (11484 steps)/700.0 ms (11484 steps)/930.0 ms
+ `-CVC4: 700.0 ms (11484 steps), Valid
+ `-CVC4: 230.0 ms (3586 steps), Valid
+`-VC_RANGE_CHECK sparknacl.adb:75:36             => 170.0 ms (1970 steps)/170.0 ms (1970 steps)/480.0 ms
+ `-CVC4: 170.0 ms (1970 steps), Valid
+ `-CVC4: 120.0 ms (1311 steps), Valid
+ `-CVC4: 110.0 ms (1301 steps), Valid
+ `-CVC4: 80.0 ms (975 steps), Valid
+`-VC_OVERFLOW_CHECK sparknacl.adb:75:48          => 140.0 ms (1545 steps)/140.0 ms (1545 steps)/420.0 ms
+ `-CVC4: 140.0 ms (1545 steps), Valid
+ `-CVC4: 110.0 ms (1055 steps), Valid
+ `-CVC4: 100.0 ms (996 steps), Valid
+ `-CVC4: 70.0 ms (878 steps), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl.adb:80:16     => 120.0 ms (57212 steps)/220.0 ms (57212 steps)/400.0 ms
+ `-CVC4: 220.0 ms (3309 steps), Unknown (unknown)
+  -Z3: 60.0 ms (57212 steps), Valid
+ `-CVC4: 120.0 ms (1319 steps), Valid
 ...
 ```
 
