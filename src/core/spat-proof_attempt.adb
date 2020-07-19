@@ -67,8 +67,13 @@ package body SPAT.Proof_Attempt is
                                     "Fatal: Impossible Kind """ &
                                     Time_Field.Kind'Image & """ of JSON object!"),
                        Steps  =>
-                         Prover_Steps
-                           (Long_Integer'(Object.Get (Field => Field_Names.Steps)))),
+                         --  FIXME: Step scaling will not be necessary anymore for
+                         --         the SPARK development version (i.e. SPARK CE 2021).
+                         Scaled (Prover    => Prover,
+                                 Raw_Steps =>
+                                   Prover_Steps
+                                     (Long_Integer'
+                                        (Object.Get (Field => Field_Names.Steps))))),
                   Id     => Proof_Attempt_Ids.Next);
    end Create;
 

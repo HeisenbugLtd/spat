@@ -12,11 +12,10 @@ with SPAT.Proof_Attempt;
 
 package body SPAT.Spark_Info.Heuristics is
 
-   Null_Times : constant Times :=
-     Times'(Success     => 0.0,
-            Failed      => 0.0,
-            Max_Success => 0.0,
-            Max_Steps   => 0);
+   Null_Workload : constant Workloads :=
+     Workloads'(Success_Time => 0.0,
+                Failed_Time  => 0.0,
+                Max_Success  => SPAT.None);
 
    ---------------------------------------------------------------------------
    --  Min_Failed_Time
@@ -57,7 +56,7 @@ package body SPAT.Spark_Info.Heuristics is
 
    package Prover_Maps is new
      Ada.Containers.Hashed_Maps (Key_Type        => Prover_Name,
-                                 Element_Type    => Times,
+                                 Element_Type    => Workloads,
                                  Hash            => SPAT.Hash,
                                  Equivalent_Keys => "=",
                                  "="             => "=");
@@ -201,7 +200,7 @@ package body SPAT.Spark_Info.Heuristics is
                               --  New prover name, insert it.
                               File_Ref.Element.Insert
                                 (Key      => The_Attempt.Prover,
-                                 New_Item => Null_Times,
+                                 New_Item => Null_Workload,
                                  Position => Prover_Cursor,
                                  Inserted => Dummy_Inserted);
                            end if;
@@ -212,21 +211,21 @@ package body SPAT.Spark_Info.Heuristics is
                               use type Proof_Attempt.Prover_Result;
                            begin
                               if The_Attempt.Result = Proof_Attempt.Valid then
-                                 Prover_Element.Success :=
-                                   Prover_Element.Success + The_Attempt.Time;
+                                 Prover_Element.Success_Time :=
+                                   Prover_Element.Success_Time + The_Attempt.Time;
 
-                                 Prover_Element.Max_Success :=
-                                   Duration'Max (Prover_Element.Max_Success,
-                                                 The_Attempt.Time);
+                                 Prover_Element.Max_Success.Time :=
+                                   Duration'Max
+                                     (Prover_Element.Max_Success.Time,
+                                      The_Attempt.Time);
 
-                                 Prover_Element.Max_Steps :=
+                                 Prover_Element.Max_Success.Steps :=
                                    Prover_Steps'Max
-                                     (Prover_Element.Max_Steps,
-                                      Scaled (Prover    => The_Attempt.Prover,
-                                              Raw_Steps => The_Attempt.Steps));
+                                     (Prover_Element.Max_Success.Steps,
+                                      The_Attempt.Steps);
                               else
-                                 Prover_Element.Failed :=
-                                   Prover_Element.Failed + The_Attempt.Time;
+                                 Prover_Element.Failed_Time :=
+                                   Prover_Element.Failed_Time + The_Attempt.Time;
                               end if;
                            end;
                         end;
@@ -244,17 +243,21 @@ package body SPAT.Spark_Info.Heuristics is
 
             for Prover in Per_File.Element (Position => C).Iterate loop
                declare
-                  E : constant Times :=
+                  E : constant Workloads :=
                     Prover_Maps.Element (Position => Prover);
                begin
                   Log.Debug
                     (Message =>
                        "  " &
                        To_String (Prover_Maps.Key (Position => Prover)));
-                  Log.Debug (Message => "    t(Success) " & SPAT.Image (E.Success));
-                  Log.Debug (Message => "    t(Failed)  " & SPAT.Image (E.Failed));
-                  Log.Debug (Message => "    T(Success) " & SPAT.Image (E.Max_Success));
-                  Log.Debug (Message => "    S(Success)" & E.Max_Steps'Image);
+                  Log.Debug
+                    (Message => "    t(Success) " & SPAT.Image (E.Success_Time));
+                  Log.Debug
+                    (Message => "    t(Failed)  " & SPAT.Image (E.Failed_Time));
+                  Log.Debug
+                    (Message => "    T(Success) " & SPAT.Image (E.Max_Success.Time));
+                  Log.Debug
+                    (Message => "    S(Success)" & E.Max_Success.Steps'Image);
                end;
             end loop;
          end loop;
@@ -278,9 +281,9 @@ package body SPAT.Spark_Info.Heuristics is
                      Prover_Vector.Append
                        (New_Item =>
                           Prover_Data'
-                            (Name =>
+                            (Name     =>
                                Prover_Maps.Key (Position => Prover_Cursor),
-                             Time => Prover_Maps.Element (Prover_Cursor)));
+                             Workload => Prover_Maps.Element (Prover_Cursor)));
                   end if;
                end loop;
 
@@ -309,15 +312,15 @@ package body SPAT.Spark_Info.Heuristics is
    function Min_Failed_Time (Left  : in Prover_Data;
                              Right : in Prover_Data) return Boolean is
    begin
-      if Left.Time.Failed = Right.Time.Failed then
+      if Left.Workload.Failed_Time = Right.Workload.Failed_Time then
          --  Failed time is equal (likely zero), so prefer the prover with the
          --  *higher* success time.  This can be wrong, because this value
          --  mostly depends on which prover is called first.
-         return Left.Time.Success > Right.Time.Success;
+         return Left.Workload.Success_Time > Right.Workload.Success_Time;
       end if;
 
       --  Prefer the prover that spends less wasted time.
-      return Left.Time.Failed < Right.Time.Failed;
+      return Left.Workload.Failed_Time < Right.Workload.Failed_Time;
    end Min_Failed_Time;
 
 end SPAT.Spark_Info.Heuristics;

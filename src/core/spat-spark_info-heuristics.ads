@@ -20,23 +20,21 @@ with Ada.Containers.Vectors;
 
 package SPAT.Spark_Info.Heuristics is
 
-   type Times is
+   type Workloads is
       record
          --  The name of the prover.
-         Success     : Duration;
+         Success_Time : Duration;
          --  accumulated time of successful attempts
-         Failed      : Duration;
+         Failed_Time  : Duration;
          --  accumulated time of failed attempts
-         Max_Success : Duration;
-         --  maximum time for a successful attempt
-         Max_Steps   : Prover_Steps;
-         --  maximum number of steps for a successful proof
+         Max_Success  : Time_And_Steps;
+         --  maximum time/steps for a successful attempt
       end record;
 
    type Prover_Data is
       record
-         Name : Prover_Name;
-         Time : Times;
+         Name     : Prover_Name;
+         Workload : Workloads;
       end record;
 
    package Prover_Vectors is new
