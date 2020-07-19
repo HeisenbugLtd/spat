@@ -227,14 +227,14 @@ begin --  Print_Entities
                     else
                       SPAT.Image
                         (Value => Info.Max_Success_Proof_Time (Entity => Entity),
-                         Steps => Info.Max_Success_Proof_Steps (Entity => Entity)) &
+                         Steps => Info.Max_Success_Proof_Steps (Entity => Entity))) &
                       "/" &
                       SPAT.Image
                         (Value => Info.Max_Proof_Time (Entity => Entity),
                          Steps => Info.Max_Proof_Steps (Entity => Entity)) &
                       "/" &
                       SPAT.Image
-                        (Value => Info.Total_Proof_Time (Entity => Entity)))));
+                        (Value => Info.Total_Proof_Time (Entity => Entity))));
          Output_List.Append (New_Item => Current_Row);
 
          if Detail_Level > SPAT.Command_Line.None then
