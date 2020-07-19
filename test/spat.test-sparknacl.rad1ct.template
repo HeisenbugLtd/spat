@@ -1,4 +1,4 @@
-SPARKNaCl.Sign.Sign                                       =>                                                            --
+SPARKNaCl.Sign.Sign                                       =>                                                            --/57.6 s (11655208 steps)/489.2 s
 `-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36             => --/57.6 s (11654931 steps)/238.7 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:896:16     => 8.2 s (11655208 steps)/51.5 s (11655208 steps)/115.1 s
 `-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:896:16        => 6.0 s (7527875 steps)/51.0 s (7527875 steps)/112.4 s
@@ -345,7 +345,7 @@ SPARKNaCl.Hashing.Hashblocks                              =>                    
 `-VC_RANGE_CHECK sparknacl-hashing.adb:125:33             => 110.0 ms (5 steps)/110.0 ms (5 steps)/110.0 ms
 `-VC_RANGE_CHECK sparknacl-hashing.adb:121:33             => 100.0 ms (5 steps)/100.0 ms (5 steps)/100.0 ms
 `-VC_RANGE_CHECK sparknacl-hashing.adb:127:33             => 100.0 ms (5 steps)/100.0 ms (5 steps)/100.0 ms
-SPARKNaCl.Car.Nearlynormal_To_Normal                      =>                                                            --
+SPARKNaCl.Car.Nearlynormal_To_Normal                      =>                                                            --/1.4 s (1092364 steps)/17.5 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13      => --/1.4 s (743088 steps)/1.9 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:322:13      => 810.0 ms (1092364 steps)/810.0 ms (1092364 steps)/1.6 s
 `-VC_PREDICATE_CHECK sparknacl-car.adb:308:10             => 1.0 s (22738 steps)/1.0 s (22738 steps)/1.2 s
@@ -571,7 +571,7 @@ SPARKNaCl.Car.Sum_To_Nearlynormal                         =>                    
 `-VC_PREDICATE_CHECK sparknacl-car.adb:150:12             => 80.0 ms (630 steps)/80.0 ms (630 steps)/80.0 ms
 `-VC_DIVISION_CHECK sparknacl-car.adb:181:24              => 70.0 ms (5 steps)/70.0 ms (5 steps)/70.0 ms
 `-VC_DIVISION_CHECK sparknacl-car.adb:154:22              => 50.0 ms (5 steps)/50.0 ms (5 steps)/50.0 ms
-SPARKNaCl.ASR_16                                          =>                                                            --
+SPARKNaCl.ASR_16                                          =>                                                            --/5.7 s (11650768 steps)/5.9 s
 `-VC_POSTCONDITION sparknacl.ads:355:35                   => --/5.7 s (11650768 steps)/5.8 s
 Justified with: "From definition of arithmetic shift right".
 `-VC_OVERFLOW_CHECK sparknacl.ads:356:55                  => 50.0 ms (5 steps)/50.0 ms (5 steps)/50.0 ms
@@ -647,7 +647,7 @@ SPARKNaCl.MAC.Onetimeauth                                 =>                    
 `-VC_RANGE_CHECK sparknacl-mac.adb:101:20                 => 100.0 ms (20 steps)/100.0 ms (20 steps)/100.0 ms
 `-VC_OVERFLOW_CHECK sparknacl-mac.adb:100:39              => 90.0 ms (21 steps)/90.0 ms (21 steps)/90.0 ms
 `-VC_LOOP_INVARIANT_INIT sparknacl-mac.adb:93:13          => 50.0 ms (5 steps)/50.0 ms (5 steps)/50.0 ms
-SPARKNaCl.ASR_8                                           =>                                                            --
+SPARKNaCl.ASR_8                                           =>                                                            --/3.3 s (11650768 steps)/3.5 s
 `-VC_POSTCONDITION sparknacl.ads:367:35                   => --/3.3 s (11650768 steps)/3.4 s
 Justified with: "From definition of arithmetic shift right".
 `-VC_OVERFLOW_CHECK sparknacl.ads:368:54                  => 50.0 ms (5 steps)/50.0 ms (5 steps)/50.0 ms
@@ -765,7 +765,7 @@ SPARKNaCl.Sign.Open                                       =>                    
 `-VC_LENGTH_CHECK sparknacl-sign.adb:995:12               => 60.0 ms (5 steps)/60.0 ms (5 steps)/60.0 ms
 `-VC_LENGTH_CHECK sparknacl-sign.adb:1027:23              => 60.0 ms (5 steps)/60.0 ms (5 steps)/60.0 ms
 `-VC_PRECONDITION sparknacl-sign.adb:1016:14              => 60.0 ms (5 steps)/60.0 ms (5 steps)/60.0 ms
-SPARKNaCl.ASR_4                                           =>                                                            --
+SPARKNaCl.ASR_4                                           =>                                                            --/1.2 s (11650768 steps)/1.4 s
 `-VC_POSTCONDITION sparknacl.ads:379:35                   => --/1.2 s (11650768 steps)/1.3 s
 Justified with: "From definition of arithmetic shift right".
 `-VC_OVERFLOW_CHECK sparknacl.ads:380:54                  => 50.0 ms (5 steps)/50.0 ms (5 steps)/50.0 ms

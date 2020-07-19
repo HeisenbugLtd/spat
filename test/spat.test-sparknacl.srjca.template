@@ -26,5 +26,5 @@ sparknacl-stream.spark    => (Flow  => 72.6 ms,
                               Proof => 210.0 ms (1429 steps)/210.0 ms (1429 steps)/21.2 s)
 sparknacl-utils.spark     => (Flow  => 49.8 ms,
                               Proof => 900.0 ms (155440 steps)/900.0 ms (155440 steps)/17.4 s)
-SPARKNaCl.Car.Nearlynormal_To_Normal => --
-SPARKNaCl.Sign.Sign                  => --
+SPARKNaCl.Car.Nearlynormal_To_Normal => --/1.4 s (1092364 steps)/17.5 s
+SPARKNaCl.Sign.Sign                  => --/57.6 s (11655208 steps)/489.2 s

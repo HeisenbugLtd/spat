@@ -13,7 +13,7 @@ SPARKNaCl.Omultiply                                   =>                        
 `-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:164:13      => 40.0 ms (68029 steps)/19.1 s (505013 steps)/19.1 s
  `-CVC4: 19.1 s (505013 steps), Unknown (unknown)
   -Z3: 40.0 ms (68029 steps), Valid
-SPARKNaCl.Sign.Sign                                   =>                                                          --
+SPARKNaCl.Sign.Sign                                   =>                                                          --/57.6 s (11655208 steps)/489.2 s
 `-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36         => --/57.6 s (11654931 steps)/238.7 s
  `-CVC4: 57.6 s (505002 steps), Unknown (unknown)
   -Z3: 4.3 s (5205347 steps), Valid
@@ -33,7 +33,7 @@ SPARKNaCl.Sign.Sign                                   =>                        
   -Z3: 6.0 s (7527875 steps), Valid
  `-CVC4: 50.9 s (505013 steps), Unknown (unknown)
   -Z3: 4.6 s (7312012 steps), Valid
-SPARKNaCl.ASR_16                                      =>                                                          --
+SPARKNaCl.ASR_16                                      =>                                                          --/5.7 s (11650768 steps)/5.9 s
 `-VC_POSTCONDITION sparknacl.ads:355:35               => --/5.7 s (11650768 steps)/5.8 s
  `-Z3: 5.7 s (11650768 steps), Unknown (unknown)
   -CVC4: 80.0 ms (993 steps), Unknown (unknown)
