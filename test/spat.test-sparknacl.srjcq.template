@@ -26,6 +26,5 @@ random.spark              => (Flow  => 517.0 µs,
                               Proof => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s)
 sparknacl-debug.spark     => (Flow  => 469.0 µs,
                               Proof => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s)
-Warning: Sorting by max success steps ("-cq") not implemented yet, reverting to sorting by max success time ("-cs").
 SPARKNaCl.Sign.Sign                  => --
 SPARKNaCl.Car.Nearlynormal_To_Normal => --

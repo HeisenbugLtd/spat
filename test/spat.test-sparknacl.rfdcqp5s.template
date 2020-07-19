@@ -1,4 +1,3 @@
-Warning: Sorting by max success steps ("-cq") not implemented yet, reverting to sorting by max success time ("-cs").
 SPARKNaCl.Omultiply                                   =>                                                          700.0 ms (68029 steps)/19.1 s (505013 steps)/28.6 s
 `-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:164:13      => 40.0 ms (68029 steps)/19.1 s (505013 steps)/19.1 s
  `-CVC4: 19.1 s (505013 steps), Unknown (unknown)

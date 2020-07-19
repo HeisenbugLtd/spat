@@ -26,7 +26,6 @@ random.spark              => (Flow  => 517.0 µs,
                               Proof => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s)
 sparknacl-debug.spark     => (Flow  => 469.0 µs,
                               Proof => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s)
-Warning: Sorting by max success steps ("-cq") not implemented yet, reverting to sorting by max success time ("-cs").
 SPARKNaCl.Sign.Sign                                  =>                                     --
 `-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36        => --/57.6 s (11654931 steps)/238.7 s
  `-CVC4: 51.6 s (505013 steps), Unknown (unknown)
@@ -35,13 +34,6 @@ SPARKNaCl.Sign.Sign                                  =>                         
   -Z3: 8.8 s (11654285 steps), Unknown (unknown)
  `-CVC4: 50.7 s (505013 steps), Unknown (unknown)
   -Z3: 7.2 s (11654931 steps), Unknown (unknown)
-SPARKNaCl.Car.Nearlynormal_To_Normal                 =>                                     --
-`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => --/1.4 s (743088 steps)/1.9 s
- `-CVC4: 1.4 s (13011 steps), Unknown (unknown)
-  -Z3: 590.0 ms (743088 steps), Unknown (unknown)
-`-VC_ASSERT sparknacl-car.adb:343:31                 => --/790.0 ms (957357 steps)/1.2 s
- `-Z3: 790.0 ms (957357 steps), Unknown (unknown)
-  -CVC4: 410.0 ms (4809 steps), Unknown (unknown)
 SPARKNaCl.ASR_16                                     =>                                     --
 `-VC_POSTCONDITION sparknacl.ads:355:35              => --/5.7 s (11650768 steps)/5.8 s
  `-Z3: 5.7 s (11650768 steps), Unknown (unknown)
@@ -57,3 +49,10 @@ SPARKNaCl.ASR_4                                      =>                         
  `-Z3: 1.2 s (11650768 steps), Unknown (unknown)
   -CVC4: 80.0 ms (993 steps), Unknown (unknown)
 Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.Car.Nearlynormal_To_Normal                 =>                                     --
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => --/1.4 s (743088 steps)/1.9 s
+ `-CVC4: 1.4 s (13011 steps), Unknown (unknown)
+  -Z3: 590.0 ms (743088 steps), Unknown (unknown)
+`-VC_ASSERT sparknacl-car.adb:343:31                 => --/790.0 ms (957357 steps)/1.2 s
+ `-Z3: 790.0 ms (957357 steps), Unknown (unknown)
+  -CVC4: 410.0 ms (4809 steps), Unknown (unknown)

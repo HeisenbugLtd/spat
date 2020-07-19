@@ -14,7 +14,9 @@ saatana-crypto-stream_tools.spark        => (Flow  => 71.0 µs,
                                              Proof => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s)
 saatana-crypto-phelix-test_vectors.spark => (Flow  => 24.0 µs,
                                              Proof => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s)
-Warning: Sorting by max success steps ("-cq") not implemented yet, reverting to sorting by max success time ("-cs").
+Saatana.Crypto.Phelix.H                                      =>                                                            6.0 s (11657168 steps)/6.0 s (11657168 steps)/6.0 s
+`-VC_POSTCONDITION saatana-crypto-phelix.adb:49:17           => 6.0 s (11657168 steps)/6.0 s (11657168 steps)/6.0 s
+ `-Z3: 6.0 s (11657168 steps), Valid
 Saatana.Crypto.Phelix.Encrypt_Bytes                          =>                                                            174.3 s (8585912 steps)/174.3 s (8585912 steps)/189.0 s
 `-VC_RANGE_CHECK saatana-crypto-phelix.adb:231:19            => 174.3 s (8585912 steps)/174.3 s (8585912 steps)/175.0 s
  `-Z3: 174.3 s (8585912 steps), Valid
@@ -174,9 +176,6 @@ Saatana.Crypto.Phelix.Encrypt_Bytes                          =>                 
  `-Z3: 40.0 ms (9272 steps), Valid
 `-VC_RANGE_CHECK saatana-crypto-phelix.adb:200:61            => 30.0 ms (9356 steps)/30.0 ms (9356 steps)/30.0 ms
  `-Z3: 30.0 ms (9356 steps), Valid
-Saatana.Crypto.Phelix.H                                      =>                                                            6.0 s (11657168 steps)/6.0 s (11657168 steps)/6.0 s
-`-VC_POSTCONDITION saatana-crypto-phelix.adb:49:17           => 6.0 s (11657168 steps)/6.0 s (11657168 steps)/6.0 s
- `-Z3: 6.0 s (11657168 steps), Valid
 Saatana.Crypto.Phelix.Decrypt_Bytes                          =>                                                            4.0 s (3114117 steps)/4.0 s (3114117 steps)/18.6 s
 `-VC_POSTCONDITION saatana-crypto-phelix.ads:292:17          => 4.0 s (1090965 steps)/4.0 s (1090965 steps)/5.2 s
  `-Z3: 4.0 s (1090965 steps), Valid
@@ -871,19 +870,6 @@ Test_Phelix_API                                              =>                 
  `-Z3: 40.0 ms (17220 steps), Valid
 `-VC_RANGE_CHECK test_phelix_api.adb:79:64                   => 40.0 ms (14309 steps)/40.0 ms (14309 steps)/40.0 ms
  `-Z3: 40.0 ms (14309 steps), Valid
-Saatana.Crypto.Lemmas                                        =>                                                            210.0 ms (186828 steps)/210.0 ms (186828 steps)/700.0 ms
-`-VC_ASSERT saatana-crypto-lemmas.ads:61:19                  => 210.0 ms (186828 steps)/210.0 ms (186828 steps)/210.0 ms
- `-Z3: 210.0 ms (186828 steps), Valid
-`-VC_ASSERT saatana-crypto-lemmas.ads:67:19                  => 130.0 ms (71137 steps)/130.0 ms (71137 steps)/130.0 ms
- `-Z3: 130.0 ms (71137 steps), Valid
-`-VC_ASSERT saatana-crypto-lemmas.ads:54:19                  => 110.0 ms (70324 steps)/110.0 ms (70324 steps)/110.0 ms
- `-Z3: 110.0 ms (70324 steps), Valid
-`-VC_ASSERT saatana-crypto-lemmas.ads:46:19                  => 100.0 ms (72838 steps)/100.0 ms (72838 steps)/100.0 ms
- `-Z3: 100.0 ms (72838 steps), Valid
-`-VC_ASSERT saatana-crypto-lemmas.ads:72:19                  => 80.0 ms (56667 steps)/80.0 ms (56667 steps)/80.0 ms
- `-Z3: 80.0 ms (56667 steps), Valid
-`-VC_ASSERT saatana-crypto-lemmas.ads:31:19                  => 70.0 ms (71988 steps)/70.0 ms (71988 steps)/70.0 ms
- `-Z3: 70.0 ms (71988 steps), Valid
 Saatana.Crypto.Phelix.Process_AAD                            =>                                                            200.0 ms (257040 steps)/200.0 ms (257040 steps)/3.9 s
 `-VC_POSTCONDITION saatana-crypto-phelix.ads:233:17          => 140.0 ms (141083 steps)/140.0 ms (141083 steps)/1.0 s
  `-Z3: 140.0 ms (123258 steps), Valid
@@ -950,63 +936,6 @@ Saatana.Crypto.Phelix.Process_AAD                            =>                 
  `-Z3: 60.0 ms (72597 steps), Valid
 `-VC_DIVISION_CHECK saatana-crypto-phelix.ads:231:37         => 40.0 ms (7981 steps)/40.0 ms (7981 steps)/40.0 ms
  `-Z3: 40.0 ms (7981 steps), Valid
-Saatana.Crypto.Phelix.Decrypt_Packet                         =>                                                            110.0 ms (121758 steps)/110.0 ms (121758 steps)/1.9 s
-`-VC_RANGE_CHECK saatana-crypto-phelix.adb:175:7             => 80.0 ms (89834 steps)/80.0 ms (89834 steps)/240.0 ms
- `-Z3: 80.0 ms (83982 steps), Valid
- `-Z3: 70.0 ms (89834 steps), Valid
- `-Z3: 50.0 ms (36479 steps), Valid
- `-Z3: 40.0 ms (23223 steps), Valid
-`-VC_RANGE_CHECK saatana-crypto-phelix.adb:179:37            => 80.0 ms (85881 steps)/80.0 ms (85881 steps)/240.0 ms
- `-Z3: 80.0 ms (85494 steps), Valid
- `-Z3: 70.0 ms (85881 steps), Valid
- `-Z3: 50.0 ms (38753 steps), Valid
- `-Z3: 40.0 ms (25115 steps), Valid
-`-VC_PRECONDITION saatana-crypto-phelix.adb:173:7            => 70.0 ms (73530 steps)/70.0 ms (73530 steps)/230.0 ms
- `-Z3: 70.0 ms (73530 steps), Valid
- `-Z3: 60.0 ms (71011 steps), Valid
- `-Z3: 40.0 ms (10485 steps), Valid
- `-Z3: 30.0 ms (8201 steps), Valid
- `-Z3: 30.0 ms (8199 steps), Valid
- `-Trivial: 0.0 s (0 steps), Valid
-`-VC_PRECONDITION saatana-crypto-phelix.adb:177:7            => 70.0 ms (95575 steps)/70.0 ms (95575 steps)/220.0 ms
- `-Z3: 70.0 ms (95575 steps), Valid
- `-Z3: 70.0 ms (84633 steps), Valid
- `-Z3: 40.0 ms (12463 steps), Valid
- `-Z3: 40.0 ms (12411 steps), Valid
- `-Trivial: 0.0 s (0 steps), Valid
-`-VC_POSTCONDITION saatana-crypto-phelix.ads:171:17          => 90.0 ms (98183 steps)/90.0 ms (98183 steps)/210.0 ms
- `-Z3: 90.0 ms (98183 steps), Valid
- `-Z3: 50.0 ms (44449 steps), Valid
- `-Z3: 40.0 ms (14150 steps), Valid
- `-Z3: 30.0 ms (10726 steps), Valid
- `-Trivial: 0.0 s (0 steps), Valid
-`-VC_LENGTH_CHECK saatana-crypto-phelix.adb:175:68           => 50.0 ms (47014 steps)/50.0 ms (47014 steps)/130.0 ms
- `-Z3: 50.0 ms (47014 steps), Valid
- `-Z3: 40.0 ms (13214 steps), Valid
- `-Z3: 40.0 ms (13272 steps), Valid
- `-Trivial: 0.0 s (0 steps), Valid
-`-VC_LENGTH_CHECK saatana-crypto-phelix.adb:175:65           => 40.0 ms (37385 steps)/40.0 ms (37385 steps)/120.0 ms
- `-Z3: 40.0 ms (37373 steps), Valid
- `-Z3: 40.0 ms (37385 steps), Valid
- `-Z3: 40.0 ms (24072 steps), Valid
- `-Trivial: 0.0 s (0 steps), Valid
-`-VC_ASSERT saatana-crypto-phelix.adb:188:22                 => 110.0 ms (121758 steps)/110.0 ms (121758 steps)/110.0 ms
- `-Z3: 110.0 ms (121758 steps), Valid
- `-Trivial: 0.0 s (0 steps), Valid
-`-VC_PRECONDITION saatana-crypto-phelix.adb:181:7            => 50.0 ms (54293 steps)/50.0 ms (54293 steps)/90.0 ms
- `-Z3: 50.0 ms (54293 steps), Valid
- `-Z3: 40.0 ms (13707 steps), Valid
-`-VC_OVERFLOW_CHECK saatana-crypto-phelix.adb:175:60         => 80.0 ms (84146 steps)/80.0 ms (84146 steps)/80.0 ms
- `-Z3: 80.0 ms (84146 steps), Valid
-`-VC_PRECONDITION saatana-crypto-phelix.adb:171:7            => 40.0 ms (7814 steps)/40.0 ms (7814 steps)/80.0 ms
- `-Z3: 40.0 ms (7814 steps), Valid
- `-Z3: 40.0 ms (7803 steps), Valid
-`-VC_OVERFLOW_CHECK saatana-crypto-phelix.adb:175:44         => 70.0 ms (84442 steps)/70.0 ms (84442 steps)/70.0 ms
- `-Z3: 70.0 ms (84442 steps), Valid
-`-VC_OVERFLOW_CHECK saatana-crypto-phelix.adb:179:58         => 60.0 ms (48523 steps)/60.0 ms (48523 steps)/60.0 ms
- `-Z3: 60.0 ms (48523 steps), Valid
-`-VC_DIVISION_CHECK saatana-crypto-phelix.ads:170:65         => 30.0 ms (7901 steps)/30.0 ms (7901 steps)/30.0 ms
- `-Z3: 30.0 ms (7901 steps), Valid
 Saatana.Crypto.Phelix.Exclusive_Or                           =>                                                            110.0 ms (223374 steps)/110.0 ms (223374 steps)/540.0 ms
 `-VC_INDEX_CHECK saatana-crypto-phelix.adb:304:89            => 40.0 ms (13108 steps)/40.0 ms (13108 steps)/120.0 ms
  `-Z3: 40.0 ms (13108 steps), Valid
@@ -1029,6 +958,19 @@ Saatana.Crypto.Phelix.Exclusive_Or                           =>                 
  `-Z3: 70.0 ms (137854 steps), Valid
 `-VC_LOOP_INVARIANT_INIT saatana-crypto-phelix.adb:303:33    => 30.0 ms (4197 steps)/30.0 ms (4197 steps)/30.0 ms
  `-Z3: 30.0 ms (4197 steps), Valid
+Saatana.Crypto.Lemmas                                        =>                                                            210.0 ms (186828 steps)/210.0 ms (186828 steps)/700.0 ms
+`-VC_ASSERT saatana-crypto-lemmas.ads:61:19                  => 210.0 ms (186828 steps)/210.0 ms (186828 steps)/210.0 ms
+ `-Z3: 210.0 ms (186828 steps), Valid
+`-VC_ASSERT saatana-crypto-lemmas.ads:67:19                  => 130.0 ms (71137 steps)/130.0 ms (71137 steps)/130.0 ms
+ `-Z3: 130.0 ms (71137 steps), Valid
+`-VC_ASSERT saatana-crypto-lemmas.ads:54:19                  => 110.0 ms (70324 steps)/110.0 ms (70324 steps)/110.0 ms
+ `-Z3: 110.0 ms (70324 steps), Valid
+`-VC_ASSERT saatana-crypto-lemmas.ads:46:19                  => 100.0 ms (72838 steps)/100.0 ms (72838 steps)/100.0 ms
+ `-Z3: 100.0 ms (72838 steps), Valid
+`-VC_ASSERT saatana-crypto-lemmas.ads:72:19                  => 80.0 ms (56667 steps)/80.0 ms (56667 steps)/80.0 ms
+ `-Z3: 80.0 ms (56667 steps), Valid
+`-VC_ASSERT saatana-crypto-lemmas.ads:31:19                  => 70.0 ms (71988 steps)/70.0 ms (71988 steps)/70.0 ms
+ `-Z3: 70.0 ms (71988 steps), Valid
 Saatana.Crypto.Phelix.Encrypt_Packet                         =>                                                            100.0 ms (122333 steps)/100.0 ms (122333 steps)/2.0 s
 `-VC_PRECONDITION saatana-crypto-phelix.adb:281:7            => 80.0 ms (97217 steps)/80.0 ms (97217 steps)/230.0 ms
  `-Z3: 80.0 ms (97217 steps), Valid
@@ -1088,6 +1030,63 @@ Saatana.Crypto.Phelix.Encrypt_Packet                         =>                 
  `-Z3: 40.0 ms (7901 steps), Valid
 `-VC_RANGE_CHECK saatana-crypto-phelix.adb:279:87            => 40.0 ms (11288 steps)/40.0 ms (11288 steps)/40.0 ms
  `-Z3: 40.0 ms (11288 steps), Valid
+Saatana.Crypto.Phelix.Decrypt_Packet                         =>                                                            110.0 ms (121758 steps)/110.0 ms (121758 steps)/1.9 s
+`-VC_RANGE_CHECK saatana-crypto-phelix.adb:175:7             => 80.0 ms (89834 steps)/80.0 ms (89834 steps)/240.0 ms
+ `-Z3: 80.0 ms (83982 steps), Valid
+ `-Z3: 70.0 ms (89834 steps), Valid
+ `-Z3: 50.0 ms (36479 steps), Valid
+ `-Z3: 40.0 ms (23223 steps), Valid
+`-VC_RANGE_CHECK saatana-crypto-phelix.adb:179:37            => 80.0 ms (85881 steps)/80.0 ms (85881 steps)/240.0 ms
+ `-Z3: 80.0 ms (85494 steps), Valid
+ `-Z3: 70.0 ms (85881 steps), Valid
+ `-Z3: 50.0 ms (38753 steps), Valid
+ `-Z3: 40.0 ms (25115 steps), Valid
+`-VC_PRECONDITION saatana-crypto-phelix.adb:173:7            => 70.0 ms (73530 steps)/70.0 ms (73530 steps)/230.0 ms
+ `-Z3: 70.0 ms (73530 steps), Valid
+ `-Z3: 60.0 ms (71011 steps), Valid
+ `-Z3: 40.0 ms (10485 steps), Valid
+ `-Z3: 30.0 ms (8201 steps), Valid
+ `-Z3: 30.0 ms (8199 steps), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_PRECONDITION saatana-crypto-phelix.adb:177:7            => 70.0 ms (95575 steps)/70.0 ms (95575 steps)/220.0 ms
+ `-Z3: 70.0 ms (95575 steps), Valid
+ `-Z3: 70.0 ms (84633 steps), Valid
+ `-Z3: 40.0 ms (12463 steps), Valid
+ `-Z3: 40.0 ms (12411 steps), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_POSTCONDITION saatana-crypto-phelix.ads:171:17          => 90.0 ms (98183 steps)/90.0 ms (98183 steps)/210.0 ms
+ `-Z3: 90.0 ms (98183 steps), Valid
+ `-Z3: 50.0 ms (44449 steps), Valid
+ `-Z3: 40.0 ms (14150 steps), Valid
+ `-Z3: 30.0 ms (10726 steps), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_LENGTH_CHECK saatana-crypto-phelix.adb:175:68           => 50.0 ms (47014 steps)/50.0 ms (47014 steps)/130.0 ms
+ `-Z3: 50.0 ms (47014 steps), Valid
+ `-Z3: 40.0 ms (13214 steps), Valid
+ `-Z3: 40.0 ms (13272 steps), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_LENGTH_CHECK saatana-crypto-phelix.adb:175:65           => 40.0 ms (37385 steps)/40.0 ms (37385 steps)/120.0 ms
+ `-Z3: 40.0 ms (37373 steps), Valid
+ `-Z3: 40.0 ms (37385 steps), Valid
+ `-Z3: 40.0 ms (24072 steps), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_ASSERT saatana-crypto-phelix.adb:188:22                 => 110.0 ms (121758 steps)/110.0 ms (121758 steps)/110.0 ms
+ `-Z3: 110.0 ms (121758 steps), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_PRECONDITION saatana-crypto-phelix.adb:181:7            => 50.0 ms (54293 steps)/50.0 ms (54293 steps)/90.0 ms
+ `-Z3: 50.0 ms (54293 steps), Valid
+ `-Z3: 40.0 ms (13707 steps), Valid
+`-VC_OVERFLOW_CHECK saatana-crypto-phelix.adb:175:60         => 80.0 ms (84146 steps)/80.0 ms (84146 steps)/80.0 ms
+ `-Z3: 80.0 ms (84146 steps), Valid
+`-VC_PRECONDITION saatana-crypto-phelix.adb:171:7            => 40.0 ms (7814 steps)/40.0 ms (7814 steps)/80.0 ms
+ `-Z3: 40.0 ms (7814 steps), Valid
+ `-Z3: 40.0 ms (7803 steps), Valid
+`-VC_OVERFLOW_CHECK saatana-crypto-phelix.adb:175:44         => 70.0 ms (84442 steps)/70.0 ms (84442 steps)/70.0 ms
+ `-Z3: 70.0 ms (84442 steps), Valid
+`-VC_OVERFLOW_CHECK saatana-crypto-phelix.adb:179:58         => 60.0 ms (48523 steps)/60.0 ms (48523 steps)/60.0 ms
+ `-Z3: 60.0 ms (48523 steps), Valid
+`-VC_DIVISION_CHECK saatana-crypto-phelix.ads:170:65         => 30.0 ms (7901 steps)/30.0 ms (7901 steps)/30.0 ms
+ `-Z3: 30.0 ms (7901 steps), Valid
 Saatana.Crypto.To_Unsigned                                   =>                                                            80.0 ms (72790 steps)/80.0 ms (72790 steps)/810.0 ms
 `-VC_POSTCONDITION saatana-crypto.ads:44:17                  => 80.0 ms (72790 steps)/80.0 ms (72790 steps)/80.0 ms
  `-Z3: 80.0 ms (72790 steps), Valid
@@ -1129,6 +1128,22 @@ Saatana.Crypto.To_Unsigned                                   =>                 
  `-Z3: 30.0 ms (3281 steps), Valid
 `-VC_OVERFLOW_CHECK saatana-crypto.ads:97:61                 => 30.0 ms (2455 steps)/30.0 ms (2455 steps)/30.0 ms
  `-Z3: 30.0 ms (2455 steps), Valid
+Saatana.Crypto.Oadd                                          =>                                                            40.0 ms (24255 steps)/40.0 ms (24255 steps)/310.0 ms
+`-VC_INDEX_CHECK saatana-crypto.adb:51:41                    => 40.0 ms (23592 steps)/40.0 ms (23592 steps)/80.0 ms
+ `-Z3: 40.0 ms (23592 steps), Valid
+ `-Z3: 40.0 ms (12118 steps), Valid
+`-VC_INDEX_CHECK saatana-crypto.adb:50:42                    => 30.0 ms (2022 steps)/30.0 ms (2022 steps)/60.0 ms
+ `-Z3: 30.0 ms (2022 steps), Valid
+ `-Z3: 30.0 ms (2022 steps), Valid
+`-VC_INDEX_CHECK saatana-crypto.adb:50:42                    => 30.0 ms (2147 steps)/30.0 ms (2147 steps)/60.0 ms
+ `-Z3: 30.0 ms (2147 steps), Valid
+ `-Z3: 30.0 ms (2147 steps), Valid
+`-VC_OVERFLOW_CHECK saatana-crypto.adb:48:63                 => 40.0 ms (21182 steps)/40.0 ms (21182 steps)/40.0 ms
+ `-Z3: 40.0 ms (21182 steps), Valid
+`-VC_OVERFLOW_CHECK saatana-crypto.adb:48:78                 => 40.0 ms (23276 steps)/40.0 ms (23276 steps)/40.0 ms
+ `-Z3: 40.0 ms (23276 steps), Valid
+`-VC_RANGE_CHECK saatana-crypto.adb:48:78                    => 30.0 ms (24255 steps)/30.0 ms (24255 steps)/30.0 ms
+ `-Z3: 30.0 ms (24255 steps), Valid
 Saatana.Crypto.To_Stream                                     =>                                                            40.0 ms (22229 steps)/40.0 ms (22229 steps)/920.0 ms
 `-VC_POSTCONDITION saatana-crypto.ads:58:17                  => 40.0 ms (22229 steps)/40.0 ms (22229 steps)/110.0 ms
  `-Z3: 40.0 ms (17119 steps), Valid
@@ -1182,22 +1197,6 @@ Saatana.Crypto.To_Stream                                     =>                 
  `-Z3: 20.0 ms (1393 steps), Valid
 `-VC_DIVISION_CHECK saatana-crypto.ads:88:36                 => 20.0 ms (1393 steps)/20.0 ms (1393 steps)/20.0 ms
  `-Z3: 20.0 ms (1393 steps), Valid
-Saatana.Crypto.Oadd                                          =>                                                            40.0 ms (24255 steps)/40.0 ms (24255 steps)/310.0 ms
-`-VC_INDEX_CHECK saatana-crypto.adb:51:41                    => 40.0 ms (23592 steps)/40.0 ms (23592 steps)/80.0 ms
- `-Z3: 40.0 ms (23592 steps), Valid
- `-Z3: 40.0 ms (12118 steps), Valid
-`-VC_INDEX_CHECK saatana-crypto.adb:50:42                    => 30.0 ms (2022 steps)/30.0 ms (2022 steps)/60.0 ms
- `-Z3: 30.0 ms (2022 steps), Valid
- `-Z3: 30.0 ms (2022 steps), Valid
-`-VC_INDEX_CHECK saatana-crypto.adb:50:42                    => 30.0 ms (2147 steps)/30.0 ms (2147 steps)/60.0 ms
- `-Z3: 30.0 ms (2147 steps), Valid
- `-Z3: 30.0 ms (2147 steps), Valid
-`-VC_OVERFLOW_CHECK saatana-crypto.adb:48:63                 => 40.0 ms (21182 steps)/40.0 ms (21182 steps)/40.0 ms
- `-Z3: 40.0 ms (21182 steps), Valid
-`-VC_OVERFLOW_CHECK saatana-crypto.adb:48:78                 => 40.0 ms (23276 steps)/40.0 ms (23276 steps)/40.0 ms
- `-Z3: 40.0 ms (23276 steps), Valid
-`-VC_RANGE_CHECK saatana-crypto.adb:48:78                    => 30.0 ms (24255 steps)/30.0 ms (24255 steps)/30.0 ms
- `-Z3: 30.0 ms (24255 steps), Valid
 Saatana.Crypto.Oadd.Add_Carry                                =>                                                            30.0 ms (10020 steps)/30.0 ms (10020 steps)/90.0 ms
 `-VC_POSTCONDITION saatana-crypto.adb:27:20                  => 30.0 ms (10020 steps)/30.0 ms (10020 steps)/90.0 ms
  `-Z3: 30.0 ms (1336 steps), Valid

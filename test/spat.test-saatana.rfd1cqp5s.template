@@ -1,3 +1,2 @@
-Warning: Sorting by max success steps ("-cq") not implemented yet, reverting to sorting by max success time ("-cs").
 Saatana.Crypto.Phelix.Setup_Key                   =>                                                            640.0 ms (416173 steps)/206.4 s (105312169 steps)/219.2 s
 `-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44 => 640.0 ms (22722 steps)/206.4 s (105312169 steps)/207.1 s

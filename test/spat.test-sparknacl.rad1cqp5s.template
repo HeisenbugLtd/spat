@@ -1,4 +1,3 @@
-Warning: Sorting by max success steps ("-cq") not implemented yet, reverting to sorting by max success time ("-cs").
 SPARKNaCl.Sign.ModL.Eliminate_Limbs_62_To_32          =>                                                          9.2 s (157187 steps)/9.2 s (157187 steps)/148.2 s
 `-VC_RANGE_CHECK sparknacl-sign.adb:433:54            => 9.2 s (157187 steps)/9.2 s (157187 steps)/11.3 s
 `-VC_RANGE_CHECK sparknacl-sign.adb:435:25            => 5.2 s (94434 steps)/5.2 s (94434 steps)/7.8 s
