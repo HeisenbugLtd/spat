@@ -1,7 +1,7 @@
-SPARKNaCl.Omultiply                   => 700.0 ms (68029 steps)/19.1 s (505013 steps)/28.6 s
-SPARKNaCl.Utils.Pack_25519.Subtract_P => 150.0 ms (155440 steps)/180.0 ms (155440 steps)/1.8 s
-SPARKNaCl.Sign.Sign                   => --/57.6 s (11655208 steps)/489.2 s
-SPARKNaCl.Car.Nearlynormal_To_Normal  => --/1.4 s (1092364 steps)/17.5 s
-SPARKNaCl.ASR_16                      => --/5.7 s (11650768 steps)/5.9 s
-SPARKNaCl.ASR_8                       => --/3.3 s (11650768 steps)/3.5 s
-SPARKNaCl.ASR_4                       => --/1.2 s (11650768 steps)/1.4 s
+SPARKNaCl.Omultiply                   => 700.0 ms (1 step)/19.1 s (14001 steps)/28.6 s
+SPARKNaCl.Utils.Pack_25519.Subtract_P => 150.0 ms (1 step)/180.0 ms (1 step)/1.8 s
+SPARKNaCl.Sign.Sign                   => --/57.6 s (14007 steps)/489.2 s
+SPARKNaCl.Car.Nearlynormal_To_Normal  => --/1.4 s (803 steps)/17.5 s
+SPARKNaCl.ASR_16                      => --/5.7 s (14001 steps)/5.9 s
+SPARKNaCl.ASR_8                       => --/3.3 s (14001 steps)/3.5 s
+SPARKNaCl.ASR_4                       => --/1.2 s (14001 steps)/1.4 s

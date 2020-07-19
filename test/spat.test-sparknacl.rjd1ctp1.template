@@ -1,4 +1,4 @@
-SPARKNaCl.Sign.Sign                                  =>                                     --/57.6 s (11655208 steps)/489.2 s
-`-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36        => --/57.6 s (11654931 steps)/238.7 s
-SPARKNaCl.Car.Nearlynormal_To_Normal                 =>                                     --/1.4 s (1092364 steps)/17.5 s
-`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => --/1.4 s (743088 steps)/1.9 s
+SPARKNaCl.Sign.Sign                                  =>                                  --/57.6 s (14007 steps)/489.2 s
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36        => --/57.6 s (14007 steps)/238.7 s
+SPARKNaCl.Car.Nearlynormal_To_Normal                 =>                                  --/1.4 s (803 steps)/17.5 s
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13 => --/1.4 s (367 steps)/1.9 s

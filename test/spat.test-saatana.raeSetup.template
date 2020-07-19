@@ -1,4 +1,4 @@
-Saatana.Crypto.Phelix.Setup_Key          => 640.0 ms (416173 steps)/206.4 s (105312169 steps)/219.2 s
+Saatana.Crypto.Phelix.Setup_Key          => 640.0 ms (221 steps)/206.4 s (131078 steps)/219.2 s
 Saatana.Crypto.Phelix.Setup_Key_Called   => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
-Saatana.Crypto.Phelix.Setup_Nonce        => 360.0 ms (293146 steps)/360.0 ms (293146 steps)/4.9 s
+Saatana.Crypto.Phelix.Setup_Nonce        => 360.0 ms (1 step)/360.0 ms (1 step)/4.9 s
 Saatana.Crypto.Phelix.Setup_Nonce_Called => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
