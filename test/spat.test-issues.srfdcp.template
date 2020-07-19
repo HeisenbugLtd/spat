@@ -2,7 +2,22 @@ rflx-rflx_types.spark   => (Flow  => 7.2 ms,
                             Proof => 54.2 s (8989120 steps)/120.0 s (8989120 steps)/4.5 ks)
 rflx-arrays-tests.spark => (Flow  => 87.1 ms,
                             Proof => 0.0 s (1864090 steps)/0.0 s (1864090 steps)/54.1 s)
-Warning: Sorting by max steps ("-cp") not implemented yet, reverting to sorting by max time ("-ct").
+RFLX.RFLX_Types.U64_Extract_Intermediate                       =>                                                          6.7 s (8989120 steps)/120.0 s (8989120 steps)/617.3 s
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:62:39            => 6.7 s (206823 steps)/120.0 s (206823 steps)/126.8 s
+ `-Z3: 120.0 s,-1 steps, Timeout
+  -CVC4: 6.7 s, 206823 steps, Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:62:61          => 3.0 s (179947 steps)/120.0 s (179947 steps)/123.0 s
+ `-Z3: 120.0 s,-1 steps, Timeout
+  -CVC4: 3.0 s, 179947 steps, Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:65:14            => 1.5 s (15609 steps)/120.0 s (15609 steps)/122.0 s
+ `-Z3: 120.0 s,-1 steps, Timeout
+  -CVC4: 1.5 s, 3051 steps, Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:58:82          => 1.3 s (2082 steps)/120.0 s (2082 steps)/121.3 s
+ `-Z3: 120.0 s,-1 steps, Timeout
+  -CVC4: 1.3 s, 2082 steps, Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:63:49          => 40.0 ms (742 steps)/120.0 s (742 steps)/120.0 s
+ `-Z3: 120.0 s,-1 steps, Timeout
+  -CVC4: 40.0 ms, 742 steps, Valid
 RFLX.RFLX_Types.U64_Extract                                    =>                                                          37.9 s (3483618 steps)/120.0 s (3483618 steps)/1.8 ks
 `-VC_PRECONDITION rflx-rflx_generic_types.adb:131:29           => 37.9 s (3483618 steps)/120.0 s (3483618 steps)/1.1 ks
  `-Z3: 120.0 s,-1 steps, Timeout
@@ -65,22 +80,6 @@ RFLX.RFLX_Types.U64_Insert                                     =>               
 `-VC_PRECONDITION rflx-rflx_generic_types.adb:278:38           => 26.6 s (1851151 steps)/120.0 s (1851151 steps)/146.7 s
  `-Z3: 120.0 s,-1 steps, Timeout
   -CVC4: 26.6 s, 1851151 steps, Valid
-RFLX.RFLX_Types.U64_Extract_Intermediate                       =>                                                          6.7 s (8989120 steps)/120.0 s (8989120 steps)/617.3 s
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:62:39            => 6.7 s (206823 steps)/120.0 s (206823 steps)/126.8 s
- `-Z3: 120.0 s,-1 steps, Timeout
-  -CVC4: 6.7 s, 206823 steps, Valid
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:62:61          => 3.0 s (179947 steps)/120.0 s (179947 steps)/123.0 s
- `-Z3: 120.0 s,-1 steps, Timeout
-  -CVC4: 3.0 s, 179947 steps, Valid
-`-VC_PRECONDITION rflx-rflx_generic_types.adb:65:14            => 1.5 s (15609 steps)/120.0 s (15609 steps)/122.0 s
- `-Z3: 120.0 s,-1 steps, Timeout
-  -CVC4: 1.5 s, 3051 steps, Valid
-`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:58:82          => 1.3 s (2082 steps)/120.0 s (2082 steps)/121.3 s
- `-Z3: 120.0 s,-1 steps, Timeout
-  -CVC4: 1.3 s, 2082 steps, Valid
-`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:63:49          => 40.0 ms (742 steps)/120.0 s (742 steps)/120.0 s
- `-Z3: 120.0 s,-1 steps, Timeout
-  -CVC4: 40.0 ms, 742 steps, Valid
 RFLX.RFLX_Types.U64_Extract_Remaining                          =>                                                          10.1 s (910628 steps)/120.0 s (910628 steps)/376.5 s
 `-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:85:91          => 10.1 s (910628 steps)/120.0 s (910628 steps)/130.1 s
  `-Z3: 120.0 s,-1 steps, Timeout

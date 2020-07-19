@@ -1,2 +1,1 @@
-Warning: Sorting by max steps ("-cp") not implemented yet, reverting to sorting by max time ("-ct").
 Saatana.Crypto.Phelix.Setup_Key => 640.0 ms (416173 steps)/206.4 s (105312169 steps)/219.2 s

@@ -1,6 +1,5 @@
-Warning: Sorting by max steps ("-cp") not implemented yet, reverting to sorting by max time ("-ct").
 SPARKNaCl.Sign.Sign                  => --
-SPARKNaCl.Car.Nearlynormal_To_Normal => --
 SPARKNaCl.ASR_16                     => --
 SPARKNaCl.ASR_8                      => --
 SPARKNaCl.ASR_4                      => --
+SPARKNaCl.Car.Nearlynormal_To_Normal => --
