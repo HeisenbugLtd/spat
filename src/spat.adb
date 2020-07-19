@@ -38,7 +38,8 @@ package body SPAT is
                    Steps : in Prover_Steps) return String is
      (Image (Value => Value) & " (" &
       Ada.Strings.Fixed.Trim (Source => Steps'Image,
-                              Side   => Ada.Strings.Both) & " steps)");
+                              Side   => Ada.Strings.Both) & " step" &
+      (if Steps /= 1 then "s)" else ")"));
 
    ---------------------------------------------------------------------------
    --  Scaled
