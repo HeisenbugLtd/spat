@@ -38,7 +38,7 @@ echo "Latest version number used was \"`git tag --sort=\"creatordate\" | tail -1
 confirm "Does that look fine to you?"
 
 # Patch file with new version number
-VFILE="src/spat-version.ads"
+VFILE="src/app/spat-version.ads"
 
 sed 's/^\(\ \+Number\ \+:\ \+constant\ \+String\ \+:=\ \+\"\)\([0-9a-z.-]*\)\(\";\)/\1'${VERSION_NUMBER}'\3/' $VFILE > $VFILE.new || (echo "Could not patch file. Are you in the root directory?"; exit 4)
 
