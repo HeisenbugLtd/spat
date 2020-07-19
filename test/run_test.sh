@@ -15,7 +15,7 @@ single_check () {
   echo "Testing \"$1\" with options \"$3\"..." # Show some progress.
   OPT_NAME="$1".`echo "$3" | sed -e "s/[- \.\*]//g"`
 
-  # run_spat $3 -P "$1/$2" > "spat.${OPT_NAME}.template" # Recreate templates
+  # ../obj/run_spat $3 -P "$1/$2" > "spat.${OPT_NAME}.template" # Recreate templates
   ../obj/run_spat $3 -P "$1/$2" > "spat.${OPT_NAME}.out"
 
   # Show template differences
