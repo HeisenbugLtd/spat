@@ -121,4 +121,19 @@ package SPAT is
    --  Version information. Right now I only have access to the community
    --  releases of SPARK, so these are the only ones fully supported.
 
+   ---------------------------------------------------------------------------
+   --  Scaled
+   --
+   --  Implement prover specific steps scaling.
+   --
+   --  The current versions of SPARK put unscaled (raw) steps into the
+   --  check_tree array.  This has been fixed in the development version of
+   --  SPARK, so we will need means to figure out if scaling is needed or
+   --  not.  If there is a valid proof in the file this can be achieved by
+   --  comparing the steps in the check_tree array with the ones reported in
+   --  the stats object, else we're out of luck.
+   ---------------------------------------------------------------------------
+   function Scaled (Prover    : in Prover_Name;
+                    Raw_Steps : in Prover_Steps) return Prover_Steps;
+
 end SPAT;
