@@ -17,7 +17,9 @@ package body SPAT.Flow_Item is
    overriding
    function Create (Object : in JSON_Value) return T is
      (Entity_Location.Create (Object => Object) with
-        Rule     => Object.Get (Field => Field_Names.Rule),
-        Severity => Object.Get (Field => Field_Names.Severity));
+        Rule     =>
+          Rule_Name (Subject_Name'(Object.Get (Field => Field_Names.Rule))),
+        Severity =>
+          Severity_Name (Subject_Name'(Object.Get (Field => Field_Names.Severity))));
 
 end SPAT.Flow_Item;
