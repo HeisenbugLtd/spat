@@ -7,7 +7,7 @@
 #
 
 # Remove possibly leftover temp files
-rm -f test.diff *.out
+rm -f *.diff *.out
 
 # Arguments: project directory ($1), project file ($2), options ($3)
 single_check () {
