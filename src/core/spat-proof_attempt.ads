@@ -121,8 +121,10 @@ private
    ---------------------------------------------------------------------------
    overriding
    function Image (This : in T) return String is
-     (To_String (This.Prover) & ": " & Image (Value => This.Time) & "," &
-        This.Steps'Image & " steps, " & To_String (This.Result));
+     (To_String (This.Prover) & ": " &
+      Image (Value => This.Time,
+             Steps => This.Steps) & ", " &
+      To_String (This.Result));
 
    function Trivial_True return T is
       (T'(Entity.T with
