@@ -106,14 +106,13 @@ private
 
    type T is new Entity.T with
       record
-         Prover : Prover_Name;          --  Prover involved.
-         Result : Result_Name;          --  "Valid", "Unknown", etc.
-         Time   : Duration;             --  time spent during proof
-         Steps  : Prover_Steps;         --  number of steps the prover took
-                                        --  This might be negative (e.g. with
-                                        --  Z3, the number of steps is recorded
-                                        --  as -1, if Z3 ran out of memory).
-         Id     : Proof_Attempt_Ids.Id; --  unique id for stable sorting
+         Prover   : Prover_Name;          --  Prover involved.
+         Result   : Result_Name;          --  "Valid", "Unknown", etc.
+         Workload : Time_And_Steps;
+         --  time spent during proof, and number of steps the prover took
+         --  Steps might be negative (e.g. with Z3, the number of steps is
+         --  recorded as -1 if Z3 ran out of memory).
+         Id       : Proof_Attempt_Ids.Id; --  unique id for stable sorting
       end record;
 
    ---------------------------------------------------------------------------
@@ -128,11 +127,11 @@ private
 
    function Trivial_True return T is
       (T'(Entity.T with
-              Prover => Prover_Name (To_Name (Source => "Trivial")),
-              Result => Result_Name (To_Name (Source => "Valid")),
-              Time   => 0.0,
-              Steps  => 0,
-              Id     => Proof_Attempt_Ids.Next));
+              Prover    => Prover_Name (To_Name (Source => "Trivial")),
+              Result    => Result_Name (To_Name (Source => "Valid")),
+              Workload  => Time_And_Steps'(Time  => 0.0,
+                                           Steps => 0),
+              Id        => Proof_Attempt_Ids.Next));
 
    ---------------------------------------------------------------------------
    --  Prover
@@ -155,13 +154,13 @@ private
    ---------------------------------------------------------------------------
    not overriding
    function Steps (This : in T) return Prover_Steps is
-     (This.Steps);
+     (This.Workload.Steps);
 
    ---------------------------------------------------------------------------
    --  Time
    ---------------------------------------------------------------------------
    not overriding
    function Time (This : in T) return Duration is
-     (This.Time);
+     (This.Workload.Time);
 
 end SPAT.Proof_Attempt;

@@ -53,20 +53,22 @@ package body SPAT.Proof_Attempt is
                   Result =>
                     Result_Name
                       (Subject_Name'(Object.Get (Field => Field_Names.Result))),
-                  Time   =>
-                    (case Time_Field.Kind is
-                        when JSON_Float_Type =>
-                          Duration (Time_Field.Get_Long_Float),
-                        when JSON_Int_Type   =>
-                          Duration (Long_Long_Integer'(Time_Field.Get)),
-                        when others          =>
-                           raise Program_Error
-                             with
-                               "Fatal: Impossible Kind """ &
-                               Time_Field.Kind'Image & """ of JSON object!"),
-                  Steps  =>
-                    Prover_Steps
-                      (Long_Integer'(Object.Get (Field => Field_Names.Steps))),
+                  Workload =>
+                    Time_And_Steps'
+                      (Time   =>
+                         (case Time_Field.Kind is
+                             when JSON_Float_Type =>
+                               Duration (Time_Field.Get_Long_Float),
+                             when JSON_Int_Type   =>
+                               Duration (Long_Long_Integer'(Time_Field.Get)),
+                             when others          =>
+                                raise Program_Error
+                                  with
+                                    "Fatal: Impossible Kind """ &
+                                    Time_Field.Kind'Image & """ of JSON object!"),
+                       Steps  =>
+                         Prover_Steps
+                           (Long_Integer'(Object.Get (Field => Field_Names.Steps)))),
                   Id     => Proof_Attempt_Ids.Next);
    end Create;
 

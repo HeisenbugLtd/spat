@@ -121,6 +121,15 @@ package SPAT is
    --  Version information. Right now I only have access to the community
    --  releases of SPARK, so these are the only ones fully supported.
 
+   --  Combine prover workload in a record capturing time and steps.
+   type Time_And_Steps is
+      record
+         Time  : Duration;
+         --  Time it took for a proof.
+         Steps : Prover_Steps;
+         --  Number of steps it took.
+      end record;
+
    ---------------------------------------------------------------------------
    --  Scaled
    --

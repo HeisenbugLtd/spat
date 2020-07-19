@@ -212,14 +212,10 @@ private
          Suppressed            : Justification;
          Rule                  : Rule_Name;
          Severity              : Severity_Name;
-         Max_Success_Time      : Duration;
-         --  Longest time for a successful proof.
-         Max_Success_Steps     : Prover_Steps;
-         --  Minimum number of steps for successful proof.
-         Max_Time              : Duration;
-         --  Longest time spent in proof (successful or not).
-         Max_Steps             : Prover_Steps;
-         --  Maximum number of steps for a proof (successful or not).
+         Max_Success           : Time_And_Steps;
+         --  Longest time/steps for a successful proof.
+         Max_Proof             : Time_And_Steps;
+         --  Longest time/steps spent in proof (successful or not).
          Total_Time            : Duration;
          --  Accumulated proof time.
          Id                    : Proof_Item_Ids.Id;
@@ -270,28 +266,28 @@ private
    ---------------------------------------------------------------------------
    not overriding
    function Max_Steps (This : in T) return Prover_Steps is
-     (This.Max_Steps);
+     (This.Max_Proof.Steps);
 
    ---------------------------------------------------------------------------
    --  Max_Success_Steps
    ---------------------------------------------------------------------------
    not overriding
    function Max_Success_Steps (This : in T) return Prover_Steps is
-     (This.Max_Success_Steps);
+     (This.Max_Success.Steps);
 
    ---------------------------------------------------------------------------
    --  Max_Success_Time
    ---------------------------------------------------------------------------
    not overriding
    function Max_Success_Time (This : in T) return Duration is
-     (This.Max_Success_Time);
+     (This.Max_Success.Time);
 
    ---------------------------------------------------------------------------
    --  Max_Time
    ---------------------------------------------------------------------------
    not overriding
    function Max_Time (This : in T) return Duration is
-     (This.Max_Time);
+     (This.Max_Proof.Time);
 
    ---------------------------------------------------------------------------
    --  Rule

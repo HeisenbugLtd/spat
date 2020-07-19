@@ -75,11 +75,11 @@ package body SPAT.Proof_Item is
       pragma Unreferenced (Version); --  Only for precondition.
 
       --  Collect information about the timing of dependent attempts.
-      Max_Time          : Duration     := 0.0;
-      Max_Steps         : Prover_Steps := 0;
-      Max_Success_Time  : Duration     := 0.0;
-      Max_Success_Steps : Prover_Steps := 0;
-      Total_Time        : Duration     := 0.0;
+      Max_Proof   : Time_And_Steps := Time_And_Steps'(Time  => 0.0,
+                                                      Steps => 0);
+      Max_Success : Time_And_Steps := Time_And_Steps'(Time  => 0.0,
+                                                      Steps => 0);
+      Total_Time  : Duration := 0.0;
 
       Checks_List : Checks_Lists.Vector;
       Check_Tree  : constant JSON_Array :=
@@ -133,17 +133,24 @@ package body SPAT.Proof_Item is
                         begin
                            Attempts.Append (New_Item => Attempt);
 
-                           Max_Time  := Duration'Max (Max_Time, Attempt.Time);
-                           Max_Steps := Prover_Steps'Max (Max_Steps,
-                                                          Attempt.Steps);
+                           Max_Proof :=
+                             Time_And_Steps'
+                               (Time  =>
+                                  Duration'Max (Max_Proof.Time,
+                                                Attempt.Time),
+                                Steps =>
+                                  Prover_Steps'Max (Max_Proof.Steps,
+                                                    Attempt.Steps));
 
                            if Attempt.Result = Proof_Attempt.Valid then
-                              Max_Success_Time :=
-                                Duration'Max (Max_Success_Time,
-                                              Attempt.Time);
-                              Max_Success_Steps :=
-                                Prover_Steps'Max (Max_Success_Steps,
-                                                  Attempt.Steps);
+                              Max_Success :=
+                                Time_And_Steps'
+                                  (Time  =>
+                                     Duration'Max (Max_Success.Time,
+                                                   Attempt.Time),
+                                   Steps =>
+                                     Prover_Steps'Max (Max_Success.Steps,
+                                                       Attempt.Steps));
                            end if;
 
                            Total_Time := Total_Time + Attempt.Time;
@@ -254,14 +261,12 @@ package body SPAT.Proof_Item is
                         Severity_Name
                           (Subject_Name'(Object.Get
                                            (Field => Field_Names.Severity))),
-                      Max_Success_Time      => (if Has_Unproved_Attempts
-                                                then 0.0
-                                                else Max_Success_Time),
-                      Max_Success_Steps     => (if Has_Unproved_Attempts
-                                                then 0
-                                                else Max_Success_Steps),
-                      Max_Time              => Max_Time,
-                      Max_Steps             => Max_Steps,
+                      Max_Success           =>
+                        (if Has_Unproved_Attempts
+                         then Time_And_Steps'(Time => 0.0,
+                                              Steps => 0)
+                         else Max_Success),
+                      Max_Proof             => Max_Proof,
                       Total_Time            => Total_Time,
                       Id                    => Proof_Item_Ids.Next,
                       Has_Failed_Attempts   => Has_Failed_Attempts,
