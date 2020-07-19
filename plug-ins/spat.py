@@ -32,7 +32,7 @@ class SPATLocation:
         self.line = int(line)
         self.column = int(column)
         self.vc = vc
-        self.times = float(max_proof)
+        self.times = float(max_proof.split(" ")[1])
 
 def by_time(elem):
     """
