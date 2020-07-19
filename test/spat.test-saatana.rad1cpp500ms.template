@@ -1,0 +1,13 @@
+Saatana.Crypto.Phelix.Setup_Key                              =>                                                       640.0 ms (221 steps)/206.4 s (131078 steps)/219.2 s
+`-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44            => 640.0 ms (221 steps)/206.4 s (131078 steps)/207.1 s
+Saatana.Crypto.Phelix.H                                      =>                                                       6.0 s (14009 steps)/6.0 s (14009 steps)/6.0 s
+`-VC_POSTCONDITION saatana-crypto-phelix.adb:49:17           => 6.0 s (14009 steps)/6.0 s (14009 steps)/6.0 s
+Saatana.Crypto.Phelix.Encrypt_Bytes                          =>                                                       174.3 s (10170 steps)/174.3 s (10170 steps)/189.0 s
+`-VC_RANGE_CHECK saatana-crypto-phelix.adb:231:19            => 174.3 s (10170 steps)/174.3 s (10170 steps)/175.0 s
+`-VC_POSTCONDITION saatana-crypto-phelix.ads:262:17          => 2.0 s (570 steps)/2.0 s (570 steps)/3.2 s
+`-VC_LOOP_INVARIANT_INIT saatana-crypto-phelix.adb:252:39    => 1.1 s (823 steps)/1.1 s (823 steps)/1.1 s
+Saatana.Crypto.Phelix.Decrypt_Bytes                          =>                                                       4.0 s (3331 steps)/4.0 s (3331 steps)/18.6 s
+`-VC_POSTCONDITION saatana-crypto-phelix.ads:292:17          => 4.0 s (802 steps)/4.0 s (802 steps)/5.2 s
+`-VC_LOOP_INVARIANT_PRESERV saatana-crypto-phelix.adb:148:39 => 2.6 s (3331 steps)/2.6 s (3331 steps)/2.6 s
+Saatana.Crypto.Phelix.Finalize                               =>                                                       2.2 s (3029 steps)/2.2 s (3029 steps)/7.7 s
+`-VC_LOOP_INVARIANT_PRESERV saatana-crypto-phelix.adb:359:33 => 2.2 s (3029 steps)/2.2 s (3029 steps)/2.2 s

@@ -64,10 +64,11 @@ begin
             For_Each_Prover :
             for Prover in File.Provers.Iterate loop
                Min_Steps :=
-                 SPAT.Prover_Steps'Max (File.Provers (Prover).Time.Max_Steps,
-                                        Min_Steps);
+                 SPAT.Prover_Steps'Max
+                   (File.Provers (Prover).Workload.Max_Success.Steps,
+                    Min_Steps);
                Min_Timeout :=
-                 Duration'Max (File.Provers (Prover).Time.Max_Success,
+                 Duration'Max (File.Provers (Prover).Workload.Max_Success.Time,
                                Min_Timeout);
 
                SPAT.Log.Message

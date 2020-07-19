@@ -1,0 +1,2644 @@
+SPARKNaCl.Sign.ModL.Eliminate_Limbs_62_To_32              =>                                                        9.2 s (4063 steps)/9.2 s (4063 steps)/148.2 s
+`-VC_RANGE_CHECK sparknacl-sign.adb:433:54                => 9.2 s (4063 steps)/9.2 s (4063 steps)/11.3 s
+ `-CVC4: 9.2 s (4063 steps), Valid
+ `-CVC4: 1.5 s (220 steps), Valid
+ `-CVC4: 480.0 ms (1 step), Valid
+ `-CVC4: 190.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:435:25                => 5.2 s (2270 steps)/5.2 s (2270 steps)/7.8 s
+ `-CVC4: 5.2 s (2270 steps), Valid
+ `-CVC4: 1.9 s (482 steps), Valid
+ `-CVC4: 500.0 ms (1 step), Valid
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:548:22                => 820.0 ms (1 step)/820.0 ms (1 step)/4.6 s
+ `-CVC4: 820.0 ms (1 step), Valid
+ `-CVC4: 820.0 ms (1 step), Valid
+ `-CVC4: 810.0 ms (1 step), Valid
+ `-CVC4: 800.0 ms (1 step), Valid
+ `-CVC4: 390.0 ms (1 step), Valid
+ `-CVC4: 320.0 ms (1 step), Valid
+ `-CVC4: 310.0 ms (1 step), Valid
+ `-CVC4: 300.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:550:24                => 830.0 ms (1 step)/830.0 ms (1 step)/4.5 s
+ `-CVC4: 830.0 ms (1 step), Valid
+ `-CVC4: 810.0 ms (1 step), Valid
+ `-CVC4: 810.0 ms (1 step), Valid
+ `-CVC4: 810.0 ms (1 step), Valid
+ `-CVC4: 310.0 ms (1 step), Valid
+ `-CVC4: 310.0 ms (1 step), Valid
+ `-CVC4: 310.0 ms (1 step), Valid
+ `-CVC4: 310.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:547:24                => 820.0 ms (1 step)/820.0 ms (1 step)/4.5 s
+ `-CVC4: 820.0 ms (1 step), Valid
+ `-CVC4: 810.0 ms (1 step), Valid
+ `-CVC4: 810.0 ms (1 step), Valid
+ `-CVC4: 810.0 ms (1 step), Valid
+ `-CVC4: 310.0 ms (1 step), Valid
+ `-CVC4: 310.0 ms (1 step), Valid
+ `-CVC4: 310.0 ms (1 step), Valid
+ `-CVC4: 300.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:548:42                => 790.0 ms (1 step)/790.0 ms (1 step)/4.4 s
+ `-CVC4: 790.0 ms (1 step), Valid
+ `-CVC4: 790.0 ms (1 step), Valid
+ `-CVC4: 780.0 ms (1 step), Valid
+ `-CVC4: 780.0 ms (1 step), Valid
+ `-CVC4: 360.0 ms (1 step), Valid
+ `-CVC4: 300.0 ms (1 step), Valid
+ `-CVC4: 290.0 ms (1 step), Valid
+ `-CVC4: 290.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:550:59                => 790.0 ms (1 step)/790.0 ms (1 step)/4.3 s
+ `-CVC4: 790.0 ms (1 step), Valid
+ `-CVC4: 770.0 ms (1 step), Valid
+ `-CVC4: 770.0 ms (1 step), Valid
+ `-CVC4: 760.0 ms (1 step), Valid
+ `-CVC4: 360.0 ms (1 step), Valid
+ `-CVC4: 290.0 ms (1 step), Valid
+ `-CVC4: 290.0 ms (1 step), Valid
+ `-CVC4: 280.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:448:19        => 1.8 s (232 steps)/1.8 s (232 steps)/2.0 s
+ `-CVC4: 1.8 s (232 steps), Valid
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:510:16                     => 1.4 s (1 step)/1.4 s (1 step)/1.9 s
+ `-CVC4: 1.4 s (1 step), Valid
+ `-CVC4: 570.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:513:28                     => 1.4 s (1 step)/1.4 s (1 step)/1.9 s
+ `-CVC4: 1.4 s (1 step), Valid
+ `-CVC4: 500.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:499:16                     => 1.2 s (1 step)/1.2 s (1 step)/1.7 s
+ `-CVC4: 1.2 s (1 step), Valid
+ `-CVC4: 490.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:550:16     => 1.7 s (1 step)/1.7 s (1 step)/1.7 s
+ `-CVC4: 1.7 s (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:502:28                     => 1.2 s (1 step)/1.2 s (1 step)/1.6 s
+ `-CVC4: 1.2 s (1 step), Valid
+ `-CVC4: 390.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:436:33                => 640.0 ms (1 step)/640.0 ms (1 step)/1.6 s
+ `-CVC4: 640.0 ms (1 step), Valid
+ `-CVC4: 560.0 ms (1 step), Valid
+ `-CVC4: 230.0 ms (1 step), Valid
+ `-CVC4: 170.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:514:28                     => 1.1 s (1 step)/1.1 s (1 step)/1.6 s
+ `-CVC4: 1.1 s (1 step), Valid
+ `-CVC4: 460.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:488:16                     => 1.1 s (1 step)/1.1 s (1 step)/1.5 s
+ `-CVC4: 1.1 s (1 step), Valid
+ `-CVC4: 390.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:434:41                => 630.0 ms (1 step)/630.0 ms (1 step)/1.5 s
+ `-CVC4: 630.0 ms (1 step), Valid
+ `-CVC4: 520.0 ms (1 step), Valid
+ `-CVC4: 210.0 ms (1 step), Valid
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:505:22                => 1.0 s (1 step)/1.0 s (1 step)/1.4 s
+ `-CVC4: 1.0 s (1 step), Valid
+ `-CVC4: 430.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:442:19     => 1.0 s (1 step)/1.0 s (1 step)/1.4 s
+ `-CVC4: 1.0 s (1 step), Valid
+ `-CVC4: 370.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:547:16     => 1.4 s (1 step)/1.4 s (1 step)/1.4 s
+ `-CVC4: 1.4 s (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:449:25                => 580.0 ms (1 step)/580.0 ms (1 step)/1.3 s
+ `-CVC4: 580.0 ms (1 step), Valid
+ `-CVC4: 450.0 ms (1 step), Valid
+ `-CVC4: 180.0 ms (1 step), Valid
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:535:16     => 1.3 s (1 step)/1.3 s (1 step)/1.3 s
+ `-CVC4: 1.3 s (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:446:25                => 570.0 ms (1 step)/570.0 ms (1 step)/1.3 s
+ `-CVC4: 570.0 ms (1 step), Valid
+ `-CVC4: 450.0 ms (1 step), Valid
+ `-CVC4: 190.0 ms (1 step), Valid
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:503:28                     => 920.0 ms (1 step)/920.0 ms (1 step)/1.3 s
+ `-CVC4: 920.0 ms (1 step), Valid
+ `-CVC4: 400.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:452:45                => 570.0 ms (1 step)/570.0 ms (1 step)/1.3 s
+ `-CVC4: 570.0 ms (1 step), Valid
+ `-CVC4: 440.0 ms (1 step), Valid
+ `-CVC4: 190.0 ms (1 step), Valid
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:454:66                => 560.0 ms (1 step)/560.0 ms (1 step)/1.3 s
+ `-CVC4: 560.0 ms (1 step), Valid
+ `-CVC4: 440.0 ms (1 step), Valid
+ `-CVC4: 180.0 ms (1 step), Valid
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:448:27                => 590.0 ms (1 step)/590.0 ms (1 step)/1.3 s
+ `-CVC4: 590.0 ms (1 step), Valid
+ `-CVC4: 440.0 ms (1 step), Valid
+ `-CVC4: 180.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:443:25                => 560.0 ms (1 step)/560.0 ms (1 step)/1.3 s
+ `-CVC4: 560.0 ms (1 step), Valid
+ `-CVC4: 430.0 ms (1 step), Valid
+ `-CVC4: 180.0 ms (1 step), Valid
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:440:45                => 550.0 ms (1 step)/550.0 ms (1 step)/1.3 s
+ `-CVC4: 550.0 ms (1 step), Valid
+ `-CVC4: 430.0 ms (1 step), Valid
+ `-CVC4: 190.0 ms (1 step), Valid
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:491:28                     => 1.0 s (1 step)/1.0 s (1 step)/1.3 s
+ `-CVC4: 1.0 s (1 step), Valid
+ `-CVC4: 320.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:445:49             => 570.0 ms (1 step)/570.0 ms (1 step)/1.3 s
+ `-CVC4: 570.0 ms (1 step), Valid
+ `-CVC4: 440.0 ms (1 step), Valid
+ `-CVC4: 190.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:446:45                => 540.0 ms (1 step)/540.0 ms (1 step)/1.3 s
+ `-CVC4: 540.0 ms (1 step), Valid
+ `-CVC4: 430.0 ms (1 step), Valid
+ `-CVC4: 180.0 ms (1 step), Valid
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:445:27                => 570.0 ms (1 step)/570.0 ms (1 step)/1.3 s
+ `-CVC4: 570.0 ms (1 step), Valid
+ `-CVC4: 430.0 ms (1 step), Valid
+ `-CVC4: 180.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:473:16                     => 1.0 s (1 step)/1.0 s (1 step)/1.3 s
+ `-CVC4: 1.0 s (1 step), Valid
+ `-CVC4: 290.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:440:25                => 540.0 ms (1 step)/540.0 ms (1 step)/1.3 s
+ `-CVC4: 540.0 ms (1 step), Valid
+ `-CVC4: 420.0 ms (1 step), Valid
+ `-CVC4: 180.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:445:49             => 540.0 ms (1 step)/540.0 ms (1 step)/1.3 s
+ `-CVC4: 540.0 ms (1 step), Valid
+ `-CVC4: 450.0 ms (1 step), Valid
+ `-CVC4: 180.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:442:27                => 540.0 ms (1 step)/540.0 ms (1 step)/1.3 s
+ `-CVC4: 540.0 ms (1 step), Valid
+ `-CVC4: 440.0 ms (1 step), Valid
+ `-CVC4: 180.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:552:16     => 1.2 s (1 step)/1.2 s (1 step)/1.2 s
+ `-CVC4: 1.2 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:540:16     => 1.2 s (1 step)/1.2 s (1 step)/1.2 s
+ `-CVC4: 1.2 s (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:451:27                => 560.0 ms (1 step)/560.0 ms (1 step)/1.2 s
+ `-CVC4: 560.0 ms (1 step), Valid
+ `-CVC4: 450.0 ms (1 step), Valid
+ `-CVC4: 130.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:452:25                => 540.0 ms (1 step)/540.0 ms (1 step)/1.2 s
+ `-CVC4: 540.0 ms (1 step), Valid
+ `-CVC4: 400.0 ms (1 step), Valid
+ `-CVC4: 160.0 ms (1 step), Valid
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:531:22                => 830.0 ms (1 step)/830.0 ms (1 step)/1.2 s
+ `-CVC4: 830.0 ms (1 step), Valid
+ `-CVC4: 380.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:454:27                => 550.0 ms (1 step)/550.0 ms (1 step)/1.2 s
+ `-CVC4: 550.0 ms (1 step), Valid
+ `-CVC4: 440.0 ms (1 step), Valid
+ `-CVC4: 130.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:543:16     => 1.2 s (1 step)/1.2 s (1 step)/1.2 s
+ `-CVC4: 1.2 s (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:527:22                => 810.0 ms (1 step)/810.0 ms (1 step)/1.2 s
+ `-CVC4: 810.0 ms (1 step), Valid
+ `-CVC4: 380.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:530:16     => 1.2 s (1 step)/1.2 s (1 step)/1.2 s
+ `-CVC4: 1.2 s (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:536:22                => 840.0 ms (1 step)/840.0 ms (1 step)/1.2 s
+ `-CVC4: 840.0 ms (1 step), Valid
+ `-CVC4: 310.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:494:22                => 810.0 ms (1 step)/810.0 ms (1 step)/1.2 s
+ `-CVC4: 810.0 ms (1 step), Valid
+ `-CVC4: 340.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:439:27                => 530.0 ms (1 step)/530.0 ms (1 step)/1.2 s
+ `-CVC4: 530.0 ms (1 step), Valid
+ `-CVC4: 410.0 ms (1 step), Valid
+ `-CVC4: 130.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:448:19     => 810.0 ms (1 step)/810.0 ms (1 step)/1.1 s
+ `-CVC4: 810.0 ms (1 step), Valid
+ `-CVC4: 330.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:476:28                     => 870.0 ms (1 step)/870.0 ms (1 step)/1.1 s
+ `-CVC4: 870.0 ms (1 step), Valid
+ `-CVC4: 250.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:492:28                     => 820.0 ms (1 step)/820.0 ms (1 step)/1.1 s
+ `-CVC4: 820.0 ms (1 step), Valid
+ `-CVC4: 300.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:530:24                => 820.0 ms (1 step)/820.0 ms (1 step)/1.1 s
+ `-CVC4: 820.0 ms (1 step), Valid
+ `-CVC4: 300.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:527:42                => 760.0 ms (1 step)/760.0 ms (1 step)/1.1 s
+ `-CVC4: 760.0 ms (1 step), Valid
+ `-CVC4: 360.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:456:19     => 780.0 ms (1 step)/780.0 ms (1 step)/1.1 s
+ `-CVC4: 780.0 ms (1 step), Valid
+ `-CVC4: 330.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:506:40                => 770.0 ms (1 step)/770.0 ms (1 step)/1.1 s
+ `-CVC4: 770.0 ms (1 step), Valid
+ `-CVC4: 340.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:526:24                => 790.0 ms (1 step)/790.0 ms (1 step)/1.1 s
+ `-CVC4: 790.0 ms (1 step), Valid
+ `-CVC4: 310.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:520:28                     => 750.0 ms (1 step)/750.0 ms (1 step)/1.1 s
+ `-CVC4: 750.0 ms (1 step), Valid
+ `-CVC4: 350.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:535:24                => 790.0 ms (1 step)/790.0 ms (1 step)/1.1 s
+ `-CVC4: 790.0 ms (1 step), Valid
+ `-CVC4: 300.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:511:22                => 750.0 ms (1 step)/750.0 ms (1 step)/1.1 s
+ `-CVC4: 750.0 ms (1 step), Valid
+ `-CVC4: 340.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:445:19     => 780.0 ms (1 step)/780.0 ms (1 step)/1.1 s
+ `-CVC4: 780.0 ms (1 step), Valid
+ `-CVC4: 290.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:519:40                => 720.0 ms (1 step)/720.0 ms (1 step)/1.1 s
+ `-CVC4: 720.0 ms (1 step), Valid
+ `-CVC4: 350.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:526:16     => 1.1 s (1 step)/1.1 s (1 step)/1.1 s
+ `-CVC4: 1.1 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:442:19        => 830.0 ms (1 step)/830.0 ms (1 step)/1.0 s
+ `-CVC4: 830.0 ms (1 step), Valid
+ `-CVC4: 210.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:465:28                     => 820.0 ms (1 step)/820.0 ms (1 step)/1.0 s
+ `-CVC4: 820.0 ms (1 step), Valid
+ `-CVC4: 210.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:454:19     => 720.0 ms (1 step)/720.0 ms (1 step)/1.0 s
+ `-CVC4: 720.0 ms (1 step), Valid
+ `-CVC4: 300.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:451:19     => 710.0 ms (1 step)/710.0 ms (1 step)/1.0 s
+ `-CVC4: 710.0 ms (1 step), Valid
+ `-CVC4: 300.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:483:22                => 740.0 ms (1 step)/740.0 ms (1 step)/1.0 s
+ `-CVC4: 740.0 ms (1 step), Valid
+ `-CVC4: 240.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:510:24                => 740.0 ms (1 step)/740.0 ms (1 step)/1.0 s
+ `-CVC4: 740.0 ms (1 step), Valid
+ `-CVC4: 240.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:439:19     => 720.0 ms (1 step)/720.0 ms (1 step)/1.0 s
+ `-CVC4: 720.0 ms (1 step), Valid
+ `-CVC4: 260.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:454:19        => 800.0 ms (1 step)/800.0 ms (1 step)/1.0 s
+ `-CVC4: 800.0 ms (1 step), Valid
+ `-CVC4: 170.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:504:40                => 660.0 ms (1 step)/660.0 ms (1 step)/1.0 s
+ `-CVC4: 660.0 ms (1 step), Valid
+ `-CVC4: 300.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:468:22                => 730.0 ms (1 step)/730.0 ms (1 step)/950.0 ms
+ `-CVC4: 730.0 ms (1 step), Valid
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:481:28                     => 710.0 ms (1 step)/710.0 ms (1 step)/940.0 ms
+ `-CVC4: 710.0 ms (1 step), Valid
+ `-CVC4: 230.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:456:19        => 680.0 ms (1 step)/680.0 ms (1 step)/940.0 ms
+ `-CVC4: 680.0 ms (1 step), Valid
+ `-CVC4: 260.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:495:40                => 660.0 ms (1 step)/660.0 ms (1 step)/900.0 ms
+ `-CVC4: 660.0 ms (1 step), Valid
+ `-CVC4: 240.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:500:22                => 650.0 ms (1 step)/650.0 ms (1 step)/890.0 ms
+ `-CVC4: 650.0 ms (1 step), Valid
+ `-CVC4: 240.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:462:16                     => 660.0 ms (1 step)/660.0 ms (1 step)/870.0 ms
+ `-CVC4: 660.0 ms (1 step), Valid
+ `-CVC4: 210.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:433:41             => 550.0 ms (1 step)/550.0 ms (1 step)/870.0 ms
+ `-CVC4: 550.0 ms (1 step), Valid
+ `-CVC4: 150.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:533:16     => 860.0 ms (1 step)/860.0 ms (1 step)/860.0 ms
+ `-CVC4: 860.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:433:41                => 500.0 ms (1 step)/500.0 ms (1 step)/820.0 ms
+ `-CVC4: 500.0 ms (1 step), Valid
+ `-CVC4: 150.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:552:16        => 790.0 ms (1 step)/790.0 ms (1 step)/790.0 ms
+ `-CVC4: 790.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:484:40                => 590.0 ms (1 step)/590.0 ms (1 step)/790.0 ms
+ `-CVC4: 590.0 ms (1 step), Valid
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:499:24                => 610.0 ms (1 step)/610.0 ms (1 step)/780.0 ms
+ `-CVC4: 610.0 ms (1 step), Valid
+ `-CVC4: 170.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:489:22                => 560.0 ms (1 step)/560.0 ms (1 step)/760.0 ms
+ `-CVC4: 560.0 ms (1 step), Valid
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:493:40                => 550.0 ms (1 step)/550.0 ms (1 step)/740.0 ms
+ `-CVC4: 550.0 ms (1 step), Valid
+ `-CVC4: 190.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:469:40                => 550.0 ms (1 step)/550.0 ms (1 step)/710.0 ms
+ `-CVC4: 550.0 ms (1 step), Valid
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:482:40                => 550.0 ms (1 step)/550.0 ms (1 step)/710.0 ms
+ `-CVC4: 550.0 ms (1 step), Valid
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:474:22                => 540.0 ms (1 step)/540.0 ms (1 step)/700.0 ms
+ `-CVC4: 540.0 ms (1 step), Valid
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:451:19        => 530.0 ms (1 step)/530.0 ms (1 step)/700.0 ms
+ `-CVC4: 530.0 ms (1 step), Valid
+ `-CVC4: 170.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:550:16        => 690.0 ms (1 step)/690.0 ms (1 step)/690.0 ms
+ `-CVC4: 690.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:488:24                => 560.0 ms (1 step)/560.0 ms (1 step)/690.0 ms
+ `-CVC4: 560.0 ms (1 step), Valid
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:473:24                => 550.0 ms (1 step)/550.0 ms (1 step)/660.0 ms
+ `-CVC4: 550.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:530:16        => 650.0 ms (1 step)/650.0 ms (1 step)/650.0 ms
+ `-CVC4: 650.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:463:22                => 510.0 ms (1 step)/510.0 ms (1 step)/650.0 ms
+ `-CVC4: 510.0 ms (1 step), Valid
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:543:16        => 640.0 ms (1 step)/640.0 ms (1 step)/640.0 ms
+ `-CVC4: 640.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:540:16        => 630.0 ms (1 step)/630.0 ms (1 step)/630.0 ms
+ `-CVC4: 630.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:547:16        => 630.0 ms (1 step)/630.0 ms (1 step)/630.0 ms
+ `-CVC4: 630.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:467:40                => 470.0 ms (1 step)/470.0 ms (1 step)/610.0 ms
+ `-CVC4: 470.0 ms (1 step), Valid
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:445:19        => 460.0 ms (1 step)/460.0 ms (1 step)/610.0 ms
+ `-CVC4: 460.0 ms (1 step), Valid
+ `-CVC4: 150.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:462:24                => 490.0 ms (1 step)/490.0 ms (1 step)/580.0 ms
+ `-CVC4: 490.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:526:16        => 570.0 ms (1 step)/570.0 ms (1 step)/570.0 ms
+ `-CVC4: 570.0 ms (1 step), Valid
+`-VC_POSTCONDITION sparknacl-sign.adb:289:22              => 540.0 ms (1 step)/540.0 ms (1 step)/540.0 ms
+ `-CVC4: 540.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:439:19        => 400.0 ms (1 step)/400.0 ms (1 step)/520.0 ms
+ `-CVC4: 400.0 ms (1 step), Valid
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:432:17                => 390.0 ms (1 step)/390.0 ms (1 step)/460.0 ms
+ `-CVC4: 390.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:533:16        => 380.0 ms (1 step)/380.0 ms (1 step)/380.0 ms
+ `-CVC4: 380.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:535:16        => 370.0 ms (1 step)/370.0 ms (1 step)/370.0 ms
+ `-CVC4: 370.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:448:49             => 70.0 ms (1 step)/70.0 ms (1 step)/250.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:448:49             => 60.0 ms (1 step)/60.0 ms (1 step)/230.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+SPARKNaCl.Utils.CSwap                                     =>                                                        900.0 ms (1536 steps)/900.0 ms (1536 steps)/4.8 s
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-utils.adb:51:13     => 900.0 ms (968 steps)/900.0 ms (968 steps)/900.0 ms
+ `-CVC4: 900.0 ms (968 steps), Valid
+`-VC_ASSERT sparknacl-utils.adb:37:13                     => 310.0 ms (1536 steps)/310.0 ms (1536 steps)/500.0 ms
+ `-CVC4: 310.0 ms (1536 steps), Valid
+ `-CVC4: 190.0 ms (1448 steps), Valid
+`-VC_CONTRACT_CASE sparknacl-utils.ads:27:23              => 400.0 ms (1 step)/400.0 ms (1 step)/400.0 ms
+ `-CVC4: 400.0 ms (1 step), Valid
+`-VC_CONTRACT_CASE sparknacl-utils.ads:24:19              => 330.0 ms (1 step)/330.0 ms (1 step)/330.0 ms
+ `-CVC4: 330.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-utils.adb:48:19                => 170.0 ms (1 step)/170.0 ms (1 step)/280.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-utils.adb:47:19                => 160.0 ms (1 step)/160.0 ms (1 step)/260.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-utils.adb:54:24                => 130.0 ms (1 step)/130.0 ms (1 step)/210.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-utils.adb:54:43                => 130.0 ms (1 step)/130.0 ms (1 step)/210.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-utils.adb:57:43                => 130.0 ms (1 step)/130.0 ms (1 step)/210.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-utils.adb:58:24                => 130.0 ms (1 step)/130.0 ms (1 step)/210.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-utils.adb:53:43                => 130.0 ms (1 step)/130.0 ms (1 step)/200.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-utils.adb:53:24                => 120.0 ms (1 step)/120.0 ms (1 step)/190.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-utils.adb:57:24                => 120.0 ms (1 step)/120.0 ms (1 step)/190.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-utils.adb:58:43                => 120.0 ms (1 step)/120.0 ms (1 step)/190.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-utils.adb:52:24                => 120.0 ms (1 step)/120.0 ms (1 step)/170.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-utils.adb:56:24                => 120.0 ms (1 step)/120.0 ms (1 step)/170.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-utils.adb:51:13        => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_DISJOINT_CONTRACT_CASES sparknacl-utils.ads:23:11    => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_COMPLETE_CONTRACT_CASES sparknacl-utils.ads:23:11    => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+SPARKNaCl.Sign.ModL.Finalize                              =>                                                        2.1 s (930 steps)/2.1 s (930 steps)/27.1 s
+`-VC_RANGE_CHECK sparknacl-sign.adb:577:30                => 2.1 s (930 steps)/2.1 s (930 steps)/2.4 s
+ `-CVC4: 2.1 s (930 steps), Valid
+ `-CVC4: 270.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:577:39             => 1.7 s (561 steps)/1.7 s (561 steps)/2.0 s
+ `-CVC4: 1.7 s (561 steps), Valid
+ `-CVC4: 240.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:577:30             => 1.7 s (577 steps)/1.7 s (577 steps)/1.9 s
+ `-CVC4: 1.7 s (577 steps), Valid
+ `-CVC4: 280.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:641:41                => 1.4 s (178 steps)/1.4 s (178 steps)/1.7 s
+ `-CVC4: 1.4 s (178 steps), Valid
+ `-CVC4: 210.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:577:57             => 1.2 s (337 steps)/1.2 s (337 steps)/1.5 s
+ `-CVC4: 1.2 s (337 steps), Valid
+ `-CVC4: 280.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:579:28                     => 1.1 s (255 steps)/1.1 s (255 steps)/1.4 s
+ `-CVC4: 1.1 s (255 steps), Valid
+ `-CVC4: 260.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:580:28                     => 1.0 s (224 steps)/1.0 s (224 steps)/1.2 s
+ `-CVC4: 1.0 s (224 steps), Valid
+ `-CVC4: 250.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:609:30                => 620.0 ms (1 step)/620.0 ms (1 step)/1.0 s
+ `-CVC4: 620.0 ms (1 step), Valid
+ `-CVC4: 360.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:611:16     => 920.0 ms (137 steps)/920.0 ms (137 steps)/920.0 ms
+ `-CVC4: 920.0 ms (137 steps), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:655:25                => 210.0 ms (1 step)/210.0 ms (1 step)/680.0 ms
+ `-CVC4: 210.0 ms (1 step), Valid
+ `-CVC4: 200.0 ms (1 step), Valid
+ `-CVC4: 160.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:654:27                => 210.0 ms (1 step)/210.0 ms (1 step)/650.0 ms
+ `-CVC4: 210.0 ms (1 step), Valid
+ `-CVC4: 200.0 ms (1 step), Valid
+ `-CVC4: 120.0 ms (1 step), Valid
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:640:23                => 310.0 ms (1 step)/310.0 ms (1 step)/530.0 ms
+ `-CVC4: 310.0 ms (1 step), Valid
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:638:31                     => 250.0 ms (1 step)/250.0 ms (1 step)/460.0 ms
+ `-CVC4: 250.0 ms (1 step), Valid
+ `-CVC4: 210.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:582:22                => 260.0 ms (1 step)/260.0 ms (1 step)/440.0 ms
+ `-CVC4: 260.0 ms (1 step), Valid
+ `-CVC4: 180.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:654:19     => 430.0 ms (1 step)/430.0 ms (1 step)/430.0 ms
+ `-CVC4: 430.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:611:16        => 410.0 ms (1 step)/410.0 ms (1 step)/410.0 ms
+ `-CVC4: 410.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:651:19     => 380.0 ms (1 step)/380.0 ms (1 step)/380.0 ms
+ `-CVC4: 380.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:651:19        => 360.0 ms (1 step)/360.0 ms (1 step)/360.0 ms
+ `-CVC4: 360.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:648:19     => 360.0 ms (1 step)/360.0 ms (1 step)/360.0 ms
+ `-CVC4: 360.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:648:19        => 350.0 ms (1 step)/350.0 ms (1 step)/350.0 ms
+ `-CVC4: 350.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:642:38                => 180.0 ms (1 step)/180.0 ms (1 step)/340.0 ms
+ `-CVC4: 180.0 ms (1 step), Valid
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:654:19        => 330.0 ms (1 step)/330.0 ms (1 step)/330.0 ms
+ `-CVC4: 330.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:576:28                     => 200.0 ms (1 step)/200.0 ms (1 step)/330.0 ms
+ `-CVC4: 200.0 ms (1 step), Valid
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:591:42                => 190.0 ms (1 step)/190.0 ms (1 step)/330.0 ms
+ `-CVC4: 190.0 ms (1 step), Valid
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:593:16     => 300.0 ms (1 step)/300.0 ms (1 step)/300.0 ms
+ `-CVC4: 300.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:591:22                => 180.0 ms (1 step)/180.0 ms (1 step)/300.0 ms
+ `-CVC4: 180.0 ms (1 step), Valid
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:594:22                => 170.0 ms (1 step)/170.0 ms (1 step)/300.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:612:22                => 160.0 ms (1 step)/160.0 ms (1 step)/300.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:587:58                => 160.0 ms (1 step)/160.0 ms (1 step)/290.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:587:16     => 270.0 ms (1 step)/270.0 ms (1 step)/270.0 ms
+ `-CVC4: 270.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:590:16     => 270.0 ms (1 step)/270.0 ms (1 step)/270.0 ms
+ `-CVC4: 270.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:597:16     => 270.0 ms (1 step)/270.0 ms (1 step)/270.0 ms
+ `-CVC4: 270.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:611:24                => 160.0 ms (1 step)/160.0 ms (1 step)/270.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:645:39        => 260.0 ms (1 step)/260.0 ms (1 step)/260.0 ms
+ `-CVC4: 260.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:646:39        => 260.0 ms (1 step)/260.0 ms (1 step)/260.0 ms
+ `-CVC4: 260.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:587:24                => 170.0 ms (1 step)/170.0 ms (1 step)/250.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:593:24                => 170.0 ms (1 step)/170.0 ms (1 step)/250.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:590:24                => 160.0 ms (1 step)/160.0 ms (1 step)/240.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-sign.adb:642:38             => 120.0 ms (1 step)/120.0 ms (1 step)/230.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:618:13                     => 220.0 ms (1 step)/220.0 ms (1 step)/220.0 ms
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:593:16        => 220.0 ms (1 step)/220.0 ms (1 step)/220.0 ms
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:614:16     => 220.0 ms (1 step)/220.0 ms (1 step)/220.0 ms
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:644:39     => 220.0 ms (1 step)/220.0 ms (1 step)/220.0 ms
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:620:13                     => 210.0 ms (1 step)/210.0 ms (1 step)/210.0 ms
+ `-CVC4: 210.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:597:16        => 200.0 ms (1 step)/200.0 ms (1 step)/200.0 ms
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:614:16        => 200.0 ms (1 step)/200.0 ms (1 step)/200.0 ms
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:645:39     => 200.0 ms (1 step)/200.0 ms (1 step)/200.0 ms
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:646:39     => 200.0 ms (1 step)/200.0 ms (1 step)/200.0 ms
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:602:13                     => 190.0 ms (1 step)/190.0 ms (1 step)/190.0 ms
+ `-CVC4: 190.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:605:13                     => 190.0 ms (1 step)/190.0 ms (1 step)/190.0 ms
+ `-CVC4: 190.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-sign.adb:583:30             => 80.0 ms (1 step)/80.0 ms (1 step)/150.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:587:16        => 140.0 ms (1 step)/140.0 ms (1 step)/140.0 ms
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:590:16        => 140.0 ms (1 step)/140.0 ms (1 step)/140.0 ms
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:644:39        => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+SPARKNaCl.Car.Seminormal_To_Nearlynormal                  =>                                                        950.0 ms (51 steps)/950.0 ms (51 steps)/8.0 s
+`-VC_PREDICATE_CHECK sparknacl-car.adb:114:10             => 950.0 ms (51 steps)/950.0 ms (51 steps)/1.1 s
+ `-CVC4: 950.0 ms (51 steps), Valid
+ `-CVC4: 180.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-car.adb:121:59                 => 330.0 ms (1 step)/330.0 ms (1 step)/530.0 ms
+ `-CVC4: 330.0 ms (1 step), Valid
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:115:10             => 230.0 ms (1 step)/230.0 ms (1 step)/440.0 ms
+ `-CVC4: 230.0 ms (1 step), Valid
+ `-CVC4: 210.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:121:13      => 390.0 ms (1 step)/390.0 ms (1 step)/390.0 ms
+ `-CVC4: 390.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:131:22                 => 380.0 ms (1 step)/380.0 ms (1 step)/380.0 ms
+ `-CVC4: 380.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:114:33                 => 230.0 ms (1 step)/230.0 ms (1 step)/370.0 ms
+ `-CVC4: 230.0 ms (1 step), Valid
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:113:19                 => 200.0 ms (1 step)/200.0 ms (1 step)/340.0 ms
+ `-CVC4: 200.0 ms (1 step), Valid
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-car.adb:118:55                 => 170.0 ms (1 step)/170.0 ms (1 step)/300.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-car.adb:121:67                 => 160.0 ms (1 step)/160.0 ms (1 step)/290.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:119:33      => 270.0 ms (1 step)/270.0 ms (1 step)/270.0 ms
+ `-CVC4: 270.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:101:12             => 260.0 ms (1 step)/260.0 ms (1 step)/260.0 ms
+ `-CVC4: 260.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:134:31             => 240.0 ms (1 step)/240.0 ms (1 step)/240.0 ms
+ `-CVC4: 240.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:121:21                 => 170.0 ms (1 step)/170.0 ms (1 step)/240.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:118:13      => 230.0 ms (1 step)/230.0 ms (1 step)/230.0 ms
+ `-CVC4: 230.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:129:16                 => 230.0 ms (1 step)/230.0 ms (1 step)/230.0 ms
+ `-CVC4: 230.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:131:7              => 220.0 ms (1 step)/220.0 ms (1 step)/220.0 ms
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:132:7              => 220.0 ms (1 step)/220.0 ms (1 step)/220.0 ms
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:118:21                 => 120.0 ms (1 step)/120.0 ms (1 step)/200.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:126:10                      => 170.0 ms (1 step)/170.0 ms (1 step)/170.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:119:33         => 170.0 ms (1 step)/170.0 ms (1 step)/170.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:118:13         => 160.0 ms (1 step)/160.0 ms (1 step)/160.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:121:13         => 150.0 ms (1 step)/150.0 ms (1 step)/150.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:127:22                      => 140.0 ms (1 step)/140.0 ms (1 step)/140.0 ms
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:105:7              => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:108:22                      => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:104:7              => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:104:22                 => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-car.adb:115:25              => 50.0 ms (1 step)/50.0 ms (1 step)/100.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:110:10                      => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:103:22                 => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:107:22                      => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-car.adb:132:24              => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-car.adb:105:22              => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+SPARKNaCl.Sign.ModL.Eliminate_Limb_63                     =>                                                        740.0 ms (33 steps)/740.0 ms (33 steps)/10.8 s
+`-VC_RANGE_CHECK sparknacl-sign.adb:340:45                => 720.0 ms (33 steps)/720.0 ms (33 steps)/900.0 ms
+ `-CVC4: 720.0 ms (33 steps), Valid
+ `-CVC4: 180.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:411:13                     => 740.0 ms (1 step)/740.0 ms (1 step)/740.0 ms
+ `-CVC4: 740.0 ms (1 step), Valid
+`-VC_POSTCONDITION sparknacl-sign.adb:267:22              => 520.0 ms (1 step)/520.0 ms (1 step)/520.0 ms
+ `-CVC4: 520.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:419:25                     => 500.0 ms (1 step)/500.0 ms (1 step)/500.0 ms
+ `-CVC4: 500.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:418:29                => 450.0 ms (1 step)/450.0 ms (1 step)/450.0 ms
+ `-CVC4: 450.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:407:28                     => 420.0 ms (1 step)/420.0 ms (1 step)/420.0 ms
+ `-CVC4: 420.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:402:22                => 410.0 ms (1 step)/410.0 ms (1 step)/410.0 ms
+ `-CVC4: 410.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:342:22                => 230.0 ms (1 step)/230.0 ms (1 step)/390.0 ms
+ `-CVC4: 230.0 ms (1 step), Valid
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:396:22                => 380.0 ms (1 step)/380.0 ms (1 step)/380.0 ms
+ `-CVC4: 380.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:401:32                => 360.0 ms (1 step)/360.0 ms (1 step)/360.0 ms
+ `-CVC4: 360.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:343:30                => 200.0 ms (1 step)/200.0 ms (1 step)/360.0 ms
+ `-CVC4: 200.0 ms (1 step), Valid
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:399:28                     => 350.0 ms (1 step)/350.0 ms (1 step)/350.0 ms
+ `-CVC4: 350.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:403:32                => 350.0 ms (1 step)/350.0 ms (1 step)/350.0 ms
+ `-CVC4: 350.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:341:38                => 200.0 ms (1 step)/200.0 ms (1 step)/330.0 ms
+ `-CVC4: 200.0 ms (1 step), Valid
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:390:22                => 270.0 ms (1 step)/270.0 ms (1 step)/270.0 ms
+ `-CVC4: 270.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:349:23                => 150.0 ms (1 step)/150.0 ms (1 step)/270.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:351:23                => 150.0 ms (1 step)/150.0 ms (1 step)/270.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:351:43                => 150.0 ms (1 step)/150.0 ms (1 step)/270.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:393:28                     => 260.0 ms (1 step)/260.0 ms (1 step)/260.0 ms
+ `-CVC4: 260.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:346:16     => 260.0 ms (1 step)/260.0 ms (1 step)/260.0 ms
+ `-CVC4: 260.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:395:32                => 260.0 ms (1 step)/260.0 ms (1 step)/260.0 ms
+ `-CVC4: 260.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:397:32                => 260.0 ms (1 step)/260.0 ms (1 step)/260.0 ms
+ `-CVC4: 260.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:391:32                => 250.0 ms (1 step)/250.0 ms (1 step)/250.0 ms
+ `-CVC4: 250.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:384:22                => 230.0 ms (1 step)/230.0 ms (1 step)/230.0 ms
+ `-CVC4: 230.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:387:28                     => 220.0 ms (1 step)/220.0 ms (1 step)/220.0 ms
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:389:32                => 210.0 ms (1 step)/210.0 ms (1 step)/210.0 ms
+ `-CVC4: 210.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:348:25                => 140.0 ms (1 step)/140.0 ms (1 step)/210.0 ms
+ `-CVC4: 140.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:350:25                => 140.0 ms (1 step)/140.0 ms (1 step)/210.0 ms
+ `-CVC4: 140.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:346:16        => 200.0 ms (1 step)/200.0 ms (1 step)/200.0 ms
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:385:32                => 200.0 ms (1 step)/200.0 ms (1 step)/200.0 ms
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:383:32                => 190.0 ms (1 step)/190.0 ms (1 step)/190.0 ms
+ `-CVC4: 190.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:355:13                     => 180.0 ms (1 step)/180.0 ms (1 step)/180.0 ms
+ `-CVC4: 180.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:266:66                => 120.0 ms (1 step)/120.0 ms (1 step)/120.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+SPARKNaCl.Omultiply                                       =>                                                        700.0 ms (1 step)/19.1 s (14001 steps)/28.6 s
+`-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:164:13          => 40.0 ms (1 step)/19.1 s (14001 steps)/19.1 s
+ `-CVC4: 19.1 s (14001 steps), Unknown (unknown)
+  -Z3: 40.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:80:16           => 700.0 ms (1 step)/700.0 ms (1 step)/930.0 ms
+ `-CVC4: 700.0 ms (1 step), Valid
+ `-CVC4: 230.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:75:36                      => 170.0 ms (1 step)/170.0 ms (1 step)/480.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 120.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl.adb:75:48                   => 140.0 ms (1 step)/140.0 ms (1 step)/420.0 ms
+ `-CVC4: 140.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl.adb:80:16              => 120.0 ms (1 step)/220.0 ms (1 step)/400.0 ms
+ `-CVC4: 220.0 ms (1 step), Unknown (unknown)
+  -Z3: 60.0 ms (1 step), Valid
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl.adb:75:36                   => 150.0 ms (1 step)/150.0 ms (1 step)/390.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.adb:88:22                      => 110.0 ms (1 step)/110.0 ms (1 step)/300.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.adb:92:22                      => 90.0 ms (1 step)/90.0 ms (1 step)/280.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.adb:96:22                      => 90.0 ms (1 step)/90.0 ms (1 step)/280.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.adb:101:22                     => 90.0 ms (1 step)/90.0 ms (1 step)/270.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.adb:105:22                     => 90.0 ms (1 step)/90.0 ms (1 step)/270.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl.adb:164:13             => 260.0 ms (1 step)/260.0 ms (1 step)/260.0 ms
+ `-CVC4: 260.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl.adb:161:10                 => 150.0 ms (1 step)/150.0 ms (1 step)/260.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:87:25                      => 90.0 ms (1 step)/90.0 ms (1 step)/260.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:83:25                      => 100.0 ms (1 step)/100.0 ms (1 step)/250.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:95:25                      => 90.0 ms (1 step)/90.0 ms (1 step)/250.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:99:25                      => 90.0 ms (1 step)/90.0 ms (1 step)/250.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.adb:84:22                      => 90.0 ms (1 step)/90.0 ms (1 step)/240.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:161:26                     => 130.0 ms (1 step)/130.0 ms (1 step)/220.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl.adb:84:36                   => 80.0 ms (1 step)/80.0 ms (1 step)/220.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:91:25                      => 80.0 ms (1 step)/80.0 ms (1 step)/220.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:104:25                     => 80.0 ms (1 step)/80.0 ms (1 step)/220.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.adb:168:20                     => 120.0 ms (1 step)/120.0 ms (1 step)/200.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.adb:165:20                     => 110.0 ms (1 step)/110.0 ms (1 step)/190.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.adb:165:46                     => 110.0 ms (1 step)/110.0 ms (1 step)/190.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl.adb:165:46                  => 110.0 ms (1 step)/110.0 ms (1 step)/190.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:167:22                     => 110.0 ms (1 step)/110.0 ms (1 step)/160.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.adb:165:28                     => 100.0 ms (1 step)/100.0 ms (1 step)/160.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:164:22                     => 100.0 ms (1 step)/100.0 ms (1 step)/150.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.adb:121:19                     => 80.0 ms (1 step)/80.0 ms (1 step)/140.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:124:22                     => 90.0 ms (1 step)/90.0 ms (1 step)/130.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.adb:125:19                     => 80.0 ms (1 step)/80.0 ms (1 step)/130.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:116:13          => 120.0 ms (1 step)/120.0 ms (1 step)/120.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.adb:119:19                     => 80.0 ms (1 step)/80.0 ms (1 step)/120.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.adb:123:19                     => 80.0 ms (1 step)/80.0 ms (1 step)/120.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl.adb:119:33                  => 80.0 ms (1 step)/80.0 ms (1 step)/120.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:122:22                     => 80.0 ms (1 step)/80.0 ms (1 step)/120.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:118:22                     => 80.0 ms (1 step)/80.0 ms (1 step)/110.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:120:22                     => 70.0 ms (1 step)/70.0 ms (1 step)/110.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl.adb:149:13                 => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl.adb:140:10                          => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl.adb:116:13             => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl.adb:149:13                 => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+SPARKNaCl.Car.Sum_To_Nearlynormal                         =>                                                        660.0 ms (1 step)/660.0 ms (1 step)/6.6 s
+`-VC_PREDICATE_CHECK sparknacl-car.adb:163:10             => 660.0 ms (1 step)/660.0 ms (1 step)/830.0 ms
+ `-CVC4: 660.0 ms (1 step), Valid
+ `-CVC4: 170.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:164:10             => 210.0 ms (1 step)/210.0 ms (1 step)/410.0 ms
+ `-CVC4: 210.0 ms (1 step), Valid
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:163:33                 => 210.0 ms (1 step)/210.0 ms (1 step)/340.0 ms
+ `-CVC4: 210.0 ms (1 step), Valid
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:162:19                 => 190.0 ms (1 step)/190.0 ms (1 step)/330.0 ms
+ `-CVC4: 190.0 ms (1 step), Valid
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-car.adb:167:55                 => 150.0 ms (1 step)/150.0 ms (1 step)/280.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-car.adb:170:59                 => 150.0 ms (1 step)/150.0 ms (1 step)/280.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-car.adb:170:67                 => 150.0 ms (1 step)/150.0 ms (1 step)/260.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:181:7              => 250.0 ms (1 step)/250.0 ms (1 step)/250.0 ms
+ `-CVC4: 250.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:167:13      => 230.0 ms (1 step)/230.0 ms (1 step)/230.0 ms
+ `-CVC4: 230.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:183:31             => 230.0 ms (1 step)/230.0 ms (1 step)/230.0 ms
+ `-CVC4: 230.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:168:33      => 220.0 ms (1 step)/220.0 ms (1 step)/220.0 ms
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:170:13      => 220.0 ms (1 step)/220.0 ms (1 step)/220.0 ms
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:180:7              => 210.0 ms (1 step)/210.0 ms (1 step)/210.0 ms
+ `-CVC4: 210.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:170:21                 => 150.0 ms (1 step)/150.0 ms (1 step)/210.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:168:33         => 180.0 ms (1 step)/180.0 ms (1 step)/180.0 ms
+ `-CVC4: 180.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:178:16                 => 180.0 ms (1 step)/180.0 ms (1 step)/180.0 ms
+ `-CVC4: 180.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:180:22                 => 180.0 ms (1 step)/180.0 ms (1 step)/180.0 ms
+ `-CVC4: 180.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:175:10                      => 170.0 ms (1 step)/170.0 ms (1 step)/170.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:167:13         => 160.0 ms (1 step)/160.0 ms (1 step)/160.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:170:13         => 140.0 ms (1 step)/140.0 ms (1 step)/140.0 ms
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:176:22                      => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:167:21                 => 70.0 ms (1 step)/70.0 ms (1 step)/130.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:154:7              => 120.0 ms (1 step)/120.0 ms (1 step)/120.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:157:22                      => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:153:7              => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:153:22                 => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-car.adb:164:25              => 50.0 ms (1 step)/50.0 ms (1 step)/100.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:156:22                      => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:159:10                      => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:152:16                 => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:150:12             => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-car.adb:181:24              => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-car.adb:154:22              => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+SPARKNaCl.Scalar.Mult                                     =>                                                        550.0 ms (1 step)/550.0 ms (1 step)/14.1 s
+`-VC_RANGE_CHECK sparknacl-scalar.adb:33:30               => 550.0 ms (1 step)/550.0 ms (1 step)/930.0 ms
+ `-CVC4: 550.0 ms (1 step), Valid
+ `-CVC4: 310.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-scalar.adb:32:20               => 550.0 ms (1 step)/550.0 ms (1 step)/910.0 ms
+ `-CVC4: 550.0 ms (1 step), Valid
+ `-CVC4: 300.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-scalar.adb:32:25               => 540.0 ms (1 step)/540.0 ms (1 step)/900.0 ms
+ `-CVC4: 540.0 ms (1 step), Valid
+ `-CVC4: 300.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:72:23           => 480.0 ms (1 step)/480.0 ms (1 step)/770.0 ms
+ `-CVC4: 480.0 ms (1 step), Valid
+ `-CVC4: 290.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:72:26           => 470.0 ms (1 step)/470.0 ms (1 step)/760.0 ms
+ `-CVC4: 470.0 ms (1 step), Valid
+ `-CVC4: 290.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:71:27           => 400.0 ms (1 step)/400.0 ms (1 step)/620.0 ms
+ `-CVC4: 400.0 ms (1 step), Valid
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:71:23           => 370.0 ms (1 step)/370.0 ms (1 step)/580.0 ms
+ `-CVC4: 370.0 ms (1 step), Valid
+ `-CVC4: 210.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-scalar.adb:34:56            => 100.0 ms (1 step)/100.0 ms (1 step)/500.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:91:20           => 430.0 ms (1 step)/430.0 ms (1 step)/430.0 ms
+ `-CVC4: 430.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:82:20           => 420.0 ms (1 step)/420.0 ms (1 step)/420.0 ms
+ `-CVC4: 420.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:87:20           => 420.0 ms (1 step)/420.0 ms (1 step)/420.0 ms
+ `-CVC4: 420.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:88:20           => 420.0 ms (1 step)/420.0 ms (1 step)/420.0 ms
+ `-CVC4: 420.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:89:20           => 420.0 ms (1 step)/420.0 ms (1 step)/420.0 ms
+ `-CVC4: 420.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:92:20           => 420.0 ms (1 step)/420.0 ms (1 step)/420.0 ms
+ `-CVC4: 420.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:85:20           => 410.0 ms (1 step)/410.0 ms (1 step)/410.0 ms
+ `-CVC4: 410.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:86:20           => 410.0 ms (1 step)/410.0 ms (1 step)/410.0 ms
+ `-CVC4: 410.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:90:20           => 410.0 ms (1 step)/410.0 ms (1 step)/410.0 ms
+ `-CVC4: 410.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:83:20           => 400.0 ms (1 step)/400.0 ms (1 step)/400.0 ms
+ `-CVC4: 400.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:84:20           => 400.0 ms (1 step)/400.0 ms (1 step)/400.0 ms
+ `-CVC4: 400.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-scalar.adb:36:33    => 100.0 ms (1 step)/100.0 ms (1 step)/400.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-scalar.adb:37:33    => 100.0 ms (1 step)/100.0 ms (1 step)/390.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-scalar.adb:39:33    => 100.0 ms (1 step)/100.0 ms (1 step)/390.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-scalar.adb:38:33    => 100.0 ms (1 step)/100.0 ms (1 step)/380.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:42:23           => 170.0 ms (1 step)/170.0 ms (1 step)/260.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:42:26           => 170.0 ms (1 step)/170.0 ms (1 step)/260.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:41:27           => 160.0 ms (1 step)/160.0 ms (1 step)/240.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:41:23           => 150.0 ms (1 step)/150.0 ms (1 step)/230.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-scalar.adb:38:33       => 110.0 ms (1 step)/110.0 ms (1 step)/170.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-scalar.adb:37:33       => 100.0 ms (1 step)/100.0 ms (1 step)/170.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-scalar.adb:36:33       => 100.0 ms (1 step)/100.0 ms (1 step)/160.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-scalar.adb:39:33       => 100.0 ms (1 step)/100.0 ms (1 step)/160.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-scalar.adb:18:40              => 120.0 ms (1 step)/120.0 ms (1 step)/120.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-scalar.adb:18:40               => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-scalar.adb:18:26               => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-scalar.adb:18:28               => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+SPARKNaCl.Hashing.Hashblocks                              =>                                                        500.0 ms (1 step)/500.0 ms (1 step)/26.7 s
+`-VC_RANGE_CHECK sparknacl-hashing.adb:202:10             => 450.0 ms (1 step)/450.0 ms (1 step)/760.0 ms
+ `-CVC4: 450.0 ms (1 step), Valid
+ `-CVC4: 200.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:159:40          => 360.0 ms (1 step)/360.0 ms (1 step)/620.0 ms
+ `-CVC4: 360.0 ms (1 step), Valid
+ `-CVC4: 260.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:202:35            => 290.0 ms (1 step)/290.0 ms (1 step)/550.0 ms
+ `-CVC4: 290.0 ms (1 step), Valid
+ `-CVC4: 140.0 ms (1 step), Valid
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:145:37            => 500.0 ms (1 step)/500.0 ms (1 step)/500.0 ms
+ `-CVC4: 500.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:202:38            => 260.0 ms (1 step)/260.0 ms (1 step)/490.0 ms
+ `-CVC4: 260.0 ms (1 step), Valid
+ `-CVC4: 120.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:141:37            => 480.0 ms (1 step)/480.0 ms (1 step)/480.0 ms
+ `-CVC4: 480.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:138:41          => 290.0 ms (1 step)/290.0 ms (1 step)/480.0 ms
+ `-CVC4: 290.0 ms (1 step), Valid
+ `-CVC4: 190.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:151:37            => 460.0 ms (1 step)/460.0 ms (1 step)/460.0 ms
+ `-CVC4: 460.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:142:37            => 450.0 ms (1 step)/450.0 ms (1 step)/450.0 ms
+ `-CVC4: 450.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:136:17          => 260.0 ms (1 step)/260.0 ms (1 step)/450.0 ms
+ `-CVC4: 260.0 ms (1 step), Valid
+ `-CVC4: 190.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:140:37            => 440.0 ms (1 step)/440.0 ms (1 step)/440.0 ms
+ `-CVC4: 440.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:144:37            => 440.0 ms (1 step)/440.0 ms (1 step)/440.0 ms
+ `-CVC4: 440.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:146:37            => 440.0 ms (1 step)/440.0 ms (1 step)/440.0 ms
+ `-CVC4: 440.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:143:37            => 430.0 ms (1 step)/430.0 ms (1 step)/430.0 ms
+ `-CVC4: 430.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:161:64          => 250.0 ms (1 step)/250.0 ms (1 step)/430.0 ms
+ `-CVC4: 250.0 ms (1 step), Valid
+ `-CVC4: 180.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:147:37            => 420.0 ms (1 step)/420.0 ms (1 step)/420.0 ms
+ `-CVC4: 420.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:150:37            => 420.0 ms (1 step)/420.0 ms (1 step)/420.0 ms
+ `-CVC4: 420.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:148:37            => 410.0 ms (1 step)/410.0 ms (1 step)/410.0 ms
+ `-CVC4: 410.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:197:19          => 410.0 ms (1 step)/410.0 ms (1 step)/410.0 ms
+ `-CVC4: 410.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:149:37            => 400.0 ms (1 step)/400.0 ms (1 step)/400.0 ms
+ `-CVC4: 400.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:196:19          => 400.0 ms (1 step)/400.0 ms (1 step)/400.0 ms
+ `-CVC4: 400.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:153:37            => 390.0 ms (1 step)/390.0 ms (1 step)/390.0 ms
+ `-CVC4: 390.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:152:37            => 380.0 ms (1 step)/380.0 ms (1 step)/380.0 ms
+ `-CVC4: 380.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:155:37            => 380.0 ms (1 step)/380.0 ms (1 step)/380.0 ms
+ `-CVC4: 380.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-hashing.adb:136:13  => 380.0 ms (1 step)/380.0 ms (1 step)/380.0 ms
+ `-CVC4: 380.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:144:37             => 360.0 ms (1 step)/360.0 ms (1 step)/360.0 ms
+ `-CVC4: 360.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:150:37             => 360.0 ms (1 step)/360.0 ms (1 step)/360.0 ms
+ `-CVC4: 360.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:154:37            => 350.0 ms (1 step)/350.0 ms (1 step)/350.0 ms
+ `-CVC4: 350.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:151:37             => 350.0 ms (1 step)/350.0 ms (1 step)/350.0 ms
+ `-CVC4: 350.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:147:37             => 330.0 ms (1 step)/330.0 ms (1 step)/330.0 ms
+ `-CVC4: 330.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:140:37             => 320.0 ms (1 step)/320.0 ms (1 step)/320.0 ms
+ `-CVC4: 320.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:141:37             => 320.0 ms (1 step)/320.0 ms (1 step)/320.0 ms
+ `-CVC4: 320.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:142:37             => 320.0 ms (1 step)/320.0 ms (1 step)/320.0 ms
+ `-CVC4: 320.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:143:37             => 320.0 ms (1 step)/320.0 ms (1 step)/320.0 ms
+ `-CVC4: 320.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:148:37             => 320.0 ms (1 step)/320.0 ms (1 step)/320.0 ms
+ `-CVC4: 320.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:155:43          => 310.0 ms (1 step)/310.0 ms (1 step)/310.0 ms
+ `-CVC4: 310.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:146:37             => 310.0 ms (1 step)/310.0 ms (1 step)/310.0 ms
+ `-CVC4: 310.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:149:37             => 310.0 ms (1 step)/310.0 ms (1 step)/310.0 ms
+ `-CVC4: 310.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:145:37             => 300.0 ms (1 step)/300.0 ms (1 step)/300.0 ms
+ `-CVC4: 300.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:152:37             => 300.0 ms (1 step)/300.0 ms (1 step)/300.0 ms
+ `-CVC4: 300.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:153:43          => 290.0 ms (1 step)/290.0 ms (1 step)/290.0 ms
+ `-CVC4: 290.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:153:55          => 290.0 ms (1 step)/290.0 ms (1 step)/290.0 ms
+ `-CVC4: 290.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:154:55          => 290.0 ms (1 step)/290.0 ms (1 step)/290.0 ms
+ `-CVC4: 290.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:154:37             => 280.0 ms (1 step)/280.0 ms (1 step)/280.0 ms
+ `-CVC4: 280.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-hashing.adb:159:36  => 270.0 ms (1 step)/270.0 ms (1 step)/270.0 ms
+ `-CVC4: 270.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:154:43          => 270.0 ms (1 step)/270.0 ms (1 step)/270.0 ms
+ `-CVC4: 270.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:155:55          => 270.0 ms (1 step)/270.0 ms (1 step)/270.0 ms
+ `-CVC4: 270.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:153:37             => 270.0 ms (1 step)/270.0 ms (1 step)/270.0 ms
+ `-CVC4: 270.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:155:37             => 270.0 ms (1 step)/270.0 ms (1 step)/270.0 ms
+ `-CVC4: 270.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:152:43          => 250.0 ms (1 step)/250.0 ms (1 step)/250.0 ms
+ `-CVC4: 250.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-hashing.adb:195:25                  => 240.0 ms (1 step)/240.0 ms (1 step)/240.0 ms
+ `-CVC4: 240.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:146:43          => 240.0 ms (1 step)/240.0 ms (1 step)/240.0 ms
+ `-CVC4: 240.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:148:54          => 240.0 ms (1 step)/240.0 ms (1 step)/240.0 ms
+ `-CVC4: 240.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:151:54          => 240.0 ms (1 step)/240.0 ms (1 step)/240.0 ms
+ `-CVC4: 240.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:142:43          => 230.0 ms (1 step)/230.0 ms (1 step)/230.0 ms
+ `-CVC4: 230.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:144:54          => 230.0 ms (1 step)/230.0 ms (1 step)/230.0 ms
+ `-CVC4: 230.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:147:43          => 230.0 ms (1 step)/230.0 ms (1 step)/230.0 ms
+ `-CVC4: 230.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:149:54          => 230.0 ms (1 step)/230.0 ms (1 step)/230.0 ms
+ `-CVC4: 230.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:150:54          => 230.0 ms (1 step)/230.0 ms (1 step)/230.0 ms
+ `-CVC4: 230.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:152:54          => 230.0 ms (1 step)/230.0 ms (1 step)/230.0 ms
+ `-CVC4: 230.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:143:54          => 220.0 ms (1 step)/220.0 ms (1 step)/220.0 ms
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:145:43          => 220.0 ms (1 step)/220.0 ms (1 step)/220.0 ms
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:145:54          => 220.0 ms (1 step)/220.0 ms (1 step)/220.0 ms
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:150:43          => 220.0 ms (1 step)/220.0 ms (1 step)/220.0 ms
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:151:43          => 220.0 ms (1 step)/220.0 ms (1 step)/220.0 ms
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:143:43          => 210.0 ms (1 step)/210.0 ms (1 step)/210.0 ms
+ `-CVC4: 210.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:146:54          => 210.0 ms (1 step)/210.0 ms (1 step)/210.0 ms
+ `-CVC4: 210.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:148:43          => 210.0 ms (1 step)/210.0 ms (1 step)/210.0 ms
+ `-CVC4: 210.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:149:43          => 210.0 ms (1 step)/210.0 ms (1 step)/210.0 ms
+ `-CVC4: 210.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:140:43          => 200.0 ms (1 step)/200.0 ms (1 step)/200.0 ms
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:140:53          => 200.0 ms (1 step)/200.0 ms (1 step)/200.0 ms
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:144:43          => 200.0 ms (1 step)/200.0 ms (1 step)/200.0 ms
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:147:54          => 200.0 ms (1 step)/200.0 ms (1 step)/200.0 ms
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-hashing.adb:136:13     => 190.0 ms (1 step)/190.0 ms (1 step)/190.0 ms
+ `-CVC4: 190.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:141:43          => 190.0 ms (1 step)/190.0 ms (1 step)/190.0 ms
+ `-CVC4: 190.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:142:54          => 190.0 ms (1 step)/190.0 ms (1 step)/190.0 ms
+ `-CVC4: 190.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:141:53          => 180.0 ms (1 step)/180.0 ms (1 step)/180.0 ms
+ `-CVC4: 180.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-hashing.adb:159:36     => 170.0 ms (1 step)/170.0 ms (1 step)/170.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-hashing.adb:165:31          => 160.0 ms (1 step)/160.0 ms (1 step)/160.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-hashing.adb:179:19          => 160.0 ms (1 step)/160.0 ms (1 step)/160.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-hashing.adb:181:47          => 160.0 ms (1 step)/160.0 ms (1 step)/160.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-hashing.adb:182:43          => 160.0 ms (1 step)/160.0 ms (1 step)/160.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-hashing.adb:183:44          => 150.0 ms (1 step)/150.0 ms (1 step)/150.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:124:33             => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:126:33             => 120.0 ms (1 step)/120.0 ms (1 step)/120.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:120:33             => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:122:33             => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:123:33             => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:125:33             => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:121:33             => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:127:33             => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+SPARKNaCl.Car.Product_To_Seminormal                       =>                                                        420.0 ms (1 step)/420.0 ms (1 step)/5.4 s
+`-VC_PREDICATE_CHECK sparknacl-car.adb:51:10              => 420.0 ms (1 step)/420.0 ms (1 step)/540.0 ms
+ `-CVC4: 420.0 ms (1 step), Valid
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:52:10              => 170.0 ms (1 step)/170.0 ms (1 step)/310.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:46:13                       => 150.0 ms (1 step)/150.0 ms (1 step)/240.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:51:33                  => 140.0 ms (1 step)/140.0 ms (1 step)/230.0 ms
+ `-CVC4: 140.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:48:13                       => 130.0 ms (1 step)/130.0 ms (1 step)/230.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:43:19                  => 130.0 ms (1 step)/130.0 ms (1 step)/210.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-car.adb:60:67                  => 120.0 ms (1 step)/120.0 ms (1 step)/200.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:60:13       => 190.0 ms (1 step)/190.0 ms (1 step)/190.0 ms
+ `-CVC4: 190.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:49:25                       => 140.0 ms (1 step)/140.0 ms (1 step)/190.0 ms
+ `-CVC4: 140.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-car.adb:60:59                  => 110.0 ms (1 step)/110.0 ms (1 step)/190.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:55:13       => 180.0 ms (1 step)/180.0 ms (1 step)/180.0 ms
+ `-CVC4: 180.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-car.adb:55:55                  => 100.0 ms (1 step)/100.0 ms (1 step)/180.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:56:33       => 170.0 ms (1 step)/170.0 ms (1 step)/170.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:80:29              => 170.0 ms (1 step)/170.0 ms (1 step)/170.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:60:21                  => 110.0 ms (1 step)/110.0 ms (1 step)/170.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:74:7               => 160.0 ms (1 step)/160.0 ms (1 step)/160.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:78:7               => 160.0 ms (1 step)/160.0 ms (1 step)/160.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:72:22                       => 150.0 ms (1 step)/150.0 ms (1 step)/150.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:76:22                       => 150.0 ms (1 step)/150.0 ms (1 step)/150.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:74:22                  => 140.0 ms (1 step)/140.0 ms (1 step)/140.0 ms
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:67:10                       => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:58:13       => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:70:16                  => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:56:33          => 120.0 ms (1 step)/120.0 ms (1 step)/120.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:55:21                  => 70.0 ms (1 step)/70.0 ms (1 step)/120.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:55:13          => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:60:13          => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:68:22                       => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:58:13          => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-car.adb:52:25               => 50.0 ms (1 step)/50.0 ms (1 step)/90.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:41:12              => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-car.adb:78:24               => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+SPARKNaCl.MAC.Onetimeauth                                 =>                                                        340.0 ms (1 step)/340.0 ms (1 step)/3.7 s
+`-VC_INDEX_CHECK sparknacl-mac.adb:122:72                 => 340.0 ms (1 step)/340.0 ms (1 step)/500.0 ms
+ `-CVC4: 340.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-mac.adb:93:15               => 190.0 ms (1 step)/190.0 ms (1 step)/490.0 ms
+ `-CVC4: 190.0 ms (1 step), Valid
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-mac.adb:93:13       => 240.0 ms (1 step)/240.0 ms (1 step)/480.0 ms
+ `-CVC4: 240.0 ms (1 step), Valid
+ `-CVC4: 160.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-mac.adb:168:36                 => 200.0 ms (1 step)/200.0 ms (1 step)/350.0 ms
+ `-CVC4: 200.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-mac.adb:122:46                 => 110.0 ms (1 step)/110.0 ms (1 step)/260.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-mac.adb:113:34              => 110.0 ms (1 step)/110.0 ms (1 step)/260.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-mac.adb:107:17              => 100.0 ms (1 step)/100.0 ms (1 step)/250.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-mac.adb:168:36              => 110.0 ms (1 step)/110.0 ms (1 step)/220.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-mac.adb:98:27               => 100.0 ms (1 step)/100.0 ms (1 step)/190.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-mac.adb:97:18               => 60.0 ms (1 step)/60.0 ms (1 step)/110.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-mac.adb:100:39                 => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-mac.adb:97:16          => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-mac.adb:97:16       => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-mac.adb:101:20                 => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-mac.adb:100:39              => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-mac.adb:93:13          => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+SPARKNaCl.Sign.Scalarmult                                 =>                                                        300.0 ms (1 step)/300.0 ms (1 step)/1.0 s
+`-VC_RANGE_CHECK sparknacl-sign.adb:156:59                => 300.0 ms (1 step)/300.0 ms (1 step)/390.0 ms
+ `-CVC4: 300.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:155:21                => 290.0 ms (1 step)/290.0 ms (1 step)/290.0 ms
+ `-CVC4: 290.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:155:26                => 290.0 ms (1 step)/290.0 ms (1 step)/290.0 ms
+ `-CVC4: 290.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-sign.adb:156:67             => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+SPARKNaCl.Secretbox.Open                                  =>                                                        270.0 ms (1 step)/270.0 ms (1 step)/3.3 s
+`-VC_PRECONDITION sparknacl-secretbox.adb:74:19           => 270.0 ms (1 step)/270.0 ms (1 step)/570.0 ms
+ `-CVC4: 270.0 ms (1 step), Valid
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-secretbox.adb:71:55         => 160.0 ms (1 step)/160.0 ms (1 step)/350.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-secretbox.adb:93:12           => 80.0 ms (1 step)/80.0 ms (1 step)/280.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-secretbox.adb:86:18           => 130.0 ms (1 step)/130.0 ms (1 step)/270.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-secretbox.adb:77:30           => 120.0 ms (1 step)/120.0 ms (1 step)/260.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-secretbox.adb:68:16           => 100.0 ms (1 step)/100.0 ms (1 step)/230.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-secretbox.adb:75:21            => 70.0 ms (1 step)/70.0 ms (1 step)/210.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-secretbox.adb:71:13            => 70.0 ms (1 step)/70.0 ms (1 step)/200.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-secretbox.adb:77:30            => 60.0 ms (1 step)/60.0 ms (1 step)/190.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-secretbox.adb:81:22           => 50.0 ms (1 step)/50.0 ms (1 step)/190.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_POSTCONDITION sparknacl-secretbox.ads:38:21          => 180.0 ms (1 step)/180.0 ms (1 step)/180.0 ms
+ `-CVC4: 180.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-secretbox.ads:38:28            => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-secretbox.adb:65:20            => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-secretbox.ads:38:21           => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-secretbox.ads:37:28            => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-secretbox.adb:65:13           => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-secretbox.ads:37:21           => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+SPARKNaCl.Sign                                            =>                                                        250.0 ms (1 step)/250.0 ms (1 step)/2.0 s
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:38:34             => 250.0 ms (1 step)/250.0 ms (1 step)/250.0 ms
+ `-CVC4: 250.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:21:34             => 230.0 ms (1 step)/230.0 ms (1 step)/230.0 ms
+ `-CVC4: 230.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:33:34             => 230.0 ms (1 step)/230.0 ms (1 step)/230.0 ms
+ `-CVC4: 230.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:11:34             => 220.0 ms (1 step)/220.0 ms (1 step)/220.0 ms
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:16:34             => 220.0 ms (1 step)/220.0 ms (1 step)/220.0 ms
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:26:34             => 220.0 ms (1 step)/220.0 ms (1 step)/220.0 ms
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:33:34             => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:38:34             => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:11:34             => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:26:34             => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:16:34             => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:21:34             => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+SPARKNaCl.Stream.Salsa20_Xor_Local                        =>                                                        210.0 ms (1 step)/210.0 ms (1 step)/9.9 s
+`-VC_OVERFLOW_CHECK sparknacl-stream.adb:110:30           => 190.0 ms (1 step)/190.0 ms (1 step)/1.2 s
+ `-CVC4: 190.0 ms (1 step), Valid
+ `-CVC4: 180.0 ms (1 step), Valid
+ `-CVC4: 180.0 ms (1 step), Valid
+ `-CVC4: 150.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-stream.adb:110:16   => 210.0 ms (1 step)/210.0 ms (1 step)/860.0 ms
+ `-CVC4: 210.0 ms (1 step), Valid
+ `-CVC4: 190.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-stream.adb:66:27            => 120.0 ms (1 step)/120.0 ms (1 step)/770.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-stream.adb:111:47           => 190.0 ms (1 step)/190.0 ms (1 step)/590.0 ms
+ `-CVC4: 190.0 ms (1 step), Valid
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-stream.adb:66:19    => 110.0 ms (1 step)/110.0 ms (1 step)/580.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-stream.adb:113:29              => 180.0 ms (1 step)/180.0 ms (1 step)/510.0 ms
+ `-CVC4: 180.0 ms (1 step), Valid
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-stream.adb:113:29           => 170.0 ms (1 step)/170.0 ms (1 step)/500.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-stream.adb:67:44            => 120.0 ms (1 step)/120.0 ms (1 step)/400.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-stream.adb:116:20              => 180.0 ms (1 step)/180.0 ms (1 step)/360.0 ms
+ `-CVC4: 180.0 ms (1 step), Valid
+ `-CVC4: 180.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-stream.adb:69:26               => 120.0 ms (1 step)/120.0 ms (1 step)/350.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-stream.adb:110:16      => 180.0 ms (1 step)/180.0 ms (1 step)/340.0 ms
+ `-CVC4: 180.0 ms (1 step), Valid
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-stream.adb:69:26            => 110.0 ms (1 step)/110.0 ms (1 step)/330.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-stream.adb:115:31              => 170.0 ms (1 step)/170.0 ms (1 step)/250.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-stream.adb:115:31           => 170.0 ms (1 step)/170.0 ms (1 step)/250.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-stream.adb:93:43               => 130.0 ms (1 step)/130.0 ms (1 step)/220.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-stream.adb:66:19       => 100.0 ms (1 step)/100.0 ms (1 step)/190.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-stream.adb:70:43               => 110.0 ms (1 step)/110.0 ms (1 step)/170.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-stream.adb:70:43            => 110.0 ms (1 step)/110.0 ms (1 step)/170.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-stream.adb:58:19            => 90.0 ms (1 step)/90.0 ms (1 step)/170.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-stream.adb:87:30               => 160.0 ms (1 step)/160.0 ms (1 step)/160.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-stream.adb:108:41              => 160.0 ms (1 step)/160.0 ms (1 step)/160.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-stream.adb:46:9               => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-stream.adb:58:16    => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-stream.adb:81:20               => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-stream.adb:87:30            => 120.0 ms (1 step)/120.0 ms (1 step)/120.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-stream.adb:51:17               => 120.0 ms (1 step)/120.0 ms (1 step)/120.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-stream.adb:77:33               => 120.0 ms (1 step)/120.0 ms (1 step)/120.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-stream.adb:34:64            => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-stream.adb:33:49               => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-stream.adb:58:16       => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-stream.adb:34:15               => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-stream.adb:108:14              => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-stream.adb:77:33            => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-stream.adb:33:49            => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+SPARKNaCl.Hashing.Hash                                    =>                                                        190.0 ms (1 step)/190.0 ms (1 step)/1.8 s
+`-VC_RANGE_CHECK sparknacl-hashing.adb:232:43             => 130.0 ms (1 step)/130.0 ms (1 step)/260.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:232:24             => 130.0 ms (1 step)/130.0 ms (1 step)/250.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:227:28             => 190.0 ms (1 step)/190.0 ms (1 step)/190.0 ms
+ `-CVC4: 190.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:227:28            => 180.0 ms (1 step)/180.0 ms (1 step)/180.0 ms
+ `-CVC4: 180.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:226:39          => 180.0 ms (1 step)/180.0 ms (1 step)/180.0 ms
+ `-CVC4: 180.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:227:10             => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:233:24             => 70.0 ms (1 step)/70.0 ms (1 step)/130.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:237:25             => 70.0 ms (1 step)/70.0 ms (1 step)/130.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-hashing.adb:226:44          => 120.0 ms (1 step)/120.0 ms (1 step)/120.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-hashing.adb:223:47             => 120.0 ms (1 step)/120.0 ms (1 step)/120.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-hashing.adb:223:47          => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-hashing.adb:227:25            => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+SPARKNaCl.Car.Difference_To_Nearlynormal                  =>                                                        160.0 ms (1 step)/160.0 ms (1 step)/2.9 s
+`-VC_RANGE_CHECK sparknacl-car.adb:203:33                 => 150.0 ms (1 step)/150.0 ms (1 step)/250.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:202:19                 => 120.0 ms (1 step)/120.0 ms (1 step)/210.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-car.adb:210:67                 => 100.0 ms (1 step)/100.0 ms (1 step)/180.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-car.adb:210:59                 => 100.0 ms (1 step)/100.0 ms (1 step)/170.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:223:22                      => 160.0 ms (1 step)/160.0 ms (1 step)/160.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:208:33      => 160.0 ms (1 step)/160.0 ms (1 step)/160.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:210:13      => 160.0 ms (1 step)/160.0 ms (1 step)/160.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-car.adb:207:55                 => 90.0 ms (1 step)/90.0 ms (1 step)/160.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:207:13      => 140.0 ms (1 step)/140.0 ms (1 step)/140.0 ms
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:225:31             => 140.0 ms (1 step)/140.0 ms (1 step)/140.0 ms
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:210:21                 => 90.0 ms (1 step)/90.0 ms (1 step)/140.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:218:16                 => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:220:22                 => 120.0 ms (1 step)/120.0 ms (1 step)/120.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:215:10                      => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:207:21                 => 60.0 ms (1 step)/60.0 ms (1 step)/110.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:208:33         => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:216:22                      => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:207:13         => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-car.adb:204:25              => 50.0 ms (1 step)/50.0 ms (1 step)/90.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:210:13         => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:199:22                      => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-car.adb:221:24              => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+SPARKNaCl.Sign.Open                                       =>                                                        160.0 ms (1 step)/160.0 ms (1 step)/1.5 s
+`-VC_LENGTH_CHECK sparknacl-sign.adb:1017:12              => 160.0 ms (1 step)/160.0 ms (1 step)/160.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-sign.adb:1027:26              => 160.0 ms (1 step)/160.0 ms (1 step)/160.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-sign.adb:1003:12              => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:1027:7                => 120.0 ms (1 step)/120.0 ms (1 step)/120.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:1027:18            => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:1027:39            => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:1025:34               => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:1027:26               => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:1011:24               => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-sign.adb:1008:9               => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:1016:21               => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-sign.adb:995:12               => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-sign.adb:1027:23              => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-sign.adb:1016:14              => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+SPARKNaCl.Utils.Pack_25519.Subtract_P                     =>                                                        150.0 ms (1 step)/180.0 ms (1 step)/1.8 s
+`-VC_POSTCONDITION sparknacl-utils.adb:91:24              => 120.0 ms (1 step)/180.0 ms (1 step)/300.0 ms
+ `-CVC4: 180.0 ms (1 step), Unknown (unknown)
+  -Z3: 120.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-utils.adb:112:43               => 130.0 ms (1 step)/130.0 ms (1 step)/230.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-utils.adb:117:21               => 110.0 ms (1 step)/110.0 ms (1 step)/200.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-utils.adb:116:24               => 110.0 ms (1 step)/110.0 ms (1 step)/160.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-utils.adb:116:16    => 150.0 ms (1 step)/150.0 ms (1 step)/150.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-utils.adb:139:23           => 140.0 ms (1 step)/140.0 ms (1 step)/140.0 ms
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-utils.adb:116:16       => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-utils.adb:124:40               => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-utils.adb:107:25               => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-utils.adb:111:45            => 50.0 ms (1 step)/50.0 ms (1 step)/90.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-utils.adb:113:36            => 50.0 ms (1 step)/50.0 ms (1 step)/90.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-utils.adb:133:27            => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-utils.adb:123:36            => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+SPARKNaCl.Utils.Pack_25519                                =>                                                        150.0 ms (1 step)/150.0 ms (1 step)/870.0 ms
+`-VC_PREDICATE_CHECK sparknacl-utils.adb:186:14           => 150.0 ms (1 step)/150.0 ms (1 step)/150.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-utils.adb:197:27           => 150.0 ms (1 step)/150.0 ms (1 step)/150.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-utils.adb:186:18           => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-utils.adb:187:18           => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-utils.adb:191:20           => 120.0 ms (1 step)/120.0 ms (1 step)/120.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-utils.adb:184:7               => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-utils.adb:185:7               => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-utils.adb:184:19           => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+SPARKNaCl.Secretbox.Create                                =>                                                        120.0 ms (1 step)/120.0 ms (1 step)/2.1 s
+`-VC_LENGTH_CHECK sparknacl-secretbox.adb:46:12           => 70.0 ms (1 step)/70.0 ms (1 step)/260.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-secretbox.adb:34:16           => 110.0 ms (1 step)/110.0 ms (1 step)/250.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-secretbox.adb:37:39           => 110.0 ms (1 step)/110.0 ms (1 step)/230.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-secretbox.adb:37:39            => 70.0 ms (1 step)/70.0 ms (1 step)/210.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-secretbox.adb:32:13            => 70.0 ms (1 step)/70.0 ms (1 step)/190.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-secretbox.adb:29:29            => 60.0 ms (1 step)/60.0 ms (1 step)/190.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-secretbox.adb:32:55         => 70.0 ms (1 step)/70.0 ms (1 step)/180.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-secretbox.adb:27:16           => 40.0 ms (1 step)/40.0 ms (1 step)/160.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_POSTCONDITION sparknacl-secretbox.ads:23:21          => 120.0 ms (1 step)/120.0 ms (1 step)/120.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-secretbox.ads:23:28            => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-secretbox.adb:23:20            => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-secretbox.ads:22:28            => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-secretbox.ads:23:21           => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-secretbox.ads:22:21           => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-secretbox.adb:23:13           => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+SPARKNaCl.Core.HSalsa20                                   =>                                                        120.0 ms (1 step)/120.0 ms (1 step)/650.0 ms
+`-VC_LENGTH_CHECK sparknacl-core.adb:184:16               => 120.0 ms (1 step)/120.0 ms (1 step)/120.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-core.adb:185:16               => 120.0 ms (1 step)/120.0 ms (1 step)/120.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-core.adb:178:41               => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:185:16                => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:184:16                => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-core.adb:179:41               => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:178:41                => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:179:41                => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+SPARKNaCl.Utils.Unpack_25519                              =>                                                        110.0 ms (1 step)/110.0 ms (1 step)/1.0 s
+`-VC_PREDICATE_CHECK sparknacl-utils.adb:218:25           => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-utils.adb:214:21               => 60.0 ms (1 step)/60.0 ms (1 step)/110.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-utils.adb:214:48               => 60.0 ms (1 step)/60.0 ms (1 step)/110.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_INITIALIZATION_CHECK sparknacl-utils.adb:218:14      => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-utils.adb:213:16    => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-utils.adb:213:24               => 60.0 ms (1 step)/60.0 ms (1 step)/90.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_INITIALIZATION_CHECK sparknacl-utils.adb:216:20      => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_INITIALIZATION_CHECK sparknacl-utils.adb:218:25      => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-utils.adb:213:16       => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_INITIALIZATION_CHECK sparknacl-utils.adb:214:45      => 40.0 ms (1 step)/40.0 ms (1 step)/70.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-utils.adb:216:27            => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-utils.adb:218:14           => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+SPARKNaCl.Sign.ModL                                       =>                                                        100.0 ms (1 step)/100.0 ms (1 step)/310.0 ms
+`-VC_PRECONDITION sparknacl-sign.adb:663:7                => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-sign.adb:662:7                => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-sign.adb:667:7                => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-sign.adb:661:7                => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+SPARKNaCl.Equal                                           =>                                                        90.0 ms (1 step)/90.0 ms (1 step)/740.0 ms
+`-VC_INDEX_CHECK sparknacl.adb:217:68                     => 70.0 ms (1 step)/70.0 ms (1 step)/130.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.adb:217:60                     => 50.0 ms (1 step)/50.0 ms (1 step)/100.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:217:13          => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.adb:215:33                     => 50.0 ms (1 step)/50.0 ms (1 step)/90.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:217:26                     => 50.0 ms (1 step)/50.0 ms (1 step)/80.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl.adb:217:13             => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_POSTCONDITION sparknacl.ads:95:21                    => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.ads:96:51                      => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.ads:96:59                      => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:214:11                     => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-CVC4: 20.0 ms (1 step), Valid
+SPARKNaCl.Sign.Hash_Reduce                                =>                                                        90.0 ms (1 step)/90.0 ms (1 step)/560.0 ms
+`-VC_INDEX_CHECK sparknacl-sign.adb:681:54                => 60.0 ms (1 step)/60.0 ms (1 step)/120.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:681:21                => 60.0 ms (1 step)/60.0 ms (1 step)/100.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:685:10                     => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:681:13     => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-sign.adb:687:14               => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:681:13        => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+SPARKNaCl.Sign.Keypair_From_Bytes                         =>                                                        90.0 ms (1 step)/90.0 ms (1 step)/170.0 ms
+`-VC_LENGTH_CHECK sparknacl-sign.adb:814:22               => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:811:32                => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:814:22                => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+SPARKNaCl                                                 =>                                                        80.0 ms (1 step)/80.0 ms (1 step)/260.0 ms
+`-VC_PREDICATE_CHECK sparknacl.ads:340:38                 => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl.ads:339:38                 => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl.ads:339:38                 => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl.ads:340:38                 => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+SPARKNaCl.Utils.Pack_25519.To_Bytes_32                    =>                                                        80.0 ms (1 step)/80.0 ms (1 step)/190.0 ms
+`-VC_RANGE_CHECK sparknacl-utils.adb:150:47               => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-utils.adb:149:47               => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-utils.adb:149:47            => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-utils.adb:150:47            => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-CVC4: 20.0 ms (1 step), Valid
+SPARKNaCl.Core.Salsa20                                    =>                                                        80.0 ms (1 step)/80.0 ms (1 step)/140.0 ms
+`-VC_LENGTH_CHECK sparknacl-core.adb:158:16               => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:158:16                => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+SPARKNaCl.Scalar                                          =>                                                        80.0 ms (1 step)/80.0 ms (1 step)/130.0 ms
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:7:38            => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-scalar.adb:7:38            => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+SPARKNaCl.Sign.Unpackneg                                  =>                                                        80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+`-VC_DIVISION_CHECK sparknacl-sign.adb:758:35             => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+SPARKNaCl.Osubtract                                       =>                                                        70.0 ms (1 step)/70.0 ms (1 step)/470.0 ms
+`-VC_INDEX_CHECK sparknacl.adb:44:55                      => 50.0 ms (1 step)/50.0 ms (1 step)/80.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:41:42                      => 50.0 ms (1 step)/50.0 ms (1 step)/80.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:43:13           => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl.adb:53:22                           => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl.adb:62:42                  => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:44:22                      => 40.0 ms (1 step)/40.0 ms (1 step)/50.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 10.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl.adb:43:13              => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:51:22                      => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:35:39                      => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-CVC4: 20.0 ms (1 step), Valid
+SPARKNaCl.Cryptobox.Open                                  =>                                                        70.0 ms (1 step)/70.0 ms (1 step)/320.0 ms
+`-VC_POSTCONDITION sparknacl-cryptobox.ads:107:21         => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-cryptobox.ads:106:28           => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-cryptobox.ads:107:28           => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-cryptobox.adb:122:7           => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-cryptobox.ads:107:21          => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-cryptobox.ads:106:21          => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+SPARKNaCl.Sign.Scalarmult.CSwap                           =>                                                        70.0 ms (1 step)/70.0 ms (1 step)/140.0 ms
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:143:26            => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:143:33            => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+SPARKNaCl.Stream.Salsa20                                  =>                                                        70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+`-VC_PRECONDITION sparknacl-stream.adb:137:7              => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+SPARKNaCl.Core.Core_Common                                =>                                                        60.0 ms (1 step)/60.0 ms (1 step)/1.3 s
+`-VC_DIVISION_CHECK sparknacl-core.adb:93:35              => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-core.adb:94:39              => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-core.adb:103:33             => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-core.adb:104:33             => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-core.adb:105:33             => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-core.adb:106:33             => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:69:25                 => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-core.adb:95:39              => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-core.adb:96:40              => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:70:35                 => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:71:25                 => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:72:35                 => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:74:25                 => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:75:35                 => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:76:25                 => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:77:35                 => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:79:25                 => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:80:35                 => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:81:25                 => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:82:35                 => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:84:25                 => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:85:35                 => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:86:25                 => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-core.adb:87:35                 => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+SPARKNaCl.Sign.Oadd                                       =>                                                        60.0 ms (1 step)/60.0 ms (1 step)/770.0 ms
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:117:17            => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:123:32            => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:123:36            => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:124:36            => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:116:13            => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:116:17            => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:124:32            => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:114:16            => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:117:13            => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:118:13            => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:121:32            => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:122:32            => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:122:36            => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:118:17            => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:119:13            => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:119:17            => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:121:36            => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:114:12            => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-CVC4: 20.0 ms (1 step), Valid
+SPARKNaCl.Cryptobox.AfterNM                               =>                                                        60.0 ms (1 step)/60.0 ms (1 step)/260.0 ms
+`-VC_RANGE_CHECK sparknacl-cryptobox.ads:60:28            => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-cryptobox.ads:61:28            => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-cryptobox.adb:83:16           => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-cryptobox.ads:61:21           => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_POSTCONDITION sparknacl-cryptobox.ads:61:21          => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-cryptobox.ads:60:21           => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+SPARKNaCl.Cryptobox.Create                                =>                                                        60.0 ms (1 step)/60.0 ms (1 step)/260.0 ms
+`-VC_RANGE_CHECK sparknacl-cryptobox.ads:90:28            => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-cryptobox.ads:91:28            => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-cryptobox.ads:90:21           => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-cryptobox.ads:91:21           => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_POSTCONDITION sparknacl-cryptobox.ads:91:21          => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-cryptobox.adb:107:7           => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+SPARKNaCl.Cryptobox.Open_AfterNM                          =>                                                        60.0 ms (1 step)/60.0 ms (1 step)/240.0 ms
+`-VC_RANGE_CHECK sparknacl-cryptobox.ads:75:28            => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-cryptobox.ads:76:28            => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-cryptobox.adb:94:16           => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_POSTCONDITION sparknacl-cryptobox.ads:76:21          => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-cryptobox.ads:75:21           => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-cryptobox.ads:76:21           => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+SPARKNaCl.Sanitize                                        =>                                                        60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+`-VC_LENGTH_CHECK sparknacl-sanitize.adb:4:6              => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+SPARKNaCl.Sign.ModL.Initialize_XL                         =>                                                        50.0 ms (1 step)/50.0 ms (1 step)/430.0 ms
+`-VC_INDEX_CHECK sparknacl-sign.adb:311:75                => 40.0 ms (1 step)/40.0 ms (1 step)/60.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:311:72                => 40.0 ms (1 step)/40.0 ms (1 step)/60.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 20.0 ms (1 step), Valid
+`-VC_POSTCONDITION sparknacl-sign.adb:255:22              => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:311:58                => 30.0 ms (1 step)/30.0 ms (1 step)/50.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+ `-CVC4: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:309:32                => 30.0 ms (1 step)/30.0 ms (1 step)/50.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+ `-CVC4: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:311:24                => 30.0 ms (1 step)/30.0 ms (1 step)/50.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+ `-CVC4: 20.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:311:16     => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:257:66                => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:311:16        => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+SPARKNaCl.Oadd                                            =>                                                        50.0 ms (1 step)/50.0 ms (1 step)/390.0 ms
+`-VC_PREDICATE_CHECK sparknacl.adb:14:10                  => 50.0 ms (1 step)/50.0 ms (1 step)/80.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:14:28                      => 40.0 ms (1 step)/40.0 ms (1 step)/70.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl.adb:16:54                      => 40.0 ms (1 step)/40.0 ms (1 step)/60.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+ `-CVC4: 20.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:16:13           => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl.adb:16:21                      => 30.0 ms (1 step)/30.0 ms (1 step)/50.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+ `-CVC4: 20.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl.adb:16:13              => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl.adb:11:21                  => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-CVC4: 20.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl.adb:11:21                  => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-CVC4: 20.0 ms (1 step), Valid
+SPARKNaCl.Core.ST32                                       =>                                                        50.0 ms (1 step)/50.0 ms (1 step)/70.0 ms
+`-VC_RANGE_CHECK sparknacl-core.adb:41:27                 => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-core.adb:41:27              => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-CVC4: 20.0 ms (1 step), Valid
+SPARKNaCl.Hashing.TS64                                    =>                                                        50.0 ms (1 step)/50.0 ms (1 step)/70.0 ms
+`-VC_RANGE_CHECK sparknacl-hashing.adb:58:27              => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-hashing.adb:58:27           => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-CVC4: 20.0 ms (1 step), Valid
+SPARKNaCl.Car.Nearlynormal_To_Normal.Carrying_Minus_One   =>                                                        40.0 ms (1 step)/40.0 ms (1 step)/130.0 ms
+`-VC_INDEX_CHECK sparknacl-car.adb:268:18                 => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-car.adb:263:26              => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-car.adb:268:35                 => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:267:20                 => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+SPARKNaCl.Stream.HSalsa20                                 =>                                                        40.0 ms (1 step)/40.0 ms (1 step)/110.0 ms
+`-VC_PRECONDITION sparknacl-stream.adb:156:7              => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-stream.adb:155:35              => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-CVC4: 40.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-stream.adb:156:34              => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+SPARKNaCl.Car.Nearlynormal_To_Normal.Carrying_Plus_One    =>                                                        30.0 ms (1 step)/30.0 ms (1 step)/110.0 ms
+`-VC_DIVISION_CHECK sparknacl-car.adb:248:26              => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-car.adb:253:18                 => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-car.adb:253:32                 => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:252:20                 => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-CVC4: 20.0 ms (1 step), Valid
+SPARKNaCl.Stream.HSalsa20_Xor                             =>                                                        30.0 ms (1 step)/30.0 ms (1 step)/90.0 ms
+`-VC_PRECONDITION sparknacl-stream.adb:170:7              => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-stream.adb:169:35              => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-stream.adb:173:50              => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+SPARKNaCl.MAC.Onetimeauth_Verify                          =>                                                        30.0 ms (1 step)/30.0 ms (1 step)/60.0 ms
+`-VC_PRECONDITION sparknacl-mac.adb:178:7                 => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-mac.adb:179:14                => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+SPARKNaCl.Sign.Par_25519                                  =>                                                        30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+`-VC_DIVISION_CHECK sparknacl-sign.adb:180:21             => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+SPARKNaCl.Sign.Sanitize_GF_Vector_4                       =>                                                        30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+`-VC_PREDICATE_CHECK sparknacl-sign.adb:98:23             => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+SPARKNaCl.Sign.Unpackneg.Oeq                              =>                                                        30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+`-VC_PRECONDITION sparknacl-sign.adb:705:17               => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+SPARKNaCl.Stream.Salsa20_Xor                              =>                                                        30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+`-VC_PRECONDITION sparknacl-stream.adb:146:7              => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+SPARKNaCl.Sanitize_GF                                     =>                                                        20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+`-VC_POSTCONDITION sparknacl.ads:411:19                   => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-CVC4: 20.0 ms (1 step), Valid
+SPARKNaCl.Sanitize_I64_Seq                                =>                                                        20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+`-VC_LENGTH_CHECK sparknacl-sanitize_i64_seq.adb:4:6      => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-CVC4: 20.0 ms (1 step), Valid
+Random                                                    =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+Random.Random_Byte                                        =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Car                                             =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Car.Nearlynormal_To_Normal.Temp_GFPredicate     =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Car.Product_To_Seminormal.Temp_GFPredicate      =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Car.Seminormal_To_Nearlynormal.Temp_GFPredicate =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Car.Sum_To_Nearlynormal.Temp_GFPredicate        =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Core                                            =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Core.Construct                                  =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Core.LD32                                       =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Core.Salsa20_Key                                =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Core.Sanitize                                   =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Core.Serialize                                  =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Cryptobox                                       =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Cryptobox.BeforeNM                              =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Cryptobox.Construct                             =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Cryptobox.Keypair                               =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Cryptobox.Public_Key                            =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Cryptobox.Sanitize                              =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Cryptobox.Secret_Key                            =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Cryptobox.Serialize                             =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Debug                                           =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Debug.DH                                        =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Debug.DHH                                       =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Difference_GFPredicate                          =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Hashing                                         =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Hashing.Hashblocks.Ch                           =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Hashing.Hashblocks.DL64                         =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Hashing.Hashblocks.LC_Sigma0                    =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Hashing.Hashblocks.LC_Sigma1                    =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Hashing.Hashblocks.Maj                          =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Hashing.Hashblocks.UC_Sigma0                    =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Hashing.Hashblocks.UC_Sigma1                    =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.MAC                                             =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.MAC.Construct                                   =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.MAC.Onetimeauth.Add_1305                        =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.MAC.Poly_1305_Key                               =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.MAC.Sanitize                                    =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.MAC.Serialize                                   =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Nearlynormal_GFPredicate                        =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Normal_GFPredicate                              =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Oeq                                             =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.PDebug                                          =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.PDebug.DH                                       =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.PDebug.I64IO.Get                                =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.PDebug.I64IO.Put                                =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Product_GFPredicate                             =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Random_Bytes                                    =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Sanitize_Boolean                                =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Sanitize_GF_PA                                  =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Sanitize_U64                                    =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Scalar.Mult_Base                                =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Secretbox                                       =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Seminormal_GFPredicate                          =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Sign.Keypair                                    =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Sign.PK_From_Bytes                              =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Sign.Pack                                       =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Sign.Sanitize                                   =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Sign.Scalarbase                                 =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Sign.Serialize                                  =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Sign.Signing_PK                                 =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Sign.Signing_SK                                 =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Sign.Unpackneg.Pow_2523                         =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Square                                          =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Stream                                          =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Sum_GFPredicate                                 =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Utils                                           =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Utils.Inv_25519                                 =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Utils.Pack_25519.Temp_GFPredicate               =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Utils.Random_Bytes_32                           =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.to_i64GP13565                                   =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.to_i64GP13565.To_I64                            =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.to_u64GP13502                                   =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.to_u64GP13502.To_U64                            =>                                                        0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+SPARKNaCl.Sign.Sign                                       =>                                                        --/57.6 s (14007 steps)/489.2 s
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36             => --/57.6 s (14007 steps)/238.7 s
+ `-CVC4: 57.6 s (14001 steps), Unknown (unknown)
+  -Z3: 4.3 s (5945 steps), Valid
+ `-CVC4: 51.6 s (14001 steps), Unknown (unknown)
+  -Z3: 7.9 s (14006 steps), Unknown (unknown)
+ `-CVC4: 50.5 s (14001 steps), Unknown (unknown)
+  -Z3: 8.8 s (14006 steps), Unknown (unknown)
+ `-CVC4: 50.7 s (14001 steps), Unknown (unknown)
+  -Z3: 7.2 s (14007 steps), Unknown (unknown)
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:896:16     => 8.2 s (14007 steps)/51.5 s (14007 steps)/115.1 s
+ `-CVC4: 51.5 s (14001 steps), Unknown (unknown)
+  -Z3: 8.2 s (14007 steps), Valid
+ `-CVC4: 51.1 s (14001 steps), Unknown (unknown)
+  -Z3: 4.3 s (6848 steps), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:896:16        => 6.0 s (8848 steps)/51.0 s (14001 steps)/112.4 s
+ `-CVC4: 51.0 s (14001 steps), Unknown (unknown)
+  -Z3: 6.0 s (8848 steps), Valid
+ `-CVC4: 50.9 s (14001 steps), Unknown (unknown)
+  -Z3: 4.6 s (8578 steps), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:907:22                => 510.0 ms (1 step)/510.0 ms (1 step)/1.4 s
+ `-CVC4: 510.0 ms (1 step), Valid
+ `-CVC4: 350.0 ms (1 step), Valid
+ `-CVC4: 330.0 ms (1 step), Valid
+ `-CVC4: 210.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:915:22                => 520.0 ms (1 step)/520.0 ms (1 step)/1.4 s
+ `-CVC4: 520.0 ms (1 step), Valid
+ `-CVC4: 320.0 ms (1 step), Valid
+ `-CVC4: 310.0 ms (1 step), Valid
+ `-CVC4: 230.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:920:22                => 500.0 ms (1 step)/500.0 ms (1 step)/1.2 s
+ `-CVC4: 500.0 ms (1 step), Valid
+ `-CVC4: 320.0 ms (1 step), Valid
+ `-CVC4: 310.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:910:25                => 490.0 ms (1 step)/490.0 ms (1 step)/1.2 s
+ `-CVC4: 490.0 ms (1 step), Valid
+ `-CVC4: 310.0 ms (1 step), Valid
+ `-CVC4: 300.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:906:25                => 480.0 ms (1 step)/480.0 ms (1 step)/1.2 s
+ `-CVC4: 480.0 ms (1 step), Valid
+ `-CVC4: 310.0 ms (1 step), Valid
+ `-CVC4: 310.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:918:25                => 480.0 ms (1 step)/480.0 ms (1 step)/1.2 s
+ `-CVC4: 480.0 ms (1 step), Valid
+ `-CVC4: 310.0 ms (1 step), Valid
+ `-CVC4: 310.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:924:22                => 440.0 ms (1 step)/440.0 ms (1 step)/1.2 s
+ `-CVC4: 440.0 ms (1 step), Valid
+ `-CVC4: 280.0 ms (1 step), Valid
+ `-CVC4: 270.0 ms (1 step), Valid
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:911:22                => 430.0 ms (1 step)/430.0 ms (1 step)/1.2 s
+ `-CVC4: 430.0 ms (1 step), Valid
+ `-CVC4: 290.0 ms (1 step), Valid
+ `-CVC4: 280.0 ms (1 step), Valid
+ `-CVC4: 190.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:914:25                => 410.0 ms (1 step)/410.0 ms (1 step)/1.1 s
+ `-CVC4: 410.0 ms (1 step), Valid
+ `-CVC4: 280.0 ms (1 step), Valid
+ `-CVC4: 280.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:903:22                => 450.0 ms (1 step)/450.0 ms (1 step)/940.0 ms
+ `-CVC4: 450.0 ms (1 step), Valid
+ `-CVC4: 300.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:902:25                => 430.0 ms (1 step)/430.0 ms (1 step)/920.0 ms
+ `-CVC4: 430.0 ms (1 step), Valid
+ `-CVC4: 300.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:903:36             => 430.0 ms (1 step)/430.0 ms (1 step)/900.0 ms
+ `-CVC4: 430.0 ms (1 step), Valid
+ `-CVC4: 280.0 ms (1 step), Valid
+ `-CVC4: 110.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:923:25                => 420.0 ms (1 step)/420.0 ms (1 step)/850.0 ms
+ `-CVC4: 420.0 ms (1 step), Valid
+ `-CVC4: 260.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:950:19                => 440.0 ms (1 step)/440.0 ms (1 step)/650.0 ms
+ `-CVC4: 440.0 ms (1 step), Valid
+ `-CVC4: 210.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:942:19                => 410.0 ms (1 step)/410.0 ms (1 step)/630.0 ms
+ `-CVC4: 410.0 ms (1 step), Valid
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:931:13     => 550.0 ms (1 step)/550.0 ms (1 step)/550.0 ms
+ `-CVC4: 550.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:938:33             => 410.0 ms (1 step)/410.0 ms (1 step)/510.0 ms
+ `-CVC4: 410.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:946:19                => 410.0 ms (1 step)/410.0 ms (1 step)/500.0 ms
+ `-CVC4: 410.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:938:19                => 400.0 ms (1 step)/400.0 ms (1 step)/480.0 ms
+ `-CVC4: 400.0 ms (1 step), Valid
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:941:22                => 370.0 ms (1 step)/370.0 ms (1 step)/460.0 ms
+ `-CVC4: 370.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:949:22                => 350.0 ms (1 step)/350.0 ms (1 step)/450.0 ms
+ `-CVC4: 350.0 ms (1 step), Valid
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:937:22                => 340.0 ms (1 step)/340.0 ms (1 step)/430.0 ms
+ `-CVC4: 340.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:875:55                => 170.0 ms (1 step)/170.0 ms (1 step)/320.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 150.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-sign.adb:876:55                => 170.0 ms (1 step)/170.0 ms (1 step)/310.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:959:10                     => 290.0 ms (1 step)/290.0 ms (1 step)/290.0 ms
+ `-CVC4: 290.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:875:13     => 280.0 ms (1 step)/280.0 ms (1 step)/280.0 ms
+ `-CVC4: 280.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:972:10                     => 270.0 ms (1 step)/270.0 ms (1 step)/270.0 ms
+ `-CVC4: 270.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:931:13        => 270.0 ms (1 step)/270.0 ms (1 step)/270.0 ms
+ `-CVC4: 270.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:875:22                => 200.0 ms (1 step)/200.0 ms (1 step)/270.0 ms
+ `-CVC4: 200.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:876:22                => 170.0 ms (1 step)/170.0 ms (1 step)/240.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:875:13        => 210.0 ms (1 step)/210.0 ms (1 step)/210.0 ms
+ `-CVC4: 210.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:880:10                     => 190.0 ms (1 step)/190.0 ms (1 step)/190.0 ms
+ `-CVC4: 190.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:945:22                => 100.0 ms (1 step)/100.0 ms (1 step)/190.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+ `-CVC4: 90.0 ms (1 step), Valid
+`-VC_LENGTH_CHECK sparknacl-sign.adb:861:10               => 170.0 ms (1 step)/170.0 ms (1 step)/170.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:861:42                => 140.0 ms (1 step)/140.0 ms (1 step)/140.0 ms
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:863:25                => 120.0 ms (1 step)/120.0 ms (1 step)/120.0 ms
+ `-CVC4: 120.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-sign.ads:60:38              => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_PRECONDITION sparknacl-sign.adb:974:24               => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:861:27                => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:867:24                => 70.0 ms (1 step)/70.0 ms (1 step)/70.0 ms
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:856:24                => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:861:29                => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+SPARKNaCl.ASR_16                                          =>                                                        --/5.7 s (14001 steps)/5.9 s
+`-VC_POSTCONDITION sparknacl.ads:355:35                   => --/5.7 s (14001 steps)/5.8 s
+ `-Z3: 5.7 s (14001 steps), Unknown (unknown)
+  -CVC4: 80.0 ms (1 step), Unknown (unknown)
+Justified with: "From definition of arithmetic shift right".
+`-VC_OVERFLOW_CHECK sparknacl.ads:356:55                  => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl.ads:355:53                  => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl.ads:356:60                  => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+SPARKNaCl.ASR_8                                           =>                                                        --/3.3 s (14001 steps)/3.5 s
+`-VC_POSTCONDITION sparknacl.ads:367:35                   => --/3.3 s (14001 steps)/3.4 s
+ `-Z3: 3.3 s (14001 steps), Unknown (unknown)
+  -CVC4: 90.0 ms (1 step), Unknown (unknown)
+Justified with: "From definition of arithmetic shift right".
+`-VC_OVERFLOW_CHECK sparknacl.ads:368:54                  => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl.ads:367:52                  => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl.ads:368:59                  => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+SPARKNaCl.ASR_4                                           =>                                                        --/1.2 s (14001 steps)/1.4 s
+`-VC_POSTCONDITION sparknacl.ads:379:35                   => --/1.2 s (14001 steps)/1.3 s
+ `-Z3: 1.2 s (14001 steps), Unknown (unknown)
+  -CVC4: 80.0 ms (1 step), Unknown (unknown)
+Justified with: "From definition of arithmetic shift right".
+`-VC_OVERFLOW_CHECK sparknacl.ads:380:54                  => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl.ads:379:52                  => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl.ads:380:59                  => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-CVC4: 30.0 ms (1 step), Valid
+SPARKNaCl.Car.Nearlynormal_To_Normal                      =>                                                        --/1.4 s (803 steps)/17.5 s
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13      => --/1.4 s (367 steps)/1.9 s
+ `-CVC4: 1.4 s (1 step), Unknown (unknown)
+  -Z3: 590.0 ms (367 steps), Unknown (unknown)
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:322:13      => 810.0 ms (803 steps)/810.0 ms (803 steps)/1.6 s
+ `-Z3: 810.0 ms (803 steps), Valid
+  -CVC4: 810.0 ms (1 step), Unknown (unknown)
+`-VC_PREDICATE_CHECK sparknacl-car.adb:308:10             => 1.0 s (222 steps)/1.0 s (222 steps)/1.2 s
+ `-CVC4: 1.0 s (222 steps), Valid
+ `-CVC4: 180.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:343:31                      => --/790.0 ms (635 steps)/1.2 s
+ `-Z3: 790.0 ms (635 steps), Unknown (unknown)
+  -CVC4: 410.0 ms (1 step), Unknown (unknown)
+`-VC_ASSERT sparknacl-car.adb:345:10                      => 760.0 ms (679 steps)/760.0 ms (679 steps)/1.2 s
+ `-Z3: 760.0 ms (679 steps), Valid
+  -CVC4: 440.0 ms (1 step), Unknown (unknown)
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:322:13         => 310.0 ms (1 step)/350.0 ms (1 step)/660.0 ms
+ `-CVC4: 350.0 ms (1 step), Unknown (unknown)
+  -Z3: 310.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:357:22                      => 80.0 ms (1 step)/450.0 ms (1 step)/530.0 ms
+ `-CVC4: 450.0 ms (1 step), Unknown (unknown)
+  -Z3: 80.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:324:13         => 270.0 ms (1 step)/270.0 ms (1 step)/530.0 ms
+ `-Z3: 270.0 ms (1 step), Valid
+  -CVC4: 260.0 ms (1 step), Unknown (unknown)
+`-VC_PREDICATE_CHECK sparknacl-car.adb:309:10             => 260.0 ms (1 step)/260.0 ms (1 step)/490.0 ms
+ `-CVC4: 260.0 ms (1 step), Valid
+ `-CVC4: 230.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:308:33                 => 270.0 ms (1 step)/270.0 ms (1 step)/430.0 ms
+ `-CVC4: 270.0 ms (1 step), Valid
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:307:19                 => 230.0 ms (1 step)/230.0 ms (1 step)/390.0 ms
+ `-CVC4: 230.0 ms (1 step), Valid
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:316:33      => 330.0 ms (1 step)/330.0 ms (1 step)/330.0 ms
+ `-CVC4: 330.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-car.adb:312:55                 => 180.0 ms (1 step)/180.0 ms (1 step)/330.0 ms
+ `-CVC4: 180.0 ms (1 step), Valid
+ `-CVC4: 150.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-car.adb:315:59                 => 180.0 ms (1 step)/180.0 ms (1 step)/330.0 ms
+ `-CVC4: 180.0 ms (1 step), Valid
+ `-CVC4: 150.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:315:13      => 320.0 ms (1 step)/320.0 ms (1 step)/320.0 ms
+ `-CVC4: 320.0 ms (1 step), Valid
+`-VC_INDEX_CHECK sparknacl-car.adb:315:67                 => 170.0 ms (1 step)/170.0 ms (1 step)/320.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+ `-CVC4: 150.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:313:33      => 270.0 ms (1 step)/270.0 ms (1 step)/270.0 ms
+ `-CVC4: 270.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:347:10                      => 260.0 ms (1 step)/260.0 ms (1 step)/260.0 ms
+ `-CVC4: 260.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:358:25             => 260.0 ms (1 step)/260.0 ms (1 step)/260.0 ms
+ `-CVC4: 260.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:315:21                 => 190.0 ms (1 step)/190.0 ms (1 step)/260.0 ms
+ `-CVC4: 190.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:312:13      => 250.0 ms (1 step)/250.0 ms (1 step)/250.0 ms
+ `-CVC4: 250.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:339:7              => 250.0 ms (1 step)/250.0 ms (1 step)/250.0 ms
+ `-CVC4: 250.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:355:7              => 250.0 ms (1 step)/250.0 ms (1 step)/250.0 ms
+ `-CVC4: 250.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:338:16                 => 230.0 ms (1 step)/230.0 ms (1 step)/230.0 ms
+ `-CVC4: 230.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:304:10                      => 60.0 ms (1 step)/150.0 ms (1 step)/210.0 ms
+ `-CVC4: 150.0 ms (1 step), Unknown (unknown)
+  -Z3: 60.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:329:10                      => 200.0 ms (1 step)/200.0 ms (1 step)/200.0 ms
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:313:33         => 200.0 ms (1 step)/200.0 ms (1 step)/200.0 ms
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:302:10                      => 60.0 ms (1 step)/140.0 ms (1 step)/200.0 ms
+ `-CVC4: 140.0 ms (1 step), Unknown (unknown)
+  -Z3: 60.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:333:10                      => 170.0 ms (1 step)/170.0 ms (1 step)/170.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:335:10                      => 170.0 ms (1 step)/170.0 ms (1 step)/170.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:355:22                 => 170.0 ms (1 step)/170.0 ms (1 step)/170.0 ms
+ `-CVC4: 170.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:312:13         => 160.0 ms (1 step)/160.0 ms (1 step)/160.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:315:13         => 160.0 ms (1 step)/160.0 ms (1 step)/160.0 ms
+ `-CVC4: 160.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:294:22                      => 150.0 ms (1 step)/150.0 ms (1 step)/150.0 ms
+ `-CVC4: 150.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:312:21                 => 80.0 ms (1 step)/80.0 ms (1 step)/150.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+ `-CVC4: 70.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:330:22                      => 140.0 ms (1 step)/140.0 ms (1 step)/140.0 ms
+ `-CVC4: 140.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:295:22                      => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:297:10                      => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-car.adb:316:33         => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:291:7              => 130.0 ms (1 step)/130.0 ms (1 step)/130.0 ms
+ `-CVC4: 130.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-car.adb:309:25              => 60.0 ms (1 step)/60.0 ms (1 step)/120.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:290:7              => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-CVC4: 110.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:293:22                      => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:289:16                 => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-car.adb:290:22                 => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-CVC4: 100.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:331:22                      => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-car.adb:339:24              => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_PREDICATE_CHECK sparknacl-car.adb:280:12             => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-CVC4: 80.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:276:10                      => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-car.adb:283:10                      => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-CVC4: 60.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-car.adb:291:22              => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK sparknacl-car.adb:294:36              => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-CVC4: 50.0 ms (1 step), Valid

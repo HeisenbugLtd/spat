@@ -102,10 +102,22 @@ package SPAT.Proof_Item is
    function Rule (This : in T) return Rule_Name;
 
    ---------------------------------------------------------------------------
+   --  Max_Success_Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Steps (This : in T) return Prover_Steps;
+
+   ---------------------------------------------------------------------------
    --  Max_Success_Time
    ---------------------------------------------------------------------------
    not overriding
    function Max_Success_Time (This : in T) return Duration;
+
+   ---------------------------------------------------------------------------
+   --  Max_Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Steps (This : in T) return Prover_Steps;
 
    ---------------------------------------------------------------------------
    --  Max_Time
@@ -200,10 +212,14 @@ private
          Suppressed            : Justification;
          Rule                  : Rule_Name;
          Severity              : Severity_Name;
-         Max_Success_Time      : Duration; --  Longest time for a successful proof.
-         Max_Time              : Duration; --  Longest time spent in proof (successful or not)
-         Total_Time            : Duration; --  Accumulated proof time.
-         Id                    : Proof_Item_Ids.Id; --  Id for stable sorting.
+         Max_Success           : Time_And_Steps;
+         --  Longest time/steps for a successful proof.
+         Max_Proof             : Time_And_Steps;
+         --  Longest time/steps spent in proof (successful or not).
+         Total_Time            : Duration;
+         --  Accumulated proof time.
+         Id                    : Proof_Item_Ids.Id;
+         --  Id for stable sorting.
          Has_Failed_Attempts   : Boolean;
          Has_Unproved_Attempts : Boolean;
          Is_Unjustified        : Boolean;
@@ -225,8 +241,10 @@ private
         Entity_Location.T (This).Image & " => " &
         (if This.Has_Unproved_Attempts
          then "--"
-         else Image (Value => This.Max_Success_Time)) & "/" &
-        Image (Value => This.Max_Time) & "/" &
+         else Image (Value => This.Max_Success_Time,
+                     Steps => This.Max_Success_Steps)) & "/" &
+        Image (Value => This.Max_Time,
+               Steps => This.Max_Steps) & "/" &
         Image (Value => This.Total_Time));
 
    ---------------------------------------------------------------------------
@@ -244,18 +262,32 @@ private
       (This.Has_Unproved_Attempts);
 
    ---------------------------------------------------------------------------
+   --  Max_Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Steps (This : in T) return Prover_Steps is
+     (This.Max_Proof.Steps);
+
+   ---------------------------------------------------------------------------
+   --  Max_Success_Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Steps (This : in T) return Prover_Steps is
+     (This.Max_Success.Steps);
+
+   ---------------------------------------------------------------------------
    --  Max_Success_Time
    ---------------------------------------------------------------------------
    not overriding
    function Max_Success_Time (This : in T) return Duration is
-     (This.Max_Success_Time);
+     (This.Max_Success.Time);
 
    ---------------------------------------------------------------------------
    --  Max_Time
    ---------------------------------------------------------------------------
    not overriding
    function Max_Time (This : in T) return Duration is
-     (This.Max_Time);
+     (This.Max_Proof.Time);
 
    ---------------------------------------------------------------------------
    --  Rule

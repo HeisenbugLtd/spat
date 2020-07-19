@@ -1,0 +1,35 @@
+sparknacl-sign.spark      => (Flow  => 253.6 ms,
+                              Proof => 9.2 s (14007 steps)/57.6 s (14007 steps)/764.5 s)
+sparknacl-utils.spark     => (Flow  => 49.8 ms,
+                              Proof => 900.0 ms (1536 steps)/900.0 ms (1536 steps)/17.4 s)
+sparknacl-car.spark       => (Flow  => 86.1 ms,
+                              Proof => 1.0 s (803 steps)/1.4 s (803 steps)/59.0 s)
+sparknacl.spark           => (Flow  => 164.3 ms,
+                              Proof => 700.0 ms (1 step)/19.1 s (14001 steps)/57.3 s)
+sparknacl-scalar.spark    => (Flow  => 62.5 ms,
+                              Proof => 550.0 ms (1 step)/550.0 ms (1 step)/22.1 s)
+sparknacl-hashing.spark   => (Flow  => 70.5 ms,
+                              Proof => 500.0 ms (1 step)/500.0 ms (1 step)/43.8 s)
+sparknacl-mac.spark       => (Flow  => 58.0 ms,
+                              Proof => 340.0 ms (1 step)/340.0 ms (1 step)/8.0 s)
+sparknacl-secretbox.spark => (Flow  => 7.6 ms,
+                              Proof => 270.0 ms (1 step)/270.0 ms (1 step)/10.3 s)
+sparknacl-stream.spark    => (Flow  => 72.6 ms,
+                              Proof => 210.0 ms (1 step)/210.0 ms (1 step)/21.2 s)
+sparknacl-core.spark      => (Flow  => 351.9 ms,
+                              Proof => 120.0 ms (1 step)/120.0 ms (1 step)/8.9 s)
+sparknacl-cryptobox.spark => (Flow  => 69.2 ms,
+                              Proof => 70.0 ms (1 step)/70.0 ms (1 step)/4.9 s)
+sparknacl-pdebug.spark    => (Flow  => 2.2 ms,
+                              Proof => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s)
+random.spark              => (Flow  => 517.0 µs,
+                              Proof => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s)
+sparknacl-debug.spark     => (Flow  => 469.0 µs,
+                              Proof => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s)
+SPARKNaCl.Omultiply                   => 700.0 ms (1 step)/19.1 s (14001 steps)/28.6 s
+SPARKNaCl.Utils.Pack_25519.Subtract_P => 150.0 ms (1 step)/180.0 ms (1 step)/1.8 s
+SPARKNaCl.Sign.Sign                   => --/57.6 s (14007 steps)/489.2 s
+SPARKNaCl.ASR_16                      => --/5.7 s (14001 steps)/5.9 s
+SPARKNaCl.ASR_8                       => --/3.3 s (14001 steps)/3.5 s
+SPARKNaCl.ASR_4                       => --/1.2 s (14001 steps)/1.4 s
+SPARKNaCl.Car.Nearlynormal_To_Normal  => --/1.4 s (803 steps)/17.5 s

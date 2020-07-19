@@ -26,7 +26,14 @@ with SPAT.Timing_Item;
 
 package SPAT.Spark_Info is
 
-   type Sorting_Criterion is (None, Name, Max_Time, Max_Success_Time);
+   type Sorting_Criterion is
+     (None,
+      Name,             --  Alphabetical
+      Max_Time,         --  Maximum (accumulated) proof time
+      Max_Success_Time, --  Minimum time for successful proof
+      Max_Steps,        --  Maximum (accumulated) proof steps
+      Max_Success_Steps --  Minimum steps for successful proof
+     );
 
    type T is tagged limited private;
    --  Binary representation of the information obtained from a .spark JSON
@@ -104,6 +111,13 @@ package SPAT.Spark_Info is
                         File : in SPARK_File_Name) return Duration;
 
    ---------------------------------------------------------------------------
+   --  Max_Proof_Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Proof_Steps (This : in T;
+                             File : in SPARK_File_Name) return Prover_Steps;
+
+   ---------------------------------------------------------------------------
    --  Max_Proof_Time
    ---------------------------------------------------------------------------
    not overriding
@@ -111,14 +125,42 @@ package SPAT.Spark_Info is
                             File : in SPARK_File_Name) return Duration;
 
    ---------------------------------------------------------------------------
+   --  Max_Success_Proof_Steps
+   --
+   --  Reported steps for the longest successful proof.
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Proof_Steps
+     (This : in T;
+      File : in SPARK_File_Name) return Prover_Steps;
+
+   ---------------------------------------------------------------------------
    --  Max_Success_Proof_Time
    --
    --  Reported time for the longest successful proof.
-   --  If the time returned is -1.0, then nothing is proven.
    ---------------------------------------------------------------------------
    not overriding
    function Max_Success_Proof_Time (This : in T;
                                     File : in SPARK_File_Name) return Duration;
+
+   ---------------------------------------------------------------------------
+   --  Max_Proof_Steps
+   --
+   --  Maximum steps taken for a single proof for Entity.
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Proof_Steps (This   : in T;
+                             Entity : in Entity_Name) return Prover_Steps;
+
+   ---------------------------------------------------------------------------
+   --  Max_Success_Proof_Steps
+   --
+   --  Maximum steps taken for a single successful proof for Entity.
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Proof_Steps
+     (This   : in T;
+      Entity : in Entity_Name) return Prover_Steps;
 
    ---------------------------------------------------------------------------
    --  Max_Proof_Time
@@ -236,7 +278,9 @@ private
    type Proof_Cache is
       record
          Max_Proof_Time           : Duration;
+         Max_Proof_Steps          : Prover_Steps;
          Max_Success_Proof_Time   : Duration;
+         Max_Success_Proof_Steps  : Prover_Steps;
          Total_Proof_Time         : Duration;
          Has_Failed_Attempts      : Boolean;
          Has_Unproved_Attempts    : Boolean;
@@ -254,16 +298,22 @@ private
    overriding
    function Image (This : in Proofs_Sentinel) return String is
      (Ada.Tags.External_Tag (T => Proofs_Sentinel'Class (This)'Tag) & ":" &
-      ("(Max_Proof_Time => " & This.Cache.Max_Proof_Time'Image &
-         ", Total_Proof_Time => " & This.Cache.Total_Proof_Time'Image &
-         ", Has_Failed_Attempts => " & This.Cache.Has_Failed_Attempts'Image &
-         ", Has_Unproved_Attempts => " & This.Cache.Has_Unproved_Attempts'Image &
-         ")"));
+      "(Max_Proof_Time =>" & This.Cache.Max_Proof_Time'Image &
+      ", Max_Proof_Steps =>" & This.Cache.Max_Proof_Steps'Image &
+      ", Max_Success_Proof_Time =>" & This.Cache.Max_Success_Proof_Time'Image &
+      ", Max_Success_Proof_Steps =>" & This.Cache.Max_Success_Proof_Steps'Image &
+      ", Total_Proof_Time => " & This.Cache.Total_Proof_Time'Image &
+      ", Has_Failed_Attempts => " & This.Cache.Has_Failed_Attempts'Image &
+      ", Has_Unproved_Attempts => " & This.Cache.Has_Unproved_Attempts'Image &
+      ", Has_Unjustified_Attempts => " & This.Cache.Has_Unjustified_Attempts'Image &
+      ")");
 
    Empty_Proofs_Sentinel : constant Proofs_Sentinel :=
      (Entity.T with
       Cache => Proof_Cache'(Max_Proof_Time           => 0.0,
+                            Max_Proof_Steps          => 0,
                             Max_Success_Proof_Time   => 0.0,
+                            Max_Success_Proof_Steps  => 0,
                             Total_Proof_Time         => 0.0,
                             Has_Failed_Attempts      => False,
                             Has_Unproved_Attempts    => False,
@@ -306,8 +356,10 @@ private
    --  on files.
    type Cache_Info is
       record
-         Max_Success_Proof_Time : Duration;
-         Max_Proof_Time         : Duration;
+         Max_Success_Proof_Time  : Duration;
+         Max_Success_Proof_Steps : Prover_Steps;
+         Max_Proof_Time          : Duration;
+         Max_Proof_Steps         : Prover_Steps;
       end record;
 
    package File_Cached_Info is new

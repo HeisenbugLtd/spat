@@ -1,5 +1,4 @@
-Warning: Sorting files by success time not implemented yet, falling back to maximum time.
 rflx-rflx_types.spark   => (Flow  => 7.2 ms,
-                            Proof => 54.2 s/120.0 s/4.5 ks)
+                            Proof => 54.2 s (99104 steps)/120.0 s (99104 steps)/4.5 ks)
 rflx-arrays-tests.spark => (Flow  => 87.1 ms,
-                            Proof => 0.0 s/0.0 s/54.1 s)
+                            Proof => 0.0 s (1768 steps)/0.0 s (1768 steps)/54.1 s)

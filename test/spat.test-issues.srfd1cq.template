@@ -1,0 +1,36 @@
+rflx-rflx_types.spark   => (Flow  => 7.2 ms,
+                            Proof => 54.2 s (99104 steps)/120.0 s (99104 steps)/4.5 ks)
+rflx-arrays-tests.spark => (Flow  => 87.1 ms,
+                            Proof => 0.0 s (1768 steps)/0.0 s (1768 steps)/54.1 s)
+RFLX.RFLX_Types.U64_Extract                                    =>                                                      37.9 s (99104 steps)/120.0 s (99104 steps)/1.8 ks
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:131:29           => 37.9 s (99104 steps)/120.0 s (99104 steps)/1.1 ks
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:131:27         => 27.1 s (35021 steps)/120.0 s (35021 steps)/147.1 s
+`-VC_LOOP_INVARIANT_PRESERV rflx-rflx_generic_types.adb:137:33 => 25.0 s (39862 steps)/120.0 s (39862 steps)/145.0 s
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:147:30         => 24.8 s (35564 steps)/120.0 s (35564 steps)/144.8 s
+`-VC_POSTCONDITION rflx-rflx_generic_types.adb:101:9           => 23.3 s (48849 steps)/120.0 s (48849 steps)/143.3 s
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:151:52         => 19.6 s (39010 steps)/120.0 s (39010 steps)/139.6 s
+RFLX.RFLX_Types.U64_Insert                                     =>                                                      54.2 s (94470 steps)/120.0 s (94470 steps)/1.6 ks
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:221:39           => 5.2 s (6092 steps)/120.0 s (6092 steps)/490.6 s
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:259:19           => 5.9 s (16665 steps)/120.0 s (16665 steps)/251.9 s
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:251:19           => 1.6 s (4517 steps)/120.0 s (4517 steps)/243.2 s
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:282:48            => 297.4 ms (4075 steps)/120.0 s (4075 steps)/240.3 s
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:229:59            => 54.2 s (94470 steps)/120.0 s (94470 steps)/174.2 s
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:278:38           => 26.6 s (52462 steps)/120.0 s (52462 steps)/146.7 s
+RFLX.RFLX_Types.U64_Extract_Remaining                          =>                                                      10.1 s (25590 steps)/120.0 s (25590 steps)/376.5 s
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:85:91          => 10.1 s (25590 steps)/120.0 s (25590 steps)/130.1 s
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:87:40            => 3.5 s (5190 steps)/120.0 s (5190 steps)/123.6 s
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:87:58          => 1.2 s (1826 steps)/120.0 s (1826 steps)/121.2 s
+RFLX.RFLX_Types.U64_Extract_Intermediate                       =>                                                      6.7 s (10674 steps)/120.0 s (10674 steps)/617.3 s
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:62:39            => 6.7 s (5481 steps)/120.0 s (5481 steps)/126.8 s
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:62:61          => 3.0 s (4713 steps)/120.0 s (4713 steps)/123.0 s
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:65:14            => 1.5 s (1 step)/120.0 s (1 step)/122.0 s
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:58:82          => 1.3 s (1 step)/120.0 s (1 step)/121.3 s
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:63:49          => 40.0 ms (1 step)/120.0 s (1 step)/120.0 s
+RFLX.RFLX_Types.U64_Extract.D                                  =>                                                      4.7 s (308 steps)/9.5 s (308 steps)/70.6 s
+`-VC_ASSERT rflx-rflx_generic_types.adb:117:25                 => 4.7 s (308 steps)/9.5 s (308 steps)/14.2 s
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:117:41         => 2.1 s (1 step)/9.3 s (1 step)/11.4 s
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:120:77         => 60.0 ms (1 step)/9.0 s (1 step)/9.1 s
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:123:45            => 70.0 ms (1 step)/9.0 s (1 step)/9.1 s
+`-VC_INDEX_CHECK rflx-rflx_generic_types.adb:121:43            => 40.0 ms (1 step)/9.0 s (1 step)/9.0 s
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:123:34            => 50.0 ms (1 step)/9.0 s (1 step)/9.0 s
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:121:75            => 40.0 ms (1 step)/8.6 s (1 step)/8.7 s

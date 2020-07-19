@@ -29,10 +29,24 @@ package SPAT is
    Null_Name : Subject_Name renames Ada.Strings.Unbounded.Null_Unbounded_String;
    --  Provide a renaming for the null string.
 
+   type Prover_Steps is range -2 ** 63 .. 2 ** 63 - 1;
+   --  Define our own type instead of using Long_Integer;
+
+   pragma Compile_Time_Warning (Long_Integer'Size < Prover_Steps'Size,
+                                "Long_Integer is less than 64 bit.");
+   --  We use the Long_Integer version of GNATCOLL.JSON.Get to read values of
+   --  this type, so the size of Long_Integer must be sufficient.
+
    ---------------------------------------------------------------------------
    --  Image function for Duration. Used by certain Image functions.
    ---------------------------------------------------------------------------
    function Image (Value : in Duration) return String;
+
+   ---------------------------------------------------------------------------
+   --  Image function for Duration and associated steps.
+   ---------------------------------------------------------------------------
+   function Image (Value : in Duration;
+                   Steps : in Prover_Steps) return String;
 
    ---------------------------------------------------------------------------
    --  To_String
@@ -107,12 +121,35 @@ package SPAT is
    --  Version information. Right now I only have access to the community
    --  releases of SPARK, so these are the only ones fully supported.
 
-   type Prover_Steps is range -2 ** 63 .. 2 ** 63 - 1;
-   --  Define our own type instead of using Long_Integer;
+   --  Combine prover workload in a record capturing time and steps.
+   type Time_And_Steps is
+      record
+         Time  : Duration;
+         --  Time it took for a proof.
+         Steps : Prover_Steps;
+         --  Number of steps it took.
+      end record;
 
-   pragma Compile_Time_Warning (Long_Integer'Size < Prover_Steps'Size,
-                                "Long_Integer is less than 64 bit.");
-   --  We use the Long_Integer version of GNATCOLL.JSON.Get to read values of
-   --  this type, so the size of Long_Integer must be sufficient.
+   None : constant Time_And_Steps;
+
+   ---------------------------------------------------------------------------
+   --  Scaled
+   --
+   --  Implement prover specific steps scaling.
+   --
+   --  The current versions of SPARK put unscaled (raw) steps into the
+   --  check_tree array.  This has been fixed in the development version of
+   --  SPARK, so we will need means to figure out if scaling is needed or
+   --  not.  If there is a valid proof in the file this can be achieved by
+   --  comparing the steps in the check_tree array with the ones reported in
+   --  the stats object, else we're out of luck.
+   ---------------------------------------------------------------------------
+   function Scaled (Prover    : in Prover_Name;
+                    Raw_Steps : in Prover_Steps) return Prover_Steps;
+
+private
+
+   None : constant Time_And_Steps := Time_And_Steps'(Time  => 0.0,
+                                                     Steps => 0);
 
 end SPAT;

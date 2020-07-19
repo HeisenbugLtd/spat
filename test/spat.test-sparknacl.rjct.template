@@ -1,2 +1,2 @@
-SPARKNaCl.Sign.Sign                  => --/57.6 s/489.2 s
-SPARKNaCl.Car.Nearlynormal_To_Normal => --/1.4 s/17.5 s
+SPARKNaCl.Sign.Sign                  => --/57.6 s (14007 steps)/489.2 s
+SPARKNaCl.Car.Nearlynormal_To_Normal => --/1.4 s (803 steps)/17.5 s

@@ -12,19 +12,10 @@ with SPAT.Proof_Attempt;
 
 package body SPAT.Spark_Info.Heuristics is
 
-   Null_Times : constant Times :=
-     Times'(Success     => 0.0,
-            Failed      => 0.0,
-            Max_Success => 0.0,
-            Max_Steps   => 0);
-
-   ---------------------------------------------------------------------------
-   --  Scaled
-   --
-   --  Implement prover specific steps scaling.
-   ---------------------------------------------------------------------------
-   function Scaled (Prover    : in Prover_Name;
-                    Raw_Steps : in Prover_Steps) return Prover_Steps;
+   Null_Workload : constant Workloads :=
+     Workloads'(Success_Time => 0.0,
+                Failed_Time  => 0.0,
+                Max_Success  => SPAT.None);
 
    ---------------------------------------------------------------------------
    --  Min_Failed_Time
@@ -65,7 +56,7 @@ package body SPAT.Spark_Info.Heuristics is
 
    package Prover_Maps is new
      Ada.Containers.Hashed_Maps (Key_Type        => Prover_Name,
-                                 Element_Type    => Times,
+                                 Element_Type    => Workloads,
                                  Hash            => SPAT.Hash,
                                  Equivalent_Keys => "=",
                                  "="             => "=");
@@ -185,58 +176,61 @@ package body SPAT.Spark_Info.Heuristics is
                File_Ref : constant Per_File.Reference_Type :=
                  SPARK_List.Reference (Position => Times_Position);
             begin
-               for Proof in E.The_Tree.Iterate_Children (Parent => E.Proofs) loop
-                  --  Iterate over all the verification conditions within the
-                  --  proof.
-                  for VC in E.The_Tree.Iterate_Children (Parent => Proof) loop
-                     for Attempt in E.The_Tree.Iterate_Children (Parent => VC) loop
+               --  Instead of manually iterating through each of the subtrees in
+               --  a proof, we just collect all Proof_Attempts we find.
+               for
+                 Item_Position in Entity.Tree.Iterate_Subtree (Position => E.Proofs)
+               loop
+                  declare
+                     Item : constant SPAT.Entity.T'Class :=
+                       SPAT.Entity.T'Class
+                         (Entity.Tree.Element (Position => Item_Position));
+                  begin
+                     if Item in Proof_Attempt.T'Class then
+                        --  Item is a Proof_Attempt, so evaluate it.
                         declare
                            --  Extract our VC component from the tree.
                            The_Attempt : constant Proof_Attempt.T'Class :=
-                             Proof_Attempt.T'Class
-                               (Entity.Tree.Element (Position => Attempt));
-                           use type Proof_Attempt.Prover_Result;
+                             Proof_Attempt.T'Class (Item);
+                           Prover_Cursor : Prover_Maps.Cursor :=
+                             File_Ref.Element.Find (The_Attempt.Prover);
+                           use type Prover_Maps.Cursor;
                         begin
+                           if Prover_Cursor = Prover_Maps.No_Element then
+                              --  New prover name, insert it.
+                              File_Ref.Element.Insert
+                                (Key      => The_Attempt.Prover,
+                                 New_Item => Null_Workload,
+                                 Position => Prover_Cursor,
+                                 Inserted => Dummy_Inserted);
+                           end if;
+
                            declare
-                              Prover_Cursor : Prover_Maps.Cursor :=
-                                File_Ref.Element.Find (The_Attempt.Prover);
-                              use type Prover_Maps.Cursor;
+                              Prover_Element : constant Prover_Maps.Reference_Type :=
+                                File_Ref.Reference (Position => Prover_Cursor);
+                              use type Proof_Attempt.Prover_Result;
                            begin
-                              if Prover_Cursor = Prover_Maps.No_Element then
-                                 --  New prover name, insert it.
-                                 File_Ref.Element.Insert
-                                   (Key      => The_Attempt.Prover,
-                                    New_Item => Null_Times,
-                                    Position => Prover_Cursor,
-                                    Inserted => Dummy_Inserted);
+                              if The_Attempt.Result = Proof_Attempt.Valid then
+                                 Prover_Element.Success_Time :=
+                                   Prover_Element.Success_Time + The_Attempt.Time;
+
+                                 Prover_Element.Max_Success.Time :=
+                                   Duration'Max
+                                     (Prover_Element.Max_Success.Time,
+                                      The_Attempt.Time);
+
+                                 Prover_Element.Max_Success.Steps :=
+                                   Prover_Steps'Max
+                                     (Prover_Element.Max_Success.Steps,
+                                      The_Attempt.Steps);
+                              else
+                                 Prover_Element.Failed_Time :=
+                                   Prover_Element.Failed_Time + The_Attempt.Time;
                               end if;
-
-                              declare
-                                 Prover_Element : constant Prover_Maps.Reference_Type :=
-                                   File_Ref.Reference (Position => Prover_Cursor);
-                              begin
-                                 if The_Attempt.Result = Proof_Attempt.Valid then
-                                    Prover_Element.Success :=
-                                      Prover_Element.Success + The_Attempt.Time;
-
-                                    Prover_Element.Max_Success :=
-                                      Duration'Max (Prover_Element.Max_Success,
-                                                    The_Attempt.Time);
-
-                                    Prover_Element.Max_Steps :=
-                                      Prover_Steps'Max
-                                        (Prover_Element.Max_Steps,
-                                         Scaled (Prover    => The_Attempt.Prover,
-                                                 Raw_Steps => The_Attempt.Steps));
-                                 else
-                                    Prover_Element.Failed :=
-                                      Prover_Element.Failed + The_Attempt.Time;
-                                 end if;
-                              end;
                            end;
                         end;
-                     end loop;
-                  end loop;
+                     end if;
+                  end;
                end loop;
             end;
          end;
@@ -249,17 +243,21 @@ package body SPAT.Spark_Info.Heuristics is
 
             for Prover in Per_File.Element (Position => C).Iterate loop
                declare
-                  E : constant Times :=
+                  E : constant Workloads :=
                     Prover_Maps.Element (Position => Prover);
                begin
                   Log.Debug
                     (Message =>
                        "  " &
                        To_String (Prover_Maps.Key (Position => Prover)));
-                  Log.Debug (Message => "    t(Success) " & SPAT.Image (E.Success));
-                  Log.Debug (Message => "    t(Failed)  " & SPAT.Image (E.Failed));
-                  Log.Debug (Message => "    T(Success) " & SPAT.Image (E.Max_Success));
-                  Log.Debug (Message => "    S(Success)" & E.Max_Steps'Image);
+                  Log.Debug
+                    (Message => "    t(Success) " & SPAT.Image (E.Success_Time));
+                  Log.Debug
+                    (Message => "    t(Failed)  " & SPAT.Image (E.Failed_Time));
+                  Log.Debug
+                    (Message => "    T(Success) " & SPAT.Image (E.Max_Success.Time));
+                  Log.Debug
+                    (Message => "    S(Success)" & E.Max_Success.Steps'Image);
                end;
             end loop;
          end loop;
@@ -283,9 +281,9 @@ package body SPAT.Spark_Info.Heuristics is
                      Prover_Vector.Append
                        (New_Item =>
                           Prover_Data'
-                            (Name =>
+                            (Name     =>
                                Prover_Maps.Key (Position => Prover_Cursor),
-                             Time => Prover_Maps.Element (Prover_Cursor)));
+                             Workload => Prover_Maps.Element (Prover_Cursor)));
                   end if;
                end loop;
 
@@ -314,39 +312,15 @@ package body SPAT.Spark_Info.Heuristics is
    function Min_Failed_Time (Left  : in Prover_Data;
                              Right : in Prover_Data) return Boolean is
    begin
-      if Left.Time.Failed = Right.Time.Failed then
+      if Left.Workload.Failed_Time = Right.Workload.Failed_Time then
          --  Failed time is equal (likely zero), so prefer the prover with the
          --  *higher* success time.  This can be wrong, because this value
          --  mostly depends on which prover is called first.
-         return Left.Time.Success > Right.Time.Success;
+         return Left.Workload.Success_Time > Right.Workload.Success_Time;
       end if;
 
       --  Prefer the prover that spends less wasted time.
-      return Left.Time.Failed < Right.Time.Failed;
+      return Left.Workload.Failed_Time < Right.Workload.Failed_Time;
    end Min_Failed_Time;
-
-   ---------------------------------------------------------------------------
-   --  Scaled
-   --
-   --  See https://github.com/AdaCore/why3/blob/master/src/gnat/gnat_config.ml#L538
-   ---------------------------------------------------------------------------
-   function Scaled (Prover    : in Prover_Name;
-                    Raw_Steps : in Prover_Steps) return Prover_Steps is
-   begin
-      if Ada.Strings.Unbounded.Index (Source  => Subject_Name (Prover),
-                                      Pattern => "CVC4") = 1
-      then
-         --  add = 15_000, mult = 35
-         return Prover_Steps'Max (Raw_Steps - 15_000, 0) / 35 + 1;
-      elsif Ada.Strings.Unbounded.Index (Source => Subject_Name (Prover),
-                                         Pattern => "Z3") = 1
-      then
-         --  add = 450_000, mult = 800
-         return Prover_Steps'Max (Raw_Steps - 450_000, 0) / 800 + 1;
-      else
-         --  alt-ergo, and others => no scaling
-         return Raw_Steps + 1;
-      end if;
-   end Scaled;
 
 end SPAT.Spark_Info.Heuristics;

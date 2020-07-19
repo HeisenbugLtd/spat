@@ -53,20 +53,27 @@ package body SPAT.Proof_Attempt is
                   Result =>
                     Result_Name
                       (Subject_Name'(Object.Get (Field => Field_Names.Result))),
-                  Time   =>
-                    (case Time_Field.Kind is
-                        when JSON_Float_Type =>
-                          Duration (Time_Field.Get_Long_Float),
-                        when JSON_Int_Type   =>
-                          Duration (Long_Long_Integer'(Time_Field.Get)),
-                        when others          =>
-                           raise Program_Error
-                             with
-                               "Fatal: Impossible Kind """ &
-                               Time_Field.Kind'Image & """ of JSON object!"),
-                  Steps  =>
-                    Prover_Steps
-                      (Long_Integer'(Object.Get (Field => Field_Names.Steps))),
+                  Workload =>
+                    Time_And_Steps'
+                      (Time   =>
+                         (case Time_Field.Kind is
+                             when JSON_Float_Type =>
+                               Duration (Time_Field.Get_Long_Float),
+                             when JSON_Int_Type   =>
+                               Duration (Long_Long_Integer'(Time_Field.Get)),
+                             when others          =>
+                                raise Program_Error
+                                  with
+                                    "Fatal: Impossible Kind """ &
+                                    Time_Field.Kind'Image & """ of JSON object!"),
+                       Steps  =>
+                         --  FIXME: Step scaling will not be necessary anymore for
+                         --         the SPARK development version (i.e. SPARK CE 2021).
+                         Scaled (Prover    => Prover,
+                                 Raw_Steps =>
+                                   Prover_Steps
+                                     (Long_Integer'
+                                        (Object.Get (Field => Field_Names.Steps))))),
                   Id     => Proof_Attempt_Ids.Next);
    end Create;
 

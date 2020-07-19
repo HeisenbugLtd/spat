@@ -1,0 +1,2241 @@
+RFLX.RFLX_Types.U64_Extract                                                                           =>                                                      37.9 s (99104 steps)/120.0 s (99104 steps)/1.8 ks
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:131:29                                                  => 37.9 s (99104 steps)/120.0 s (99104 steps)/1.1 ks
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 37.9 s (46879 steps), Valid
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 33.5 s (74907 steps), Valid
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 23.4 s (99104 steps), Valid
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 16.6 s (69076 steps), Valid
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 14.8 s (62940 steps), Valid
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 13.2 s (30782 steps), Valid
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 10.9 s (45366 steps), Valid
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 4.3 s (12920 steps), Valid
+ `-Z3: 50.0 ms (1 step), Valid
+ `-Z3: 30.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:131:27                                                => 27.1 s (35021 steps)/120.0 s (35021 steps)/147.1 s
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 27.1 s (35021 steps), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-rflx_generic_types.adb:137:33                                        => 25.0 s (39862 steps)/120.0 s (39862 steps)/145.0 s
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 25.0 s (39862 steps), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:147:30                                                => 24.8 s (35564 steps)/120.0 s (35564 steps)/144.8 s
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 24.8 s (35564 steps), Valid
+`-VC_POSTCONDITION rflx-rflx_generic_types.adb:101:9                                                  => 23.3 s (48849 steps)/120.0 s (48849 steps)/143.3 s
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 23.3 s (48849 steps), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:151:52                                                => 19.6 s (39010 steps)/120.0 s (39010 steps)/139.6 s
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 19.6 s (39010 steps), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:132:65                                                  => 170.0 ms (1 step)/170.0 ms (1 step)/580.0 ms
+ `-Z3: 170.0 ms (1 step), Valid
+ `-Z3: 60.0 ms (1 step), Valid
+ `-Z3: 60.0 ms (1 step), Valid
+ `-Z3: 40.0 ms (1 step), Valid
+ `-Z3: 30.0 ms (1 step), Valid
+ `-Z3: 30.0 ms (1 step), Valid
+ `-Z3: 30.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:131:65                                                  => 180.0 ms (1 step)/180.0 ms (1 step)/570.0 ms
+ `-Z3: 180.0 ms (1 step), Valid
+ `-Z3: 60.0 ms (1 step), Valid
+ `-Z3: 50.0 ms (1 step), Valid
+ `-Z3: 40.0 ms (1 step), Valid
+ `-Z3: 30.0 ms (1 step), Valid
+ `-Z3: 30.0 ms (1 step), Valid
+ `-Z3: 30.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:145:35                                                  => 160.0 ms (191 steps)/160.0 ms (191 steps)/280.0 ms
+ `-Z3: 160.0 ms (191 steps), Valid
+ `-Z3: 30.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:131:59                                                   => 130.0 ms (1 step)/130.0 ms (1 step)/190.0 ms
+ `-Z3: 130.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:132:59                                                   => 90.0 ms (1 step)/90.0 ms (1 step)/130.0 ms
+ `-Z3: 90.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:145:62                                                   => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-Z3: 100.0 ms (1 step), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:145:68                                                  => 50.0 ms (1 step)/50.0 ms (1 step)/100.0 ms
+ `-Z3: 50.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:132:70                                                => 40.0 ms (1 step)/40.0 ms (1 step)/100.0 ms
+ `-Z3: 40.0 ms (1 step), Valid
+ `-Z3: 30.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:135:78                                                => 40.0 ms (1 step)/40.0 ms (1 step)/100.0 ms
+ `-Z3: 40.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:135:65                                                => 40.0 ms (1 step)/40.0 ms (1 step)/90.0 ms
+ `-Z3: 40.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:135:78                                                   => 30.0 ms (1 step)/30.0 ms (1 step)/70.0 ms
+ `-Z3: 30.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:137:58                                                => 40.0 ms (1 step)/40.0 ms (1 step)/60.0 ms
+ `-Z3: 40.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:139:61                                                => 40.0 ms (1 step)/40.0 ms (1 step)/60.0 ms
+ `-Z3: 40.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-rflx_generic_types.adb:136:33                                        => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-Z3: 50.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:137:46                                                => 40.0 ms (1 step)/40.0 ms (1 step)/50.0 ms
+ `-Z3: 40.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-rflx_generic_types.adb:137:33                                           => 30.0 ms (1 step)/30.0 ms (1 step)/50.0 ms
+ `-Z3: 30.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:144:68                                                   => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-Z3: 40.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:136:35                                                => 20.0 ms (1 step)/20.0 ms (1 step)/40.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:139:73                                                => 20.0 ms (1 step)/20.0 ms (1 step)/40.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:139:86                                                   => 20.0 ms (1 step)/20.0 ms (1 step)/40.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:109:52                                                => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-Z3: 30.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:109:65                                                => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-Z3: 30.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:129:39                                                => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-Z3: 30.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:144:68                                                => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-Z3: 30.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:137:63                                                => 20.0 ms (1 step)/20.0 ms (1 step)/30.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:139:86                                                => 20.0 ms (1 step)/20.0 ms (1 step)/30.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:97:66                                                 => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:98:52                                                 => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:104:91                                                => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:106:64                                                => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-rflx_generic_types.adb:136:33                                           => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:97:48                                                 => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:98:34                                                 => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:104:73                                                => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:107:50                                                   => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:109:96                                                   => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:99:46                                                 => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:103:64                                                => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:109:82                                                => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+RFLX.RFLX_Types.U64_Insert                                                                            =>                                                      54.2 s (94470 steps)/120.0 s (94470 steps)/1.6 ks
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:221:39                                                  => 5.2 s (6092 steps)/120.0 s (6092 steps)/490.6 s
+ `-CVC4: 120.0 s (-1 steps), Timeout
+  -Z3: 120.0 s (-1 steps), Timeout
+  -altergo: 181.9 ms (3010 steps), Valid
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 5.2 s (6092 steps), Valid
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 5.1 s (6092 steps), Valid
+ `-Z3: 60.0 ms (1 step), Valid
+ `-Z3: 30.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:259:19                                                  => 5.9 s (16665 steps)/120.0 s (16665 steps)/251.9 s
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 5.9 s (16665 steps), Valid
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 5.9 s (16665 steps), Valid
+ `-Z3: 50.0 ms (1 step), Valid
+ `-Z3: 50.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:251:19                                                  => 1.6 s (4517 steps)/120.0 s (4517 steps)/243.2 s
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 1.6 s (4517 steps), Valid
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 1.5 s (4517 steps), Valid
+ `-Z3: 30.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:282:48                                                   => 297.4 ms (4075 steps)/120.0 s (4075 steps)/240.3 s
+ `-CVC4: 120.0 s (-1 steps), Timeout
+  -Z3: 120.0 s (-1 steps), Timeout
+  -altergo: 297.4 ms (4075 steps), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:229:59                                                   => 54.2 s (94470 steps)/120.0 s (94470 steps)/174.2 s
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 54.2 s (94470 steps), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:278:38                                                  => 26.6 s (52462 steps)/120.0 s (52462 steps)/146.7 s
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 26.6 s (52462 steps), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:229:49                                                => 160.0 ms (1 step)/160.0 ms (1 step)/320.0 ms
+ `-Z3: 160.0 ms (1 step), Valid
+ `-Z3: 160.0 ms (1 step), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:224:39                                                  => 210.0 ms (1 step)/210.0 ms (1 step)/310.0 ms
+ `-Z3: 210.0 ms (1 step), Valid
+ `-Z3: 50.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:229:59                                                => 250.0 ms (320 steps)/250.0 ms (320 steps)/250.0 ms
+ `-Z3: 250.0 ms (320 steps), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:229:13                                                  => 200.0 ms (1 step)/200.0 ms (1 step)/250.0 ms
+ `-Z3: 200.0 ms (1 step), Valid
+ `-Z3: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:278:55                                                   => 240.0 ms (168 steps)/240.0 ms (168 steps)/240.0 ms
+ `-Z3: 240.0 ms (168 steps), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:282:13                                                  => 180.0 ms (1 step)/180.0 ms (1 step)/200.0 ms
+ `-Z3: 180.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:258:13                                                  => 90.0 ms (1 step)/90.0 ms (1 step)/140.0 ms
+ `-Z3: 90.0 ms (1 step), Valid
+ `-Z3: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:257:67                                                   => 70.0 ms (1 step)/70.0 ms (1 step)/140.0 ms
+ `-Z3: 70.0 ms (1 step), Valid
+ `-Z3: 70.0 ms (1 step), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:226:45                                                  => 50.0 ms (1 step)/50.0 ms (1 step)/140.0 ms
+ `-Z3: 50.0 ms (1 step), Valid
+ `-Z3: 40.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:278:61                                                  => 110.0 ms (1 step)/110.0 ms (1 step)/130.0 ms
+ `-Z3: 110.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:250:13                                                  => 60.0 ms (1 step)/60.0 ms (1 step)/110.0 ms
+ `-Z3: 60.0 ms (1 step), Valid
+ `-Z3: 50.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:282:48                                                => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-Z3: 100.0 ms (1 step), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:248:39                                                  => 20.0 ms (1 step)/20.0 ms (1 step)/100.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:257:92                                                   => 70.0 ms (1 step)/70.0 ms (1 step)/90.0 ms
+ `-Z3: 70.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:280:59                                                  => 20.0 ms (1 step)/20.0 ms (1 step)/90.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:245:52                                                   => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-Z3: 80.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:259:58                                                   => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-Z3: 80.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:280:79                                                   => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-Z3: 80.0 ms (1 step), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:221:62                                                  => 60.0 ms (1 step)/60.0 ms (1 step)/80.0 ms
+ `-Z3: 60.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:245:58                                                  => 50.0 ms (1 step)/50.0 ms (1 step)/80.0 ms
+ `-Z3: 50.0 ms (1 step), Valid
+ `-Z3: 30.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:257:67                                                => 50.0 ms (1 step)/50.0 ms (1 step)/70.0 ms
+ `-Z3: 50.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:257:80                                                => 50.0 ms (1 step)/50.0 ms (1 step)/70.0 ms
+ `-Z3: 50.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:257:97                                                => 50.0 ms (1 step)/50.0 ms (1 step)/70.0 ms
+ `-Z3: 50.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:219:59                                                  => 40.0 ms (1 step)/40.0 ms (1 step)/70.0 ms
+ `-Z3: 40.0 ms (1 step), Valid
+ `-Z3: 30.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:255:29                                                => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-Z3: 60.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:259:71                                                => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-Z3: 60.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:259:88                                                => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-Z3: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:221:56                                                   => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-Z3: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:259:83                                                   => 60.0 ms (1 step)/60.0 ms (1 step)/60.0 ms
+ `-Z3: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:250:48                                                   => 50.0 ms (1 step)/50.0 ms (1 step)/60.0 ms
+ `-Z3: 50.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:257:56                                                => 40.0 ms (1 step)/40.0 ms (1 step)/60.0 ms
+ `-Z3: 40.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:226:84                                                => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-Z3: 50.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:255:46                                                => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-Z3: 50.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:259:58                                                => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-Z3: 50.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:259:83                                                => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-Z3: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:219:53                                                   => 50.0 ms (1 step)/50.0 ms (1 step)/50.0 ms
+ `-Z3: 50.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:173:46                                                => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-Z3: 40.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:176:73                                                => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-Z3: 40.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:250:48                                                => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-Z3: 40.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:226:84                                                   => 40.0 ms (1 step)/40.0 ms (1 step)/40.0 ms
+ `-Z3: 40.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:257:92                                                => 20.0 ms (1 step)/20.0 ms (1 step)/40.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:181:52                                                => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-Z3: 30.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:217:44                                                   => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-Z3: 30.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:173:64                                                => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:176:101                                               => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:181:82                                                => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-rflx_generic_types.adb:257:36                                           => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-rflx_generic_types.adb:257:36                                        => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:181:65                                                => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:221:99                                                => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:225:50                                                => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:226:101                                               => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:219:39                                                  => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:245:38                                                  => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:246:38                                                  => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:277:38                                                  => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:179:50                                                   => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:181:96                                                   => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:224:59                                                   => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:248:59                                                   => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:175:64                                                => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:178:64                                                => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:258:36                                                => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:259:47                                                => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:182:50                                                   => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+RFLX.RFLX_Types.U64_Extract_Remaining                                                                 =>                                                      10.1 s (25590 steps)/120.0 s (25590 steps)/376.5 s
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:85:91                                                 => 10.1 s (25590 steps)/120.0 s (25590 steps)/130.1 s
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 10.1 s (25590 steps), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:87:40                                                   => 3.5 s (5190 steps)/120.0 s (5190 steps)/123.6 s
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 3.5 s (5190 steps), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:87:58                                                 => 1.2 s (1826 steps)/120.0 s (1826 steps)/121.2 s
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 1.2 s (1826 steps), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:89:14                                                   => 90.0 ms (1 step)/90.0 ms (1 step)/360.0 ms
+ `-Z3: 90.0 ms (1 step), Valid
+ `-Z3: 90.0 ms (1 step), Valid
+ `-Z3: 80.0 ms (1 step), Valid
+ `-Z3: 80.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:85:52                                                 => 120.0 ms (1 step)/120.0 ms (1 step)/240.0 ms
+ `-Z3: 120.0 ms (1 step), Valid
+ `-Z3: 120.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:82:43                                                 => 200.0 ms (1 step)/200.0 ms (1 step)/200.0 ms
+ `-Z3: 200.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:79:33                                                 => 110.0 ms (1 step)/110.0 ms (1 step)/110.0 ms
+ `-Z3: 110.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:83:47                                                    => 100.0 ms (1 step)/100.0 ms (1 step)/100.0 ms
+ `-Z3: 100.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:89:75                                                 => 90.0 ms (1 step)/90.0 ms (1 step)/90.0 ms
+ `-Z3: 90.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:89:51                                                 => 80.0 ms (1 step)/80.0 ms (1 step)/80.0 ms
+ `-Z3: 80.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:85:74                                                 => 20.0 ms (1 step)/20.0 ms (1 step)/60.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:81:75                                                 => 20.0 ms (1 step)/20.0 ms (1 step)/40.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:81:62                                                 => 20.0 ms (1 step)/20.0 ms (1 step)/30.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:82:65                                                 => 20.0 ms (1 step)/20.0 ms (1 step)/30.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:81:75                                                    => 20.0 ms (1 step)/20.0 ms (1 step)/30.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_POSTCONDITION rflx-rflx_generic_types.adb:78:9                                                   => 10.0 ms (1 step)/10.0 ms (1 step)/30.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:75:21                                                 => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:83:34                                                 => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:83:47                                                 => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:83:60                                                 => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:87:81                                                    => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:89:51                                                    => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:81:88                                                 => 10.0 ms (1 step)/10.0 ms (1 step)/20.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:79:20                                                 => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:79:46                                                 => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:83:101                                                => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+RFLX.RFLX_Types.U64_Extract_Intermediate                                                              =>                                                      6.7 s (10674 steps)/120.0 s (10674 steps)/617.3 s
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:62:39                                                   => 6.7 s (5481 steps)/120.0 s (5481 steps)/126.8 s
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 6.7 s (5481 steps), Valid
+ `-Z3: 30.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:62:61                                                 => 3.0 s (4713 steps)/120.0 s (4713 steps)/123.0 s
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 3.0 s (4713 steps), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:65:14                                                   => 1.5 s (1 step)/120.0 s (1 step)/122.0 s
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 1.5 s (1 step), Valid
+ `-Z3: 280.0 ms (1 step), Valid
+ `-Z3: 260.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:58:82                                                 => 1.3 s (1 step)/120.0 s (1 step)/121.3 s
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 1.3 s (1 step), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:63:49                                                 => 40.0 ms (1 step)/120.0 s (1 step)/120.0 s
+ `-Z3: 120.0 s (-1 steps), Timeout
+  -CVC4: 40.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:65:34                                                 => 2.7 s (10674 steps)/2.7 s (10674 steps)/2.7 s
+ `-Z3: 2.7 s (10674 steps), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:58:58                                                 => 330.0 ms (1 step)/330.0 ms (1 step)/650.0 ms
+ `-Z3: 330.0 ms (1 step), Valid
+ `-Z3: 320.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:57:85                                                 => 360.0 ms (1 step)/360.0 ms (1 step)/360.0 ms
+ `-Z3: 360.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:56:22                                                 => 270.0 ms (1 step)/270.0 ms (1 step)/270.0 ms
+ `-Z3: 270.0 ms (1 step), Valid
+`-VC_PRECONDITION rflx-rflx_generic_types.adb:60:33                                                   => 20.0 ms (1 step)/20.0 ms (1 step)/80.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:57:69                                                 => 20.0 ms (1 step)/20.0 ms (1 step)/30.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:62:86                                                    => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_POSTCONDITION rflx-rflx_generic_types.adb:56:9                                                   => 10.0 ms (1 step)/10.0 ms (1 step)/20.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:54:26                                                 => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+RFLX.Arrays.Tests.Test_Generating_Arrays_Message                                                      =>                                                      0.0 s (1768 steps)/0.0 s (1768 steps)/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:928:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:929:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:930:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:931:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:932:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:934:34                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:937:57                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:949:55                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:960:61                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:972:64                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:984:44                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:924:7                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:926:7                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:928:7                                          => 0.0 s (523 steps)/0.0 s (523 steps)/0.0 s
+ `-Z3: 0.0 s (523 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:929:7                                          => 0.0 s (522 steps)/0.0 s (522 steps)/0.0 s
+ `-Z3: 0.0 s (522 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:930:7                                          => 0.0 s (522 steps)/0.0 s (522 steps)/0.0 s
+ `-Z3: 0.0 s (522 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:931:7                                          => 0.0 s (522 steps)/0.0 s (522 steps)/0.0 s
+ `-Z3: 0.0 s (522 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:932:7                                          => 0.0 s (522 steps)/0.0 s (522 steps)/0.0 s
+ `-Z3: 0.0 s (522 steps), Valid
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:986:61                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:988:22                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:988:22                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:988:22                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:988:116                                           => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:986:55                                                      => 0.0 s (520 steps)/0.0 s (520 steps)/0.0 s
+ `-Z3: 0.0 s (520 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:934:21                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:935:21                                                        => 0.0 s (8 steps)/0.0 s (8 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (8 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:937:21                                                        => 0.0 s (38 steps)/0.0 s (38 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (38 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (36 steps), Valid
+ `-Z3: 0.0 s (7 steps), Valid
+ `-Z3: 0.0 s (36 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:938:28                                                        => 0.0 s (116 steps)/0.0 s (116 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (116 steps), Valid
+ `-Z3: 0.0 s (57 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:939:28                                                        => 0.0 s (230 steps)/0.0 s (230 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (230 steps), Valid
+ `-Z3: 0.0 s (66 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:944:21                                                        => 0.0 s (109 steps)/0.0 s (109 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (96 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (77 steps), Valid
+ `-Z3: 0.0 s (77 steps), Valid
+ `-Z3: 0.0 s (109 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:947:33                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:949:21                                                        => 0.0 s (374 steps)/0.0 s (374 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (351 steps), Valid
+ `-Z3: 0.0 s (372 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (374 steps), Valid
+ `-Z3: 0.0 s (143 steps), Valid
+ `-Z3: 0.0 s (259 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:950:26                                                        => 0.0 s (472 steps)/0.0 s (472 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (472 steps), Valid
+ `-Z3: 0.0 s (197 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:951:26                                                        => 0.0 s (441 steps)/0.0 s (441 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (441 steps), Valid
+ `-Z3: 0.0 s (207 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:955:21                                                        => 0.0 s (287 steps)/0.0 s (287 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (233 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (201 steps), Valid
+ `-Z3: 0.0 s (201 steps), Valid
+ `-Z3: 0.0 s (287 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:958:33                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:960:21                                                        => 0.0 s (905 steps)/0.0 s (905 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (750 steps), Valid
+ `-Z3: 0.0 s (719 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (905 steps), Valid
+ `-Z3: 0.0 s (273 steps), Valid
+ `-Z3: 0.0 s (407 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:961:32                                                        => 0.0 s (579 steps)/0.0 s (579 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (579 steps), Valid
+ `-Z3: 0.0 s (303 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:962:32                                                        => 0.0 s (1147 steps)/0.0 s (1147 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1147 steps), Valid
+ `-Z3: 0.0 s (312 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:967:21                                                        => 0.0 s (446 steps)/0.0 s (446 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (369 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (323 steps), Valid
+ `-Z3: 0.0 s (323 steps), Valid
+ `-Z3: 0.0 s (446 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:970:33                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:972:21                                                        => 0.0 s (1768 steps)/0.0 s (1768 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1155 steps), Valid
+ `-Z3: 0.0 s (1187 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1768 steps), Valid
+ `-Z3: 0.0 s (401 steps), Valid
+ `-Z3: 0.0 s (679 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:973:35                                                        => 0.0 s (967 steps)/0.0 s (967 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (967 steps), Valid
+ `-Z3: 0.0 s (423 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:974:35                                                        => 0.0 s (947 steps)/0.0 s (947 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (947 steps), Valid
+ `-Z3: 0.0 s (432 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:979:21                                                        => 0.0 s (780 steps)/0.0 s (780 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (505 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (443 steps), Valid
+ `-Z3: 0.0 s (443 steps), Valid
+ `-Z3: 0.0 s (780 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:982:29                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:984:21                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:928:7                                     => 0.0 s (134 steps)/0.0 s (134 steps)/0.0 s
+ `-Z3: 0.0 s (134 steps), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:929:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:930:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:931:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:932:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:988:22                                                         => 0.0 s (583 steps)/0.0 s (583 steps)/0.0 s
+ `-Z3: 0.0 s (583 steps), Valid
+ `-Z3: 0.0 s (578 steps), Valid
+ `-Z3: 0.0 s (576 steps), Valid
+ `-Z3: 0.0 s (576 steps), Valid
+RFLX.Arrays.Tests.Test_Parsing_Arrays_Message                                                         =>                                                      0.0 s (1672 steps)/0.0 s (1672 steps)/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:574:7                                            => 0.0 s (47 steps)/0.0 s (47 steps)/0.0 s
+ `-Z3: 0.0 s (47 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (45 steps), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:587:13                                           => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:628:13                                           => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:669:13                                           => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:711:13                                           => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DISCRIMINANT_CHECK rflx-arrays-tests.adb:725:27                                                  => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Trivial: 0.0 s (0 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DISCRIMINANT_CHECK rflx-arrays-tests.adb:727:69                                                  => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:595:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:596:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:597:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:598:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:599:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:636:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:637:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:638:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:639:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:640:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:677:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:678:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:679:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:680:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:681:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:719:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:720:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:721:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:722:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:723:42                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:595:42                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:596:42                                              => 0.0 s (240 steps)/0.0 s (240 steps)/0.0 s
+ `-Z3: 0.0 s (240 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:597:42                                              => 0.0 s (226 steps)/0.0 s (226 steps)/0.0 s
+ `-Z3: 0.0 s (226 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:598:42                                              => 0.0 s (241 steps)/0.0 s (241 steps)/0.0 s
+ `-Z3: 0.0 s (241 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:599:42                                              => 0.0 s (241 steps)/0.0 s (241 steps)/0.0 s
+ `-Z3: 0.0 s (241 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:636:42                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:637:42                                              => 0.0 s (382 steps)/0.0 s (382 steps)/0.0 s
+ `-Z3: 0.0 s (382 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:638:42                                              => 0.0 s (376 steps)/0.0 s (376 steps)/0.0 s
+ `-Z3: 0.0 s (376 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:639:42                                              => 0.0 s (383 steps)/0.0 s (383 steps)/0.0 s
+ `-Z3: 0.0 s (383 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:640:42                                              => 0.0 s (370 steps)/0.0 s (370 steps)/0.0 s
+ `-Z3: 0.0 s (370 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:677:42                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:678:42                                              => 0.0 s (997 steps)/0.0 s (997 steps)/0.0 s
+ `-Z3: 0.0 s (997 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:679:42                                              => 0.0 s (500 steps)/0.0 s (500 steps)/0.0 s
+ `-Z3: 0.0 s (500 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:680:42                                              => 0.0 s (609 steps)/0.0 s (609 steps)/0.0 s
+ `-Z3: 0.0 s (609 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:681:42                                              => 0.0 s (810 steps)/0.0 s (810 steps)/0.0 s
+ `-Z3: 0.0 s (810 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:719:42                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:720:42                                              => 0.0 s (633 steps)/0.0 s (633 steps)/0.0 s
+ `-Z3: 0.0 s (633 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:721:42                                              => 0.0 s (631 steps)/0.0 s (631 steps)/0.0 s
+ `-Z3: 0.0 s (631 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:722:42                                              => 0.0 s (634 steps)/0.0 s (634 steps)/0.0 s
+ `-Z3: 0.0 s (634 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:723:42                                              => 0.0 s (635 steps)/0.0 s (635 steps)/0.0 s
+ `-Z3: 0.0 s (635 steps), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:577:34                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:592:66                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:633:64                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:674:70                                                         => 0.0 s (47 steps)/0.0 s (47 steps)/0.0 s
+ `-Z3: 0.0 s (47 steps), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:716:73                                                         => 0.0 s (141 steps)/0.0 s (141 steps)/0.0 s
+ `-Z3: 0.0 s (141 steps), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:760:44                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:573:7                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:574:7                                          => 0.0 s (827 steps)/0.0 s (827 steps)/0.0 s
+ `-Z3: 0.0 s (827 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:587:13                                         => 0.0 s (286 steps)/0.0 s (286 steps)/0.0 s
+ `-Z3: 0.0 s (286 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:628:13                                         => 0.0 s (417 steps)/0.0 s (417 steps)/0.0 s
+ `-Z3: 0.0 s (417 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:669:13                                         => 0.0 s (547 steps)/0.0 s (547 steps)/0.0 s
+ `-Z3: 0.0 s (547 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:711:13                                         => 0.0 s (674 steps)/0.0 s (674 steps)/0.0 s
+ `-Z3: 0.0 s (674 steps), Valid
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:605:26                                                      => 0.0 s (203 steps)/0.0 s (203 steps)/0.0 s
+ `-Z3: 0.0 s (203 steps), Valid
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:646:26                                                      => 0.0 s (335 steps)/0.0 s (335 steps)/0.0 s
+ `-Z3: 0.0 s (335 steps), Valid
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:688:26                                                      => 0.0 s (467 steps)/0.0 s (467 steps)/0.0 s
+ `-Z3: 0.0 s (467 steps), Valid
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:734:26                                                      => 0.0 s (595 steps)/0.0 s (595 steps)/0.0 s
+ `-Z3: 0.0 s (595 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:577:21                                                        => 0.0 s (90 steps)/0.0 s (90 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (89 steps), Valid
+ `-Z3: 0.0 s (90 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:581:34                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:584:36                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:592:30                                                        => 0.0 s (189 steps)/0.0 s (189 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (189 steps), Valid
+ `-Z3: 0.0 s (186 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (157 steps), Valid
+ `-Z3: 0.0 s (136 steps), Valid
+ `-Z3: 0.0 s (153 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:601:51                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:604:40                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:614:30                                                        => 0.0 s (246 steps)/0.0 s (246 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (241 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (245 steps), Valid
+ `-Z3: 0.0 s (246 steps), Valid
+ `-Z3: 0.0 s (246 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:625:36                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:633:30                                                        => 0.0 s (856 steps)/0.0 s (856 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (856 steps), Valid
+ `-Z3: 0.0 s (430 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (457 steps), Valid
+ `-Z3: 0.0 s (268 steps), Valid
+ `-Z3: 0.0 s (345 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:642:49                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:645:38                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:655:30                                                        => 0.0 s (394 steps)/0.0 s (394 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (389 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (393 steps), Valid
+ `-Z3: 0.0 s (394 steps), Valid
+ `-Z3: 0.0 s (394 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:666:36                                                        => 0.0 s (225 steps)/0.0 s (225 steps)/0.0 s
+ `-Z3: 0.0 s (225 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:674:30                                                        => 0.0 s (1317 steps)/0.0 s (1317 steps)/0.0 s
+ `-Z3: 0.0 s (233 steps), Valid
+ `-Z3: 0.0 s (1317 steps), Valid
+ `-Z3: 0.0 s (642 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (679 steps), Valid
+ `-Z3: 0.0 s (400 steps), Valid
+ `-Z3: 0.0 s (481 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:683:55                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:687:44                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:697:30                                                        => 0.0 s (509 steps)/0.0 s (509 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (507 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (508 steps), Valid
+ `-Z3: 0.0 s (509 steps), Valid
+ `-Z3: 0.0 s (508 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:708:36                                                        => 0.0 s (378 steps)/0.0 s (378 steps)/0.0 s
+ `-Z3: 0.0 s (378 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:716:30                                                        => 0.0 s (1672 steps)/0.0 s (1672 steps)/0.0 s
+ `-Z3: 0.0 s (386 steps), Valid
+ `-Z3: 0.0 s (1672 steps), Valid
+ `-Z3: 0.0 s (995 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (997 steps), Valid
+ `-Z3: 0.0 s (530 steps), Valid
+ `-Z3: 0.0 s (612 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:725:58                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:733:47                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:744:30                                                        => 0.0 s (643 steps)/0.0 s (643 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (62 steps), Valid
+ `-Z3: 0.0 s (639 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (642 steps), Valid
+ `-Z3: 0.0 s (643 steps), Valid
+ `-Z3: 0.0 s (642 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:758:29                                                        => 0.0 s (705 steps)/0.0 s (705 steps)/0.0 s
+ `-Z3: 0.0 s (705 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:760:21                                                        => 0.0 s (711 steps)/0.0 s (711 steps)/0.0 s
+ `-Z3: 0.0 s (711 steps), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:574:7                                     => 0.0 s (349 steps)/0.0 s (349 steps)/0.0 s
+ `-Z3: 0.0 s (349 steps), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:587:13                                    => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:628:13                                    => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:669:13                                    => 0.0 s (47 steps)/0.0 s (47 steps)/0.0 s
+ `-Z3: 0.0 s (47 steps), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:711:13                                    => 0.0 s (141 steps)/0.0 s (141 steps)/0.0 s
+ `-Z3: 0.0 s (141 steps), Valid
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:602:89                                                         => 0.0 s (229 steps)/0.0 s (229 steps)/0.0 s
+ `-Z3: 0.0 s (229 steps), Valid
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:643:89                                                         => 0.0 s (357 steps)/0.0 s (357 steps)/0.0 s
+ `-Z3: 0.0 s (357 steps), Valid
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:685:55                                                         => 0.0 s (894 steps)/0.0 s (894 steps)/0.0 s
+ `-Z3: 0.0 s (894 steps), Valid
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:728:58                                                         => 0.0 s (620 steps)/0.0 s (620 steps)/0.0 s
+ `-Z3: 0.0 s (620 steps), Valid
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:730:65                                                         => 0.0 s (620 steps)/0.0 s (620 steps)/0.0 s
+ `-Z3: 0.0 s (620 steps), Valid
+RFLX.Arrays.Tests.Test_Generating_Arrays_Messages_Message                                             =>                                                      0.0 s (479 steps)/0.0 s (479 steps)/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:1011:7                                           => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:1012:7                                           => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:1013:7                                           => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:1015:43                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:1018:60                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:1021:58                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:1029:61                                                        => 0.0 s (29 steps)/0.0 s (29 steps)/0.0 s
+ `-Z3: 0.0 s (29 steps), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:1044:59                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:1055:63                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:1009:7                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:1010:7                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:1011:7                                         => 0.0 s (259 steps)/0.0 s (259 steps)/0.0 s
+ `-Z3: 0.0 s (259 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:1012:7                                         => 0.0 s (191 steps)/0.0 s (191 steps)/0.0 s
+ `-Z3: 0.0 s (191 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:1013:7                                         => 0.0 s (277 steps)/0.0 s (277 steps)/0.0 s
+ `-Z3: 0.0 s (277 steps), Valid
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:1046:67                                           => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:1047:28                                           => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:1047:28                                           => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:1047:28                                           => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-tests.adb:1048:30                                           => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:1046:61                                                     => 0.0 s (159 steps)/0.0 s (159 steps)/0.0 s
+ `-Z3: 0.0 s (159 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:1015:30                                                       => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:1016:30                                                       => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:1018:30                                                       => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:1021:31                                                       => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:1022:30                                                       => 0.0 s (56 steps)/0.0 s (56 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (56 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (51 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:1024:10                                                       => 0.0 s (142 steps)/0.0 s (142 steps)/0.0 s
+ `-Z3: 0.0 s (81 steps), Valid
+ `-Z3: 0.0 s (2 steps), Valid
+ `-Z3: 0.0 s (142 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (94 steps), Valid
+ `-Z3: 0.0 s (84 steps), Valid
+ `-Z3: 0.0 s (94 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:1025:38                                                       => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:1026:31                                                       => 0.0 s (102 steps)/0.0 s (102 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (32 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (102 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (46 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:1029:34                                                       => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:1030:33                                                       => 0.0 s (214 steps)/0.0 s (214 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (52 steps), Valid
+ `-Z3: 0.0 s (65 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (214 steps), Valid
+ `-Z3: 0.0 s (52 steps), Valid
+ `-Z3: 0.0 s (192 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:1032:13                                                       => 0.0 s (479 steps)/0.0 s (479 steps)/0.0 s
+ `-Z3: 0.0 s (191 steps), Valid
+ `-Z3: 0.0 s (81 steps), Valid
+ `-Z3: 0.0 s (479 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (187 steps), Valid
+ `-Z3: 0.0 s (327 steps), Valid
+ `-Z3: 0.0 s (322 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:1033:41                                                       => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:1034:34                                                       => 0.0 s (354 steps)/0.0 s (354 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (118 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (354 steps), Valid
+ `-Z3: 0.0 s (7 steps), Valid
+ `-Z3: 0.0 s (137 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:1040:36                                                       => 0.0 s (167 steps)/0.0 s (167 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (143 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (165 steps), Valid
+ `-Z3: 0.0 s (167 steps), Valid
+ `-Z3: 0.0 s (163 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:1044:36                                                       => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:1055:31                                                       => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:1021:58                                                    => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:1026:58                                                    => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:1026:58                                                    => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:1029:61                                                    => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:1034:61                                                    => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:1034:61                                                    => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:1011:7                                    => 0.0 s (37 steps)/0.0 s (37 steps)/0.0 s
+ `-Z3: 0.0 s (37 steps), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:1012:7                                    => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:1013:7                                    => 0.0 s (68 steps)/0.0 s (68 steps)/0.0 s
+ `-Z3: 0.0 s (68 steps), Valid
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:1047:28                                                        => 0.0 s (190 steps)/0.0 s (190 steps)/0.0 s
+ `-Z3: 0.0 s (190 steps), Valid
+ `-Z3: 0.0 s (189 steps), Valid
+ `-Z3: 0.0 s (189 steps), Valid
+ `-Z3: 0.0 s (189 steps), Valid
+RFLX.Arrays.Tests.Test_Parsing_Arrays_Messages_Message_Sequential                                     =>                                                      0.0 s (433 steps)/0.0 s (433 steps)/0.0 s
+`-VC_ASSERT rflx-arrays-tests.adb:779:22                                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_ASSERT rflx-arrays-tests.adb:821:34                                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:771:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:773:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:774:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:776:43                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:785:66                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:788:64                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:800:67                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:839:56                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:841:63                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:770:7                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:771:7                                          => 0.0 s (367 steps)/0.0 s (367 steps)/0.0 s
+ `-Z3: 0.0 s (367 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:773:7                                          => 0.0 s (410 steps)/0.0 s (410 steps)/0.0 s
+ `-Z3: 0.0 s (410 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:774:7                                          => 0.0 s (433 steps)/0.0 s (433 steps)/0.0 s
+ `-Z3: 0.0 s (433 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:776:30                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:781:43                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:785:36                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:788:37                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:792:49                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:795:44                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:797:37                                                        => 0.0 s (6 steps)/0.0 s (6 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (6 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:800:40                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:804:52                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:807:47                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:810:40                                                        => 0.0 s (66 steps)/0.0 s (66 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (52 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (66 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:817:42                                                        => 0.0 s (94 steps)/0.0 s (94 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (75 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (93 steps), Valid
+ `-Z3: 0.0 s (94 steps), Valid
+ `-Z3: 0.0 s (90 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:835:92                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:839:33                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:841:31                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:788:64                                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:797:64                                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:797:64                                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:800:67                                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:810:67                                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:810:67                                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:771:7                                     => 0.0 s (10 steps)/0.0 s (10 steps)/0.0 s
+ `-Z3: 0.0 s (10 steps), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:773:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:774:7                                     => 0.0 s (44 steps)/0.0 s (44 steps)/0.0 s
+ `-Z3: 0.0 s (44 steps), Valid
+RFLX.RFLX_Types.U64_Extract.D                                                                         =>                                                      4.7 s (308 steps)/9.5 s (308 steps)/70.6 s
+`-VC_ASSERT rflx-rflx_generic_types.adb:117:25                                                        => 4.7 s (308 steps)/9.5 s (308 steps)/14.2 s
+ `-Z3: 9.5 s (-1 steps), Out Of Memory
+  -CVC4: 4.7 s (308 steps), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:117:41                                                => 2.1 s (1 step)/9.3 s (1 step)/11.4 s
+ `-Z3: 9.3 s (-1 steps), Out Of Memory
+  -CVC4: 2.1 s (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:120:77                                                => 60.0 ms (1 step)/9.0 s (1 step)/9.1 s
+ `-Z3: 9.0 s (-1 steps), Out Of Memory
+  -CVC4: 60.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:123:45                                                   => 70.0 ms (1 step)/9.0 s (1 step)/9.1 s
+ `-Z3: 9.0 s (-1 steps), Out Of Memory
+  -CVC4: 70.0 ms (1 step), Valid
+`-VC_INDEX_CHECK rflx-rflx_generic_types.adb:121:43                                                   => 40.0 ms (1 step)/9.0 s (1 step)/9.0 s
+ `-Z3: 9.0 s (-1 steps), Out Of Memory
+  -CVC4: 40.0 ms (1 step), Valid
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:123:34                                                   => 50.0 ms (1 step)/9.0 s (1 step)/9.0 s
+ `-Z3: 9.0 s (-1 steps), Out Of Memory
+  -CVC4: 50.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:121:75                                                   => 40.0 ms (1 step)/8.6 s (1 step)/8.7 s
+ `-Z3: 8.6 s (-1 steps), Out Of Memory
+  -CVC4: 40.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:116:46                                                => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-Z3: 30.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:116:59                                                => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-Z3: 30.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:121:75                                                => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+ `-Z3: 30.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:123:45                                                => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:116:83                                                => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:116:83                                                   => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:120:66                                                   => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:120:77                                                   => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:121:37                                                   => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.adb:116:76                                                => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:120:66                                                => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+RFLX.Arrays.Tests.Test_Parsing_Arrays_AV_Enumeration_Sequential                                       =>                                                      0.0 s (265 steps)/0.0 s (265 steps)/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:431:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:433:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DISCRIMINANT_CHECK rflx-arrays-tests.adb:447:24                                                  => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Trivial: 0.0 s (0 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DISCRIMINANT_CHECK rflx-arrays-tests.adb:449:34                                                  => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DISCRIMINANT_CHECK rflx-arrays-tests.adb:456:27                                                  => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Trivial: 0.0 s (0 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DISCRIMINANT_CHECK rflx-arrays-tests.adb:458:37                                                  => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:436:34                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:444:70                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:491:47                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:493:70                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:430:7                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:431:7                                          => 0.0 s (199 steps)/0.0 s (199 steps)/0.0 s
+ `-Z3: 0.0 s (199 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:433:7                                          => 0.0 s (265 steps)/0.0 s (265 steps)/0.0 s
+ `-Z3: 0.0 s (265 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:436:21                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:440:34                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:444:27                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:447:55                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:454:44                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:456:58                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:463:47                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:470:33                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:487:78                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:491:24                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:493:38                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:431:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:433:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+RFLX.Arrays.Tests.Test_Parsing_Arrays_Range_Sequential                                                =>                                                      0.0 s (251 steps)/0.0 s (251 steps)/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:172:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:174:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:177:34                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:185:61                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:224:47                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:226:61                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:171:7                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:172:7                                          => 0.0 s (187 steps)/0.0 s (187 steps)/0.0 s
+ `-Z3: 0.0 s (187 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:174:7                                          => 0.0 s (251 steps)/0.0 s (251 steps)/0.0 s
+ `-Z3: 0.0 s (251 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:177:21                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:181:34                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:185:27                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:188:46                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:191:35                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:193:49                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:196:38                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:203:33                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:220:78                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:224:24                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:226:29                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:172:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:174:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+RFLX.Arrays.Tests.Test_Parsing_Arrays_Enumeration_Sequential                                          =>                                                      0.0 s (249 steps)/0.0 s (249 steps)/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:301:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:303:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:306:34                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:314:67                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:353:47                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:355:67                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:300:7                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:301:7                                          => 0.0 s (187 steps)/0.0 s (187 steps)/0.0 s
+ `-Z3: 0.0 s (187 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:303:7                                          => 0.0 s (249 steps)/0.0 s (249 steps)/0.0 s
+ `-Z3: 0.0 s (249 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:306:21                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:310:34                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:314:27                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:317:52                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:320:41                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:322:55                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:325:44                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:332:33                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:349:78                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:353:24                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:355:35                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:301:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:303:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+RFLX.Arrays.Tests.Test_Parsing_Arrays_Modular_Sequential                                              =>                                                      0.0 s (246 steps)/0.0 s (246 steps)/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:44:7                                             => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:46:7                                             => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:49:34                                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:57:63                                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:95:47                                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:97:63                                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:43:7                                           => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:44:7                                           => 0.0 s (182 steps)/0.0 s (182 steps)/0.0 s
+ `-Z3: 0.0 s (182 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:46:7                                           => 0.0 s (246 steps)/0.0 s (246 steps)/0.0 s
+ `-Z3: 0.0 s (246 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:49:21                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:53:34                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:57:27                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:60:48                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:63:37                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:65:51                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:68:40                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:74:33                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:91:78                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:95:24                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:97:31                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:44:7                                      => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:46:7                                      => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+RFLX.Arrays.Tests.Test_Generating_Arrays_Messages_Message.set_payloadGP51671.Set_Payload              =>                                                      0.0 s (191 steps)/0.0 s (191 steps)/0.0 s
+`-VC_DIVISION_CHECK rflx-arrays-generic_inner_message.ads:232:46                                      => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DIVISION_CHECK rflx-arrays-generic_inner_message.ads:233:47                                      => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DIVISION_CHECK rflx-arrays-generic_inner_message.ads:234:75                                      => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-generic_inner_message.adb:406:35                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-generic_inner_message.adb:406:35                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-generic_inner_message.adb:406:35                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_NULL_POINTER_DEREFERENCE rflx-arrays-generic_inner_message.adb:406:35                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_POSTCONDITION rflx-arrays-generic_inner_message.ads:236:8                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.adb:398:43                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.adb:399:42                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.adb:405:7                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.adb:406:7                                         => 0.0 s (191 steps)/0.0 s (191 steps)/0.0 s
+ `-Z3: 0.0 s (191 steps), Valid
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.ads:229:17                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.ads:230:17                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.ads:231:17                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.ads:231:53                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.ads:232:17                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.ads:233:17                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.ads:234:45                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.ads:242:12                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-generic_inner_message.ads:242:31                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK rflx-arrays-generic_inner_message.adb:406:27                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_RANGE_CHECK rflx-arrays-generic_inner_message.adb:406:35                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_RANGE_CHECK rflx-arrays-generic_inner_message.ads:234:75                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+RFLX.Arrays.Tests.Test_Parsing_Arrays_Messages_Message_Loop                                           =>                                                      0.0 s (102 steps)/0.0 s (102 steps)/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:855:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:857:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:858:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:872:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:873:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:874:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:875:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:876:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:877:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:872:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:873:39                                              => 0.0 s (32 steps)/0.0 s (32 steps)/0.0 s
+ `-Z3: 0.0 s (32 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:874:39                                              => 0.0 s (18 steps)/0.0 s (18 steps)/0.0 s
+ `-Z3: 0.0 s (18 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:875:39                                              => 0.0 s (34 steps)/0.0 s (34 steps)/0.0 s
+ `-Z3: 0.0 s (34 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:876:39                                              => 0.0 s (33 steps)/0.0 s (33 steps)/0.0 s
+ `-Z3: 0.0 s (33 steps), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:877:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:861:43                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:869:66                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:879:64                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:911:56                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:854:7                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:855:7                                          => 0.0 s (63 steps)/0.0 s (63 steps)/0.0 s
+ `-Z3: 0.0 s (63 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:857:7                                          => 0.0 s (78 steps)/0.0 s (78 steps)/0.0 s
+ `-Z3: 0.0 s (78 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:858:7                                          => 0.0 s (102 steps)/0.0 s (102 steps)/0.0 s
+ `-Z3: 0.0 s (102 steps), Valid
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:891:23                                                      => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:861:30                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:865:43                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:869:36                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:879:37                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:883:49                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:886:44                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:889:37                                                        => 0.0 s (9 steps)/0.0 s (9 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (9 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:898:36                                                        => 0.0 s (39 steps)/0.0 s (39 steps)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (27 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (37 steps), Valid
+ `-Z3: 0.0 s (39 steps), Valid
+ `-Z3: 0.0 s (38 steps), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:908:38                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:911:33                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:879:64                                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:889:64                                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK rflx-arrays-tests.adb:889:64                                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:855:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:857:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:858:7                                     => 0.0 s (32 steps)/0.0 s (32 steps)/0.0 s
+ `-Z3: 0.0 s (32 steps), Valid
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:884:82                                                         => 0.0 s (11 steps)/0.0 s (11 steps)/0.0 s
+ `-Z3: 0.0 s (11 steps), Valid
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:887:54                                                         => 0.0 s (9 steps)/0.0 s (9 steps)/0.0 s
+ `-Z3: 0.0 s (9 steps), Valid
+RFLX.Arrays.Tests.Test_Parsing_Arrays_AV_Enumeration_Loop                                             =>                                                      0.0 s (56 steps)/0.0 s (56 steps)/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:506:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:508:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DISCRIMINANT_CHECK rflx-arrays-tests.adb:529:24                                                  => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Trivial: 0.0 s (0 steps), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DISCRIMINANT_CHECK rflx-arrays-tests.adb:531:66                                                  => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:523:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:524:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:525:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:526:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:527:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:523:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:524:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:525:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:526:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:527:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:512:34                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:520:70                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:561:47                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:505:7                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:506:7                                          => 0.0 s (26 steps)/0.0 s (26 steps)/0.0 s
+ `-Z3: 0.0 s (26 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:508:7                                          => 0.0 s (56 steps)/0.0 s (56 steps)/0.0 s
+ `-Z3: 0.0 s (56 steps), Valid
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:538:23                                                      => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:512:21                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:516:34                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:520:27                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:529:55                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:537:44                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:548:27                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:558:33                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:561:24                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:506:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:508:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:532:55                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:534:62                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+RFLX.Arrays.Tests.Test_Parsing_Arrays_Enumeration_Loop                                                =>                                                      0.0 s (50 steps)/0.0 s (50 steps)/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:368:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:370:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:385:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:386:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:387:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:388:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:389:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:385:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:386:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:387:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:388:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:389:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:374:34                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:382:67                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:418:47                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:367:7                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:368:7                                          => 0.0 s (20 steps)/0.0 s (20 steps)/0.0 s
+ `-Z3: 0.0 s (20 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:370:7                                          => 0.0 s (50 steps)/0.0 s (50 steps)/0.0 s
+ `-Z3: 0.0 s (50 steps), Valid
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:396:23                                                      => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:374:21                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:378:34                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:382:27                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:391:52                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:395:41                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:405:27                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:415:33                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:418:24                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:368:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:370:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:393:52                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+RFLX.Arrays.Tests.Test_Parsing_Arrays_Range_Loop                                                      =>                                                      0.0 s (47 steps)/0.0 s (47 steps)/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:239:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:241:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:256:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:257:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:258:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:259:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:260:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:256:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:257:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:258:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:259:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:260:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:245:34                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:253:61                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:288:47                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:238:7                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:239:7                                          => 0.0 s (19 steps)/0.0 s (19 steps)/0.0 s
+ `-Z3: 0.0 s (19 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:241:7                                          => 0.0 s (47 steps)/0.0 s (47 steps)/0.0 s
+ `-Z3: 0.0 s (47 steps), Valid
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:266:23                                                      => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:245:21                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:249:34                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:253:27                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:262:46                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:265:35                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:275:27                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:285:33                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:288:24                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:239:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:241:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:263:86                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+RFLX.Arrays.Tests.Test_Parsing_Arrays_Modular_Loop                                                    =>                                                      0.0 s (45 steps)/0.0 s (45 steps)/0.0 s
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:110:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_DEFAULT_INITIAL_CONDITION rflx-arrays-tests.adb:112:7                                            => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:127:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:128:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:129:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:130:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT rflx-arrays-tests.adb:131:39                                                 => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:127:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:128:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:129:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:130:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV rflx-arrays-tests.adb:131:39                                              => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:116:34                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:124:63                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK rflx-arrays-tests.adb:159:47                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:109:7                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:110:7                                          => 0.0 s (18 steps)/0.0 s (18 steps)/0.0 s
+ `-Z3: 0.0 s (18 steps), Valid
+`-VC_MEMORY_LEAK_AT_END_OF_SCOPE rflx-arrays-tests.adb:112:7                                          => 0.0 s (45 steps)/0.0 s (45 steps)/0.0 s
+ `-Z3: 0.0 s (45 steps), Valid
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:137:23                                                      => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:116:21                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:120:34                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:124:27                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:133:48                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:136:37                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:146:27                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:156:33                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PRECONDITION rflx-arrays-tests.adb:159:24                                                        => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:110:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_PREDICATE_CHECK_ON_DEFAULT_VALUE rflx-arrays-tests.adb:112:7                                     => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:134:86                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+RFLX.RFLX_Types.U64_Insert.Read                                                                       =>                                                      20.0 ms (1 step)/20.0 ms (1 step)/70.0 ms
+`-VC_INDEX_CHECK rflx-rflx_generic_types.adb:189:23                                                   => 20.0 ms (1 step)/20.0 ms (1 step)/30.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:189:55                                                => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:189:55                                                   => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+RFLX.RFLX_Types.U64_Insert.Write                                                                      =>                                                      20.0 ms (1 step)/20.0 ms (1 step)/70.0 ms
+`-VC_INDEX_CHECK rflx-rflx_generic_types.adb:197:16                                                   => 20.0 ms (1 step)/20.0 ms (1 step)/30.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.adb:197:48                                                => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.adb:197:48                                                   => 20.0 ms (1 step)/20.0 ms (1 step)/20.0 ms
+ `-Z3: 20.0 ms (1 step), Valid
+RFLX.RFLX_Types.Byte_Index                                                                            =>                                                      10.0 ms (1 step)/10.0 ms (1 step)/30.0 ms
+`-VC_DIVISION_CHECK rflx-rflx_generic_types.ads:36:36                                                 => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK rflx-rflx_generic_types.ads:36:41                                                 => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+`-VC_RANGE_CHECK rflx-rflx_generic_types.ads:36:36                                                    => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+RFLX.RFLX_Types.U64_Extract.D.ES                                                                      =>                                                      10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+`-VC_POSTCONDITION rflx-rflx_generic_types.adb:115:65                                                 => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+RFLX.RFLX_Types.Unreachable_Bit_Length                                                                =>                                                      10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+`-VC_INCONSISTENT_PRE rflx-rflx_generic_types.ads:69:10                                               => 10.0 ms (1 step)/10.0 ms (1 step)/10.0 ms
+ `-Z3: 10.0 ms (1 step), Valid
+RFLX.Arrays.Tests.Write_Data                                                                          =>                                                      0.0 s (1 step)/0.0 s (1 step)/0.0 s
+`-VC_LENGTH_CHECK rflx-arrays-tests.adb:36:14                                                         => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
+`-VC_OVERFLOW_CHECK rflx-arrays-tests.adb:36:48                                                       => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:33:39                                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:36:17                                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+ `-Z3: 0.0 s (1 step), Valid
+`-VC_RANGE_CHECK rflx-arrays-tests.adb:36:56                                                          => 0.0 s (1 step)/0.0 s (1 step)/0.0 s
+ `-Z3: 0.0 s (1 step), Valid
+RFLX.Arrays.Tests.Name                                                                                =>                                                      0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+RFLX.Arrays.Tests.Register_Tests                                                                      =>                                                      0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+RFLX.Arrays.Tests.Test_Generating_Arrays_Messages_Message.set_payloadGP51671                          =>                                                      0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+RFLX.Arrays.Tests.Test_Generating_Arrays_Messages_Message.set_payloadGP51671.Set_Payload.Buffer_First =>                                                      0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+RFLX.Arrays.Tests.Test_Generating_Arrays_Messages_Message.set_payloadGP51671.Set_Payload.Buffer_Last  =>                                                      0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+RFLX.Arrays.Tests.Valid_Data_Length                                                                   =>                                                      0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+RFLX.RFLX_Types                                                                                       =>                                                      0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+RFLX.RFLX_Types.First_Bit_Index                                                                       =>                                                      0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+RFLX.RFLX_Types.Last_Bit_Index                                                                        =>                                                      0.0 s (0 steps)/0.0 s (0 steps)/0.0 s

@@ -9,9 +9,9 @@ digraph "Inheritance Tree"
   "SPAT.Entity.T"          [label="{Entity.T\l|{abstract\l|}}"];
   "SPAT.Entity_Line.T"     [label="{Entity_Line.T\l|{|{+File : Source_File_Name\l|+Line : Natural\l}}}"];
   "SPAT.Entity_Location.T" [label="{SPAT.Entity_Location.T\l|{|{+Column : Natural\l}}}"];
-  "SPAT.Flow_Item.T"       [label="{SPAT.Flow_Item.T\l|{|{+Rule : Subject_Name\l|+Severity : Subject_Name\l}}}"];
-  "SPAT.Proof_Item.T"      [label="{SPAT.Proof_Item.T\l|{|{+Suppressed : Subject_Name\l|+Rule : Subject_Name\l|+Severity : Subject_Name\l|+Max_Success_Time : Duration\l|+Max_Time : Duration\l|+Total_Time : Duration\l|+Id : Proof_Item_Ids.Id\l|+Has_Failed_Attempts : Boolean\l|+Has_Unproved_Attempts : Boolean\l|+Is_Unjustified : Boolean\l}}}"];
-  "SPAT.Proof_Attempt.T"   [label="{SPAT.Proof_Attempt.T\l|{|{+Prover : Subject_Name\l|+Result : Subject_Name\l|+Time : Duration\l|+Steps : Prover_Steps\l|+Id : Proof_Attempt_Ids.Id}}}"];
+  "SPAT.Flow_Item.T"       [label="{SPAT.Flow_Item.T\l|{|{+Rule : Rule_Name\l|+Severity : Severity_Name\l}}}"];
+  "SPAT.Proof_Item.T"      [label="{SPAT.Proof_Item.T\l|{|{+Suppressed : Justification\l|+Rule : Rule_Name\l|+Severity : Severity_Name\l|+Max_Success : Time_And_Steps\l|+Max_Proof : Time_And_Steps\l|+Total_Time : Duration\l|+Id : Proof_Item_Ids.Id\l|+Has_Failed_Attempts : Boolean\l|+Has_Unproved_Attempts : Boolean\l|+Is_Unjustified : Boolean\l}}}"];
+  "SPAT.Proof_Attempt.T"   [label="{SPAT.Proof_Attempt.T\l|{|{+Prover : Prover_Name\l|+Result : Result_Name\l|+Workload : Time_And_Steps\l|+Id : Proof_Attempt_Ids.Id\l}}}"];
   "SPAT.Timing_Item.T"     [label="{SPAT.Timing_Item.T\l|{|{+Version : File_Version\l|+Proof : Duration\l|+Flow : Duration\l}}}"];
 
   "dummy" [style="invis"];

@@ -119,12 +119,32 @@ package body SPAT.Spark_Info is
                                   Container : in out Strings.Entity_Names);
 
    ---------------------------------------------------------------------------
+   --  Sort_Entity_By_Proof_Steps
+   --
+   --  Sort code entities by how much maximum proof steps they required.
+   --  Sorting: numerical, descending
+   ---------------------------------------------------------------------------
+   procedure Sort_Entity_By_Proof_Steps
+     (This      : in     T;
+      Container : in out Strings.Entity_Names);
+
+   ---------------------------------------------------------------------------
    --  Sort_Entity_By_Proof_Time
    --
    --  Sort code entities by how much total proof time they required.
    --  Sorting: numerical, descending
    ---------------------------------------------------------------------------
    procedure Sort_Entity_By_Proof_Time
+     (This      : in     T;
+      Container : in out Strings.Entity_Names);
+
+   ---------------------------------------------------------------------------
+   --  Sort_Entity_By_Success_Steps
+   --
+   --  Sort code entities by how many maximum steps for a successful proofs.
+   --  Sorting: numerical, descending
+   ---------------------------------------------------------------------------
+   procedure Sort_Entity_By_Success_Steps
      (This      : in     T;
       Container : in out Strings.Entity_Names);
 
@@ -157,6 +177,36 @@ package body SPAT.Spark_Info is
    --  Sorting: numerical, descending
    ---------------------------------------------------------------------------
    procedure Sort_File_By_Proof_Time
+     (This      : in     T;
+      Container : in out Strings.SPARK_File_Names);
+
+   ---------------------------------------------------------------------------
+   --  Sort_File_By_Steps
+   --
+   --  Sort files by how much maximum steps were done in proof.
+   --  Sorting: numerical, descending
+   ---------------------------------------------------------------------------
+   procedure Sort_File_By_Steps
+     (This      : in     T;
+      Container : in out Strings.SPARK_File_Names);
+
+   ---------------------------------------------------------------------------
+   --  Sort_File_By_Max_Success_Steps
+   --
+   --  Sort files by minimum steps required for successful proof.
+   --  Sorting: numerical, descending
+   ---------------------------------------------------------------------------
+   procedure Sort_File_By_Max_Success_Steps
+     (This      : in     T;
+      Container : in out Strings.SPARK_File_Names);
+
+   ---------------------------------------------------------------------------
+   --  Sort_File_By_Max_Success_Time
+   --
+   --  Sort files by minimum time required for successful proof.
+   --  Sorting: numerical, descending
+   ---------------------------------------------------------------------------
+   procedure Sort_File_By_Max_Success_Time
      (This      : in     T;
       Container : in out Strings.SPARK_File_Names);
 
@@ -295,17 +345,23 @@ package body SPAT.Spark_Info is
          end loop;
 
          case Sort_By is
-            when None =>
+            when None              =>
                null;
 
-            when Name =>
+            when Name              =>
                This.Sort_Entity_By_Name (Container => Result);
 
-            when Max_Success_Time =>
+            when Max_Success_Time  =>
                This.Sort_Entity_By_Success_Time (Container => Result);
 
-            when Max_Time =>
+            when Max_Time          =>
                This.Sort_Entity_By_Proof_Time (Container => Result);
+
+            when Max_Success_Steps =>
+               This.Sort_Entity_By_Success_Steps (Container => Result);
+
+            when Max_Steps         =>
+               This.Sort_Entity_By_Proof_Steps (Container => Result);
          end case;
       end return;
    end List_All_Entities;
@@ -326,18 +382,23 @@ package body SPAT.Spark_Info is
          end loop;
 
          case Sort_By is
-            when None =>
+            when None              =>
                null;
 
-            when Name =>
+            when Name              =>
                This.Sort_File_By_Basename (Container => Result);
 
-            when Max_Success_Time | Max_Time =>
-               Log.Warning
-                 (Message =>
-                     "Sorting files by success time not implemented yet, " &
-                     "falling back to maximum time.");
+            when Max_Success_Time  =>
+               This.Sort_File_By_Max_Success_Time (Container => Result);
+
+            when Max_Time          =>
                This.Sort_File_By_Proof_Time (Container => Result);
+
+            when Max_Success_Steps =>
+               This.Sort_File_By_Max_Success_Steps (Container => Result);
+
+            when Max_Steps         =>
+               This.Sort_File_By_Steps (Container => Result);
          end case;
       end return;
    end List_All_Files;
@@ -528,18 +589,24 @@ package body SPAT.Spark_Info is
             begin
                --  Update sentinel (proof list specific).
                S.Cache :=
-                 Proof_Cache'(Max_Proof_Time =>
+                 Proof_Cache'(Max_Proof_Time           =>
                                 Duration'Max (S.Cache.Max_Proof_Time,
                                               N.Max_Time),
-                              Max_Success_Proof_Time =>
+                              Max_Proof_Steps          =>
+                                Prover_Steps'Max (S.Cache.Max_Proof_Steps,
+                                                  N.Max_Steps),
+                              Max_Success_Proof_Time   =>
                                 Duration'Max (S.Cache.Max_Success_Proof_Time,
                                               N.Max_Success_Time),
-                              Total_Proof_Time =>
+                              Max_Success_Proof_Steps   =>
+                                Prover_Steps'Max (S.Cache.Max_Success_Proof_Steps,
+                                                  N.Max_Success_Steps),
+                              Total_Proof_Time         =>
                                 S.Cache.Total_Proof_Time + N.Total_Time,
-                              Has_Failed_Attempts =>
+                              Has_Failed_Attempts      =>
                                 S.Cache.Has_Failed_Attempts or else
                                   N.Has_Failed_Attempts,
-                              Has_Unproved_Attempts =>
+                              Has_Unproved_Attempts    =>
                                 S.Cache.Has_Unproved_Attempts or else
                                   N.Has_Unproved_Attempts,
                               Has_Unjustified_Attempts =>
@@ -574,10 +641,16 @@ package body SPAT.Spark_Info is
                   Element.Max_Success_Proof_Time :=
                     Duration'Max (Element.Max_Success_Proof_Time,
                                   N.Max_Success_Time);
+                  Element.Max_Success_Proof_Steps :=
+                    Prover_Steps'Max (Element.Max_Success_Proof_Steps,
+                                      N.Max_Success_Steps);
                end if;
 
                Element.Max_Proof_Time := Duration'Max (Element.Max_Proof_Time,
                                                        N.Max_Time);
+               Element.Max_Proof_Steps :=
+                 Prover_Steps'Max (Element.Max_Proof_Steps,
+                                   N.Max_Steps);
             end Local_Update;
          begin
             This.Cached.Update_Element (Position => Cache_Cursor,
@@ -742,8 +815,10 @@ package body SPAT.Spark_Info is
          --  Same for the cached information (which may get updated).
          This.Cached.Insert
            (Key => File,
-            New_Item => Cache_Info'(Max_Success_Proof_Time => 0.0,
-                                    Max_Proof_Time         => 0.0),
+            New_Item => Cache_Info'(Max_Success_Proof_Time  => 0.0,
+                                    Max_Success_Proof_Steps => 0,
+                                    Max_Proof_Time          => 0.0,
+                                    Max_Proof_Steps         => 0),
             Position => Cache_Cursor,
             Inserted => Dummy_Inserted);
       end;
@@ -833,6 +908,20 @@ package body SPAT.Spark_Info is
    end Map_Timings;
 
    ---------------------------------------------------------------------------
+   --  Max_Proof_Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Proof_Steps (This   : in T;
+                             Entity : in Entity_Name) return Prover_Steps
+   is
+      Reference : constant Analyzed_Entities.Constant_Reference_Type :=
+        This.Entities.Constant_Reference (Key => Entity);
+      Sentinel  : constant Proofs_Sentinel := Get_Sentinel (Node => Reference);
+   begin
+      return Sentinel.Cache.Max_Proof_Steps;
+   end Max_Proof_Steps;
+
+   ---------------------------------------------------------------------------
    --  Max_Proof_Time
    ---------------------------------------------------------------------------
    not overriding
@@ -855,6 +944,29 @@ package body SPAT.Spark_Info is
      (This.Cached (File).Max_Proof_Time);
 
    ---------------------------------------------------------------------------
+   --  Max_Proof_Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Proof_Steps (This : in T;
+                             File : in SPARK_File_Name) return Prover_Steps is
+     (This.Cached (File).Max_Proof_Steps);
+
+   ---------------------------------------------------------------------------
+   --  Max_Success_Proof_Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Proof_Steps
+     (This   : in T;
+      Entity : in Entity_Name) return Prover_Steps
+   is
+      Reference : constant Analyzed_Entities.Constant_Reference_Type :=
+        This.Entities.Constant_Reference (Key => Entity);
+      Sentinel  : constant Proofs_Sentinel := Get_Sentinel (Node => Reference);
+   begin
+      return Sentinel.Cache.Max_Success_Proof_Steps;
+   end Max_Success_Proof_Steps;
+
+   ---------------------------------------------------------------------------
    --  Max_Success_Proof_Time
    ---------------------------------------------------------------------------
    not overriding
@@ -867,6 +979,16 @@ package body SPAT.Spark_Info is
    begin
       return Sentinel.Cache.Max_Success_Proof_Time;
    end Max_Success_Proof_Time;
+
+   ---------------------------------------------------------------------------
+   --  Max_Success_Proof_Steps
+   ---------------------------------------------------------------------------
+   not overriding
+   function Max_Success_Proof_Steps
+     (This : in T;
+      File : in SPARK_File_Name) return Prover_Steps
+   is
+     (This.Cached (File).Max_Success_Proof_Steps);
 
    ---------------------------------------------------------------------------
    --  Max_Success_Proof_Time
@@ -1033,6 +1155,72 @@ package body SPAT.Spark_Info is
    end Sort_Entity_By_Name;
 
    ---------------------------------------------------------------------------
+   --  Sort_Entity_By_Proof_Steps
+   ---------------------------------------------------------------------------
+   procedure Sort_Entity_By_Proof_Steps
+     (This      : in     T;
+      Container : in out Strings.Entity_Names)
+   is
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in Entity_Name;
+                    Right : in Entity_Name) return Boolean;
+
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in Entity_Name;
+                    Right : in Entity_Name) return Boolean is
+         Left_Steps         : constant Prover_Steps :=
+           This.Max_Proof_Steps (Entity => Left);
+         Right_Steps        : constant Prover_Steps :=
+           This.Max_Proof_Steps (Entity => Right);
+         Left_Total_Time    : constant Duration :=
+           This.Total_Proof_Time (Entity => Left);
+         Right_Total_Time   : constant Duration :=
+           This.Total_Proof_Time (Entity => Right);
+         Left_Max_Time      : constant Duration :=
+           This.Max_Proof_Time (Entity => Left);
+         Right_Max_Time     : constant Duration :=
+           This.Max_Proof_Time (Entity => Right);
+         Left_Success_Time  : constant Duration :=
+           This.Max_Success_Proof_Time (Entity => Left);
+         Right_Success_Time : constant Duration :=
+           This.Max_Success_Proof_Time (Entity => Right);
+      begin
+         if Left_Steps /= Right_Steps then
+            return Left_Steps > Right_Steps;
+         end if;
+
+         --  Steps are equal, try by total proof time.
+         if Left_Total_Time /= Right_Total_Time then
+            return Left_Total_Time > Right_Total_Time;
+         end if;
+
+         --  Total time is the same, try to sort by max time.
+         if Left_Max_Time /= Right_Max_Time then
+            return Left_Max_Time > Right_Max_Time;
+         end if;
+
+         --  Try sorting by max time for successful proof.
+         if Left_Success_Time /= Right_Success_Time then
+            return Left_Success_Time > Right_Success_Time;
+         end if;
+
+         --  Resort to alphabetical order.
+         return SPAT."<" (Left, Right); --  Trap! "Left < Right" is recursive.
+      end "<";
+
+      package Sorting is new
+        Strings.Implementation.Entities.Base_Vectors.Generic_Sorting ("<" => "<");
+   begin
+      Sorting.Sort
+        (Container =>
+           Strings.Implementation.Entities.Base_Vectors.Vector (Container));
+   end Sort_Entity_By_Proof_Steps;
+
+   ---------------------------------------------------------------------------
    --  Sort_Entity_By_Proof_Time
    ---------------------------------------------------------------------------
    procedure Sort_Entity_By_Proof_Time (This      : in     T;
@@ -1088,6 +1276,93 @@ package body SPAT.Spark_Info is
         (Container =>
            Strings.Implementation.Entities.Base_Vectors.Vector (Container));
    end Sort_Entity_By_Proof_Time;
+
+   ---------------------------------------------------------------------------
+   --  Sort_Entity_By_Success_Steps
+   --
+   --  Sort code entities by how many maximum steps for a successful proofs.
+   --  Sorting: numerical, descending
+   ---------------------------------------------------------------------------
+   procedure Sort_Entity_By_Success_Steps
+     (This      : in     T;
+      Container : in out Strings.Entity_Names)
+   is
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in Entity_Name;
+                    Right : in Entity_Name) return Boolean;
+
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in Entity_Name;
+                    Right : in Entity_Name) return Boolean is
+         Left_Success_Steps   : constant Prover_Steps :=
+           (if This.Has_Unproved_Attempts (Entity => Left)
+            then 0
+            else This.Max_Success_Proof_Steps (Entity => Left));
+         Right_Success_Steps  : constant Prover_Steps :=
+           (if This.Has_Unproved_Attempts (Entity => Right)
+            then 0
+            else This.Max_Success_Proof_Steps (Entity => Right));
+         Left_Success_Time    : constant Duration :=
+           (if This.Has_Unproved_Attempts (Entity => Left)
+            then Duration'First
+            else This.Max_Success_Proof_Time (Entity => Left));
+         Right_Success_Time   : constant Duration :=
+           (if This.Has_Unproved_Attempts (Entity => Right)
+            then Duration'First
+            else This.Max_Success_Proof_Time (Entity => Right));
+         Left_Max_Steps       : constant Prover_Steps :=
+           This.Max_Proof_Steps (Entity => Left);
+         Right_Max_Steps      : constant Prover_Steps :=
+           This.Max_Proof_Steps (Entity => Right);
+         Left_Total_Time      : constant Duration :=
+           This.Total_Proof_Time (Entity => Left);
+         Right_Total_Time     : constant Duration :=
+           This.Total_Proof_Time (Entity => Right);
+         Left_Max_Time        : constant Duration :=
+           This.Max_Proof_Time (Entity => Left);
+         Right_Max_Time       : constant Duration :=
+           This.Max_Proof_Time (Entity => Right);
+      begin
+         --  First by steps to successful proof
+         if Left_Success_Steps /= Right_Success_Steps then
+            return Left_Success_Steps > Right_Success_Steps;
+         end if;
+
+         --  Steps are equal, try time.
+         if Left_Success_Time /= Right_Success_Time then
+            return Left_Success_Time > Right_Success_Time;
+         end if;
+
+         --  Success times are equal, try max steps.
+         if Left_Max_Steps /= Right_Max_Steps then
+            return Left_Max_Steps > Right_Max_Steps;
+         end if;
+
+         --  Max steps are equal too, try total time.
+         if Left_Total_Time /= Right_Total_Time then
+            return Left_Total_Time > Right_Total_Time;
+         end if;
+
+         --  Total time is the same, try to sort by max time.
+         if Left_Max_Time /= Right_Max_Time then
+            return Left_Max_Time > Right_Max_Time;
+         end if;
+
+         --  Resort to alphabetical order.
+         return SPAT."<" (Left, Right); --  Trap! "Left < Right" is recursive.
+      end "<";
+
+      package Sorting is new
+        Strings.Implementation.Entities.Base_Vectors.Generic_Sorting ("<" => "<");
+   begin
+      Sorting.Sort
+        (Container =>
+           Strings.Implementation.Entities.Base_Vectors.Vector (Container));
+   end Sort_Entity_By_Success_Steps;
 
    ---------------------------------------------------------------------------
    --  Sort_Entity_By_Success_Time
@@ -1182,6 +1457,156 @@ package body SPAT.Spark_Info is
    end Sort_File_By_Basename;
 
    ---------------------------------------------------------------------------
+   --  Sort_File_By_Max_Success_Steps
+   ---------------------------------------------------------------------------
+   procedure Sort_File_By_Max_Success_Steps
+     (This      : in     T;
+      Container : in out Strings.SPARK_File_Names)
+   is
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in SPARK_File_Name;
+                    Right : in SPARK_File_Name) return Boolean;
+
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in SPARK_File_Name;
+                    Right : in SPARK_File_Name) return Boolean
+      is
+         Left_Success_Steps  : constant Prover_Steps :=
+           This.Max_Success_Proof_Steps (File => Left);
+         Right_Success_Steps : constant Prover_Steps :=
+           This.Max_Success_Proof_Steps (File => Right);
+         Left_Steps          : constant Prover_Steps :=
+           This.Max_Proof_Steps (File => Left);
+         Right_Steps         : constant Prover_Steps :=
+           This.Max_Proof_Steps (File => Right);
+         Left_Success_Time   : constant Duration :=
+           This.Max_Success_Proof_Time (File => Left);
+         Right_Success_Time  : constant Duration :=
+           This.Max_Success_Proof_Time (File => Right);
+         Left_Proof_Time     : constant Duration :=
+           This.Proof_Time (File => Left);
+         Right_Proof_Time    : constant Duration :=
+           This.Proof_Time (File => Right);
+         Left_Flow_Time      : constant Duration :=
+           This.Flow_Time (File => Left);
+         Right_Flow_Time     : constant Duration :=
+           This.Flow_Time (File => Right);
+         Left_Total_Time     : constant Duration :=
+           Left_Proof_Time + Left_Flow_Time;
+         Right_Total_Time    : constant Duration :=
+           Right_Proof_Time + Right_Flow_Time;
+      begin
+         --  Sort by success steps.
+         if Left_Success_Steps /= Right_Success_Steps then
+            return Left_Success_Steps > Right_Success_Steps;
+         end if;
+
+         --  Success steps is equal, sort by max steps.
+         if Left_Steps /= Right_Steps then
+            return Left_Steps > Right_Steps;
+         end if;
+
+         --  If steps were equal, sort by time.
+         if Left_Success_Time /= Right_Success_Time then
+            return Left_Success_Time > Right_Success_Time;
+         end if;
+
+         --  If success times do not differ, prioritize proof time.
+         if Left_Proof_Time /= Right_Proof_Time then
+            return Left_Proof_Time > Right_Proof_Time;
+         end if;
+
+         --  If proof times are equal, try total time.
+         if Left_Total_Time /= Right_Total_Time then
+            return Left_Total_Time > Right_Total_Time;
+         end if;
+
+         --  Total and proof times were equal, so flow times must be equal, too.
+         pragma Assert (Left_Flow_Time = Right_Flow_Time);
+
+         --  Last resort, sort by name.
+         return By_Basename (Left  => Left,
+                             Right => Right);
+      end "<";
+
+      package Sorting is new
+        Strings.Implementation.SPARK_File_Names.Base_Vectors.Generic_Sorting
+          ("<" => "<");
+   begin
+      Sorting.Sort
+        (Container =>
+           Strings.Implementation.SPARK_File_Names.Base_Vectors.Vector
+             (Container));
+   end Sort_File_By_Max_Success_Steps;
+
+   ---------------------------------------------------------------------------
+   --  Sort_File_By_Max_Success_Time
+   ---------------------------------------------------------------------------
+   procedure Sort_File_By_Max_Success_Time
+     (This      : in     T;
+      Container : in out Strings.SPARK_File_Names)
+   is
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in SPARK_File_Name;
+                    Right : in SPARK_File_Name) return Boolean;
+
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in SPARK_File_Name;
+                    Right : in SPARK_File_Name) return Boolean
+      is
+         Left_Success  : constant Duration :=
+           This.Max_Success_Proof_Time (File => Left);
+         Right_Success : constant Duration :=
+           This.Max_Success_Proof_Time (File => Right);
+         Left_Proof    : constant Duration := This.Proof_Time (File => Left);
+         Right_Proof   : constant Duration := This.Proof_Time (File => Right);
+         Left_Flow     : constant Duration := This.Flow_Time (File => Left);
+         Right_Flow    : constant Duration := This.Flow_Time (File => Right);
+         Left_Total    : constant Duration := Left_Proof + Left_Flow;
+         Right_Total   : constant Duration := Right_Proof + Right_Flow;
+      begin
+         --  First by success time.
+         if Left_Success /= Right_Success then
+            return Left_Success > Right_Success;
+         end if;
+
+         --  If success times do not differ, prioritize proof time.
+         if Left_Proof /= Right_Proof then
+            return Left_Proof > Right_Proof;
+         end if;
+
+         --  If proof times are equal, try total time.
+         if Left_Total /= Right_Total then
+            return Left_Total > Right_Total;
+         end if;
+
+         --  Total and proof times were equal, so flow times must be equal, too.
+         pragma Assert (Left_Flow = Right_Flow);
+
+         --  Last resort, sort by name.
+         return By_Basename (Left  => Left,
+                             Right => Right);
+      end "<";
+
+      package Sorting is new
+        Strings.Implementation.SPARK_File_Names.Base_Vectors.Generic_Sorting
+          ("<" => "<");
+   begin
+      Sorting.Sort
+        (Container =>
+           Strings.Implementation.SPARK_File_Names.Base_Vectors.Vector
+             (Container));
+   end Sort_File_By_Max_Success_Time;
+
+   ---------------------------------------------------------------------------
    --  Sort_File_By_Proof_Time
    ---------------------------------------------------------------------------
    procedure Sort_File_By_Proof_Time
@@ -1212,7 +1637,7 @@ package body SPAT.Spark_Info is
             return Left_Total > Right_Total;
          end if;
 
-         --  If totals differ, prioritize proof time.
+         --  If totals do not differ, prioritize proof time.
          if Left_Proof /= Right_Proof then
             return Left_Proof > Right_Proof;
          end if;
@@ -1234,6 +1659,83 @@ package body SPAT.Spark_Info is
            Strings.Implementation.SPARK_File_Names.Base_Vectors.Vector
              (Container));
    end Sort_File_By_Proof_Time;
+
+   ---------------------------------------------------------------------------
+   --  Sort_File_By_Steps
+   ---------------------------------------------------------------------------
+   procedure Sort_File_By_Steps (This      : in     T;
+                                 Container : in out Strings.SPARK_File_Names)
+   is
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in SPARK_File_Name;
+                    Right : in SPARK_File_Name) return Boolean;
+
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in SPARK_File_Name;
+                    Right : in SPARK_File_Name) return Boolean
+      is
+         Left_Steps          : constant Prover_Steps :=
+           This.Max_Proof_Steps (File => Left);
+         Right_Steps         : constant Prover_Steps :=
+           This.Max_Proof_Steps (File => Right);
+         Left_Success_Time   : constant Duration :=
+           This.Max_Success_Proof_Time (File => Left);
+         Right_Success_Time  : constant Duration :=
+           This.Max_Success_Proof_Time (File => Right);
+         Left_Proof_Time     : constant Duration :=
+           This.Proof_Time (File => Left);
+         Right_Proof_Time    : constant Duration :=
+           This.Proof_Time (File => Right);
+         Left_Flow_Time      : constant Duration :=
+           This.Flow_Time (File => Left);
+         Right_Flow_Time     : constant Duration :=
+           This.Flow_Time (File => Right);
+         Left_Total_Time     : constant Duration :=
+           Left_Proof_Time + Left_Flow_Time;
+         Right_Total_Time    : constant Duration :=
+           Right_Proof_Time + Right_Flow_Time;
+      begin
+         --  Sort by max steps.
+         if Left_Steps /= Right_Steps then
+            return Left_Steps > Right_Steps;
+         end if;
+
+         --  If steps were equal, sort by time.
+         if Left_Success_Time /= Right_Success_Time then
+            return Left_Success_Time > Right_Success_Time;
+         end if;
+
+         --  If success times do not differ, prioritize proof time.
+         if Left_Proof_Time /= Right_Proof_Time then
+            return Left_Proof_Time > Right_Proof_Time;
+         end if;
+
+         --  If proof times are equal, try total time.
+         if Left_Total_Time /= Right_Total_Time then
+            return Left_Total_Time > Right_Total_Time;
+         end if;
+
+         --  Total and proof times were equal, so flow times must be equal, too.
+         pragma Assert (Left_Flow_Time = Right_Flow_Time);
+
+         --  Last resort, sort by name.
+         return By_Basename (Left  => Left,
+                             Right => Right);
+      end "<";
+
+      package Sorting is new
+        Strings.Implementation.SPARK_File_Names.Base_Vectors.Generic_Sorting
+          ("<" => "<");
+   begin
+      Sorting.Sort
+        (Container =>
+           Strings.Implementation.SPARK_File_Names.Base_Vectors.Vector
+             (Container));
+   end Sort_File_By_Steps;
 
    ---------------------------------------------------------------------------
    --  Total_Proof_Time

@@ -1,0 +1,116 @@
+SPARKNaCl.Sign.ModL.Eliminate_Limbs_62_To_32          =>                                                    9.2 s (4063 steps)/9.2 s (4063 steps)/148.2 s
+`-VC_RANGE_CHECK sparknacl-sign.adb:433:54            => 9.2 s (4063 steps)/9.2 s (4063 steps)/11.3 s
+ `-CVC4: 9.2 s (4063 steps), Valid
+ `-CVC4: 1.5 s (220 steps), Valid
+ `-CVC4: 480.0 ms (1 step), Valid
+ `-CVC4: 190.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:435:25            => 5.2 s (2270 steps)/5.2 s (2270 steps)/7.8 s
+ `-CVC4: 5.2 s (2270 steps), Valid
+ `-CVC4: 1.9 s (482 steps), Valid
+ `-CVC4: 500.0 ms (1 step), Valid
+ `-CVC4: 220.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:448:19    => 1.8 s (232 steps)/1.8 s (232 steps)/2.0 s
+ `-CVC4: 1.8 s (232 steps), Valid
+ `-CVC4: 200.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:510:16                 => 1.4 s (1 step)/1.4 s (1 step)/1.9 s
+ `-CVC4: 1.4 s (1 step), Valid
+ `-CVC4: 570.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:513:28                 => 1.4 s (1 step)/1.4 s (1 step)/1.9 s
+ `-CVC4: 1.4 s (1 step), Valid
+ `-CVC4: 500.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:499:16                 => 1.2 s (1 step)/1.2 s (1 step)/1.7 s
+ `-CVC4: 1.2 s (1 step), Valid
+ `-CVC4: 490.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:550:16 => 1.7 s (1 step)/1.7 s (1 step)/1.7 s
+ `-CVC4: 1.7 s (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:502:28                 => 1.2 s (1 step)/1.2 s (1 step)/1.6 s
+ `-CVC4: 1.2 s (1 step), Valid
+ `-CVC4: 390.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:514:28                 => 1.1 s (1 step)/1.1 s (1 step)/1.6 s
+ `-CVC4: 1.1 s (1 step), Valid
+ `-CVC4: 460.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:488:16                 => 1.1 s (1 step)/1.1 s (1 step)/1.5 s
+ `-CVC4: 1.1 s (1 step), Valid
+ `-CVC4: 390.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:442:19 => 1.0 s (1 step)/1.0 s (1 step)/1.4 s
+ `-CVC4: 1.0 s (1 step), Valid
+ `-CVC4: 370.0 ms (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:547:16 => 1.4 s (1 step)/1.4 s (1 step)/1.4 s
+ `-CVC4: 1.4 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:535:16 => 1.3 s (1 step)/1.3 s (1 step)/1.3 s
+ `-CVC4: 1.3 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:552:16 => 1.2 s (1 step)/1.2 s (1 step)/1.2 s
+ `-CVC4: 1.2 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:540:16 => 1.2 s (1 step)/1.2 s (1 step)/1.2 s
+ `-CVC4: 1.2 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:543:16 => 1.2 s (1 step)/1.2 s (1 step)/1.2 s
+ `-CVC4: 1.2 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:530:16 => 1.2 s (1 step)/1.2 s (1 step)/1.2 s
+ `-CVC4: 1.2 s (1 step), Valid
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:526:16 => 1.1 s (1 step)/1.1 s (1 step)/1.1 s
+ `-CVC4: 1.1 s (1 step), Valid
+SPARKNaCl.Sign.ModL.Finalize                          =>                                                    2.1 s (930 steps)/2.1 s (930 steps)/27.1 s
+`-VC_RANGE_CHECK sparknacl-sign.adb:577:30            => 2.1 s (930 steps)/2.1 s (930 steps)/2.4 s
+ `-CVC4: 2.1 s (930 steps), Valid
+ `-CVC4: 270.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:577:39         => 1.7 s (561 steps)/1.7 s (561 steps)/2.0 s
+ `-CVC4: 1.7 s (561 steps), Valid
+ `-CVC4: 240.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:577:30         => 1.7 s (577 steps)/1.7 s (577 steps)/1.9 s
+ `-CVC4: 1.7 s (577 steps), Valid
+ `-CVC4: 280.0 ms (1 step), Valid
+`-VC_RANGE_CHECK sparknacl-sign.adb:641:41            => 1.4 s (178 steps)/1.4 s (178 steps)/1.7 s
+ `-CVC4: 1.4 s (178 steps), Valid
+ `-CVC4: 210.0 ms (1 step), Valid
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:577:57         => 1.2 s (337 steps)/1.2 s (337 steps)/1.5 s
+ `-CVC4: 1.2 s (337 steps), Valid
+ `-CVC4: 280.0 ms (1 step), Valid
+`-VC_ASSERT sparknacl-sign.adb:579:28                 => 1.1 s (255 steps)/1.1 s (255 steps)/1.4 s
+ `-CVC4: 1.1 s (255 steps), Valid
+ `-CVC4: 260.0 ms (1 step), Valid
+SPARKNaCl.Omultiply                                   =>                                                    700.0 ms (1 step)/19.1 s (14001 steps)/28.6 s
+`-VC_LOOP_INVARIANT_PRESERV sparknacl.adb:164:13      => 40.0 ms (1 step)/19.1 s (14001 steps)/19.1 s
+ `-CVC4: 19.1 s (14001 steps), Unknown (unknown)
+  -Z3: 40.0 ms (1 step), Valid
+SPARKNaCl.Sign.Sign                                   =>                                                    --/57.6 s (14007 steps)/489.2 s
+`-VC_OVERFLOW_CHECK sparknacl-sign.adb:890:36         => --/57.6 s (14007 steps)/238.7 s
+ `-CVC4: 57.6 s (14001 steps), Unknown (unknown)
+  -Z3: 4.3 s (5945 steps), Valid
+ `-CVC4: 51.6 s (14001 steps), Unknown (unknown)
+  -Z3: 7.9 s (14006 steps), Unknown (unknown)
+ `-CVC4: 50.5 s (14001 steps), Unknown (unknown)
+  -Z3: 8.8 s (14006 steps), Unknown (unknown)
+ `-CVC4: 50.7 s (14001 steps), Unknown (unknown)
+  -Z3: 7.2 s (14007 steps), Unknown (unknown)
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-sign.adb:896:16 => 8.2 s (14007 steps)/51.5 s (14007 steps)/115.1 s
+ `-CVC4: 51.5 s (14001 steps), Unknown (unknown)
+  -Z3: 8.2 s (14007 steps), Valid
+ `-CVC4: 51.1 s (14001 steps), Unknown (unknown)
+  -Z3: 4.3 s (6848 steps), Valid
+`-VC_LOOP_INVARIANT_INIT sparknacl-sign.adb:896:16    => 6.0 s (8848 steps)/51.0 s (14001 steps)/112.4 s
+ `-CVC4: 51.0 s (14001 steps), Unknown (unknown)
+  -Z3: 6.0 s (8848 steps), Valid
+ `-CVC4: 50.9 s (14001 steps), Unknown (unknown)
+  -Z3: 4.6 s (8578 steps), Valid
+SPARKNaCl.ASR_16                                      =>                                                    --/5.7 s (14001 steps)/5.9 s
+`-VC_POSTCONDITION sparknacl.ads:355:35               => --/5.7 s (14001 steps)/5.8 s
+ `-Z3: 5.7 s (14001 steps), Unknown (unknown)
+  -CVC4: 80.0 ms (1 step), Unknown (unknown)
+Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.ASR_8                                       =>                                                    --/3.3 s (14001 steps)/3.5 s
+`-VC_POSTCONDITION sparknacl.ads:367:35               => --/3.3 s (14001 steps)/3.4 s
+ `-Z3: 3.3 s (14001 steps), Unknown (unknown)
+  -CVC4: 90.0 ms (1 step), Unknown (unknown)
+Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.ASR_4                                       =>                                                    --/1.2 s (14001 steps)/1.4 s
+`-VC_POSTCONDITION sparknacl.ads:379:35               => --/1.2 s (14001 steps)/1.3 s
+ `-Z3: 1.2 s (14001 steps), Unknown (unknown)
+  -CVC4: 80.0 ms (1 step), Unknown (unknown)
+Justified with: "From definition of arithmetic shift right".
+SPARKNaCl.Car.Nearlynormal_To_Normal                  =>                                                    --/1.4 s (803 steps)/17.5 s
+`-VC_LOOP_INVARIANT_PRESERV sparknacl-car.adb:324:13  => --/1.4 s (367 steps)/1.9 s
+ `-CVC4: 1.4 s (1 step), Unknown (unknown)
+  -Z3: 590.0 ms (367 steps), Unknown (unknown)
+`-VC_PREDICATE_CHECK sparknacl-car.adb:308:10         => 1.0 s (222 steps)/1.0 s (222 steps)/1.2 s
+ `-CVC4: 1.0 s (222 steps), Valid
+ `-CVC4: 180.0 ms (1 step), Valid

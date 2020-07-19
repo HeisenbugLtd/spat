@@ -59,8 +59,8 @@ private
 
    type T is new Entity_Location.T with
       record
-         Rule     : Subject_Name;
-         Severity : Subject_Name;
+         Rule     : Rule_Name;
+         Severity : Severity_Name;
       end record;
 
 end SPAT.Flow_Item;

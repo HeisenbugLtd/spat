@@ -1,0 +1,45 @@
+saatana-crypto-phelix.spark              => (Flow  => 206.5 ms,
+                                             Proof => 174.3 s (14009 steps)/206.4 s (131078 steps)/568.7 s)
+test_phelix_api.spark                    => (Flow  => 14.4 ms,
+                                             Proof => 240.0 ms (1 step)/240.0 ms (1 step)/23.1 s)
+saatana-crypto-lemmas.spark              => (Flow  => 2.1 ms,
+                                             Proof => 210.0 ms (1 step)/210.0 ms (1 step)/2.2 s)
+saatana-crypto.spark                     => (Flow  => 9.0 ms,
+                                             Proof => 80.0 ms (1 step)/80.0 ms (1 step)/6.8 s)
+saatana.spark                            => (Flow  => 464.0 µs,
+                                             Proof => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s)
+test_phelix.spark                        => (Flow  => 180.0 µs,
+                                             Proof => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s)
+saatana-crypto-stream_tools.spark        => (Flow  => 71.0 µs,
+                                             Proof => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s)
+saatana-crypto-phelix-test_vectors.spark => (Flow  => 24.0 µs,
+                                             Proof => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s)
+Saatana.Crypto.Phelix.Setup_Key            => 640.0 ms (221 steps)/206.4 s (131078 steps)/219.2 s
+Saatana.Crypto.Phelix.H                    => 6.0 s (14009 steps)/6.0 s (14009 steps)/6.0 s
+Saatana.Crypto.Phelix.Encrypt_Bytes        => 174.3 s (10170 steps)/174.3 s (10170 steps)/189.0 s
+Saatana.Crypto.Phelix.Decrypt_Bytes        => 4.0 s (3331 steps)/4.0 s (3331 steps)/18.6 s
+Saatana.Crypto.Phelix.Finalize             => 2.2 s (3029 steps)/2.2 s (3029 steps)/7.7 s
+Test_Phelix_API                            => 240.0 ms (1 step)/240.0 ms (1 step)/9.1 s
+Saatana.Crypto.Phelix.Setup_Nonce          => 360.0 ms (1 step)/360.0 ms (1 step)/4.9 s
+Saatana.Crypto.Phelix.Process_AAD          => 200.0 ms (1 step)/200.0 ms (1 step)/3.9 s
+Saatana.Crypto.Phelix.Encrypt_Packet       => 100.0 ms (1 step)/100.0 ms (1 step)/2.0 s
+Saatana.Crypto.Phelix.Decrypt_Packet       => 110.0 ms (1 step)/110.0 ms (1 step)/1.9 s
+Saatana.Crypto.To_Stream                   => 40.0 ms (1 step)/40.0 ms (1 step)/920.0 ms
+Saatana.Crypto.To_Unsigned                 => 80.0 ms (1 step)/80.0 ms (1 step)/810.0 ms
+Saatana.Crypto.Lemmas                      => 210.0 ms (1 step)/210.0 ms (1 step)/700.0 ms
+Saatana.Crypto.Phelix.Exclusive_Or         => 110.0 ms (1 step)/110.0 ms (1 step)/540.0 ms
+Saatana.Crypto.Oadd                        => 40.0 ms (1 step)/40.0 ms (1 step)/310.0 ms
+Saatana.Crypto.Oadd.Add_Carry              => 30.0 ms (1 step)/30.0 ms (1 step)/90.0 ms
+Saatana.Crypto.Phelix.Key_Size_32Predicate => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+Saatana.Crypto.Phelix.MAC_Size_32Predicate => 30.0 ms (1 step)/30.0 ms (1 step)/30.0 ms
+Saatana                                    => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+Saatana.Crypto                             => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+Saatana.Crypto.Phelix                      => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+Saatana.Crypto.Phelix.Context              => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+Saatana.Crypto.Phelix.Ctx_AAD_Len          => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+Saatana.Crypto.Phelix.Ctx_I                => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+Saatana.Crypto.Phelix.Ctx_Key_Size         => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+Saatana.Crypto.Phelix.Ctx_Mac_Size         => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+Saatana.Crypto.Phelix.Ctx_Msg_Len          => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+Saatana.Crypto.Phelix.Setup_Key_Called     => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
+Saatana.Crypto.Phelix.Setup_Nonce_Called   => 0.0 s (0 steps)/0.0 s (0 steps)/0.0 s
