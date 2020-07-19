@@ -36,8 +36,8 @@ package body SPAT is
    ---------------------------------------------------------------------------
    function Image (Value : in Duration;
                    Steps : in Prover_Steps) return String is
-     (Image (Value => Value) & ", " &
+     (Image (Value => Value) & " (" &
       Ada.Strings.Fixed.Trim (Source => Steps'Image,
-                              Side   => Ada.Strings.Both) & " steps");
+                              Side   => Ada.Strings.Both) & " steps)");
 
 end SPAT;
