@@ -119,6 +119,16 @@ package body SPAT.Spark_Info is
                                   Container : in out Strings.Entity_Names);
 
    ---------------------------------------------------------------------------
+   --  Sort_Entity_By_Proof_Steps
+   --
+   --  Sort code entities by how much maximum proof steps they required.
+   --  Sorting: numerical, descending
+   ---------------------------------------------------------------------------
+   procedure Sort_Entity_By_Proof_Steps
+     (This      : in     T;
+      Container : in out Strings.Entity_Names);
+
+   ---------------------------------------------------------------------------
    --  Sort_Entity_By_Proof_Time
    --
    --  Sort code entities by how much total proof time they required.
@@ -346,11 +356,7 @@ package body SPAT.Spark_Info is
                This.Sort_Entity_By_Success_Time (Container => Result);
 
             when Max_Steps         =>
-               Log.Warning
-                 (Message =>
-                    "Sorting by max steps (""-cp"") not implemented yet, " &
-                    "reverting to sorting by max time (""-ct"").");
-               This.Sort_Entity_By_Proof_Time (Container => Result);
+               This.Sort_Entity_By_Proof_Steps (Container => Result);
          end case;
       end return;
    end List_All_Entities;
@@ -1142,6 +1148,72 @@ package body SPAT.Spark_Info is
         (Container =>
            Strings.Implementation.Entities.Base_Vectors.Vector (Container));
    end Sort_Entity_By_Name;
+
+   ---------------------------------------------------------------------------
+   --  Sort_Entity_By_Proof_Steps
+   ---------------------------------------------------------------------------
+   procedure Sort_Entity_By_Proof_Steps
+     (This      : in     T;
+      Container : in out Strings.Entity_Names)
+   is
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in Entity_Name;
+                    Right : in Entity_Name) return Boolean;
+
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in Entity_Name;
+                    Right : in Entity_Name) return Boolean is
+         Left_Steps         : constant Prover_Steps :=
+           This.Max_Proof_Steps (Entity => Left);
+         Right_Steps        : constant Prover_Steps :=
+           This.Max_Proof_Steps (Entity => Right);
+         Left_Total_Time    : constant Duration :=
+           This.Total_Proof_Time (Entity => Left);
+         Right_Total_Time   : constant Duration :=
+           This.Total_Proof_Time (Entity => Right);
+         Left_Max_Time      : constant Duration :=
+           This.Max_Proof_Time (Entity => Left);
+         Right_Max_Time     : constant Duration :=
+           This.Max_Proof_Time (Entity => Right);
+         Left_Success_Time  : constant Duration :=
+           This.Max_Success_Proof_Time (Entity => Left);
+         Right_Success_Time : constant Duration :=
+           This.Max_Success_Proof_Time (Entity => Right);
+      begin
+         if Left_Steps /= Right_Steps then
+            return Left_Steps > Right_Steps;
+         end if;
+
+         --  Steps are equal, try by total proof time.
+         if Left_Total_Time /= Right_Total_Time then
+            return Left_Total_Time > Right_Total_Time;
+         end if;
+
+         --  Total time is the same, try to sort by max time.
+         if Left_Max_Time /= Right_Max_Time then
+            return Left_Max_Time > Right_Max_Time;
+         end if;
+
+         --  Try sorting by max time for successful proof.
+         if Left_Success_Time /= Right_Success_Time then
+            return Left_Success_Time > Right_Success_Time;
+         end if;
+
+         --  Resort to alphabetical order.
+         return SPAT."<" (Left, Right); --  Trap! "Left < Right" is recursive.
+      end "<";
+
+      package Sorting is new
+        Strings.Implementation.Entities.Base_Vectors.Generic_Sorting ("<" => "<");
+   begin
+      Sorting.Sort
+        (Container =>
+           Strings.Implementation.Entities.Base_Vectors.Vector (Container));
+   end Sort_Entity_By_Proof_Steps;
 
    ---------------------------------------------------------------------------
    --  Sort_Entity_By_Proof_Time
