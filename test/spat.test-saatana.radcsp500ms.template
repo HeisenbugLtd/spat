@@ -1,47 +1,47 @@
 Saatana.Crypto.Phelix.Encrypt_Bytes                          =>                                                            174.3 s (8585912 steps)/174.3 s (8585912 steps)/189.0 s
 `-VC_RANGE_CHECK saatana-crypto-phelix.adb:231:19            => 174.3 s (8585912 steps)/174.3 s (8585912 steps)/175.0 s
- `-Z3: 174.3 s, 8585912 steps, Valid
- `-Z3: 180.0 ms, 188199 steps, Valid
- `-Z3: 120.0 ms, 119094 steps, Valid
- `-Z3: 90.0 ms, 128229 steps, Valid
- `-Z3: 90.0 ms, 108667 steps, Valid
- `-Z3: 90.0 ms, 108685 steps, Valid
- `-Z3: 70.0 ms, 61319 steps, Valid
- `-Z3: 60.0 ms, 41844 steps, Valid
+ `-Z3: 174.3 s (8585912 steps), Valid
+ `-Z3: 180.0 ms (188199 steps), Valid
+ `-Z3: 120.0 ms (119094 steps), Valid
+ `-Z3: 90.0 ms (128229 steps), Valid
+ `-Z3: 90.0 ms (108667 steps), Valid
+ `-Z3: 90.0 ms (108685 steps), Valid
+ `-Z3: 70.0 ms (61319 steps), Valid
+ `-Z3: 60.0 ms (41844 steps), Valid
 `-VC_POSTCONDITION saatana-crypto-phelix.ads:262:17          => 2.0 s (905374 steps)/2.0 s (905374 steps)/3.2 s
- `-Z3: 2.0 s, 905374 steps, Valid
- `-Z3: 190.0 ms, 175674 steps, Valid
- `-Z3: 180.0 ms, 182876 steps, Valid
- `-Z3: 180.0 ms, 175687 steps, Valid
- `-Z3: 160.0 ms, 173569 steps, Valid
- `-Z3: 160.0 ms, 170986 steps, Valid
- `-Z3: 150.0 ms, 173740 steps, Valid
- `-Z3: 140.0 ms, 171647 steps, Valid
- `-Z3: 80.0 ms, 69448 steps, Valid
- `-Trivial: 0.0 s, 0 steps, Valid
+ `-Z3: 2.0 s (905374 steps), Valid
+ `-Z3: 190.0 ms (175674 steps), Valid
+ `-Z3: 180.0 ms (182876 steps), Valid
+ `-Z3: 180.0 ms (175687 steps), Valid
+ `-Z3: 160.0 ms (173569 steps), Valid
+ `-Z3: 160.0 ms (170986 steps), Valid
+ `-Z3: 150.0 ms (173740 steps), Valid
+ `-Z3: 140.0 ms (171647 steps), Valid
+ `-Z3: 80.0 ms (69448 steps), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
 `-VC_LOOP_INVARIANT_INIT saatana-crypto-phelix.adb:252:39    => 1.1 s (1108158 steps)/1.1 s (1108158 steps)/1.1 s
- `-Z3: 1.1 s, 1108158 steps, Valid
+ `-Z3: 1.1 s (1108158 steps), Valid
 Saatana.Crypto.Phelix.H                                      =>                                                            6.0 s (11657168 steps)/6.0 s (11657168 steps)/6.0 s
 `-VC_POSTCONDITION saatana-crypto-phelix.adb:49:17           => 6.0 s (11657168 steps)/6.0 s (11657168 steps)/6.0 s
- `-Z3: 6.0 s, 11657168 steps, Valid
+ `-Z3: 6.0 s (11657168 steps), Valid
 Saatana.Crypto.Phelix.Decrypt_Bytes                          =>                                                            4.0 s (3114117 steps)/4.0 s (3114117 steps)/18.6 s
 `-VC_POSTCONDITION saatana-crypto-phelix.ads:292:17          => 4.0 s (1090965 steps)/4.0 s (1090965 steps)/5.2 s
- `-Z3: 4.0 s, 1090965 steps, Valid
- `-Z3: 200.0 ms, 190359 steps, Valid
- `-Z3: 170.0 ms, 180692 steps, Valid
- `-Z3: 170.0 ms, 182106 steps, Valid
- `-Z3: 160.0 ms, 180861 steps, Valid
- `-Z3: 160.0 ms, 182124 steps, Valid
- `-Z3: 150.0 ms, 178797 steps, Valid
- `-Z3: 150.0 ms, 178136 steps, Valid
- `-Z3: 80.0 ms, 72236 steps, Valid
- `-Trivial: 0.0 s, 0 steps, Valid
+ `-Z3: 4.0 s (1090965 steps), Valid
+ `-Z3: 200.0 ms (190359 steps), Valid
+ `-Z3: 170.0 ms (180692 steps), Valid
+ `-Z3: 170.0 ms (182106 steps), Valid
+ `-Z3: 160.0 ms (180861 steps), Valid
+ `-Z3: 160.0 ms (182124 steps), Valid
+ `-Z3: 150.0 ms (178797 steps), Valid
+ `-Z3: 150.0 ms (178136 steps), Valid
+ `-Z3: 80.0 ms (72236 steps), Valid
+ `-Trivial: 0.0 s (0 steps), Valid
 `-VC_LOOP_INVARIANT_PRESERV saatana-crypto-phelix.adb:148:39 => 2.6 s (3114117 steps)/2.6 s (3114117 steps)/2.6 s
- `-Z3: 2.6 s, 3114117 steps, Valid
+ `-Z3: 2.6 s (3114117 steps), Valid
 Saatana.Crypto.Phelix.Finalize                               =>                                                            2.2 s (2873006 steps)/2.2 s (2873006 steps)/7.7 s
 `-VC_LOOP_INVARIANT_PRESERV saatana-crypto-phelix.adb:359:33 => 2.2 s (2873006 steps)/2.2 s (2873006 steps)/2.2 s
- `-Z3: 2.2 s, 2873006 steps, Valid
+ `-Z3: 2.2 s (2873006 steps), Valid
 Saatana.Crypto.Phelix.Setup_Key                              =>                                                            640.0 ms (416173 steps)/206.4 s (105312169 steps)/219.2 s
 `-VC_RANGE_CHECK saatana-crypto-phelix.adb:466:44            => 640.0 ms (22722 steps)/206.4 s (105312169 steps)/207.1 s
- `-Z3: 206.4 s, 105312169 steps, Unknown (unknown)
-  -CVC4: 640.0 ms, 22722 steps, Valid
+ `-Z3: 206.4 s (105312169 steps), Unknown (unknown)
+  -CVC4: 640.0 ms (22722 steps), Valid
