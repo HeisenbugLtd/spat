@@ -139,6 +139,16 @@ package body SPAT.Spark_Info is
       Container : in out Strings.Entity_Names);
 
    ---------------------------------------------------------------------------
+   --  Sort_Entity_By_Success_Steps
+   --
+   --  Sort code entities by how many maximum steps for a successful proofs.
+   --  Sorting: numerical, descending
+   ---------------------------------------------------------------------------
+   procedure Sort_Entity_By_Success_Steps
+     (This      : in     T;
+      Container : in out Strings.Entity_Names);
+
+   ---------------------------------------------------------------------------
    --  Sort_Entity_By_Success_Time
    --
    --  Sort code entities by how much maximum time for a successful proofs.
@@ -348,12 +358,7 @@ package body SPAT.Spark_Info is
                This.Sort_Entity_By_Proof_Time (Container => Result);
 
             when Max_Success_Steps =>
-               Log.Warning
-                 (Message =>
-                    "Sorting by max success steps (""-cq"") not " &
-                    "implemented yet, reverting to sorting by max success " &
-                    "time (""-cs"").");
-               This.Sort_Entity_By_Success_Time (Container => Result);
+               This.Sort_Entity_By_Success_Steps (Container => Result);
 
             when Max_Steps         =>
                This.Sort_Entity_By_Proof_Steps (Container => Result);
@@ -1271,6 +1276,93 @@ package body SPAT.Spark_Info is
         (Container =>
            Strings.Implementation.Entities.Base_Vectors.Vector (Container));
    end Sort_Entity_By_Proof_Time;
+
+   ---------------------------------------------------------------------------
+   --  Sort_Entity_By_Success_Steps
+   --
+   --  Sort code entities by how many maximum steps for a successful proofs.
+   --  Sorting: numerical, descending
+   ---------------------------------------------------------------------------
+   procedure Sort_Entity_By_Success_Steps
+     (This      : in     T;
+      Container : in out Strings.Entity_Names)
+   is
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in Entity_Name;
+                    Right : in Entity_Name) return Boolean;
+
+      ------------------------------------------------------------------------
+      --  "<"
+      ------------------------------------------------------------------------
+      function "<" (Left  : in Entity_Name;
+                    Right : in Entity_Name) return Boolean is
+         Left_Success_Steps   : constant Prover_Steps :=
+           (if This.Has_Unproved_Attempts (Entity => Left)
+            then 0
+            else This.Max_Success_Proof_Steps (Entity => Left));
+         Right_Success_Steps  : constant Prover_Steps :=
+           (if This.Has_Unproved_Attempts (Entity => Right)
+            then 0
+            else This.Max_Success_Proof_Steps (Entity => Right));
+         Left_Success_Time    : constant Duration :=
+           (if This.Has_Unproved_Attempts (Entity => Left)
+            then Duration'First
+            else This.Max_Success_Proof_Time (Entity => Left));
+         Right_Success_Time   : constant Duration :=
+           (if This.Has_Unproved_Attempts (Entity => Right)
+            then Duration'First
+            else This.Max_Success_Proof_Time (Entity => Right));
+         Left_Max_Steps       : constant Prover_Steps :=
+           This.Max_Proof_Steps (Entity => Left);
+         Right_Max_Steps      : constant Prover_Steps :=
+           This.Max_Proof_Steps (Entity => Right);
+         Left_Total_Time      : constant Duration :=
+           This.Total_Proof_Time (Entity => Left);
+         Right_Total_Time     : constant Duration :=
+           This.Total_Proof_Time (Entity => Right);
+         Left_Max_Time        : constant Duration :=
+           This.Max_Proof_Time (Entity => Left);
+         Right_Max_Time       : constant Duration :=
+           This.Max_Proof_Time (Entity => Right);
+      begin
+         --  First by steps to successful proof
+         if Left_Success_Steps /= Right_Success_Steps then
+            return Left_Success_Steps > Right_Success_Steps;
+         end if;
+
+         --  Steps are equal, try time.
+         if Left_Success_Time /= Right_Success_Time then
+            return Left_Success_Time > Right_Success_Time;
+         end if;
+
+         --  Success times are equal, try max steps.
+         if Left_Max_Steps /= Right_Max_Steps then
+            return Left_Max_Steps > Right_Max_Steps;
+         end if;
+
+         --  Max steps are equal too, try total time.
+         if Left_Total_Time /= Right_Total_Time then
+            return Left_Total_Time > Right_Total_Time;
+         end if;
+
+         --  Total time is the same, try to sort by max time.
+         if Left_Max_Time /= Right_Max_Time then
+            return Left_Max_Time > Right_Max_Time;
+         end if;
+
+         --  Resort to alphabetical order.
+         return SPAT."<" (Left, Right); --  Trap! "Left < Right" is recursive.
+      end "<";
+
+      package Sorting is new
+        Strings.Implementation.Entities.Base_Vectors.Generic_Sorting ("<" => "<");
+   begin
+      Sorting.Sort
+        (Container =>
+           Strings.Implementation.Entities.Base_Vectors.Vector (Container));
+   end Sort_Entity_By_Success_Steps;
 
    ---------------------------------------------------------------------------
    --  Sort_Entity_By_Success_Time
