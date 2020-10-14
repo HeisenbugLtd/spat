@@ -7,6 +7,7 @@ There's a chat now in case you have questions or suggestions: [![Join the chat a
 easily discuss features.)
 
 [![Build Linux](https://github.com/HeisenbugLtd/spat/workflows/Build%20Linux/badge.svg)](https://github.com/HeisenbugLtd/spat/actions?query=workflow%3A%22Build+Linux%22)
+[![Alire](https://img.shields.io/endpoint?url=https://alire.ada.dev/badges/spat.json)](https://alire.ada.dev/crates/spat.html)
 
 ## Content
 * ### 1. [Introduction](README.md#introduction)
