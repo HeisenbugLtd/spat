@@ -1,5 +1,5 @@
 with "gnatcoll";
-with "si_units_lib";
+with "si_units";
 
 project SPAT is
 
