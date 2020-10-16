@@ -1,0 +1,12 @@
+# THIS IS A MACHINE-GENERATED FILE. DO NOT EDIT MANUALLY.
+
+[solution]
+[solution.context]
+solved = true
+[[solution.state]]
+crate = "si_units"
+fulfilment = "missed"
+pinned = false
+transitivity = "direct"
+versions = ">=0.2.0"
+
