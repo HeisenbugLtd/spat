@@ -54,6 +54,6 @@ git commit --dry-run $VFILE -m "* Automated tagging of ${VERSION_NUMBER} version
 confirm "Does the dry run look ok to you?"
 
 git commit $VFILE -m "* Automated tagging of ${VERSION_NUMBER} version." || exit 4
-git tag v${VERSION_NUMBER} || exit 5
+git tag v${VERSION_NUMBER} -m "SPAT Release ${VERSION_NUMBER}" || exit 5
 
 echo "Version \"v${VERSION_NUMBER}\" tagged. You may want to do 'git push --tags', though."
