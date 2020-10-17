@@ -640,7 +640,7 @@ readable output.  This should make it easier for scripts to parse the numbers.
 
 ## Some Notes on Sorting
 
-The sort option *by successful proof time* (i.e. `--sort-by=s`) is may work in a
+The sort option *by successful proof time* (i.e. `--sort-by=s`) may work in a
 slightly counter-intuitive way, so I explain it a bit.  The explanation is
 similar for sorting *by successful proof steps* (i.e. `--sort-by=q`).
 
