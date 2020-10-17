@@ -18,10 +18,10 @@ echo ............................
 # Download and install dependencies
 git clone https://github.com/HeisenbugLtd/si_units
 cd si_units
-git checkout v0.1.1
+git checkout v0.2.0
 cd ..
-gprbuild -p -P si_units/si_units_lib.gpr
-gprinstall -v -p -P si_units/si_units_lib.gpr
+gprbuild -p -P si_units/si_units.gpr
+gprinstall -v -p -P si_units/si_units.gpr
 
 # debug, list what's available
 gprinstall --list --stat
