@@ -102,10 +102,16 @@ installation and is ready to use.
 `spat` comes with [Alire](https://alire.ada.dev) integration. all you need to
 do is
 
-`alr get spat`
-`alr build`
+```sh
+alr get spat
+alr build
+gprinstall --relocate-build-tree=alire/build -f -p -P spat/spat.gpr
+```
 
-WIP: How do I install an executable from an alire sandbox (gprinstall)?
+Depending on how your GNAT installation is set up, the latter command may
+require elevated privileges to write into the installation directory, so if
+needed, prepend `sudo </path/to/gnat/installation/>/bin/` to the `gprinstall`
+instruction above.
 
 ### The `spat.py` plug-in
 
