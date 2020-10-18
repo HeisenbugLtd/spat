@@ -14,8 +14,9 @@ easily discuss features.)
 * ### 2. [Motivation](README.md#motivation)
 * ### 3. [Compiling the Tool](README.md#compiling-the-tool)
   * #### 3.1 [Requirements](README.md#requirements)
-  * #### 3.2 [Step by Step Instructions](README.md#step-by-step-instructions)
-  * #### 3.3 [The `spat.py` plug-in](README.md#the-spatpy-plug-in)
+  * #### 3.2 [Step by Step Instructions (manual install)](#step-by-step-instructions-manual-install)
+  * #### 3.3 [Step by Step Instructions (alire)](#step-by-step-instructions-alire)
+  * #### 3.4 [The `spat.py` plug-in](README.md#the-spatpy-plug-in)
 * ### 4. [Invoking the Tool](README.md#invoking-the-tool)
   * #### 4.1 [Command Line](README.md#command-line)
   * #### 4.2 [The `--summary` option](README.md#the---summary-option)
@@ -59,11 +60,9 @@ You need a recent version of GNAT with the GNATCOLL library.  GNAT CE 2019 or
 GNAT CE 2020 should suffice.
 
 You also need the [si_units](https://github.com/HeisenbugLtd/si_units) library
-to be installed. Version 0.1.1 is recommended, because older version did not
-compile with some GNAT FSF versions.  The compiler got stuck and never
-finished.
+version 0.2.0 (or later) to be installed.
 
-### Step by step instructions
+### Step by step instructions (manual install)
 
 Note that the instructions are currently for Linux only, but installing it on
 Windows should be similarly straightforward.  I also assume that SPARK users
@@ -73,6 +72,9 @@ an issue.
 #### Compile and install SI_Units
 
 * Clone the SI_Units repository: `git clone https://github.com/HeisenbugLtd/si_units`
+
+You may want to check out tag `v0.2.0`, but any more recent version should do.
+
 * Compile the SI_Units library: `gprbuild -p -P si_units/si_units_lib.gpr`
 * Install the SI Units library: `gprinstall -f -p -P si_units/si_units_lib.gpr`
 
@@ -94,6 +96,16 @@ instruction above.
 
 After that, the **`run_spat`** executable should be installed in your GNAT
 installation and is ready to use.
+
+### Step by step instructions (Alire)
+
+`spat` comes with [Alire](https://alire.ada.dev) integration. all you need to
+do is
+
+`alr get spat`
+`alr build`
+
+WIP: How do I install an executable from an alire sandbox (gprinstall)?
 
 ### The `spat.py` plug-in
 
