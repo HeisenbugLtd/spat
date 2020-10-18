@@ -104,6 +104,7 @@ do is
 
 ```sh
 alr get spat
+cd spat_<directory>
 alr build
 gprinstall --relocate-build-tree=alire/build -f -p -P spat/spat.gpr
 ```
