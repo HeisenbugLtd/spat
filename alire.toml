@@ -20,4 +20,4 @@ executables = ["run_spat"]
 [[depends-on]]
 si_units = ">=0.2.0"
 [depends-on."case(toolchain)".system]
-gnatcoll = ">=19 & <2000"
+gnatcoll = ">=19"
